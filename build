@@ -1,0 +1,31 @@
+#!/usr/bin/ruby
+# encoding: utf-8
+
+require_relative 'lib/interviewer'
+
+def show_help
+	puts "Usage:"
+	puts "   YAMLFILE        Build quiz and lesson data files, using existing config filename."
+	puts "                   Example: #{$0} config/foo.yaml"
+	puts "   help            Show this help."
+	puts "   init FILENAME   Create new config file."
+	puts "                   Example: #{$0} init foo > ./config/foo.yaml"
+	puts "   version         Show the program version."
+end
+
+def show_version
+	puts "TeacherTools INTERVIEWER version 0.0.1"
+end
+
+if ARGV.count==0 then
+	puts "Usage: #{$0} help"
+elsif ['h','-h','help','--help'].include?(ARGV.first) then
+	show_help
+elsif ['v','-v','version','--version'].include?(ARGV[0]) then
+	show_version
+elsif help_words=['i','-i','init','--init'].include?(ARGV[0]) then
+	Interviewer.instance.init_config_file(ARGV[1])
+else
+	Interviewer.instance.run(ARGV.first)
+end
+

@@ -1,0 +1,69 @@
+<map version="1">
+	
+	<concept>
+		<names>coche</names>
+		<context>transporte, vehiculo</context>
+		<tags>terrestre</tags>
+		<text>Es un tipo de vehículo de trasporte con cuatro ruedas.</text>
+		<table fields='atributo, valor'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>número de ruedas</col>
+				<col>4</col>
+			</row>
+		</table>
+	</concept>
+	
+	<concept>
+		<names>moto</names>
+		<context>trasporte, vehiculo</context>
+		<tags>terrestre</tags>
+		<text>Es un tipo de vehículo de trasporte con dos ruedas.</text>
+		<table fields='atributo, valor'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>número de ruedas</col>
+				<col>2</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>bicicleta</names>
+		<context>trasporte, vehiculo</context>
+		<tags>terrestre</tags>
+		<text>Es un tipo de vehículo de trasporte con dos ruedas sin motor.</text>
+		<table fields='atributo, valor'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>número de ruedas</col>
+				<col>2</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>avion</names>
+		<context>trasporte, vehiculo</context>
+		<tags>aereo</tags>
+		<text>Es un tipo de vehículo de trasporte aéreo.</text>
+		<table fields='atributo, valor'>
+			<title>Asocia cada atributo con su valor</title>
+			<row><col>número de ruedas</col><col>3</col></row>
+			<row><col>número de alas</col><col>2</col></row>
+		</table>
+	</concept>
+	
+	<concept>
+		<names>helicoptero</names>
+		<context>trasporte, vehiculo</context>
+		<tags>aereo</tags>
+		<text>Es un tipo de vehículo de trasporte aéreo sin alas.</text>
+		<table fields='atributo, valor'>
+			<title>Asocia cada atributo con su valor</title>
+			<row><col>número de ruedas</col><col>0</col></row>
+			<row><col>número de alas</col><col>0</col></row>
+		</table>
+	</concept>
+	
+</map>

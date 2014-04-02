@@ -1,0 +1,205 @@
+<map version='1'>
+
+	<concept>
+		<names>raid</names>
+		<context>sistemas operativos, almacenamiento, discos</context>
+		<tags>implementacion, volumenes, logicos, kernel, linux</tags>
+		<text>Redundant Array of Independent Disks, originalmente Redundant Array Inexpensive Disks. 
+		Traducido como «conjunto redundante de discos independientes».</text>
+		<text>Un sistema de almacenamiento de datos que usa múltiples unidades 
+		de almacenamiento de datos (discos duros o SSD) entre los que se distribuyen 
+		o replican los datos. Dependiendo de su configuración (a la que suele 
+		llamarse «nivel»), los beneficios respecto a un único disco son uno o 
+		varios de los siguientes: mayor integridad, mayor tolerancia a fallos, 
+		mayor throughput (rendimiento) y mayor capacidad.</text>
+		<text>En sus implementaciones originales, su ventaja clave era la 
+		habilidad de combinar varios dispositivos de bajo coste y tecnología 
+		más antigua en un conjunto que ofrecía mayor capacidad, fiabilidad, 
+		velocidad o una combinación de éstas que un solo dispositivo de última 
+		generación y coste más alto.</text>
+		<table fields='tipo,características'>
+			<title>Asocia cada tipo con sus características.</title>
+			<row>
+				<col>RAID 0</col>
+				<col>Distribuye los datos equitativamente entre dos o más discos 
+				sin información de paridad que proporcione redundancia.</col>
+			</row>
+			<row>
+				<col>RAID 1</col>
+				<col>Crea una copia exacta (o espejo) de un conjunto de datos en 
+				dos o más discos. Esto resulta útil cuando el rendimiento en 
+				lectura es más importante que la capacidad. El conjunto sólo puede 
+				ser tan grande como el más pequeño de sus discos. Incrementa 
+				exponencialmente la fiabilidad respecto a un solo disco; es decir, 
+				la probabilidad de fallo del conjunto es igual al producto de las 
+				probabilidades de fallo de cada uno de los discos (pues para que el 
+				conjunto falle es necesario que lo hagan todos sus discos).</col>
+			</row>
+			<row>
+				<col>RAID 5</col>
+				<col>Es una división de datos a nivel de bloques distribuyendo 
+				la información de paridad entre todos los discos miembros del conjunto. 
+				Necesitará un mínimo de 3 discos para ser implementado.</col>
+			</row>
+		</table>
+		<table fields='acción,resultado'>
+			<title>Asocia cada acción con su resultado.</title>
+			<row>
+				<col>mdadm --create /dev/md1 --level=mirror -raid-devices=2 /dev/sde /dev/sdd</col>
+				<col>Crear un RAID 1 software.</col>
+			</row>
+			<row>
+				<col>mount /dev/md1 /mnt/raid1</col>
+				<col>Montar un dispositivo RAID</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>lvm</names>
+		<context>sistemas operativos, almacenamiento, particiones</context>
+		<tags>implementacion, volumenes, logicos, kernel, linux</tags>
+		<text>Es una implementación de volúmenes lógicos para el kernel de Linux. 
+		Con ellos podemos agregar particiones en volúmenes lógicos, agrandar 
+		o achicar el tamaño de una partición en caliente, sin reiniciar el 
+		sistema ni dejar de prestar servicio. También nos dará la opción de 
+		crear snapshots y muchas cosas más.</text>
+	</concept>
+
+	<concept>
+		<names>volumen-físico</names>
+		<context>sistemas operativos, lvm, almacenamiento</context>
+		<tags>soporte, disco, volumen, fisico, lvm</tags>
+		<text>Son las particiones del disco duro con sistema de archivos LVM.</text>
+		<table fields='acción,resultado'>
+			<title>Asocia cada acción con su resultado.</title>
+			<row>
+				<col>pvmove /dev/sdb1 /dev/sdc3</col>
+				<col>Mueve la información de un volumen físico a otro.</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>grupo-de-volumen</names>
+		<context>sistemas operativos, lvm, almacenamiento</context>
+		<tags>disco, logico, lvm</tags>
+		<text>Es la parte superior de la LVM. Es la "caja" en la que tenemos 
+		nuestros volúmenes lógicos (LV) y nuestros volúmenes físicos (PV). 
+		Se puede ver como una unidad administrativa en la que se engloban nuestros recursos. 
+		Hay que hacer notar que mientras no se añada al VG, no podemos comenzar a usarlo.</text>
+		<table fields='acción,resultado'>
+			<title>Asocia cada acción con su resultado.</title>
+			<row>
+				<col>vgcreate vg-extra /dev/sdb1 /dev/sdc1 /dev/sdc2</col>
+				<col>Crear un nuevo grupo de volumen.</col>
+			</row>
+			<row>
+				<col>vgdisplay</col>
+				<col>Muestra información de todos los grupos de volúmen.</col>
+			</row>
+			<row>
+				<col>vgextend vg-extra /dev/sdc3</col>
+				<col>Amplia el tamaño de un grupo de volumen.</col>
+			</row>
+			<row>
+				<col>vgreduce vg-extra /dev/sdc3</col>
+				<col>Reducir el tamaño de un grupo de volumen.</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>volumen-lógico</names>
+		<context>sistemas operativos, lvm, almacenamiento</context>
+		<tags>particion, lvm, volumen, logico</tags>
+		<text>En LVM, es el equivalente a una partición en un sistema tradicional. 
+		Es visible como un dispositivo estándar de bloques, por lo que puede contener 
+		un sistema de archivos (por ejemplo /home)</text>
+		<table fields='acción,resultado'>
+			<title>Asocia cada acción con su resultado.</title>
+			<row>
+				<col>lvextend -L 400 /dev/vg-debian/lv-datos</col>
+				<col>Amplia "en caliente" el espacio del volumen lógico.</col>
+			</row>
+			<row>
+				<col>lvdisplay vg-debian</col>
+				<col>Muestra información de los volúmenes lógicos de un grupo de volumen concreto.</col>
+			</row>
+			<row>
+				<col>lvdisplay -v /dev/vg-debian/lv-datos</col>
+				<col>Muestra información de un volumen lógico concreto.</col>
+			</row>
+			<row>
+				<col>lvcreate -L690M -n lv-extra vg-extra</col>
+				<col>Crea un nuevo volumen lógico dentro de un grupo de volumen.</col>
+			</row>
+			<row>
+				<col>mkfs -t ext4 /dev/vg-extra/lv-extra</col>
+				<col>Da formato a un volumen lógico.</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>nfs</names>
+		<context>sistemas operativos, almacenamiento, redes, red</context>
+		<tags>sistema, ficheros, almacenamiento, red</tags>
+		<text>Sistema de archivos de red, es un protocolo de nivel de aplicación, 
+		según el Modelo OSI. Es utilizado para sistemas de archivos distribuido 
+		en un entorno de red de computadoras de área local. Posibilita que 
+		distintos sistemas conectados a una misma red accedan a ficheros 
+		remotos como si se tratara de locales.</text>
+		<table fields='acción,resultado'>
+			<title>Asocia cada acción con su resultado.</title>
+			<row>
+				<col>nfsadmin client start</col>
+				<col>Iniciar el servicio NFS cliente, en SO Windows.</col>
+			</row>
+			<row>
+				<col>mount –o anon,nolock,r,casesensitive \Nombre-equipo\Nombre-recurso *</col>
+				<col>Montar el recurso NFS remoto, en SO Windows.</col>
+			</row>
+			<row>
+				<col>umount z:</col>
+				<col>Desmontar un recurso NFS, en SO Windows.</col>
+			</row>
+			<row>
+				<col>mount.nfs 172.16.108.227:/c/export/public /mnt/dir</col>
+				<col>Desde un cliente SO GNU/Linux, montar un recurso NFS remoto,
+				en un servidor Windows.</col>
+			</row>
+			<row>
+				<col>apt-get install nfs-common nfs-kernel-server</col>
+				<col>Instalar el servidor NFS, en SO GNU/Linux Debian.</col>
+			</row>
+			<row>
+				<col>/var/export/public *(rw,sync,subtree_check)</col>
+				<col>Configuración del fichero /etc/exports, que define un recurso
+				en modo de acceso lectura/escritura para todo el mundo.</col>
+			</row>
+			<row>
+				<col>/var/export/private 172.16.108.150/32(ro,sync,subtree_check)</col>
+				<col>Configuración del fichero /etc/exports, que define un recurso
+				en modo de acceso sólo lectura para una IP concreta.</col>
+			</row>
+			<row>
+				<col>service nfs-kernel-server status</col>
+				<col>Consultar el estado del servicio NFS en SO GNU/Linux.</col>
+			</row>
+			<row>
+				<col>service nfs-kernel-server stop</col>
+				<col>Detener el servicio NFS en SO GNU/Linux.</col>
+			</row>
+			<row>
+				<col>service nfs-kernel-server start</col>
+				<col>Iniciar el servicio NFS en SO GNU/Linux.</col>
+			</row>
+			<row>
+				<col>mount ip-del-servidor:/var/export/public /mnt/remoto/public</col>
+				<col>En GNU/Linux, montar un recurso NFS remoto.</col>
+			</row>
+		</table>
+	</concept>
+	
+</map>

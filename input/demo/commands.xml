@@ -1,0 +1,162 @@
+<map version='1'>
+	
+	<concept>
+		<names>cd</names>
+		<context>sistemas operativos, comando</context>
+		<tags>cambiar, directorio, actual, mover</tags>
+		<text>Es un comando del sistema operativo GNU/Linux, que permite cambiar nuestro directorio actual.</text>
+		<text>Es un comando del sistema operativo GNU/Linux, que permite movernos a otro directorio del sistema de ficheros.</text>
+		<table fields='acción, resultado'>
+			<title>Asocia cada acción con su resultado.</title>
+			<row>
+				<col>cd</col>
+				<col>Nos movemos a nuestro directorio HOME.</col>
+			</row>
+			<row>
+				<col>cd ..</col>
+				<col>Nos movemos al directorio padre de nuestro directorio actual.</col>
+			</row>
+			<row>
+				<col>cd .</col>
+				<col>No hace nada.</col>
+			</row>
+			<row>
+				<col>cd DIRNAME</col>
+				<col>Nos movemos al directorio DIRNAME que está en nuestro directorio actual.</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>chmod</names>
+		<context>sistemas operativos, comando</context>
+		<tags>cambiar, permisos, archivos, directorios</tags>
+		<text>Es un comando del sistema operativo GNU/Linux, que permite cambiar los permisos de archivos y directorios.</text>
+		<table fields='atributo, valor'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>path</col>
+				<col>/bin/chmod</col>
+			</row>
+		</table>
+		<table fields='acción,resultado'>
+			<title>Asocia cada acción con su resultado.</title>
+			<row>
+				<col>chmod 666 FILENAME</col>
+				<col>Establece los permisos de FILENAME con lectura/escritura para todos los usuarios.</col>
+			</row>
+			<row>
+				<col>chmod 755 DIRNAME -R</col>
+				<col>Establece permisos sobre el directorio DIRNAME y todo sus contenidos de forma recursiva.</col>
+			</row>
+			<row>
+				<col>chmod o-rwx FILENAME</col>
+				<col>Quitar los permisos de lectura/escritura/ejecución sobre FILENAME para el resto de usuarios.</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>mkdir</names>
+		<context>sistemas operativos, comando</context>
+		<tags>crear, directorios</tags>
+		<text>Es un comando del sistema operativo GNU/Linux, que sirve para crear nuevos directorios.</text>
+		<table fields='atributo, valor'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>path</col>
+				<col>/bin/mkdir</col>
+			</row>
+		</table>
+		<table fields='acción, resultado'>
+			<title>Asocia cada acción con su resultado.</title>
+			<row>
+				<col>mkdir --help</col>
+				<col>Muestra la ayuda del comando mkdir.</col>
+			</row>
+			<row>
+				<col>mkdir DIRNAME1 DIRNAME2 DIRNAME3</col>
+				<col>Crea los directorios en la ruta actual.</col>
+			</row>
+			<row>
+				<col>mkdir --parents DIRNAME1/DIRNAME2/DIRNAME3</col>
+				<col>Make any missing parent directories for each argument.</col>
+			</row>
+			<row>
+				<col>mkdir --mode=MODE DIRNAME</col>
+				<col>Set the file permission bits of created directories to MODE.</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>rmdir</names>
+		<context>sistemas operativos, comando</context>
+		<tags>eliminar, directorios</tags>
+		<text>Es un comando del sistema operativo GNU/Linux, que sirve para eliminar directorios.</text>
+		<table fields='atributo, valor'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>path</col>
+				<col>/bin/rmdir</col>
+			</row>
+		</table>
+		<table fields='acción, resultado'>
+			<title>Asocia cada acción con su resultado.</title>
+			<row>
+				<col>rmdir --help</col>
+				<col>Muestra la ayuda del comando rmdir.</col>
+			</row>
+			<row>
+				<col>rmdir DIRNAME1 DIRNAME2 DIRNAME3</col>
+				<col>Elimina los directorios del directorio actual.</col>
+			</row>
+			<row>
+				<col>rmdir --parents DIRNAME1/DIRNAME2/DIRNAME3</col>
+				<col>Remove DIRECTORY and its ancestors.</col>
+			</row>
+			<row>
+				<col>rmdir --parents DIRNAME1-DIRNAME2-DIRNAME3</col>
+				<col>Sólo se elimina un directorio si está vacío.</col>
+			</row>
+			<row>
+				<col>rmdir --ignore-fail-on-non-empty DIRNAME1</col>
+				<col>Ignore each failure that is solely because a directory is non-empty.</col>
+			</row>
+		</table>
+	</concept>
+	
+	<concept>
+		<names>rm</names>
+		<context>sistemas operativos, comando</context>
+		<tags>eliminar, archivos, directorios</tags>
+		<text>Es un comando del sistema operativo GNU/Linux, que sirve para eliminar archivos y directorios.</text>
+		<table fields='atributo, valor'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>path</col>
+				<col>/bin/rm</col>
+			</row>
+		</table>
+		<table fields='acción, resultado'>
+			<title>Asocia cada acción con su resultado.</title>
+			<row>
+				<col>rm -i foo/*</col>
+				<col>Prompt before every removal.</col>
+			</row>
+			<row>
+				<col>rm foo</col>
+				<col>Elimina el fichero.</col>
+			</row>
+			<row>
+				<col>rm -r foo</col>
+				<col>Remove directories and their contents recursively.</col>
+			</row>
+			<row>
+				<col>rm ./-foo</col>
+				<col>Remove a file whose name starts with a '-'.</col>
+			</row>
+		</table>
+	</concept>
+
+</map>

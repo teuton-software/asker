@@ -1,0 +1,7 @@
+---
+:logname: idp-u2.log
+:outputname: idp-u2-gift.txt
+:lesson_file: idp-u2-lesson.txt
+:lesson_separator: ' |'
+:inputdirs: input/idp 
+:process_file: idp-u2.xml

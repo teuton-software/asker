@@ -1,0 +1,359 @@
+<map version='1'>
+	
+	<concept>
+		<names>cd</names>
+		<context>sistemas operativos, comando</context>
+		<tags>cambiar, directorio, actual, mover</tags>
+		<text>Es un comando del sistema operativo GNU/Linux, que permite cambiar nuestro directorio actual.</text>
+		<text>Es un comando del sistema operativo GNU/Linux, que permite movernos a otro directorio del sistema de ficheros.</text>
+		<table fields='acción, resultado'>
+			<title>Asocia cada acción con su resultado.</title>
+			<row>
+				<col>cd</col>
+				<col>Nos movemos a nuestro directorio HOME.</col>
+			</row>
+			<row>
+				<col>cd ..</col>
+				<col>Nos movemos al directorio padre de nuestro directorio actual.</col>
+			</row>
+			<row>
+				<col>cd .</col>
+				<col>No hace nada.</col>
+			</row>
+			<row>
+				<col>cd DIRNAME</col>
+				<col>Nos movemos al directorio DIRNAME que está en nuestro directorio actual.</col>
+			</row>
+			<row>
+				<col>cd /RUTA/AL/DIRECTORIO</col>
+				<col>Nos movemos al directorio indicado según su trayectoria absoluta.</col>
+			</row>
+			<row>
+				<col>cd -</col>
+				<col>Cambiamos al directorio en el que estábamos anteriormente.</col>
+			</row>
+			<row>
+				<col>cd ~USERNAME</col>
+				<col>Cambiamos al directorio HOME del usuario USERNAME.</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>cal</names>
+		<context>sistemas operativos, comando</context>
+		<tags>mostrar, calendario</tags>
+		<text>Comando que muestra un calendario</text>
+	</concept>
+	
+	<concept>
+		<names>date</names>
+		<context>sistemas operativos, comando</context>
+		<tags>mostrar, fecha, hora, actual</tags>
+		<text>Comando que muestra y modifica la fecha/hora del sistema.</text>
+	</concept>
+
+	<concept>
+		<names>exit</names>
+		<context>sistemas operativos, comando</context>
+		<tags>salir, sistema, cerrar, sesion</tags>
+		<text>Comando para cerrar la sesión actual del usuario.</text>
+	</concept>
+	
+	<concept>
+		<names>file</names>
+		<context>sistemas operativos, comando</context>
+		<tags>mostrar, tipo, fichero, archivo, directorio</tags>
+		<text>Comandos que muestra el tipo de un fichero, archivo o directorio.</text>
+	</concept>
+	
+	<concept>
+		<names>free</names>
+		<context>sistemas operativos, comando</context>
+		<tags>mostrar, memoria, libre, ocupada</tags>
+		<text>Comandos que muestra la memoria libre y ocupada del sistema.</text>
+	</concept>
+
+	<concept>
+		<names>less</names>
+		<context>sistemas operativos, comando</context>
+		<tags>mostrar, contenido, fichero, texto, ASCII</tags>
+		<text>Muestra el contenido de un fichero de texto plano. Realiza un paginado, si no cabe completo en pantalla.</text>
+		<table fields='tecla, resultado'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>Pulsar q</col>
+				<col>Salir del programa</col>
+			</row>
+			<row>
+				<col>Pulsar h</col>
+				<col>Mostrar ayuda en pantalla</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>ln</names>
+		<context>sistemas operativos, comando</context>
+		<tags>crear, enlace, duro, simbolico</tags>
+		<text>Comando para crear enlaces duros o simbólicos.</text>
+		<table fields='acción, resultado'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>ln FILE LINK</col>
+				<col>Crea un enlace duro al fichero FILE.</col>
+			</row>
+			<row>
+				<col>ln -s FILE LINK</col>
+				<col>Crea un enlace simbólico para el fichero FILE.</col>
+			</row>
+			<row>
+				<col>ln -s DIRNAME LINK</col>
+				<col>Crea un enlace simbólico para el directorio DIRNAME.</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>ls</names>
+		<context>sistemas operativos, comando</context>
+		<tags>mostrar, contenido, directorio</tags>
+		<text>Lista el contenido de los directorios.</text>
+		<table fields='acción, resultado'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>ls</col>
+				<col>Lista el contenido del directorio actual.</col>
+			</row>
+			<row>
+				<col>ls -a</col>
+				<col>Lista el contenido del directorio actual, incluyendo los ficheros ocultos.</col>
+			</row>
+			<row>
+				<col>ls -i</col>
+				<col>Lista los ficheros con su número de inode.</col>
+			</row>
+			<row>
+				<col>ls -lh</col>
+				<col>Lista los ficheros con su tamaño en formato cómodo de leer para las personas. Por ejemplo:1K, 234M, 2G, etc.</col>
+			</row>
+			<row>
+				<col>ls -lt</col>
+				<col>Lista los ficheros por la fecha de modificación. Primero los más recientes.</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>man</names>
+		<context>sistemas operativos, comando</context>
+		<tags>mostrar, informacion, manual</tags>
+		<text>Es un comando del sistema operativo GNU/Linux, que muestra
+		información del manual sobre otros comandos, y/o ficheros de
+		configuración.</text>
+	</concept>
+
+	<concept>
+		<names>mkdir</names>
+		<context>sistemas operativos, comando</context>
+		<tags>crear, directorios</tags>
+		<text>Es un comando del sistema operativo GNU/Linux, que sirve para crear nuevos directorios.</text>
+		<table fields='atributo, valor'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>path</col>
+				<col>/bin/</col>
+			</row>
+		</table>
+		<table fields='acción, resultado'>
+			<title>Asocia cada acción con su resultado.</title>
+			<row>
+				<col>mkdir --help</col>
+				<col>Muestra la ayuda del comando mkdir.</col>
+			</row>
+			<row>
+				<col>mkdir DIRNAME1 DIRNAME2 DIRNAME3</col>
+				<col>Crea los directorios en la ruta actual.</col>
+			</row>
+			<row>
+				<col>mkdir --parents DIRNAME1/DIRNAME2/DIRNAME3</col>
+				<col>Crear los directorios así como sus directorios padres.</col>
+			</row>
+			<row>
+				<col>mkdir --mode=MODE DIRNAME</col>
+				<col>A los directorios creados, se les establecen los permisos especificados por MODE.</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>pwd</names>
+		<context>sistemas operativos, comandos</context>
+		<tags>mostrar, nombre, directorio, actual</tags>
+		<text>Muestra el nombre completo del directorio actual</text>
+	</concept>
+
+	<concept>
+		<names>rmdir</names>
+		<context>sistemas operativos, comando</context>
+		<tags>eliminar, directorios</tags>
+		<text>Es un comando del sistema operativo GNU/Linux, que sirve para eliminar directorios.</text>
+		<table fields='atributo, valor'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>path</col>
+				<col>/bin/</col>
+			</row>
+		</table>
+		<table fields='acción, resultado'>
+			<title>Asocia cada acción con su resultado.</title>
+			<row>
+				<col>rmdir --help</col>
+				<col>Muestra la ayuda del comando rmdir.</col>
+			</row>
+			<row>
+				<col>rmdir DIRNAME1 DIRNAME2 DIRNAME3</col>
+				<col>Elimina los directorios del directorio actual.</col>
+			</row>
+			<row>
+				<col>rmdir --parents DIRNAME1/DIRNAME2/DIRNAME3</col>
+				<col>Elimina el directorio y sus ancestros.</col>
+			</row>
+			<row>
+				<col>rmdir --parents DIRNAME1-DIRNAME2-DIRNAME3</col>
+				<col>Sólo se elimina un directorio si está vacío.</col>
+			</row>
+			<row>
+				<col>rmdir --ignore-fail-on-non-empty DIRNAME1</col>
+				<col>Ignora los fallos al borrar directorios que no están vacios.</col>
+			</row>
+		</table>
+	</concept>
+	
+	<concept>
+		<names>rm</names>
+		<context>sistemas operativos, comando</context>
+		<tags>eliminar, archivos, directorios</tags>
+		<text>Es un comando del sistema operativo GNU/Linux, que sirve para eliminar archivos y directorios.</text>
+		<table fields='atributo, valor'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>path</col>
+				<col>/bin/</col>
+			</row>
+		</table>
+		<table fields='acción, resultado'>
+			<title>Asocia cada acción con su resultado.</title>
+			<row>
+				<col>rm -i foo/*</col>
+				<col>Pregunta confirmación al usuario antes de cada eliminación.</col>
+			</row>
+			<row>
+				<col>rm foo</col>
+				<col>Elimina el fichero.</col>
+			</row>
+			<row>
+				<col>rm -r foo</col>
+				<col>Elimina el directorio y sus contenidos de forma recursiva.</col>
+			</row>
+			<row>
+				<col>rm ./-foo</col>
+				<col>Elimina un fichero cuyo nombre empieza por '-'.</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>sistema-de-ficheros-linux</names>
+		<context>sistemas operativos, sistema de ficheros, linux</context>
+		<tags>sistema, ficheros, linux</tags>
+		<text>Es el componente del sistema operativo encargado de administrar los dispositivos de almacenamiento.</text>
+		<text>Sus principales funciones son la asignación de espacio a los archivos, 
+		la administración del espacio libre, y el acceso a los datos.</text>
+		<table fields='directorio, funcion'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>/bin</col>
+				<col>Contiene los comandos del sistema.</col>
+			</row>
+			<row>
+				<col>/boot</col>
+				<col>Guarda los ficheros necesarios para el inicio del sistema.</col>
+			</row>
+			<row>
+				<col>/etc</col>
+				<col>Guarda las configuraciones del sistema operativo.</col>
+			</row>
+			<row>
+				<col>/home</col>
+				<col>Contiene los directorios HOME de los usuarios del sistema.</col>
+			</row>
+			<row>
+				<col>/root</col>
+				<col>Directorio home del usuario root.</col>
+			</row>
+			<row>
+				<col>/sbin</col>
+				<col>Contiene comandos que reservados para el superusuario.</col>
+			</row>
+			<row>
+				<col>/tmp</col>
+				<col>Almacena los ficheros temporales.</col>
+			</row>
+		</table>
+	</concept>
+
+	<concept>
+		<names>type</names>
+		<context>sistemas operativos, comando</context>
+		<tags>mostrar, interpreta, comando</tags>
+		<text>Es un comando del sistema operativo GNU/Linux, que 
+		muetra cómo se interpreta un comando concreto.</text>
+		<table fields='accion, resultado'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>type cd</col>
+				<col>cd es una orden interna del shell</col>
+			</row>
+			<row>
+				<col>type ls</col>
+				<col>ls es un alias de `ls --color=auto'</col>
+			</row>
+			<row>
+				<col>type cp</col>
+				<col>cp is /bin/cp</col>
+			</row>
+			<row>
+				<col>type vdir</col>
+				<col>vdir está asociado (/bin/vdir)</col>
+			</row>
+		</table>
+	</concept>
+	
+	<concept>
+		<names>which</names>
+		<context>sistemas operativos, comando</context>
+		<tags>mostrar, programa, ejecutar, comando</tags>
+		<text>Es un comando del sistema operativo GNU/Linux, que 
+		muetra el programa que se ejecutará al invocar un comando concreto.</text>
+		<table fields='accion, resultado'>
+			<title>Asocia cada atributo con su valor</title>
+			<row>
+				<col>which cd</col>
+				<col>(Vacío)</col>
+			</row>
+			<row>
+				<col>which ls</col>
+				<col>/bin/ls</col>
+			</row>
+			<row>
+				<col>which cp</col>
+				<col>/bin/cp</col>
+			</row>
+			<row>
+				<col>which vdir</col>
+				<col>/bin/vdir</col>
+			</row>
+		</table>
+	</concept>
+</map>
