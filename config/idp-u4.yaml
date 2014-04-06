@@ -1,7 +1,0 @@
----
-:logname: idp-u4-raidlvmnfs.log
-:outputname: idp-u4-raidlvmnfs-gift.txt
-:lesson_file: idp-u4-raidlvmnfs-lesson.txt
-:lesson_separator: ' |'
-:inputdirs: input/idp 
-:process_file: idp-u4.xml
