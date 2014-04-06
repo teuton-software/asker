@@ -1,0 +1,19 @@
+<map version='1'>
+  <concept>
+    <names>clasificacion-ordenadores-por-su-proposito</names>
+    <context>hardware, cpd,</context>
+    <tags>clasificación, ordenadores, proposito, diseño, contrucción</tags>
+    <text>Forma de clasificación de ordenadores en función de su diseño y construcción.</text>
+    <table fields='clasificacion,descripción'>
+      <title>Clasificación de ordenadores, según el propósito para el que fueron diseñados y construidos.</title>
+      <row>
+        <col>Ordenador de uso general</col>
+        <col>Puede utilizarse para distintos tipos de aplicaciones, tales como gestión administrativa, cálculo científico, etc.</col>
+      </row>
+      <row>
+        <col>Ordenador de uso específico</col>
+        <col>Es el que únicamente puede utilizarse para una aplicación concreta. Ejemplo, el que contiene un robot, la computadora para el control del tráfico, etc.</col>
+      </row>
+    </table>
+  </concept>
+</map>

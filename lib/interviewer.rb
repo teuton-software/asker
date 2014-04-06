@@ -62,10 +62,8 @@ class Interviewer
 		@outputname=@param[:outputdir]+'/'+@param[:outputname]
 
 		#create or reset logfile
-		if !Dir.exists? @param[:outputdir] then
-			#raise "[ERROR] <outputdir=#{@param[:outputdir]}> directory dosn't exist!"
-			Dir.mkdir(@param[:outputdir])
-		end	
+		Dir.mkdir(@param[:outputdir])	if !Dir.exists? @param[:outputdir]
+
 		@logfile=File.open(@logname,'w')
 		@logfile.write("="*32+"\n")
 		@logfile.write("Proyect: TeacherTools\n")
@@ -82,23 +80,23 @@ class Interviewer
 		inputdirs.each do |dirname|
 			if !Dir.exists? dirname then
 				raise "[ERROR] <#{dirname}> directory dosn't exist!"
-			end	
+			end
 			files=(Dir.new(dirname).entries-[".",".."]).sort
-			verbose "* XML files: #{files.to_s} from #{dirname}"
+			filter = files.select { |f| f[-4..-1]==".xml" }
+			verbose "* XML files: #{filter.to_s} from #{dirname}"
 		
-			files.each do |f|
+			filter.each do |f|
 				pFilename=dirname+'/'+f
 				lFileContent=open(pFilename) { |i| i.read }
-	
+				#lFileContent=open(f) { |i| i.read }
 				begin
 					lXMLdata=REXML::Document.new(lFileContent)
 					lXMLdata.root.elements.each do |i|
 						if i.name=='concept' then
 							c=Concept.new(i)
-							if (@param[:process_file]==:default || @param[:process_file]==f.to_s ) then
+							c.process=false
+							if ( @param[:process_file]==:default or @param[:process_file]==f.to_s ) then
 								c.process=true
-							else 
-								c.process=false
 							end
 							@concepts[c.name]=c
 						end

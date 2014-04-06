@@ -1,0 +1,100 @@
+<map version='1'>
+  <concept>
+    <names>chipset</names>
+    <context>hardware, placa base, virtualizacion</context>
+    <tags>chip, placa-base</tags>
+    <text>Es el conjunto de circuitos integrados diseñados con base a la arquitectura de un procesador (en algunos casos, diseñados como parte integral de esa arquitectura), permitiendo que ese tipo de procesadores funcionen en una placa base.</text>
+    <text>Sirven de puente de comunicación con el resto de componentes de la placa, como son la memoria, las tarjetas de expansión, los puertos USB, ratón, teclado, etc.</text>
+    <text>Las placas base modernas suelen incluir dos integrados, denominados puente norte y puente sur, y suelen ser los circuitos integrados más grandes después de la GPU y el microprocesador. Las últimas placa base carecen de puente norte, ya que los procesadores de última generación lo llevan integrado.</text>
+  </concept>
+  <concept>
+    <names>APIC</names>
+    <context>hardware, virtualizacion</context>
+    <tags>controlador, interrupciones, cpu, procesador</tags>
+    <text>Es un controlador de interrupciones, incorporado en la unidad central de procesamiento y diseñado por y para el multiproceso, concretamente para poder incorporar múltiples microprocesadores a la placa madre.</text>
+  </concept>
+  <concept>
+    <names>IO-APIC</names>
+    <context>hardware, virtualizacion</context>
+    <tags>elemento, placa base, manejo, interrupciones, IRQ</tags>
+    <text>Elemento de la placa base que consiste en una mejora del PIC clásico de la arquitectura AT y la ventaja es que ofrece más de 16 IRQs y un manejo más rápido de las mismas.</text>
+  </concept>
+  <concept>
+    <names>EFI</names>
+    <context>hardware, firmware</context>
+    <tags>interfaz, firmware, sustituye, BIOS</tags>
+    <text>Interfaz Extensible del Firmware</text>
+    <text>Es una especificación desarrollada por Intel dirigida a reemplazar la antigua interfaz del estándar IBM PC BIOS, e interactúa como puente entre el sistema operativo y el firmware base.</text>
+  </concept>
+  <concept>
+    <names>BIOS</names>
+    <context>hardware, firmware</context>
+    <tags>programa, placa base, manejo, entrada, salida</tags>
+    <text>El Sistema Básico de Entrada/Salida (Basic Input-Output System)</text>
+    <text>Es un programa informático inscrito en componentes electrónicos de memoria Flash existentes en la placa base. Este programa controla el funcionamiento de la placa base y de dichos componentes. Se encarga de realizar las funciones básicas de manejo y configuración del ordenador.</text>
+  </concept>
+  <concept>
+    <names>IDE, PATA, ATA</names>
+    <context>hardware, controladora</context>
+    <tags>interfaz, conexión, placa base, dispositivos, almacenamiento</tags>
+    <text>El interfaz ATA (del inglés Advanced Technology Attachment) o PATA</text>
+    <text>Conocido como Integrated Device Electronics</text>
+    <text>Es un estándar de interfaz para la conexión de los dispositivos de almacenamiento masivo de datos y las unidades ópticas que utiliza el estándar derivado de ATA y el estándar ATAPI.</text>
+  </concept>
+  <concept>
+    <names>SATA</names>
+    <context>hardware, controladora</context>
+    <tags>interfaz, conexión, placa base, dispositivos, almacenamiento</tags>
+    <text>Serial ATA o acrónimo de Serial Advanced Technology Attachment</text>
+    <text>Es una interfaz de transferencia de datos entre la placa base y algunos dispositivos de almacenamiento, como puede ser el disco duro, lectores y regrabadores de CD/DVD/BR, Unidades de Estado Sólido u otros dispositivos de altas prestaciones que están siendo todavía desarrollados.</text>
+    <text>Sustituye a la tradicional Parallel ATA o P-ATA. Proporciona mayores velocidades, mejor aprovechamiento cuando hay varias unidades, mayor longitud del cable de transmisión de datos y capacidad para conectar unidades al instante, es decir, insertar el dispositivo sin tener que apagar el ordenador o que sufra un cortocircuito como con los viejos Molex.</text>
+    <table fields='referencia-a-imagen,descripción'>
+      <title>Asocia Ref de imágenes a un componente.</title>
+      <row>
+        <col>REF vb001.jpg</col>
+        <col>SATA</col>
+      </row>
+      <row>
+        <col>REF vb002.jpg</col>
+        <col>SCSI</col>
+      </row>
+      <row>
+        <col>REF vb003.jpg</col>
+        <col>Placa base</col>
+      </row>
+      <row>
+        <col>REF vb004.jpg</col>
+        <col>Conector IDE</col>
+      </row>
+      <row>
+        <col>REF vb005.jpg</col>
+        <col>Chipsets</col>
+      </row>
+    </table>
+  </concept>
+  <concept>
+    <names>SCSI</names>
+    <context>hardware, controladora</context>
+    <tags>interfaz, conexión, placa base, dispositivos, almacenamiento</tags>
+    <text>Acrónimo inglés de Small Computers System Interface</text>
+    <text>Interfaz de Sistema para Pequeñas Computadoras</text>
+    <text>Es una interfaz estándar para la transferencia de datos entre distintos dispositivos del bus de la computadora. Actualmente es popular en estaciones de trabajo de alto rendimiento y servidores. Los sistemas RAID en servidores casi siempre usan este tipo de discos duros, aunque varios fabricantes ofrecen sistemas RAID basados en SATA como una opción de menor coste.</text>
+  </concept>
+  <concept>
+    <names>NAT</names>
+    <context>hadware, red</context>
+    <tags>mecanismo, router, intercambio, paquetes, entre, redes</tags>
+    <text>Network Address Translation - Traducción de Dirección de Red</text>
+    <text>Se usa habitualmente para ocultar un espacio completo de direcciones IP, normalmente son direcciones privadas IP, detrás de una única dirección IP (o pequeño grupo de direcciones IP) en otro espacio de direcciones (normalmente público).</text>
+  </concept>
+  <concept>
+    <names>MAC</names>
+    <context>hadware, red</context>
+    <tags>identificador, tarjetas, dispositivo, red</tags>
+    <text>En inglés dirección de media access control.</text>
+    <text>En español dirección de "control de acceso al medio".</text>
+    <text>Es un identificador de 48 bits (6 bloques hexadecimales) que corresponde de forma única a una tarjeta o dispositivo de red.</text>
+    <text>Se le conoce también como dirección física, y es única para cada dispositivo. Está determinada y configurada por el IEEE (los últimos 24 bits) y el fabricante (los primeros 24 bits) utilizando el organizationally unique identifier.</text>
+    <text>La Dirección del Hardware de Control de acceso a soportes de un distribuidor que identifica los equipos, los servidores, los routers u otros dispositivos de red. Al mismo tiempo es un identificador único que está disponible en NIC y otros equipamientos de red.</text>
+  </concept>
+</map>

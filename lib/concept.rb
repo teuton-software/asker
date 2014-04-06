@@ -75,7 +75,7 @@ class Concept
 	end
 	
 	def text
-		return @data[:texts][0]
+		return @data[:texts][0] || '...'
 	end
 	
 	def texts
