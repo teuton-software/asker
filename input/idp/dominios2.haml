@@ -1,0 +1,40 @@
+%map{ :version => '1' }
+  %concept
+    %names grupo-de-usuarios-del-dominio
+    %context sistemas operativos, dominios
+    %tags grupos, usuarios, dominio
+    %text Si definimos un grupo de usuarios de nombre "profesores", e incluimos en él a los usuarios de dominio que son profesores, no podremos asociarles políticas o directivas de grupo que deseemos, pero podremos definir en él los permisos de acceso a los recursos del sistema; cada usuario del dominio podrá estar englobado en más de un grupo de usuarios.  
+  %concept
+    %names unidad-organizativa
+    %conext sistemas operativos, dominio, samba 
+    %tags unidad, organizativa, LDAP 
+    %text Si definimos una [...] de nombre "profesores", e incluimos en ella a los usuarios del dominio que son profesores, podremos indicar las políticas o directivas de grupo que queremos que le sean asignadas a los profesores, pero no podremos definir en ella los permisos de acceso a los recursos del sistema; cada usuario o equipo del dominio podrá estar englobado en una y sólo en una [...].
+  %concept
+    %names Grupos-de-Ámbito-Local-al-Dominio
+    %conext sistemas operativos, dominio, samba 
+    %tags grupos, definir, administrar, recursos, dominio
+    %text Son grupos que permitirán definir y administrar el acceso a los recursos en un solo dominio. Estos grupos pueden tener como miembros a los siguientes elelementos: grupos de ámbito global, grupos de ámbito universal, usuarios del dominio, otros grupos de ámbito local de dominio, una mezcla de los anteriores.
+  %concept
+    %names Grupos-de-Ámbito-Local
+    %conext sistemas operativos, dominio, samba 
+    %tags grupos, definir, administrar, objetos, directorio
+    %text Estos grupos se utilizan para administrar objetos de directorio que requieren mantenimiento diario, como las cuentas de usuarios y equipos.
+  %concept
+    %names Grupos-de-Ámbito-Universal
+    %conext sistemas operativos, dominio, samba 
+    %tags grupos, definir, administrar, objetos, directorio
+    %text Son grupos utilizados cuando la pertenencia a dicho grupo no cambian frecuentemente, ya que los cambios de pertenencia de esos grupos hacen que todos los datos de pertenencia del grupo se repliquen en todos los catálogos globales del bosque del dominio.
+  %concept
+    %names Perfiles-de-usuarios
+    %conext sistemas operativos, dominio, samba 
+    %tags grupos, definir, administrar, objetos, directorio
+    %text Carpetas propias de un usuario, que incluyen básicamente sus configuraciones personalizadas del entorno de trabajo y los documentos por él creados.
+    %table{ :fields => 'tipo,descripción' }
+      %title Tipos de perfiles de usuarios
+      %row
+        %col Perfil Móvil
+        %col Perfil de usuario que se descarga desde el servidor en el equipo donde el usuario en cuestión haya iniciado sesión; cuando dicho usuario cierre sesión en el cliente, los cambios en el perfil se almacenarán en el servidor en el espacio des tinado para tal fin para dicho usuario.
+      %row
+        %col Perfil Oligatorio
+        %col Perfil de usuario que se descarga desde el servidor en el equipo donde el usuario en cuestión haya iniciado sesión; cuando dicho usuario cierre sesión en el cliente, los cambios en el perfil NO se almacenarán en el servidor, de modo que el usuario siempre dispondrá del mismo perfil.
+        

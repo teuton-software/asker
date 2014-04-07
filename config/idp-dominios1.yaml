@@ -1,0 +1,7 @@
+---
+:logname: idp-dominios1.log
+:outputname: idp-dominiosi1-gift.txt
+:lesson_file: idp-dominiosi1-lesson.txt
+:lesson_separator: ' |'
+:inputdirs: input/idp,input/fuw
+:process_file: dominios1.xml
