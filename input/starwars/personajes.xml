@@ -1,0 +1,87 @@
+<map version='1'>
+  <concept>
+    <names>obiwan</names>
+    <context>personaje, starwars</context>
+    <tags>maestro, jedi, profesor, annakin, skywalker, alumno, quigon-jinn</tags>
+    <text>Jedi, maestro de Annakin Skywalker</text>
+    <text>Jedi, alumno de Quigon-Jinn</text>
+    <table fields='caracteristica, descripcion'>
+      <title>Asocia cada característica con su valor</title>
+      <row>
+        <col>raza</col>
+        <col>humano</col>
+      </row>
+      <row>
+        <col>color-sable-laser</col>
+        <col>verde</col>
+      </row>
+      <row>
+        <col>color-del-pelo</col>
+        <col>pelirojo</col>
+      </row>
+    </table>
+  </concept>
+  <concept>
+    <names>yoda</names>
+    <context>personaje, starwars</context>
+    <tags>maestro, jedi</tags>
+    <text>Jedi, maestro de todos los jedis</text>
+    <table fields='caracteristica, descripcion'>
+      <title>Asocia cada característica con su valor</title>
+      <row>
+        <col>color-sable-laser</col>
+        <col>verde</col>
+      </row>
+      <row>
+        <col>color-del-pelo</col>
+        <col>blanco</col>
+      </row>
+      <row>
+        <col>color-de-piel</col>
+        <col>verde</col>
+      </row>
+    </table>
+  </concept>
+  <concept>
+    <names>emperador</names>
+    <context>personaje, starwars</context>
+    <tags>maestro, sith</tags>
+    <text>Sith, maestro de todos los siths</text>
+    <table fields='caracteristica, descripcion'>
+      <title>Asocia cada característica con su valor</title>
+      <row>
+        <col>raza</col>
+        <col>humano</col>
+      </row>
+      <row>
+        <col>color-del-pelo</col>
+        <col>castaño</col>
+      </row>
+      <row>
+        <col>color-sable-laser</col>
+        <col>rojo</col>
+      </row>
+    </table>
+  </concept>
+  <concept>
+    <names>maul</names>
+    <context>personaje, starwars</context>
+    <tags>lord, sith, alumno, emperador</tags>
+    <text>Lord Sith, alumno del emperador</text>
+    <table fields='caracteristica, descripcion'>
+      <title>Asocia cada característica con su valor</title>
+      <row>
+        <col>raza</col>
+        <col>con-cuernos</col>
+      </row>
+      <row>
+        <col>color-sable-laser</col>
+        <col>rojo</col>
+      </row>
+      <row>
+        <col>color-del-piel</col>
+        <col>roja</col>
+      </row>
+    </table>
+  </concept>
+</map>

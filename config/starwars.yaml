@@ -1,0 +1,7 @@
+---
+:logname: starwars.log
+:outputname: starwars-gift.txt
+:lesson_file: starwars-lesson.txt
+:lesson_separator: ' |'
+:inputdirs: 'input/starwars' 
+:process_file: 'personajes.xml'

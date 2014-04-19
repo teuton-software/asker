@@ -35,6 +35,8 @@ class Question
 			pFile.write "{\n"
 			@matching.each { |i| pFile.write "  =#{replace(i[0])} -> #{replace(i[1])}\n" }
 			pFile.write "}\n\n"
+		elsif @type==:short then
+			pFile.write "{100##{@good}}\n\n"
 		end
 	end
 	
@@ -70,6 +72,10 @@ class Question
 		@type=:boolean
 	end
 	
+	def set_short
+		@type=:short
+	end
+
 	def reset
 		init
 	end

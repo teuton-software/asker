@@ -227,6 +227,14 @@ private
 				q.good="FALSE"
 				q.write_to_file @file
 			end
+			
+			@num+=1
+			q.init
+			q.set_short
+			q.name="#{name}-#{@num.to_s}a5-desc"
+			q.text="Definición de [#{ ("*"*name.size) }]\:<br/> \"#{t}\"<br/>"
+			q.good=name
+			q.write_to_file @file
 		end
 	end
 

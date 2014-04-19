@@ -1,0 +1,69 @@
+%map{ :version => '1' }
+  %concept
+    %names obiwan
+    %context personaje, starwars
+    %tags maestro, jedi, profesor, annakin, skywalker, alumno, quigon-jinn
+    %text Jedi, maestro de Annakin Skywalker
+    %text Jedi, alumno de Quigon-Jinn
+    %table{ :fields => 'caracteristica, descripcion' }
+      %title Asocia cada característica con su valor
+      %row
+        %col raza
+        %col humano
+      %row
+        %col color-sable-laser
+        %col verde
+      %row
+        %col color-del-pelo
+        %col pelirojo
+
+  %concept
+    %names yoda
+    %context personaje, starwars
+    %tags maestro, jedi
+    %text Jedi, maestro de todos los jedis
+    %table{ :fields => 'caracteristica, descripcion' }
+      %title Asocia cada característica con su valor
+      %row
+        %col color-sable-laser
+        %col verde
+      %row
+        %col color-del-pelo
+        %col blanco
+      %row
+        %col color-de-piel
+        %col verde
+
+  %concept
+    %names emperador
+    %context personaje, starwars
+    %tags maestro, sith
+    %text Sith, maestro de todos los siths
+    %table{ :fields => 'caracteristica, descripcion' }
+      %title Asocia cada característica con su valor
+      %row
+        %col raza
+        %col humano
+      %row
+        %col color-del-pelo
+        %col castaño
+      %row
+        %col color-sable-laser
+        %col rojo
+
+  %concept
+    %names maul
+    %context personaje, starwars
+    %tags lord, sith, alumno, emperador
+    %text Lord Sith, alumno del emperador
+    %table{ :fields => 'caracteristica, descripcion' }
+      %title Asocia cada característica con su valor
+      %row
+        %col raza
+        %col con-cuernos
+      %row
+        %col color-sable-laser
+        %col rojo
+      %row
+        %col color-del-piel
+        %col roja
