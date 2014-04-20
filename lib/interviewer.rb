@@ -28,6 +28,7 @@ class Interviewer
 		load_input_files
 		show_data if @param[:show_mode]!=:none
 		create_output_file
+		show_stats
 	end
 	
 	def init(pArgs={})
@@ -130,6 +131,24 @@ class Interviewer
 				verbose c.to_s if c.process?
 			end
 		end
+	end
+	
+	def show_stats
+		return if @param[:show_mode]==:none
+		puts "[INFO] Showing concept stats..."
+		total_q=0 
+		total_e=0
+		total_c=0
+		@concepts.each_value do |c|
+			if c.process?
+				e=c.data[:texts].size+c.data[:tables].size
+				puts "* Concept: name=#{c.name} "+"-"*(30-c.name.size).abs+"(Q=#{c.num.to_s}, E=#{e.to_s}, %=#{(c.num/e*100).to_i})"
+				total_q+=c.num
+				total_e+=e
+				total_c+=1
+			end
+		end
+		puts "* TOTAL(#{total_c.to_s}) "+"-"*35+"(Q=#{total_q.to_s}, E=#{total_e.to_s}, %=#{(total_q/total_e*100).to_i})"
 	end
 	
 	def create_output_file

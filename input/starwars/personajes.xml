@@ -5,7 +5,7 @@
     <tags>maestro, jedi, profesor, annakin, skywalker, alumno, quigon-jinn</tags>
     <text>Jedi, maestro de Annakin Skywalker</text>
     <text>Jedi, alumno de Quigon-Jinn</text>
-    <table fields='caracteristica, descripcion'>
+    <table fields='característica, descripción'>
       <title>Asocia cada característica con su valor</title>
       <row>
         <col>raza</col>
@@ -26,7 +26,10 @@
     <context>personaje, starwars</context>
     <tags>maestro, jedi</tags>
     <text>Jedi, maestro de todos los jedis</text>
-    <table fields='caracteristica, descripcion'>
+    <text>Midiendo 65 centímetros, fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</text>
+    <text>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</text>
+    <text>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</text>
+    <table fields='característica, descripción'>
       <title>Asocia cada característica con su valor</title>
       <row>
         <col>color-sable-laser</col>
@@ -43,11 +46,14 @@
     </table>
   </concept>
   <concept>
-    <names>emperador</names>
+    <names>sidious</names>
     <context>personaje, starwars</context>
-    <tags>maestro, sith</tags>
+    <tags>humano, maestro, sith, alumno, plagueis</tags>
     <text>Sith, maestro de todos los siths</text>
-    <table fields='caracteristica, descripcion'>
+    <text>Es un hombre muy elocuente, hablador, astuto, verdaderamente manipulador e hipócrita, que durante mucho tiempo aparentó ser un político modesto, pero hábil.</text>
+    <text>Fue acogido por el poderoso Señor Oscuro de los Sith Darth Plagueis el Sabio, aproximadamente ochenta años antes de la batalla de Yavin, quien lo convirtió en un Lord Sith.</text>
+    <text>Su maestro podía manipular los midiclorianos y, con esto, manipular la vida. Traspasó todo ese conocimiento a su discípulo excepto la influencia de midiclorianos, pero él no dudó en matarlo mientras dormía, convirtiéndose en el nuevo líder de los Sith.</text>
+    <table fields='característica, descripción'>
       <title>Asocia cada característica con su valor</title>
       <row>
         <col>raza</col>
@@ -67,12 +73,13 @@
     <names>maul</names>
     <context>personaje, starwars</context>
     <tags>lord, sith, alumno, emperador</tags>
-    <text>Lord Sith, alumno del emperador</text>
-    <table fields='caracteristica, descripcion'>
+    <text>Lord Sirve como el aprendiz de Darth Sidious. Portando un sable de luz de doble hoja y formado como un maestro del combate con sables de luz.</text>
+    <text>Sirve como un asesino personal de Darth Sidious y es enviado para eliminar a dos Jedis.</text>
+    <table fields='característica, descripción'>
       <title>Asocia cada característica con su valor</title>
       <row>
         <col>raza</col>
-        <col>con-cuernos</col>
+        <col>zabrack</col>
       </row>
       <row>
         <col>color-sable-laser</col>

@@ -6,7 +6,7 @@ require_relative 'interviewer'
 require_relative 'question'
 
 class Concept
-	attr_reader :id, :data
+	attr_reader :id, :data, :num
 	attr_accessor :process
 
 	@@id=0
@@ -232,7 +232,7 @@ private
 			q.init
 			q.set_short
 			q.name="#{name}-#{@num.to_s}a5-desc"
-			q.text="Definición de [#{ ("*"*name.size) }]\:<br/> \"#{t}\"<br/>"
+			q.text="Definición de [#{ ("?"*name.size) }]\:<br/> \"#{t}\"<br/>"
 			q.good=name
 			q.write_to_file @file
 		end
