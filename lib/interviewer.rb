@@ -141,7 +141,8 @@ class Interviewer
 		total_c=0
 		@concepts.each_value do |c|
 			if c.process?
-				e=c.data[:texts].size+c.data[:tables].size
+				e=c.data[:texts].size
+				c.data[:tables].each { |t| e=e+t.data[:fields].size*t.data[:rows].size }
 				puts "* Concept: name=#{c.name} "+"-"*(30-c.name.size).abs+"(Q=#{c.num.to_s}, E=#{e.to_s}, %=#{(c.num/e*100).to_i})"
 				total_q+=c.num
 				total_e+=e
