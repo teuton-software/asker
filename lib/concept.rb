@@ -186,6 +186,8 @@ private
 				
 			if s.count>3 then
 				@num+=1
+				q.init
+				q.set_choice
 				q.name="#{name}-#{@num.to_s}a1-desc"
 				q.text="Definición\: \"#{t}\"<br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>"
 				q.good=name
@@ -201,6 +203,7 @@ private
 			if s.count>3 then
 				@num+=1
 				q.init
+				q.set_choice
 				q.name="#{name}-#{@num.to_s}a2-desc"
 				q.text="Definición\: \"#{t}\"<br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>"
 				q.good="Ninguna es correcta"
@@ -233,7 +236,7 @@ private
 			q.set_short
 			q.name="#{name}-#{@num.to_s}a5-desc"
 			q.text="Definición de [#{ ("?"*name.size) }]\:<br/> \"#{t}\"<br/>"
-			q.good=name
+			q.shorts << name
 			q.write_to_file @file
 		end
 	end

@@ -3,7 +3,7 @@
 
 class Question
 	attr_accessor :name, :comment, :text
-	attr_accessor :good, :bads, :matching
+	attr_accessor :good, :bads, :matching, :shorts
 	attr_reader :type
 
 	def initialize
@@ -18,6 +18,7 @@ class Question
 		@good=nil
 		@bads=[]
 		@matching=[]
+		@shorts=[]
 	end
 		
 	def write_to_file(pFile)
@@ -36,7 +37,9 @@ class Question
 			@matching.each { |i| pFile.write "  =#{replace(i[0])} -> #{replace(i[1])}\n" }
 			pFile.write "}\n\n"
 		elsif @type==:short then
-			pFile.write "{=#{@good}}\n\n"
+			pFile.write "{"
+			@shorts.each { |i| pFile.write "=%100%#{i} " }
+			pFile.write "}\n\n"
 		end
 	end
 	
@@ -57,7 +60,9 @@ class Question
 			@matching.each { |i| s=s+"  =#{i[0]} -> #{i[1]}\n" }
 			s=s+"}\n\n"
 		elsif @type==:short then
-			s=s+"{=#{@good}}\n\n"
+			s=s+"{"
+			@shorts.each { |i| s=s+"=%100%#{i} " }
+			s=s+"}\n\n"
 		end
 		return s
 	end
