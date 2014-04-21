@@ -12,7 +12,7 @@
         <col>humano</col>
       </row>
       <row>
-        <col>color-sable-laser</col>
+        <col>color sable laser</col>
         <col>verde</col>
       </row>
       <row>
@@ -32,7 +32,7 @@
     <table fields='característica, descripción'>
       <title>Asocia cada característica con su valor</title>
       <row>
-        <col>color-sable-laser</col>
+        <col>color sable laser</col>
         <col>verde</col>
       </row>
       <row>
@@ -64,7 +64,7 @@
         <col>castaño</col>
       </row>
       <row>
-        <col>color-sable-laser</col>
+        <col>color sable laser</col>
         <col>rojo</col>
       </row>
     </table>
@@ -82,7 +82,7 @@
         <col>zabrack</col>
       </row>
       <row>
-        <col>color-sable-laser</col>
+        <col>color sable laser</col>
         <col>rojo</col>
       </row>
       <row>
