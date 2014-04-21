@@ -36,7 +36,7 @@ class Question
 			@matching.each { |i| pFile.write "  =#{replace(i[0])} -> #{replace(i[1])}\n" }
 			pFile.write "}\n\n"
 		elsif @type==:short then
-			pFile.write "{100##{@good}}\n\n"
+			pFile.write "{=#{@good}}\n\n"
 		end
 	end
 	
@@ -56,6 +56,8 @@ class Question
 			s=s+"{\n"
 			@matching.each { |i| s=s+"  =#{i[0]} -> #{i[1]}\n" }
 			s=s+"}\n\n"
+		elsif @type==:short then
+			s=s+"{=#{@good}}\n\n"
 		end
 		return s
 	end
