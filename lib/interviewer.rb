@@ -100,11 +100,12 @@ class Interviewer
 				
 				begin
 					lXMLdata=REXML::Document.new(lFileContent)
-					@param[:lang]=@param[:lang] || lXMLdata.root.attributes['lang']
+					@param[:lang]=lXMLdata.root.attributes['lang'] || @param[:lang]
 					
 					lXMLdata.root.elements.each do |i|
 						if i.name=='concept' then
 							c=Concept.new(i)
+							c.lang=@param[:lang]
 							c.process=false
 							if ( @param[:process_file]==:default or @param[:process_file]==f.to_s ) then
 								c.process=true

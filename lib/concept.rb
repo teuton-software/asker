@@ -5,10 +5,11 @@ require 'set'
 require_relative 'interviewer'
 require_relative 'question'
 require_relative 'table'
+require_relative 'lang'
 
 class Concept
 	attr_reader :id, :data, :num
-	attr_accessor :process
+	attr_accessor :process, :lang
 
 	@@id=0
 
@@ -106,7 +107,7 @@ class Concept
 
 	def to_s
 		s=""
-		s=s+" <"+name+"("+@id.to_s+")>\n"
+		s=s+" <"+name+"("+@id.to_s+")> lang=#{lang}\n"
 		s=s+"  .context    = "+context.join(', ').to_s+"\n" if context.count>0
 		s=s+"  .tags       = "+tags.join(', ').to_s+"\n"
 		s=s+"  .text       = "+text[0..60].to_s+"...\n"
@@ -192,7 +193,7 @@ private
 				q.init
 				q.set_choice
 				q.name="#{name}-#{@num.to_s}a1-desc"
-				q.text="Definición\: \"#{t}\"<br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>"
+				q.text=LANG::text('a1-desc',t,lang)
 				q.good=name
 				q.bads << "Ninguna es correcta"
 				q.bads << a[2]
@@ -208,7 +209,7 @@ private
 				q.init
 				q.set_choice
 				q.name="#{name}-#{@num.to_s}a2-desc"
-				q.text="Definición\: \"#{t}\"<br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>"
+				q.text=LANG::text('a2-desc',t,lang)
 				q.good="Ninguna es correcta"
 				q.bads << a[1]
 				q.bads << a[2]
