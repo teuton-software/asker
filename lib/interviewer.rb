@@ -44,6 +44,7 @@ class Interviewer
 		@param[:category]=@param[:category] || :none
 		@param[:formula_weights]=@param[:formula_weights] || [1,1,1]
 		@param[:inputdirs]=@param[:inputdirs] || 'input/default'
+		@param[:lang]= @param[:lang] || 'es'
 		@param[:outputdir]=@param[:outputdir] || 'output'
 		@param[:process_file]=@param[:process_file] || 'default.xml'
 		if @param[:process_file]=='default.xml' then
@@ -85,7 +86,7 @@ class Interviewer
 			end
 			files=(Dir.new(dirname).entries-[".",".."]).sort
 			filter = files.select { |f| f[-4..-1]==".xml" || f[-5..-1]==".haml" }
-			verbose "* HAML/XML files: #{filter.to_s} from #{dirname}"
+			verbose "* HAML/XML files from #{dirname}: #{filter.join(', ').to_s} "
 		
 			filter.each do |f|
 				pFilename=dirname+'/'+f
@@ -99,6 +100,8 @@ class Interviewer
 				
 				begin
 					lXMLdata=REXML::Document.new(lFileContent)
+					@param[:lang]=@param[:lang] || lXMLdata.root.attributes['lang']
+					
 					lXMLdata.root.elements.each do |i|
 						if i.name=='concept' then
 							c=Concept.new(i)

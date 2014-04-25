@@ -4,6 +4,7 @@ require 'rexml/document'
 require 'set'
 require_relative 'interviewer'
 require_relative 'question'
+require_relative 'table'
 
 class Concept
 	attr_reader :id, :data, :num
@@ -106,12 +107,14 @@ class Concept
 	def to_s
 		s=""
 		s=s+" <"+name+"("+@id.to_s+")>\n"
-		s=s+"  .context    = "+context.to_s+"\n" if context.count>0
-		s=s+"  .tags       = "+tags.to_s+"\n"
+		s=s+"  .context    = "+context.join(', ').to_s+"\n" if context.count>0
+		s=s+"  .tags       = "+tags.join(', ').to_s+"\n"
 		s=s+"  .text       = "+text[0..60].to_s+"...\n"
 		s=s+"  .tables     = "+tables.to_s+"\n" if tables.count>0
 		s=s+"  .neighbors  = "
-		neighbors.each { |i| s=s+i[:concept].name+"("+i[:value].to_s[0..4]+") " }
+		n=[]
+		neighbors.each { |i| n << i[:concept].name+"("+i[:value].to_s[0..4]+")" }
+		s=s+n.join(', ').to_s
 		return s
 	end
 	
@@ -452,6 +455,7 @@ private
 	end
 end
 
+=begin
 class Table
 	attr_reader :name, :data
 
@@ -494,4 +498,4 @@ class Table
 	end
 	
 end	
-
+=end

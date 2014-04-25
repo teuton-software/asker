@@ -168,26 +168,27 @@ and we'll see something like this on the screen. It's only brief information of 
 
 ```
 [INFO] Loading input data...
-* HAML/XML files: ["jedi.haml", "sith.haml"] from input/starwars
+* HAML/XML files from input/starwars: jedi.haml, sith.haml 
 [INFO] Showing concept data...
  <obiwan(1)>
-  .context    = ["personaje", "starwars"]
-  .tags       = ["maestro", "jedi", "profesor", "annakin", "skywalker", "alumno", "quigon-jinn"]
+  .context    = personaje, starwars
+  .tags       = maestro, jedi, profesor, annakin, skywalker, alumno, quigon-jinn
   .text       = Jedi, maestro de Annakin Skywalker...
   .tables     = [$característica$descripción]
-  .neighbors  = sidious(40.0) yoda(40.0) maul(30.0) 
+  .neighbors  = sidious(40.0), yoda(40.0), maul(30.0)
  <yoda(2)>
-  .context    = ["personaje", "starwars"]
-  .tags       = ["maestro", "jedi"]
+  .context    = personaje, starwars
+  .tags       = maestro, jedi
   .text       = Jedi, maestro de todos los jedis...
   .tables     = [$característica$descripción]
-  .neighbors  = obiwan(80.0) sidious(60.0) maul(40.0) 
+  .neighbors  = obiwan(80.0), sidious(60.0), maul(40.0)
 
 [INFO] Creating output files...
 [INFO] Showing concept stats...
 * Concept: name=obiwan ------------------------(Q=32, E=8, %=400)
 * Concept: name=yoda --------------------------(Q=42, E=10, %=400)
 * TOTAL(2) -----------------------------------(Q=74, E=18, %=400)
+
 ```
 
 Output files
