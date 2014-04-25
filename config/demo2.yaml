@@ -1,7 +1,0 @@
----
-:logname: demo2.log
-:outputname: demo2-gift.txt
-:lesson_file: demo2-lesson.txt
-:lesson_separator: ' |'
-:inputdirs: 'input/demo,input/etc'
-:process_file: vehicles.xml

@@ -1,0 +1,7 @@
+---
+:logname: vehicles.log
+:outputname: vehicles-gift.txt
+:lesson_file: vehicles-lesson.txt
+:lesson_separator: ' |'
+:inputdirs: 'input/etc'
+:process_file: vehicles.xml

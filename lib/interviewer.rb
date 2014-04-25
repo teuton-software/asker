@@ -4,6 +4,7 @@
 
 require 'singleton'
 require 'yaml'
+require 'haml'
 require 'rexml/document'
 require_relative 'concept'
 
@@ -83,13 +84,19 @@ class Interviewer
 				raise "[ERROR] <#{dirname}> directory dosn't exist!"
 			end
 			files=(Dir.new(dirname).entries-[".",".."]).sort
-			filter = files.select { |f| f[-4..-1]==".xml" }
-			verbose "* XML files: #{filter.to_s} from #{dirname}"
+			filter = files.select { |f| f[-4..-1]==".xml" || f[-5..-1]==".haml" }
+			verbose "* HAML/XML files: #{filter.to_s} from #{dirname}"
 		
 			filter.each do |f|
 				pFilename=dirname+'/'+f
-				lFileContent=open(pFilename) { |i| i.read }
-				#lFileContent=open(f) { |i| i.read }
+				if pFilename[-5..-1]==".haml" then
+					template = File.read(pFilename)
+					haml_engine = Haml::Engine.new(template)
+					lFileContent = haml_engine.render
+				else
+					lFileContent=open(pFilename) { |i| i.read }				
+				end
+				
 				begin
 					lXMLdata=REXML::Document.new(lFileContent)
 					lXMLdata.root.elements.each do |i|
