@@ -4,6 +4,7 @@
 #Define tasks
 
 desc "Install gems "
-task :gems do
+task :install_gems do
+	system("gem install haml")
 	system("gem install rspec")
 end

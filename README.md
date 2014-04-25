@@ -33,67 +33,88 @@ Interviewer lee una plantillas en XML para generar preguntas en formato
 GIFT que pueden cargarse directamente en platamformas de elearning como
 Moodle.
 
-**Descripción**
-===============
+**Installation**
+================
+Required software:
+* ruby 1.9.3
+* rake
 
-La herramienta debe tener la siguiente estructura de directorios y ficheros.
+Install gems with `rake install_gems`
 
-	interviewer.tool/
-	├── build
-	├── input
-	│   └── demo.xml
-	├── output
-	├── README.es.md
-	└── lib
-		├── concept.rb
-		├── interviewer.rb
-		└── question.rb
+**Directories description**
+===========================
 
-* El fichero *README.es.md* es este documento de ayuda.
-* El directorio *input* es para colocar los ficheros XML que definamos con
-  nuestros contenidos.
-* El directorio *ouput* es donde se crearán los ficheros de salida.
-* El directorio *lib* contiene las clases de la herramienta. La principal
-  es Interviewer.
-* El fichero *demo.rb* es un ejemplo que procesa los datos de *input/demo.xml*.
+This tool contains the next directory tree:
 
-Documentos XML de entrada
+```
+.
+├── build
+├── config
+│   └── starwars.yaml
+├── input
+│   ├── etc
+│   └── starwars
+│       ├── personajes.haml
+│       └── personajes.xml
+├── lib
+│   ├── concept.rb
+│   ├── interviewer.rb
+│   └── question.rb
+├── LICENSE
+├── MANTAINERS.md
+├── output
+│   ├── starwars-gift.txt
+│   ├── starwars-lesson.txt
+│   └── starwars.log
+├── Rakefile
+├── README.md
+└── spec
+    ├── demo_spec.rb
+    ├── question_spec.rb
+    └── README
+```
+
+* *README.es.md*: This is the help file.
+* *input* directory: Where we put our own concepts maps. Usualy XML or HAML file format.
+* *ouput* directory: Where the tool create the reports or output files (as GIFT, etc.)
+* *lib* directory: Contains the classes and modules, of this tool.
+* *spec* directory: Will contains the test units.
+* *config* directory: For now contains config files, that groups of parameters used together.
+But we will make this mechanism easer in the future, only using default params without need
+a specific config file (In progress...)  
+
+Concept Map documents
 =========================
-Dentro del directorio *input* creamos todos los ficheros XML donde definimos
-los conceptos según un formato concreto. Veamos un ejemplo de fichero XML
-donde se definen comandos del sistema. Este fichero es *'input/demo.xml'*:
+Into *input* directory we save our own concept map files. We could use subdirectories to
+better organization. As example we have the file `input/starwars/personajes.haml`, that
+contains one concept map about characters of StarWars film into HAML format.
 
-	<map version='1'>	
-	<concept>
-		<names>cd</names>
-		<context>sistemas operativos, comando</context>
-		<tags>cambiar, directorio, actual, mover</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, que permite cambiar nuestro directorio actual.</text>
-		<text>Es un comando del sistema operativo GNU/Linux, que permite movernos a otro directorio del sistema de ficheros.</text>
-		<table fields='acción, resultado'>
-			<title>Asocia cada acción con su resultado.</title>
-			<row>
-				<col>cd</col>
-				<col>Nos movemos a nuestro directorio HOME.</col>
-			</row>
-			<row>
-				<col>cd ..</col>
-				<col>Nos movemos al directorio padre de nuestro directorio actual.</col>
-			</row>
-			<row>
-				<col>cd DIRNAME</col>
-				<col>Nos movemos al directorio DIRNAME que está en nuestro directorio actual.</col>
-			</row>
-		</table>
-	</concept>
-	</map>
-
-En mismo fichero podemos definir todos los conceptos que queramos. Para cada concepto
-podemos indicar la siguiente información:
-* **names**: Una lista de los posibles nombres del concepto separados por comas. 
-  Como mínimo debemos indicar un nombre.
-* **context**: Una lista de tags separados por comas que nos indican dentro de 
-  que contexto tiene lugar esta definición.
+(Let's take a look)
+```
+%map{ :version => '1' }
+  %concept
+    %names obiwan
+    %context personaje, starwars
+    %tags maestro, jedi, profesor, annakin, skywalker, alumno, quigon-jinn
+    %text Jedi, maestro de Annakin Skywalker
+    %text Jedi, alumno de Quigon-Jinn
+    %table{ :fields => 'característica, descripción' }
+      %title Asocia cada característica con su valor
+      %row
+        %col raza
+        %col humano
+      %row
+        %col color sable laser
+        %col verde
+      %row
+        %col color-del-pelo
+        %col pelirojo
+...
+```
+For now we have a several tags to define our own sintax for build conceptual maps.
+This are:
+* **names**: List of one or more names that identify the concept. At least one is requiered, of course!.
+* **context**: List of comma separated words, that identify the context where this concept "lives" or "exists".
 * **tags**: Una lista de tags que dan una idea de la definición del concepto.
 * **text**: Una descripción en lenguaje natural de nuestro concepto.
   Se pueden tener varias etiquetas de este tipo.
