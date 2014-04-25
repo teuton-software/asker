@@ -1,6 +1,15 @@
 **Interviewer**
 ===============
+*tt_interviewer** is a ruby tool, that helps teacher to easly build a huge
+amount of questions from a simple conceptual map.
 
+Steps:
+1) The teacher create a text file with our conceptual map.
+2) The tool read it and create a file with GIFT questions.
+> The GIFT format is very common format, in elearning software as Moodle.
+
+**History**
+===========
 As a teacher, one of the most boring taks is check the same exercises
 again and again, for every student, and for ever year. The test questions
 allow as to create activities that are automaticaly checked/resolved by 
@@ -10,36 +19,25 @@ knowledge to improve his work, to try new ways of doing his job, to
 find or redefined the activities or lessons contents, just to find
 a better way of teaching. And an easier way of learning for the students.
 
-El problema de las preguntas tipo test es que sólo sirven para evaluar un
-aspecto muy concreto y facilmente medible y/o cuantizable. De modo que es 
-un poco limitado, puesto que la mayoría del conocimiento y habilidades
-más interesantes son poco cuantizables y muy abiertas. Los problemas abiertos 
-son más ricos en cuanto a las habilidades que deben emplearse para su 
-resolución, pero por contra no puede automatizarse su evaluación/medición.
+The big problem with test questions are that only are usefull to evaluate
+measurable features. So it could be very limited if we want measure abstract
+features. But we could do this with other view. I mean.
 
-Pero si a un problema abierto inicialmente, lo bombardeamos/descomponemos
-en una cantidad enorme de problemas cerrados se podría realizar una evaluación
-automática. Claro que, el número de problemas cerrados debe ser muy grande
-para cubrir lo mejor posible todos los aspectos del problema abierto inicial.
+If I get an open and abstract problem, their resolution will have several
+steps or measurable milestones. So we could transform an open problem, 
+into a close one. And I have to focus on measure this aspects.
 
-Según lo anterior, el problema se reduce ahora a generar un número suficientemente
-elevado de preguntas cerradas a partir de un problema abierto.
-
-Aparte de las preguntas uqe el profesor pueda idear, aparte de todas las dudas
-de los alumnos (que las convertiremos en preguntas cerradas también), podemos
-usar la herramienta Interviewer de TeacherTools.
-
-Interviewer lee una plantillas en XML para generar preguntas en formato
-GIFT que pueden cargarse directamente en platamformas de elearning como
-Moodle.
+Besides, if I bomb the student with a huge amount of diferent questions
+of the same concept. Probably I will be near to know and measure, the
+student asimilation of this concepts.
 
 **Installation**
 ================
 Required software:
-* ruby 1.9.3
+* ruby (1.9.3 version)
 * rake
 
-Install gems with `rake install_gems`
+Install required gems with `rake install_gems`.
 
 **Directories description**
 ===========================
@@ -74,17 +72,19 @@ This tool contains the next directory tree:
     └── README
 ```
 
-* *README.es.md*: This is the help file.
-* *input* directory: Where we put our own concepts maps. Usualy XML or HAML file format.
-* *ouput* directory: Where the tool create the reports or output files (as GIFT, etc.)
-* *lib* directory: Contains the classes and modules, of this tool.
-* *spec* directory: Will contains the test units.
-* *config* directory: For now contains config files, that groups of parameters used together.
-But we will make this mechanism easer in the future, only using default params without need
-a specific config file (In progress...)  
+* *README.es.md*: This help file.
+* *input*: Directory where we put our own conceptual maps (HAML or XML file format).
+* *ouput*: Directory where create the reports or output files (as GIFT, etc.)
+* *lib*: Directory that contains the ruby classes and modules of this project.
+* *spec*: Directory that will contain the test units in the next future. I hope!.
+* *config*: Directory that for now contains config files. This config files are necessary
+to easily groups a huge amount of parameters used by this tool. NOTE: We 
+are planning to change this. So we could use only default params (from main input file),
+with need configfile creation.
+* *build*: This file will "build" our questions from de input files.
 
-Concept Map documents
-=========================
+Conceptual Map
+==============
 Into *input* directory we save our own concept map files. We could use subdirectories to
 better organization. As example we have the file `input/starwars/jedi.haml`, that
 contains one concept map about Jedi characters of StarWars film into HAML format.
@@ -142,88 +142,59 @@ that came in mind when we think in it, and are useful for their identification.
 * **text**: We use this tags as many times we need. In it, we write using natural language descriptions
 asssociated to the concept. Descriptions that are uniques for this concept, but don't write the name of
 the concept into the text.
-* **table**: Other way to build more sofisticated definitions/schemas is using "tables". It's simi
-Define una estructura de datos en formato de tabla. A su vez
-  dentro de ésta se definen etiquetas para las filas (*row*), y las columnas
-  dentro de cada tabla (*col). En cada tabla es obligatorio definir un atributo
-  *fields* que contendrá los nombres de las columnas separados por comas.
-  
-Las etiquetas mínimas para definir un concepto son. *names, context, tags*, y
-al menos un *text*.
-
-Ejecutar la herramienta
-=======================
-
-Creamos el siguiente script demo.rb con nuestra configuración personalizada:
-
-	#!/usr/bin/ruby
-	# encoding: utf-8
-	require_relative 'sys/interviewer'
-
-    lConfig={ 
-		:inputdirs => 'input', 
-		:process_file => 'demo.xml'
-	}
-	
-	Interviewer.instance.run(lConfig)
-
-Ejecutamos el script con ./build o *ruby ./build*.
-
-	interviewer.tool$ ./build config/demo.yaml 
-
-	[INFO] Loading input data...
-	* XML files: ["demo.xml"] from input/idp
-	[INFO] Showing concept data...
-	<cd(1)>
-	.context    = ["sistemas operativos", "comando"]
-	.tags       = ["cambiar", "directorio", "actual", "mover"]
-	.text       = Es un comando del sistema operativo GNU/Linux, que permite ca...
-	.tables     = [$acción$resultado]
-	.neighbors  = chmod(42.85) rmdir(28.57) mkdir(28.57) rm(28.57) 
-	...
-	(Más datos)
-	...
-	
+* **table**: Other way to build more sofisticated definitions/schemas is using "tables". It's similar
+to HTML tag. I mean, with this "table", we build tables of knowledge into the concept. We use "row",
+ans "col", to defines table-rows and row-cols, of course. We could see an 
+example into `input/starwars/jedi.haml`.
 
 
-Ejemplo de los resultados obtenidos
-===================================
+*Run it*
+========
+First we need to create a config file. Let see `config/starwars.yaml`:
 
-Extracto del fichero *output/demo.xml* que se genera con las preguntas
-en formato gift:
+```
+---
+:logname: starwars.log
+:outputname: starwars-gift.txt
+:lesson_file: starwars-lesson.txt
+:lesson_separator: ' |'
+:inputdirs: 'input/starwars' 
+:process_file: 'jedi.haml'
 
-	// File: output/demo.txt
-	// Time: 2013-08-16 15:51:38 +0100
-	// Create automatically by David Vargas
-	// Concept: cd
+```
 
-	::cd1-desc1::[html]Definición: "Es un comando del sistema operativo GNU/Linux, que permite cambiar
-	nuestro directorio actual."<br/>Elige la opción que mejor se corresponda con la definición anteri
-	or.<br/>
-	{
-	=cd
-	~chmod
-	~rmdir
-	~Ninguna es correcta
-	}
+To run the tool we do `./build config/starwars.yaml` or `ruby build config/starwars.yaml`.
 
-	::cd2-desc2::[html]Definición: "Es un comando del sistema operativo GNU/Linux, que permite cambiar
-	nuestro directorio actual."<br/>Elige la opción que mejor se corresponda con la definición anteri
-	or.<br/>
-	{
-	=Ninguna es correcta
-	~chmod
-	~rmdir
-	~mkdir
-	}
+```
+[INFO] Loading input data...
+* HAML/XML files: ["jedi.haml", "sith.haml"] from input/starwars
+[INFO] Showing concept data...
+ <obiwan(1)>
+  .context    = ["personaje", "starwars"]
+  .tags       = ["maestro", "jedi", "profesor", "annakin", "skywalker", "alumno", "quigon-jinn"]
+  .text       = Jedi, maestro de Annakin Skywalker...
+  .tables     = [$característica$descripción]
+  .neighbors  = sidious(40.0) yoda(40.0) maul(30.0) 
+ <yoda(2)>
+  .context    = ["personaje", "starwars"]
+  .tags       = ["maestro", "jedi"]
+  .text       = Jedi, maestro de todos los jedis...
+  .tables     = [$característica$descripción]
+  .neighbors  = obiwan(80.0) sidious(60.0) maul(40.0) 
 
-	::cd3-desc3::[html]Definición de cd:<br/> "Es un comando del sistema operativo GNU/Linux, que perm
-	ite cambiar nuestro directorio actual."<br/>
-	{TRUE}
+[INFO] Creating output files...
+[INFO] Showing concept stats...
+* Concept: name=obiwan ------------------------(Q=32, E=8, %=400)
+* Concept: name=yoda --------------------------(Q=42, E=10, %=400)
+* TOTAL(2) -----------------------------------(Q=74, E=18, %=400)
+```
 
+*Output files*
+==============
+Let's see one output file `output/starwars-gift.txt`.
 
-Más parámetros de configuración
-===============================
+*Extra configuration params*
+===========================
 
 =begin
 lConfig={ 
