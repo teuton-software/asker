@@ -148,8 +148,8 @@ ans "col", to defines table-rows and row-cols, of course. We could see an
 example into `input/starwars/jedi.haml`.
 
 
-*Run it*
-========
+Run it
+======
 First we need to create a config file. Let see `config/starwars.yaml`:
 
 ```
@@ -163,7 +163,8 @@ First we need to create a config file. Let see `config/starwars.yaml`:
 
 ```
 
-To run the tool we do `./build config/starwars.yaml` or `ruby build config/starwars.yaml`.
+To run the tool we do `./build config/starwars.yaml` or `ruby build config/starwars.yaml`,
+and we'll see something like this on the screen. It's only brief information of the process.
 
 ```
 [INFO] Loading input data...
@@ -189,8 +190,8 @@ To run the tool we do `./build config/starwars.yaml` or `ruby build config/starw
 * TOTAL(2) -----------------------------------(Q=74, E=18, %=400)
 ```
 
-*Output files*
-==============
+Output files
+============
 Let's see one output file `output/starwars-gift.txt`.
 
 *Extra configuration params*
