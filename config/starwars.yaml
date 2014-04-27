@@ -1,7 +1,4 @@
 ---
-:logname: starwars.log
-:outputname: starwars-gift.txt
-:lesson_file: starwars-lesson.txt
-:lesson_separator: ' |'
+:projectname: starwars
 :inputdirs: 'input/starwars' 
 :process_file: 'jedi.haml'
