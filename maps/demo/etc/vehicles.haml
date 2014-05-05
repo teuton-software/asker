@@ -1,0 +1,84 @@
+%map{ :version=>"1", :lang => 'es' }
+  %concept
+    %names coche
+    %context transporte
+    %tags vehículo, terrestre, motor
+    %text Es un tipo de vehículo de trasporte con cuatro ruedas.
+    %table{ :fields => 'atributo, valor' }
+      %title Asocia cada atributo con su valor
+      %row
+        %col número de ruedas
+        %col 4
+      %row
+        %col número de alas
+        %col 0
+      %row
+        %col número de motores
+        %col 1
+	
+  %concept
+    %names moto
+    %context trasporte, vehículo
+    %tags vehículo,terrestre, motor
+    %text Es un tipo de vehículo de trasporte con dos ruedas.
+    %table{ :fields => 'atributo, valor' }
+      %title Asocia cada atributo con su valor
+      %row
+        %col número de ruedas
+        %col 2
+      %row
+        %col número de alas
+        %col 0
+      %row
+        %col número de motores
+        %col 1
+
+  %concept
+    %names bicicleta
+    %context trasporte
+    %tags vehículo, terrestre, sin-motor
+    %text Es un tipo de vehículo de trasporte con dos ruedas sin motor.
+    %table{ :fields => 'atributo, valor' }
+      %title Asocia cada atributo con su valor
+      %row
+        %col número de ruedas
+        %col 2
+      %row
+        %col número de alas
+        %col 0
+      %row
+        %col número de motores
+        %col 0
+
+  %concept
+    %names avión
+    %context trasporte, vehículo
+    %tags vehículo,volador, aéreo, motor, alas
+    %text Es un tipo de vehículo de trasporte aéreo.
+    %table{ :fields => 'atributo, valor' }
+      %title Asocia cada atributo con su valor
+      %row
+        %col número de ruedas
+        %col 3
+      %row
+        %col número de alas
+        %col 2
+      %row
+        %col número de motores
+        %col 1-3
+
+  %concept
+    %names helicoptero
+    %tags vehículo,volador, aéreo, motor, hélice, sin-alas
+    %text Es un tipo de vehículo de trasporte aéreo sin alas.
+    %table{ :fields => 'atributo, valor' }
+      %title Asocia cada atributo con su valor
+      %row
+        %col número de ruedas
+        %col 0
+      %row
+        %col número de alas
+        %col 0
+      %row
+        %col número de motores
+        %col 1-2

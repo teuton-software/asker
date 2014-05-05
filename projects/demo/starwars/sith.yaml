@@ -1,4 +1,4 @@
 ---
 :projectdir: demo/starwars
 :inputdirs: 'maps/demo/starwars' 
-:process_file: 'jedi.haml'
+:process_file: 'sith.haml'

@@ -47,41 +47,37 @@ This tool contains the next directory tree:
 ```
 .
 ├── build
-├── config
-│   └── starwars.yaml
-├── input
-│   ├── etc
-│   └── starwars
-│       ├── personajes.haml
-│       └── personajes.xml
+├── docs
 ├── lib
-│   ├── concept.rb
-│   ├── interviewer.rb
-│   └── question.rb
 ├── LICENSE
 ├── MANTAINERS.md
-├── output
-│   ├── starwars-gift.txt
-│   ├── starwars-lesson.txt
-│   └── starwars.log
+├── maps
+│   └── demo
+│       └── starwars
+│           ├── jedi.haml
+│           └── sith.haml
+├── projects
+│   └── demo
+│       └── starwars
+│           ├── config.yaml
+│           └── sith.yaml
 ├── Rakefile
 ├── README.md
 └── spec
-    ├── demo_spec.rb
-    ├── question_spec.rb
-    └── README
+
+
 ```
 
-* *README.es.md*: This help file.
-* *input*: Directory where we put our own conceptual maps (HAML or XML file format).
-* *ouput*: Directory where create the reports or output files (as GIFT, etc.)
+* *README.es.md*: This help file
+* *build*: This is the script file that will "build" our questions from
+conceptual map files.
 * *lib*: Directory that contains the ruby classes and modules of this project.
+* *maps*: Directories where we save our own conceptual maps (HAML or XML file format).
+* *projects*: Directory that contains config files for every project. This config 
+file are necessary to easily group parameters used by this tool. Also, 
+into this directory will be created the reports and output files (as GIFT, etc.)
+of this project.
 * *spec*: Directory that will contain the test units in the next future. I hope!.
-* *config*: Directory that for now contains config files. This config files are necessary
-to easily groups a huge amount of parameters used by this tool. NOTE: We 
-are planning to change this. So we could use only default params (from main input file),
-with need configfile creation.
-* *build*: This file will "build" our questions from de input files.
 
 Conceptual Map
 ==============
@@ -196,3 +192,4 @@ Output files
 Let's see one output file `output/starwars-gift.txt`.
 
 > Let's see docs directory for more details.
+

@@ -266,23 +266,30 @@ private
 			q.init
 			q.set_match
 			q.name="#{name}-#{@num.to_s}b1-match-#{pTable.name}"
-			q.text="Asocia cada #{pTable.fields[pIndex1].capitalize} con su #{pTable.fields[pIndex2].capitalize}<br/>."
+			q.text="En relación al concepto #{name}, asocia cada #{pTable.fields[pIndex1].capitalize} con su #{pTable.fields[pIndex2].capitalize}<br/>."
 			q.matching << [ pList1[0][:data][pIndex1], pList1[0][:data][pIndex2] ]
 			q.matching << [ pList1[1][:data][pIndex1], pList1[1][:data][pIndex2] ]
 			q.matching << [ pList1[2][:data][pIndex1], pList1[2][:data][pIndex2] ]
 			q.matching << [ pList1[3][:data][pIndex1], pList1[3][:data][pIndex2] ]
 			q.write_to_file @file
 		elsif pList1.count==3 and pList2.count>0 then
-			@num+=1
-			q.init
-			q.set_match
-			q.name="#{name}-#{@num.to_s}b2-match-#{pTable.name}"
-			q.text="Asocia cada #{pTable.fields[pIndex1].capitalize} con su #{pTable.fields[pIndex2].capitalize}<br/>."
-			q.matching << [ pList1[0][:data][pIndex1], pList1[0][:data][pIndex2] ]
-			q.matching << [ pList1[1][:data][pIndex1], pList1[1][:data][pIndex2] ]
-			q.matching << [ pList1[2][:data][pIndex1], pList1[2][:data][pIndex2] ]
-			q.matching << [ pList2[0][:data][pIndex1], pList2[0][:data][pIndex2] ]
-			q.write_to_file @file			
+			s=Set.new
+			pList1.each { |i| s.add( i[:data][pIndex1]+"<=>"+i[:data][pIndex2] ) }
+			s.add( pList2[0][:data][pIndex1]+"<=>"+pList2[0][:data][pIndex2] ) 
+			a=s.to_a
+
+			if s.count>3 then
+				@num+=1
+				q.init
+				q.set_match
+				q.name="#{name}-#{@num.to_s}b2-match-#{pTable.name}"
+				q.text="En relación al concepto #{name}, asocia cada #{pTable.fields[pIndex1].capitalize} con su #{pTable.fields[pIndex2].capitalize}<br/>."
+				q.matching << [ pList1[0][:data][pIndex1], pList1[0][:data][pIndex2] ]
+				q.matching << [ pList1[1][:data][pIndex1], pList1[1][:data][pIndex2] ]
+				q.matching << [ pList1[2][:data][pIndex1], pList1[2][:data][pIndex2] ]
+				q.matching << [ pList2[0][:data][pIndex1], "ERROR" ]
+				q.write_to_file @file
+			end			
 		end
 	end
 	
