@@ -1,0 +1,4 @@
+---
+:projectname: vehicles
+:inputdirs: 'maps/demo/etc'
+:process_file: vehicles.xml
