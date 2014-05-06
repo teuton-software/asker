@@ -53,6 +53,19 @@ class Concept
 		return @data[:names][0] || 'concept'+@@id.to_s
 	end
 	
+	def hiden_name
+		n=name
+		s=""
+		n.each_char do |c|
+			if ' !|"@#$%&/()=?¿¡+*(){}[],.-_<>'.include? c then
+				s=s+c
+			else
+				s=s+'?'
+			end
+		end
+		return s
+	end
+	
 	def names
 		return @data[:names]
 	end
@@ -239,7 +252,7 @@ private
 			q.init
 			q.set_short
 			q.name="#{name}-#{@num.to_s}a5-desc"
-			q.text="Definición de [#{ ("?"*name.size) }]\:<br/> \"#{t}\"<br/>"
+			q.text="Definición de [#{ hiden_name }]\:<br/> \"#{t}\"<br/>"
 			q.shorts << name
 			q.write_to_file @file
 		end

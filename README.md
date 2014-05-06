@@ -1,6 +1,6 @@
 **Interviewer**
 ===============
-*tt_interviewer** is a ruby tool, that helps teacher to easly build a huge
+*tt-interviewer** is a ruby tool, that helps teacher to easly build a huge
 amount of questions from a simple conceptual map.
 
 Steps:
@@ -65,29 +65,28 @@ This tool contains the next directory tree:
 ├── README.md
 └── spec
 
-
 ```
 
 * *README.es.md*: This help file
-* *build*: This is the script file that will "build" our questions from
-conceptual map files.
+* *build*: This is the script file that will "build" our questions file 
+from conceptual map files.
 * *lib*: Directory that contains the ruby classes and modules of this project.
-* *maps*: Directories where we save our own conceptual maps (HAML or XML file format).
+* *maps*: Directories where we save our own conceptual maps (using HAML or XML file format).
 * *projects*: Directory that contains config files for every project. This config 
 file are necessary to easily group parameters used by this tool. Also, 
 into this directory will be created the reports and output files (as GIFT, etc.)
-of this project.
+of every project.
 * *spec*: Directory that will contain the test units in the next future. I hope!.
 
 Conceptual Map
 ==============
-Into *input* directory we save our own concept map files. We could use subdirectories to
-better organization. As example we have the file `input/starwars/jedi.haml`, that
+Into *maps* directory we save our own concept map files. We could use subdirectories to
+better organization. As example we have the file `maps/demo/starwars/jedi.haml`, that
 contains one concept map about Jedi characters of StarWars film into HAML format.
 
 Let's take a look:
 ```
-%map{ :version => '1' }
+%map{ :version => '1', :lang => 'es' }
   %concept
     %names obiwan
     %context personaje, starwars
@@ -141,26 +140,25 @@ the concept into the text.
 * **table**: Other way to build more sofisticated definitions/schemas is using "tables". It's similar
 to HTML tag. I mean, with this "table", we build tables of knowledge into the concept. We use "row",
 ans "col", to defines table-rows and row-cols, of course. We could see an 
-example into `input/starwars/jedi.haml`.
+example into `maps/demo/starwars/jedi.haml`.
 
 
 Run it
 ======
-First we need to create a config file. Let see `config/starwars.yaml`:
+First we need to create a config file. Let see `projects/demo/starwars/config.yaml`:
 
 ```
 ---
-:logname: starwars.log
-:outputname: starwars-gift.txt
-:lesson_file: starwars-lesson.txt
-:lesson_separator: ' |'
-:inputdirs: 'input/starwars' 
+:projectdir: demo/starwars
+:inputdirs: 'maps/demo/starwars' 
 :process_file: 'jedi.haml'
 
 ```
 
-To run the tool we do `./build config/starwars.yaml` or `ruby build config/starwars.yaml`,
-and we'll see something like this on the screen. It's only brief information of the process.
+To run the tool we do `./build projects/demo/starwars/config.yaml` or 
+`ruby build projects/demo/starwars/config.yaml`, and we'll see something 
+like this on the screen.
+
 
 ```
 [INFO] Loading input data...
@@ -186,10 +184,12 @@ and we'll see something like this on the screen. It's only brief information of 
 * TOTAL(2) -----------------------------------(Q=74, E=18, %=400)
 
 ```
+It's only brief screen report the building process.
+
 
 Output files
 ============
-Let's see one output file `output/starwars-gift.txt`.
+Let's see output files as `projects/demo/starwars/*.txt`.
 
 > Let's see docs directory for more details.
 
