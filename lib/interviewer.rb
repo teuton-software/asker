@@ -191,8 +191,34 @@ class Interviewer
 		end
 	end
 	
-	def create_project(pProjectname)
-		verbose "\n[INFO] Creating project #{pProjectname}..."
+	def create_project(projectname)
+		puts "\n[INFO] Creating project #{projectname}"
+		projectdir="projects/#{projectname}"
+		if !Dir.exists? projectdir
+			puts "* Creating directory ... #{projectdir}"
+			Dir.mkdir(projectdir)
+		else
+			puts "* Exists directory! #{projectdir}"
+		end
+		filename=projectdir+"/config.yaml"
+		if !File.exists? filename
+			puts "* Creating file ... #{filename}"
+			f=File.new(filename,'w')
+			f.write("---\n")
+			f.close
+		else
+			puts "* Exists file! #{filename}"
+		end
+		filename=projectdir+"/.gitignore"
+		if !File.exists? filename
+			puts "* Creating file ... #{filename}"
+			f=File.new(filename,'w')
+			f.write("*.txt\n*.log\n*.tmp\n")
+			f.close
+		else
+			puts "* Exists file! #{filename}"
+		end
+		puts 
 	end
 	
 	def close_log_file
