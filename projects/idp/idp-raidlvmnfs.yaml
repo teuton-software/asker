@@ -1,7 +1,5 @@
 ---
-:logname: idp-raidlvmnfs.log
-:outputname: idp-raidlvmnfs-gift.txt
-:lesson_file: idp-raidlvmnfs-lesson.txt
-:lesson_separator: ' |'
-:inputdirs: input/idp 
+:projectdir: idp
+:inputdirs: maps/idp,maps/fuw
 :process_file: idp-raidlvmnfs.xml
+:projectname: idp-raidlvmnfs

@@ -42,7 +42,6 @@ class Interviewer
 		else
 			raise "[ERROR] Configuration params format is <#{pArgs.class.to_s}>!"
 		end
-		
 
 		@param[:projectdir]=@param[:projectdir] || "projects/default"
 		
@@ -192,24 +191,20 @@ class Interviewer
 		end
 	end
 	
+	def create_project(pProjectname)
+		verbose "\n[INFO] Creating project #{pProjectname}..."
+	end
+	
 	def close_log_file
 		@logfile.close
 	end
-
-	def init_config_file(pFilename='default')
-		init
-		tags=[ :projectname, :inputdirs, :process_file]
-		sample={}
-		tags.each { |t| sample[t]=@param[t].gsub('default',pFilename) }
-		puts YAML::dump(sample)
-	end
-	
+		
 private	
 
 	def verbose(lsText)
 		if @verbose then
 			puts lsText
-			@logfile.write(lsText.to_s+"\n")
+			@logfile.write(lsText.to_s+"\n") if @logfile
 		end
 	end
 end	

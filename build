@@ -5,12 +5,12 @@ require_relative 'lib/interviewer'
 
 def show_help
 	puts "Usage:"
-	puts "   YAMLFILE        Build quiz and lesson data files, from YAML config file."
-	puts "                   Example: #{$0} projects/demo/starwars/config.yaml"
-	puts "   help            Show this help."
-	puts "   init FILENAME   Create new project."
-	puts "                   Example: #{$0} init foo"
-	puts "   version         Show the program version."
+	puts "   path/to/YAMLFILE    Build quiz and lesson data files, from YAML config file."
+	puts "                       Example: #{$0} projects/demo/starwars/config.yaml"
+	puts "   help                Show this help."
+	puts "   create PROJECTNAME  Create new FOO project."
+	puts "                       Example: #{$0} init projects/foo"
+	puts "   version             Show the program version."
 end
 
 def show_version
@@ -23,8 +23,8 @@ elsif ['h','-h','help','--help'].include?(ARGV.first) then
 	show_help
 elsif ['v','-v','version','--version'].include?(ARGV[0]) then
 	show_version
-elsif help_words=['i','-i','init','--init'].include?(ARGV[0]) then
-	Interviewer.instance.init_config_file(ARGV[1])
+elsif help_words=['c','-c','create','--create'].include?(ARGV[0]) then
+	Interviewer.instance.create_project(ARGV[1])
 else
 	Interviewer.instance.run(ARGV.first)
 end
