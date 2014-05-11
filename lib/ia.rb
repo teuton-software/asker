@@ -17,7 +17,7 @@ module IA
 				q.init
 				q.set_choice
 				q.name="#{name}-#{@num.to_s}a1-desc"
-				q.text=LANG::text('a1-desc',t,lang)
+				q.text=LANG::text(lang,'a1-desc',t)
 				q.good=name
 				q.bads << "Ninguna es correcta"
 				q.bads << a[2]
@@ -33,7 +33,7 @@ module IA
 				q.init
 				q.set_choice
 				q.name="#{name}-#{@num.to_s}a2-desc"
-				q.text=LANG::text('a2-desc',t,lang)
+				q.text=LANG::text(lang,'a2-desc',t)
 				q.good="Ninguna es correcta"
 				q.bads << a[1]
 				q.bads << a[2]
@@ -45,7 +45,7 @@ module IA
 			q.init
 			q.set_boolean
 			q.name="#{name}-#{@num.to_s}a3-desc"
-			q.text="Definición de #{name}\:<br/> \"#{t}\"<br/>"
+			q.text=LANG::text(lang,'a3-desc',name,t)
 			q.good="TRUE"
 			q.write_to_file @file
 
@@ -54,7 +54,7 @@ module IA
 				q.init
 				q.set_boolean
 				q.name="#{name}-#{@num.to_s}a4-desc"
-				q.text="Definición de #{neighbors[0][:concept].name}\:<br/> \"#{t}\"<br/>"
+				q.text=LANG::text(lang,'a4-desc',neighbors[0][:concept].name,t)
 				q.good="FALSE"
 				q.write_to_file @file
 			end

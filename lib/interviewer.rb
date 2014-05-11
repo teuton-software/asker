@@ -47,8 +47,6 @@ class Interviewer
 			raise "[ERROR] Configuration params format is <#{pArgs.class.to_s}>!"
 		end
 
-		#@param[:projectdir]=@param[:projectdir] || "projects/default"
-		
 		@param[:process_file]=@param[:process_file] || "#{@param[:projectdir].split("/").last}.haml"
 		process_filename_without_ext=@param[:process_file][0..-6] # Extract extension .yaml
 		@param[:projectname]=@param[:projectname] || process_filename_without_ext
