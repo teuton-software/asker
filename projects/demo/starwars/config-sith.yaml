@@ -1,4 +1,3 @@
 ---
-:projectdir: demo/starwars
 :inputdirs: 'maps/demo/starwars' 
 :process_file: 'sith.haml'

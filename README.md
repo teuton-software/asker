@@ -27,8 +27,8 @@ If I get an open and abstract problem, their resolution will have several
 steps or measurable milestones. So we could transform an open problem, 
 into a close one. And I have to focus on measure this aspects.
 
-Besides, if I bomb the student with a huge amount of diferent questions
-of the same concept. Probably I will be near to know and measure, the
+Besides, if I "bomb" the student with a huge amount of diferent questions
+about one concept, probably I could be near of knowing and measuring, the
 student asimilation of this concepts.
 
 **Installation**
@@ -42,7 +42,7 @@ Install required gems with `rake install_gems`.
 **Directories description**
 ===========================
 
-This tool contains the next directory tree:
+This is the directory tree:
 
 ```
 .
@@ -84,7 +84,7 @@ Into *maps* directory we save our own concept map files. We could use subdirecto
 better organization. As example we have the file `maps/demo/starwars/jedi.haml`, that
 contains one concept map about Jedi characters of StarWars film into HAML format.
 
-Let's take a look:
+Let's take a look (Spanish example, I know. Soon I'll write the english version):
 ```
 %map{ :version => '1', :lang => 'es' }
   %concept
@@ -145,42 +145,41 @@ example into `maps/demo/starwars/jedi.haml`.
 
 Run it
 ======
-First we need to create a config file. Let see `projects/demo/starwars/config.yaml`:
+First we need to create a config file. Let see `projects/demo/starwars/config-jedi.yaml`:
 
 ```
 ---
-:projectdir: demo/starwars
 :inputdirs: 'maps/demo/starwars' 
 :process_file: 'jedi.haml'
 
 ```
 
-To run the tool we do `./build projects/demo/starwars/config.yaml` or 
-`ruby build projects/demo/starwars/config.yaml`, and we'll see something 
+To run the tool we do `./build projects/demo/starwars/config-jedi.yaml` or 
+`ruby build projects/demo/starwars/config-jedi.yaml`, and we'll see something 
 like this on the screen.
 
 
 ```
 [INFO] Loading input data...
-* HAML/XML files from input/starwars: jedi.haml, sith.haml 
+* HAML/XML files from maps/demo/starwars: jedi.haml, sith.haml 
 [INFO] Showing concept data...
- <obiwan(1)>
+ <sidious(3)> lang=es
   .context    = personaje, starwars
-  .tags       = maestro, jedi, profesor, annakin, skywalker, alumno, quigon-jinn
-  .text       = Jedi, maestro de Annakin Skywalker...
+  .tags       = humano, maestro, sith, alumno, plagueis
+  .text       = Sith, maestro de todos los siths...
   .tables     = [$característica$descripción]
-  .neighbors  = sidious(40.0), yoda(40.0), maul(30.0)
- <yoda(2)>
+  .neighbors  = maul(50.0), obiwan(50.0), yoda(37.5)
+ <maul(4)> lang=es
   .context    = personaje, starwars
-  .tags       = maestro, jedi
-  .text       = Jedi, maestro de todos los jedis...
+  .tags       = lord, sith, alumno, emperador
+  .text       = Lord Sirve como el aprendiz de Darth Sidious. Portando un sab...
   .tables     = [$característica$descripción]
-  .neighbors  = obiwan(80.0), sidious(60.0), maul(40.0)
+  .neighbors  = sidious(57.14), obiwan(42.85), yoda(28.57)
 
 [INFO] Creating output files...
 [INFO] Showing concept stats...
-* Concept: name=obiwan ------------------------(Q=32, E=8, %=400)
-* Concept: name=yoda --------------------------(Q=42, E=10, %=400)
+* Concept: name=sidious -----------------------(Q=42, E=10, %=400)
+* Concept: name=maul --------------------------(Q=32, E=8, %=400)
 * TOTAL(2) -----------------------------------(Q=74, E=18, %=400)
 
 ```
@@ -189,7 +188,7 @@ It's only brief screen report the building process.
 
 Output files
 ============
-Let's see output files as `projects/demo/starwars/*.txt`.
+Let's see output files (*.txt) into `projects/demo/starwars/*.txt` directory.
 
 > Let's see docs directory for more details.
 

@@ -39,18 +39,22 @@ class Interviewer
 			@param=pArgs
 		elsif pArgs.class==String then
 			@param=YAML::load(File.open(pArgs))
+			@param[:configfilename]=pArgs
+			a=pArgs.split("/")
+			a.delete_at(-1)
+			@param[:projectdir]=a.join("/")
 		else
 			raise "[ERROR] Configuration params format is <#{pArgs.class.to_s}>!"
 		end
 
-		@param[:projectdir]=@param[:projectdir] || "projects/default"
+		#@param[:projectdir]=@param[:projectdir] || "projects/default"
 		
 		@param[:process_file]=@param[:process_file] || "#{@param[:projectdir].split("/").last}.haml"
 		process_filename_without_ext=@param[:process_file][0..-6] # Extract extension .yaml
 		@param[:projectname]=@param[:projectname] || process_filename_without_ext
 		
 		@param[:inputdirs]=@param[:inputdirs] || "maps/#{@param[:projectdir]}"
-		@param[:outputdir]=@param[:outputdir] || "projects/#{@param[:projectdir]}"
+		@param[:outputdir]=@param[:outputdir] || @param[:projectdir]
 		@param[:outputname]=@param[:outputname] || "#{@param[:projectname]}-gift.txt"
 		@param[:logname]=@param[:logname] || "#{@param[:projectname]}-log.txt"
 		@param[:lesson_file]=@param[:lesson_file] || "#{@param[:projectname]}-doc.txt"
@@ -205,6 +209,9 @@ class Interviewer
 			puts "* Creating file ... #{filename}"
 			f=File.new(filename,'w')
 			f.write("---\n")
+			f.write(":inputdirs: 'maps/#{projectname}'\n")
+			f.write(":process_file: '#{projectname}.haml'\n")
+			f.write("\n")
 			f.close
 		else
 			puts "* Exists file! #{filename}"
@@ -219,6 +226,11 @@ class Interviewer
 			puts "* Exists file! #{filename}"
 		end
 		puts 
+#		if !Dir.exists? "maps/#{projectdir}"
+#			puts "* Creating directory ... #{projectdir}"
+#		else
+#			puts "* Exists directory! #{projectdir}"
+#		end
 	end
 	
 	def close_log_file

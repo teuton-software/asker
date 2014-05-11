@@ -6,10 +6,10 @@ require_relative 'lib/interviewer'
 def show_help
 	puts "Usage:"
 	puts "   path/to/YAMLFILE    Build quiz and lesson data files, from YAML config file."
-	puts "                       Example: #{$0} projects/demo/starwars/config.yaml"
+	puts "                       Example: #{$0} projects/foo/config.yaml"
 	puts "   help                Show this help."
 	puts "   create PROJECTNAME  Create new FOO project."
-	puts "                       Example: #{$0} init projects/foo"
+	puts "                       Example: #{$0} create FOO"
 	puts "   version             Show the program version."
 end
 
