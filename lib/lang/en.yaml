@@ -6,3 +6,6 @@
 :a5desc: 'Definition of [<%=text1%>]\:<br/> \"<%=text2%>\"<br/>'
 :b1match: 'Related with concept <%=text1%>, associate every <%=text2%> with their <%=text3%><br/>.'
 :b2match: 'Related with concept <%=text1%>, associate every <%=text2%> with their <%=text3%><br/>.'
+:c1table: 'Concept <%=text1%>:<br/><%=text2%>\: [...]<br/><%=text3%>: \"<%=text4%>\"<br/>Complete with the right answer.'
+:c2table: 'Concept <%=text1%>:<br/><%=text2%>\: [...]<br/><%=text3%>: \"<%=text4%>\"<br/>Complete with the right answer.'
+

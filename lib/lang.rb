@@ -17,10 +17,11 @@ class Lang
 		@templates=YAML::load(File.new(filename))
 	end
 	
-	def text_for(pOption, pText1, pText2="", pText3="")
+	def text_for(pOption, pText1, pText2="", pText3="", pText4="")
 		text1=pText1
 		text2=pText2
 		text3=pText3
+		text4=pText4
 		
 		renderer = ERB.new(@templates[pOption])
 		output = renderer.result(binding)

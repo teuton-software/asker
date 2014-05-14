@@ -7,6 +7,7 @@ require 'yaml'
 require 'haml'
 require 'rexml/document'
 require_relative 'concept'
+require_relative 'lang'
 
 =begin
 The main method of Interviewer class is "run"
@@ -22,7 +23,7 @@ indicated by "outputdir/outputname" values.
 
 class Interviewer
 	include Singleton
-	attr_reader :param
+	attr_reader :param, :lang
 	
 	def run(pArgs={})
 		init pArgs
@@ -60,7 +61,7 @@ class Interviewer
 
 		@param[:category]=@param[:category] || :none
 		@param[:formula_weights]=@param[:formula_weights] || [1,1,1]
-		@param[:lang]= @param[:lang] || 'es'
+		@param[:lang]= @param[:lang] || 'en'
 		@param[:show_mode]=@param[:show_mode] || :default
 		@param[:verbose]=@param[:verbose] || true
 
@@ -108,11 +109,12 @@ class Interviewer
 				begin
 					lXMLdata=REXML::Document.new(lFileContent)
 					@param[:lang]=lXMLdata.root.attributes['lang'] || @param[:lang]
+					@lang=Lang.new(@param[:lang])
 					
 					lXMLdata.root.elements.each do |i|
 						if i.name=='concept' then
 							c=Concept.new(i)
-							c.lang=@param[:lang]
+							#c.lang=@param[:lang]
 							c.process=false
 							if ( @param[:process_file]==:default or @param[:process_file]==f.to_s ) then
 								c.process=true

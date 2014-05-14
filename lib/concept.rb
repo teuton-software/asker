@@ -9,11 +9,13 @@ class Concept
 	include IA
 	
 	attr_reader :id, :data, :num
-	attr_accessor :process, :lang
+	attr_accessor :process
 
 	@@id=0
 
 	def initialize(pXMLdata)
+		@lang=Interviewer.instance.lang
+		
 		@@id+=1
 		@id=@@id
 		
@@ -120,7 +122,7 @@ class Concept
 
 	def to_s
 		s=""
-		s=s+" <"+name+"("+@id.to_s+")> lang=#{lang}\n"
+		s=s+" <"+name+"("+@id.to_s+")> lang=#{@lang.lang}\n"
 		s=s+"  .context    = "+context.join(', ').to_s+"\n" if context.count>0
 		s=s+"  .tags       = "+tags.join(', ').to_s+"\n"
 		s=s+"  .text       = "+text[0..60].to_s+"...\n"

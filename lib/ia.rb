@@ -1,7 +1,6 @@
 # encoding: utf-8
 require_relative 'question'
 require_relative 'table'
-require_relative 'lang'
 
 module IA
 
@@ -16,8 +15,8 @@ module IA
 				@num+=1
 				q.init
 				q.set_choice
-				q.name="#{name}-#{@num.to_s}a1-desc"
-				q.text=LANG::text(lang,'a1-desc',t)
+				q.name="#{name}-#{@num.to_s}-a1desc"
+				q.text=@lang.text_for(:a1desc,t)
 				q.good=name
 				q.bads << "Ninguna es correcta"
 				q.bads << a[2]
@@ -32,8 +31,8 @@ module IA
 				@num+=1
 				q.init
 				q.set_choice
-				q.name="#{name}-#{@num.to_s}a2-desc"
-				q.text=LANG::text(lang,'a2-desc',t)
+				q.name="#{name}-#{@num.to_s}-a2desc"
+				q.text=@lang.text_for(:a2desc,t)
 				q.good="Ninguna es correcta"
 				q.bads << a[1]
 				q.bads << a[2]
@@ -44,8 +43,8 @@ module IA
 			@num+=1
 			q.init
 			q.set_boolean
-			q.name="#{name}-#{@num.to_s}a3-desc"
-			q.text=LANG::text(lang,'a3-desc',name,t)
+			q.name="#{name}-#{@num.to_s}-a3desc"
+			q.text=@lang.text_for(:a3desc,name,t)
 			q.good="TRUE"
 			q.write_to_file @file
 
@@ -53,8 +52,8 @@ module IA
 				@num+=1
 				q.init
 				q.set_boolean
-				q.name="#{name}-#{@num.to_s}a4-desc"
-				q.text=LANG::text(lang,'a4-desc',neighbors[0][:concept].name,t)
+				q.name="#{name}-#{@num.to_s}-a4desc"
+				q.text=@lang.text_for(:a4desc,neighbors[0][:concept].name,t)
 				q.good="FALSE"
 				q.write_to_file @file
 			end
@@ -62,8 +61,8 @@ module IA
 			@num+=1
 			q.init
 			q.set_short
-			q.name="#{name}-#{@num.to_s}a5-desc"
-			q.text="Definición de [#{ hiden_name }]\:<br/> \"#{t}\"<br/>"
+			q.name="#{name}-#{@num.to_s}-a5desc"
+			q.text=@lang.text_for(:a5desc, hiden_name, t )
 			q.shorts << name
 			q.write_to_file @file
 		end
@@ -89,8 +88,8 @@ module IA
 			@num+=1
 			q.init
 			q.set_match
-			q.name="#{name}-#{@num.to_s}b1-match-#{pTable.name}"
-			q.text="En relación al concepto #{name}, asocia cada #{pTable.fields[pIndex1].capitalize} con su #{pTable.fields[pIndex2].capitalize}<br/>."
+			q.name="#{name}-#{@num.to_s}-b1match-#{pTable.name}"
+			q.text=@lang.text_for(:b1match, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
 			q.matching << [ pList1[0][:data][pIndex1], pList1[0][:data][pIndex2] ]
 			q.matching << [ pList1[1][:data][pIndex1], pList1[1][:data][pIndex2] ]
 			q.matching << [ pList1[2][:data][pIndex1], pList1[2][:data][pIndex2] ]
@@ -106,8 +105,8 @@ module IA
 				@num+=1
 				q.init
 				q.set_match
-				q.name="#{name}-#{@num.to_s}b2-match-#{pTable.name}"
-				q.text="En relación al concepto #{name}, asocia cada #{pTable.fields[pIndex1].capitalize} con su #{pTable.fields[pIndex2].capitalize}<br/>."
+				q.name="#{name}-#{@num.to_s}-b2match-#{pTable.name}"
+				q.text=@lang.text_for(:b2match, name , pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize) 
 				q.matching << [ pList1[0][:data][pIndex1], pList1[0][:data][pIndex2] ]
 				q.matching << [ pList1[1][:data][pIndex1], pList1[1][:data][pIndex2] ]
 				q.matching << [ pList1[2][:data][pIndex1], pList1[2][:data][pIndex2] ]
@@ -142,8 +141,8 @@ module IA
 		if s.count>3 then		
 			@num+=1
 			q.init
-			q.name="#{name}-#{@num.to_s}c1-#{lTable.name}"
-			q.text="Concepto #{name}:<br/>#{lTable.fields[0].capitalize}\: [...]<br/>#{lTable.fields[1].capitalize}: \"#{lRow[:data][1]}\"<br/>Completa con la opción correcta."
+			q.name="#{name}-#{@num.to_s}-c1table-#{lTable.name}"
+			q.text=@lang.text_for(:c1table, name, lTable.fields[0].capitalize, lTable.fields[1].capitalize, lRow[:data][1])
 			q.good=lRow[:data][0]
 			q.bads << "Ninguna es correcta"
 			q.bads << a[2]
@@ -158,8 +157,8 @@ module IA
 		if s.count>4 then
 			@num+=1
 			q.init
-			q.name="#{name}-#{@num.to_s}c2-#{lTable.name}"
-			q.text="Concepto #{name}:<br/>#{lTable.fields[0].capitalize}\: [...]<br/>#{lTable.fields[1].capitalize}: \"#{lRow[:data][1]}\"<br/>Completa con la opción correcta."
+			q.name="#{name}-#{@num.to_s}-c2table-#{lTable.name}"
+			q.text=@lang.text_for(:c2table, name, lTable.fields[0].capitalize, lTable.fields[1].capitalize, lRow[:data][1])
 			q.good="Ninguna es correcta"
 			q.bads << a[2]
 			q.bads << a[3]

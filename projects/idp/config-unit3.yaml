@@ -2,4 +2,4 @@
 :projectdir: idp
 :inputdirs: maps/idp,maps/fuw
 :process_file: idp-u3.xml
-:projectname: idp-u3
+:projectname: idp-unit3
