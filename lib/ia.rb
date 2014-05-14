@@ -173,8 +173,9 @@ module IA
 		if s.count>3 then			
 			@num+=1
 			q.init
-			q.name="#{name}-#{@num.to_s}c3-#{lTable.name}"
-			q.text="Concepto #{name}:<br/>#{lTable.fields[0].capitalize}\: \"#{lRow[:data][0]}\"<br/>#{lTable.fields[1].capitalize}\: [...]<br/>Completa con la opción correcta."
+			q.name="#{name}-#{@num.to_s}-c3table-#{lTable.name}"
+			q.text="Concepto #{name}:<br/>#{lTable.fields[0].capitalize}\: \"#{lRow[:data][0]}\"<br/>#{lTable.fields[1].capitalize}\: [...]<br/>Completa con la opción correcta."			
+			q.text=@lang.text_for(:c3table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize)
 			q.good=a[0]
 			q.bads << "Ninguna es correcta"
 			q.bads << a[2]
@@ -189,8 +190,9 @@ module IA
 		if s.count>4 then			
 			@num+=1
 			q.init
-			q.name="#{name}-#{@num.to_s}c4-#{lTable.name}"
+			q.name="#{name}-#{@num.to_s}-c4table-#{lTable.name}"
 			q.text="Concepto #{name}:<br/>#{lTable.fields[0].capitalize}\: \"#{lRow[:data][0]}\"<br/>#{lTable.fields[1].capitalize}\: [...]<br/>Completa con la opción correcta."
+			q.text=@lang.text_for(:c4table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize)
 			q.good="Ninguna es correcta"
 			q.bads << a[2]
 			q.bads << a[3]
