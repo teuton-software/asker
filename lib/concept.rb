@@ -15,7 +15,7 @@ class Concept
 
 	def initialize(pXMLdata)
 		@lang=Interviewer.instance.lang
-		
+				
 		@@id+=1
 		@id=@@id
 		
