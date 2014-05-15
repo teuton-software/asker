@@ -10,5 +10,6 @@
 :c2table: '[Concepto <%=text1%>]<br/><%=text2%>\: [...]<br/><%=text3%>\: \"<%=text4%>\"<br/>Elige la opción correcta.'
 :c3table: '[Concepto <%=text1%>]<br/><%=text2%>\: \"<%=text3%>\"<br/><%=text4%>\: [...]<br/>Elige la opción correcta.'
 :c4table: '[Concepto <%=text1%>]<br/><%=text2%>\: \"<%=text3%>\"<br/><%=text4%>\: [...]<br/>Elige la opción correcta.'
-
+:c5table: '[Concepto <%=text1%>]<br/>La asociación siguiente es correcta\:<br/><%=text2%>\: \"<%=text3%>\"<br/><%=text4%>\: \"<%=text5%>\"<br/>.'
+:c6table: '[Concepto <%=text1%>]<br/>La asociación siguiente es correcta\:<br/><%=text2%>\: \"<%=text3%>\"<br/><%=text4%>\: \"<%=text5%>\"<br/>.'
 

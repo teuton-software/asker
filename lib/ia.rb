@@ -203,8 +203,8 @@ module IA
 		@num+=1
 		q.init
 		q.set_boolean
-		q.name="#{name}-#{@num.to_s}c5-#{lTable.name}"
-		q.text="Concepto #{name}:<br/>La asociación siguiente es correcta\:<br/>#{lTable.fields[0].capitalize}\: \"#{lRow[:data][0]}\"<br/>#{lTable.fields[1].capitalize}\: #{lRow[:data][1]}<br/>."
+		q.name="#{name}-#{@num.to_s}c5table-#{lTable.name}"
+		q.text=@lang.text_for(:c5table, name, lTable.fields[0].capitalize, lRow[:data][0] ,lTable.fields[1].capitalize, lRow[:data][1] )
 		q.good="TRUE"
 		q.write_to_file @file
 
@@ -216,8 +216,8 @@ module IA
 			@num+=1
 			q.init
 			q.set_boolean
-			q.name="#{name}-#{@num.to_s}c6-#{lTable.name}"
-			q.text="Concepto #{name}:<br/>La asociación siguiente es correcta\:<br/>#{lTable.fields[0].capitalize}\: \"#{lRow[:data][0]}\"<br/>#{lTable.fields[1].capitalize}\: \"#{a[1]}\"<br/>."
+			q.name="#{name}-#{@num.to_s}-c6table-#{lTable.name}"
+			q.text=@lang.text_for(:c6table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize, a[1] )
 			q.good="FALSE"
 			q.write_to_file @file
 		end

@@ -23,7 +23,6 @@
     %names Directorio-Activo, DA, AD, Active Directory
     %context sistemas operativos, dominio, samba
     %tags conjunto, arbol, dominio, constituyen, espacio, nombres, no contiguo
-    %text Active Directory
     %text Es el término que usa Microsoft para referirse a su implementación de servicio de directorio en una red distribuida de computadores. Utiliza distintos protocolos (principalmente LDAP, DNS, DHCP, Kerberos...).
     %text De forma sencilla se puede decir que es un servicio establecido en uno o varios servidores en donde se crean objetos tales como usuarios, equipos o grupos, con el objetivo de administrar los inicios de sesión en los equipos conectados a la red, así como también la administración de políticas en toda la red.
     %text Su estructura jerárquica permite mantener una serie de objetos relacionados con componentes de una red, como usuarios, grupos de usuarios, permisos y asignación de recursos y políticas de acceso.1
@@ -32,10 +31,7 @@
       %title Directorios de la instalación del DA
       %row
         %col C:\WINDOWS\NTDS
-        %col Ruta por defecto,donde almacenaremos la base de datos del Active Directory.
-      %row
-        %col C:\WINDOWS\NTDS
-        %col Ruta por defecto, donde almacenaremos el registro de Active Directory en Windows Server.
+        %col Ruta por defecto,donde almacenaremos la base de datos y el registro de Active Directory en Windows Server.
       %row
         %col C:\WINDOWS\SYSVOL
         %col Ruta por defecto, donde almacena la copia para los archivos públicos del dominio. El contenido de la carpeta se replica en todos los controladores de dominio dentro del dominio.
