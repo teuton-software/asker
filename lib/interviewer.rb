@@ -163,13 +163,13 @@ class Interviewer
 			if c.process?
 				e=c.data[:texts].size
 				c.data[:tables].each { |t| e=e+t.data[:fields].size*t.data[:rows].size }
-				verbose "* Concept: name=#{c.name} "+"-"*(30-c.name.size).abs+"(Q=#{c.num.to_s}, E=#{e.to_s}, %=#{(c.num/e*100).to_i})"
+				verbose "* Concept: name=#{c.name} "+"-"*(30-c.name.size).abs+"(Q=#{c.num.to_s}, E=#{e.to_s}, %=#{(c.num.to_f/e.to_f*100.0).to_i})"
 				total_q+=c.num
 				total_e+=e
 				total_c+=1
 			end
 		end
-		verbose "* TOTAL(#{total_c.to_s}) "+"-"*35+"(Q=#{total_q.to_s}, E=#{total_e.to_s}, %=#{(total_q/total_e*100).to_i})"
+		verbose "* TOTAL(#{total_c.to_s}) "+"-"*35+"(Q=#{total_q.to_s}, C=#{@concepts.size.to_s}, %=#{(total_q.to_f/@concepts.size.to_f*100.0).to_i})"
 	end
 	
 	def create_output_files
