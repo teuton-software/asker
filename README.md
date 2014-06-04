@@ -188,7 +188,7 @@ It's only brief screen report the building process.
 
 Output files
 ============
-Let's see output files (*.txt) into `projects/demo/starwars/*.txt` directory.
+Let's see output files (*.txt) into `projects/demo/starwars` directory.
 
 > Let's see docs directory for more details.
 
