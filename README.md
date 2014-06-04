@@ -46,7 +46,6 @@ This is the directory tree:
 
 ```
 .
-├── build
 ├── docs
 ├── lib
 ├── LICENSE
@@ -63,12 +62,13 @@ This is the directory tree:
 │           └── sith.yaml
 ├── Rakefile
 ├── README.md
+├── run
 └── spec
 
 ```
 
 * *README.es.md*: This help file
-* *build*: This is the script file that will "build" our questions file 
+* *run*: This is the script file that will build our questions file 
 from conceptual map files.
 * *lib*: Directory that contains the ruby classes and modules of this project.
 * *maps*: Directories where we save our own conceptual maps (using HAML or XML file format).
@@ -154,8 +154,8 @@ First we need to create a config file. Let see `projects/demo/starwars/config-je
 
 ```
 
-To run the tool we do `./build projects/demo/starwars/config-jedi.yaml` or 
-`ruby build projects/demo/starwars/config-jedi.yaml`, and we'll see something 
+To run the tool we do `./run projects/demo/starwars/config-jedi.yaml` or 
+`ruby run projects/demo/starwars/config-jedi.yaml`, and we'll see something 
 like this on the screen.
 
 
