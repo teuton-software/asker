@@ -69,13 +69,19 @@ module IA
 			
 			# filtered text questions
 			filtered=@lang.text_with_connectors(t)
-			if filtered[:words].size==4 then
+			if filtered[:words].size>=4 then
 				@num+=1
 				q.init
 				q.set_match
 				q.name="#{name}-#{@num.to_s}-a6match"
 				
-				indexes=[0,1,2,3]
+				indexes=Set.new
+				while indexes.size<4 
+					i=rand(filtered[:words].size)
+					indexes << i
+				end
+				indexes=indexes.to_a
+				
 				s=@lang.build_text_from_filtered( filtered, indexes )
 				q.text=@lang.text_for(:a6match, name , s)
 				indexes.each { |value| q.matching << [ value.to_s, filtered[:words][value][:word] ] }

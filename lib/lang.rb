@@ -65,36 +65,6 @@ class Lang
 		return text_filter_connectors(pText, true)
 	end
 	
-	def simplify_filteredtext( pFilteredText, pMax)
-		lines=pFilteredText[:lines]
-		hidden_words=pFilteredText[:words]
-		
-		while hidden_words.size>pMax
-			number=rand(hidden_words.size)
-
-			lines.each do |line|
-				j=line.index(number)
-				line[j]=hidden_words[number] if !j.nil?
-			end
-			
-			lines.each do |line|
-				(number..hidden_words.size).to_a.each do |i|
-					if line[i].class==Numeric and line[i]>number
-						line[i]-=1
-					end
-				end
-			end
-
-			hidden_words.delete_at(number)
-			
-		end
-
-		result={}
-		result[:lines]=lines
-		result[:words]=hidden_words
-		return result
-	end
-
 	def build_text_from_filtered( pStruct, pIndexes)
 		lines = pStruct[:lines]
 				
@@ -110,7 +80,7 @@ class Lang
 						lrow = pStruct[:words][value][:row]
 						lcol = pStruct[:words][value][:col]
 						lword = pStruct[:words][value][:word]
-						lText+=" "+value
+						lText+=" "+lword
 					end
 				end
 			end
