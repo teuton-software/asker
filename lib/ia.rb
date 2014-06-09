@@ -69,13 +69,16 @@ module IA
 			
 			# filtered text questions
 			filtered=@lang.text_with_connectors(t)
-			if filtered[:hidden_words].size>2 and filtered[:hidden_words].size<6 then
+			if filtered[:words].size==4 then
 				@num+=1
 				q.init
 				q.set_match
 				q.name="#{name}-#{@num.to_s}-a6match"
-				q.text=@lang.text_for(:a6match, name , filtered[:lines].join(" "))
-				filtered[:hidden_words].each_with_index { |value, index| q.matching << [ index.to_s, value ] }
+				
+				indexes=[0,1,2,3]
+				s=@lang.build_text_from_filtered( filtered, indexes )
+				q.text=@lang.text_for(:a6match, name , s)
+				indexes.each { |value| q.matching << [ value.to_s, filtered[:words][value][:word] ] }
 				q.write_to_file @file				
 			end
 		end

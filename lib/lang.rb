@@ -33,26 +33,27 @@ class Lang
 	end
 	
 	def text_filter_connectors(pText, pFilter)
-		raw_lines=pText.split(".")
-		lines=[]
-		hidden_words=[]
-		raw_lines.each do |line| 
+		input_lines=pText.split(".")
+		output_lines=[]
+		output_words=[]
+		input_lines.each_with_index do |line, rowindex| 
 			row=[]
-			line.split(" ").each do |word|
+			line.split(" ").each_with_index do |word,colindex|
 			  flag=@connectors.include? word.downcase
 			  
 				if (flag and pFilter) or (!flag and !pFilter) then
-					hidden_words<<word
-					row << (hidden_words.size-1)
+					output_words<< {:word => word, :row => rowindex, :col => colindex }
+					row << (output_words.size-1)
 				else
 					row << word
 				end
 			end
-			lines << row
+			row << "."
+			output_lines << row
 		end		
 		result={}
-		result[:lines]=lines
-		result[:hidden_words]=hidden_words
+		result[:lines]=output_lines
+		result[:words]=output_words
 		return result
 	end
 
@@ -66,7 +67,7 @@ class Lang
 	
 	def simplify_filteredtext( pFilteredText, pMax)
 		lines=pFilteredText[:lines]
-		hidden_words=pFilteredText[:hidden_words]
+		hidden_words=pFilteredText[:words]
 		
 		while hidden_words.size>pMax
 			number=rand(hidden_words.size)
@@ -90,8 +91,31 @@ class Lang
 
 		result={}
 		result[:lines]=lines
-		result[:hidden_words]=hidden_words
+		result[:words]=hidden_words
 		return result
+	end
+
+	def build_text_from_filtered( pStruct, pIndexes)
+		lines = pStruct[:lines]
+				
+		lText=""
+		lines.each do |line|
+			line.each do |value|
+				if value.class==String
+					lText+=" "+value 
+				elsif value.class==Fixnum
+					if pIndexes.include? value then
+						lText+=" [#{value.to_s}]"
+					else	
+						lrow = pStruct[:words][value][:row]
+						lcol = pStruct[:words][value][:col]
+						lword = pStruct[:words][value][:word]
+						lText+=" "+value
+					end
+				end
+			end
+		end
+		return lText
 	end
 	
 end
