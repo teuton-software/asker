@@ -58,6 +58,7 @@ module IA
 				q.write_to_file @file
 			end
 			
+			# hidden name questions
 			@num+=1
 			q.init
 			q.set_short
@@ -65,6 +66,18 @@ module IA
 			q.text=@lang.text_for(:a5desc, hiden_name, t )
 			q.shorts << name
 			q.write_to_file @file
+			
+			# filtered text questions
+			filtered=@lang.text_with_connectors(t)
+			if filtered[:hidden_words].size>2 and filtered[:hidden_words].size<6 then
+				@num+=1
+				q.init
+				q.set_match
+				q.name="#{name}-#{@num.to_s}-a6match"
+				q.text=@lang.text_for(:a6match, name , filtered[:lines].join(" "))
+				filtered[:hidden_words].each_with_index { |value, index| q.matching << [ index.to_s, value ] }
+				q.write_to_file @file				
+			end
 		end
 	end
 
@@ -230,8 +243,9 @@ module IA
 			@num+=1
 			q.init
 			q.set_boolean
-			q.name="#{name}-#{@num.to_s}c7-#{lTable.name}"
+			q.name="#{name}-#{@num.to_s}c7table-#{lTable.name}"
 			q.text="Concepto #{name}:<br/>La asociación siguiente es correcta\:<br/>#{lTable.fields[0].capitalize}\: \"#{a[1]}\"<br/>#{lTable.fields[1].capitalize}\: \"#{lRow[:data][1]}\"<br/>."
+			q.text=@lang.text_for(:c7table, name, lTable.fields[0].capitalize, a[1], lTable.fields[1].capitalize, lRow[:data][1] )
 			q.good="FALSE"
 			q.write_to_file @file
 		end

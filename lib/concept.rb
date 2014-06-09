@@ -49,6 +49,17 @@ class Concept
 			end
 		end
 		@data[:misspelled]=misspelled_name
+		
+		#puts "===\n#{@data[:names].to_s}:"
+		#r=@lang.text_with_connectors(@data[:texts][0])
+		#puts " #{r[:lines]}\n #{r[:hidden_words]}"
+		#s=@lang.simplify_filteredtext(r,4)
+		#puts " #{s[:lines]}\n #{s[:hidden_words]}"
+		
+		#r=@lang.text_without_connectors(@data[:texts][0])
+		#puts " #{r[:lines]}\n #{r[:hidden_words]}"
+
+
 	end
 	
 	def name
