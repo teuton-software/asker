@@ -280,11 +280,11 @@ module IA
 	end
 	
 	def calculate_nearness_between_texts(pText1, pText2)
+		return 0.0 if pText2.nil? or pText2.size==0
+		
 		words=pText1.split(" ")
 		count=0
-		words.each do |w|
-			count +=1 if pText2.include? w
-		end
+		words.each { |w| count +=1 if pText2.include?(w) }
 		return (count*100/words.count)
 	end	
 

@@ -1,7 +1,0 @@
----
-:logname: fuw-cpd.log
-:outputname: fuw-cpd-gift.txt
-:lesson_file: fuw-cpd-lesson.txt
-:lesson_separator: ' |'
-:inputdirs: 'input/idp,input/fuw'
-:process_file: cpd.xml

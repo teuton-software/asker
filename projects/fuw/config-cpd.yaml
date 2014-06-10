@@ -1,0 +1,4 @@
+---
+:projectdir: fuw
+:inputdirs: maps/idp,maps/fuw
+:process_file: cpd.haml
