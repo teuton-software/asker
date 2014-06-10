@@ -76,15 +76,18 @@ module IA
 				q.name="#{name}-#{@num.to_s}-a6match"
 				
 				indexes=Set.new
+				words=filtered[:words]
 				while indexes.size<4 
-					i=rand(filtered[:words].size)
-					indexes << i
+					i=rand(filtered[:words].size)					
+					flag=true
+					flag=false if words[i].include? "[" or words[i].include? "]" or words[i].include?("(") or words[i].include?(")") or words[i].include?("\"")
+					indexes << i if flag
 				end
 				indexes=indexes.to_a
 				
 				s=@lang.build_text_from_filtered( filtered, indexes )
 				q.text=@lang.text_for(:a6match, name , s)
-				indexes.each { |value| q.matching << [ value.to_s, filtered[:words][value][:word] ] }
+				indexes.each { |value| q.matching << [ value.to_s, filtered[:words][value][:word].downcase ] }
 				q.write_to_file @file				
 			end
 		end

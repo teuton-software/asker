@@ -3,19 +3,19 @@
     %names monitorización
     %context sistemas operativos, monitorización, auditoría
     %tags registrar, actividad, sistema, histórico
-    %text Con [***], toda la actividad importante del sistema queda registrada. Esto nos permite tener un histórico del comportamiento del sistema, que nos ayuda a modo de "caja negra", a reconstruir situaciones del pasado para diversos fines.
+    %text La tarea de [***] implica que toda la actividad relevante del sistema debe quedar registrada. Esto nos permite tener un histórico del comportamiento del sistema, que nos ayuda a modo de "caja negra", a reconstruir situaciones del pasado para diversos fines.
 
   %concept
     %names visor-de-sucesos
     %context sistemas operativos, monitorización, auditoría
     %tags registrar, actividad, sistema, histórico, windows
-    %text Es la herramienta, por defecto, para visualizar los evento monitorizados en los sitemas Windows.
+    %text Es la herramienta, por defecto, para visualizar los eventos monitorizados en los sitemas Windows.
 
   %concept
     %names rsyslog
     %context sistemas operativos, monitorización, auditoría
     %tags registrar, actividad, sistema, histórico, gnu/linux
-    %text Es la herramienta, por defecto, de monitorización de los sitemas basados en GNU/Linux.
+    %text Es el servicio que registra los eventos de monitorización, por defecto, en los sistemas basados en GNU/Linux.
     %table{ :fields => 'característica,descripción' }
       %title Características de rsyslog
       %row
@@ -98,7 +98,7 @@
     %names webmin
     %context sistemas operativos, monitorización, auditoría
     %tags visor, consultar, actividad, sistema, histórico, gnu/linux
-    %text Es la herramienta, por defecto, de monitorización de los sitemas basados en GNU/Linux.
+    %text Es una herramienta de entorno gráfico para la gestion de la monitorización ( entre otras cosas ) de los sistemas basados en GNU/Linux.
     %table{ :fields => 'acción,descripción' }
       %title Programa Webmin
       %row
@@ -122,3 +122,11 @@
       %row
         %col Ir a menú "System -> System Log"
         %col Opción de analizar los ficheros de log con la herramienta webmin.
+
+  %concept
+    %names ASCII
+    %context sistemas operativos, monitorización, auditoría
+    %tags código, caracteres, bits
+    %text Es un código de carácteres basado en el alfabeto latino, tal como se usa en inglés moderno y en otras lenguas occidentales. Fue creado en 1963 por el ANSI como una refundición o evolución de los conjuntos de códigos utilizados entonces en telegrafía.
+    %text El código [***] utiliza 7 bits para representar los carácteres, aunque inicialmente empleaba un bit adicional (bit de paridad) que se usaba para detectar errores en la transmisión.
+
