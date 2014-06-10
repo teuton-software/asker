@@ -1,0 +1,3 @@
+---
+:inputdirs: maps/idp,maps/fuw
+:process_file: monitorizacion.haml
