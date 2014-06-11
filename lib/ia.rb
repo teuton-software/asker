@@ -80,7 +80,7 @@ module IA
 				while indexes.size<4 
 					i=rand(filtered[:words].size)					
 					flag=true
-					flag=false if words[i].include? "[" or words[i].include? "]" or words[i].include?("(") or words[i].include?(")") or words[i].include?("\"")
+					flag=false if words[i].include?("[") or words[i].include?("]") or words[i].include?("(") or words[i].include?(")") or words[i].include?("\"")
 					indexes << i if flag
 				end
 				indexes=indexes.to_a

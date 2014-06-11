@@ -130,3 +130,24 @@
     %text Es un código de carácteres basado en el alfabeto latino, tal como se usa en inglés moderno y en otras lenguas occidentales. Fue creado en 1963 por el ANSI como una refundición o evolución de los conjuntos de códigos utilizados entonces en telegrafía.
     %text El código [***] utiliza 7 bits para representar los carácteres, aunque inicialmente empleaba un bit adicional (bit de paridad) que se usaba para detectar errores en la transmisión.
 
+  %concept
+    %names logrotate
+    %context sistemas operativos, monitorización, auditoría
+    %tags rotar, ficheros, log, gnu/linux
+    %text Diseñado para facilitar la administración de ficheros de log de gran tamaño. Permite rotación automática, compresión, eliminación y envío de ficheros de log. Cada fichero de log puede ser gestionado periódicamente.
+    %table{ :fields => 'característica,descripción' }
+      %title Características de logrotate
+      %row
+        %col /etc/logrotate.conf
+        %col Por defecto, es el fichero principal de configuración del programa logrotate en GNU/Linux.
+      %row
+        %col /etc/logrotate.d
+        %col Directorio GNU/Linux, donde podemos crear nuestras configuraciones de de rotación de log personalizadas para logrotate.
+    %table{ :fields => 'acción,descripción' }
+      %title Programa logrotate
+      %row
+        %col Reiniciar el equipo
+        %col Para que se dispare la rotación de log (logrotate) automáticamente.
+      %row
+        %col /usr/sbin/logrotate -f /etc/logrotate.conf 
+        %col Comando/programa para ejecutar de forma manual el proceso de rotación de logs del programa logrotate. 
