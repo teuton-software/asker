@@ -5,40 +5,29 @@ require_relative '../lib/question'
 describe Question do
 	let(:question) { Question.new }
 	context "has attributes" do
-		it "comment" do
-			expect(question).to respond_to :comment
-			expect(question.comment).to be_nil
-			question.comment="Random comment"
-			expect(question.comment).to be_eql "Random comment"
+		list=["comment","name","text","good"]
+		list.each do |item|
+			it item do
+				expect(question).to respond_to item.to_sym
+				expect(question.send(item)).to be_eql("")
+				question.send(item+"=","Some text")
+				expect(question.send(item)).to be_eql "Some text"
+			end
 		end
-		it "name" do
-			expect(question).to respond_to :name
-			expect(question.name).to be_nil
-			question.name="Random name"
-			expect(question.name).to be_eql "Random name"
-		end
-		it "text" do
-			expect(question).to respond_to :text
-			expect(question.text).to be_eql ''
-			question.text="Random text"
-			expect(question.text).to be_eql "Random text"
-		end
-		it "good" do
-			expect(question).to respond_to :good
-			expect(question.good).to be_nil
-			question.good="Random good"
-			expect(question.good).to be_eql "Random good"
-		end
+		
 	end
 	
 	describe "has Array attributes" do
-		it "bads Array" do
-			expect(question).to respond_to :bads
-			expect(question.bads).to be_eql []
-			question.bads << "bad1"
-			question.bads << "bad2"
-			question.bads << "bad3"
-			expect(question.bads).to match_array ["bad1","bad2","bad3"]
+		list=["bads", "shorts"]
+		list.each do |item|
+			it item do 
+				expect(question).to respond_to :bads
+				expect(question.bads).to be_eql []
+				question.bads << "bad1"
+				question.bads << "bad2"
+				question.bads << "bad3"
+				expect(question.bads).to match_array ["bad1","bad2","bad3"]
+			end
 		end
 
 		it "matching array" do

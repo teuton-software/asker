@@ -11,11 +11,11 @@ class Question
 	end
 	
 	def init
-		@name=nil
-		@comment=nil
-		@text=''
+		@name=""
+		@comment=""
+		@text=""
 		@type=:choice
-		@good=nil
+		@good=""
 		@bads=[]
 		@matching=[]
 		@shorts=[]
