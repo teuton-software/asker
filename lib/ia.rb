@@ -87,7 +87,7 @@ module IA
 				
 				s=@lang.build_text_from_filtered( filtered, indexes )
 				q.text=@lang.text_for(:a6match, name , s)
-				indexes.each { |value| q.matching << [ value.to_s, filtered[:words][value][:word].downcase ] }
+				indexes.each { |value| q.matching << [ filtered[:words][value][:word].downcase, value.to_s ] }
 				q.write_to_file @file				
 			end
 		end

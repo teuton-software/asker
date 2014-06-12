@@ -4,7 +4,7 @@
 :a3desc: 'Definition of [<%=text1%>]\:<br/> "<%=text2%>"<br/>'
 :a4desc: 'Definition of [<%=text1%>]\:<br/> "<%=text2%>"<br/>'
 :a5desc: 'Definition of [<%=text1%>]\:<br/> "<%=text2%>"<br/>'
-:a6match: 'Definition of [<%=text1%>]\:<br/> "<%=text2%>"<br/> Associate every word with the right position inside the text.'
+:a6match: 'Definition of [<%=text1%>]\:<br/> "<%=text2%>"<br/><br/>(Associate every word with the right position inside the text)'
 :b1match: 'Related with concept <%=text1%>, associate every <%=text2%> with their <%=text3%><br/>.'
 :b2match: 'Related with concept <%=text1%>, associate every <%=text2%> with their <%=text3%><br/>.'
 :c1table: '[Concept <%=text1%>]<br/><%=text2%>\: [***]<br/><%=text3%>: "<%=text4%>"<br/>Choose the right answer.'
