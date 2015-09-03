@@ -1,12 +1,14 @@
-**Interviewer**
-===============
-*tt-interviewer** is a ruby tool, that helps teacher to easly build a huge
-amount of questions from a simple conceptual map.
+**Introduction**
+================
+*creating-questions** is a ruby program, that help teachers to easily 
+create a huge amount of questions from a simple definitions file.
 
 Steps:
-1) The teacher create a text file with our conceptual map.
-2) The tool read it and create a file with GIFT questions.
+1) The teacher create a text file with our definitions.
+2) Run the tool that read the previous input and create an output with questions.
+> At this moment, the output text file contains questions in GIFT format.
 > The GIFT format is very common format, in elearning software as Moodle.
+> In the future, it will be posible export to other formats.
 
 **History**
 ===========
@@ -183,7 +185,7 @@ like this on the screen.
 * TOTAL(2) -----------------------------------(Q=74, E=18, %=400)
 
 ```
-It's only brief screen report the building process.
+It's only brief resume of the process.
 
 
 Output files

@@ -1,4 +1,5 @@
 ---
+:none: 'No correct'
 :a1desc: 'Definition\: "<%=text1%>"<br/>Choose the best association for the previous definition.<br/>'
 :a2desc: 'Definition\: "<%=text1%>"<br/>Choose the best association for the previous definition.<br/>'
 :a3desc: 'Definition of [<%=text1%>]\:<br/> "<%=text2%>"<br/>'

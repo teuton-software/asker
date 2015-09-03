@@ -196,17 +196,17 @@ class Interviewer
 	end
 	
 	def create_project(projectname)
-		puts "\n[INFO] Creating project #{projectname}"
+		puts "\n[INFO] Creating project <#{projectname}>"
 		projectdir="projects/#{projectname}"
 		if !Dir.exists? projectdir
-			puts "* Creating directory ... #{projectdir}"
+			puts "* Creating directory => #{projectdir}"
 			Dir.mkdir(projectdir)
 		else
-			puts "* Exists directory! #{projectdir}"
+			puts "* Exists directory! => #{projectdir}"
 		end
 		filename=projectdir+"/config.yaml"
 		if !File.exists? filename
-			puts "* Creating file ... #{filename}"
+			puts "* Creating file => #{filename}"
 			f=File.new(filename,'w')
 			f.write("---\n")
 			f.write(":inputdirs: 'maps/#{projectname}'\n")
@@ -214,23 +214,24 @@ class Interviewer
 			f.write("\n")
 			f.close
 		else
-			puts "* Exists file! #{filename}"
+			puts "* Exists file! => #{filename}"
 		end
 		filename=projectdir+"/.gitignore"
 		if !File.exists? filename
-			puts "* Creating file ... #{filename}"
+			puts "* Creating file => #{filename}"
 			f=File.new(filename,'w')
 			f.write("*.txt\n*.log\n*.tmp\n")
 			f.close
 		else
-			puts "* Exists file! #{filename}"
+			puts "* Exists file! => #{filename}"
+		end
+		mapdir="maps/#{projectname}"
+		if !Dir.exists? "maps/#{mapdir}"
+			puts "* Creating directory => #{mapdir}"
+		else
+			puts "* Exists directory! => #{mapdir}"
 		end
 		puts 
-#		if !Dir.exists? "maps/#{projectdir}"
-#			puts "* Creating directory ... #{projectdir}"
-#		else
-#			puts "* Exists directory! #{projectdir}"
-#		end
 	end
 	
 	def close_log_file

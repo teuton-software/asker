@@ -1,4 +1,5 @@
 ---
+:none: 'Ninguna es correcta'
 :a1desc: 'Definición \: "<%=text1%>"<br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>'
 :a2desc: 'Definición \: "<%=text1%>"<br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>'
 :a3desc: 'Definición de [<%=text1%>]\:<br/> "<%=text2%>"<br/>'

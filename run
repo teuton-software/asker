@@ -5,20 +5,21 @@ require_relative 'lib/interviewer'
 
 def show_help
 	puts "Usage:"
-	puts "   path/to/YAMLFILE    Build quiz and lesson data files, from YAML config file."
-	puts "                       Example: #{$0} projects/foo/config.yaml"
-	puts "   help                Show this help."
-	puts "   create PROJECTNAME  Create new FOO project."
-	puts "                       Example: #{$0} create FOO"
-	puts "   version             Show the program version."
+	puts "   --help                    Show this help."
+	puts "   --version                 Show the program version."
+	puts "   --create PROJECTNAME      Create new FOO project."
+	puts "                             Example: #{$0} create FOO"
+	puts "   path/to/project/YAMLFILE  Build quiz and lesson data files, from YAML config file."
+	puts "                             Example: #{$0} projects/foo/config.yaml"
 end
 
 def show_version
-	puts "TeacherTools INTERVIEWER version 0.0.2"
+	puts "TeacherTools CREATING-QUESTIONS version 0.3
+	"
 end
 
 if ARGV.count==0 then
-	puts "Usage: #{$0} help"
+	puts "Usage: #{$0} --help"
 elsif ['h','-h','help','--help'].include?(ARGV.first) then
 	show_help
 elsif ['v','-v','version','--version'].include?(ARGV[0]) then

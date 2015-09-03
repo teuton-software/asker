@@ -7,7 +7,7 @@ module IA
 	def process_texts	
 		q=Question.new
 		texts.each do |t|
-			s=Set.new [name, "Ninguna es correcta"]
+			s=Set.new [name, @lang.text_for(:none)]
 			neighbors.each { |n| s.add n[:concept].name } 
 			a=s.to_a
 				
@@ -18,7 +18,7 @@ module IA
 				q.name="#{name}-#{@num.to_s}-a1desc"
 				q.text=@lang.text_for(:a1desc,t)
 				q.good=name
-				q.bads << "Ninguna es correcta"
+				q.bads << @lang.text_for(:none)
 				q.bads << a[2]
 				q.bads << a[3]
 				q.write_to_file @file
@@ -33,7 +33,7 @@ module IA
 				q.set_choice
 				q.name="#{name}-#{@num.to_s}-a2desc"
 				q.text=@lang.text_for(:a2desc,t)
-				q.good="Ninguna es correcta"
+				q.good=@lang.text_for(:none)
 				q.bads << a[1]
 				q.bads << a[2]
 				q.bads << a[3]
@@ -159,7 +159,7 @@ module IA
 		q=Question.new	
 
 		#create gift questions	
-		s=Set.new [ lRow[:data][0] , "Ninguna es correcta" ]
+		s=Set.new [ lRow[:data][0] , @lang.text_for(:none) ]
 		pList.each { |i| s.add( i[:data][0] ) }
 		a=s.to_a
 		
@@ -169,13 +169,13 @@ module IA
 			q.name="#{name}-#{@num.to_s}-c1table-#{lTable.name}"
 			q.text=@lang.text_for(:c1table, name, lTable.fields[0].capitalize, lTable.fields[1].capitalize, lRow[:data][1])
 			q.good=lRow[:data][0]
-			q.bads << "Ninguna es correcta"
+			q.bads << @lang.text_for(:none)
 			q.bads << a[2]
 			q.bads << a[3]
 			q.write_to_file @file		
 		end
 				
-		s=Set.new [ lRow[:data][0], "Ninguna es correcta" ]
+		s=Set.new [ lRow[:data][0], @lang.text_for(:none) ]
 		pList.each { |i| s.add( i[:data][0] ) }
 		a=s.to_a
 
@@ -184,14 +184,14 @@ module IA
 			q.init
 			q.name="#{name}-#{@num.to_s}-c2table-#{lTable.name}"
 			q.text=@lang.text_for(:c2table, name, lTable.fields[0].capitalize, lTable.fields[1].capitalize, lRow[:data][1])
-			q.good="Ninguna es correcta"
+			q.good=@lang.text_for(:none)
 			q.bads << a[2]
 			q.bads << a[3]
 			q.bads << a[4]
 			q.write_to_file @file
 		end
 
-		s=Set.new [ lRow[:data][1], "Ninguna es correcta" ]
+		s=Set.new [ lRow[:data][1], @lang.text_for(:none) ]
 		pList.each { |i| s.add( i[:data][1] ) }
 		a=s.to_a
 
@@ -199,16 +199,15 @@ module IA
 			@num+=1
 			q.init
 			q.name="#{name}-#{@num.to_s}-c3table-#{lTable.name}"
-			q.text="Concepto #{name}:<br/>#{lTable.fields[0].capitalize}\: \"#{lRow[:data][0]}\"<br/>#{lTable.fields[1].capitalize}\: [...]<br/>Completa con la opción correcta."			
 			q.text=@lang.text_for(:c3table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize)
 			q.good=a[0]
-			q.bads << "Ninguna es correcta"
+			q.bads << @lang.text_for(:none)
 			q.bads << a[2]
 			q.bads << a[3]
 			q.write_to_file @file		
 		end
 		
-		s=Set.new [ lRow[:data][1], "Ninguna es correcta" ]
+		s=Set.new [ lRow[:data][1], @lang.text_for(:none) ]
 		pList.each { |i| s.add( i[:data][1] ) }
 		a=s.to_a
 
@@ -216,9 +215,8 @@ module IA
 			@num+=1
 			q.init
 			q.name="#{name}-#{@num.to_s}-c4table-#{lTable.name}"
-			q.text="Concepto #{name}:<br/>#{lTable.fields[0].capitalize}\: \"#{lRow[:data][0]}\"<br/>#{lTable.fields[1].capitalize}\: [...]<br/>Completa con la opción correcta."
 			q.text=@lang.text_for(:c4table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize)
-			q.good="Ninguna es correcta"
+			q.good=@lang.text_for(:none)
 			q.bads << a[2]
 			q.bads << a[3]
 			q.bads << a[4]
@@ -256,7 +254,6 @@ module IA
 			q.init
 			q.set_boolean
 			q.name="#{name}-#{@num.to_s}c7table-#{lTable.name}"
-			q.text="Concepto #{name}:<br/>La asociación siguiente es correcta\:<br/>#{lTable.fields[0].capitalize}\: \"#{a[1]}\"<br/>#{lTable.fields[1].capitalize}\: \"#{lRow[:data][1]}\"<br/>."
 			q.text=@lang.text_for(:c7table, name, lTable.fields[0].capitalize, a[1], lTable.fields[1].capitalize, lRow[:data][1] )
 			q.good="FALSE"
 			q.write_to_file @file

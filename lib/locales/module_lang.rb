@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+=begin
 require 'erb'
 require 'yaml'
 
@@ -33,3 +34,4 @@ module LANG
 		return output
 	end
 end
+=end

@@ -13,14 +13,14 @@ class Lang
 		d.delete_at(-1)
 		dirbase=d.join("/")
 
-		filename=File.join(dirbase, "lang", "#{lang}-templates.yaml" )
+		filename=File.join(dirbase, "locales", "#{lang}-templates.yaml" )
 		@templates=YAML::load(File.new(filename))
 
-		filename=File.join( dirbase, "lang", "#{lang}-connectors.yaml" )
+		filename=File.join( dirbase, "locales", "#{lang}-connectors.yaml" )
 		@connectors=YAML::load(File.new(filename))
 	end
 	
-	def text_for(pOption, pText1, pText2="", pText3="", pText4="", pText5="")
+	def text_for(pOption, pText1="", pText2="", pText3="", pText4="", pText5="")
 		text1=pText1
 		text2=pText2
 		text3=pText3
