@@ -1,0 +1,4 @@
+---
+:inputdirs: 'maps/add'
+:process_file: 'add.haml'
+

@@ -226,10 +226,20 @@ class Interviewer
 			puts "* Exists file! => #{filename}"
 		end
 		mapdir="maps/#{projectname}"
-		if !Dir.exists? "maps/#{mapdir}"
+		if !Dir.exists? mapdir
 			puts "* Creating directory => #{mapdir}"
+			Dir.mkdir(mapdir)
 		else
 			puts "* Exists directory! => #{mapdir}"
+		end
+		filename=mapdir+"/"+projectname+".haml"
+		if !File.exists? filename
+			puts "* Creating file => #{filename}"
+			f=File.new(filename,'w')
+			f.write(DATA.read)
+			f.close
+		else
+			puts "* Exists file! => #{filename}"
 		end
 		puts 
 	end

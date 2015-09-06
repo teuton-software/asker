@@ -30,3 +30,26 @@ else
 	Interviewer.instance.run(ARGV.first)
 end
 
+__END__
+%map{ :version => '1', :lang => 'en' }
+  %concept
+    %names concept1
+    %context write,here,the,context,of,concept1
+    %tags write,here,the,definition,of,the,concept1
+    %text Write here the definition of [***]
+
+  %concept
+    %names concept2
+    %context write,here,the,context,of,concept2
+    %tags write,here,the,definition,of,the,concept2
+    %table{ :fields => 'atrributename,value' }
+      %title Attributes-values associated to concept2
+      %row
+        %col attributename1
+        %col value of attributename1
+      %row
+        %col attributename1
+        %col value of attributename2
+      %row
+        %col attributename1
+        %col value of attributename3
