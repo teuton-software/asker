@@ -4,8 +4,11 @@
 create a huge amount of questions from a simple definitions file.
 
 Steps:
+
 1. The teacher create a text file with our definitions.
+
 2. Run the tool that read the previous input and create an output with questions.
+
 > At this moment, the output text file contains questions in GIFT format.
 > The GIFT format is very common format, in elearning software as Moodle.
 > In the future, it will be posible export to other formats.
