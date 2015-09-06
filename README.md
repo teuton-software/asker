@@ -1,21 +1,17 @@
 **Introduction**
 ================
-*creating-questions** is a ruby program, that help teachers to easily 
+**creating-questions** is a ruby program, that help teachers to easily 
 create a huge amount of questions from a simple definitions file.
 
 Steps:
 
-1. The teacher create a text file with our definitions.
+1. The teacher create a text file with our input definitions.
 
-2. Run the tool that read the previous input and create an output with questions.
+2. And run the tool that create an output file with questions.
 
 > At this moment, the output text file contains questions in GIFT format.
 > The GIFT format is very common format, in elearning software as Moodle.
 > In the future, it will be posible export to other formats.
-
-**Documentation**
-=================
-* [History](./docs/en/history.md)
 
 **Installation**
 ================
@@ -25,113 +21,15 @@ Required software:
 
 Install required gems with `rake install_gems`.
 
-**Directories description**
-===========================
-
-This is the directory tree:
-
-```
-.
-├── docs
-├── lib
-├── LICENSE
-├── MANTAINERS.md
-├── maps
-│   └── demo
-│       └── starwars
-│           ├── jedi.haml
-│           └── sith.haml
-├── projects
-│   └── demo
-│       └── starwars
-│           ├── config.yaml
-│           └── sith.yaml
-├── Rakefile
-├── README.md
-├── run
-└── spec
-
-```
-
-* *README.es.md*: This help file
-* *run*: This is the script file that will build our questions file 
-from conceptual map files.
-* *lib*: Directory that contains the ruby classes and modules of this project.
-* *maps*: Directories where we save our own conceptual maps (using HAML or XML file format).
-* *projects*: Directory that contains config files for every project. This config 
-file are necessary to easily group parameters used by this tool. Also, 
-into this directory will be created the reports and output files (as GIFT, etc.)
-of every project.
-* *spec*: Directory that will contain the test units in the next future. I hope!.
-
-Conceptual Map
-==============
-Into *maps* directory we save our own concept map files. We could use subdirectories to
-better organization. As example we have the file `maps/demo/starwars/jedi.haml`, that
-contains one concept map about Jedi characters of StarWars film into HAML format.
-
-Let's take a look (Spanish example, I know. Soon I'll write the english version):
-```
-%map{ :version => '1', :lang => 'es' }
-  %concept
-    %names obiwan
-    %context personaje, starwars
-    %tags maestro, jedi, profesor, annakin, skywalker, alumno, quigon-jinn
-    %text Jedi, maestro de Annakin Skywalker
-    %text Jedi, alumno de Quigon-Jinn
-    %table{ :fields => 'característica, descripción' }
-      %title Asocia cada característica con su valor
-      %row
-        %col raza
-        %col humano
-      %row
-        %col color sable laser
-        %col verde
-      %row
-        %col color-del-pelo
-        %col pelirojo
-
-  %concept
-    %names yoda
-    %context personaje, starwars
-    %tags maestro, jedi
-    %text Jedi, maestro de todos los jedis
-    %text Midiendo 65 centímetros, fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.
-    %text Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.
-    %text Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.    
-    %table{ :fields => 'característica, descripción' }
-      %title Asocia cada característica con su valor
-      %row
-        %col color sable laser
-        %col verde
-      %row
-        %col color-del-pelo
-        %col blanco
-      %row
-        %col color-de-piel
-        %col verde
-...
-```
-As we see, we defined 2 concepts about Jedi characters. This are "obiwan" and "yoda". And
-we use special sintax (tags) to define it.
-
-At now we have a this list of tags to define our own sintax for build conceptual maps:
-* **names**: List of one or more names that identify the concept. At least one is requiered, of course!.
-* **context**: List of comma separated words, that identify the context where this concept "lives" or "exists".
-* **tags**: List of comma separated words, that briefly describe the concept. I mean, a short list of words
-that came in mind when we think in it, and are useful for their identification.
-* **text**: We use this tags as many times we need. In it, we write using natural language descriptions
-asssociated to the concept. Descriptions that are uniques for this concept, but don't write the name of
-the concept into the text.
-* **table**: Other way to build more sofisticated definitions/schemas is using "tables". It's similar
-to HTML tag. I mean, with this "table", we build tables of knowledge into the concept. We use "row",
-ans "col", to defines table-rows and row-cols, of course. We could see an 
-example into `maps/demo/starwars/jedi.haml`.
-
+**More documents**
+==================
+* [History](./docs/en/history.md)
+* [Directories description](./docs/en/dirtree.md)
+* [Input definitions](./docs/en/inputs.md)
 
 Run it
 ======
-First we need to create a config file. Let see `projects/demo/starwars/config-jedi.yaml`:
+First we need to create a config file. Let's see `projects/demo/starwars/config-jedi.yaml`:
 
 ```
 ---
