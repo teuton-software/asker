@@ -142,7 +142,7 @@ module IA
 	end
 	
 	def process_tableXfields(pTable, pRow, pList)
-		return if pTable.fields.count<2
+		process_table1field(pTable, pRow, pList)
 		if pTable.fields.count>1 then
 			process_table2fields(pTable, pRow, pList, 0, 1)
 		elsif pTable.fields.count>2 then
@@ -155,6 +155,11 @@ module IA
 		end
 	end
 
+	def process_table1field(lTable, lRow, pList)
+		return
+		#puts lTable.name,lTable.fields.count
+	end
+	
 	def process_table2fields(lTable, lRow, pList, pCol1, pCol2)
 		q=Question.new	
 
