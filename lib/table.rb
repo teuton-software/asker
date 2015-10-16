@@ -23,8 +23,15 @@ class Table
 				@data[:title] << i.text.strip
 			elsif i.name=='row' then
 				row=[]
-				i.elements.each { |j| row << j.text.to_s}
-				@data[:rows] << row
+				if i.elements.count>0 then
+					# When row tag has several columns, we add every value to the array
+					i.elements.each { |j| row << j.text.to_s}
+					@data[:rows] << row
+				else
+				  # When row tag only has text, we add this text as one value array
+				  # This is usefull for tables with only one columns
+					@data[:rows] << [i.text.strip]
+				end
 			else
 				puts "[ERROR] XMLdata with #{i.name}"
 			end

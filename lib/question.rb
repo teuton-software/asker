@@ -22,19 +22,20 @@ class Question
 	end
 		
 	def write_to_file(pFile)
+		# Write question to file using gift format
 		pFile.write "// #{@comment}\n" if !@comment.nil?
-		pFile.write "::#{@name}::[html]#{replace(@text)}\n"
+		pFile.write "::#{@name}::[html]#{satanize(@text)}\n"
 		
 		if @type==:choice then
 			pFile.write "{\n"
 			pFile.write "  =#{@good}\n"
-			@bads.each { |i| pFile.write "  ~#{replace(i)}\n" }
+			@bads.each { |i| pFile.write "  ~#{satanize(i)}\n" }
 			pFile.write "}\n\n"
 		elsif @type==:boolean then
 			pFile.write "{#{@good}}\n\n"
 		elsif @type==:match then
 			pFile.write "{\n"
-			@matching.each { |i| pFile.write "  =#{replace(i[0])} -> #{replace(i[1])}\n" }
+			@matching.each { |i| pFile.write "  =#{satanize(i[0])} -> #{satanize(i[1])}\n" }
 			pFile.write "}\n\n"
 		elsif @type==:short then
 			pFile.write "{"
@@ -45,23 +46,23 @@ class Question
 	
 	def to_s
 		s=""
-		s=s+"// #{@comment}\n" if !@comment.nil?
-		s=s+"::#{@name}::[html]#{@text}\n"
+		s=s+"// #{satanize(@comment)}\n" if !@comment.nil?
+		s=s+"::#{@name}::[html]#{satanize(@text)}\n"
 		
 		if @type==:choice then
 			s=s+"{\n"
-			s=s+"  =#{@good}\n"
-			@bads.each { |i| s=s+"  ~#{i}\n" }
+			s=s+"  =#{satanize(@good)}\n"
+			@bads.each { |i| s=s+"  ~#{satanize(i)}\n" }
 			s=s+"}\n\n"
 		elsif @type==:boolean then
 			s=s+"{#{@good}}\n\n"
 		elsif @type==:match then
 			s=s+"{\n"
-			@matching.each { |i| s=s+"  =#{i[0]} -> #{i[1]}\n" }
+			@matching.each { |i| s=s+"  =#{satanize(i[0])} -> #{satanize(i[1])}\n" }
 			s=s+"}\n\n"
 		elsif @type==:short then
 			s=s+"{"
-			@shorts.each { |i| s=s+"=%100%#{i} " }
+			@shorts.each { |i| s=s+"=%100%#{satanize(i)} " }
 			s=s+"}\n\n"
 		end
 		return s
@@ -89,7 +90,7 @@ class Question
 	
 private
 
-	def replace(psText)
+	def satanize(psText)
 		lsText=psText.sub("\n", " ")
 		lsText.sub!(":","\:")
 		lsText.sub!("=","\=")
