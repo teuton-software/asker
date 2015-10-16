@@ -155,8 +155,13 @@ module IA
 		end
 	end
 
-	def process_table1field(lTable, lRow, pList)
-		return
+	def process_table1field(pTable, pRow, pList)
+		return if pTable.fields.count>1
+		
+		q=Question.new
+		puts pTable.to_s
+		puts pRow.to_s
+		puts pList.to_s
 		#puts lTable.name,lTable.fields.count
 	end
 	
