@@ -8,6 +8,7 @@ require 'haml'
 require 'rexml/document'
 require_relative 'concept'
 require_relative 'lang'
+#require 'pry'
 
 =begin
 The main method of Interviewer class is "run"
@@ -36,6 +37,8 @@ class Interviewer
 	end
 	
 	def init(pArgs={})
+		#binding.pry
+		
 		if pArgs.class==Hash then
 			@param=pArgs
 		elsif pArgs.class==String then
@@ -139,19 +142,19 @@ class Interviewer
 		end
 	end	
 	
-	def show_data
-		lMode=@param[:show_mode]
-		verbose "[INFO] Showing concept data..."
-		if lMode==:resume then
-			s="* Concepts ("+@concepts.count.to_s+"): "
-			@concepts.each_value { |c| s=s+c.name+", " }
-			verbose s
-		elsif lMode==:default then
-			@concepts.each_value do |c| 
-				verbose c.to_s if c.process?
-			end
-		end
+  def show_data
+    lMode=@param[:show_mode]    
+    verbose "[INFO] Showing concept data..."
+    if lMode==:resume then
+	  s="* Concepts ("+@concepts.count.to_s+"): "
+	  @concepts.each_value { |c| s=s+c.name+", " }
+	  verbose s
+    elsif lMode==:default then
+	  @concepts.each_value do |c| 
+	    verbose c.to_s if c.process?
+	  end
 	end
+  end
 	
 	def show_stats
 		return if @param[:show_mode]==:none

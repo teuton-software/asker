@@ -1,0 +1,13 @@
+========================================
+Proyect: TeacherTools Interviewer
+File: projects/new/johny-simulator-log.txt
+Time: 2015-10-19 19:10:41 +0100
+========================================
+
+[INFO] Loading input data...
+* HAML/XML files from maps/new: johnny-simulator.haml 
+[INFO] Showing concept data...
+
+[INFO] Creating output files...
+[INFO] Showing concept stats...
+* TOTAL(0) -----------------------------------(Q=0, C=6, %=0)
