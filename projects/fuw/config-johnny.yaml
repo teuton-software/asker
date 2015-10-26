@@ -1,0 +1,4 @@
+---
+:projectdir: fuw
+:inputdirs: maps/fuw
+:process_file: johnny-simulator.haml

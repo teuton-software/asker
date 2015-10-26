@@ -143,8 +143,8 @@ class Interviewer
 	end	
 	
   def show_data
-    lMode=@param[:show_mode]    
-    verbose "[INFO] Showing concept data..."
+    lMode=@param[:show_mode] 
+    verbose "[INFO] Showing concept data <#{lMode.to_s}>..."
     if lMode==:resume then
 	  s="* Concepts ("+@concepts.count.to_s+"): "
 	  @concepts.each_value { |c| s=s+c.name+", " }
