@@ -32,38 +32,40 @@ class Lang
 		return output
 	end
 	
-	def text_filter_connectors(pText, pFilter)
-		input_lines=pText.split(".")
-		output_lines=[]
-		output_words=[]
-		input_lines.each_with_index do |line, rowindex| 
-			row=[]
-			line.split(" ").each_with_index do |word,colindex|
-			  flag=@connectors.include? word.downcase
-			  
-				if (flag and pFilter) or (!flag and !pFilter) then
-					output_words<< {:word => word, :row => rowindex, :col => colindex }
-					row << (output_words.size-1)
-				else
-					row << word
-				end
-			end
-			row << "."
-			output_lines << row
-		end		
-		result={}
-		result[:lines]=output_lines
-		result[:words]=output_words
-		return result
-	end
+  def text_filter_connectors(pText, pFilter)
+	input_lines=pText.split(".")
+	output_lines=[]
+	output_words=[]
+	input_lines.each_with_index do |line, rowindex| 
+	  row=[]
+	  line.split(" ").each_with_index do |word,colindex|
+		flag=@connectors.include? word.downcase
+	    
+	    # if <word> is a conector and <pFilter>==true Then Choose this <word>
+	    # if <word> isn't a conector and <pFilter>==true and <word>.length>1 Then Choose this <word>
+		if (flag and pFilter) or (!flag and !pFilter and word.length>1) then
+		  output_words<< {:word => word, :row => rowindex, :col => colindex }
+		  row << (output_words.size-1)
+	    else
+		  row << word
+		end
+	  end
+	  row << "."
+	  output_lines << row
+	end		
+	result={}
+	result[:lines]=output_lines
+	result[:words]=output_words
+	return result
+  end
 
-	def text_with_connectors(pText)
-		return text_filter_connectors(pText, false)
-	end
+  def text_with_connectors(pText)
+	return text_filter_connectors(pText, false)
+  end
 
-	def text_without_connectors(pText)
-		return text_filter_connectors(pText, true)
-	end
+  def text_without_connectors(pText)
+	return text_filter_connectors(pText, true)
+  end
 	
 	def build_text_from_filtered( pStruct, pIndexes)
 		lines = pStruct[:lines]
