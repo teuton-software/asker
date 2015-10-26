@@ -1,7 +1,0 @@
----
-:logname: fuw-virtualbox.log
-:outputname: fuw-virtualbox-gift.txt
-:lesson_file: fuw-vistualbox-lesson.txt
-:lesson_separator: ' |'
-:inputdirs: 'input/idp,input/fuw'
-:process_file: virtualbox.xml

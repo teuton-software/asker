@@ -1,4 +1,0 @@
-// File: projects/new/johny-simulator-gift.txt
-// Time: 2015-10-19 19:10:41 +0100
-// Create automatically by David Vargas
-
