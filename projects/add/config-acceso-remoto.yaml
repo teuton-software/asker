@@ -1,4 +1,4 @@
 ---
 :inputdirs: 'maps/add,maps/idp'
-:process_file: 'add.haml'
+:process_file: 'acceso-remoto.haml'
 

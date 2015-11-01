@@ -2,24 +2,24 @@
 # encoding: utf-8
 
 class Question
-	attr_accessor :name, :comment, :text
-	attr_accessor :good, :bads, :matching, :shorts
-	attr_reader :type
+  attr_accessor :name, :comment, :text
+  attr_accessor :good, :bads, :matching, :shorts
+  attr_reader :type
 
-	def initialize
-		init
-	end
+  def initialize
+    init
+  end
 	
-	def init
-		@name=""
-		@comment=""
-		@text=""
-		@type=:choice
-		@good=""
-		@bads=[]
-		@matching=[]
-		@shorts=[]
-	end
+  def init
+    @name=""
+    @comment=""
+    @text=""
+    @type=:choice
+    @good=""
+    @bads=[]
+    @matching=[]
+    @shorts=[]
+  end
 		
 	def write_to_file(pFile)
 		# Write question to file using gift format

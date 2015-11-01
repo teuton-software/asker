@@ -1,0 +1,23 @@
+%map{ :version => '1', :lang => 'es' }
+  %concept
+    %names ruby
+    %context scripting, administración, sistemas
+    %tags lenguaje,programación,scripting,administración,sistemas
+    %text [***] es un lenguaje de programación interpretado, reflexivo y orientado a objetos, creado por el programador japonés Yukihiro "Matz" Matsumoto.
+    %table{ :fields => 'código,descripción' }
+      %title Código ruby de ejemplo
+      %row
+        %col puts "Hola Mundo!"
+        %col Muestra el mensaje Hola Mundo! en pantalla
+      %row
+        %col a = "fuw,idp,add"
+        %col Define una variable de tipo String
+      %row
+        %col a = 3
+        %col Define una variable de tipo numérico
+      %row
+        %col a = [ "fuw", "idp", "add" ]
+        %col Define un array con tres elementos
+      %row
+        %col a=`ls`; b=a.split("\n")
+        %col Define un array con los nombres de ficheros y carpetas del directorio actual
