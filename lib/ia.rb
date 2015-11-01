@@ -70,7 +70,16 @@ module IA
       q.text=@lang.text_for(:a5desc, hiden_name, t )
       q.shorts << name
       q.write_to_file @file
-			
+
+=begin
+      #// question: 8090  name: Von-Neumann-11-a5desc
+      #::Von-Neumann-11-a5desc::[html]<p>Definición de [???-???????]\:<br /> "Virtualmente, cada computador personal, microcomputador, minicomputador y supercomputador es una máquina de [...]."</p>
+      {
+	    =%100%Von-Neumann#
+	    =%100%Von Neumann#
+	    =%100%Von_Neumann#
+      }
+=end
       #Question type <a6match>: filtered text questions
 			filtered=@lang.text_with_connectors(t)
 			if filtered[:words].size>=4 then
