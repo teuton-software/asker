@@ -173,11 +173,11 @@
 			</row>
 			<row>
 				<col>mkdir DIRNAME1 DIRNAME2 DIRNAME3</col>
-				<col>Crea los directorios en la ruta actual.</col>
+				<col>Crea todos los directorios directamente en la ruta actual.</col>
 			</row>
 			<row>
 				<col>mkdir --parents DIRNAME1/DIRNAME2/DIRNAME3</col>
-				<col>Crear los directorios así como sus directorios padres.</col>
+				<col>Crear los directorios, así como sus directorios padres. Cada directorio dentro de su padre.</col>
 			</row>
 			<row>
 				<col>mkdir --mode=MODE DIRNAME</col>
@@ -213,15 +213,15 @@
 			</row>
 			<row>
 				<col>rmdir DIRNAME1 DIRNAME2 DIRNAME3</col>
-				<col>Elimina los directorios del directorio actual.</col>
+				<col>Elimina todos los directorios que están en el directorio actual.</col>
 			</row>
 			<row>
 				<col>rmdir --parents DIRNAME1/DIRNAME2/DIRNAME3</col>
-				<col>Elimina el directorio y sus ancestros.</col>
+				<col>Elimina el directorio y sus ancestros, si están vacíos.</col>
 			</row>
 			<row>
-				<col>rmdir --parents DIRNAME1-DIRNAME2-DIRNAME3</col>
-				<col>Sólo se elimina un directorio si está vacío.</col>
+				<col>rmdir DIRNAME1-DIRNAME2-DIRNAME3</col>
+				<col>Se elimina un directorio, sólo si está vacío.</col>
 			</row>
 			<row>
 				<col>rmdir --ignore-fail-on-non-empty DIRNAME1</col>

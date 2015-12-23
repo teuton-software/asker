@@ -1,5 +1,4 @@
 ---
-:projectdir: idp
-:inputdirs: maps/idp,maps/fuw
+:inputdirs: input/idp,input/fuw
 :process_file: idp-unit1.xml
 :projectname: idp-unit1
