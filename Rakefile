@@ -5,16 +5,16 @@
 
 desc "Install gems "
 task :gems do
-	system("gem install haml")
-	system("gem install rspec")
+  list=['haml', 'rspec', 'shoes']
+  list.each { |name| system("gem install #{name}") } 
 end
 
 desc "Update this project"
 task :update do
-	system("git pull")
+  system("git pull")
 end
 
 desc "Clean output dir"
 task :clean do
-	system("rm output/*")
+  system("rm output/*")
 end

@@ -23,59 +23,70 @@ indicated by "outputdir/outputname" values.
 =end
 
 class Interviewer
-	include Singleton
-	attr_reader :param, :lang
+  include Singleton
+  attr_reader :param, :lang
 	
-	def run(pArgs={})
-		init pArgs
-		create_log_file
-		load_input_files
-		show_data if @param[:show_mode]!=:none
-		create_output_files
-		show_stats
-		close_log_file
-	end
+  def run(pArgs={})
+    init pArgs
+    create_log_file
+    load_input_files
+    show_data if @param[:show_mode]!=:none
+	create_output_files
+	show_stats
+	close_log_file
+  end
 	
-	def init(pArgs={})
-		#binding.pry
-		
-		if pArgs.class==Hash then
-			@param=pArgs
-		elsif pArgs.class==String then
-			@param=YAML::load(File.open(pArgs))
-			@param[:configfilename]=pArgs
-			a=pArgs.split("/")
-			a.delete_at(-1)
-			@param[:projectdir]=a.join("/")
-		else
-			raise "[ERROR] Configuration params format is <#{pArgs.class.to_s}>!"
-		end
+  def init(pArgs={})
+	#binding.pry
+	
+    if pArgs.class==Hash then
+	  @param=pArgs
+    elsif pArgs.class==String then
+      begin
+        if File.exist?(pArgs) then
+          @param=YAML::load(File.open(pArgs))
+          @param[:configfilename]=pArgs
+          a=pArgs.split("/")
+          a.delete_at(-1)
+          @param[:projectdir]=a.join("/")
+        elsif File.directory?(pArgs) then
+          @param[:inputdirs]=pArgs
+          @param[:process_file]=Dir.entries(pArgs)                 
+        else
+          raise
+        end
+      rescue
+        puts "[ERROR] <#{pArgs}> dosn't exists!"
+        exit    
+      end
+    else
+      puts "[ERROR] Configuration params format is <#{pArgs.class.to_s}>!"
+      exit
+    end
 
-		@param[:process_file]=@param[:process_file] || "#{@param[:projectdir].split("/").last}.haml"
-		process_filename_without_ext=@param[:process_file][0..-6] # Extract extension .yaml
-		@param[:projectname]=@param[:projectname] || process_filename_without_ext
+    @param[:process_file]=@param[:process_file] || "#{@param[:projectdir].split("/").last}.haml"
+    process_filename_without_ext=@param[:process_file].split(".").first # Extract extension
+    @param[:projectname]=@param[:projectname] || process_filename_without_ext
 		
-		#@param[:inputdirs]=@param[:inputdirs] || "maps/#{@param[:projectdir]}"
-		#@param[:outputdir]=@param[:outputdir] || "output" #@param[:projectdir]
-		@param[:inputdirs]=@param[:inputdirs] || "input/#{@param[:projectdir]}"
-		@param[:outputdir]=@param[:outputdir] || "output" 
-		@param[:outputname]=@param[:outputname] || "#{@param[:projectname]}-gift.txt"
-		@param[:logname]=@param[:logname] || "#{@param[:projectname]}-log.txt"
-		@param[:lesson_file]=@param[:lesson_file] || "#{@param[:projectname]}-doc.txt"
-		@param[:lesson_separator]=@param[:lesson_separator] || ' >'
+    @param[:inputdirs]=@param[:inputdirs] || "input/#{@param[:projectdir]}"
+    @param[:outputdir]=@param[:outputdir] || "output" 
+    @param[:outputname]=@param[:outputname] || "#{@param[:projectname]}-gift.txt"
+    @param[:logname]=@param[:logname] || "#{@param[:projectname]}-log.txt"
+    @param[:lesson_file]=@param[:lesson_file] || "#{@param[:projectname]}-doc.txt"
+    @param[:lesson_separator]=@param[:lesson_separator] || ' >'
 
-		@param[:category]=@param[:category] || :none
-		@param[:formula_weights]=@param[:formula_weights] || [1,1,1]
-		@param[:lang]= @param[:lang] || 'en'
-		@param[:show_mode]=@param[:show_mode] || :default
-		@param[:verbose]=@param[:verbose] || true
+    @param[:category]=@param[:category] || :none
+    @param[:formula_weights]=@param[:formula_weights] || [1,1,1]
+    @param[:lang]= @param[:lang] || 'en'
+    @param[:show_mode]=@param[:show_mode] || :default
+    @param[:verbose]=@param[:verbose] || true
 
-		@concepts={}
+    @concepts={}
 		
-		@verbose=@param[:verbose]
-		@logname=@param[:outputdir]+'/'+@param[:logname]
-		@outputname=@param[:outputdir]+'/'+@param[:outputname]
-	end
+    @verbose=@param[:verbose]
+    @logname=@param[:outputdir]+'/'+@param[:logname]
+    @outputname=@param[:outputdir]+'/'+@param[:outputname]
+  end
 	
 	def create_log_file
 		#create or reset logfile
