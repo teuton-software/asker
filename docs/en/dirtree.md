@@ -9,7 +9,7 @@ This is the directory tree:
 ├── lib
 ├── LICENSE
 ├── MANTAINERS.md
-├── maps
+├── input
 │   └── demo
 │       └── starwars
 │           ├── jedi.haml
