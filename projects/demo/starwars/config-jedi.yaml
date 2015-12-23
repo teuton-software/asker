@@ -1,3 +1,3 @@
 ---
-:inputdirs: 'maps/demo/starwars' 
+:inputdirs: 'input/demo/starwars' 
 :process_file: 'jedi.haml'

@@ -55,8 +55,10 @@ class Interviewer
 		process_filename_without_ext=@param[:process_file][0..-6] # Extract extension .yaml
 		@param[:projectname]=@param[:projectname] || process_filename_without_ext
 		
-		@param[:inputdirs]=@param[:inputdirs] || "maps/#{@param[:projectdir]}"
-		@param[:outputdir]=@param[:outputdir] || @param[:projectdir]
+		#@param[:inputdirs]=@param[:inputdirs] || "maps/#{@param[:projectdir]}"
+		#@param[:outputdir]=@param[:outputdir] || "output" #@param[:projectdir]
+		@param[:inputdirs]=@param[:inputdirs] || "input/#{@param[:projectdir]}"
+		@param[:outputdir]=@param[:outputdir] || "output" 
 		@param[:outputname]=@param[:outputname] || "#{@param[:projectname]}-gift.txt"
 		@param[:logname]=@param[:logname] || "#{@param[:projectname]}-log.txt"
 		@param[:lesson_file]=@param[:lesson_file] || "#{@param[:projectname]}-doc.txt"

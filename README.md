@@ -33,7 +33,7 @@ First we need to create a config file. Let's see `projects/demo/starwars/config-
 
 ```
 ---
-:inputdirs: 'maps/demo/starwars' 
+:inputdirs: 'input/demo/starwars' 
 :process_file: 'jedi.haml'
 
 ```
@@ -72,7 +72,7 @@ It's only brief resume of the process.
 
 Output files
 ============
-Let's see output files (*.txt) into `projects/demo/starwars` directory.
+Let's see output files (*.txt) into `output` directory.
 
 > Let's see docs directory for more details.
 
