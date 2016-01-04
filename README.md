@@ -1,5 +1,5 @@
-**Introduction**
-================
+#Introduction
+
 **darts** is a ruby program, to help teachers creating a huge amount 
 of questions from a simple definitions input file, in an easy way.
 
@@ -15,8 +15,8 @@ Two Steps:
 future will be posible to choose between several output formats.
 > * The GIFT format is very common format in elearning software as Moodle.
 
-**Installation**
-================
+#Installation
+
 Required software:
 * ruby (=> 2.1.3 version)
 * rake
@@ -25,16 +25,24 @@ Required software:
 
 Do installation executing this command `rake install`.
 
-**Documentation**
-==================
+#Documentation
 * [History](./docs/en/history.md)
 * [Directories description](./docs/en/dirtree.md)
 * [Input definitions](./docs/en/inputs.md)
+* [Spanish documentation](./doc/es/README.md)
 
 
-Run it
-======
-First we need to create a config file. Let's see `projects/demo/starwars/config-jedi.yaml`:
+#Run it quickly
+
+##1 Input definition files
+We will use our sample input definition files. Those are saved in the 
+path `input/demo/starwars`.
+
+We have two definitions files: one for jedis and other for siths.
+
+## 2. Proyect configuration
+We create a config file defining our new project. For example, let's 
+see `projects/demo/starwars/config-jedi.yaml`:
 
 ```
 ---
@@ -43,10 +51,17 @@ First we need to create a config file. Let's see `projects/demo/starwars/config-
 
 ```
 
-To run the tool we do `./run projects/demo/starwars/config-jedi.yaml` or 
-`ruby run projects/demo/starwars/config-jedi.yaml`, and we'll see something 
-like this on the screen.
+For now this establish two params:
 
+1. The directory path where are saved the input files we want and
+2. The input file from we want to generate the questions.
+
+## 3. Run the project
+
+To run the project we execute this `./run projects/demo/starwars/config-jedi.yaml` or 
+`ruby run projects/demo/starwars/config-jedi.yaml`.
+
+We will see something like this on the screen. The tool is working...
 
 ```
 [INFO] Loading input data...
@@ -72,12 +87,7 @@ like this on the screen.
 * TOTAL(2) -----------------------------------(Q=74, E=18, %=400)
 
 ```
-It's only brief resume of the process.
 
-
-Output files
-============
-Let's see output files (*.txt) into `output` directory.
-
-> Let's see docs directory for more details.
+## 4. Output files
+The output files generated ara saved into `output` directory.
 
