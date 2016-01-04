@@ -19,9 +19,11 @@ future will be posible to choose between several output formats.
 
 Required software:
 * ruby (=> 2.1.3 version)
-* rake
-* git
-* shoes
+* rake (*Install gems*)
+
+Optional software:
+* git (*update the project*)
+* shoes (*GUI tool, under development*)
 
 Do installation executing this command `rake install`.
 
@@ -30,7 +32,6 @@ Do installation executing this command `rake install`.
 * [Directories description](./docs/en/dirtree.md)
 * [Input definitions](./docs/en/inputs.md)
 * [Spanish documentation](./doc/es/README.md)
-
 
 #Run it quickly
 
