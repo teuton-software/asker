@@ -36,17 +36,17 @@ Do installation executing this command `rake install`.
 
 ##1 Input definition files
 We will use our sample input definition files. Those are saved in the 
-path `input/demo/starwars`.
+path `input/demo/starwars/es`.
 
 We have two definitions files: one for jedis and other for siths.
 
 ## 2. Proyect configuration
 We create a config file defining our new project. For example, let's 
-see `projects/demo/starwars/config-jedi.yaml`:
+see `projects/demo/starwars/es/config-jedi.yaml`:
 
 ```
 ---
-:inputdirs: 'input/demo/starwars' 
+:inputdirs: 'input/demo/starwars/es' 
 :process_file: 'jedi.haml'
 ```
 

@@ -1,0 +1,3 @@
+---
+:inputdirs: 'input/demo/starwars/es' 
+:process_file: 'sith.haml'
