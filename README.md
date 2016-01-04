@@ -1,31 +1,36 @@
 **Introduction**
 ================
-**creating-questions** is a ruby program, that help teachers to easily 
-create a huge amount of questions from a simple definitions file.
+**darts** is a ruby program, to help teachers creating a huge amount 
+of questions from a simple definitions input file, in an easy way.
 
-Steps:
+Two Steps:
 
-1. The teacher create a text file with our input definitions.
+1. The teacher create a input text file with their definitions.
 
-2. And run the tool that create an output file with questions.
+2. And run the tool that create an output file with the questions.
 
-> At this moment, the output text file contains questions in GIFT format.
-> The GIFT format is very common format, in elearning software as Moodle.
-> In the future, it will be posible export to other formats.
+> **Output file format**
+>
+> * At this moment, the output text file format is GIFT. But in the
+future will be posible to choose between several output formats.
+> * The GIFT format is very common format in elearning software as Moodle.
 
 **Installation**
 ================
 Required software:
-* ruby (1.9.3 version)
+* ruby (=> 2.1.3 version)
 * rake
+* git
+* shoes
 
-Install required gems with `rake install_gems`.
+Do installation executing this command `rake install`.
 
-**More documents**
+**Documentation**
 ==================
 * [History](./docs/en/history.md)
 * [Directories description](./docs/en/dirtree.md)
 * [Input definitions](./docs/en/inputs.md)
+
 
 Run it
 ======

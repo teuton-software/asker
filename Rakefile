@@ -3,6 +3,11 @@
 
 #Define tasks
 
+desc "Installation"
+task :default => [:gems] do
+  puts "Darts proyect installation has finish!"
+end
+
 desc "Install gems "
 task :gems do
   list=['haml', 'rspec', 'shoes']
