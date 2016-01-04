@@ -48,20 +48,20 @@ see `projects/demo/starwars/config-jedi.yaml`:
 ---
 :inputdirs: 'input/demo/starwars' 
 :process_file: 'jedi.haml'
-
 ```
 
 For now this establish two params:
 
-1. The directory path where are saved the input files we want and
+1. The directory path where we could find the input files we want and
 2. The input file from we want to generate the questions.
 
 ## 3. Run the project
 
-To run the project we execute this `./run projects/demo/starwars/config-jedi.yaml` or 
-`ruby run projects/demo/starwars/config-jedi.yaml`.
+To run the project we execute this
+* `./run projects/demo/starwars/config-jedi.yaml` or 
+* `ruby run projects/demo/starwars/config-jedi.yaml`.
 
-We will see something like this on the screen. The tool is working...
+You will see something like this on the screen. The tool is working...
 
 ```
 [INFO] Loading input data...
