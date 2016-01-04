@@ -61,33 +61,8 @@ To run the project we execute this
 * `./run projects/demo/starwars/config-jedi.yaml` or 
 * `ruby run projects/demo/starwars/config-jedi.yaml`.
 
-You will see something like this on the screen. The tool is working...
-
-```
-[INFO] Loading input data...
-* HAML/XML files from maps/demo/starwars: jedi.haml, sith.haml 
-[INFO] Showing concept data...
- <sidious(3)> lang=es
-  .context    = personaje, starwars
-  .tags       = humano, maestro, sith, alumno, plagueis
-  .text       = Sith, maestro de todos los siths...
-  .tables     = [$característica$descripción]
-  .neighbors  = maul(50.0), obiwan(50.0), yoda(37.5)
- <maul(4)> lang=es
-  .context    = personaje, starwars
-  .tags       = lord, sith, alumno, emperador
-  .text       = Lord Sirve como el aprendiz de Darth Sidious. Portando un sab...
-  .tables     = [$característica$descripción]
-  .neighbors  = sidious(57.14), obiwan(42.85), yoda(28.57)
-
-[INFO] Creating output files...
-[INFO] Showing concept stats...
-* Concept: name=sidious -----------------------(Q=42, E=10, %=400)
-* Concept: name=maul --------------------------(Q=32, E=8, %=400)
-* TOTAL(2) -----------------------------------(Q=74, E=18, %=400)
-
-```
+You will see messages into the screen when the tool is working.
 
 ## 4. Output files
-The output files generated ara saved into `output` directory.
+The output files are created into `output` directory.
 
