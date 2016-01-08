@@ -23,3 +23,9 @@ desc "Clean output dir"
 task :clean do
   system("rm output/*")
 end
+
+desc "Open GUI"
+task :gui do
+  e = ENV.to_h
+  system("#{e["HOME"]}/.shoes/federales/shoes lib/gui/prueba1.rb&")
+end
