@@ -14,15 +14,15 @@ Two Steps:
 * `rake install`: Install gems required for this tool.
 
 #Run demo project
-Run the demo project we executing `./run projects/starwars/es/config-jedi.yaml`.
+Run the demo project we executing `./run projects/starwars/config-jedi-en.yaml`.
 You will see messages into the screen when the tool is working.
 
 > **NOTICE**
 >
-> * Use `es` prefix for the Spanish demo.
 > * Use `en` prefix for the English demo.
+> * Use `es` prefix for the Spanish demo.
 >
-> To execute on Windows do `ruby run projects/starwars/es/config-jedi.yaml`
+> To execute on Windows do `ruby run projects/starwars/config-jedi-en.yaml`
 
 Now we have our output files, created into the `output` directory.
 
@@ -30,16 +30,16 @@ Now we have our output files, created into the `output` directory.
 > 
 >**1. Input definition files**
 > * In our example, we use sample input definition files. These files are saved into the 
-path `input/starwars/es`. We have two definitions files: one for jedis and other for siths.
+path `input/starwars/en`. We have two definitions files: one for jedis and other for siths.
 >
 >
 > **2. Proyect configuration**
 > * We have created a config file defining our new project. For example, let's 
-see `projects/starwars/es/config-jedi.yaml`:
+see `projects/starwars/config-jedi-en.yaml`:
 >
 >```
 >---
->:inputdirs: 'input/starwars/es' 
+>:inputdirs: 'input/starwars/en'
 >:process_file: 'jedi.haml'
 >```
 > This defines two params:
