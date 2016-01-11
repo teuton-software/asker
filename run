@@ -2,20 +2,24 @@
 # encoding: utf-8
 
 require_relative 'lib/interviewer'
+require 'rainbow'
+
+$APPNAME="darts"
+$VERSION="0.4"
 
 def show_help
-	puts "Usage:"
-	puts "   --help                    Show this help."
-	puts "   --version                 Show the program version."
-	puts "   --create PROJECTNAME      Create new FOO project."
-	puts "                             Example: #{$0} create FOO"
-	puts "   path/to/project/YAMLFILE  Build quiz and lesson data files, from YAML config file."
-	puts "                             Example: #{$0} projects/foo/config.yaml"
+  puts "Usage:"
+  puts "   --help                    Show this help."
+  puts "   --version                 Show the program version."
+  puts "   --create PROJECTNAME      Create new FOO project."
+  puts "                             Example: #{$0} create FOO"
+  puts "   path/to/project/YAMLFILE  Build quiz and lesson data files, from YAML config file."
+  puts "                             Example: #{$0} projects/foo/config.yaml"
 end
 
 def show_version
-	puts "TeacherTools CREATING-QUESTIONS version 0.3
-	"
+  t = Rainbow($APPNAME).color(:green)+" (version "+Rainbow($VERSION).color(:blue)+")"
+  puts t
 end
 
 if ARGV.count==0 then

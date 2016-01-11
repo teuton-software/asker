@@ -10,7 +10,7 @@ end
 
 desc "Install gems "
 task :gems do
-  list=['haml', 'rspec', 'shoes']
+  list=['haml', 'rspec', 'shoes', 'rainbow']
   list.each { |name| system("gem install #{name}") } 
 end
 
