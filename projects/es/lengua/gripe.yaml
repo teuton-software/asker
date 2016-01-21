@@ -1,0 +1,3 @@
+---
+:inputdirs: 'input/es/lengua' 
+:process_file: 'gripe.haml'
