@@ -1,0 +1,3 @@
+---
+:inputdirs: 'input/es/historia' 
+:process_file: 'origenes-del-estado.haml'
