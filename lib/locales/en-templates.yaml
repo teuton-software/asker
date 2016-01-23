@@ -15,3 +15,4 @@
 :c5table: '[Concept <%=text1%>]<br/>The next association is right\:<br/><%=text2%>\: "<%=text3%>"<br/><%=text4%>\: "<%=text5%>"<br/>.'
 :c6table: '[Concept <%=text1%>]<br/>The next association is right\:<br/><%=text2%>\: "<%=text3%>"<br/><%=text4%>\: "<%=text5%>"<br/>.'
 :c7table: '[Concept <%=text1%>]<br/>The next association is right\:<br/><%=text2%>\: "<%=text3%>"<br/><%=text4%>\: "<%=text5%>"<br/>.'
+:d1table: '[Concept <%=text1%>]<br/>What is the best choice for "<%=text2%>"?' 
