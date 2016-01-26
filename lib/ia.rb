@@ -163,29 +163,55 @@ module IA
 
   def process_table1field(pTable, pRow, pList)
     return if pTable.fields.count>1
+
 	return
+	
+	myRows=[]
+	pList.each do |r|
+	  myRows << r if r[:name]==pRow[:name]
+	end
+	otherRows= pList - myRows
+	
     q=Question.new
 
-	s=Set.new [ lRow[:data][0] , @lang.text_for(:none) ]
-	pList.each { |i| s.add( i[:data][0] ) }
-	a=s.to_a
+	#pList.each { |i| s.add( i[:data][0] ) }
+	#a=s.to_a
 	
-	if s.count>3 then		
+	if myRows.count>3 then
+	
+	  s=Set.new [ @lang.text_for(:none), pRow[:data][0] ]
+	  s << myRows[0][:data][0]
+	  s << myRows[1][:data][0]
+	  a=s.to_a
+	  
       @num+=1
       q.init
-      q.name="#{name}-#{@num.to_s}-d1table-#{lTable.name}"
-      q.text=@lang.text_for(:d1table, name, lTable.fields[0].capitalize)
-      q.good=lRow[:data][0]
-      q.bads << @lang.text_for(:none)
-      q.bads << a[2]
+      q.name="#{name}-#{@num.to_s}-d1table-#{pTable.name}"
+      q.text=@lang.text_for(:d1table, name, pTable.fields[0].capitalize)
+      q.good=a[0]
+      q.bads << a[1]
+      q.bads << a[2] 
       q.bads << a[3]
       q.write_to_file @file		
     end
 
-	#puts pTable.to_s
-	#puts pRow.to_s
-	#puts pList.to_s
-	#puts lTable.name,lTable.fields.count
+	if myRows.count>2 and otherRows.count>1 then
+	
+	  s=Set.new [ otherRows[0][:data][0],@lang.text_for(:none) ]
+	  s << pRow[:data][0]
+	  s << myRows[0][:data][0]
+	  a=s.to_a
+	  
+      @num+=1
+      q.init
+      q.name="#{name}-#{@num.to_s}-d2table-#{pTable.name}"
+      q.text=@lang.text_for(:d1table, name, pTable.fields[0].capitalize)
+      q.good=a[0]
+      q.bads << a[0]
+      q.bads << a[2] 
+      q.bads << a[3]
+      q.write_to_file @file		
+    end
 	
   end
 	

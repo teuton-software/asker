@@ -146,8 +146,8 @@ class Concept
       lTable.rows.each do |i|
         list1 << { :id => count, :name => @name, :weight => 0, :data => i }
         count+=1
-      end	
-      #create a list2 with similar rows from the neighbours
+      end
+      #create a list2 with similar rows (same table name) from the neighbours
       list2=[]
       @data[:neighbors].each do |n|
         n[:concept].tables.each do |t2|

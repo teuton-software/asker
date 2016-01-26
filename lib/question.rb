@@ -97,7 +97,7 @@ class Question
 	
 private
 
-  def satanize(psText)
+  def satanize(psText="")
     lsText=psText.sub("\n", " ")
     lsText.sub!(":","\:")
     lsText.sub!("=","\=")
