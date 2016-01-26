@@ -43,8 +43,8 @@ class Question
       @matching.each { |i| s << "  =#{satanize(i[0])} -> #{satanize(i[1])}\n" }
       s << "}\n\n"
     when :short
-      s << "{"
-      @shorts.each { |i| s << "=%100%#{i} " }
+      s << "{\n"
+      @shorts.each { |i| s << "  =%100%#{i}#\n" }
       s << "}\n\n"
     end
     return s

@@ -4,21 +4,21 @@ require 'erb'
 require 'yaml'
 
 class Lang
-	attr_accessor :lang
+  attr_accessor :lang
 
-	def initialize(lang='en')
-		@lang=lang
+  def initialize(lang='en')
+    @lang=lang
 
-		d=(__FILE__).split("/")
-		d.delete_at(-1)
-		dirbase=d.join("/")
+    d=(__FILE__).split("/")
+    d.delete_at(-1)
+    dirbase=d.join("/")
 
-		filename=File.join(dirbase, "locales", "#{lang}-templates.yaml" )
-		@templates=YAML::load(File.new(filename))
+    filename=File.join(dirbase, "locales", "#{lang}-templates.yaml" )
+    @templates=YAML::load(File.new(filename))
 
-		filename=File.join( dirbase, "locales", "#{lang}-connectors.yaml" )
-		@connectors=YAML::load(File.new(filename))
-	end
+    filename=File.join( dirbase, "locales", "#{lang}-connectors.yaml" )
+    @connectors=YAML::load(File.new(filename))
+  end
 	
 	def text_for(pOption, pText1="", pText2="", pText3="", pText4="", pText5="")
 		text1=pText1

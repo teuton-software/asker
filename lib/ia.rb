@@ -6,6 +6,7 @@ module IA
 
   def process_texts	
     q=Question.new
+    #for every <text> do this
     texts.each do |t|
       s=Set.new [name, @lang.text_for(:none)]
       neighbors.each { |n| s.add n[:concept].name } 
@@ -69,32 +70,24 @@ module IA
       q.name="#{name}-#{@num.to_s}-a5desc"
       q.text=@lang.text_for(:a5desc, hiden_name, t )
       q.shorts << name
+      q.shorts << name.gsub("-"," ").gsub("_"," ")
       q.write_to_file @file
 
-=begin
-      #// question: 8090  name: Von-Neumann-11-a5desc
-      #::Von-Neumann-11-a5desc::[html]<p>Definición de [???-???????]\:<br /> "Virtualmente, cada computador personal, microcomputador, minicomputador y supercomputador es una máquina de [...]."</p>
-      {
-	    =%100%Von-Neumann#
-	    =%100%Von Neumann#
-	    =%100%Von_Neumann#
-      }
-=end
       #Question type <a6match>: filtered text questions
-			filtered=@lang.text_with_connectors(t)
-			if filtered[:words].size>=4 then
-				@num+=1
-				q.init
-				q.set_match
-				q.name="#{name}-#{@num.to_s}-a6match"
+      filtered=@lang.text_with_connectors(t)
+      if filtered[:words].size>=4 then
+        @num+=1
+        q.init
+        q.set_match
+        q.name="#{name}-#{@num.to_s}-a6match"
 				
-				indexes=Set.new
-				words=filtered[:words]
-				while indexes.size<4 
-					i=rand(filtered[:words].size)					
-					flag=true
-					flag=false if words[i].include?("[") or words[i].include?("]") or words[i].include?("(") or words[i].include?(")") or words[i].include?("\"")
-					indexes << i if flag
+        indexes=Set.new
+        words=filtered[:words]
+        while indexes.size<4 
+          i=rand(filtered[:words].size)					
+          flag=true
+          flag=false if words[i].include?("[") or words[i].include?("]") or words[i].include?("(") or words[i].include?(")") or words[i].include?("\"")
+          indexes << i if flag
         end
         indexes=indexes.to_a
 				

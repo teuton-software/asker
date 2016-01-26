@@ -174,21 +174,20 @@ class Concept
   end
 
   def to_doc
-    out="\n"+"="*30+"\n"
-    out << name+"\n"
-		
+    out="\n"+"="*60+"\n"
+    out << name+":\n\n"
     texts.each { |i| out << "* "+i+"\n" }
-
+    out << "\n"
+    
     tables.each do |t|
-      s=""
-      t.fields.each { |f| s=s+f.capitalize+Application.instance.param[:lesson_separator] }
-      out << "\n"+s.chop+"\n"
-      t.rows.each do |r|
-        s=""
-        r.each { |c| s=s+c+Application.instance.param[:lesson_separator] }
-        out << "- "+s.chop+"\n" 
+      my_screen_table = Terminal::Table.new do |st|
+        st << t.fields
+        st << :separator
+        t.rows.each { |r| st.add_row r }
       end
+      out << my_screen_table.to_s+"\n"
     end
+        
     return out
   end
 	
