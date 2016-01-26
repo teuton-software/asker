@@ -2,6 +2,7 @@
 
 require 'rexml/document'
 require 'set'
+require 'terminal-table'
 require_relative 'tool'
 require_relative 'ia'
 
@@ -39,70 +40,70 @@ class Concept
     return @data[:names][0] || 'concept'+@@id.to_s
   end
 	
-	def hiden_name
-		n=name
-		s=""
-		n.each_char do |c|
-			if ' !|"@#$%&/()=?¿¡+*(){}[],.-_<>'.include? c then
-				s=s+c
-			else
-				s=s+'?'
-			end
-		end
-		return s
-	end
+  def hiden_name
+    n=name
+    s=""
+    n.each_char do |c|
+      if ' !|"@#$%&/()=?¿¡+*(){}[],.-_<>'.include? c then
+        s=s+c
+      else
+        s=s+'?'
+      end
+    end
+    return s
+  end
 	
-	def names
-		return @data[:names]
-	end
+  def names
+    return @data[:names]
+  end
 	
-	def misspelled_name
-		i=rand(name.size+1)
-		j=i
-		j=rand(name.size+1) while(j==i)
+  def misspelled_name
+    i=rand(name.size+1)
+    j=i
+    j=rand(name.size+1) while(j==i)
 		
-		lName=name+i.to_s
-		#lName[i]=name[j]
-		#lName[j]=name[i]
-		return lName
-	end
+    lName=name+i.to_s
+    #lName[i]=name[j]
+    #lName[j]=name[i]
+    return lName
+  end
 	
-	def context
-		return @data[:context]
-	end
+  def context
+    return @data[:context]
+  end
 
-	def tags
-		return @data[:tags]
-	end
+  def tags
+    return @data[:tags]
+  end
 	
-	def text
-		return @data[:texts][0] || '...'
-	end
+  def text
+    return @data[:texts][0] || '...'
+  end
 	
-	def texts
-		return @data[:texts]
-	end
+  def texts
+    return @data[:texts]
+  end
 	
-	def tables
-		return @data[:tables]
-	end
+  def tables
+    return @data[:tables]
+  end
 	
-	def neighbors
-		return @data[:neighbors]
-	end
+  def neighbors
+    return @data[:neighbors]
+  end
 	
-	def process?
-		return @process
-	end
+  def process?
+    return @process
+  end
 	
-	def try_adding_neighbor(pConcept)
-		p = calculate_nearness_to_concept(pConcept)
-		return if p==0
-		@data[:neighbors]<< { :concept => pConcept , :value => p }
-		#Sort neighbors list
-		@data[:neighbors].sort! { |a,b| a[:value] <=> b[:value] }
-		@data[:neighbors].reverse!
-	end
+  def try_adding_neighbor(pConcept)
+    p = calculate_nearness_to_concept(pConcept)
+    return if p==0
+    @data[:neighbors]<< { :concept => pConcept , :value => p }
+    #Sort neighbors list
+    @data[:neighbors].sort! { |a,b| a[:value] <=> b[:value] }
+    @data[:neighbors].reverse!
+  end
 
   def to_s
     s=""
@@ -128,46 +129,44 @@ class Concept
 	return s
   end
 	
-	def write_questions_to(pFile)
-		@file=pFile
-		@file.write "\n// Concept name: #{name}\n"
+  def write_questions_to(pFile)
+    @file=pFile
+    @file.write "\n// Concept name: #{name}\n"
 
-		@num=0
-		process_texts
+    @num=0
+    process_texts
 		
-		#process every table of this concept
-		tables.each do |lTable|
-			
-			#create list1 with all the rows from the table
-			list1=[]
-			count=1
-			lTable.rows.each do |i|
-				list1 << { :id => count, :name => @name, :weight => 0, :data => i }
-				count+=1
-			end
-			
-			#create a list2 with similar rows from the neighbours
-			list2=[]
-			@data[:neighbors].each do |n|
-				n[:concept].tables.each do |t2|
-					if t2.name==lTable.name then
-						t2.rows.each do |i| 
-							list2 << { :id => count, :name => n[:concept].name, :weight => 0, :data => i }
-							count+=1
-						end
-					end
-				end
-			end
+    #process every table of this concept
+    tables.each do |lTable|			
+      #create list1 with all the rows from the table
+      list1=[]
+      count=1
+      lTable.rows.each do |i|
+        list1 << { :id => count, :name => @name, :weight => 0, :data => i }
+        count+=1
+      end	
+      #create a list2 with similar rows from the neighbours
+      list2=[]
+      @data[:neighbors].each do |n|
+        n[:concept].tables.each do |t2|
+          if t2.name==lTable.name then
+            t2.rows.each do |i| 
+              list2 << { :id => count, :name => n[:concept].name, :weight => 0, :data => i }
+              count+=1
+            end
+          end
+        end
+      end
 
-			list3=list1+list2
-			process_table_match(lTable, list1, list2)
+      list3=list1+list2
+      process_table_match(lTable, list1, list2)
 					
-			list1.each do |lRow|
-				reorder_list_with_row(list3, lRow)
-				process_tableXfields(lTable, lRow, list3)
-			end
-		end		
-	end
+      list1.each do |lRow|
+        reorder_list_with_row(list3, lRow)
+        process_tableXfields(lTable, lRow, list3)
+      end
+    end		
+  end
 	
   def write_lesson_to(pFile)
     pFile.write("\n"+"="*30+"\n")

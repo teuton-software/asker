@@ -10,7 +10,7 @@ end
 
 desc "Install gems "
 task :gems do
-  list=['haml', 'shoes', 'rainbow']
+  list=['haml', 'shoes', 'rainbow', 'terminal-table']
   list.each { |name| system("gem install #{name}") } 
   system("zypper in rubygem-rspec") #opensuse13.2
 end
