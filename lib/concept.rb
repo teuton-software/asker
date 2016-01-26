@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+require 'rainbow'
 require 'rexml/document'
 require 'set'
 require 'terminal-table'
@@ -108,22 +109,22 @@ class Concept
 
   def to_s
     s=""
-    s=s+" <#{name}(#{@id.to_s})> lang=#{@lang.lang}\n"
-    s=s+"  .context    = "+context.join(', ').to_s+"\n" if context.count>0
-    s=s+"  .tags       = "+tags.join(', ').to_s+"\n"
+    s=s+" #{Rainbow(name).color(:green).bright}(#{@id.to_s}) lang(#{@lang.lang})\n"
+    s=s+"  "+Rainbow(".context").color(:blue)+"    = "+context.join(', ').to_s+"\n" if context.count>0
+    s=s+"  "+Rainbow(".tags").color(:blue)+"       = "+tags.join(', ').to_s+"\n"
     if text.size<60 then
-	  s=s+"  .text       = "+text.to_s+"...\n"
+	  s=s+"  "+Rainbow(".text").color(:blue)+"       = "+text.to_s+"...\n"
 	else
-	  s=s+"  .text       = "+text[0...60].to_s+"...\n"
+	  s=s+"  "+Rainbow(".text").color(:blue)+"       = "+text[0...60].to_s+"...\n"
 	end
 	
 	if tables.count>0 then
-	  s=s+"  .tables     = "
+	  s=s+"  "+Rainbow(".tables").color(:blue)+"     = "
 	  tables.each { |t| s=s+t.to_s }
 	  s= s +"\n"
 	end
 	
-	s=s+"  .neighbors  = "
+	s=s+"  "+Rainbow(".neighbors").color(:blue)+"  = "
 	n=[]
 	neighbors[0..5].each { |i| n << i[:concept].name+"("+i[:value].to_s[0..4]+")" }
 	s=s+n.join(', ').to_s

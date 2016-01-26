@@ -5,7 +5,9 @@
 require 'singleton'
 require 'yaml'
 require 'haml'
+require 'rainbow'
 require 'rexml/document'
+require 'terminal-table'
 require_relative 'concept'
 require_relative 'lang'
 
@@ -145,7 +147,7 @@ class Tool
   def show_data
 	app=Application.instance
     lMode=app.param[:show_mode] 
-    verbose "[INFO] Showing concept data <#{lMode.to_s}>..."
+    verbose "[INFO] Showing concept data <#{Rainbow(lMode.to_s).bright}>..."
     if lMode==:resume then
 	  s="* Concepts ("+@concepts.count.to_s+"): "
 	  @concepts.each_value { |c| s=s+c.name+", " }
@@ -160,20 +162,32 @@ class Tool
   def show_stats
 	app=Application.instance
     return if app.param[:show_mode]==:none
-    verbose "[INFO] Showing concept stats..."
+    verbose "[INFO] Showing concept stats...\n"
     total_q=total_e=total_c=0
+    
+    my_screen_table = Terminal::Table.new do |st|
+      st << ['Concept','Questions','Entries','Productivity %']
+      st << :separator
+    end
     
     @concepts.each_value do |c|
       if c.process?
         e=c.data[:texts].size
         c.data[:tables].each { |t| e=e+t.data[:fields].size*t.data[:rows].size }
-        verbose "* Concept: name=#{c.name} "+"-"*(30-c.name.size).abs+"(Questions=#{c.num.to_s}, Entries=#{e.to_s}, Productivity=#{(c.num.to_f/e.to_f*100.0).to_i}%)"
+        
+        my_screen_table.add_row [Rainbow(c.name).color(:green),c.num.to_s,e.to_s, ((c.num.to_f/e.to_f*100.0).to_i.to_s+"%")]
+         
+        #verbose "* Concept [#{Rainbow(c.name).color(:green)}] "+"-"*(40-c.name.size).abs+"(Questions=#{c.num.to_s}, Entries=#{e.to_s}, Productivity=#{(c.num.to_f/e.to_f*100.0).to_i}%)"
+        
         total_q+=c.num
         total_e+=e
         total_c+=1
       end
     end
-    verbose "* TOTAL  : #{total_c.to_s} concepts "+"-"*25+"(Questions=#{total_q.to_s}, Concepts=#{@concepts.size.to_s}, Productivity=#{(total_q.to_f/@concepts.size.to_f*100.0).to_i}%)"
+    my_screen_table.add_separator
+    my_screen_table.add_row [ Rainbow("TOTAL = #{total_c.to_s}").bright,Rainbow(total_q.to_s).bright,Rainbow(total_e.to_s).bright,Rainbow((total_q.to_f/@concepts.size.to_f*100.0).to_i).bright ]
+    verbose my_screen_table.to_s+"\n"
+    #verbose Rainbow("* TOTAL  : #{total_c.to_s} concepts "+"-"*31+"(Questions=#{total_q.to_s}, Concepts=#{@concepts.size.to_s}, Productivity=#{(total_q.to_f/@concepts.size.to_f*100.0).to_i}%)").bright
   end
 	
   def create_output_files
