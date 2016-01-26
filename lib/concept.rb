@@ -196,18 +196,19 @@ private
 
   def read_data_from_xml(pXMLdata)
     pXMLdata.elements.each do |i|
-      if i.name=='names' then
+      case i.name
+      when 'names'
         j=i.text.split(",")
         j.each { |k| @data[:names] << k.strip }
-      elsif i.name=='context' then
+      when 'context'
         j=i.text.split(",")
         j.each { |k| @data[:context] << k.strip }
-      elsif i.name=='tags' then
+      when 'tags'
         j=i.text.split(",")
         j.each { |k| @data[:tags] << k.strip }
-      elsif i.name=='text' then
+      when 'text'
         @data[:texts] << i.text.strip
-      elsif i.name=='table' then				
+      when 'table'				
         @data[:tables] << Table.new(self,i)
       else
         puts "[ERROR] XMLdata with #{i.name}"
