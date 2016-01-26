@@ -2,10 +2,8 @@
 # encoding: utf-8
 
 require_relative 'lib/interviewer'
+require_relative 'lib/application'
 require 'rainbow'
-
-$APPNAME="darts"
-$VERSION="0.4"
 
 def show_help
   puts "Usage:"
@@ -18,7 +16,8 @@ def show_help
 end
 
 def show_version
-  t = Rainbow($APPNAME).color(:green)+" (version "+Rainbow($VERSION).color(:blue)+")"
+  app=Application.instance
+  t = Rainbow(app.name).color(:green)+" (version "+Rainbow(app.version).color(:blue)+")"
   puts t
 end
 
