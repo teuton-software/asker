@@ -2,58 +2,42 @@
 
 require 'rexml/document'
 require 'set'
-require_relative 'interviewer'
+require_relative 'tool'
 require_relative 'ia'
 
 class Concept
-	include IA
+  include IA
 	
-	attr_reader :id, :data, :num
-	attr_accessor :process
+  attr_reader :id, :data, :num
+  attr_accessor :process
 
-	@@id=0
+  @@id=0
 
-	def initialize(pXMLdata)
-		@lang=Interviewer.instance.lang
+  def initialize(pXMLdata)
+    @lang=Tool.instance.lang
 				
-		@@id+=1
-		@id=@@id
+    @@id+=1
+    @id=@@id
 		
-		@weights=Interviewer.instance.param[:formula_weights]
-		@output=true
+    @weights=Tool.instance.param[:formula_weights]
+    @output=true
 
-		@data={}
-		@data[:names]=[]
-		@data[:context]=[]
-		@data[:tags]=[]
-		@data[:texts]=[]
-		@data[:tables]=[]
-		@data[:neighbors]=[]
-		
-		pXMLdata.elements.each do |i|
-			if i.name=='names' then
-				j=i.text.split(",")
-				j.each { |k| @data[:names] << k.strip }
-			elsif i.name=='context' then
-				j=i.text.split(",")
-				j.each { |k| @data[:context] << k.strip }
-			elsif i.name=='tags' then
-				j=i.text.split(",")
-				j.each { |k| @data[:tags] << k.strip }
-			elsif i.name=='text' then
-				@data[:texts] << i.text.strip
-			elsif i.name=='table' then				
-				@data[:tables] << Table.new(self,i)
-			else
-				puts "[ERROR] XMLdata with #{i.name}"
-			end
-		end
-		@data[:misspelled]=misspelled_name
-	end
+    @data={}
+    @data[:names]=[]
+    @data[:context]=[]
+    @data[:tags]=[]
+    @data[:texts]=[]
+    @data[:tables]=[]
+    @data[:neighbors]=[]
 	
-	def name
-		return @data[:names][0] || 'concept'+@@id.to_s
-	end
+	read_data_from_xml pXMLdata
+	    
+    @data[:misspelled]=misspelled_name
+  end
+	
+  def name
+    return @data[:names][0] || 'concept'+@@id.to_s
+  end
 	
 	def hiden_name
 		n=name
@@ -185,22 +169,44 @@ class Concept
 		end		
 	end
 	
-	def write_lesson_to(pFile)
-		pFile.write("\n"+"="*30+"\n")
-		pFile.write(name+"\n")
+  def write_lesson_to(pFile)
+    pFile.write("\n"+"="*30+"\n")
+    pFile.write(name+"\n")
 		
-		texts.each { |i| pFile.write("* "+i+"\n") }
+    texts.each { |i| pFile.write("* "+i+"\n") }
 
-		tables.each do |t|
-			s=""
-			t.fields.each { |f| s=s+f.capitalize+Interviewer.instance.param[:lesson_separator] }
-			pFile.write("\n"+s.chop+"\n")
-			t.rows.each do |r|
-				s=""
-				r.each { |c| s=s+c+Interviewer.instance.param[:lesson_separator] }
-				pFile.write("- "+s.chop+"\n") 
-			end
-		end
-	end
+    tables.each do |t|
+      s=""
+      t.fields.each { |f| s=s+f.capitalize+Tool.instance.param[:lesson_separator] }
+      pFile.write("\n"+s.chop+"\n")
+      t.rows.each do |r|
+        s=""
+        r.each { |c| s=s+c+Tool.instance.param[:lesson_separator] }
+        pFile.write("- "+s.chop+"\n") 
+      end
+    end
+  end
 	
+private
+
+  def read_data_from_xml(pXMLdata)
+    pXMLdata.elements.each do |i|
+      if i.name=='names' then
+        j=i.text.split(",")
+        j.each { |k| @data[:names] << k.strip }
+      elsif i.name=='context' then
+        j=i.text.split(",")
+        j.each { |k| @data[:context] << k.strip }
+      elsif i.name=='tags' then
+        j=i.text.split(",")
+        j.each { |k| @data[:tags] << k.strip }
+      elsif i.name=='text' then
+        @data[:texts] << i.text.strip
+      elsif i.name=='table' then				
+        @data[:tables] << Table.new(self,i)
+      else
+        puts "[ERROR] XMLdata with #{i.name}"
+      end
+    end
+  end
 end

@@ -11,7 +11,7 @@ require_relative 'lang'
 #require 'pry'
 
 =begin
-The main method of Interviewer class is "run"
+The main method of this class is "run"
 
 Interviewer.run do the next actions:
 1) Read the configuration parameter values.
@@ -22,7 +22,7 @@ indicated by "outputdir/outputname" values.
 
 =end
 
-class Interviewer
+class Tool
   include Singleton
   attr_reader :param, :lang
 	

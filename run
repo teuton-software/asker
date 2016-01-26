@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 # encoding: utf-8
 
-require_relative 'lib/interviewer'
+require_relative 'lib/tool'
 require_relative 'lib/application'
 require 'rainbow'
 
@@ -28,9 +28,9 @@ elsif ['h','-h','help','--help'].include?(ARGV.first) then
 elsif ['v','-v','version','--version'].include?(ARGV[0]) then
 	show_version
 elsif ['c','-c','create','--create'].include?(ARGV[0]) then
-	Interviewer.instance.create_project(ARGV[1])
+	Tool.instance.create_project(ARGV[1])
 else
-	Interviewer.instance.run(ARGV.first)
+	Tool.instance.run(ARGV.first)
 end
 
 __END__
