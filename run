@@ -39,7 +39,7 @@ __END__
     %names concept1
     %context write,here,the,context,of,concept1
     %tags write,here,the,definition,of,the,concept1
-    %text Write here the definition of [***]
+    %text Write here the definition of [*]
 
   %concept
     %names concept2

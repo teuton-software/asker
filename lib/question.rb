@@ -22,27 +22,32 @@ class Question
   end
 		
   def write_to_file(pFile)
-    # Write question to file using gift format
-    pFile.write "// #{@comment}\n" if !@comment.nil?
-    pFile.write "::#{@name}::[html]#{satanize(@text)}\n"
+    pFile.write self.to_gift
+  end
+
+  def to_gift
+    # Return question using gift format
+    s="// #{@comment}\n" if !@comment.nil?
+    s << "::#{@name}::[html]#{satanize(@text)}\n"
 
     case @type
     when :choice
-      pFile.write "{\n"
-      pFile.write "  =#{@good}\n"
-      @bads.each { |i| pFile.write "  ~#{satanize(i)}\n" }
-      pFile.write "}\n\n"
+      s << "{\n"
+      s << "  =#{@good}\n"
+      @bads.each { |i| s << "  ~#{satanize(i)}\n" }
+      s <<  "}\n\n"
 	when :boolean
-      pFile.write "{#{@good}}\n\n"
+      s << "{#{@good}}\n\n"
     when :match
-      pFile.write "{\n"
-      @matching.each { |i| pFile.write "  =#{satanize(i[0])} -> #{satanize(i[1])}\n" }
-      pFile.write "}\n\n"
+      s << "{\n"
+      @matching.each { |i| s << "  =#{satanize(i[0])} -> #{satanize(i[1])}\n" }
+      s << "}\n\n"
     when :short
-      pFile.write "{"
-      @shorts.each { |i| pFile.write "=%100%#{i} " }
-      pFile.write "}\n\n"
+      s << "{"
+      @shorts.each { |i| s << "=%100%#{i} " }
+      s << "}\n\n"
     end
+    return s
   end
 	
   def to_s
