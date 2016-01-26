@@ -3,8 +3,9 @@
 require 'rexml/document'
 require 'set'
 require 'terminal-table'
-require_relative 'tool'
+require_relative 'application'
 require_relative 'ia'
+require_relative 'tool'
 
 class Concept
   include IA
@@ -20,7 +21,7 @@ class Concept
     @@id+=1
     @id=@@id
 		
-    @weights=Tool.instance.param[:formula_weights]
+    @weights=Application.instance.param[:formula_weights]
     @output=true
 
     @data={}
@@ -169,21 +170,26 @@ class Concept
   end
 	
   def write_lesson_to(pFile)
-    pFile.write("\n"+"="*30+"\n")
-    pFile.write(name+"\n")
+    pFile.write(self.to_doc)    
+  end
+
+  def to_doc
+    out="\n"+"="*30+"\n"
+    out << name+"\n"
 		
-    texts.each { |i| pFile.write("* "+i+"\n") }
+    texts.each { |i| out << "* "+i+"\n" }
 
     tables.each do |t|
       s=""
-      t.fields.each { |f| s=s+f.capitalize+Tool.instance.param[:lesson_separator] }
-      pFile.write("\n"+s.chop+"\n")
+      t.fields.each { |f| s=s+f.capitalize+Application.instance.param[:lesson_separator] }
+      out << "\n"+s.chop+"\n"
       t.rows.each do |r|
         s=""
-        r.each { |c| s=s+c+Tool.instance.param[:lesson_separator] }
-        pFile.write("- "+s.chop+"\n") 
+        r.each { |c| s=s+c+Application.instance.param[:lesson_separator] }
+        out << "- "+s.chop+"\n" 
       end
     end
+    return out
   end
 	
 private
