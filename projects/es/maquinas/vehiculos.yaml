@@ -1,0 +1,3 @@
+---
+:inputdirs: 'input/es/maquinas'
+:process_file: vehiculos.haml

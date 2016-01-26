@@ -1,4 +1,0 @@
----
-:projectdir: demo/vehicles
-:inputdirs: 'maps/demo/etc'
-:process_file: vehicles.haml
