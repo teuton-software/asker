@@ -15,5 +15,5 @@
 :c5table: '[Concepto <%=text1%>]<br/>La asociación siguiente es correcta\:<br/><%=text2%>\: "<%=text3%>"<br/><%=text4%>\: "<%=text5%>"<br/>.'
 :c6table: '[Concepto <%=text1%>]<br/>La asociación siguiente es correcta\:<br/><%=text2%>\: "<%=text3%>"<br/><%=text4%>\: "<%=text5%>"<br/>.'
 :c7table: '[Concepto <%=text1%>]<br/>La asociación siguiente es correcta\:<br/><%=text2%>\: "<%=text3%>"<br/><%=text4%>\: "<%=text5%>"<br/>.'
-:d1table: '¿Qué opción no es un "<%=text2%>" válido para el Concepto [<%=text1%>]<br/>?'
-:d2table: '¿Qué opción no es un "<%=text2%>" válido para el Concepto [<%=text1%>]<br/>?'
+:d1table: 'Los siguientes elementos son "<%=text2%>" del concepto [<%=text1%>]:<br/><ul><li><%=text3%></li><li><%=text4%></li><li><%=text5%></li><li><%=text6%></li></ul>'
+:d2table: 'Los siguientes elementos son "<%=text2%>" del concepto [<%=text1%>]:<br/><ul><li><%=text3%></li><li><%=text4%></li><li><%=text5%></li><li><%=text6%></li></ul>'

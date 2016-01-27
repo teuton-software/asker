@@ -22,7 +22,7 @@ class Concept
     @@id+=1
     @id=@@id
 		
-    @weights=Application.instance.param[:formula_weights]
+    @weights=Application.instance.formula_weights
     @output=true
 
     @data={}
@@ -136,18 +136,19 @@ class Concept
     @file.write "\n// Concept name: #{name}\n"
 
     @num=0
+    #IA process every <text> definition
     process_texts
 		
-    #process every table of this concept
+    #IA process every table of this concept
     tables.each do |lTable|			
-      #create list1 with all the rows from the table
+      #create <list1> with all the rows from the table
       list1=[]
       count=1
       lTable.rows.each do |i|
         list1 << { :id => count, :name => @name, :weight => 0, :data => i }
         count+=1
       end
-      #create a list2 with similar rows (same table name) from the neighbours
+      #create a <list2> with similar rows (same table name) from the neighbours
       list2=[]
       @data[:neighbors].each do |n|
         n[:concept].tables.each do |t2|
@@ -162,6 +163,7 @@ class Concept
 
       list3=list1+list2
       process_table_match(lTable, list1, list2)
+      process_table1field(lTable, list1, list2)
 					
       list1.each do |lRow|
         reorder_list_with_row(list3, lRow)

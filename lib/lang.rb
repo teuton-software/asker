@@ -20,17 +20,19 @@ class Lang
     @connectors=YAML::load(File.new(filename))
   end
 	
-	def text_for(pOption, pText1="", pText2="", pText3="", pText4="", pText5="")
-		text1=pText1
-		text2=pText2
-		text3=pText3
-		text4=pText4
-		text5=pText5
+  def text_for(pOption, pText1="",pText2="",pText3="",pText4="",pText5="",pText6="",pText7="")
+    text1=pText1
+    text2=pText2
+    text3=pText3
+    text4=pText4
+    text5=pText5
+    text6=pText6
+    text7=pText7
 		
-		renderer = ERB.new(@templates[pOption])
-		output = renderer.result(binding)
-		return output
-	end
+    renderer = ERB.new(@templates[pOption])
+    output = renderer.result(binding)
+    return output
+  end
 	
   def text_filter_connectors(pText, pFilter)
 	input_lines=pText.split(".")

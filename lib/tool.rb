@@ -111,7 +111,7 @@ class Tool
 				
         begin
           lXMLdata=REXML::Document.new(lFileContent)
-          app.lang=lXMLdata.root.attributes['lang'] || app.lang
+          app.param[:lang]=lXMLdata.root.attributes['lang'] || app.lang
           @lang=Lang.new(app.lang)
 					
           lXMLdata.root.elements.each do |i|

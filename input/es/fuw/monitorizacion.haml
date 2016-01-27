@@ -37,11 +37,69 @@
   %concept
     %names EVEREST
     %context hardware, monitorización, diagnóstico
-    %tags herramientas, monitorización, diagnóstico, nivel, software
+    %tags herramienta, monitorización, diagnóstico, nivel, software
     %text Sustituye a la herramienta AIDA 32.
     %table{ :fields => 'caracteristicas' }
       %title Características
-      %row Ees una herramienta de las más completas en la actualidad en materia de diagnósticos del ordenador; en unos pocos segundos, realiza un extenso y detallado análisis del PC, mostrando prácticamente todos los aspectos del sistema referentes a hardware, software, configuración de red y más. 
+      %row Es una herramienta de las más completas en la actualidad en materia de diagnósticos del ordenador; en unos pocos segundos, realiza un extenso y detallado análisis del PC, mostrando prácticamente todos los aspectos del sistema referentes a hardware, software, configuración de red y más. 
       %row En el momento de ejecutarlo nos presenta toda la información disponible a través de una sencilla interfaz y mediante una clara estructura de árbol.
       %row No  solo  muestra  información  sobre los elementos del PC sino que además, si es posible, facilita enlaces a la web del fabricante para mayor información y/o descarga de controladores.
       %row Esta herramienta nos permite crear completos informes en formato HTML o TXT, para ello especificaremos los detalles que deseemos incluir en el mismo.
+
+  %concept
+    %names Memtest86+
+    %context hardware, monitorización, diagnóstico
+    %tags herramienta, monitorización, diagnóstico, nivel, software
+    %text Es una pequeña aplicación diseñada para testear y probar el uso y el estado de la memoria RAM de tu ordenador.
+    %text Verifica la capacidad de la memoria, escaneando los módulos de memoria RAM y analizando su capacidad para guardar y recuperar información de manera adecuada y con precisión. 
+    %text [*] resulta especialmente útil a la hora de comprobar la fiablidad de la memoria de un ordenador.
+    %table{ :fields => 'caracteristicas' }
+      %title Características
+      %row Se puede descargar desde el URL http://memtest86.softonic.com/
+      %row Viene con varias opciones de precompilado
+    %table{ :fields => 'opciones-de-precompilado' }
+      %title Opciones de precompilado
+      %row ISO arrancable (Imagen CD)
+      %row Binario arrancable
+      %row Precompilado arrancable para memoria USB
+      %row Precompilado arrancable para floppy 
+
+  %concept
+    %names test-de-memoria 
+    %context hardware, monitorización, diagnóstico
+    %tags test, memoria, memtest86+, herramienta, monitorización, diagnóstico, nivel, software
+    %text La metodología de un buen [*] es la siguiente: escribir todas las direcciones de memoria con patrones generados con un algoritmo específico y volver a leerlos para comprobar la coherencia de los datos. 
+    %text En el algoritmo usado en los [*] está la diferencia entre los varios programas disponibles, y el más eficaz es Memtest86+, que se compone de diez [*] individuales.
+    %table{ :fields => 'nombre,descripción' }
+      %title Nombre de cada test y su descripción
+      %row
+        %col Test Address test, walking  ones, no  cache
+        %col Test de todos los bits direccionables en todos los bancos de memoria usando un patrón de acceso "walking ones".
+      %row
+        %col Test Address test, own address
+        %col Este test debería detectar todos los errores de direccionamiento.
+      %row
+        %col Test Moving inversions, ones and zeros
+        %col Es un test rápido que solamente da errores en subsistemas de memoria muy dañados. 
+      %row
+        %col Test Moving inversions, 8 bit pattern
+        %col Diseñado para detectar fallos producidos por interferencia con las células de memoria adyacentes. 
+      %row
+        %col Test Moving inversions, random pattern
+        %col Es un test muy efectivo para detectar errores de datos, utilizando 60 patrones aleatorios cambiando en cada pasada del test. Por ello múltiples pasadas aumentan la eficacia. 
+      %row 
+        %col Test Block  move, 64 moves
+        %col Experimentalmente es de los test que revelan errores más sutiles.
+      %row
+        %col Test Moving  inversions, 32 bit pat
+        %col Es un test bastante lento pero muy efectivo para detectar errores de datos, ya que hace 32 pasadas para probar todos los patrones. 
+      %row
+        %col Test Random number sequence
+        %col Se escribe una serie de números aleatorios en memoria. Es comprobado y complementado y vuelto a comprobar. 
+      %row
+        %col Test Modulo 20, ones and zeros
+        %col Diseñado para evitar interferencia del subsitema de caché que podrían enmascaras algunos errores otros tests.Utiliza patrones de unos y ceros. 
+      %row 
+        %col Test Bit fade test, 90 min, 2 patterns
+        %col Se inicializa toda la RAM con un patrón y se deja inactiva 90 minutos, entonces se examina en busca de alguna variación.
+
