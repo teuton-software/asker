@@ -15,11 +15,10 @@ require_relative 'lang'
 The main method of this class is "run"
 
 Interviewer.run do the next actions:
-1) Read the configuration parameter values.
+1) Inicialize configuration parameter values.
 2) Read HAML/XML files from the directories indicated by "inputdirs" values.
 3) Process the contents and definitions from this HAML/XML files.
-4) Create GIFT questions from this contens and save it into the file 
-indicated by "outputdir/outputname" values.
+4) Create GIFT questions from this contens and save output files into output directory
 
 =end
 
@@ -69,16 +68,15 @@ class Tool
 
     @concepts={}
 		
-    @verbose=app.param[:verbose]
-    @logname=app.param[:outputdir]+'/'+app.param[:logname]
-    @outputname=app.param[:outputdir]+'/'+app.param[:outputname]
+    @logname=app.outputdir+'/'+app.logname
+    @outputname=app.outputdir+'/'+app.outputname
   end
 	
   def create_log_file
 	app=Application.instance
 
     #create or reset logfile
-    Dir.mkdir(app.param[:outputdir]) if !Dir.exists? app.param[:outputdir]
+    Dir.mkdir(app.outputdir) if !Dir.exists? app.outputdir
 
     @logfile=File.open(@logname,'w')
     @logfile.write("="*40+"\n")
@@ -92,7 +90,7 @@ class Tool
 	app=Application.instance
     verbose "\n[INFO] Loading input data..."
 		
-    inputdirs=app.param[:inputdirs].split(',')
+    inputdirs=app.inputdirs.split(',')
     inputdirs.each do |dirname|
       if !Dir.exists? dirname then
         raise "[ERROR] <#{dirname}> directory dosn't exist!"
@@ -113,15 +111,15 @@ class Tool
 				
         begin
           lXMLdata=REXML::Document.new(lFileContent)
-          app.param[:lang]=lXMLdata.root.attributes['lang'] || app.param[:lang]
-          @lang=Lang.new(app.param[:lang])
+          app.lang=lXMLdata.root.attributes['lang'] || app.lang
+          @lang=Lang.new(app.lang)
 					
           lXMLdata.root.elements.each do |i|
             if i.name=='concept' then
               c=Concept.new(i)
               #c.lang=@param[:lang]
               c.process=false
-              if ( app.param[:process_file]==:default or app.param[:process_file]==f.to_s ) then
+              if ( app.process_file==:default or app.process_file==f.to_s ) then
                 c.process=true
               end
               @concepts[c.name]=c
@@ -146,22 +144,22 @@ class Tool
 	
   def show_data
 	app=Application.instance
-    lMode=app.param[:show_mode] 
-    verbose "[INFO] Showing concept data <#{Rainbow(lMode.to_s).bright}>..."
-    if lMode==:resume then
+
+    verbose "[INFO] Showing concept data <#{Rainbow(app.show_mode.to_s).bright}>..."
+    
+    case app.show_mode
+    when :resume
 	  s="* Concepts ("+@concepts.count.to_s+"): "
 	  @concepts.each_value { |c| s=s+c.name+", " }
 	  verbose s
-    elsif lMode==:default then
-	  @concepts.each_value do |c| 
-	    verbose c.to_s if c.process?
-	  end
+    when :default
+	  @concepts.each_value { |c| verbose c.to_s if c.process? }
 	end
   end
 	
   def show_stats
 	app=Application.instance
-    return if app.param[:show_mode]==:none
+    return if app.show_mode==:none
     verbose "[INFO] Showing concept stats...\n"
     total_q=total_e=total_c=0
     
@@ -176,8 +174,6 @@ class Tool
         c.data[:tables].each { |t| e=e+t.data[:fields].size*t.data[:rows].size }
         
         my_screen_table.add_row [Rainbow(c.name).color(:green),c.num.to_s,e.to_s, ((c.num.to_f/e.to_f*100.0).to_i.to_s+"%")]
-         
-        #verbose "* Concept [#{Rainbow(c.name).color(:green)}] "+"-"*(40-c.name.size).abs+"(Questions=#{c.num.to_s}, Entries=#{e.to_s}, Productivity=#{(c.num.to_f/e.to_f*100.0).to_i}%)"
         
         total_q+=c.num
         total_e+=e
@@ -187,7 +183,6 @@ class Tool
     my_screen_table.add_separator
     my_screen_table.add_row [ Rainbow("TOTAL = #{total_c.to_s}").bright,Rainbow(total_q.to_s).bright,Rainbow(total_e.to_s).bright,Rainbow((total_q.to_f/@concepts.size.to_f*100.0).to_i).bright ]
     verbose my_screen_table.to_s+"\n"
-    #verbose Rainbow("* TOTAL  : #{total_c.to_s} concepts "+"-"*31+"(Questions=#{total_q.to_s}, Concepts=#{@concepts.size.to_s}, Productivity=#{(total_q.to_f/@concepts.size.to_f*100.0).to_i}%)").bright
   end
 	
   def create_output_files
@@ -200,14 +195,14 @@ class Tool
     lFile.write("// Time: "+Time.new.to_s+"\n")
     lFile.write("// Create automatically by David Vargas\n")
     lFile.write("\n")
-    lFile.write("$CATEGORY: $course$/#{app.param[:category].to_s}\n") if app.param[:category]!=:none
+    lFile.write("$CATEGORY: $course$/#{app.category.to_s}\n") if app.category!=:none
     @concepts.each_value do |c| 
       c.write_questions_to(lFile) if c.process?
     end
     lFile.close
 		
     if app.param[:lesson_file]!=:none then
-      lFile=File.new(app.param[:outputdir]+'/'+app.param[:lesson_file],'w')
+      lFile=File.new(app.outputdir+'/'+app.lesson_file,'w')
       @concepts.each_value do |c| 
         c.write_lesson_to(lFile) if c.process?
       end
@@ -274,7 +269,7 @@ class Tool
 private	
 
   def verbose(lsText)
-    if @verbose then
+    if Application.instance.verbose then
       puts lsText
       @logfile.write(lsText.to_s+"\n") if @logfile
     end

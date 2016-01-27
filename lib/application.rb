@@ -30,6 +30,9 @@ class Application
     @param[:show_mode]=@param[:show_mode] || :default
     @param[:verbose]=@param[:verbose] || true
   end
-  
+
+  def method_missing(m, *args, &block)
+    return @param[m]
+  end  
 end	
 
