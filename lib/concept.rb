@@ -4,8 +4,10 @@ require 'rainbow'
 require 'rexml/document'
 require 'set'
 require 'terminal-table'
+
 require_relative 'application'
 require_relative 'ia'
+require_relative 'lang'
 require_relative 'concept/ia_calculate'
 require_relative 'concept/ia_table1field'
 require_relative 'tool'
@@ -20,8 +22,8 @@ class Concept
 
   @@id=0
 
-  def initialize(pXMLdata)
-    @lang=Tool.instance.lang
+  def initialize(pXMLdata,lang="en")
+    @lang=Lang.new(lang)
 				
     @@id+=1
     @id=@@id
@@ -37,7 +39,7 @@ class Concept
     @data[:tables]=[]
     @data[:neighbors]=[]
 	
-	read_data_from_xml pXMLdata
+	read_data_from_xml(pXMLdata)
 	    
     @data[:misspelled]=misspelled_name
   end

@@ -1,6 +1,8 @@
 #!/usr/bin/ruby
 # encoding: utf-8
 
+require 'terminal-table'
+
 module ShowActions
 
   def show_data
