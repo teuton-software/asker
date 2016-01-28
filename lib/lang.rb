@@ -18,6 +18,9 @@ class Lang
 
     filename=File.join( dirbase, "locales", "#{lang}-connectors.yaml" )
     @connectors=YAML::load(File.new(filename))
+
+    filename=File.join( dirbase, "locales", "#{lang}-mistakes.yaml" )
+    @mistakes=YAML::load(File.new(filename))
   end
 	
   def text_for(pOption, pText1="",pText2="",pText3="",pText4="",pText5="",pText6="",pText7="")
