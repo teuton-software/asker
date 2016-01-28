@@ -7,12 +7,12 @@ require 'rainbow'
 
 def show_help
   puts "Usage:"
-  puts "   --help                    Show this help."
-  puts "   --version                 Show the program version."
-  puts "   --create PROJECTNAME      Create new FOO project."
-  puts "                             Example: #{$0} create FOO"
-  puts "   path/to/project/YAMLFILE  Build quiz and lesson data files, from YAML config file."
-  puts "                             Example: #{$0} projects/foo/config.yaml"
+  puts "\t"+Rainbow("--help").bright+"\t\t\t\tShow this help."
+  puts "\t"+Rainbow("--version").bright+"\t\t\tShow the program version."
+  puts "\t"+Rainbow("--create PROJECTNAME").bright+"\t\tCreate new FOO project."
+  puts "\t\t\t\t\tExample: #{$0} create FOO"
+  puts "\t"+Rainbow("path/to/project/YAMLFILE").bright+"\tBuild quiz and lesson data files, from YAML config file."
+  puts "\t\t\t\t\tExample: #{$0} projects/foo/config.yaml"
 end
 
 def show_version

@@ -10,6 +10,7 @@ require 'rexml/document'
 require 'terminal-table'
 require_relative 'concept'
 require_relative 'lang'
+require_relative 'tool/create_actions'
 
 =begin
 The main method of this class is "run"
@@ -24,6 +25,8 @@ Interviewer.run do the next actions:
 
 class Tool
   include Singleton
+  include CreateActions
+  
   attr_reader :lang
 	
   def run(pArgs={})
@@ -70,20 +73,6 @@ class Tool
 		
     @logname=app.outputdir+'/'+app.logname
     @outputname=app.outputdir+'/'+app.outputname
-  end
-	
-  def create_log_file
-	app=Application.instance
-
-    #create or reset logfile
-    Dir.mkdir(app.outputdir) if !Dir.exists? app.outputdir
-
-    @logfile=File.open(@logname,'w')
-    @logfile.write("="*40+"\n")
-    @logfile.write("Proyect: TeacherTools Interviewer\n")
-    @logfile.write("File: #{@logname}\n")
-    @logfile.write("Time: "+Time.new.to_s+"\n")
-    @logfile.write("="*40+"\n")
   end
 
   def load_input_files
@@ -184,84 +173,7 @@ class Tool
     my_screen_table.add_row [ Rainbow("TOTAL = #{total_c.to_s}").bright,Rainbow(total_q.to_s).bright,Rainbow(total_e.to_s).bright,Rainbow((total_q.to_f/@concepts.size.to_f*100.0).to_i).bright ]
     verbose my_screen_table.to_s+"\n"
   end
-	
-  def create_output_files
-    app=Application.instance
-    
-    verbose "\n[INFO] Creating output files..."
-
-    lFile=File.new(@outputname,'w')
-    lFile.write("// File: #{@outputname}\n")
-    lFile.write("// Time: "+Time.new.to_s+"\n")
-    lFile.write("// Create automatically by David Vargas\n")
-    lFile.write("\n")
-    lFile.write("$CATEGORY: $course$/#{app.category.to_s}\n") if app.category!=:none
-    @concepts.each_value do |c| 
-      c.write_questions_to(lFile) if c.process?
-    end
-    lFile.close
 		
-    if app.param[:lesson_file]!=:none then
-      lFile=File.new(app.outputdir+'/'+app.lesson_file,'w')
-      @concepts.each_value do |c| 
-        c.write_lesson_to(lFile) if c.process?
-      end
-      lFile.close
-    end
-  end
-	
-  def create_project(projectname)
-    app=Application.instance
-
-    puts "\n[INFO] Creating project <#{projectname}>"
-    projectdir="projects/#{projectname}"
-    if !Dir.exists? projectdir
-      puts "* Creating directory => #{projectdir}"
-      Dir.mkdir(projectdir)
-    else
-      puts "* Exists directory! => #{projectdir}"
-    end
-    filename=projectdir+"/config.yaml"
- 
-    if !File.exists? filename
-      puts "* Creating file => #{filename}"
-      f=File.new(filename,'w')
-      f.write("---\n")
-      f.write(":inputdirs: 'maps/#{projectname}'\n")
-      f.write(":process_file: '#{projectname}.haml'\n")
-      f.write("\n")
-      f.close
-    else
-      puts "* Exists file! => #{filename}"
-    end
-    filename=projectdir+"/.gitignore"
-    if !File.exists? filename
-      puts "* Creating file => #{filename}"
-      f=File.new(filename,'w')
-      f.write("*.txt\n*.log\n*.tmp\n")
-      f.close
-    else
-      puts "* Exists file! => #{filename}"
-    end
-    mapdir="maps/#{projectname}"
-    if !Dir.exists? mapdir
-      puts "* Creating directory => #{mapdir}"
-      Dir.mkdir(mapdir)
-    else
-      puts "* Exists directory! => #{mapdir}"
-    end
-    filename=mapdir+"/"+projectname+".haml"
-    if !File.exists? filename
-      puts "* Creating file => #{filename}"
-      f=File.new(filename,'w')
-      f.write(DATA.read)
-      f.close
-    else
-      puts "* Exists file! => #{filename}"
-    end
-      puts 
-  end
-	
   def close_log_file
     @logfile.close
   end

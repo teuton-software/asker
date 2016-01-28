@@ -10,13 +10,15 @@ class Application
     @name="darts-of-teacher"
     @version="0.4.1"
     @param={}
+	@param[:inputbasedir]="input"
   end
 
   def fill_param_with_default_values
     @param[:process_file]=@param[:process_file] || "#{@param[:projectdir].split("/").last}.haml"
     process_filename_without_ext=@param[:process_file].split(".").first # Extract extension
     @param[:projectname]=@param[:projectname] || process_filename_without_ext
-		
+	
+	
     @param[:inputdirs]=@param[:inputdirs] || "input/#{@param[:projectdir]}"
     @param[:outputdir]=@param[:outputdir] || "output" 
     @param[:outputname]=@param[:outputname] || "#{@param[:projectname]}-gift.txt"
