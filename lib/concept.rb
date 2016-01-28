@@ -6,10 +6,14 @@ require 'set'
 require 'terminal-table'
 require_relative 'application'
 require_relative 'ia'
+require_relative 'concept/ia_calculate'
+require_relative 'concept/ia_table1field'
 require_relative 'tool'
 
 class Concept
   include IA
+  include IA_calculate
+  include IA_table1field
 	
   attr_reader :id, :data, :num
   attr_accessor :process
