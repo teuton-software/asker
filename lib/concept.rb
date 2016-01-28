@@ -61,10 +61,6 @@ class Concept
     return s
   end
 	
-  def names
-    return @data[:names]
-  end
-	
   def misspelled_name
     i=rand(name.size+1)
     j=i
@@ -76,28 +72,8 @@ class Concept
     return lName
   end
 	
-  def context
-    return @data[:context]
-  end
-
-  def tags
-    return @data[:tags]
-  end
-	
   def text
     return @data[:texts][0] || '...'
-  end
-	
-  def texts
-    return @data[:texts]
-  end
-	
-  def tables
-    return @data[:tables]
-  end
-	
-  def neighbors
-    return @data[:neighbors]
   end
 	
   def process?
@@ -178,10 +154,6 @@ class Concept
     end		
   end
 	
-  def write_lesson_to(pFile)
-    pFile.write(self.to_doc)    
-  end
-
   def to_doc
     out="\n"+"="*60+"\n"
     out << name+":\n\n"
@@ -199,6 +171,14 @@ class Concept
         
     return out
   end
+
+  def write_lesson_to(pFile)
+    pFile.write(self.to_doc)    
+  end
+
+  def method_missing(m, *args, &block)
+    return @data[m]
+  end  
 	
 private
 
