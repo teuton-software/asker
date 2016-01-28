@@ -3,7 +3,6 @@
 
 module CreateActions
 
-	
   def create_log_file
 	app=Application.instance
 
