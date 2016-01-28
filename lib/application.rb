@@ -8,7 +8,7 @@ class Application
 
   def initialize
     @name="darts-of-teacher"
-    @version="0.4.1"
+    @version="0.5"
     @param={}
 	@param[:inputbasedir]="input"
   end
@@ -17,8 +17,7 @@ class Application
     @param[:process_file]=@param[:process_file] || "#{@param[:projectdir].split("/").last}.haml"
     process_filename_without_ext=@param[:process_file].split(".").first # Extract extension
     @param[:projectname]=@param[:projectname] || process_filename_without_ext
-	
-	
+		
     @param[:inputdirs]=@param[:inputdirs] || "input/#{@param[:projectdir]}"
     @param[:outputdir]=@param[:outputdir] || "output" 
     @param[:outputname]=@param[:outputname] || "#{@param[:projectname]}-gift.txt"

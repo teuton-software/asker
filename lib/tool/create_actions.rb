@@ -2,20 +2,6 @@
 # encoding: utf-8
 
 module CreateActions
-
-  def create_log_file
-	app=Application.instance
-
-    #create or reset logfile
-    Dir.mkdir(app.outputdir) if !Dir.exists? app.outputdir
-
-    @logfile=File.open(@logname,'w')
-    @logfile.write("="*40+"\n")
-    @logfile.write("Proyect: TeacherTools Interviewer\n")
-    @logfile.write("File: #{@logname}\n")
-    @logfile.write("Time: "+Time.new.to_s+"\n")
-    @logfile.write("="*40+"\n")
-  end
 	
   def create_output_files
     app=Application.instance

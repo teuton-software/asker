@@ -11,22 +11,21 @@ require 'terminal-table'
 require_relative 'concept'
 require_relative 'lang'
 require_relative 'tool/create_actions'
+require_relative 'tool/log_actions'
 require_relative 'tool/show_actions'
 
 =begin
-The main method of this class is "run"
-
-Interviewer.run do the next actions:
+The main method of this class is "run", this does
 1) Inicialize configuration parameter values.
 2) Read HAML/XML files from the directories indicated by "inputdirs" values.
 3) Process the contents and definitions from this HAML/XML files.
 4) Create GIFT questions from this contens and save output files into output directory
-
 =end
 
 class Tool
   include Singleton
   include CreateActions
+  include LogActions
   include ShowActions
     
   attr_reader :lang
@@ -35,7 +34,7 @@ class Tool
     init pArgs
     create_log_file
     load_input_files
-    show_data if Application.instance.param[:show_mode]!=:none
+    show_data if Application.instance.show_mode!=:none
 	create_output_files
 	show_stats
 	close_log_file
@@ -131,10 +130,6 @@ class Tool
         end
       end
     end
-  end	
-		
-  def close_log_file
-    @logfile.close
   end
 		
 private	
