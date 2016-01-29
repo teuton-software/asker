@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-require_relative '../lib/question'
+require_relative '../lib/concept/question'
 
 describe Question do
   let(:question) { Question.new }

@@ -6,10 +6,12 @@ require 'set'
 require 'terminal-table'
 
 require_relative 'application'
-require_relative 'ia'
-require_relative 'lang'
+require_relative 'concept/ia'
 require_relative 'concept/ia_calculate'
 require_relative 'concept/ia_table1field'
+require_relative 'concept/question'
+require_relative 'concept/table'
+require_relative 'lang'
 require_relative 'tool'
 
 class Concept

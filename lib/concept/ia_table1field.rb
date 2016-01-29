@@ -11,6 +11,7 @@ module IA_table1field
 	  s << pList1[2][:data][0]
 	  s << pList1[3][:data][0]
 	  a=s.to_a
+	  a.shuffle!
 	 
 	  if a.count==4 then
         q=Question.new
@@ -30,7 +31,8 @@ module IA_table1field
 	  s << pList1[2][:data][0]
 	  s << pList2[0][:data][0]
 	  a=s.to_a
-	 
+	  a.shuffle!
+	  
 	  if a.count==4 then
         q=Question.new
         @num+=1
