@@ -1,0 +1,70 @@
+%map{ :version => '1', :lang => 'es' }
+  %concept
+    %names palabra-derivada
+    %context lengua, castellana
+    %tags palabra, forma, añadir, terminación
+    %text Una [*] se han formado añadiendo alguna terminación a otra palabras.
+    %table{ :fields => 'palabra,palabra-derivada' }
+      %title Ejemplos de palabras derivadas
+      %row
+        %col hablar
+        %col hablador
+      %row
+        %col ruido
+        %col ruidoso
+      %row
+        %col mimos
+        %col mimoso
+      %row
+        %col cariño
+        %col cariñoso
+      %row
+        %col flauta
+        %col flautista
+      %row
+        %col piano
+        %col pianista
+      %row
+        %col comprar
+        %col comprador
+      %row
+        %col esquiar
+        %col esquiador
+      %row
+        %col deporte
+        %col deportista
+
+  %concept
+    %names sílaba-tónica
+    %context lengua, castellana
+    %tags sílaba, suena, más, fuerte
+    %text La sílaba que suena más fuerte en una palabra es la [*].
+    
+  %concept
+    %names sílaba-átona
+    %context lengua, castellana
+    %tags sílaba, suena, igual
+    %text Cada sílaba que suena igual de fuerte que el resto de la palabra, se llama [*].
+    %table{ :fields => 'palabra,sílaba-tónica,sílabas-átonas' }
+      %title Ejemplos de sílabas tónicas
+      %row
+        %col gigante
+        %col gan
+        %col gi,te
+      %row
+        %col despertador
+        %col dor
+        %col des,per,ta
+      %row
+        %col colegio
+        %col le
+        %col co,gio
+      %row
+        %col esperanza
+        %col ran
+        %col es,pe,za
+      %row
+        %col anuncio
+        %con nun
+        %col a,cio
+

@@ -27,19 +27,24 @@ class Question
   def to_gift
     # Return question using gift format
     s="// #{@comment}\n" if !@comment.nil?
-    s << "::#{@name}::[html]#{satanize(@text)}\n"
+    s << "::#{@name}::[html]#{sanitize(@text)}\n"
 
     case @type
     when :choice
-      s << "{\n"
-      s << "  =#{@good}\n"
-      @bads.each { |i| s << "  ~#{satanize(i)}\n" }
-      s <<  "}\n\n"
+      s=s+"{\n"
+      a=["  =#{sanitize(@good)}\n"]
+      @bads.each { |i| a << "  ~#{sanitize(i)}\n" }
+      a.shuffle!
+      a.each { |i| s << i }
+      s=s+"}\n\n"
 	when :boolean
       s << "{#{@good}}\n\n"
     when :match
       s << "{\n"
-      @matching.each { |i| s << "  =#{satanize(i[0])} -> #{satanize(i[1])}\n" }
+      a=[]
+      @matching.each { |i| a << "  =#{sanitize(i[0])} -> #{sanitize(i[1])}\n" }
+      a.shuffle!
+      a.each { |i| s << i }      
       s << "}\n\n"
     when :short
       s << "{\n"
@@ -51,24 +56,26 @@ class Question
 	
   def to_s
     s=""
-    s=s+"// #{satanize(@comment)}\n" if !@comment.nil?
-    s=s+"::#{@name}::[html]#{satanize(@text)}\n"
+    s=s+"// #{sanitize(@comment)}\n" if !@comment.nil?
+    s=s+"::#{@name}::[html]#{sanitize(@text)}\n"
 		
     case @type
-    when choice
+    when :choice
       s=s+"{\n"
-      s=s+"  =#{satanize(@good)}\n"
-      @bads.each { |i| s=s+"  ~#{satanize(i)}\n" }
+      a=["  =#{sanitize(@good)}\n"]
+      @bads.each { |i| a << "  ~#{sanitize(i)}\n" }
+      a.shuffle!
+      a.each { |i| s << i }
       s=s+"}\n\n"
     when :boolean
       s=s+"{#{@good}}\n\n"
     when :match
       s=s+"{\n"
-      @matching.each { |i| s=s+"  =#{satanize(i[0])} -> #{satanize(i[1])}\n" }
+      @matching.each { |i| s=s+"  =#{sanitize(i[0])} -> #{sanitize(i[1])}\n" }
       s=s+"}\n\n"
     when :short
       s=s+"{"
-      @shorts.each { |i| s=s+"=%100%#{satanize(i)} " }
+      @shorts.each { |i| s=s+"=%100%#{sanitize(i)} " }
       s=s+"}\n\n"
     end
 	return s
@@ -96,7 +103,7 @@ class Question
 	
 private
 
-  def satanize(psText="")
+  def sanitize(psText="")
     lsText=psText.sub("\n", " ")
     lsText.sub!(":","\:")
     lsText.sub!("=","\=")
