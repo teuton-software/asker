@@ -73,5 +73,22 @@ module TextActions
     end
     return lText
   end
-	
+
+  def do_mistake_to(pText)
+    lText=pText.dup
+    keys=@mistakes.keys
+    
+    keys.shuffle!
+    keys.each do |key|
+      if lText.include? key.to_s then
+         values=@mistakes[key].split(",")
+         values.shuffle!
+         lText=lText.sub(key.to_s,values[0].to_s)
+         return lText
+      end
+    end
+    
+    return lText
+  end
+  
 end
