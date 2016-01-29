@@ -10,7 +10,8 @@ module TextActions
     text5=pText5
     text6=pText6
     text7=pText7
-		
+	
+	#TODO: check if exists pOption before use it
     renderer = ERB.new(@templates[pOption])
     output = renderer.result(binding)
     return output

@@ -18,3 +18,5 @@
 :c7table: '[Concept <%=text1%>]<br/>The next association is right\:<br/><%=text2%>\: "<%=text3%>"<br/><%=text4%>\: "<%=text5%>"<br/>.'
 :d1table: 'The next items are "<%=text2%>" from  [<%=text1%>] concept:<br/><ul><li><%=text3%></li><li><%=text4%></li><li><%=text5%></li><li><%=text6%></li></ul>'
 :d2table: 'The next items are "<%=text2%>" from  [<%=text1%>] concept:<br/><ul><li><%=text3%></li><li><%=text4%></li><li><%=text5%></li><li><%=text6%></li></ul>'
+:d3sequence: 'En relación al concepto [<%=text1%>], ordena cada "<%=text2%>" de modo que se cumpla el criterio "<%=text3%>".<br/>'
+:d4sequence: 'En relación al concepto [<%=text1%>], ordena cada "<%=text2%>" de modo que se cumpla el inverso al criterio "<%=text3%>".<br/>'

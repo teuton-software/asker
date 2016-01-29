@@ -17,6 +17,7 @@ class Table
     @data[:fields]=pXMLdata.attributes['fields'].to_s.strip.split(',')
     @data[:fields].each { |i| i.strip! }
     @data[:fields].each { |i| @name=@name+"$"+i.to_s.strip.downcase} 
+    @data[:sequence]=pXMLdata.attributes['sequence'].to_s
 		
     pXMLdata.elements.each do |i|
       if i.name=='title' then
@@ -40,6 +41,11 @@ class Table
 	
   def to_s
     @name.to_s
+  end
+  
+  def sequence?
+    return true if @data[:sequence]
+    return false
   end
   
   def method_missing(m, *args, &block)
