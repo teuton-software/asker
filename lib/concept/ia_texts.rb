@@ -94,6 +94,16 @@ module IA_texts
         indexes.each { |value| q.matching << [ filtered[:words][value][:word].downcase, value.to_s ] }
         q.write_to_file @file				
       end
+
+      #Question type <a7desc>: concept name with mistakes
+      @num+=1
+      q.init
+      q.set_boolean
+      q.name="#{name}-#{@num.to_s}-a7desc"
+      q.text=@lang.text_for(:a7desc,@lang.do_mistake_to(name),t)
+      q.good="FALSE"
+      q.write_to_file @file
+
     end
   end
 

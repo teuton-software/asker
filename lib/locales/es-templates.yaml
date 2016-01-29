@@ -6,6 +6,7 @@
 :a4desc: 'Definición de [<%=text1%>]\:<br/> "<%=text2%>"<br/>'
 :a5desc: 'Definición de [<%=text1%>]\:<br/> "<%=text2%>"<br/>Nota:<br/><ul><li>Cada símbolo (?) representa una letra.</li><li>Cada símbolo (-) representa un espacio</li></ul><br/>'
 :a6match: 'Definición de [<%=text1%>]\:<br/> "<%=text2%>"<br/><br/>(Asocia cada palabra con su posición correcta dentro del texto)'
+:a7desc: 'Definición de [<%=text1%>]\:<br/> "<%=text2%>"<br/>'
 :b1match: 'En relación al concepto <%=text1%>, asocia cada <%=text2%> con su <%=text3%><br/>.'
 :b2match: 'En relación al concepto <%=text1%>, asocia cada <%=text2%> con su <%=text3%><br/>.'
 :c1table: '[Concepto <%=text1%>]<br/><%=text2%>\: [*]<br/><%=text3%>\: "<%=text4%>"<br/>Elige la opción correcta.'
