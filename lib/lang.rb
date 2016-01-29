@@ -72,27 +72,27 @@ class Lang
 	return text_filter_connectors(pText, true)
   end
 	
-	def build_text_from_filtered( pStruct, pIndexes)
-		lines = pStruct[:lines]
+  def build_text_from_filtered( pStruct, pIndexes)
+    lines = pStruct[:lines]
 				
-		lText=""
-		lines.each do |line|
-			line.each do |value|
-				if value.class==String
-					lText+=" "+value 
-				elsif value.class==Fixnum
-					if pIndexes.include? value then
-						lText+=" [#{value.to_s}]"
-					else	
-						lrow = pStruct[:words][value][:row]
-						lcol = pStruct[:words][value][:col]
-						lword = pStruct[:words][value][:word]
-						lText+=" "+lword
-					end
-				end
-			end
-		end
-		return lText
-	end
+    lText=""
+    lines.each do |line|
+      line.each do |value|
+        if value.class==String
+          lText+=" "+value 
+        elsif value.class==Fixnum
+          if pIndexes.include? value then
+            lText+=" [#{value.to_s}]"
+          else	
+            lrow = pStruct[:words][value][:row]
+            lcol = pStruct[:words][value][:col]
+            lword = pStruct[:words][value][:word]
+            lText+=" "+lword
+          end
+        end
+      end
+    end
+    return lText
+  end
 	
 end
