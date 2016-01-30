@@ -10,9 +10,9 @@ require_relative 'concept/ia'
 require_relative 'concept/ia_calculate'
 require_relative 'concept/ia_table1field'
 require_relative 'concept/ia_texts'
+require_relative 'concept/lang'
 require_relative 'concept/question'
 require_relative 'concept/table'
-require_relative 'lang'
 require_relative 'tool'
 
 class Concept
