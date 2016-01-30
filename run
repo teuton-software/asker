@@ -23,15 +23,15 @@ def show_version
 end
 
 if ARGV.count==0 then
-	puts "Usage: #{$0} --help"
+  puts "Usage: #{$0} --help"
 elsif ['h','-h','help','--help'].include?(ARGV.first) then
-	show_help
+  show_help
 elsif ['v','-v','version','--version'].include?(ARGV[0]) then
-	show_version
+  show_version
 elsif ['c','-c','create','--create'].include?(ARGV[0]) then
-	Tool.instance.create_project(ARGV[1])
+  Tool.instance.create_project(ARGV[1])
 else
-	Tool.instance.run(ARGV.first)
+  Tool.instance.run(ARGV.first)
 end
 
 __END__
