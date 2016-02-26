@@ -1,0 +1,3 @@
+---
+:inputdirs: input/es/fuw
+:process_file: clonacion.haml

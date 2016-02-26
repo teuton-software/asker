@@ -1,0 +1,81 @@
+%map{ :version => '1', :lang => 'es' }
+  %concept
+    %names clonezilla
+    %context hardware, cpd
+    %tags clasificación, ordenadores, proposito, diseño, contrucción
+    %text [*] es un software de libre distribución para el clonado de equipos 
+    basado en DRBL, Partclone y pdpcast, que permite hacer copia de seguridad.
+    %text [*] está disponible en dos versiones, una llamada [*] Live que es 
+    adecuado para hacer copia de seguridad y restaurar máquinas y [*] SE 
+    que sirve para clonar muchos equipos de forma simultánea.
+    %text [*] guarda y restaura sólo los bloques utilizados en el disco duro. 
+    Esto aumenta la eficiencia del clon.
+    %table{ :fields => 'características' }
+      %title Características
+      %row Software libre
+      %row Soporta sistema de archivos ext2, ext3, ext4
+      %row Soporta sistemas de archivos XFS,JFS
+      %row Soporta sistemas de archivos FAT, NTFS de MS Windows
+      %row El archivo de imagen puede guardarse en el disco duro local.
+      %row El archivo de imagen puede guardarse en disco remoto mediante ssh
+      %row El archivo de imagen puede guardarse en disco remoto mediante samba
+      %row El archivo de imagen puede guardarse en disco remoto mediante NFS
+    %table{ :fields => 'requisitos-mínimos' }
+      %title Requisitos Mínimos
+      %row Procesador x86 o x86-64
+      %row 196 MB de memoria de sistema (RAM)
+      %row Dispositivo de arranque: CD/DVD, puerto USB, PXE, o un disco duro
+    %table{ :fields => 'formas-de-arrancar' }
+      %title Formas de arrancar
+      %row Para arrancar [*], hay que bajarse la imagen ISO de la página oficial del software (www.clonezilla.org), quemarla en un CD y poner nuestra BIOS para que arranque desde la unidad de CD/DVD.
+      %row Existe la posibilidad de arrancar [*] desde un USB, pero para esto habría que convertir nuestra unidad USB en una unidad booteable, y que nuestra BIOS nos permitiera poner el puerto USB como unidad por defecto a la hora de arrancar.
+      %row En nuestra práctica usamos la opción del CD/DVD.
+    %text [*] Puede ser utilizado por usuarios de MS Windows, de GNU/Linux e incluso de Mac OS, puesto que se basa en un LiveCD y no necesita ser instalado en el equipo ni bajo un sistema operativo determinado. Soporta los sistemas de archivos más comunes y eso es una gran ventaja.
+    %text [*] es una herramienta libre por lo que puede ser distribuida y copiada de forma libre. Es posible descargarla desde su propia página web oficial.
+    %table{ :fields => 'puede-copiar' }
+      %title Qué puede copiar
+      %row El disco duro entero y restaurarlo con todas las particiones con las que viniera de orígen
+      %row Las particiones por separado.
+      %row Cualquier sistema operativo que contenga la partición.
+      %row La imagen a un servidor, que es una herramienta muy útil para guardar copias de seguridad en un servidor.
+      %row Las imágenes clonadas en un servidor SSH
+      %row Las imágenes clonadas en un servidor Samba, que es una implementación libre de archivos compartidos de MS Windows para sistemas de tipo UNIX.
+    %table{ :fields => 'pasos-para-clonar', :sequence => 'Secuencia temporal para clonar disco' }
+      %title Pasos para el clonado
+      %row Grabar imagen del programa en un CD/DVD
+      %row Arrancamos el ordenador con el CD con la imagen grabada.
+      %row Seleccionar interfaz y resolución de pantalla que más se ajuste a nuestro monitor.
+      %row Especificar el lenguaje en el que queremos que nos aparezcan los menús.
+      %row Idioma que deseamos poner el teclado.
+      %row Iniciar interfaz gráfica o la línea de comandos.
+      %row Tipo/forma/sistema dónde queremos guardar la imagen que vamos a copiar.
+      %row Si hemos elegido local_dev, conectaremos el disco duro externo o el USB para que el sistema lo reconozca.
+      %row Deberemos esperar 5 segundos para que el programa reconozca el dispositivo externo.
+      %row Decidir el dispositivo en el que queremos guardar la imagen.
+      %row Seleccionaremos la carpeta en la que se hará la copia de la imagen.
+      %row Se nos presentarán dos opciones, y elegimos Beginer.
+      %row savedisk para hacer una imagen del disco duro completo
+      %row Decidimos el nombre que queremos ponerle a la imagen.
+      %row Decidiremos el disco duro del que queremos hacer la imagen.
+      %row Elegir el dispositivo que queremos copiar.
+      %row Start Clonezilla para comenzar el proceso de clonado.
+      %row Fin del proceso de clonado.
+    %table{ :fields => 'pasos-para-restaurar', :sequence => 'Secuencia temporal para restaurar disco' }
+      %title Pasos para el clonado
+      %row Arrancamos el ordenador con el CD con la imagen grabada.
+      %row Seleccionar interfaz y resolución de pantalla que más se ajuste a nuestro monitor.
+      %row Especificar el lenguaje en el que queremos que nos aparezcan los menús.
+      %row Idioma que deseamos poner el teclado.
+      %row Iniciar interfaz gráfica o la línea de comandos.
+      %row Tipo/forma/sistema dónde queremos coger la imagen que vamos a restaurar.
+      %row Si hemos elegido local_dev, conectaremos el disco duro externo o el USB para que el sistema lo reconozca.
+      %row Deberemos esperar 5 segundos para que el programa reconozca el dispositivo externo.
+      %row Decidir el dispositivo en el que queremos guardar la imagen.
+      %row Seleccionaremos la carpeta en la que se hará la copia de la imagen.
+      %row Se nos presentarán dos opciones, y elegimos Begginer.
+      %row restoredisk
+      %row Seleccionar el archivo de imagen a restaurar.
+      %row legir el disco duro en el que vamos a volcar la imagen.
+      %row El proceso comenzará mostrando una ventana informativa donde es posible ver en todo momento el tiempo que resta para que finalice la restauración.
+      %row Si el proceso de restauración se ha realizado con éxito, aparecerá un mensaje que indica que pulsemos Intro para continuar.
+      %row Extraemos el CD y comprobamos el clonado.
