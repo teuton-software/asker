@@ -95,15 +95,34 @@ module IA_texts
         q.write_to_file @file				
       end
 
+=begin
       #Question type <a7desc>: concept name with mistakes
       @num+=1
       q.init
-      q.set_boolean
+      q.set_choice
       q.name="#{name}-#{@num.to_s}-a7desc"
-      q.text=@lang.text_for(:a7desc,@lang.do_mistake_to(name),t)
-      q.good="FALSE"
+      q.text=@lang.text_for(:a7desc,t)
+      q.good=name
+      q.bads << a[1]
+      q.bads << a[2]
+      q.bads << a[3]
       q.write_to_file @file
-
+      
+      if s.count>2
+        @num+=1
+        q.init
+        q.set_choice
+        q.name="#{name}-#{@num.to_s}-a7desc"
+        q.text=@lang.text_for(:a7desc,t)
+        q.good=a[0]
+        q.bads << a[1]
+        q.bads << a[2]
+        q.bads << a[3]
+        q.write_to_file @file
+      @lang.text_for(:none)
+      q.text=@lang.text_for(:a7desc,@lang.do_mistake_to(name),t)
+      end
+=end
     end
   end
 
