@@ -96,27 +96,32 @@ class Concept
   end
 
   def to_s
-    out=" #{Rainbow(name).color(:white).bg(:blue).bright} (#{@id.to_s}) lang(#{@lang.lang})\n"
-
+    out=""
+    
     t = Terminal::Table.new
-    t.add_row [Rainbow(".context").color(:blue), context.join("\n").to_s ]
-    t.add_row [Rainbow(".tags").color(:blue), tags.join("\n").to_s] 
+    t.add_row [Rainbow(@id.to_s).bright, Rainbow(name).color(:white).bg(:blue).bright+" (lang=#{@lang.lang}) " ]    
+    t.add_row [Rainbow("context").color(:blue), context.join("\n").to_s ]
+    t.add_row [Rainbow("tags").color(:blue), tags.join("\n").to_s] 
 
-    if text.size<60 then
-	  t.add_row [Rainbow(".text").color(:blue), text.to_s]	  
-	else
-	  t.add_row [Rainbow(".text").color(:blue), text[0...60].to_s+"..."]
+    lText=[]
+    texts.each do |i|
+      if i.size<60 then
+	    lText << i.to_s	  
+	  else
+	    lText << i[0...70].to_s
+	  end
 	end
+    t.add_row [Rainbow("text").color(:blue), lText.join("\n")]	  
 	
 	if tables.count>0 then
 	  lText=[]
 	  tables.each { |i| lText << i.to_s }
-	  t.add_row [ Rainbow(".tables").color(:blue), lText.join("\n")]
+	  t.add_row [ Rainbow("tables").color(:blue), lText.join("\n")]
 	end
 	
 	lText=[]
 	neighbors[0..5].each { |i| lText << i[:concept].name+"("+i[:value].to_s[0..4]+")" }
-	t.add_row [Rainbow(".neighbors").color(:blue),lText.join("\n")]
+	t.add_row [Rainbow("neighbors").color(:blue),lText.join("\n")]
 
     out << t.to_s+"\n"
 	return out
