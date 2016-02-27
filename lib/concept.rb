@@ -96,27 +96,30 @@ class Concept
   end
 
   def to_s
-    s=""
-    s=s+" #{Rainbow(name).color(:green).bright}(#{@id.to_s}) lang(#{@lang.lang})\n"
-    s=s+" ├── "+Rainbow(".context").color(:blue)+"   = "+context.join(', ').to_s+"\n" if context.count>0
-    s=s+" ├── "+Rainbow(".tags").color(:blue)+"      = "+tags.join(', ').to_s+"\n"
+    out=" #{Rainbow(name).color(:white).bg(:blue).bright} (#{@id.to_s}) lang(#{@lang.lang})\n"
+
+    t = Terminal::Table.new
+    t.add_row [Rainbow(".context").color(:blue), context.join("\n").to_s ]
+    t.add_row [Rainbow(".tags").color(:blue), tags.join("\n").to_s] 
+
     if text.size<60 then
-	  s=s+" ├── "+Rainbow(".text").color(:blue)+"      = "+text.to_s+"...\n"
+	  t.add_row [Rainbow(".text").color(:blue), text.to_s]	  
 	else
-	  s=s+" ├── "+Rainbow(".text").color(:blue)+"      = "+text[0...60].to_s+"...\n"
+	  t.add_row [Rainbow(".text").color(:blue), text[0...60].to_s+"..."]
 	end
 	
 	if tables.count>0 then
-	  s=s+" ├── "+Rainbow(".tables").color(:blue)+"    = "
-	  tables.each { |t| s=s+t.to_s }
-	  s= s +"\n"
+	  lText=[]
+	  tables.each { |i| lText << i.to_s }
+	  t.add_row [ Rainbow(".tables").color(:blue), lText.join("\n")]
 	end
 	
-	s=s+" └── "+Rainbow(".neighbors").color(:blue)+" = "
-	n=[]
-	neighbors[0..5].each { |i| n << i[:concept].name+"("+i[:value].to_s[0..4]+")" }
-	s=s+n.join(', ').to_s
-	return s
+	lText=[]
+	neighbors[0..5].each { |i| lText << i[:concept].name+"("+i[:value].to_s[0..4]+")" }
+	t.add_row [Rainbow(".neighbors").color(:blue),lText.join("\n")]
+
+    out << t.to_s+"\n"
+	return out
   end
 	
   def write_questions_to(pFile)

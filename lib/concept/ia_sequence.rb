@@ -3,11 +3,8 @@
 module IA_sequence
 
   def process_sequence(pTable, pList1, pList2)
-    if not ( pTable.fields.count==1 and pTable.sequence?)
-       puts pTable.name
-       return
-    end
-
+    return if not ( pTable.fields.count==1 and pTable.sequence?)
+ 
     q=Question.new
     
 	if pList1.count>3	
