@@ -8,6 +8,7 @@ require 'terminal-table'
 require_relative 'application'
 require_relative 'concept/ia'
 require_relative 'concept/ia_calculate'
+require_relative 'concept/ia_sequence'
 require_relative 'concept/ia_table1field'
 require_relative 'concept/ia_texts'
 require_relative 'concept/lang'
@@ -18,6 +19,7 @@ require_relative 'tool'
 class Concept
   include IA
   include IA_calculate
+  include IA_sequence
   include IA_table1field
   include IA_texts
 	
@@ -151,6 +153,7 @@ class Concept
       list3=list1+list2
       process_table_match(lTable, list1, list2)
       process_table1field(lTable, list1, list2)
+      process_sequence(lTable, list1, list2)
 					
       list1.each do |lRow|
         reorder_list_with_row(list3, lRow)

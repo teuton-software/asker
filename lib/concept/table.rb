@@ -44,8 +44,7 @@ class Table
   end
   
   def sequence?
-    return true if @data[:sequence]
-    return false
+    return @data[:sequence].size>0
   end
   
   def method_missing(m, *args, &block)
