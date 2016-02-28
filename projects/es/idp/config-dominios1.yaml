@@ -1,4 +1,0 @@
----
-:projectdir: idp
-:inputdirs: maps/idp,maps/fuw
-:process_file: dominios1.haml
