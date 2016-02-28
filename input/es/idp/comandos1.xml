@@ -1,139 +1,143 @@
 <map version='1' lang='es'>
 	
-	<concept>
-		<names>cd</names>
-		<context>sistemas operativos, comando</context>
-		<tags>cambiar, directorio, actual, mover</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, que permite cambiar nuestro directorio actual.</text>
-		<text>Es un comando del sistema operativo GNU/Linux, que permite movernos a otro directorio del sistema de ficheros.</text>
-		<table fields='acción, resultado'>
-			<title>Asocia cada acción con su resultado.</title>
-			<row>
-				<col>cd</col>
-				<col>Nos movemos a nuestro directorio HOME.</col>
-			</row>
-			<row>
-				<col>cd ..</col>
-				<col>Nos movemos al directorio padre de nuestro directorio actual.</col>
-			</row>
-			<row>
-				<col>cd .</col>
-				<col>No hace nada.</col>
-			</row>
-			<row>
-				<col>cd DIRNAME</col>
-				<col>Nos movemos al directorio DIRNAME que está en nuestro directorio actual.</col>
-			</row>
-			<row>
-				<col>cd /RUTA/AL/DIRECTORIO</col>
-				<col>Nos movemos al directorio indicado según su trayectoria absoluta.</col>
-			</row>
-			<row>
-				<col>cd -</col>
-				<col>Cambiamos al directorio en el que estábamos anteriormente.</col>
-			</row>
-			<row>
-				<col>cd ~USERNAME</col>
-				<col>Cambiamos al directorio HOME del usuario USERNAME.</col>
-			</row>
-		</table>
-	</concept>
+  <concept>
+    <names>cd</names>
+    <context>sistemas operativos, comando</context>
+    <tags>cambiar, directorio, actual, mover</tags>
+    <text>Es un comando del sistema operativo GNU/Linux, que permite cambiar nuestro directorio actual.</text>
+    <text>Es un comando del sistema operativo GNU/Linux, que permite movernos a otro directorio del sistema de ficheros.</text>
+    <table fields='acción, resultado'>
+      <title>Asocia cada acción con su resultado.</title>
+      <row>
+        <col>cd</col>
+        <col>Nos movemos a nuestro directorio HOME</col>
+      </row>
+      <row>
+        <col>cd ..</col>
+        <col>Nos movemos al directorio padre de nuestro directorio actual</col>
+      </row>
+      <row>
+        <col>cd .</col>
+        <col>No hace nada</col>
+      </row>
+      <row>
+        <col>cd DIRNAME</col>
+        <col>Nos movemos al directorio DIRNAME que está en nuestro directorio actual</col>
+      </row>
+      <row>
+        <col>cd /RUTA/AL/DIRECTORIO</col>
+        <col>Nos movemos al directorio indicado según su trayectoria absoluta</col>
+      </row>
+      <row>
+        <col>cd RUTA/AL/DIRECTORIO</col>
+        <col>Nos movemos al directorio indicado según su trayectoria relativa</col>
+      </row>
+      <row>
+        <col>cd -</col>
+        <col>Cambiamos al directorio en el que estábamos anteriormente</col>
+      </row>
+      <row>
+        <col>cd ~USERNAME</col>
+        <col>Cambiamos al directorio HOME del usuario USERNAME.</col>
+      </row>
+    </table>
+  </concept>
 
-	<concept>
-		<names>cal</names>
-		<context>sistemas operativos, comando</context>
-		<tags>mostrar, calendario</tags>
-		<text>Comando que muestra un calendario</text>
-	</concept>
+  <concept>
+    <names>cal</names>
+    <context>sistemas operativos, comando</context>
+    <tags>mostrar, calendario</tags>
+    <text>Comando que muestra un calendario</text>
+  </concept>
 	
-	<concept>
-		<names>date</names>
-		<context>sistemas operativos, comando</context>
-		<tags>mostrar, fecha, hora, actual</tags>
-		<text>Comando que muestra y modifica la fecha/hora del sistema.</text>
-	</concept>
+  <concept>
+    <names>date</names>
+    <context>sistemas operativos, comando</context>
+    <tags>mostrar, fecha, hora, actual</tags>
+    <text>Comando que muestra y modifica la fecha/hora del sistema.</text>
+  </concept>
 
-	<concept>
-		<names>exit</names>
-		<context>sistemas operativos, comando</context>
-		<tags>salir, sistema, cerrar, sesion</tags>
-		<text>Comando para cerrar la sesión actual del usuario.</text>
-	</concept>
+  <concept>
+    <names>exit</names>
+    <context>sistemas operativos, comando</context>
+    <tags>salir, sistema, cerrar, sesion</tags>
+    <text>Comando para cerrar la sesión actual del usuario.</text>
+  </concept>
 	
-	<concept>
-		<names>file</names>
-		<context>sistemas operativos, comando</context>
-		<tags>mostrar, tipo, fichero, archivo, directorio</tags>
-		<text>Comandos que muestra el tipo de un fichero, archivo o directorio.</text>
-	</concept>
+  <concept>
+    <names>file</names>
+    <context>sistemas operativos, comando</context>
+    <tags>mostrar, tipo, fichero, archivo, directorio</tags>
+    <text>Comandos que muestra el tipo de un fichero, archivo o directorio.</text>
+  </concept>
 	
-	<concept>
-		<names>free</names>
-		<context>sistemas operativos, comando</context>
-		<tags>mostrar, memoria, libre, ocupada</tags>
-		<text>Comandos que muestra la memoria libre y ocupada del sistema.</text>
-	</concept>
+  <concept>
+    <names>free</names>
+    <context>sistemas operativos, comando</context>
+    <tags>mostrar, memoria, libre, ocupada</tags>
+    <text>Comandos que muestra la memoria libre y ocupada del sistema.</text>
+  </concept>
 
-	<concept>
-		<names>less</names>
-		<context>sistemas operativos, comando</context>
-		<tags>mostrar, contenido, fichero, texto, ASCII</tags>
-		<text>Muestra el contenido de un fichero de texto plano. Realiza un paginado, si no cabe completo en pantalla.</text>
-		<table fields='tecla, resultado'>
-			<title>Asocia cada atributo con su valor</title>
-			<row>
-				<col>Pulsar q</col>
-				<col>Salir del programa</col>
-			</row>
-			<row>
-				<col>Pulsar h</col>
-				<col>Mostrar ayuda en pantalla</col>
-			</row>
-		</table>
-	</concept>
+  <concept>
+    <names>less</names>
+    <context>sistemas operativos, comando</context>
+    <tags>mostrar, contenido, fichero, texto, ASCII</tags>
+    <text>Muestra el contenido de un fichero de texto plano. Realiza un paginado, si no cabe completo en pantalla.</text>
+    <table fields='tecla, resultado'>
+      <title>Asocia cada atributo con su valor</title>
+      <row>
+        <col>Pulsar q</col>
+        <col>Salir del programa</col>
+      </row>
+      <row>
+        <col>Pulsar h</col>
+        <col>Mostrar ayuda en pantalla</col>
+      </row>
+    </table>
+  </concept>
 
-	<concept>
-		<names>ln</names>
-		<context>sistemas operativos, comando</context>
-		<tags>crear, enlace, duro, simbolico</tags>
-		<text>Comando para crear enlaces duros o simbólicos.</text>
-		<table fields='acción, resultado'>
-			<title>Asocia cada atributo con su valor</title>
-			<row>
-				<col>ln FILE LINK</col>
-				<col>Crea un enlace duro al fichero FILE.</col>
-			</row>
-			<row>
-				<col>ln -s FILE LINK</col>
-				<col>Crea un enlace simbólico para el fichero FILE.</col>
-			</row>
-			<row>
-				<col>ln -s DIRNAME LINK</col>
-				<col>Crea un enlace simbólico para el directorio DIRNAME.</col>
-			</row>
-		</table>
-	</concept>
+  <concept>
+    <names>ln</names>
+    <context>sistemas operativos, comando</context>
+    <tags>crear, enlace, duro, simbolico</tags>
+    <text>Comando para crear enlaces duros o simbólicos.</text>
+    <table fields='acción, resultado'>
+      <title>Asocia cada atributo con su valor</title>
+      <row>
+        <col>ln FILE LINK</col>
+        <col>Crea un enlace duro al fichero FILE</col>
+      </row>
+      <row>
+        <col>ln -s FILE LINK</col>
+        <col>Crea un enlace simbólico para el fichero FILE</col>
+      </row>
+      <row>
+        <col>ln -s DIRNAME LINK</col>
+        <col>Crea un enlace simbólico para el directorio DIRNAME</col>
+      </row>
+    </table>
+  </concept>
 
-	<concept>
-		<names>ls</names>
-		<context>sistemas operativos, comando</context>
-		<tags>mostrar, contenido, directorio</tags>
-		<text>Lista el contenido de los directorios.</text>
-		<table fields='acción, resultado'>
-			<title>Asocia cada atributo con su valor</title>
-			<row>
-				<col>ls</col>
-				<col>Lista el contenido del directorio actual.</col>
-			</row>
-			<row>
-				<col>ls -a</col>
-				<col>Lista el contenido del directorio actual, incluyendo los ficheros ocultos.</col>
-			</row>
-			<row>
-				<col>ls -i</col>
-				<col>Lista los ficheros con su número de inode.</col>
-			</row>
-			<row>
+  <concept>
+    <names>ls</names>
+    <context>sistemas operativos, comando</context>
+    <tags>mostrar, contenido, directorio</tags>
+    <text>Lista el contenido de los directorios.</text>
+    <table fields='acción, resultado'>
+      <title>Asocia cada atributo con su valor</title>
+      <row>
+        <col>ls</col>
+        <col>Lista el contenido del directorio actual.</col>
+      </row>
+      <row>
+        <col>ls -a</col>
+        <col>Lista el contenido del directorio actual, incluyendo los ficheros ocultos.</col>
+      </row>
+      <row>
+        <col>ls -i</col>
+        <col>Lista los ficheros con su número de inode.</col>
+      </row>
+      <row>
 				<col>ls -lh</col>
 				<col>Lista los ficheros con su tamaño en formato cómodo de leer para las personas. Por ejemplo:1K, 234M, 2G, etc.</col>
 			</row>
