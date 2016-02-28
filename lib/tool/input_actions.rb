@@ -14,7 +14,7 @@ module InputActions
       end
       files=(Dir.new(dirname).entries-[".",".."]).sort
       filter = files.select { |f| f[-4..-1]==".xml" || f[-5..-1]==".haml" } # filter only HAML or XML files
-      verbose "* HAML/XML files from #{dirname}: #{filter.join(', ').to_s} "
+      verbose "[INFO] HAML/XML files from #{dirname}: #{filter.join(', ').to_s} "
 		
       filter.each do |f|
         pFilename=dirname+'/'+f
@@ -27,11 +27,15 @@ module InputActions
         end
 				
         begin
+          puts " * Processing <#{pFilename}> file"
           lXMLdata=REXML::Document.new(lFileContent)
-          #app.param[:lang]=lXMLdata.root.attributes['lang'] || app.lang
-          lang=lXMLdata.root.attributes['lang'] || app.lang
-          #@lang=Lang.new(app.lang)
-					
+          
+          begin
+            lang=lXMLdata.root.attributes['lang']
+		  rescue
+		    lang=app.lang
+		  end
+		  
           lXMLdata.root.elements.each do |i|
             if i.name=='concept' then
               c=Concept.new(i,lang)
