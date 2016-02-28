@@ -138,7 +138,7 @@
         <col>Lista los ficheros con su número de inode.</col>
       </row>
       <row>
-				<col>ls -lh</col>
+         <col>ls -lh</col>
 				<col>Lista los ficheros con su tamaño en formato cómodo de leer para las personas. Por ejemplo:1K, 234M, 2G, etc.</col>
 			</row>
 			<row>
@@ -311,8 +311,7 @@
 		<names>type</names>
 		<context>sistemas operativos, comando</context>
 		<tags>mostrar, interpreta, comando</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, que 
-		muetra cómo se interpreta un comando concreto.</text>
+		<text>Es un comando del sistema operativo GNU/Linux, que muestra cómo se interpreta un comando concreto.</text>
 		<table fields='accion, resultado'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -338,8 +337,7 @@
 		<names>which</names>
 		<context>sistemas operativos, comando</context>
 		<tags>mostrar, programa, ejecutar, comando</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, que 
-		muetra el programa que se ejecutará al invocar un comando concreto.</text>
+		<text>Es un comando del sistema operativo GNU/Linux, que muestra el programa que se ejecutará al invocar un comando concreto.</text>
 		<table fields='accion, resultado'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
