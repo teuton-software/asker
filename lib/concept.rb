@@ -100,15 +100,15 @@ class Concept
     
     t = Terminal::Table.new
     t.add_row [Rainbow(@id.to_s).bright, Rainbow(name).color(:white).bg(:blue).bright+" (lang=#{@lang.lang}) " ]    
-    t.add_row [Rainbow("context").color(:blue), context.join("\n").to_s ]
-    t.add_row [Rainbow("tags").color(:blue), tags.join("\n").to_s] 
+    t.add_row [Rainbow("context").color(:blue), context.join(", ").to_s ]
+    t.add_row [Rainbow("tags").color(:blue), tags.join(", ").to_s] 
 
     lText=[]
     texts.each do |i|
       if i.size<60 then
 	    lText << i.to_s	  
 	  else
-	    lText << i[0...70].to_s
+	    lText << i[0...70].to_s+"..."
 	  end
 	end
     t.add_row [Rainbow("text").color(:blue), lText.join("\n")]	  
