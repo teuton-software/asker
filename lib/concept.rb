@@ -215,7 +215,8 @@ private
       when 'table'				
         @data[:tables] << Table.new(self,i)
       else
-        puts "[ERROR] XMLdata with #{i.name}"
+        msg = Rainbow("   [ERROR] <#{i.name}> attribute into XMLdata (concept#read_data_from_xml)").color(:red)
+        Tool.instance.verbose msg
       end
     end
   end

@@ -10,13 +10,17 @@ module InputActions
     inputdirs=app.inputdirs.split(',')
     inputdirs.each do |dirname|
       if !Dir.exists? dirname then
-        raise "[ERROR] <#{dirname}> directory dosn't exist!"
+        msg "["+Rainbow(ERROR).color(:red)+"] <#{Rainbow(dirname).color(:red)}> directory dosn't exist!"
+        verboseln msg 
+        raise msg
       end
+
       files=(Dir.new(dirname).entries-[".",".."]).sort
-      filter = files.select { |f| f[-4..-1]==".xml" || f[-5..-1]==".haml" } # filter only HAML or XML files
-      verbose "[INFO] HAML/XML files from #{dirname}: #{filter.join(', ').to_s} "
-		
-      filter.each do |f|
+      accepted = files.select { |f| f[-4..-1]==".xml" || f[-5..-1]==".haml" } # accept only HAML or XML files
+      verbose " * Input directory: #{Rainbow(dirname).bright}"
+
+      flag=accepted.last
+      accepted.each do |f|
         pFilename=dirname+'/'+f
         if pFilename[-5..-1]==".haml" then
           template = File.read(pFilename)
@@ -25,13 +29,18 @@ module InputActions
         else
           lFileContent=open(pFilename) { |i| i.read }				
         end
-				
+
         begin
-          puts " * Processing <#{pFilename}> file"
+          if flag==f then
+            verbose " └── Input file : #{Rainbow(pFilename).bright}..." 
+          else
+            verbose " ├── Input file : #{Rainbow(pFilename).bright}..."
+          end
+          
           lXMLdata=REXML::Document.new(lFileContent)
           
           begin
-            lang=lXMLdata.root.attributes['lang']
+            lang=lXMLdata.root.attributes['lang'] # has lang attribute or not?
 		  rescue
 		    lang=app.lang
 		  end
@@ -47,8 +56,9 @@ module InputActions
             end
           end
         rescue REXML::ParseException
-          verbose "[ERROR] Format error in file <"+pFilename+">!"
-          raise "[ERROR] Format error in file <"+pFilename+">!"
+          msg = Rainbow( " │    [ERROR] Format error in file <#{pFilename}>! (InputActions#load_input_files)").color(:red)
+          verbose msg
+          raise msg
         end
       end
     end

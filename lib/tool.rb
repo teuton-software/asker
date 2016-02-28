@@ -59,11 +59,11 @@ class Tool
           raise
         end
       rescue
-        puts "[ERROR] <#{pArgs}> dosn't exists!"
+        verbose Rainbow("[ERROR] <#{RainbowpArgs}> dosn't exists! (tool#init)").color(:red)
         exit    
       end
     else
-      puts "[ERROR] Configuration params format is <#{pArgs.class.to_s}>!"
+      verbose Rainbow("[ERROR] Configuration params format is <#{pArgs.class.to_s}>! (tool#init)").color(:red)
       exit
     end
 
@@ -75,8 +75,6 @@ class Tool
     @outputname=app.outputdir+'/'+app.outputname
   end
 		
-private	
-
   def verbose(lsText)
     if Application.instance.verbose then
       puts lsText
