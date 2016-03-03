@@ -32,9 +32,9 @@ module InputActions
 
         begin
           if flag==f then
-            verbose " └── Input file : #{Rainbow(pFilename).bright}..." 
+            verbose "   └── Input file : #{Rainbow(pFilename).bright}..." 
           else
-            verbose " ├── Input file : #{Rainbow(pFilename).bright}..."
+            verbose "   ├── Input file : #{Rainbow(pFilename).bright}..."
           end
           
           lXMLdata=REXML::Document.new(lFileContent)
@@ -56,7 +56,7 @@ module InputActions
             end
           end
         rescue REXML::ParseException
-          msg = Rainbow( " │    [ERROR] Format error in file <#{pFilename}>! (InputActions#load_input_files)").color(:red)
+          msg = Rainbow( "   │    [ERROR] Format error in file <#{pFilename}>! (InputActions#load_input_files)").color(:red)
           verbose msg
           raise msg
         end
