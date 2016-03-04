@@ -1,6 +1,15 @@
 # encoding: utf-8
 
+require_relative 'ia_calculate'
+require_relative 'ia_sequence'
+require_relative 'ia_table1field'
+require_relative 'ia_texts'
+
 module IA
+  include IA_calculate
+  include IA_sequence
+  include IA_table1field
+  include IA_texts
 
   def process_texts	
     q=Question.new
