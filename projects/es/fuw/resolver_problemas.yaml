@@ -1,0 +1,3 @@
+---
+:inputdirs: input/es/fuw,input/es/idp
+:process_file: resolver_problemas.haml
