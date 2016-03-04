@@ -3,7 +3,7 @@
 require 'rexml/document'
 
 class Table
-	attr_reader :name, :data
+  attr_reader :name, :data
 
   def initialize(pConcept, pXMLdata)
     @concept=pConcept
@@ -18,10 +18,9 @@ class Table
     @data[:fields].each { |i| i.strip! }
     @data[:fields].each { |i| @name=@name+"$"+i.to_s.strip.downcase} 
     
-    #@data[:sequence]=pXMLdata.attributes['sequence'].to_s
     lText=pXMLdata.attributes['sequence'].to_s || ""
-	@data[:sequence]=lText.split(",")
-	
+    @data[:sequence]=lText.split(",")
+
     pXMLdata.elements.each do |i|
       if i.name=='title' then
         @data[:title] << i.text.strip
@@ -37,7 +36,7 @@ class Table
           @data[:rows] << [i.text.strip]
         end
       else
-        puts "[ERROR] table#XMLdata with #{i.name}"
+        puts Rainbow("[ERROR] concept/table#XMLdata with #{i.name}").red.bright
       end
     end
   end	
