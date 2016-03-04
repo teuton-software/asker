@@ -1,0 +1,50 @@
+---
+:subject:
+  :locale: 'sujeto'
+  :gender:
+    :locale: 'género'
+    :values:
+    - 'masculino'
+    - 'feminino'
+  :number:
+    :locale: 'número'
+    :values:
+    - 'singular'
+    - 'plural'
+  :type:
+    :locale: 'tipo'
+    :values:
+    - 'común'
+    - 'propio'
+:verb:
+  :locale: 'verbo'
+  :tense:
+    :locale: 'tiempo'
+    :values:
+    - 'presente'
+    - 'pasado'
+    - 'futuro'
+  :number:
+    :locale: 'número'
+    :values:
+    - 'singular'
+    - 'plural'
+  :person:
+    :locale: 'persona'
+    :values:
+    - '1ª'
+    - '2ª'
+    - '3ª'
+:adverb:
+  :locale: 'adverbio'
+  :values:
+  - 'lugar'
+  - 'temporal'
+  - 'causal'
+  - 'cantidad/grado'
+  - 'modal'
+  - 'interrogativo'
+  - 'afirmaición'
+  - 'negación'
+  - 'duda'
+
