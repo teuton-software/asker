@@ -4,7 +4,7 @@
 module InputActions
 
   def load_input_files
-	app=Application.instance
+    app=Application.instance
     verbose "\n[INFO] Loading input data..."
 		
     inputdirs=app.inputdirs.split(',')
@@ -45,9 +45,9 @@ module InputActions
 		    lang=app.lang
 		  end
 		  
-          lXMLdata.root.elements.each do |i|
-            if i.name=='concept' then
-              c=Concept.new(i,lang)
+          lXMLdata.root.elements.each do |xmldata|
+            if xmldata.name=='concept' then
+              c=Concept.new(xmldata,lang)
               c.process=false
               if ( app.process_file==:default or app.process_file==f.to_s ) then
                 c.process=true
