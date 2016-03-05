@@ -203,7 +203,14 @@ private
         j=i.text.split(",")
         j.each { |k| @data[:tags] << k.strip }
       when 'text'
+        #TODO drop this
         @data[:texts] << i.text.strip
+      when 'def'
+        if i.attributes['image']
+          puts Rainbow("[DEBUG] Concept#read_data_from_xml: #{Rainbow(i.attributes['image']).bright}").yellow
+        else
+          @data[:texts] << i.text.strip
+        end
       when 'table'				
         @data[:tables] << Table.new(self,i)
       else
