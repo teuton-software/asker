@@ -7,6 +7,11 @@ module IA_sequence
  
     q=Question.new
     
+    #TODO
+    #items=[]
+    #pList1.each_with_index { |i,j| items<<[ i[:data][0], j] }
+    #puts Rainbow(items).blue.bright
+    
     #Question type <d3sequence>: items are part of a sequence
 	if pList1.count>3 and pTable.sequence[0]!=""	
 	  a=0..(pList1.count-4)
@@ -22,7 +27,6 @@ module IA_sequence
         q.matching << [ pList1[i+3][:data][0], '4º' ]
         q.write_to_file @file
       end
-      
     end
        
     #Question type <d4sequence>: items are part of a reverse sequence
