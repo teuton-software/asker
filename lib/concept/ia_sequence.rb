@@ -8,7 +8,7 @@ module IA_sequence
     q=Question.new
     
     #Question type <d3sequence>: items are part of a sequence
-	if pList1.count>3 and pTable.sequence[0]=""	
+	if pList1.count>3 and pTable.sequence[0]!=""	
 	  a=0..(pList1.count-4)
 	  a.each_entry do |i|
         @num+=1
