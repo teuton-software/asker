@@ -40,14 +40,16 @@ module InputActions
           lXMLdata=REXML::Document.new(lFileContent)
           
           begin
-            lang=lXMLdata.root.attributes['lang'] # has lang attribute or not?
+            lLang=lXMLdata.root.attributes['lang'] # has lang attribute or not?
+            lContext=lXMLdata.root.attributes['context']
 		  rescue
-		    lang=app.lang
+		    lLang=app.lang
+		    lContext="unknown"
 		  end
-		  
+
           lXMLdata.root.elements.each do |xmldata|
             if xmldata.name=='concept' then
-              c=Concept.new(xmldata,lang)
+              c=Concept.new(xmldata,lLang,lContext)
               c.process=false
               if ( app.process_file==:default or app.process_file==f.to_s ) then
                 c.process=true

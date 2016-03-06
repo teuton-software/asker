@@ -20,8 +20,8 @@ class Concept
 
   @@id=0
 
-  def initialize(pXMLdata,lang="en")
-    @lang=Lang.new(lang)
+  def initialize(pXMLdata,pLang="en",pContext=[])
+    @lang=Lang.new(pLang)
 				
     @@id+=1
     @id=@@id
@@ -31,9 +31,18 @@ class Concept
 
     @data={}
     @data[:names]=[]
-    @data[:context]=[]
+    if pContext.class==Array then   
+      @data[:context]=pContext
+    elsif pContext.nil? then
+      @data[:context]=[]
+    else
+      puts pContext,pContext.class
+      @data[:context]=pContext.split(",")
+      @data[:context].collect! { |i| i.strip }
+    end
     @data[:tags]=[]
     @data[:texts]=[]
+    @data[:images]=[]
     @data[:tables]=[]
     @data[:neighbors]=[]
 	
@@ -197,17 +206,19 @@ private
         j=i.text.split(",")
         j.each { |k| @data[:names] << k.strip }
       when 'context'
-        j=i.text.split(",")
-        j.each { |k| @data[:context] << k.strip }
+        #DEPRECATED: Don't use xml tag <context> instead define it as attibute of root xml tag
+        @data[:context]=i.text.split(",")
+        @data[:context].collect! { |k| k.strip }
       when 'tags'
-        j=i.text.split(",")
-        j.each { |k| @data[:tags] << k.strip }
+        @data[:tags]=i.text.split(",")
+        @data[:tags].collect! { |k| k.strip }
       when 'text'
-        #TODO drop this
+        #DEPRECATED: Use xml tag <def> instead of <text>
         @data[:texts] << i.text.strip
       when 'def'
         if i.attributes['image']
           puts Rainbow("[DEBUG] Concept#read_data_from_xml: #{Rainbow(i.attributes['image']).bright}").yellow
+          @data[:images] << i.attributes['image'].strip
         else
           @data[:texts] << i.text.strip
         end
