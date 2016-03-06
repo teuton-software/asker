@@ -1,9 +1,9 @@
-%map{ :version=>"1", :lang => 'es' }
+%map{ :version=>"1", :lang => 'es', :context => 'vehículos, transporte' }
+
   %concept
     %names coche
-    %context transporte
     %tags vehículo, terrestre, motor
-    %text Es un tipo de vehículo de trasporte con cuatro ruedas.
+    %def Es un tipo de vehículo de trasporte con cuatro ruedas.
     %table{ :fields => 'atributo, valor' }
       %title Asocia cada atributo con su valor
       %row
@@ -18,9 +18,8 @@
 	
   %concept
     %names moto
-    %context trasporte, vehículo
     %tags vehículo,terrestre, motor
-    %text Es un tipo de vehículo de trasporte con dos ruedas.
+    %def Es un tipo de vehículo de trasporte con dos ruedas.
     %table{ :fields => 'atributo, valor' }
       %title Asocia cada atributo con su valor
       %row
@@ -35,9 +34,8 @@
 
   %concept
     %names bicicleta
-    %context trasporte
     %tags vehículo, terrestre, sin-motor
-    %text Es un tipo de vehículo de trasporte con dos ruedas sin motor.
+    %def Es un tipo de vehículo de trasporte con dos ruedas sin motor.
     %table{ :fields => 'atributo, valor' }
       %title Asocia cada atributo con su valor
       %row
@@ -57,9 +55,8 @@
       
   %concept
     %names avión
-    %context trasporte, vehículo
     %tags vehículo,volador, aéreo, motor, alas
-    %text Es un tipo de vehículo de trasporte aéreo.
+    %def Es un tipo de vehículo de trasporte aéreo.
     %table{ :fields => 'atributo, valor' }
       %title Asocia cada atributo con su valor
       %row
@@ -80,7 +77,7 @@
   %concept
     %names helicoptero
     %tags vehículo,volador, aéreo, motor, hélice, sin-alas
-    %text Es un tipo de vehículo de trasporte aéreo sin alas.
+    %def Es un tipo de vehículo de trasporte aéreo sin alas.
     %table{ :fields => 'atributo, valor' }
       %title Asocia cada atributo con su valor
       %row
