@@ -50,7 +50,6 @@ module InputActions
           lXMLdata.root.elements.each do |xmldata|
             if xmldata.name=='concept' then
               c=Concept.new(xmldata,pFilename,lLang,lContext)
-              c.process=false
               if ( app.process_file==:default or app.process_file==f.to_s ) then
                 c.process=true
               end

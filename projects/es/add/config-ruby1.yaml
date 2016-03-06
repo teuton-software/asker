@@ -1,4 +1,0 @@
----
-:inputdirs: 'maps/add,maps/idp'
-:process_file: 'ruby1.haml'
-

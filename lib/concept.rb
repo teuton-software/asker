@@ -28,6 +28,7 @@ class Concept
 
     @filename=pFilename
     @lang=Lang.new(pLang)
+    @process=false
 
     @data={}
     @data[:names]=[]
@@ -36,7 +37,6 @@ class Concept
     elsif pContext.nil? then
       @data[:context]=[]
     else
-      puts pContext,pContext.class
       @data[:context]=pContext.split(",")
       @data[:context].collect! { |i| i.strip }
     end
@@ -209,7 +209,7 @@ private
         j.each { |k| @data[:names] << k.strip }
       when 'context'
         #DEPRECATED: Don't use xml tag <context> instead define it as attibute of root xml tag
-        puts Rainbow("DEPRECATED: Don't use XMLtag <context> instead define it as attibute of root XMLtag <#{Rainbow(i.name).bright}>").yellow
+        puts Rainbow("[DEPRECATED] Into "+Rainbow(name).bright+" dont use XMLtag <context> instead define it as attibute of root XMLtag.").yellow
         @data[:context]=i.text.split(",")
         @data[:context].collect! { |k| k.strip }
       when 'tags'
