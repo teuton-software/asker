@@ -20,14 +20,14 @@ class Concept
 
   @@id=0
 
-  def initialize(pXMLdata,pLang="en",pContext=[])
-    @lang=Lang.new(pLang)
-				
+  def initialize(pXMLdata, pFilename, pLang="en", pContext=[])	
     @@id+=1
-    @id=@@id
-		
+    @id=@@id	
     @weights=Application.instance.formula_weights
     @output=true
+
+    @filename=pFilename
+    @lang=Lang.new(pLang)
 
     @data={}
     @data[:names]=[]
@@ -101,8 +101,9 @@ class Concept
     
     t = Terminal::Table.new
     t.add_row [Rainbow(@id.to_s).bright, Rainbow(name).color(:white).bg(:blue).bright+" (lang=#{@lang.lang}) " ]    
-    t.add_row [Rainbow("context").color(:blue), context.join(", ").to_s ]
-    t.add_row [Rainbow("tags").color(:blue), tags.join(", ").to_s] 
+    t.add_row [Rainbow("Filename").color(:blue), @filename.to_s ]
+    t.add_row [Rainbow("Context").color(:blue), context.join(", ").to_s ]
+    t.add_row [Rainbow("Tags").color(:blue), tags.join(", ").to_s] 
 
     lText=[]
     texts.each do |i|
@@ -112,17 +113,18 @@ class Concept
 	    lText << i[0...70].to_s+"..."
 	  end
 	end
-    t.add_row [Rainbow("text").color(:blue), lText.join("\n")]	  
+    t.add_row [Rainbow(".def(text)").color(:blue), lText.join("\n")]	  
+    t.add_row [Rainbow(".def(images)").color(:blue), images.join(", ").to_s] 
 	
 	if tables.count>0 then
 	  lText=[]
 	  tables.each { |i| lText << i.to_s }
-	  t.add_row [ Rainbow("tables").color(:blue), lText.join("\n")]
+	  t.add_row [ Rainbow(".tables").color(:blue), lText.join("\n")]
 	end
 	
 	lText=[]
 	neighbors[0..5].each { |i| lText << i[:concept].name+"("+i[:value].to_s[0..4]+")" }
-	t.add_row [Rainbow("neighbors").color(:blue),lText.join("\n")]
+	t.add_row [Rainbow(".neighbors").color(:blue),lText.join("\n")]
 
     out << t.to_s+"\n"
 	return out
@@ -207,6 +209,7 @@ private
         j.each { |k| @data[:names] << k.strip }
       when 'context'
         #DEPRECATED: Don't use xml tag <context> instead define it as attibute of root xml tag
+        puts Rainbow("DEPRECATED: Don't use XMLtag <context> instead define it as attibute of root XMLtag <#{Rainbow(i.name).bright}>").yellow
         @data[:context]=i.text.split(",")
         @data[:context].collect! { |k| k.strip }
       when 'tags'
