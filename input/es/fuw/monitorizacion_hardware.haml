@@ -1,16 +1,14 @@
-%map{ :version => '1', :lang => 'es' }
+%map{ :version => '1', :lang => 'es', :context=>'hardware, monitorización, diagnóstico' }
 
   %concept
     %names técnicas
-    %context hardware, monitorización, diagnóstico
     %tags conjunto,procedimientos,recursos,conseguir,algo
-    %text Entendemos como [*] el conjunto de procedimientos y recursos que utilizamos para conseguir algo.
+    %def Entendemos como [*] el conjunto de procedimientos y recursos que utilizamos para conseguir algo.
 
   %concept
     %names técnicas-monitorización-y-diagnóstico
-    %context hardware, monitorización, diagnóstico
     %tags conjunto,procedimientos,recursos,conseguir,algo
-    %text [*] de monitorización y diagnóstico son aquellos procedimientos y recursos que nos permiten, conocer en cualquier el estado del ordenador e identificar qué parte es la que falla si esto.
+    %def [*] de monitorización y diagnóstico son aquellos procedimientos y recursos que nos permiten, conocer en cualquier el estado del ordenador e identificar qué parte es la que falla si esto.
     %table{ :fields => 'tipo,descripción' }
       %title Tipos de técnicas de monitorización y diagnóstico
       %row
@@ -22,9 +20,8 @@
 
   %concept
     %names herramientas-de-diagnóstico
-    %context hardware, monitorización, diagnóstico
     %tags herramientas, monitorización, diagnóstico
-    %text [*] todas aquellas utilidades a nivel software o herramientas hardware que nos permitan detectar cuál es el estado de nuestro ordenador en cualquier momento o detectar qué componente del equipo está fallando
+    %def [*] todas aquellas utilidades a nivel software o herramientas hardware que nos permitan detectar cuál es el estado de nuestro ordenador en cualquier momento o detectar qué componente del equipo está fallando
     %table{ :fields => 'nivel-software' }
       %title Herramientas de diagnóstico a nivel de software
       %row EVEREST Home Edition
@@ -36,9 +33,8 @@
 
   %concept
     %names EVEREST
-    %context hardware, monitorización, diagnóstico
     %tags herramienta, monitorización, diagnóstico, nivel, software
-    %text Sustituye a la herramienta AIDA 32.
+    %def Sustituye a la herramienta AIDA 32.
     %table{ :fields => 'caracteristicas' }
       %title Características
       %row Es una herramienta de las más completas en la actualidad en materia de diagnósticos del ordenador; en unos pocos segundos, realiza un extenso y detallado análisis del PC, mostrando prácticamente todos los aspectos del sistema referentes a hardware, software, configuración de red y más. 
@@ -48,11 +44,10 @@
 
   %concept
     %names Memtest86+
-    %context hardware, monitorización, diagnóstico
     %tags herramienta, monitorización, diagnóstico, nivel, software
-    %text Es una pequeña aplicación diseñada para testear y probar el uso y el estado de la memoria RAM de tu ordenador.
-    %text Verifica la capacidad de la memoria, escaneando los módulos de memoria RAM y analizando su capacidad para guardar y recuperar información de manera adecuada y con precisión. 
-    %text [*] resulta especialmente útil a la hora de comprobar la fiablidad de la memoria de un ordenador.
+    %def Es una pequeña aplicación diseñada para testear y probar el uso y el estado de la memoria RAM de tu ordenador.
+    %def Verifica la capacidad de la memoria, escaneando los módulos de memoria RAM y analizando su capacidad para guardar y recuperar información de manera adecuada y con precisión. 
+    %def [*] resulta especialmente útil a la hora de comprobar la fiablidad de la memoria de un ordenador.
     %table{ :fields => 'caracteristicas' }
       %title Características
       %row Se puede descargar desde el URL http://memtest86.softonic.com/
@@ -66,10 +61,9 @@
 
   %concept
     %names test-de-memoria 
-    %context hardware, monitorización, diagnóstico
     %tags test, memoria, memtest86+, herramienta, monitorización, diagnóstico, nivel, software
-    %text La metodología de un buen [*] es la siguiente: escribir todas las direcciones de memoria con patrones generados con un algoritmo específico y volver a leerlos para comprobar la coherencia de los datos. 
-    %text En el algoritmo usado en los [*] está la diferencia entre los varios programas disponibles, y el más eficaz es Memtest86+, que se compone de diez [*] individuales.
+    %def La metodología de un buen [*] es la siguiente: escribir todas las direcciones de memoria con patrones generados con un algoritmo específico y volver a leerlos para comprobar la coherencia de los datos. 
+    %def En el algoritmo usado en los [*] está la diferencia entre los varios programas disponibles, y el más eficaz es Memtest86+, que se compone de diez [*] individuales.
     %table{ :fields => 'nombre,descripción' }
       %title Nombre de cada test y su descripción
       %row
@@ -105,10 +99,9 @@
 
   %concept
     %names CPU-Z
-    %context hardware, monitorización, diagnóstico
     %tags herramienta, monitorización, diagnóstico, nivel, software, cpu, procesador
-    %text [*] es una utilidad gratuita que permite monitorizar una gran cantidad datos relacionados con tu procesador. 
-    %text [*] ofrece información detallada acerca del procesador, información de caché de primer y segundo nivel, 
+    %def [*] es una utilidad gratuita que permite monitorizar una gran cantidad datos relacionados con tu procesador. 
+    %def [*] ofrece información detallada acerca del procesador, información de caché de primer y segundo nivel, 
     fabricante, modelo, chipset, BIOS, velocidad y memoria del bus AGP, tipo y cantidad de memoria RAM instalada 
     así como el fabricante y la frecuencia a la que trabaja, etc..  
     %text [*] es una utilidad de análisis especializada en el microprocesador, placa base y memoria RAM. 
@@ -125,9 +118,8 @@
       
   %concept
     %names GPU-Z
-    %context hardware, monitorización, diagnóstico
     %tags herramienta, monitorización, diagnóstico, nivel, software, tarjeta, vídeo
-    %text [*] es una herramienta de monitorización para Windows que nos permitirá informarnos acerca de las características internas de nuestra tarjeta de vídeo. 
+    %def [*] es una herramienta de monitorización para Windows que nos permitirá informarnos acerca de las características internas de nuestra tarjeta de vídeo. 
     %table{ :fields => 'datos-de-la-tarjeta-de-vídeo' }
       %title Datos de la tarjeta de vídeo
       %row Modelo de nuestra tarjeta
@@ -138,28 +130,24 @@
 
   %concept
     %names HD Tune
-    %context hardware, monitorización, diagnóstico
     %tags herramienta, monitorización, diagnóstico, nivel, software, disco, duro, unidad
-    %text [*] es una herramienta de diagnóstico que ayuda a comprobar el estado de los discos duros, ya sean internos, externos o extraíbles.
+    %def [*] es una herramienta de diagnóstico que ayuda a comprobar el estado de los discos duros, ya sean internos, externos o extraíbles.
 
   %concept
     %names Polímetro
-    %context hardware, monitorización, diagnóstico
     %tags herramienta, monitorización, diagnóstico, nivel, hardware, medir, tensión, resistencia
-    %text El [*] se utiliza para medir magnitudes eléctricas en diferentes ámbitos de la electrotécnica y de la electrónica.
-    %text El [*] permite realizar distintos tipos de medición como son: tensiones continuas y alternas, y las resistencias.
+    %def El [*] se utiliza para medir magnitudes eléctricas en diferentes ámbitos de la electrotécnica y de la electrónica.
+    %def El [*] permite realizar distintos tipos de medición como son: tensiones continuas y alternas, y las resistencias.
 
   %concept
     %names Téster
-    %context hardware, monitorización, diagnóstico
     %tags herramienta, monitorización, diagnóstico, nivel, hardware, medir, tensión, resistencia
-    %text Un [*] es una herramientas indispensables cuando se trabaja con redes que permite comprobar cables de red, instalaciones y adaptadores de red. 
+    %def Un [*] es una herramientas indispensables cuando se trabaja con redes que permite comprobar cables de red, instalaciones y adaptadores de red. 
 
   %concept
     %names TuneUp
-    %context hardware, monitorización, diagnóstico
     %tags herramienta, programa, optimización, sistema, Windows
-    %text [*] Utilities es una suite de optimización del sistema. 
+    %def [*] Utilities es una suite de optimización del sistema. 
     %table{ :fields => 'funciones-del-programa' }
       %title Funciones del programa
       %row Desfragmentador de disco duro
@@ -168,4 +156,3 @@
       %row Desinstalador de programas
       %row Editor del inicio de sistema
       %row Un panel para personalizar el aspecto de Windows
-

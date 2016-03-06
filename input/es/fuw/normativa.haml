@@ -1,10 +1,10 @@
-%map{ :version => '1', :lang => 'es' }
+%map{ :version => '1', :lang => 'es', :context=>'hardware, normativa, ley, prevención, lprl' }
+
   %concept
     %names riesgo-laboral
-    %context hardware, normativa, ley, prevención, lprl
     %tags posibilidad, trabajador, sufra, daño, deriva, trabajo
-    %text La posibilidad de que un trabajador sufra un determinado daño derivado del trabajo. Para calificar un [***] desde el punto de vista de su gravedad se valorará conjuntamente la probabilidad de que se produzca el daño y la severidad del mismo.
-    %text [***] grave o inminente. Aquel que resulte probable racionalmente que se materialice en un futuro inmediato y pueda suponer un daño grave para la salud de los trabajadores.
+    %def La posibilidad de que un trabajador sufra un determinado daño derivado del trabajo. Para calificar un [***] desde el punto de vista de su gravedad se valorará conjuntamente la probabilidad de que se produzca el daño y la severidad del mismo.
+    %def [*] grave o inminente. Aquel que resulte probable racionalmente que se materialice en un futuro inmediato y pueda suponer un daño grave para la salud de los trabajadores.
     %table{ :fields => 'factor-de-riesgo,descripción' }
       %title Factores de riesgo en la instalación de componentes
       %row
@@ -62,10 +62,9 @@
         
   %concept
     %names prevención
-    %context hardware, normativa, ley, prevención, lprl
     %tags medida, trabajo, prevenir, riesgos, daño, trabajador
-    %text El conjunto de actividades o medidas adoptadas o previstas en todas las fases de actividad de la empresa con el fin de evitar o disminuir los riesgos derivados del trabajo.
-    %text Los siniestros en los puestos de trabajo pueden darse por condiciones medioambientales del centro de trabajo, condiciones físicas del trabajo, condiciones del puesto de trabajo y condiciones derivadas del sistema organizativo del trabajo. Cada riesgo laboral lleva consigo un plan de [***] para evitarlo o aminorar su gravedad.
+    %def El conjunto de actividades o medidas adoptadas o previstas en todas las fases de actividad de la empresa con el fin de evitar o disminuir los riesgos derivados del trabajo.
+    %def Los siniestros en los puestos de trabajo pueden darse por condiciones medioambientales del centro de trabajo, condiciones físicas del trabajo, condiciones del puesto de trabajo y condiciones derivadas del sistema organizativo del trabajo. Cada riesgo laboral lleva consigo un plan de [***] para evitarlo o aminorar su gravedad.
     %table{ :fields => 'norma-seguridad-taller' }
       %title Normas básicas de seguridad en el taller.
       %row
@@ -92,7 +91,7 @@
       %title Normas o consejos de ergonomía
       %row
         %col Uso de la pantalla
-        %col En lo que concierne a la colocación de la [***], se recomienda situarla a una distancia superior a 400 mm. , respecto a los ojos del usuario y a una altura tal que pueda ser visualizada dentro del espacio comprendido entre la línea de visión horizontal y la trazada a 60o bajo la horizontal.
+        %col En lo que concierne a la colocación de la [*], se recomienda situarla a una distancia superior a 400 mm. , respecto a los ojos del usuario y a una altura tal que pueda ser visualizada dentro del espacio comprendido entre la línea de visión horizontal y la trazada a 60o bajo la horizontal.
       %row
         %col En relación al diseño del teclado
         %col Deberá ser inclinable e independiente de la pantalla para permitir que el trabajador adopte una postura cómoda que no provoque cansancio en los brazos o las manos. La superficie del mismo deberá ser mate para evitar los reflejos. La disposición y las características de las teclas deberán tender a facilitar su utilización. Los símbolos de las teclas deberán resaltar suficientemente y ser legibles desde la posición normal de trabajo.
@@ -113,41 +112,36 @@
         %col Los puestos de trabajo deberán instalarse de tal forma que las fuentes de luz, tales como ventanas y otras aberturas, los tabiques transparentes o translúcidos y los equipos o tabiques de color claro no provoquen deslumbramiento directo ni produzcan reflejos molestos en la pantalla. Las ventanas deberán ir equipadas con un dispositivo de cobertura adecuado y regulable para atenuar la luz del día que ilumine el puesto de trabajo.
       %row
         %col El ruido
-        %col El [***] producido por los equipos instalados en el puesto de trabajo deberá tenerse en cuenta al diseñar el mismo, en especial para que no se perturbe la atención ni la palabra.
+        %col El [*] producido por los equipos instalados en el puesto de trabajo deberá tenerse en cuenta al diseñar el mismo, en especial para que no se perturbe la atención ni la palabra.
       %row
         %col El calor
         %col Los equipos instalados en el puesto de trabajo no deberán producir un [***] adicional que pueda ocasionar molestias a los trabajadores.
       %row
         %col Emisiones de radiación
-        %col Toda [***], excepción hecha de la parte visible del espectro electromagnético, deberá reducirse a niveles insignificantes desde el punto de vista de la protección de la seguridad y de la salud de los trabajadores.
+        %col Toda [*], excepción hecha de la parte visible del espectro electromagnético, deberá reducirse a niveles insignificantes desde el punto de vista de la protección de la seguridad y de la salud de los trabajadores.
 
   %concept
     %names condición-de-trabajo
-    %context hardware, normativa, ley, prevención, lprl
     %tags característica, trabajo, influencia, riesgos, daño, trabajador
-    %text Cualquier característica del trabajo que pueda tener una influencia significativa en la generación de riesgos para la seguridad y la salud del trabajador.
+    %def Cualquier característica del trabajo que pueda tener una influencia significativa en la generación de riesgos para la seguridad y la salud del trabajador.
 
   %concept
     %names daños-derivados-del-trabajo
-    %context hardware, normativa, ley, prevención, lprl
     %tags enfermedad, daño, trabajador, trabajo
-    %text Las enfermedades, patologías o lesiones sufridas con motivo u ocasión del trabajo.
+    %def Las enfermedades, patologías o lesiones sufridas con motivo u ocasión del trabajo.
 
   %concept
     %names equipo-de-trabajo
-    %context hardware, normativa, ley, prevención, lprl
     %tags aparato, utilizado, trabajador, trabajo
-    %text Cualquier máquina, aparato, instrumento o instalación utilizada en el trabajo.
+    %def Un [*] es cualquier máquina, aparato, instrumento o instalación utilizada en el trabajo.
 
   %concept
     %names puesto-de-trabajo
-    %context hardware, normativa, ley, definición
     %tags utilizado, trabajador, trabajo
-    %text [***] es el constituido por un equipo con pantalla de visualización provista, en su caso, de un teclado o dispositivo de adquisición de datos, de un programa para la interconexión persona/máquina, de accesorios ofimáticos y de un asiento y mesa o superficie de trabajo, así como el entorno laboral inmediato.
+    %def [*] es el constituido por un equipo con pantalla de visualización provista, en su caso, de un teclado o dispositivo de adquisición de datos, de un programa para la interconexión persona/máquina, de accesorios ofimáticos y de un asiento y mesa o superficie de trabajo, así como el entorno laboral inmediato.
 
   %concept
     %names trabajador
-    %context hardware, normativa, ley, definición
     %tags utilizado, trabajador, trabajo
-    %text Cualquier persona que habitualmente y durante una parte relevante de su trabajo normal utilice un equipo con pantalla de visualización. 
+    %def Cualquier persona que habitualmente y durante una parte relevante de su trabajo normal utilice un equipo con pantalla de visualización. 
 

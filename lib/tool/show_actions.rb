@@ -36,7 +36,13 @@ module ShowActions
         e=c.data[:texts].size
         c.data[:tables].each { |t| e=e+t.data[:fields].size*t.data[:rows].size }
         
-        my_screen_table.add_row [Rainbow(c.name).color(:green),c.num.to_s,e.to_s, ((c.num.to_f/e.to_f*100.0).to_i.to_s+"%")]
+        if e==0 then
+          porcent="Unkown"
+        else
+          porcent=(c.num.to_f/e.to_f*100.0).to_i.to_s+"%"
+        end
+        
+        my_screen_table.add_row [Rainbow(c.name).color(:green),c.num.to_s,e.to_s, porcent]
         
         total_q+=c.num
         total_e+=e

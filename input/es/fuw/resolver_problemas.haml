@@ -1,8 +1,7 @@
-%map{ :version => '1', :lang => 'es' }
+%map{ :version => '1', :lang => 'es', :context=>'hardware, diagnóstico, problemas' }
 
   %concept
     %names comprobar-hardware
-    %context hardware, diagnóstico, problemas
     %tags hardware, diagnóstico, problemas, resolver, primer, inicio
     %table{ :fields => 'comprobaciones-antes-del-primer-encendido-del-equipo', :sequence => 'Secuencia ordenda de pasos para montar e iniciar un equipo' }
       %title Comprobaciones antes del primer encendido del equipo
@@ -24,13 +23,12 @@
       %row Los cables del interior de la caja están recogidos y sujetos por bridas u otro sistema de enganche.
       %row El monitor, teclado y el ratón están conectados al equipo.
       %row El cable de alimentación está conectado y tiene corriente.
-    %text En el proceso [*], cuando se enciende un equipo y se escucha un único pitido corto, éste es síntoma de que la BIOS ha realizado el chequeo rutinario y todo ha ido bien. Si el equipo no tiene altavoz no sonará nada.
+    %def En el proceso [*], cuando se enciende un equipo y se escucha un único pitido corto, éste es síntoma de que la BIOS ha realizado el chequeo rutinario y todo ha ido bien. Si el equipo no tiene altavoz no sonará nada.
 
   %concept
-    %names avería, problemas-hardware
-    %context hardware, diagnóstico, problemas
+    %names avería, problema-hardware
     %tags hardware, diagnóstico, problemas, resolver
-    %text Para la detección de una [*] es necesario conocer bien los síntomas, dependiendo de los síntomas que se aprecien en el equipo se optará por una opción u otra.
+    %def Para la detección de un/a [*] es necesario conocer bien los síntomas, dependiendo de los síntomas que se aprecien en el equipo se optará por una opción u otra.
     %table{ :fields => 'problema,síntomas' }
       %row
         %col Fallo en la pila o batería.

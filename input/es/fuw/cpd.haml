@@ -1,9 +1,9 @@
-%map{ :version => '1', :lang => 'es' }
+%map{ :version => '1', :lang => 'es', :context=>'hardware, cpd' }
+
   %concept
     %names clasificacion-ordenadores-por-su-proposito
-    %context hardware, cpd
     %tags clasificación, ordenadores, proposito, diseño, contrucción
-    %text Forma de clasificación de ordenadores en función de su diseño y construcción. 
+    %def Forma de clasificación de ordenadores en función de su diseño y construcción. 
     %table{ :fields => 'clasificacion,descripción' }
       %title Clasificación de ordenadores, según el propósito para el que fueron diseñados y construidos.
       %row
@@ -15,9 +15,8 @@
 
   %concept
     %names	clasificacion-ordenadores-según-su-tamaño
-    %context hardware, cpd
     %tags clasificación, ordenadores, tamaño
-    %text Forma de clasificación de ordenadores en función de su tamaño 
+    %def Forma de clasificación de ordenadores en función de su tamaño 
     %table{ :fields => 'clasificacion,descripción' }
       %title Clasificación de ordenadores, según su tamaño.
       %row
@@ -41,9 +40,8 @@
 
   %concept
     %names	clasificacion-ordenadores-según-el-ámbito-de-uso
-    %context hardware, cpd,
     %tags clasificación, ordenadores, ámbito, uso
-    %text Forma de clasificación de ordenadores en función de su ámbito de uso.
+    %def Forma de clasificación de ordenadores en función de su ámbito de uso.
     %table{ :fields => 'clasificacion,descripción' }
       %title Clasificación de ordenadores, según su ámbito de uso.
       %row
@@ -67,19 +65,17 @@
         
   %concept
     %names cpd
-    %context hardware, cpd
     %tags centro, proceso, datos
-    %text Se denomina [***] a aquella ubicación donde se concentran todos los recursos (físicos, lógicos y humanos), necesarios para el procesamiento de la información de una empresa a través de la organización, realización y control de todas las actividades informáticas de la empresa.
-    %text Un [***] es un edificio o sala de gran tamaño usada para mantener en él gran cantidad de equipamiento electrónico. Suelen ser creados y mantenidos por medianas o grandes organizaciones de ámbito público (como ministerios o consejerías) o privarlo (bancos o multinacionales) con objeto de tener acceso y disponibilidad permanente a la información necesaria para sus operaciones. En el caso de grandes empresas pueden llegar a tener varios creando incluso centros de respaldo. 
-    %text El principal factor que lleva a la creación de un [***] es el garantizar la continuidad del servicio a todo aquél que hace uso del mismo ya que en muchos casos estos sistemas suelen emplear información crítica que hay que blindar o proteger tanto física como lógicamente puesto que la mayoría de las empresas que hacen uso del mismo, dependen de la disponibilidad, seguridad y redundancia de la información que se almacena en sus servidores. La no disponibilidad de la misma puede causar elevados costes por lo que, generalmente, deben funcionar ininterrumpidamente, sin lentitud en el tráfico de datos y con transacciones libres de errores.
-    %text Un [***] debe cumplir una serie de normativas recogidas en la Ley Orgánica de Protección de Datos (LOPD), una ley de protección de datos de carácter personal que se impone como una obligación para las empresas y profesionales y que se recoge en el RD 994/1999, que establece una serie de medidas de carácter técnico y organizativo que garanticen la seguridad de los datos de carácter personal a llevar a cabo por la empresa o profesional que almacena estos datos. Entre estas medidas se incluye la elaboración de un documento de seguridad en el que se detallarán los datos almacenados, las medidas de seguridad adoptadas, así como las personas que tienen acceso a esos datos.
+    %def Se denomina [*] a aquella ubicación donde se concentran todos los recursos (físicos, lógicos y humanos), necesarios para el procesamiento de la información de una empresa a través de la organización, realización y control de todas las actividades informáticas de la empresa.
+    %def Un [*] es un edificio o sala de gran tamaño usada para mantener en él gran cantidad de equipamiento electrónico. Suelen ser creados y mantenidos por medianas o grandes organizaciones de ámbito público (como ministerios o consejerías) o privarlo (bancos o multinacionales) con objeto de tener acceso y disponibilidad permanente a la información necesaria para sus operaciones. En el caso de grandes empresas pueden llegar a tener varios creando incluso centros de respaldo. 
+    %def El principal factor que lleva a la creación de un [***] es el garantizar la continuidad del servicio a todo aquél que hace uso del mismo ya que en muchos casos estos sistemas suelen emplear información crítica que hay que blindar o proteger tanto física como lógicamente puesto que la mayoría de las empresas que hacen uso del mismo, dependen de la disponibilidad, seguridad y redundancia de la información que se almacena en sus servidores. La no disponibilidad de la misma puede causar elevados costes por lo que, generalmente, deben funcionar ininterrumpidamente, sin lentitud en el tráfico de datos y con transacciones libres de errores.
+    %def Un [*] debe cumplir una serie de normativas recogidas en la Ley Orgánica de Protección de Datos (LOPD), una ley de protección de datos de carácter personal que se impone como una obligación para las empresas y profesionales y que se recoge en el RD 994/1999, que establece una serie de medidas de carácter técnico y organizativo que garanticen la seguridad de los datos de carácter personal a llevar a cabo por la empresa o profesional que almacena estos datos. Entre estas medidas se incluye la elaboración de un documento de seguridad en el que se detallarán los datos almacenados, las medidas de seguridad adoptadas, así como las personas que tienen acceso a esos datos.
 
   %concept
     %names seguridad-física
-    %context hardware, cpd
     %tags seguridad, física, riesgos, centro, proceso, datos
-    %text La [***] es uno de los aspectos más olvidados a la hora del diseño de un sistema informáticos, en concreto de una CPD. Esto puede derivar en que para un ataque sea más fácil tomar y copiar una cinta de una sala, que intentar acceder vía lógica a la misma. Evaluar y controlar permanentemente la [***] del edificio es una función primordial dentro del diseño de nuestra CPD. A veces vemos que es una de las opciones menos tratadas, por lo que podemos llevarnos más de un susto o algo peor.
-    %text La [***] consiste en la aplicación de barreras físicas y procedimientos de control, como medidas de prevención y contramedidas, ante amenazas a los recursos e información confidencial. Es decir, que controles y mecanismos de seguridad vamos a utilizar para proteger nuestra CPD. Todo ello para proteger el hardware y los medios de almacenamiento de datos.
+    %def La [*] es uno de los aspectos más olvidados a la hora del diseño de un sistema informáticos, en concreto de una CPD. Esto puede derivar en que para un ataque sea más fácil tomar y copiar una cinta de una sala, que intentar acceder vía lógica a la misma. Evaluar y controlar permanentemente la [***] del edificio es una función primordial dentro del diseño de nuestra CPD. A veces vemos que es una de las opciones menos tratadas, por lo que podemos llevarnos más de un susto o algo peor.
+    %def La [*] consiste en la aplicación de barreras físicas y procedimientos de control, como medidas de prevención y contramedidas, ante amenazas a los recursos e información confidencial. Es decir, que controles y mecanismos de seguridad vamos a utilizar para proteger nuestra CPD. Todo ello para proteger el hardware y los medios de almacenamiento de datos.
     %table{ :fields => 'riesgo,descripción' }
       %title Riesgos físicos
       %row
@@ -105,10 +101,9 @@
         
   %concept
     %names rack
-    %context hardware, cpd
     %tags bastidor, armario, rakc, armazón, metal
-    %text Un [***], es un armazón o armario en metal para soportar equipos electrónicos, informáticos y de comunicaciones. Este tipo de dispositivos permitirán configuraciones hardware complejas sin ocupar excesivo espacio ni requerir estanterías.
-    %text Todos los [***] tienen unas medidas estándar y normalizadas, normalmente de 19 pulgadas de ancho y con un alto y fondo ya variable adaptable al componente a ubicar. El armazón dispone de una serie de guías horizontales donde apoyar el equipo a instalar, así como puntos de anclaje para la fijación del mismo mediante tornillos. También existe la posibilidad de, mediante bandejas,apoyar equipamiento como un monitor o un teclado.
+    %def Un [*], es un armazón o armario en metal para soportar equipos electrónicos, informáticos y de comunicaciones. Este tipo de dispositivos permitirán configuraciones hardware complejas sin ocupar excesivo espacio ni requerir estanterías.
+    %def Todos los [*] tienen unas medidas estándar y normalizadas, normalmente de 19 pulgadas de ancho y con un alto y fondo ya variable adaptable al componente a ubicar. El armazón dispone de una serie de guías horizontales donde apoyar el equipo a instalar, así como puntos de anclaje para la fijación del mismo mediante tornillos. También existe la posibilidad de, mediante bandejas,apoyar equipamiento como un monitor o un teclado.
     %table{ :fields => 'dispositivo' }
       %title Suelen ser dispositivos típicos a alojar en rack
       %row 
@@ -120,11 +115,10 @@
         
   %concept
     %names hot-plug
-    %context hardware, cpd
     %tags dispositivos, conexión, en caliente
-    %text [***], es la capacidad que tienen algunos periféricos de poder enchufarse o desenchufarse al ordenador, sin apagar el mismo, y funcionar correctamente.
-    %text Entre las conexiones con capacidad [***] se encuentran las conexiones USB, Firewire, SATA y SAS. Las conexiones en serie, en paralelo y PS/2 (ratón y teclado), podrían no estar adaptadas para conexión y desconexión con el ordenador encendido, ya que se podrían quemar los puertos o el periférico.
-    %text A la hora de usar periféricos [***], se puede configurar el equipo para que cuando se conecte un periférico de este tipo se ejecute una acción o tarea, como abrir una carpeta o sincronizar los archivos del dispositivo. Para desconectarlo normalmente, se debe uno asegurar de que el dispositivo no deje alguna tarea a medio hacer y pueda producirse una pérdida de datos. Esto se puede hacer bien indicándole por medio del ordenador que va a ser desconectado, o en algunos casos, simplemente esperando a que su LED indicador ya no muestre actividad en el dispositivo.
+    %def [*], es la capacidad que tienen algunos periféricos de poder enchufarse o desenchufarse al ordenador, sin apagar el mismo, y funcionar correctamente.
+    %def Entre las conexiones con capacidad [*] se encuentran las conexiones USB, Firewire, SATA y SAS. Las conexiones en serie, en paralelo y PS/2 (ratón y teclado), podrían no estar adaptadas para conexión y desconexión con el ordenador encendido, ya que se podrían quemar los puertos o el periférico.
+    %def A la hora de usar periféricos [*], se puede configurar el equipo para que cuando se conecte un periférico de este tipo se ejecute una acción o tarea, como abrir una carpeta o sincronizar los archivos del dispositivo. Para desconectarlo normalmente, se debe uno asegurar de que el dispositivo no deje alguna tarea a medio hacer y pueda producirse una pérdida de datos. Esto se puede hacer bien indicándole por medio del ordenador que va a ser desconectado, o en algunos casos, simplemente esperando a que su LED indicador ya no muestre actividad en el dispositivo.
     %table{ :fields => 'dispositivo' }
       %title Los dispositivos "Hot-plug"
       %row 
@@ -135,21 +129,19 @@
 
   %concept
     %names control-remoto
-    %context hardware, cpd
     %tags dispositivos, conexión, en caliente
-    %text En ocasiones necesitamos hacer uso del [***]. Las razones son varias y diversas entre ellas pueden ser por averías, por mantenimiento pero siempre de manera remota, es decir, no estando físicamente cerca del equipo. Para ello necesitamos un software con el que poder manipular desde cualquier otro equipo, el equipo que deseamos.
-    %text Normalmente este software está compuesto por dos tipos de aplicaciones: (a) Cliente: Esta se encuentra en el ordenador que va a ser manejado. (b) Servidor: Es el que manipulará y manejará los ordenadores que actúan como clientes.
-    %text A la hora de realizar un buen software de [***], debemos de tener en cuenta: (1) Alta velocidad de transferencia, tanto en lan, wan e internet. (2) Máxima fiabilidad para que los técnicos puedan realizar sus operaciones cómodamente y sobre cualquier entorno operativo. El departamento de soporte podrá controlar de forma remoto cualquier equipo o dispositivo que opere bajo cualquier plataforma desde cualquier ubicación. (3) Ofrecer niveles de seguridad máxima.
-    %text Algunas de estas aplicaciones de [***] permiten el acceso remoto mediante línea de comandos, mientras que otras lo hacen desde entorno gráficos. Entre las posibles operaciones que nos permiten realizar este tipo de aplicaciones: (1) Transferencia de ficheros. (2) Ejecutar Actualizaciones de otras aplicaciones. (3) Actualizar Parches. (4) Guiar al usuario para resolver problemas.
-    %text Esta herramienta tiene enormes ventajas entre ellas el ahorro de coste económico y temporal. Al tener [***] del ordenador no necesitamos estar físicamente en el lugar, con lo que eliminamos las visitas externas. Las capacidades de reseteo y reconexión permiten a los técnicos reiniciar los dispositivos desatendidos de forma completamente segura.
+    %def En ocasiones necesitamos hacer uso del [***]. Las razones son varias y diversas entre ellas pueden ser por averías, por mantenimiento pero siempre de manera remota, es decir, no estando físicamente cerca del equipo. Para ello necesitamos un software con el que poder manipular desde cualquier otro equipo, el equipo que deseamos.
+    %def Normalmente este software está compuesto por dos tipos de aplicaciones: (a) Cliente: Esta se encuentra en el ordenador que va a ser manejado. (b) Servidor: Es el que manipulará y manejará los ordenadores que actúan como clientes.
+    %def A la hora de realizar un buen software de [***], debemos de tener en cuenta: (1) Alta velocidad de transferencia, tanto en lan, wan e internet. (2) Máxima fiabilidad para que los técnicos puedan realizar sus operaciones cómodamente y sobre cualquier entorno operativo. El departamento de soporte podrá controlar de forma remoto cualquier equipo o dispositivo que opere bajo cualquier plataforma desde cualquier ubicación. (3) Ofrecer niveles de seguridad máxima.
+    %def Algunas de estas aplicaciones de [***] permiten el acceso remoto mediante línea de comandos, mientras que otras lo hacen desde entorno gráficos. Entre las posibles operaciones que nos permiten realizar este tipo de aplicaciones: (1) Transferencia de ficheros. (2) Ejecutar Actualizaciones de otras aplicaciones. (3) Actualizar Parches. (4) Guiar al usuario para resolver problemas.
+    %def Esta herramienta tiene enormes ventajas entre ellas el ahorro de coste económico y temporal. Al tener [***] del ordenador no necesitamos estar físicamente en el lugar, con lo que eliminamos las visitas externas. Las capacidades de reseteo y reconexión permiten a los técnicos reiniciar los dispositivos desatendidos de forma completamente segura.
 
   %concept
     %names fuente-de-alimentación, UPS, SAI
-    %context hardware, cpd
     %tags dispositivo, fuente, contínua, energía, elećtrica
-    %text Una [***] es un dispositivo con el que podemos conseguir una fuente continua de energía eléctrica al equipo al cual está conectado, cuando la energía de uso general no está disponible. Éste nos proporciona la protección inmediata contra una interrupción de la energía. Otra de las funciones es la de mejorar la calidad de la energía eléctrica que llegan a los aparatos, filtrando las subidas y bajadas de tensión. A estos dispositivos también se les conoce como sistema de energía de emergencia.
-    %text En resumen: Una [***] debe ser capaz de proveer una fuente de energía alternativa a la principal para cuando esta falle.
-    %text Una [***] se utiliza típicamente para proteger ordenadores, equipos de telecomunicaciones y otros equipos eléctricos en los cuales la energía eléctrica podría causar pérdidas de datos, aparatos médicos o industriales, en definitiva donde el fallo de la energía sea crítico.
+    %def Una [***] es un dispositivo con el que podemos conseguir una fuente continua de energía eléctrica al equipo al cual está conectado, cuando la energía de uso general no está disponible. Éste nos proporciona la protección inmediata contra una interrupción de la energía. Otra de las funciones es la de mejorar la calidad de la energía eléctrica que llegan a los aparatos, filtrando las subidas y bajadas de tensión. A estos dispositivos también se les conoce como sistema de energía de emergencia.
+    %def En resumen: Una [***] debe ser capaz de proveer una fuente de energía alternativa a la principal para cuando esta falle.
+    %def Una [***] se utiliza típicamente para proteger ordenadores, equipos de telecomunicaciones y otros equipos eléctricos en los cuales la energía eléctrica podría causar pérdidas de datos, aparatos médicos o industriales, en definitiva donde el fallo de la energía sea crítico.
     %table{ :fields => 'problema,descripción' }
       %title Problemas comunes que podemos encontrar en la energía eléctrica
       %row 

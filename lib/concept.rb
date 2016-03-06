@@ -209,7 +209,8 @@ private
         j.each { |k| @data[:names] << k.strip }
       when 'context'
         #DEPRECATED: Don't use xml tag <context> instead define it as attibute of root xml tag
-        puts Rainbow("[DEPRECATED] Into "+Rainbow(name).bright+" dont use XMLtag <context> instead define it as attibute of root XMLtag.").yellow
+        msg="   │  "+Rainbow(" [DEPRECATED] Into ").yellow+Rainbow(name).yellow.bright+Rainbow(" dont use XMLtag <context>, instead define it as root attibute.").yellow
+        Tool.instance.verbose msg
         @data[:context]=i.text.split(",")
         @data[:context].collect! { |k| k.strip }
       when 'tags'
