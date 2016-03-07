@@ -1,149 +1,138 @@
-<map version='1' lang='es'>
+<map version='1' lang='es' context='sistemas operativos, comando, redes'>
 	
-	<concept>
-		<names>ping</names>
-		<context>sistemas operativos, comando, redes</context>
-		<tags>enviar, paquete, ICMP, equipo, host, red</tags>
-		<text>Envia un paquete ECHO_REQUEST (Protocolo ICMP) a un equipo 
-		de la red, solicitando una respuesta ECHO_RESPONSE.</text>
-		<text>Permite comprobar la conectividad entre dos máquinas, 
-		usando el protocolo de red ICMP.</text>
-		<table fields='acción,resultado'>
-			<title>Asocia cada acción con su resultado.</title>
-			<row>
-				<col>ping -c 1 192.168.1.1</col>
-				<col>EN SO GNU/Linux, prueba la conexión con la IP indicada, enviando únicamente un paquete ICMP.</col>
-			</row>
-			<row>
-				<col>ping 192.168.1.1</col>
-				<col>En SO GNU/Linux, prueba la conexión con la IP indicada, enviando paquetes ICMP indefinidamente.</col>
-			</row>
-		</table>
-	</concept>
+  <concept>
+    <names>ping</names>
+    <tags>enviar, paquete, ICMP, equipo, host, red</tags>
+    <def>Envia un paquete ECHO_REQUEST (Protocolo ICMP) a un equipo de la red, solicitando una respuesta ECHO_RESPONSE.</def>
+    <def>Permite comprobar la conectividad entre dos máquinas, usando el protocolo de red ICMP.</def>
+    <table fields='acción,resultado'>
+      <row>
+        <col>ping -c 1 192.168.1.1</col>
+        <col>EN SO GNU/Linux, prueba la conexión con la IP indicada, enviando únicamente un paquete ICMP.</col>
+      </row>
+      <row>
+        <col>ping 192.168.1.2</col>
+        <col>En SO GNU/Linux, prueba la conexión con la IP indicada, enviando paquetes ICMP indefinidamente.</col>
+      </row>
+      <row>
+        <col>ping 192.168.1.3</col>
+        <col>En SO Windows, prueba la conexión con la IP indicada, enviando 4 paquetes ICMP.</col>
+      </row>
+    </table>
+  </concept>
 
-	<concept>
-		<names>traceroute</names>
-		<context>sistemas operativos, comando, redes</context>
-		<tags>ruta, red, equipo, host</tags>
-		<text>Muestra la ruta de red, que toman los paquetes para llegar a un host destino.</text>
-	</concept>
+  <concept>
+    <names>traceroute</names>
+    <tags>ruta, red, equipo, host</tags>
+    <def>Muestra la ruta de red, que toman los paquetes para llegar a un host destino.</def>
+  </concept>
 	
-	<concept>
-		<names>netstat</names>
-		<context>sistemas operativos, comando</context>
-		<tags>mostrar, informacion, red, conexiones, interfaces</tags>
-		<text>Comando que sirve para mostrar las conexiones de red, las tablas de
-		enrutamiento, estado de las interfaces de red, etc.</text>
-		<table fields='acción,resultado'>
-			<title>Asocia cada acción con su resultado.</title>
-			<row>
-				<col>netstat -ie</col>
-				<col>Muestra información de las interfaces de red de nuestro sistema.
-				Similar al comando ifconfig.</col>
-			</row>
-			<row>
-				<col>netstat -r</col>
-				<col>Muestra información de las tablas de enrutamiento.
-				Similar al comando route.</col>
-			</row>
-			<row>
-				<col>netstat -tap</col>
-				<col>Muestra un listado de las conexiones TCP
-				(todos los estados), de nuestro equipo.</col>
-			</row>
-			<row>
-				<col>netstat -tlp</col>
-				<col>Muestra un listado de las conexiones TCP en estado 
-				LISTEN, de nuestro equipo.</col>
-			</row>
-			<row>
-				<col>netstat -unl</col>
-				<col>Muestra un listado de las conexiones UDP
-				en estado LISTEN, de nuestro equipo.</col>
-			</row>
-		</table>
-	</concept>
+  <concept>
+    <names>netstat</names>
+    <tags>mostrar, informacion, red, conexiones, interfaces</tags>
+    <def>Comando que sirve para mostrar las conexiones de red, las tablas de enrutamiento, estado de las interfaces de red, etc.</def>
+    <table fields='acción,resultado'>
+      <row>
+        <col>netstat -ie</col>
+        <col>Muestra información de las interfaces de red de nuestro sistema. Similar al comando ifconfig.</col>
+      </row>
+      <row>
+        <col>netstat -r</col>
+        <col>Muestra información de las tablas de enrutamiento. Similar al comando route.</col>
+      </row>
+      <row>
+        <col>netstat -tap</col>
+        <col>Muestra un listado de las conexiones TCP (todos los estados), de nuestro equipo.</col>
+      </row>
+      <row>
+        <col>netstat -tlp</col>
+        <col>Muestra un listado de las conexiones TCP en estado LISTEN, de nuestro equipo.</col>
+      </row>
+      <row>
+        <col>netstat -unl</col>
+        <col>Muestra un listado de las conexiones UDP en estado LISTEN, de nuestro equipo.</col>
+      </row>
+    </table>
+  </concept>
 
-	<concept>
-		<names>wget</names>
-		<context>sistemas operativos, comando</context>
-		<tags>descargar, ficheros, red, no, interactivo</tags>
-		<text>Comando para descargar ficheros a través de la red de forma no interativa.</text>
-	</concept>
-		
-	<concept>
-		<names>ssh</names>
-		<context>sistemas operativos, comando</context>
-		<tags>acceder, entrar, maquina, remota, red, comunicacion, segura, encriptada</tags>
-		<text>Es un programa para acceder y ejecutar comandos en una máquina remota.</text>
-		<text>Proporciona comunicación encriptada segura entre dos máquinas, sonre una red insegura</text>
-		<table fields='acción,resultado'>
-			<title>Asocia cada acción con su resultado.</title>
-			<row>
-				<col>ssh USERNAME@HOSTIP</col>
-				<col>Nos conectamos vía ssh a la máquina HOSTIP con el usuario USERNAME.</col>
-			</row>
-			<row>
-				<col>ssh HOSTIP</col>
-				<col>Nos conectamos vía ssh a la máquina HOSTIP usando nuestro usuario local.</col>
-			</row>
-			<row>
-				<col>ssh USERNAME@HOSTIP COMMAND</col>
-				<col>Ejecuta el comando COMMAND en la máquina remota HOSTIP.</col>
-			</row>
-			<row>
-				<col>ssh USERNAME@HOSTIP COMMAND > 'informe.txt'</col>
-				<col>Ejecuta el comando COMMAND en la máquina remota HOSTIP, y guarda la salida en el fichero informe.txt.</col>
-			</row>
-			<row>
-				<col>apt-get install openssh-server</col>
-				<col>Instala el servidor SSH en una máquina GNU/Linux Debian.</col>
-			</row>
-			<row>
-				<col>apt-get install openssh-client</col>
-				<col>Instala el cliente SSH en una máquina GNU/Linux Debian.</col>
-			</row>
-		</table>
-	</concept>
+  <concept>
+    <names>wget</names>
+    <tags>descargar, ficheros, red, no, interactivo</tags>
+    <def>Comando para descargar ficheros a través de la red de forma no interativa.</def>
+  </concept>
 
-	<concept>
-		<names>scp</names>
-		<context>sistemas operativos, comando</context>
-		<tags>copiar, ficheros, maquina, red, segura</tags>
-		<text>Comando para copiart ficheros entre hosts de la red.  Usa
-		el protocolo SSH para transferir datos de forma segura y 
-		autenticada.</text>
-		<table fields='acción,resultado'>
-			<title>Asocia cada acción con su resultado.</title>
-			<row>
-				<col>scp USERNAME@HOSTIP:document.txt .</col>
-				<col>Copia el documento remoto /home/USERNAME/document.txt, en el directorio local actual.</col>
-			</row>
-			<row>
-				<col>scp document.txt USERNAME@HOSTIP:.</col>
-				<col>Copia el documento local document.txt, en el directorio HOME del usuario remoto USERNAME.</col>
-			</row>
-		</table>
-	</concept>
+  <concept>
+    <names>TCP</names>
+    <tags>protocolo, control, transmisión, transmission, protocol</tags>
+  </concept>
 
-	<concept>
-		<names>locate</names>
-		<context>sistemas operativos, comando</context>
-		<tags>copiar, ficheros, maquina, red, segura</tags>
-		<text>Comando que ejecuta una búsqueda rápida en la base de datos de nombres
-		y muestra salida en pantalla con las coincidencias encontradas.</text>
-		<table fields='acción,resultado'>
-			<title>Asocia cada acción con su resultado.</title>
-			<row>
-				<col>locate bin/zip</col>
-				<col>Localiza todos los ficheros/carpetas que contengan en su nombre la cadena bin/zip.</col>
-			</row>
-			<row>
-				<col>locate zip |grep bin</col>
-				<col>Localiza todos los ficheros/carpetas que contengan en su nombre la cadena zip, y 
-				filtra los que además incluyen la cadena bin.</col>
-			</row>
-		</table>
-	</concept>
+  <concept>
+    <names>ssh</names>
+    <tags>acceder, entrar, maquina, remota, red, comunicacion, segura, encriptada</tags>
+    <def>Es un programa para acceder y ejecutar comandos en una máquina remota.</def>
+    <def>Proporciona comunicación encriptada segura entre dos máquinas, sonre una red insegura</def>
+    <table fields='acción,resultado'>
+      <row>
+        <col>ssh USERNAME@HOSTIP</col>
+        <col>Nos conectamos vía ssh a la máquina HOSTIP con el usuario USERNAME.</col>
+      </row>
+      <row>
+        <col>ssh HOSTIP</col>
+        <col>Nos conectamos vía ssh a la máquina HOSTIP usando nuestro usuario local.</col>
+      </row>
+      <row>
+        <col>ssh USERNAME@HOSTIP COMMAND</col>
+        <col>Ejecuta el comando COMMAND en la máquina remota HOSTIP.</col>
+      </row>
+      <row>
+        <col>ssh USERNAME@HOSTIP COMMAND > 'informe.txt'</col>
+        <col>Ejecuta el comando COMMAND en la máquina remota HOSTIP, y guarda la salida en el fichero informe.txt.</col>
+      </row>
+      <row>
+        <col>zypper install openssh</col>
+        <col>Instala el cliente y el servidor SSH en una máquina GNU/Linux OpenSUSE.</col>
+      </row>
+      <row>
+        <col>apt-get install openssh-server</col>
+        <col>Instala el servidor SSH en una máquina GNU/Linux Debian.</col>
+      </row>
+      <row>
+        <col>apt-get install openssh-client</col>
+        <col>Instala el cliente SSH en una máquina GNU/Linux Debian.</col>
+      </row>
+    </table>
+  </concept>
+
+  <concept>
+    <names>scp</names>
+    <tags>copiar, ficheros, maquina, red, segura</tags>
+    <def>Comando para copiart ficheros entre hosts de la red. Usa el protocolo SSH para transferir datos de forma segura y autenticada.</def>
+    <table fields='acción,resultado'>
+      <row>
+        <col>scp USERNAME@HOSTIP:document.txt .</col>
+        <col>Copia el documento remoto /home/USERNAME/document.txt, en el directorio local actual.</col>
+      </row>
+      <row>
+        <col>scp document.txt USERNAME@HOSTIP:.</col>
+        <col>Copia el documento local document.txt, en el directorio HOME del usuario remoto USERNAME.</col>
+      </row>
+    </table>
+  </concept>
+
+  <concept>
+    <names>locate</names>
+    <tags>copiar, ficheros, maquina, red, segura</tags>
+    <def>Comando que ejecuta una búsqueda rápida en la base de datos de nombres y muestra salida en pantalla con las coincidencias encontradas.</def>
+    <table fields='acción,resultado'>
+      <row>
+        <col>locate bin/zip</col>
+        <col>Localiza todos los ficheros/carpetas que contengan en su nombre la cadena bin/zip.</col>
+      </row>
+      <row>
+        <col>locate zip |grep bin</col>
+        <col>Localiza todos los ficheros/carpetas que contengan en su nombre la cadena zip, y filtra los que además incluyen la cadena bin.</col>
+      </row>
+    </table>
+  </concept>
 	
 </map>

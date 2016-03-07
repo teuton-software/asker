@@ -38,7 +38,8 @@ module InputActions
           end
           
           lXMLdata=REXML::Document.new(lFileContent)
-          
+          system("echo '#{lFileContent}' > output/#{f}.xml")
+
           begin
             lLang=lXMLdata.root.attributes['lang'] # has lang attribute or not?
             lContext=lXMLdata.root.attributes['context']
@@ -57,8 +58,9 @@ module InputActions
             end
           end
         rescue REXML::ParseException
-          msg = Rainbow( "   │    [ERROR] Format error in file <#{pFilename}>! (InputActions#load_input_files)").color(:red)
+          msg = Rainbow("[ERROR] Format error in file ").red+Rainbow(pFilename).red.bright+Rainbow("! (Module InputActions#load_input_files)").red
           verbose msg
+          system("echo '#{lFileContent}' > output/error.xml")
           raise msg
         end
       end

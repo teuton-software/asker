@@ -1,21 +1,19 @@
-%map{ :version => '1', :lang => 'es' }
+%map{ :version => '1', :lang => 'es', :context=>'sistemas operativos, monitorización, auditoría' }
+
   %concept
     %names monitorización
-    %context sistemas operativos, monitorización, auditoría
     %tags registrar, actividad, sistema, histórico
-    %text La tarea de [***] implica que toda la actividad relevante del sistema debe quedar registrada. Esto nos permite tener un histórico del comportamiento del sistema, que nos ayuda a modo de "caja negra", a reconstruir situaciones del pasado para diversos fines.
+    %def La tarea de [*] implica que toda la actividad relevante del sistema debe quedar registrada. Esto nos permite tener un histórico del comportamiento del sistema, que nos ayuda a modo de "caja negra", a reconstruir situaciones del pasado para diversos fines.
 
   %concept
     %names visor-de-sucesos
-    %context sistemas operativos, monitorización, auditoría
     %tags registrar, actividad, sistema, histórico, windows
-    %text Es la herramienta, por defecto, para visualizar los eventos monitorizados en los sitemas Windows.
+    %def Es la herramienta, por defecto, para visualizar los eventos monitorizados en los sitemas Windows.
 
   %concept
     %names rsyslog
-    %context sistemas operativos, monitorización, auditoría
     %tags registrar, actividad, sistema, histórico, gnu/linux
-    %text Es el servicio que registra los eventos de monitorización, por defecto, en los sistemas basados en GNU/Linux.
+    %def Es el servicio que registra los eventos de monitorización, por defecto, en los sistemas basados en GNU/Linux.
     %table{ :fields => 'característica,descripción' }
       %title Características de rsyslog
       %row
@@ -34,7 +32,6 @@
         %col /var/log/syslog.log
         %col Fichero de log, donde se registran los eventos por defecto en GNU/Linux.
     %table{ :fields => 'configuración,descripción' }
-      %title Ejemplo de configuración rsyslog
       %row
         %col kern.* /var/log/kernel
         %col Los eventos generados por kernel, se guardarán en el fichero /var/log/kernel.
@@ -51,7 +48,6 @@
         %col local0.* /var/log/nombredelalumno/prueba-local.log
         %col Todos los eventos generados por el recurso local0 se almacenarán en el fichero de log personalizado.
     %table{ :fields => 'fichero,descripción' }
-      %title Descripción de los ficheros de log de rsyslog
       %row
         %col /var/log/messages
         %col Contains global system messages, including the messages that are logged during system startup.
@@ -83,7 +79,6 @@
         %col /var/log/faillog
         %col Contains user failed login attemps. Use faillog command to display the content of this file.
     %table{ :fields => 'acción,descripción' }
-      %title Programa rsyslog
       %row
         %col /etc/init.d/rsyslog start
         %col Iniciar el servicio rsyslog en Debian 7.
@@ -95,12 +90,10 @@
         %col Genera un evento de prioridad "info" para el recurso "local0".
 
   %concept
-    %names webmin
-    %context sistemas operativos, monitorización, auditoría
+    %names Webmin
     %tags visor, consultar, actividad, sistema, histórico, gnu/linux
-    %text Es una herramienta de entorno gráfico para la gestion de la monitorización ( entre otras cosas ) de los sistemas basados en GNU/Linux.
+    %def Es una herramienta de entorno gráfico para la gestion de la monitorización (entre otras cosas) de los sistemas basados en GNU/Linux.
     %table{ :fields => 'acción,descripción' }
-      %title Programa Webmin
       %row
         %col apt-get install webmin
         %col Comando Debian, para instalar webmin y sus dependencias, desde los repositorios de la distribución.
@@ -125,18 +118,15 @@
 
   %concept
     %names ASCII
-    %context sistemas operativos, monitorización, auditoría
     %tags código, caracteres, bits
-    %text Es un código de carácteres basado en el alfabeto latino, tal como se usa en inglés moderno y en otras lenguas occidentales. Fue creado en 1963 por el ANSI como una refundición o evolución de los conjuntos de códigos utilizados entonces en telegrafía.
-    %text El código [***] utiliza 7 bits para representar los carácteres, aunque inicialmente empleaba un bit adicional (bit de paridad) que se usaba para detectar errores en la transmisión.
+    %def Es un código de carácteres basado en el alfabeto latino, tal como se usa en inglés moderno y en otras lenguas occidentales. Fue creado en 1963 por el ANSI como una refundición o evolución de los conjuntos de códigos utilizados entonces en telegrafía.
+    %def El código [*] utiliza 7 bits para representar los carácteres, aunque inicialmente empleaba un bit adicional (bit de paridad) que se usaba para detectar errores en la transmisión.
 
   %concept
     %names logrotate
-    %context sistemas operativos, monitorización, auditoría
     %tags rotar, ficheros, log, gnu/linux
-    %text Diseñado para facilitar la administración de ficheros de log de gran tamaño. Permite rotación automática, compresión, eliminación y envío de ficheros de log. Cada fichero de log puede ser gestionado periódicamente.
+    %def Diseñado para facilitar la administración de ficheros de log de gran tamaño. Permite rotación automática, compresión, eliminación y envío de ficheros de log. Cada fichero de log puede ser gestionado periódicamente.
     %table{ :fields => 'característica,descripción' }
-      %title Características de logrotate
       %row
         %col /etc/logrotate.conf
         %col Por defecto, es el fichero principal de configuración del programa logrotate en GNU/Linux.
@@ -144,7 +134,6 @@
         %col /etc/logrotate.d
         %col Directorio GNU/Linux, donde podemos crear nuestras configuraciones de de rotación de log personalizadas para logrotate.
     %table{ :fields => 'acción,descripción' }
-      %title Programa logrotate
       %row
         %col Reiniciar el equipo
         %col Para que se dispare la rotación de log (logrotate) automáticamente.

@@ -209,7 +209,7 @@ private
         j.each { |k| @data[:names] << k.strip }
       when 'context'
         #DEPRECATED: Don't use xml tag <context> instead define it as attibute of root xml tag
-        msg="   │  "+Rainbow(" [DEPRECATED] Into ").yellow+Rainbow(name).yellow.bright+Rainbow(" dont use XMLtag <context>, instead define it as root attibute.").yellow
+        msg="   │  "+Rainbow(" [DEPRECATED] Concept ").yellow+Rainbow(name).yellow.bright+Rainbow(" use XMLtag <context>. Instead define it as root attibute.").yellow
         Tool.instance.verbose msg
         @data[:context]=i.text.split(",")
         @data[:context].collect! { |k| k.strip }
@@ -218,6 +218,8 @@ private
         @data[:tags].collect! { |k| k.strip }
       when 'text'
         #DEPRECATED: Use xml tag <def> instead of <text>
+        msg="   │  "+Rainbow(" [DEPRECATED] Concept ").yellow+Rainbow(name).yellow.bright+Rainbow(" use XMLtag <text>, Instead use <def> tag.").yellow
+        Tool.instance.verbose msg
         @data[:texts] << i.text.strip
       when 'def'
         if i.attributes['image']
