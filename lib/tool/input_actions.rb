@@ -38,7 +38,7 @@ module InputActions
           end
           
           lXMLdata=REXML::Document.new(lFileContent)
-          system("echo '#{lFileContent}' > output/#{f}.xml")
+          #system("echo '#{lFileContent}' > output/#{f}.xml")
 
           begin
             lLang=lXMLdata.root.attributes['lang'] # has lang attribute or not?
