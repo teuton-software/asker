@@ -320,7 +320,7 @@
 			</row>
 			<row>
 				<col>type ls</col>
-				<col>ls es un alias de `ls --color=auto'</col>
+				<col>ls es un alias de 'ls --color=auto'</col>
 			</row>
 			<row>
 				<col>type cp</col>
