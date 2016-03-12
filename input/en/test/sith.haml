@@ -1,7 +1,7 @@
-%map{ :version => '1', :lang => 'en' }
+%map{ :lang => 'en', :context => "character, starwars", :version=>'1' }
+
   %concept
     %names sidious
-    %context person, starwars
     %tags human, teacher, sith, pupil, plagueis
     %def Sith, teacher of all siths
     %def Es un hombre muy elocuente, hablador, astuto, verdaderamente manipulador e hipócrita, que durante mucho tiempo aparentó ser un político modesto, pero hábil.
@@ -21,11 +21,9 @@
 
   %concept
     %names maul
-    %context personaje, starwars
     %tags lord, sith, alumno, emperador
     %def Lord Sirve como el aprendiz de Darth Sidious. Portando un sable de luz de doble hoja y formado como un maestro del combate con sables de luz.
     %def Sirve como un asesino personal de Darth Sidious y es enviado para eliminar a dos Jedis.
-    %def{ :img => true } imagen1
     %table{ :fields => 'característica, descripción' }
       %title Asocia cada característica con su valor
       %row
@@ -37,4 +35,3 @@
       %row
         %col skin_color
         %col red and black
-
