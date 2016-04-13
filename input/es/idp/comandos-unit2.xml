@@ -1,10 +1,9 @@
-<map version='1' lang='es'>
+<map version='1' lang='es' context='sistemas operativos, comando' >
 	
 	<concept>
 		<names>chmod</names>
-		<context>sistemas operativos, comando</context>
 		<tags>cambiar, permisos, archivos, directorios</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, que permite cambiar los permisos de archivos y directorios.</text>
+		<def>Es un comando del sistema operativo GNU/Linux, que permite cambiar los permisos de archivos y directorios.</def>
 		<table fields='atributo, valor'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -80,18 +79,16 @@
 
 	<concept>
 		<names>chgrp</names>
-		<context>sistemas operativos, comando</context>
 		<tags>cambiar, propietario, grupo, archivos, directorios</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, que permite 
-		cambiar sólo el grupo propietario de archivos y directorios.</text>
+		<def>Es un comando del sistema operativo GNU/Linux, que permite 
+		cambiar sólo el grupo propietario de archivos y directorios.</def>
 	</concept>
 	
 	<concept>
 		<names>chown</names>
-		<context>sistemas operativos, comando</context>
 		<tags>cambiar, propietario, usuario, grupo, archivos, directorios</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, que permite 
-		cambiar el usuario propietario y el grupo propietario de archivos y directorios.</text>
+		<def>Es un comando del sistema operativo GNU/Linux, que permite 
+		cambiar el usuario propietario y el grupo propietario de archivos y directorios.</def>
 		<table fields='acción,resultado'>
 			<title>Asocia cada acción con su resultado.</title>
 			<row>
@@ -118,10 +115,9 @@
 
 	<concept>
 		<names>clear</names>
-		<context>sistemas operativos, comando</context>
 		<tags>limpiar, pantalla</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, 
-		que limpia la pantalla.</text>
+		<def>Es un comando del sistema operativo GNU/Linux, 
+		que limpia la pantalla.</def>
 		<table fields='atributo, valor'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -133,11 +129,10 @@
 
 	<concept>
 		<names>history</names>
-		<context>sistemas operativos, comando</context>
 		<tags>mostrar, listado, comandos, historico</tags>
-		<text>Es un comando del sitestema operativo GNU/Linux, 
+		<def>Es un comando del sitestema operativo GNU/Linux, 
 		que muestra un listado con todos los comandos utilizados en
-		la sesión actual.</text>
+		la sesión actual.</def>
 		<table fields='acción,resultado'>
 			<title>Asocia cada acción con su resultado.</title>
 			<row>
@@ -173,11 +168,10 @@
 
 	<concept>
 		<names>id</names>
-		<context>sistemas operativos, comando</context>
 		<tags>mostrar, informacion, usuario</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, 
+		<def>Es un comando del sistema operativo GNU/Linux, 
 		que muestra la información de identificación del usuario
-		especificado y sus grupos.</text>
+		especificado y sus grupos.</def>
 		<table fields='atributo, valor'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -212,10 +206,9 @@
 
 	<concept>
 		<names>passwd</names>
-		<context>sistemas operativos, comando</context>
 		<tags>cambiar, clave, usuario</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, 
-		que permite cambiar la contraseña de un usuario.</text>
+		<def>Es un comando del sistema operativo GNU/Linux, 
+		que permite cambiar la contraseña de un usuario.</def>
 		<table fields='acción,resultado'>
 			<title>Asocia cada acción con su resultado.</title>
 			<row>
@@ -243,11 +236,10 @@
 
 	<concept>
 		<names>script</names>
-		<context>sistemas operativos, comando</context>
 		<tags>guardar, fichero, comandos, utilizados</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, 
+		<def>Es un comando del sistema operativo GNU/Linux, 
 		que almacena en un fichero todos los comandos escritos, y sus
-		resultados, después de ser invocado.</text>
+		resultados, después de ser invocado.</def>
 		<table fields='atributo, valor'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -263,11 +255,10 @@
 
 	<concept>
 		<names>permisos-sistema-de-ficheros-linux</names>
-		<context>sistemas operativos, sistema de ficheros, linux</context>
 		<tags>permisos, sistema, ficheros, linux</tags>
-		<text>Es una forma de establecer restricciones sobre el acceso
+		<def>Es una forma de establecer restricciones sobre el acceso
 		a los objetos (Directorios y archivos) dentro de un sistema
-		de ficheros.</text>
+		de ficheros.</def>
 		<table fields='fichero, funcion'>
 	 		<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -339,10 +330,9 @@
 
 	<concept>
 		<names>su</names>
-		<context>sistemas operativos, comando</context>
 		<tags>cambiar, usuario, superusuario</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, 
-		que nos permite cambiar el usuario, o convertirnos en el superusuario.</text>
+		<def>Es un comando del sistema operativo GNU/Linux, 
+		que nos permite cambiar el usuario, o convertirnos en el superusuario.</def>
 		<table fields='acción, resultado'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -363,11 +353,10 @@
 
 	<concept>
 		<names>sudo</names>
-		<context>sistemas operativos, comando</context>
 		<tags>ejecutar, comando, usuario, distinto</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, 
+		<def>Es un comando del sistema operativo GNU/Linux, 
 		que permite ejecutar un comando como si fuéramos otro usuario
-		distinto.</text>
+		distinto.</def>
 		<table fields='acción, resultado'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -389,11 +378,10 @@
 	
 	<concept>
 		<names>umask</names>
-		<context>sistemas operativos, comando</context>
 		<tags>mostrar, establecer, máscara, permisos</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, 
+		<def>Es un comando del sistema operativo GNU/Linux, 
 		que muestra o establece la máscara de permisos para la creación
-		de nuevos ficheros y/o directorios.</text>
+		de nuevos ficheros y/o directorios.</def>
 		<table fields='atributo, valor'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -424,12 +412,11 @@
 
 	<concept>
 		<names>gestión-de-paquetes</names>
-		<context>sistemas operativos, comando</context>
 		<tags>gestionar, paquetes, instalar, desinstalar, consultar</tags>
-		<text>Sistema para la actualización del sistema operativo.
+		<def>Sistema para la actualización del sistema operativo.
 		De modo que nos permite instalar/desinstalar programas y
 		documentación, así como consultar todo el catálogo de productos
-		disponibles en los repositorios.</text>
+		disponibles en los repositorios.</def>
 		<table fields='atributo,valor'>
 			<title>Asocia cada acción con su resultado.</title>
 			<row>
@@ -524,11 +511,10 @@
 
 	<concept>
 		<names>useradd</names>
-		<context>sistemas operativos, comando</context>
 		<tags>crear, usuario</tags>
-		<text>Es un comando que permite añadir un usuario al sistema, 
+		<def>Es un comando que permite añadir un usuario al sistema, 
 		indicando como parámetros la información particular para crear 
-		el usuario en la misma línea de comandos.</text>
+		el usuario en la misma línea de comandos.</def>
 		<table fields='acción,resultado'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -558,9 +544,8 @@
 
 	<concept>
 		<names>usermod</names>
-		<context>sistemas operativos, comando</context>
 		<tags>modificar, usuario</tags>
-		<text>Es un comando que permite modificar un usuario al sistema.</text>
+		<def>Es un comando que permite modificar un usuario al sistema.</def>
 		<table fields='acción,resultado'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -572,9 +557,8 @@
 
 	<concept>
 		<names>userdel</names>
-		<context>sistemas operativos, comando</context>
 		<tags>eliminar, borrar, quitar, usuario</tags>
-		<text>Es un comando para eliminar un usuario del sistema.</text>
+		<def>Es un comando para eliminar un usuario del sistema.</def>
 		<table fields='acción,resultado'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -590,9 +574,8 @@
 
 	<concept>
 		<names>groupadd</names>
-		<context>sistemas operativos, comando</context>
 		<tags>crear, grupo</tags>
-		<text>Es un comando para crear nuevos grupos de usuarios.</text>
+		<def>Es un comando para crear nuevos grupos de usuarios.</def>
 	</concept>
 
 </map>

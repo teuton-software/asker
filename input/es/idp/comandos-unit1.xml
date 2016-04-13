@@ -1,11 +1,10 @@
-<map version='1' lang='es'>
+<map version='1' lang='es' context='sistemas operativos, comando'>
 	
   <concept>
     <names>cd</names>
-    <context>sistemas operativos, comando</context>
     <tags>cambiar, directorio, actual, mover</tags>
-    <text>Es un comando del sistema operativo GNU/Linux, que permite cambiar nuestro directorio actual.</text>
-    <text>Es un comando del sistema operativo GNU/Linux, que permite movernos a otro directorio del sistema de ficheros.</text>
+    <def>Es un comando del sistema operativo GNU/Linux, que permite cambiar nuestro directorio actual.</def>
+    <def>Es un comando del sistema operativo GNU/Linux, que permite movernos a otro directorio del sistema de ficheros.</def>
     <table fields='acción, resultado'>
       <title>Asocia cada acción con su resultado.</title>
       <row>
@@ -45,44 +44,38 @@
 
   <concept>
     <names>cal</names>
-    <context>sistemas operativos, comando</context>
     <tags>mostrar, calendario</tags>
-    <text>Comando que muestra un calendario</text>
+    <def>Comando que muestra un calendario</def>
   </concept>
 	
   <concept>
     <names>date</names>
-    <context>sistemas operativos, comando</context>
     <tags>mostrar, fecha, hora, actual</tags>
-    <text>Comando que muestra y modifica la fecha/hora del sistema.</text>
+    <def>Comando que muestra y modifica la fecha/hora del sistema.</def>
   </concept>
 
   <concept>
     <names>exit</names>
-    <context>sistemas operativos, comando</context>
     <tags>salir, sistema, cerrar, sesion</tags>
-    <text>Comando para cerrar la sesión actual del usuario.</text>
+    <def>Comando para cerrar la sesión actual del usuario.</def>
   </concept>
 	
   <concept>
     <names>file</names>
-    <context>sistemas operativos, comando</context>
     <tags>mostrar, tipo, fichero, archivo, directorio</tags>
-    <text>Comandos que muestra el tipo de un fichero, archivo o directorio.</text>
+    <def>Comandos que muestra el tipo de un fichero, archivo o directorio.</def>
   </concept>
 	
   <concept>
     <names>free</names>
-    <context>sistemas operativos, comando</context>
     <tags>mostrar, memoria, libre, ocupada</tags>
-    <text>Comandos que muestra la memoria libre y ocupada del sistema.</text>
+    <def>Comandos que muestra la memoria libre y ocupada del sistema.</def>
   </concept>
 
   <concept>
     <names>less</names>
-    <context>sistemas operativos, comando</context>
     <tags>mostrar, contenido, fichero, texto, ASCII</tags>
-    <text>Muestra el contenido de un fichero de texto plano. Realiza un paginado, si no cabe completo en pantalla.</text>
+    <def>Muestra el contenido de un fichero de texto plano. Realiza un paginado, si no cabe completo en pantalla.</def>
     <table fields='tecla, resultado'>
       <title>Asocia cada atributo con su valor</title>
       <row>
@@ -98,9 +91,8 @@
 
   <concept>
     <names>ln</names>
-    <context>sistemas operativos, comando</context>
     <tags>crear, enlace, duro, simbolico</tags>
-    <text>Comando para crear enlaces duros o simbólicos.</text>
+    <def>Comando para crear enlaces duros o simbólicos.</def>
     <table fields='acción, resultado'>
       <title>Asocia cada atributo con su valor</title>
       <row>
@@ -120,9 +112,8 @@
 
   <concept>
     <names>ls</names>
-    <context>sistemas operativos, comando</context>
     <tags>mostrar, contenido, directorio</tags>
-    <text>Lista el contenido de los directorios.</text>
+    <def>Lista el contenido de los directorios.</def>
     <table fields='acción, resultado'>
       <title>Asocia cada atributo con su valor</title>
       <row>
@@ -150,18 +141,16 @@
 
 	<concept>
 		<names>man</names>
-		<context>sistemas operativos, comando</context>
 		<tags>mostrar, informacion, manual</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, que muestra
+		<def>Es un comando del sistema operativo GNU/Linux, que muestra
 		información del manual sobre otros comandos, y/o ficheros de
-		configuración.</text>
+		configuración.</def>
 	</concept>
 
 	<concept>
 		<names>mkdir</names>
-		<context>sistemas operativos, comando</context>
 		<tags>crear, directorios</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, que sirve para crear nuevos directorios.</text>
+		<def>Es un comando del sistema operativo GNU/Linux, que sirve para crear nuevos directorios.</def>
 		<table fields='atributo, valor'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -192,16 +181,14 @@
 
 	<concept>
 		<names>pwd</names>
-		<context>sistemas operativos, comandos</context>
 		<tags>mostrar, nombre, directorio, actual</tags>
-		<text>Muestra el nombre completo del directorio actual</text>
+		<def>Muestra el nombre completo del directorio actual</def>
 	</concept>
 
 	<concept>
 		<names>rmdir</names>
-		<context>sistemas operativos, comando</context>
 		<tags>eliminar, directorios</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, que sirve para eliminar directorios.</text>
+		<def>Es un comando del sistema operativo GNU/Linux, que sirve para eliminar directorios.</def>
 		<table fields='atributo, valor'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -236,9 +223,8 @@
 	
 	<concept>
 		<names>rm</names>
-		<context>sistemas operativos, comando</context>
 		<tags>eliminar, archivos, directorios</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, que sirve para eliminar archivos y directorios.</text>
+		<def>Es un comando del sistema operativo GNU/Linux, que sirve para eliminar archivos y directorios.</def>
 		<table fields='atributo, valor'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -269,11 +255,10 @@
 
 	<concept>
 		<names>sistema-de-ficheros-linux</names>
-		<context>sistemas operativos, sistema de ficheros, linux</context>
 		<tags>sistema, ficheros, linux</tags>
-		<text>Es el componente del sistema operativo encargado de administrar los dispositivos de almacenamiento.</text>
-		<text>Sus principales funciones son la asignación de espacio a los archivos, 
-		la administración del espacio libre, y el acceso a los datos.</text>
+		<def>Es el componente del sistema operativo encargado de administrar los dispositivos de almacenamiento.</def>
+		<def>Sus principales funciones son la asignación de espacio a los archivos, 
+		la administración del espacio libre, y el acceso a los datos.</def>
 		<table fields='directorio, funcion'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
@@ -307,13 +292,11 @@
 		</table>
 	</concept>
 
-	<concept>
-		<names>type</names>
-		<context>sistemas operativos, comando</context>
-		<tags>mostrar, interpreta, comando</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, que muestra cómo se interpreta un comando concreto.</text>
-		<table fields='accion, resultado'>
-			<title>Asocia cada atributo con su valor</title>
+  <concept>
+    <names>type</names>
+    <tags>mostrar, interpreta, comando</tags>
+    <def>Es un comando del sistema operativo GNU/Linux, que muestra cómo se interpreta un comando concreto.</def>
+    <table fields='accion, resultado'>
 			<row>
 				<col>type cd</col>
 				<col>cd es una orden interna del shell</col>
@@ -335,9 +318,8 @@
 	
 	<concept>
 		<names>which</names>
-		<context>sistemas operativos, comando</context>
 		<tags>mostrar, programa, ejecutar, comando</tags>
-		<text>Es un comando del sistema operativo GNU/Linux, que muestra el programa que se ejecutará al invocar un comando concreto.</text>
+		<def>Es un comando del sistema operativo GNU/Linux, que muestra el programa que se ejecutará al invocar un comando concreto.</def>
 		<table fields='accion, resultado'>
 			<title>Asocia cada atributo con su valor</title>
 			<row>
