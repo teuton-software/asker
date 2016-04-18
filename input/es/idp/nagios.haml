@@ -1,0 +1,162 @@
+%map{ :version => '1', :lang => 'es', :context=>'sistemas operativos, monitorización, auditoría, equipos, red' }
+
+  %concept
+    %names Nagios
+    %tags programa,monitorizar,auditar,sistema,equipo,remoto,red
+    %def Se trata de un software que proporciona una gran versatilidad para consultar prácticamente cualquier parámetro de interés de un sistema, y genera alertas, que pueden ser recibidas por los responsables correspondientes mediante (entre otros medios) correo electrónico y mensajes SMS, cuando estos parámetros exceden de los márgenes definidos por el administrador de red.
+    %table{ :fields => 'características' }
+      %row Monitoriza servicios de red (SMTP, POP3, HTTP, SNMP...)
+      %row Monitoriza los recursos de sistemas hardware (carga del procesador, uso de los discos, memoria, estado de los puertos...)
+      %row Independiente del sistemas operativos
+      %row Monitorización remota mediante túneles SSL cifrados o SSH
+      %row Se permite programar plugins específicos para nuevos sistemas.
+      %row Licenciado bajo la GNU General Public License Version 2 publicada por la Free Software Fundation.
+      %row Por defecto, el agente Nagios escucha en el puerto 5666.
+    %table{ :fields => 'comando,descripción' }
+      %row
+        %col apt-get install nagios3 nagios-nrpe-plugin
+        %col Instalar el servidor Nagios3 y el plugin NRPE en Debian
+      %row
+        %col apt-get --no-install-recommends install nagios-nrpe-server nagios-plugins-basic
+        %col Instalar el agente Nagios en Debian
+      %row
+        %col /etc/init.d/nagios-nrpe-server restart
+        %col Reiniciar el servicio del Agente Nagios en Debian (System V)
+      %row
+        %col /etc/init.d/nagios3 restart
+        %col Reiniciar el servidor NAgios en Debian (System V)
+      %row
+        %col /usr/lib/nagios/plugins/check_tcp -H $HOSTADDRESS$ -p '$ARG1$' -4
+        %col Se comprueba el puerto TCP $ARG1$ del equipo $HOSTADDRESS$
+      %row
+        %col /usr/lib/nagios/plugins/check_command check_tcp!50000 -H 192.168.1.1
+        %col Se comprueba el puerto TCP 5000 del host 192.168.1.1
+      %row
+        %col /usr/lib/nagios/plugins/check_users -w 5 -c 10
+        %col Comando Nagios para obtener la cantidad de usuarios logueados y alertar si hay más de 5 logueados al mismo tiempo
+      %row
+        %col /usr/lib/nagios/plugins/check_load -w 15,10,5 -c 30,25,20
+        %col Comando Nagios para comprobar la carga de la CPU
+      %row
+        %col "/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -x sda" 
+        %col Comando Nagios para obtener el espacio disponible en el disco /dev/sda y alertar si queda menos de 20% de espacio en alguna partición
+    %table{ :fields => 'directorio/fichero,descripción' }
+      %row
+        %col /usr/lib/nagios/plugins
+        %col Directorio por defecto, donde están los plugins de Nagios
+      %row
+        %col /etc/nagios-plugins/config
+        %col Define los comandos por defecto
+      %row
+        %col /etc/nagios3/conf.d
+        %col Ruta por defecto, de los ficheros de configuración Nagios Debian
+      %row
+        %col /etc/apache2/conf.d/nagios3.conf
+        %col El archivo de configuración de apache para la interfaz web de Nagios Debian
+      %row
+        %col http://localhost/nagios3
+        %col URL por defecto, para acceder a la interfaz web de Nagios
+      %row
+        %col /etc/nagios3/htpasswd.users
+        %col El archivo de autenticación para la interfaz web de Nagios Debian
+      %row
+        %col Archivo con la configuración del agente NRPE de Nagios Debian
+        %col /etc/nagios/nrpe.cfg
+    %table{ :fields => 'objeto Nagios, definición' }
+      %row
+        %col comnands
+        %col definen qué programas ejecutar
+      %row
+        %col services
+        %col son los recursos a testear (CPU, disco, protocolos de red, etc)
+      %row
+        %col hosts
+        %col definen los equipos que se van a monitorizar
+      %row
+        %col contacts
+        %col son las personas a las que se va a notificar cuando ocurre una alerta
+      %row
+        %col timeperiods
+        %col definen en qué horarios se puede chequear un host y en qué horarios se puede notificar a un contacto
+      %row
+        %col hostgroups
+        %col permiten agrupar hosts
+      %row
+        %col servicegroups
+        %col agrupan servicios
+      %row
+        %col contactgroups
+        %col agrupan contactos
+    %table{ :fields => 'Parámetro del objeto service, descripción' }
+      %row
+        %col use
+        %col permite heredar atributos de servicios definidos previamente
+      %row
+        %col service_description
+        %col una breve descripción del servicio
+      %row
+        %col hostgroup_name/host_name
+        %col asigna el servicio a un grupo de hosts o a hosts específicos
+      %row
+        %col check_command
+        %col el nombre del comando, previamente definido, que se utilizará para chequear el servicio
+      %row
+        %col max_check_attempts
+        %col Número máximo de intentos del comando a comprobar
+      %row
+        %col check_interval
+        %col Intervalo de tiempo entre comprobaciones
+      %row
+        %col retry_interval
+        %col Tiempo de espera entre reintentos del comando cuando falla
+    %table{ :fields => 'Parámetro del objeto hostgroup, descripción' }
+      %row
+        %col hostgroup_name
+        %col el nombre del hostgroup que estamos definiendo
+      %row
+        %col alias
+        %coluna breve descripción de la funcionalidad del hostgroup
+      %row
+        %col members
+        %col listado de hosts, separados por coma, que pertenecen a este hostgroup
+    %table{ :fields => 'Parámetro del objeto host, descripción' }
+      %row
+        %col use
+        %col permite heredar los atributos de un host previamente definido
+      %row
+        %col host_name
+        %col Nombre del equipo
+      %row
+        %col address
+        %col dirección IP del host
+      %row
+        %col alias
+        %col una breve descripción de la funcionalidad del host
+      %row
+        %col hostgroups
+        %col listado de los grupos a los que pertenece el host
+      %row
+        %col check_command
+        %col comando que se utiliza para chequear si un host está online
+      %table{ :fields => 'Parámetro Agente Nagios Debian, descripción' }
+      %row
+        %col server_port
+        %col define en qué puerto (TCP) escuchará el agente
+      %row
+        %col server_address
+        %col dirección IP que escuchará el agente
+      %row
+        %col allowed_hosts
+        %col IPs que tienen permitido conectarse al agente en busca de datos
+      %row
+        %col dont_blame_nrpe
+        %col Esta variable indica si se permite que el agente reciba comandos con parámetros
+      %row
+        %col "command[check_users]"
+        %col alias para obtener la cantidad de usuarios logueados
+      %row
+        %col "command[check_load]"
+        %col alias para obtener la carga de CPU
+      %row
+        %col "command[check_disk]"
+        %col alias para obtener el espacio disponible en el disco
