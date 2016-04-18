@@ -1,0 +1,3 @@
+---
+:inputdirs: input/es/idp,input/es/fuw,input/es/add
+:process_file: apparmor.haml
