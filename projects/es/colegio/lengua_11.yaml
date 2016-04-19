@@ -1,0 +1,3 @@
+---
+:inputdirs: input/es/colegio 
+:process_file: lengua_11.haml 
