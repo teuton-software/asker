@@ -8,7 +8,7 @@
   %concept
     %names visor-de-sucesos
     %tags registrar, actividad, sistema, histórico, windows
-    %def Es la herramienta, por defecto, para visualizar los eventos monitorizados en los sitemas Windows.
+    %def [*] es la herramienta que viene, por defecto, para visualizar los eventos monitorizados en los sitemas Windows.
 
   %concept
     %names rsyslog
@@ -105,10 +105,10 @@
         %col Comando Debian, para resolver problemas de dependencias de paquetes, después de una instalación desde un fichero deb.
       %row
         %col /etc/init.d/webmin start
-        %col Iniciar el servicio Webmin en Debian 7.
+        %col Iniciar el servicio Webmin en Debian 7 (System V).
       %row
         %col /etc/init.d/webmin stop
-        %col Detener el servicio Webmin en Debian 7.
+        %col Detener el servicio Webmin en Debian 7 (System V).
       %row
         %col Abrimos un navegador web, y ponemos como URL "https://localhost:10000"
         %col Acceder al programa Webmin.
@@ -140,3 +140,18 @@
       %row
         %col /usr/sbin/logrotate -f /etc/logrotate.conf 
         %col Comando/programa para ejecutar de forma manual el proceso de rotación de logs del programa logrotate. 
+
+  %concept
+    %names logger
+    %tags comando, enviar, mensaje, log, rsyslog
+    %def [*] es un comando de GNU/Linux que se usa para enviar mensajes para que sean registrados por el servicio de monitorización rsyslog de la máquina.
+    %table{ :fields => 'comando,descripción' }
+      %row
+        %col logger -p local0.info MENSAJE-DE-TEXTO
+        %col Envía un mensaje de texto con prioridad "info" al monitorizador.
+      %row
+        %col logger -p local0.info MENSAJE-DE-TEXTO -i
+        %col Envía un mensaje de texto y el PID del proceso, con prioridad "info" al monitorizador.
+      %row
+        %col logger -p local0.info MENSAJE-DE-TEXTO -t "CURSO1516".
+        %col Envía un mensaje de texto y una etiqueta, con prioridad "info" al monitorizador.

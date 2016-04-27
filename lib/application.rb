@@ -8,7 +8,7 @@ class Application
 
   def initialize
     @name="darts-of-teacher"
-    @version="0.7"
+    @version="0.7.1"
     @param={}
 	@param[:inputbasedir]="input"
   end

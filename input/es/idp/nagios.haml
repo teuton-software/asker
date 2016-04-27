@@ -40,7 +40,7 @@
       %row
         %col "/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -x sda" 
         %col Comando Nagios para obtener el espacio disponible en el disco /dev/sda y alertar si queda menos de 20% de espacio en alguna partición
-    %table{ :fields => 'directorio/fichero,descripción' }
+    %table{ :fields => 'directorio o fichero,descripción' }
       %row
         %col /usr/lib/nagios/plugins
         %col Directorio por defecto, donde están los plugins de Nagios
