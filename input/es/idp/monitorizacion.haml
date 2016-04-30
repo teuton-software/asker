@@ -50,13 +50,13 @@
     %table{ :fields => 'fichero,descripción' }
       %row
         %col /var/log/messages
-        %col Contains global system messages, including the messages that are logged during system startup.
+        %col Contains global system messages.
       %row
         %col /var/log/dmesg
-        %col Contains kernel ring buffer information. When the system boots up, it prints number of messages on the screen that displays information about the hardware devices that the kernel detects during boot process. You can also view the content of this file using the dmesg command.
+        %col Contains kernel ring buffer information.
       %row
         %col /var/log/auth.log
-        %col Contains system authorization information, including user logins and authentication machinsm that were used.
+        %col Contains system authorization information.
       %row
         %col /var/log/boot.log
         %col Contains information that are logged when the system boots.
@@ -65,13 +65,13 @@
         %col Contains information that are logged when a package is installed or removed using dpkg command.
       %row
         %col /var/log/lastlog
-        %col Displays the recent login information for all the users. This is not an ascii file. You should use lastlog command to view the content of this file.
+        %col Displays the recent login information for all the users.
       %row
         %col /var/log/user.log
         %col Contains information about all user level logs.
       %row
         %col /var/log/btmp
-        %col This file contains information about failed login attemps. Use the last command to view the btmp file. For example, “last -f /var/log/btmp | more”
+        %col This file contains information about failed login attemps.
       %row
         %col /var/log/wtmp o /var/log/utmp
         %col Contains login records. Using wtmp you can find out who is logged into the system. who command uses this file to display the information.
