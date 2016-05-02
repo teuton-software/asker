@@ -11,14 +11,14 @@ class TestLang < Minitest::Test
   end
 
   def test_count_words
-    example=[  { :text => "Hello friend! How are you today?", :wc => 6 },
-               { :text => "Dave,get up!.Come on." , :wc => 5 }
-            ]
+    examples=[ { :text => "obi-wan kenobi is jedi"   , :wc => 4 },
+               { :text => "obi-wan,yoda,qui-gon\n and annakin are jedis,from starwars", :wc => 9 },
+               { :text => "Maul\nSidius\nand Vader\nare,old siths." , :wc => 7 }  ]
 
-    assert_equal example[0][:wc], @lang[:en].count_words(example[0][:text])
-    assert_equal example[1][:wc], @lang[:en].count_words(example[1][:text])
-    assert_equal example[0][:wc], @lang[:es].count_words(example[0][:text])
-    assert_equal example[1][:wc], @lang[:es].count_words(example[1][:text])
+    examples.each do |example|
+      assert_equal example[:wc], @lang[:en].count_words(example[:text])
+      assert_equal example[:wc], @lang[:es].count_words(example[:text])
+    end
   end
   
   def test_hide_text

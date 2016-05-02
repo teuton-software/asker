@@ -78,6 +78,8 @@ module TextActions
   def count_words(pInputText)
     return 0 if pInputText.nil?
     t = pInputText.clone
+    t.gsub!("\n"," ")
+    t.gsub!("/"," ")
     t.gsub!("."," ")
     t.gsub!(","," ")
     t.gsub!("   "," ")

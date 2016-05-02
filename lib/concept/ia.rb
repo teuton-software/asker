@@ -320,9 +320,29 @@ module IA
       q.write_to_file @file
     end
 
-    # Short answer column #0
-
-    # Short answer column #1
+    # Short answer with column #0
+    if @lang.count_words(lRow[:data][0])==1 then
+      @num+=1
+      q.init
+      q.set_short
+      q.name="#{name}-#{@num.to_s}c8table-#{lTable.name}"
+      q.text=@lang.text_for(:c8table, name, lTable.fields[1].capitalize, lRow[:data][1], lTable.fields[0].capitalize)
+      q.shorts << lRow[:data][0]
+      q.shorts << lRow[:data][0].gsub("-"," ").gsub("_"," ")
+      q.write_to_file @file
+    end
+    
+    # Short answer with column #1
+    if @lang.count_words(lRow[:data][1])==1 then
+      @num+=1
+      q.init
+      q.set_short
+      q.name="#{name}-#{@num.to_s}c8table-#{lTable.name}"
+      q.text=@lang.text_for(:c8table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize)
+      q.shorts << lRow[:data][1]
+      q.shorts << lRow[:data][1].gsub("-"," ").gsub("_"," ")
+      q.write_to_file @file
+    end
 
   end
 end

@@ -17,6 +17,7 @@
 :c5table: '[Concept <%=text1%>]<br/>The next association is right\:<br/><ul><li><%=text2%>\: "<%=text3%>"</li><li><%=text4%>\: "<%=text5%>"</li></ul>'
 :c6table: '[Concept <%=text1%>]<br/>The next association is right\:<br/><ul><li><%=text2%>\: "<%=text3%>"</li><li><%=text4%>\: "<%=text5%>"</li></ul>'
 :c7table: '[Concept <%=text1%>]<br/>The next association is right\:<br/><ul><li><%=text2%>\: "<%=text3%>"</li><li><%=text4%>\: "<%=text5%>"</li></ul>'
+:c8table: '[Concept <%=text1%>]<br/>Complete the next association\:<br/><ul><li><%=text2%>\: "<%=text3%>"</li><li><%=text4%>\: [*]</li></ul>Write only one word.<br/>'
 :d1table: 'The next items are "<%=text2%>" from  [<%=text1%>] concept:<br/><ul><li><%=text3%></li><li><%=text4%></li><li><%=text5%></li><li><%=text6%></li></ul>'
 :d2table: 'The next items are "<%=text2%>" from  [<%=text1%>] concept:<br/><ul><li><%=text3%></li><li><%=text4%></li><li><%=text5%></li><li><%=text6%></li></ul>'
 :d3sequence: "About [<%=text1%>] concept, sort every \"<%=text2%>\", so It\'s true that \"<%=text3%>\".<br/>"
