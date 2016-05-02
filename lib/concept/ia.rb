@@ -212,107 +212,117 @@ module IA
   end
 	
   def process_table2fields(lTable, lRow, pList, pCol1, pCol2)
-		q=Question.new	
+    q=Question.new	
 
-		#create gift questions	
-		s=Set.new [ lRow[:data][0] , @lang.text_for(:none) ]
-		pList.each { |i| s.add( i[:data][0] ) }
-		a=s.to_a
+    #create gift questions	
+
+    # Using the column #0
+    s=Set.new [ lRow[:data][0] , @lang.text_for(:none) ]
+    pList.each { |i| s.add( i[:data][0] ) }
+    a=s.to_a
 		
-		if s.count>3 then		
-			@num+=1
-			q.init
-			q.name="#{name}-#{@num.to_s}-c1table-#{lTable.name}"
-			q.text=@lang.text_for(:c1table, name, lTable.fields[0].capitalize, lTable.fields[1].capitalize, lRow[:data][1])
-			q.good=lRow[:data][0]
-			q.bads << @lang.text_for(:none)
-			q.bads << a[2]
-			q.bads << a[3]
-			q.write_to_file @file		
-		end
+    if s.count>3 then		
+      @num+=1
+      q.init
+      q.name="#{name}-#{@num.to_s}-c1table-#{lTable.name}"
+      q.text=@lang.text_for(:c1table, name, lTable.fields[0].capitalize, lTable.fields[1].capitalize, lRow[:data][1])
+      q.good=lRow[:data][0]
+      q.bads << @lang.text_for(:none)
+      q.bads << a[2]
+      q.bads << a[3]
+      q.write_to_file @file		
+    end
 				
-		s=Set.new [ lRow[:data][0], @lang.text_for(:none) ]
-		pList.each { |i| s.add( i[:data][0] ) }
-		a=s.to_a
+    s=Set.new [ lRow[:data][0], @lang.text_for(:none) ]
+    pList.each { |i| s.add( i[:data][0] ) }
+    a=s.to_a
 
-		if s.count>4 then
-			@num+=1
-			q.init
-			q.name="#{name}-#{@num.to_s}-c2table-#{lTable.name}"
-			q.text=@lang.text_for(:c2table, name, lTable.fields[0].capitalize, lTable.fields[1].capitalize, lRow[:data][1])
-			q.good=@lang.text_for(:none)
-			q.bads << a[2]
-			q.bads << a[3]
-			q.bads << a[4]
-			q.write_to_file @file
-		end
+    if s.count>4 then
+      @num+=1
+      q.init
+      q.name="#{name}-#{@num.to_s}-c2table-#{lTable.name}"
+      q.text=@lang.text_for(:c2table, name, lTable.fields[0].capitalize, lTable.fields[1].capitalize, lRow[:data][1])
+      q.good=@lang.text_for(:none)
+      q.bads << a[2]
+      q.bads << a[3]
+      q.bads << a[4]
+      q.write_to_file @file
+    end
 
-		s=Set.new [ lRow[:data][1], @lang.text_for(:none) ]
-		pList.each { |i| s.add( i[:data][1] ) }
-		a=s.to_a
+    # Using the column #1
+    s=Set.new [ lRow[:data][1], @lang.text_for(:none) ]
+    pList.each { |i| s.add( i[:data][1] ) }
+    a=s.to_a
 
-		if s.count>3 then			
-			@num+=1
-			q.init
-			q.name="#{name}-#{@num.to_s}-c3table-#{lTable.name}"
-			q.text=@lang.text_for(:c3table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize)
-			q.good=a[0]
-			q.bads << @lang.text_for(:none)
-			q.bads << a[2]
-			q.bads << a[3]
-			q.write_to_file @file		
-		end
+    if s.count>3 then			
+      @num+=1
+      q.init
+      q.name="#{name}-#{@num.to_s}-c3table-#{lTable.name}"
+      q.text=@lang.text_for(:c3table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize)
+      q.good=a[0]
+      q.bads << @lang.text_for(:none)
+      q.bads << a[2]
+      q.bads << a[3]
+      q.write_to_file @file		
+    end
 		
-		s=Set.new [ lRow[:data][1], @lang.text_for(:none) ]
-		pList.each { |i| s.add( i[:data][1] ) }
-		a=s.to_a
+    s=Set.new [ lRow[:data][1], @lang.text_for(:none) ]
+    pList.each { |i| s.add( i[:data][1] ) }
+    a=s.to_a
 
-		if s.count>4 then			
-			@num+=1
-			q.init
-			q.name="#{name}-#{@num.to_s}-c4table-#{lTable.name}"
-			q.text=@lang.text_for(:c4table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize)
-			q.good=@lang.text_for(:none)
-			q.bads << a[2]
-			q.bads << a[3]
-			q.bads << a[4]
-			q.write_to_file @file
-		end
+    if s.count>4 then			
+      @num+=1
+      q.init
+      q.name="#{name}-#{@num.to_s}-c4table-#{lTable.name}"
+      q.text=@lang.text_for(:c4table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize)
+      q.good=@lang.text_for(:none)
+      q.bads << a[2]
+      q.bads << a[3]
+      q.bads << a[4]
+      q.write_to_file @file
+    end
 
-		@num+=1
-		q.init
-		q.set_boolean
-		q.name="#{name}-#{@num.to_s}c5table-#{lTable.name}"
-		q.text=@lang.text_for(:c5table, name, lTable.fields[0].capitalize, lRow[:data][0] ,lTable.fields[1].capitalize, lRow[:data][1] )
-		q.good="TRUE"
-		q.write_to_file @file
+    # Boolean association TRUE
+    @num+=1
+    q.init
+    q.set_boolean
+    q.name="#{name}-#{@num.to_s}c5table-#{lTable.name}"
+    q.text=@lang.text_for(:c5table, name, lTable.fields[0].capitalize, lRow[:data][0] ,lTable.fields[1].capitalize, lRow[:data][1] )
+    q.good="TRUE"
+    q.write_to_file @file
 
-		s=Set.new [ lRow[:data][1] ]
-		pList.each { |i| s.add( i[:data][1] ) }
-		a=s.to_a
+    # Boolean association FALSE
+    s=Set.new [ lRow[:data][1] ]
+    pList.each { |i| s.add( i[:data][1] ) }
+    a=s.to_a
 
-		if s.count>1 then		
-			@num+=1
-			q.init
-			q.set_boolean
-			q.name="#{name}-#{@num.to_s}-c6table-#{lTable.name}"
-			q.text=@lang.text_for(:c6table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize, a[1] )
-			q.good="FALSE"
-			q.write_to_file @file
-		end
+    if s.count>1 then		
+      @num+=1
+      q.init
+      q.set_boolean
+      q.name="#{name}-#{@num.to_s}-c6table-#{lTable.name}"
+      q.text=@lang.text_for(:c6table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize, a[1] )
+      q.good="FALSE"
+      q.write_to_file @file
+    end
 		
-		s=Set.new [ lRow[:data][0] ]
-		pList.each { |i| s.add( i[:data][0] ) }
-		a=s.to_a
+    s=Set.new [ lRow[:data][0] ]
+    pList.each { |i| s.add( i[:data][0] ) }
+    a=s.to_a
 
-		if s.count>1 then
-			@num+=1
-			q.init
-			q.set_boolean
-			q.name="#{name}-#{@num.to_s}c7table-#{lTable.name}"
-			q.text=@lang.text_for(:c7table, name, lTable.fields[0].capitalize, a[1], lTable.fields[1].capitalize, lRow[:data][1] )
-			q.good="FALSE"
-			q.write_to_file @file
-		end
-	end
+    if s.count>1 then
+      @num+=1
+      q.init
+      q.set_boolean
+      q.name="#{name}-#{@num.to_s}c7table-#{lTable.name}"
+      q.text=@lang.text_for(:c7table, name, lTable.fields[0].capitalize, a[1], lTable.fields[1].capitalize, lRow[:data][1] )
+      q.good="FALSE"
+      q.write_to_file @file
+    end
+
+    # Short answer column #0
+
+    # Short answer column #1
+
+  end
 end

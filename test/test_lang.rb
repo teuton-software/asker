@@ -10,6 +10,17 @@ class TestLang < Minitest::Test
     @hides = [ '?????', '????? ?????!', '???-???' ]
   end
 
+  def test_count_words
+    example=[  { :text => "Hello friend! How are you today?", :wc => 6 },
+               { :text => "Dave,get up!.Come on." , :wc => 5 }
+            ]
+
+    assert_equal example[0][:wc], @lang[:en].count_words(example[0][:text])
+    assert_equal example[1][:wc], @lang[:en].count_words(example[1][:text])
+    assert_equal example[0][:wc], @lang[:es].count_words(example[0][:text])
+    assert_equal example[1][:wc], @lang[:es].count_words(example[1][:text])
+  end
+  
   def test_hide_text
     max=@texts.size
     max.times do |index|

@@ -75,6 +75,16 @@ module TextActions
     return lText
   end
 
+  def count_words(pInputText)
+    return 0 if pInputText.nil?
+    t = pInputText.clone
+    t.gsub!("."," ")
+    t.gsub!(","," ")
+    t.gsub!("   "," ")
+    t.gsub!("  "," ")
+    return t.split(" ").count    
+  end
+
   def do_mistake_to(pText)
     lText=pText.dup
     keys=@mistakes.keys
@@ -104,5 +114,5 @@ module TextActions
     end
     return output
   end
-  
+    
 end
