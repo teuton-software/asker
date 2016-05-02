@@ -75,7 +75,7 @@ module IA
       q.init
       q.set_short
       q.name="#{name}-#{@num.to_s}-a5desc"
-      q.text=@lang.text_for(:a5desc, hiden_name, t )
+      q.text=@lang.text_for(:a5desc, @lang.hide_text(name), t )
       q.shorts << name
       q.shorts << name.gsub("-"," ").gsub("_"," ")
       q.write_to_file @file

@@ -54,20 +54,7 @@ class Concept
   def name
     return @data[:names][0] || 'concept'+@@id.to_s
   end
-	
-  def hiden_name
-    n=name
-    s=""
-    n.each_char do |c|
-      if ' !|"@#$%&/()=?¿¡+*(){}[],.-_<>'.include? c then
-        s=s+c
-      else
-        s=s+'?'
-      end
-    end
-    return s
-  end
-	
+		
   def misspelled_name
     i=rand(name.size+1)
     j=i
