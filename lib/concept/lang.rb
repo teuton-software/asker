@@ -20,8 +20,9 @@ class Lang
     begin
       @templates=YAML::load(File.new(filename))
     rescue Exception => e
-      puts filename
-      puts e
+      puts "[ERROR]  Reading YAML file <#{filename}>"
+      puts "[ADVISE] Perhaps you use apostrophe into string without \\ character"
+      raise e
     end
     filename=File.join( dirbase, "lang", "locales", @lang, "connectors.yaml" )
     @connectors=YAML::load(File.new(filename))
