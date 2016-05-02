@@ -91,5 +91,18 @@ module TextActions
     
     return lText
   end
+
+  def hide_text(pInputText)
+    input=pInputText
+    output=""
+    input.each_char do |char|
+      if ' !|"@#$%&/()=?¿¡+*(){}[],.-_<>'.include? char then
+        output=output+char
+      else
+        output=output+'?'
+      end
+    end
+    return output
+  end
   
 end

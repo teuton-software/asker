@@ -10,19 +10,23 @@ class Lang
   attr_accessor :lang
 
   def initialize(lang='en')
-    @lang=lang
+    @lang=lang.to_s
 
     d=(__FILE__).split("/")
     d.delete_at(-1)
     dirbase=d.join("/")
 
-    filename=File.join(dirbase, "lang", "locales", lang ,"templates.yaml" )
-    @templates=YAML::load(File.new(filename))
-
-    filename=File.join( dirbase, "lang", "locales", lang, "connectors.yaml" )
+    filename=File.join(dirbase, "lang", "locales", @lang ,"templates.yaml" )
+    begin
+      @templates=YAML::load(File.new(filename))
+    rescue Exception => e
+      puts filename
+      puts e
+    end
+    filename=File.join( dirbase, "lang", "locales", @lang, "connectors.yaml" )
     @connectors=YAML::load(File.new(filename))
 
-    filename=File.join( dirbase, "lang", "locales", lang, "mistakes.yaml" )
+    filename=File.join( dirbase, "lang", "locales", @lang, "mistakes.yaml" )
     @mistakes=YAML::load(File.new(filename))
   end
 		
