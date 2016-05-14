@@ -63,7 +63,7 @@ class Question
     when :choice
       s=s+"{\n"
       a=["  =#{sanitize(@good)}\n"]
-      @bads.each { |i| a << "  ~#{sanitize(i)}\n" }
+      @bads.each { |i| a << "  ~%-25%#{sanitize(i)}\n" }
       a.shuffle!
       a.each { |i| s << i }
       s=s+"}\n\n"
