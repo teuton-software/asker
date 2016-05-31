@@ -1,32 +1,32 @@
 %map{ :version => '1', :lang => 'es', :context=>'sistemas operativos, dominios, samba' }
 
   %concept
-    %names grupo-de-usuarios-del-dominio
+    %names grupo de usuarios del dominio
     %tags grupos, usuarios, dominio
     %def Si definimos un grupo de usuarios de nombre "profesores", e incluimos en él a los usuarios de dominio que son profesores, no podremos asociarles políticas o directivas de grupo que deseemos, pero podremos definir en él los permisos de acceso a los recursos del sistema; cada usuario del dominio podrá estar englobado en más de un grupo de usuarios.  
 
   %concept
-    %names unidad-organizativa
+    %names unidad organizativa
     %tags unidad, organizativa, LDAP 
     %def Si definimos una [*] de nombre "profesores", e incluimos en ella a los usuarios del dominio que son profesores, podremos indicar las políticas o directivas de grupo que queremos que le sean asignadas a los profesores, pero no podremos definir en ella los permisos de acceso a los recursos del sistema; cada usuario o equipo del dominio podrá estar englobado en una y sólo en una [...].
 
   %concept
-    %names Grupos-de-Ámbito-Local-al-Dominio
+    %names Grupos de Ámbito Local al Dominio
     %tags grupos, definir, administrar, recursos, dominio
     %def Son grupos que permitirán definir y administrar el acceso a los recursos en un solo dominio. Estos grupos pueden tener como miembros a los siguientes elelementos: grupos de ámbito global, grupos de ámbito universal, usuarios del dominio, otros grupos de ámbito local de dominio, una mezcla de los anteriores.
 
   %concept
-    %names Grupos-de-Ámbito-Local
+    %names Grupos de Ámbito Local
     %tags grupos, definir, administrar, objetos, directorio
     %def Estos grupos se utilizan para administrar objetos de directorio que requieren mantenimiento diario, como las cuentas de usuarios y equipos.
 
   %concept
-    %names Grupos-de-Ámbito-Universal
+    %names Grupos de Ámbito Universal
     %tags grupos, definir, administrar, objetos, directorio
     %def Son grupos utilizados cuando la pertenencia a dicho grupo no cambian frecuentemente, ya que los cambios de pertenencia de esos grupos hacen que todos los datos de pertenencia del grupo se repliquen en todos los catálogos globales del bosque del dominio.
 
   %concept
-    %names Perfiles-de-usuarios
+    %names Perfiles de usuarios
     %tags grupos, definir, administrar, objetos, directorio
     %def Carpetas propias de un usuario, que incluyen básicamente sus configuraciones personalizadas del entorno de trabajo y los documentos por él creados.
     %table{ :fields => 'tipo,descripción' }
