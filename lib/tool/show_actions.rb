@@ -50,7 +50,7 @@ module ShowActions
       end
     end
     my_screen_table.add_separator
-    my_screen_table.add_row [ Rainbow("TOTAL = #{total_c.to_s}").bright,Rainbow(total_q.to_s).bright,Rainbow(total_e.to_s).bright,Rainbow((total_q.to_f/@concepts.size.to_f*100.0).to_i).bright ]
+    my_screen_table.add_row [ Rainbow("TOTAL = #{total_c.to_s}").bright,Rainbow(total_q.to_s).bright,Rainbow(total_e.to_s).bright,Rainbow((total_q.to_f*100.0/total_e.to_f).to_i).bright ]
     verbose my_screen_table.to_s+"\n"
   end
 end
