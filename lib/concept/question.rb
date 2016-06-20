@@ -33,23 +33,37 @@ class Question
     when :choice
       s=s+"{\n"
       a=["  =#{sanitize(@good)}\n"]
-      #@bads.each { |i| a << "  ~#{sanitize(i)}\n" }
       @bads.each { |i| a << ('  ~%-25%'+sanitize(i)+"\n") }
       a.shuffle!
-      a.each { |i| s << i }
+      a.each do |i| 
+        text=i
+        if text.size>255
+          text=i[0,220]+"...(ERROR: text too long)"
+        end
+        s << text 
+      end
       s=s+"}\n\n"
 	when :boolean
       s << "{#{@good}}\n\n"
     when :match
       s << "{\n"
       a=[]
-      @matching.each { |i| a << "  =#{sanitize(i[0])} -> #{sanitize(i[1])}\n" }
+      @matching.each do |i|
+        i[0]=i[0][0,220]+"...(ERROR: too long)" if i[0].size>255
+        i[1]=i[1][0,220]+"...(ERROR: too long)" if i[1].size>255
+        a << "  =#{sanitize(i[0])} -> #{sanitize(i[1])}\n" 
+      end
       a.shuffle!
-      a.each { |i| s << i }      
+      a.each { |i| s << i }
       s << "}\n\n"
     when :short
       s << "{\n"
-      @shorts.each { |i| s << "  =%100%#{i}#\n" }
+      @shorts.each do |i|
+        text=i
+        text=i[0,220]+"...(ERROR: too long)" if text.size>255
+        s << "  =%100%#{text}#\n"
+      end
+      
       s << "}\n\n"
     end
     return s
@@ -66,13 +80,21 @@ class Question
       a=["  =#{sanitize(@good)}\n"]
       @bads.each { |i| a << ('  ~%-25%'+sanitize(i)+"\n") }
       a.shuffle!
-      a.each { |i| s << i }
+      a.each do |i| 
+        text=i
+        text=i[0,220]+"...(ERROR: too long)" if text.size>255
+        s << text
+      end
       s=s+"}\n\n"
     when :boolean
       s=s+"{#{@good}}\n\n"
     when :match
       s=s+"{\n"
-      @matching.each { |i| s=s+"  =#{sanitize(i[0])} -> #{sanitize(i[1])}\n" }
+      @matching.each do |i|
+        i[0]=i[0][0,220]+"...(ERROR: too long)" if i[0].size>255
+        i[1]=i[1][0,220]+"...(ERROR: too long)" if i[1].size>255
+        a << "  =#{sanitize(i[0])} -> #{sanitize(i[1])}\n" 
+      end
       s=s+"}\n\n"
     when :short
       s=s+"{"
