@@ -49,7 +49,7 @@ class Tool
         if File.exist?(pArgs) then
           app.param=YAML::load(File.open(pArgs))
           app.param[:configfilename]=pArgs
-          a=pArgs.split("/")
+          a=pArgs.split(File::SEPARATOR)
           a.delete_at(-1)
           app.param[:projectdir]=a.join("/")
         elsif File.directory?(pArgs) then
@@ -59,8 +59,8 @@ class Tool
           raise
         end
       rescue
-        verbose Rainbow("[ERROR] <#{RainbowpArgs}> dosn't exists! (tool#init)").color(:red)
-        exit    
+        verbose Rainbow("[ERROR] <#{Rainbow(pArgs).bright}> dosn't exists! (tool#init)").color(:red)
+        exit 1
       end
     else
       verbose Rainbow("[ERROR] Configuration params format is <#{pArgs.class.to_s}>! (tool#init)").color(:red)
