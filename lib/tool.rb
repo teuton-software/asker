@@ -45,29 +45,31 @@ class Tool
     if pArgs.class==Hash then
       app.param=pArgs
     elsif pArgs.class==String then
-      begin
-        if File.exist?(pArgs) and pArgs.include?(".haml") then
-          app.param[:inputdirs]      = File.dirname(pArgs)
-          app.param[:process_file]   = File.basename(pArgs)
-        elsif File.exist?(pArgs) and pArgs.include?(".yaml") then  
-          app.param=YAML::load(File.open(pArgs))
-          app.param[:configfilename]=pArgs
-          a=pArgs.split(File::SEPARATOR)
-          a.delete_at(-1)
-          app.param[:projectdir]=a.join("/")
-        elsif File.exist?(pArgs) and File.directory?(pArgs) then
-          app.param[:inputdirs]=pArgs
-          app.param[:process_file]=Dir.entries(pArgs)
-          puts app.param 
-        else
-          raise
-        end
-      rescue
-        verbose Rainbow("[ERROR] <#{Rainbow(pArgs).bright}> dosn't exists! (tool#init)").color(:red)
+      if not File.exist?(pArgs)
+        verbose Rainbow("[WARN] Tool.init: ").yellow+Rainbow(pArgs).yellow.bright+Rainbow(" dosn't exists!").yellow
+        exit 1
+      end
+      
+      if pArgs.include?(".haml") then
+        app.param[:inputdirs]      = File.dirname(pArgs)
+        app.param[:process_file]   = File.basename(pArgs)
+      elsif pArgs.include?(".yaml") then  
+        app.param=YAML::load(File.open(pArgs))
+        app.param[:configfilename]=pArgs
+        a=pArgs.split(File::SEPARATOR)
+        a.delete_at(-1)
+        app.param[:projectdir]=a.join("/")
+      elsif File.directory?(pArgs) then
+        verbose Rainbow("[WARN] Tool.init: Directory input ").yellow+Rainbow(pArgs).bright.yellow+Rainbow(" not implemented yet").yellow
+        exit 1
+        #app.param[:inputdirs]=pArgs
+        #app.param[:process_file]=Dir.entries(pArgs)
+      else
+        verbose Rainbow("[ERR ] Tool.init: Input ").red+Rainbow(pArgs).red.bright+Rainbow(" unkown").red
         exit 1
       end
     else
-      verbose Rainbow("[ERROR] Configuration params format is <#{pArgs.class.to_s}>! (tool#init)").color(:red)
+      verbose Rainbow("[ERROR] Tool.init: Configuration params format is <#{pArgs.class.to_s}>!").red
       exit
     end
 
@@ -83,10 +85,8 @@ class Tool
   end
 		
   def verbose(lsText)
-    if Application.instance.verbose then
-      puts lsText
-      @logfile.write(lsText.to_s+"\n") if @logfile
-    end
+    puts lsText
+    @logfile.write(lsText.to_s+"\n") if @logfile
   end
   
 end	
