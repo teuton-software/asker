@@ -46,15 +46,19 @@ class Tool
       app.param=pArgs
     elsif pArgs.class==String then
       begin
-        if File.exist?(pArgs) then
+        if File.exist?(pArgs) and pArgs.include?(".haml") then
+          app.param[:inputdirs]      = File.dirname(pArgs)
+          app.param[:process_file]   = File.basename(pArgs)
+        elsif File.exist?(pArgs) and pArgs.include?(".yaml") then  
           app.param=YAML::load(File.open(pArgs))
           app.param[:configfilename]=pArgs
           a=pArgs.split(File::SEPARATOR)
           a.delete_at(-1)
           app.param[:projectdir]=a.join("/")
-        elsif File.directory?(pArgs) then
+        elsif File.exist?(pArgs) and File.directory?(pArgs) then
           app.param[:inputdirs]=pArgs
-          app.param[:process_file]=Dir.entries(pArgs)                 
+          app.param[:process_file]=Dir.entries(pArgs)
+          puts app.param 
         else
           raise
         end
@@ -68,6 +72,9 @@ class Tool
     end
 
     app.fill_param_with_default_values
+    verbose Rainbow("Initial Params:").blue.bright
+    verbose Rainbow("  * inputdirs    = #{app.param[:inputdirs]}").blue.bright
+    verbose Rainbow("  * process_file = #{app.param[:process_file]}").blue.bright
 
     @concepts={}
 		

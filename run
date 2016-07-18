@@ -7,23 +7,26 @@ require 'rainbow'
 
 def show_help
   puts "Usage: #{$0}\n\n"
-  puts "\t"+Rainbow("--help").bright+"\t\t\t\tShow this help."
-  puts "\t"+Rainbow("--version").bright+"\t\t\tShow the program version."
-  puts "\t"+Rainbow("--create PROJECTNAME").bright+"\t\tCreate new FOO project."
-  puts "\t\t\t\t\tExample: #{$0} create FOO"
-  puts "\t"+Rainbow("path/to/project/YAMLFILE").bright+"\tBuild quiz and lesson data files, from YAML config file."
-  puts "\t\t\t\t\tExample: #{$0} projects/foo/config.yaml"
+  puts "  "+Rainbow("input/path/to/HAMLFILE").bright+"    => Build output files, from HAML input file."
+  puts "                               Example: "+Rainbow($0+" input/foo/foo.haml").yellow
+  puts "  "+Rainbow("--help, -h, help, h").bright+"       => Show this help."
+  puts "  "+Rainbow("--version, -v, version, v").bright+" => Show the program version."
+  puts "\n\n"
+  puts "  "+Rainbow("--create PROJECTNAME").bright+"      => Create new FOO project."
+  puts "                               Example: "+Rainbow($0+" create foo").yellow
+  puts "  "+Rainbow("project/path/to/YAMLFILE").bright+"  => Build output files from YAML config file."
+  puts "                               Example: "+Rainbow($0+" projects/foo/foo.yaml").yellow
   puts ""
 end
 
 def show_version
   app=Application.instance
-  t = Rainbow(app.name).color(:green)+" (version "+Rainbow(app.version).color(:blue)+")"
+  t = Rainbow(app.name).bright.blue+" (version "+Rainbow(app.version).green+")"
   puts t
 end
 
 if ARGV.count==0 then
-  puts "Usage: #{$0} --help"
+  puts "Usage: "+Rainbow($0+" --help").yellow
 elsif ['h','-h','help','--help'].include?(ARGV.first) then
   show_help
 elsif ['v','-v','version','--version'].include?(ARGV[0]) then
@@ -35,16 +38,15 @@ else
 end
 
 __END__
-%map{ :version => '1', :lang => 'en' }
+%map{ :version => '1', :lang => 'en', :context => 'some, examples' }
+
   %concept
     %names concept1
-    %context write,here,the,context,of,concept1
     %tags write,here,the,definition,of,the,concept1
     %text Write here the definition of [*]
 
   %concept
     %names concept2
-    %context write,here,the,context,of,concept2
     %tags write,here,the,definition,of,the,concept2
     %table{ :fields => 'atrributename,value' }
       %title Attributes-values associated to concept2
