@@ -1,2 +1,2 @@
 
-* David Vargas (dvarrui@gmail.com)
+* David Vargas <dvarrui@gmail.com>
