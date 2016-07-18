@@ -1,7 +1,8 @@
-**Interviewer**
-===============
-*tt-interviewer** is a ruby tool, that helps teacher to easly build a huge
-amount of questions from a simple conceptual map.
+**darts-of-teacher**
+====================
+*darts-of-teacher** un un programa Ruby con licencia Open Sourcer, que ayuda
+al profesor a crear una gran cantidad de preguntas de forma sencilla, a partir
+de una especie de mapa conceptual.
 
 Steps:
 1) The teacher create a text file with our conceptual map.
