@@ -1,5 +1,6 @@
 **darts-of-teacher**
 ====================
+
 *darts-of-teacher** un un programa Ruby con licencia Open Sourcer, que ayuda
 al profesor a crear una gran cantidad de preguntas de forma sencilla, a partir
 de una especie de mapa conceptual.
@@ -8,6 +9,7 @@ Steps:
 1) The teacher create a text file with our conceptual map.
 2) The tool read it and create a file with GIFT questions.
 > The GIFT format is very common format, in elearning software as Moodle.
+
 
 **History**
 ===========
