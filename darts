@@ -7,15 +7,17 @@ require 'rainbow'
 
 def show_help
   puts "Usage: #{$0}\n\n"
-  puts "  "+Rainbow("input/path/to/HAMLFILE").bright+"    => Build output files, from HAML input file."
-  puts "                               Example: "+Rainbow($0+" input/foo/foo.haml").yellow
-  puts "  "+Rainbow("--help, -h, help, h").bright+"       => Show this help."
-  puts "  "+Rainbow("--version, -v, version, v").bright+" => Show the program version."
+  puts "  "+Rainbow("input/path/to/[HAMLFILE|XMLFILE]").bright+" => Build output files, from HAML/XML input file."
+  puts "                                      Example: "+Rainbow($0+" input/foo/foo.haml").yellow
+  puts "                                      Example: "+Rainbow($0+" input/foo/foo.xml").yellow
+  puts "  "+Rainbow("--help, -h, help, h").bright+"              => Show this help."
+  puts "  "+Rainbow("--version, -v, version, v").bright+"        => Show the program version."
   puts "\n\n"
-  puts "  "+Rainbow("--create PROJECTNAME").bright+"      => Create new FOO project."
-  puts "                               Example: "+Rainbow($0+" create foo").yellow
-  puts "  "+Rainbow("project/path/to/YAMLFILE").bright+"  => Build output files from YAML config file."
-  puts "                               Example: "+Rainbow($0+" projects/foo/foo.yaml").yellow
+  puts "  DEPRECATED:\n"
+  puts "    "+Rainbow("--create PROJECTNAME").bright+"      => Create new FOO project."
+  puts "                                 Example: "+Rainbow($0+" create foo").yellow
+  puts "    "+Rainbow("project/path/to/YAMLFILE").bright+"  => Build output files from YAML config file."
+  puts "                                 Example: "+Rainbow($0+" projects/foo/foo.yaml").yellow
   puts ""
 end
 

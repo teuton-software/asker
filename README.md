@@ -15,7 +15,7 @@ Two Steps:
 * `rake gems`: Install gems required for this ruby tool.
 
 #Run demo project
-Run the demo project we executing `./run input/en/starwars/jedi.haml`.
+Run the demo project we executing `./darts input/en/starwars/jedi.haml`.
 You will see messages on the screen. The tool is working.
 
 > **NOTICE**
@@ -23,7 +23,7 @@ You will see messages on the screen. The tool is working.
 > * Use `en` prefix for the English demo.
 > * Use `es` prefix for the Spanish demo.
 >
-> To execute on Windows do `ruby run input/en/starwars/jedi.haml`
+> To execute on Windows do `ruby darts input/en/starwars/jedi.haml`
 
 Now we have our output files, created into the `output` directory.
 
