@@ -10,20 +10,19 @@ class Application
     @name="darts-of-teacher"
     @version="0.8.0"
     @param={}
-	@param[:inputbasedir]="input"
+	  @param[:inputbasedir]="input"
   end
 
   def fill_param_with_default_values
-    @param[:process_file]=@param[:process_file] || "#{@param[:projectdir].split("/").last}.haml"
-    process_filename_without_ext=@param[:process_file].split(".").first # Extract extension
-    @param[:projectname]=@param[:projectname] || process_filename_without_ext
-		
+    ext = ".haml"
+    @param[:process_file] = @param[:process_file] || @param[:projectdir].split("/").last + ext
+    @param[:projectname]  = @param[:projectname] || File.basename( @param[:process_file], ext)
+
     @param[:inputdirs]=@param[:inputdirs] || "input/#{@param[:projectdir]}"
-    @param[:outputdir]=@param[:outputdir] || "output" 
+    @param[:outputdir]=@param[:outputdir] || "output"
     @param[:outputname]=@param[:outputname] || "#{@param[:projectname]}-gift.txt"
     @param[:logname]=@param[:logname] || "#{@param[:projectname]}-log.txt"
     @param[:lesson_file]=@param[:lesson_file] || "#{@param[:projectname]}-doc.txt"
-    @param[:lesson_separator]=@param[:lesson_separator] || ' >'
 
     @param[:category]=@param[:category] || :none
     @param[:formula_weights]=@param[:formula_weights] || [1,1,1]
@@ -34,6 +33,5 @@ class Application
 
   def method_missing(m, *args, &block)
     return @param[m]
-  end  
-end	
-
+  end
+end
