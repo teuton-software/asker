@@ -14,15 +14,15 @@ require_relative 'tool'
 
 class Concept
   include IA
-	
+
   attr_reader :id, :data, :num
   attr_accessor :process
 
   @@id=0
 
-  def initialize(pXMLdata, pFilename, pLang="en", pContext=[])	
+  def initialize(pXMLdata, pFilename, pLang="en", pContext=[])
     @@id+=1
-    @id=@@id	
+    @id=@@id
     @weights=Application.instance.formula_weights
     @output=true
 
@@ -32,7 +32,7 @@ class Concept
 
     @data={}
     @data[:names]=[]
-    if pContext.class==Array then   
+    if pContext.class==Array then
       @data[:context]=pContext
     elsif pContext.nil? then
       @data[:context]=[]
@@ -45,35 +45,35 @@ class Concept
     @data[:images]=[]
     @data[:tables]=[]
     @data[:neighbors]=[]
-	
-	read_data_from_xml(pXMLdata)
-	    
+
+	  read_data_from_xml(pXMLdata)
+
     @data[:misspelled]=misspelled_name
   end
-	
+
   def name
     return @data[:names][0] || 'concept'+@@id.to_s
   end
-		
+
   def misspelled_name
     i=rand(name.size+1)
     j=i
     j=rand(name.size+1) while(j==i)
-		
+
     lName=name+i.to_s
     #lName[i]=name[j]
     #lName[j]=name[i]
     return lName
   end
-	
+
   def text
     return @data[:texts][0] || '...'
   end
-	
+
   def process?
     return @process
   end
-	
+
   def try_adding_neighbor(pConcept)
     p = calculate_nearness_to_concept(pConcept)
     return if p==0
@@ -85,30 +85,30 @@ class Concept
 
   def to_s
     out=""
-    
+
     t = Terminal::Table.new
-    t.add_row [Rainbow(@id.to_s).bright, Rainbow(name).color(:white).bg(:blue).bright+" (lang=#{@lang.lang}) " ]    
+    t.add_row [Rainbow(@id.to_s).bright, Rainbow(name).color(:white).bg(:blue).bright+" (lang=#{@lang.lang}) " ]
     t.add_row [Rainbow("Filename").color(:blue), @filename.to_s ]
     t.add_row [Rainbow("Context").color(:blue), context.join(", ").to_s ]
-    t.add_row [Rainbow("Tags").color(:blue), tags.join(", ").to_s] 
+    t.add_row [Rainbow("Tags").color(:blue), tags.join(", ").to_s]
 
     lText=[]
     texts.each do |i|
       if i.size<60 then
-	    lText << i.to_s	  
+	    lText << i.to_s
 	  else
 	    lText << i[0...70].to_s+"..."
 	  end
 	end
-    t.add_row [Rainbow(".def(text)").color(:blue), lText.join("\n")]	  
-    t.add_row [Rainbow(".def(images)").color(:blue), images.join(", ").to_s] 
-	
+    t.add_row [Rainbow(".def(text)").color(:blue), lText.join("\n")]
+    t.add_row [Rainbow(".def(images)").color(:blue), images.join(", ").to_s]
+
 	if tables.count>0 then
 	  lText=[]
 	  tables.each { |i| lText << i.to_s }
 	  t.add_row [ Rainbow(".tables").color(:blue), lText.join("\n")]
 	end
-	
+
 	lText=[]
 	neighbors[0..5].each { |i| lText << i[:concept].name+"("+i[:value].to_s[0..4]+")" }
 	t.add_row [Rainbow(".neighbors").color(:blue),lText.join("\n")]
@@ -116,7 +116,7 @@ class Concept
     out << t.to_s+"\n"
 	return out
   end
-	
+
   def write_questions_to(pFile)
     @file=pFile
     @file.write "\n// Concept name: #{name}\n"
@@ -124,9 +124,9 @@ class Concept
     @num=0
     #IA process every <text> definition
     process_texts
-		
+
     #IA process every table of this concept
-    tables.each do |lTable|			
+    tables.each do |lTable|
       #create <list1> with all the rows from the table
       list1=[]
       count=1
@@ -140,7 +140,7 @@ class Concept
       @data[:neighbors].each do |n|
         n[:concept].tables.each do |t2|
           if t2.name==lTable.name then
-            t2.rows.each do |i| 
+            t2.rows.each do |i|
               list2 << { :id => count, :name => n[:concept].name, :weight => 0, :data => i }
               count+=1
             end
@@ -152,20 +152,20 @@ class Concept
       process_table_match(lTable, list1, list2)
       process_table1field(lTable, list1, list2)
       process_sequence(lTable, list1, list2)
-					
+
       list1.each do |lRow|
         reorder_list_with_row(list3, lRow)
         process_tableXfields(lTable, lRow, list3)
       end
-    end		
+    end
   end
-	
+
   def to_doc
     out="\n"+"="*60+"\n"
     out << name+":\n\n"
     texts.each { |i| out << "* "+i+"\n" }
     out << "\n"
-    
+
     tables.each do |t|
       my_screen_table = Terminal::Table.new do |st|
         st << t.fields
@@ -174,18 +174,18 @@ class Concept
       end
       out << my_screen_table.to_s+"\n"
     end
-        
+
     return out
   end
 
   def write_lesson_to(pFile)
-    pFile.write(self.to_doc)    
+    pFile.write(self.to_doc)
   end
 
   def method_missing(m, *args, &block)
     return @data[m]
-  end  
-	
+  end
+
 private
 
   def read_data_from_xml(pXMLdata)
@@ -215,7 +215,7 @@ private
         else
           @data[:texts] << i.text.strip
         end
-      when 'table'				
+      when 'table'
         @data[:tables] << Table.new(self,i)
       else
         msg = Rainbow("   [ERROR] <#{i.name}> attribute into XMLdata (concept#read_data_from_xml)").color(:red)
