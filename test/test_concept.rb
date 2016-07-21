@@ -3,6 +3,7 @@
 require "minitest/autorun"
 require 'rexml/document'
 require_relative "../lib/concept"
+require_relative "../lib/concept/table"
 
 class TestResult < Minitest::Test
   def setup
@@ -16,18 +17,30 @@ class TestResult < Minitest::Test
     end
   end
 
-  def test_concept_0
+  def test_names
     assert_equal "obiwan", @concept[0].name
-    assert_equal 6, @concept[0].tags.size
+    assert_equal "obiwan", @concept[0].names[0]
+
+    assert_equal "yoda", @concept[1].name
+    assert_equal "yoda", @concept[1].names[0]
+  end
+
+  def test_tags
+    lTags = [ 'jedi', 'teacher', 'annakin', 'skywalker', 'pupil', 'quigon-jinn']
+    assert_equal lTags.size, @concept[0].tags.size
+    assert_equal lTags, @concept[0].tags
+
+    lTags = [ 'teacher', 'jedi' ]
+    assert_equal lTags.size, @concept[1].tags.size
+    assert_equal lTags, @concept[1].tags
+  end
+
+  def test_texts
     assert_equal 2, @concept[0].texts.size
     def_text="Jedi, teacher of Annakin  Skywalker"
     assert_equal def_text, @concept[0].text
     assert_equal def_text, @concept[0].texts[0]
-  end
 
-  def test_concept_1
-    assert_equal "yoda", @concept[1].name
-    assert_equal 2, @concept[1].tags.size
     assert_equal 4, @concept[1].texts.size
     def_text= [ "Jedi, teacher of all jedis" ,
                 "The Main Teacher of Jedi and one of the most important members of the Main Jedi Council, in the last days of Star Republic."  ,
@@ -37,6 +50,14 @@ class TestResult < Minitest::Test
     assert_equal def_text[0], @concept[1].text
     assert_equal def_text[0], @concept[1].texts[0]
     assert_equal def_text[1], @concept[1].texts[1]
+  end
+
+  def test_tables
+    name = "$attribute$value"
+    assert_equal 1, @concept[0].tables.size
+    assert_equal name, @concept[0].tables[0].name
+    assert_equal 1, @concept[1].tables.size
+    assert_equal name, @concept[1].tables[0].name
   end
 
   def get_xml_data
