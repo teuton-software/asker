@@ -54,10 +54,27 @@ class TestResult < Minitest::Test
 
   def test_tables
     name = "$attribute$value"
-    assert_equal 1, @concept[0].tables.size
-    assert_equal name, @concept[0].tables[0].name
-    assert_equal 1, @concept[1].tables.size
-    assert_equal name, @concept[1].tables[0].name
+    for i in 0..1
+      assert_equal 1, @concept[i].tables.size
+      assert_equal name, @concept[i].tables[0].name
+      assert_equal nil, @concept[i].tables[0].title
+      assert_equal false, @concept[i].tables[0].sequence?
+      assert_equal 0, @concept[i].tables[0].sequence.size
+      assert_equal [], @concept[i].tables[0].sequence
+      assert_equal 2, @concept[i].tables[0].fields.size
+      assert_equal ["attribute","value"], @concept[i].tables[0].fields
+    end
+  end
+
+  def test_rows
+    lRows=[ [ 'race', 'human' ],
+             [ 'laser sabel color', 'green'],
+             [ 'hair color', 'red' ]
+            ]
+    assert_equal lRows.size, @concept[0].tables[0].rows.size
+    for i in 0..2
+      assert_equal lRows[i], @concept[0].tables[0].rows[i]
+    end
   end
 
   def get_xml_data
