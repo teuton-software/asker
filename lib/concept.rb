@@ -15,7 +15,8 @@ require_relative 'tool'
 class Concept
   include IA
 
-  attr_reader :id, :data, :num
+  attr_reader :id, :data
+  attr_reader :num
   attr_accessor :process
 
   @@id=0
@@ -23,6 +24,8 @@ class Concept
   def initialize(pXMLdata, pFilename, pLang="en", pContext=[])
     @@id+=1
     @id=@@id
+    @num = 0 #Number of questions. Used by <tool/show_actions> module
+
     @weights=Application.instance.formula_weights
     @output=true
 

@@ -17,6 +17,10 @@ class TestResult < Minitest::Test
     end
   end
 
+  def test_id
+    assert_equal true, @concept[0].id+1==@concept[1].id
+  end
+
   def test_names
     assert_equal "obiwan", @concept[0].name
     assert_equal "obiwan", @concept[0].names[0]
