@@ -9,7 +9,7 @@ require_relative '../tool'
 
 class ConceptData
 
-  attr_reader :id, :data, :num
+  attr_reader :id, :data
   attr_accessor :process
 
   @@id=0
@@ -17,6 +17,7 @@ class ConceptData
   def initialize(pXMLdata, pFilename, pLang="en", pContext=[])
     @@id+=1
     @id=@@id
+    
     @weights=Application.instance.formula_weights
     @output=true
 

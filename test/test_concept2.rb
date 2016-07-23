@@ -20,6 +20,10 @@ class TestResult < Minitest::Test
     assert_equal true, @concept[0].id+1==@concept[1].id
   end
 
+  def test_num
+    @concept.each { |c| assert_equal nil, c.num }
+  end
+
   def test_names
     assert_equal "obiwan", @concept[0].name
     assert_equal "obiwan", @concept[0].names[0]
