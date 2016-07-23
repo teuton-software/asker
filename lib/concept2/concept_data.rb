@@ -1,14 +1,13 @@
 # encoding: utf-8
 
 require 'rexml/document'
-require 'set'
 
-require_relative 'application'
-require_relative 'concept/lang'
-require_relative 'concept/table'
-require_relative 'tool'
+require_relative '../application'
+require_relative '../concept/lang'
+require_relative '../concept/table'
+require_relative '../tool'
 
-class Concept
+class ConceptData
 
   attr_reader :id, :data, :num
   attr_accessor :process
@@ -83,7 +82,8 @@ private
         @data[:tags].collect! { |k| k.strip }
       when 'def'
         if i.attributes['image']
-          puts Rainbow("[DEBUG] Concept#read_data_from_xml: #{Rainbow(i.attributes['image']).bright}").yellow
+          msg = Rainbow("[DEBUG] Concept#read_data_from_xml: #{Rainbow(i.attributes['image']).bright}").yellow
+          Tool.instance.verbose msg
           @data[:images] << i.attributes['image'].strip
         else
           @data[:texts] << i.text.strip
