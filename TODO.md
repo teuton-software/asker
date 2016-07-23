@@ -4,12 +4,11 @@
 * Documentation
     * More documentation
     * Spanish documentation
-    * Perhaps, videos on youtube explining this
+    * Perhaps, videos on youtube explaining all this
 * Code
-    * rspec/minitest to all clases into lib directory
-* Execute run command over directory with hamls input file. Not using project configuration.
+    * minitest for every class into lib directory
 * Texts
-    * Concept name drop and fill... 
+    * Concept name drop and fill...
 * Tables
     * Process tables definitions with more than 2 fields.
 * Question types
