@@ -1,14 +1,13 @@
 ---
 :sujeto:
-  :genero:
-  - 'masculino'
-  - 'feminino'
-  :numero:
-  - 'singular'
-  - 'plural'
-  :tipo:
-  - 'común'
-  - 'propio'
+  :masculino:
+    :singular:
+      :común:
+      :propio:
+    :plural:
+  :feminino:
+    :singular:
+    :plural:
 :verbo:
   :tiempo:
   - 'presente'
@@ -28,7 +27,6 @@
 - 'cantidad/grado'
 - 'modal'
 - 'interrogativo'
-- 'afirmaición'
+- 'afirmación'
 - 'negación'
 - 'duda'
-
