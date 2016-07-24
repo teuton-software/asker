@@ -10,7 +10,7 @@ class TestResult < Minitest::Test
 
   def test_init_params
     assert_equal "darts-of-teacher", @app.name
-    assert_equal "0.8.0", @app.version
+    assert_equal "0.9.0", @app.version
     assert_equal "input", @app.param[:inputbasedir]
   end
 
