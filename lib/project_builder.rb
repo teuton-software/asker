@@ -4,8 +4,7 @@ require 'rainbow'
 
 module ProjectBuilder
 
-  def self.create_project(projectname)
-    app=Application.instance
+  def self.create_project(projectname, inputbasedir)
 
     puts "\n[INFO] Creating project <#{Rainbow(projectname).bright}>"
     projectdir="projects/#{projectname}"
@@ -21,7 +20,7 @@ module ProjectBuilder
       puts "* Creating file => #{Rainbow(filename).color(:green)}"
       f=File.new(filename,'w')
       f.write("---\n")
-      f.write(":inputdirs: '#{app.inputbasedir}/#{projectname}'\n")
+      f.write(":inputdirs: '#{inputbasedir}/#{projectname}'\n")
       f.write(":process_file: '#{projectname}.haml'\n")
       f.write("\n")
       f.close
@@ -39,7 +38,7 @@ module ProjectBuilder
       puts "* Exists file! => #{Rainbow(filename).color(:yellow)}"
     end
 
-    mapdir="#{app.inputbasedir}/#{projectname}"
+    mapdir="#{inputbasedir}/#{projectname}"
     if !Dir.exists? mapdir
       puts "* Creating directory => #{Rainbow(mapdir).color(:green)}"
       Dir.mkdir(mapdir)
