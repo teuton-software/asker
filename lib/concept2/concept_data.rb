@@ -4,8 +4,8 @@ require 'rexml/document'
 
 require_relative '../application'
 require_relative '../lang/lang'
-require_relative '../concept/table'
 require_relative '../tool'
+require_relative 'table'
 
 class ConceptData
 
