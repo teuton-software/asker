@@ -3,7 +3,7 @@
 require 'rexml/document'
 
 require_relative '../application'
-require_relative '../concept/lang'
+require_relative '../lang/lang'
 require_relative '../concept/table'
 require_relative '../tool'
 
@@ -17,7 +17,7 @@ class ConceptData
   def initialize(pXMLdata, pFilename, pLang="en", pContext=[])
     @@id+=1
     @id=@@id
-    
+
     @weights=Application.instance.formula_weights
     @output=true
 

@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 require "minitest/autorun"
-require_relative "../lib/concept/lang"
+require_relative "../lib/lang/lang"
 
 class TestLang < Minitest::Test
   def setup
@@ -20,7 +20,7 @@ class TestLang < Minitest::Test
       assert_equal example[:wc], @lang[:es].count_words(example[:text])
     end
   end
-  
+
   def test_hide_text
     max=@texts.size
     max.times do |index|
