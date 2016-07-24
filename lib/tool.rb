@@ -8,7 +8,7 @@ require 'haml'
 require 'rainbow'
 require 'rexml/document'
 
-require_relative 'concept'
+require_relative 'concept/concept'
 require_relative 'tool/create_actions'
 require_relative 'tool/log_actions'
 require_relative 'tool/input_actions'
@@ -28,7 +28,7 @@ class Tool
   include InputActions
   include LogActions
   include ShowActions
-    	
+
   def run(pArgs={})
     init pArgs
     create_log_file
@@ -38,10 +38,10 @@ class Tool
 	show_stats
 	close_log_file
   end
-	
+
   def init(pArgs={})
 	app=Application.instance
-	
+
     if pArgs.class==Hash then
       app.param=pArgs
     elsif pArgs.class==String then
@@ -49,11 +49,11 @@ class Tool
         verbose Rainbow("[WARN] Tool.init: ").yellow+Rainbow(pArgs).yellow.bright+Rainbow(" dosn't exists!").yellow
         exit 1
       end
-      
+
       if pArgs.include?(".haml") then
         app.param[:inputdirs]      = File.dirname(pArgs)
         app.param[:process_file]   = File.basename(pArgs)
-      elsif pArgs.include?(".yaml") then  
+      elsif pArgs.include?(".yaml") then
         app.param=YAML::load(File.open(pArgs))
         app.param[:configfilename]=pArgs
         a=pArgs.split(File::SEPARATOR)
@@ -79,14 +79,14 @@ class Tool
     verbose Rainbow("  * process_file = #{app.param[:process_file]}").blue.bright
 
     @concepts={}
-		
+
     @logname=app.outputdir+'/'+app.logname
     @outputname=app.outputdir+'/'+app.outputname
   end
-		
+
   def verbose(lsText)
     puts lsText
     @logfile.write(lsText.to_s+"\n") if @logfile
   end
-  
-end	
+
+end

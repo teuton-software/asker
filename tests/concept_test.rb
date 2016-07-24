@@ -2,7 +2,7 @@
 
 require "minitest/autorun"
 require 'rexml/document'
-require_relative "../lib/concept"
+require_relative "../lib/concept/concept"
 require_relative "../lib/concept/table"
 
 class TestResult < Minitest::Test

@@ -5,12 +5,12 @@ require 'rexml/document'
 require 'set'
 require 'terminal-table'
 
-require_relative 'lang/lang'
-require_relative 'application'
-require_relative 'concept/ia'
-require_relative 'concept/question'
-require_relative 'concept/table'
-require_relative 'tool'
+require_relative '../lang/lang'
+require_relative '../application'
+require_relative '../tool'
+require_relative 'ia'
+require_relative 'question'
+require_relative 'table'
 
 class Concept
   include IA
