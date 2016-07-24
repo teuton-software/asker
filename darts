@@ -3,6 +3,7 @@
 
 require_relative 'lib/tool'
 require_relative 'lib/application'
+require_relative 'lib/project_builder'
 require 'rainbow'
 
 def show_help
@@ -34,7 +35,7 @@ elsif ['h','-h','help','--help'].include?(ARGV.first) then
 elsif ['v','-v','version','--version'].include?(ARGV[0]) then
   show_version
 elsif ['c','-c','create','--create'].include?(ARGV[0]) then
-  Tool.instance.create_project(ARGV[1])
+  ProjectBuilder::create_project(ARGV[1])
 else
   Tool.instance.run(ARGV.first)
 end
