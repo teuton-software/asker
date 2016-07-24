@@ -43,15 +43,15 @@ class Question
         s << text
       end
       s=s+"}\n\n"
-	when :boolean
+	  when :boolean
       s << "{#{@good}}\n\n"
     when :match
       s << "{\n"
       a=[]
-      @matching.each do |i|
-        i[0]=i[0][0,220]+"...(ERROR: text too long)" if i[0].size>255
-        i[1]=i[1][0,220]+"...(ERROR: text too long)" if i[1].size>255
-        a << "  =#{sanitize(i[0])} -> #{sanitize(i[1])}\n"
+      @matching.each do |i,j|
+        i=i[0,220]+"...(ERROR: text too long)" if i.size>255
+        j=j[0,220]+"...(ERROR: text too long)" if j.size>255
+        a << "  =#{sanitize(i)} -> #{sanitize(j)}\n"
       end
       a.shuffle!
       a.each { |i| s << i }
@@ -90,10 +90,10 @@ class Question
       s=s+"{#{@good}}\n\n"
     when :match
       s=s+"{\n"
-      @matching.each do |i|
-        i[0]=i[0][0,220]+"...(ERROR: too long)" if i[0].size>255
-        i[1]=i[1][0,220]+"...(ERROR: too long)" if i[1].size>255
-        a << "  =#{sanitize(i[0])} -> #{sanitize(i[1])}\n"
+      @matching.each do |i,j|
+        i=i[0,220]+"...(ERROR: text too long)" if i.size>255
+        j=j[0,220]+"...(ERROR: text too long)" if j.size>255
+        s = s + "  =#{sanitize(i)} -> #{sanitize(j)}\n"
       end
       s=s+"}\n\n"
     when :short
