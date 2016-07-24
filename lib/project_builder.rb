@@ -38,15 +38,15 @@ module ProjectBuilder
       puts "* Exists file! => #{Rainbow(filename).color(:yellow)}"
     end
 
-    mapdir="#{inputbasedir}/#{projectname}"
-    if !Dir.exists? mapdir
-      puts "* Creating directory => #{Rainbow(mapdir).color(:green)}"
-      Dir.mkdir(mapdir)
+    inputdir="#{inputbasedir}/#{projectname}"
+    if !Dir.exists? inputdir
+      puts "* Creating directory => #{Rainbow(inputdir).color(:green)}"
+      Dir.mkdir(inputdir)
     else
-      puts "* Exists directory! => #{Rainbow(mapdir).color(:yellow)}"
+      puts "* Exists directory! => #{Rainbow(inputdir).color(:yellow)}"
     end
 
-    filename=mapdir+"/"+projectname+".haml"
+    filename=inputdir+"/"+projectname+".haml"
     if !File.exists? filename
       puts "* Creating file => #{Rainbow(filename).color(:green)}"
       f=File.new(filename,'w')
