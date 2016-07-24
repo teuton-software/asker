@@ -35,30 +35,7 @@ elsif ['h','-h','help','--help'].include?(ARGV.first) then
 elsif ['v','-v','version','--version'].include?(ARGV[0]) then
   show_version
 elsif ['c','-c','create','--create'].include?(ARGV[0]) then
-  ProjectBuilder::create_project(ARGV[1], Application.instance.param[:inputbasedir])
+  ProjectBuilder::create_project( ARGV[1], Application.instance.param[:inputbasedir])
 else
   Tool.instance.run(ARGV.first)
 end
-
-__END__
-%map{ :version => '1', :lang => 'en', :context => 'some, examples' }
-
-  %concept
-    %names concept1
-    %tags write,here,the,definition,of,the,concept1
-    %text Write here the definition of [*]
-
-  %concept
-    %names concept2
-    %tags write,here,the,definition,of,the,concept2
-    %table{ :fields => 'atrributename,value' }
-      %title Attributes-values associated to concept2
-      %row
-        %col attributename1
-        %col value of attributename1
-      %row
-        %col attributename1
-        %col value of attributename2
-      %row
-        %col attributename1
-        %col value of attributename3
