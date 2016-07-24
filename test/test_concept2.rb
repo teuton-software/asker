@@ -17,7 +17,7 @@ class TestResult < Minitest::Test
   end
 
   def test_id
-    assert_equal true, @concept[0].id+1==@concept[1].id
+    assert_same @concept[0].id+1, @concept[1].id
   end
 
   def test_num
