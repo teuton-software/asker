@@ -20,7 +20,7 @@ Two Steps:
 #Run demo
 
 Execute `./darts input/en/starwars/jedi.haml` to run this demo.
-> On Windows try with `ruby darts input/en/starwars/jedi.haml`
+On Windows try with `ruby darts input/en/starwars/jedi.haml`
 
 > Prefix:
 > * Use `en` prefix for the English demo.
@@ -33,7 +33,15 @@ In our example, we use sample input definition file, saved on `input/en/starwars
 This file contains our input definitions in a HAML text file.
 
 #Documentation
+
 * [History](./docs/en/history.md)
 * [Directories description](./docs/en/dirtree.md)
 * [Input definitions](./docs/en/inputs.md)
 * [Spanish documentation](./docs/es/README.md)
+
+#Contributions
+
+* Use this tool.
+* Report bugs, or ideas for new features.
+* Share your own contents (HAML/XML files) with us.
+* If you like `ruby`, you also could help us with the TO-DO list.

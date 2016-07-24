@@ -20,3 +20,6 @@
 * Dictionary
     * Diccionario de sinónimos, antónimos
     * Learn about the words or better download dictonary from RAE?
+
+#dudes
+* The class attr mantains value after exit program, during a few seconds... why?
