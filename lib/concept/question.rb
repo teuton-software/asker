@@ -8,7 +8,7 @@ class Question
   def initialize
     init
   end
-	
+
   def init
     @name=""
     @comment=""
@@ -19,7 +19,7 @@ class Question
     @matching=[]
     @shorts=[]
   end
-		
+
   def write_to_file(pFile)
     pFile.write self.to_gift
   end
@@ -35,12 +35,12 @@ class Question
       a=["  =#{sanitize(@good)}\n"]
       @bads.each { |i| a << ('  ~%-25%'+sanitize(i)+"\n") }
       a.shuffle!
-      a.each do |i| 
+      a.each do |i|
         text=i
         if text.size>255
           text=i[0,220]+"...(ERROR: text too long)"
         end
-        s << text 
+        s << text
       end
       s=s+"}\n\n"
 	when :boolean
@@ -49,9 +49,9 @@ class Question
       s << "{\n"
       a=[]
       @matching.each do |i|
-        i[0]=i[0][0,220]+"...(ERROR: too long)" if i[0].size>255
-        i[1]=i[1][0,220]+"...(ERROR: too long)" if i[1].size>255
-        a << "  =#{sanitize(i[0])} -> #{sanitize(i[1])}\n" 
+        i[0]=i[0][0,220]+"...(ERROR: text too long)" if i[0].size>255
+        i[1]=i[1][0,220]+"...(ERROR: text too long)" if i[1].size>255
+        a << "  =#{sanitize(i[0])} -> #{sanitize(i[1])}\n"
       end
       a.shuffle!
       a.each { |i| s << i }
@@ -63,24 +63,24 @@ class Question
         text=i[0,220]+"...(ERROR: too long)" if text.size>255
         s << "  =%100%#{text}#\n"
       end
-      
+
       s << "}\n\n"
     end
     return s
   end
-	
+
   def to_s
     s=""
     s=s+"// #{sanitize(@comment)}\n" if !@comment.nil?
     s=s+"::#{@name}::[html]#{sanitize(@text)}\n"
-		
+
     case @type
     when :choice
       s=s+"{\n"
       a=["  =#{sanitize(@good)}\n"]
       @bads.each { |i| a << ('  ~%-25%'+sanitize(i)+"\n") }
       a.shuffle!
-      a.each do |i| 
+      a.each do |i|
         text=i
         text=i[0,220]+"...(ERROR: too long)" if text.size>255
         s << text
@@ -93,7 +93,7 @@ class Question
       @matching.each do |i|
         i[0]=i[0][0,220]+"...(ERROR: too long)" if i[0].size>255
         i[1]=i[1][0,220]+"...(ERROR: too long)" if i[1].size>255
-        a << "  =#{sanitize(i[0])} -> #{sanitize(i[1])}\n" 
+        a << "  =#{sanitize(i[0])} -> #{sanitize(i[1])}\n"
       end
       s=s+"}\n\n"
     when :short
@@ -103,11 +103,11 @@ class Question
     end
 	return s
   end
-	
+
   def set_choice
     @type=:choice
   end
-	
+
   def set_match
     @type=:match
   end
@@ -115,7 +115,7 @@ class Question
   def set_boolean
     @type=:boolean
   end
-	
+
   def set_short
     @type=:short
   end
@@ -123,7 +123,7 @@ class Question
   def reset
     init
   end
-	
+
 private
 
   def sanitize(psText="")
@@ -132,5 +132,5 @@ private
     lsText.sub!("=","\\=")
     return lsText
   end
-	
+
 end
