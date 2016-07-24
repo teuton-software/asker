@@ -20,16 +20,13 @@ Two Steps:
 #Run demo
 
 Execute `./darts input/en/starwars/jedi.haml` to run this demo.
-You will see messages on the screen, while the tool is working.
+> On Windows try with `ruby darts input/en/starwars/jedi.haml`
 
-> **NOTICE**
->
 > Prefix:
 > * Use `en` prefix for the English demo.
 > * Use `es` prefix for the Spanish demo.
->
-> To execute on Windows do `ruby darts input/en/starwars/jedi.haml`
 
+You will see messages on the screen, while the tool is working.
 At the end we'll have our output files into the `output` directory.
 
 In our example, we use sample input definition file, saved on `input/en/starwars`.
