@@ -9,7 +9,7 @@ class Application
   def initialize
     @name="darts-of-teacher"
     @version="0.9.0"
-    
+
     @param={}
     @param[:inputbasedir]    = "input"
     @param[:outputdir]       = "output"
@@ -23,7 +23,7 @@ class Application
   def fill_param_with_values
     ext = ".haml"
 
-    @param[:process_file] = @param[:process_file] || @param[:projectdir].split("/").last + ext
+    @param[:process_file] = @param[:process_file] || @param[:projectdir].split(File::SEPARATOR).last + ext
     @param[:projectname]  = @param[:projectname] || File.basename( @param[:process_file], ext)
     @param[:inputdirs]=@param[:inputdirs] || "input/#{@param[:projectdir]}"
     @param[:outputname]=@param[:outputname] || "#{@param[:projectname]}-gift.txt"
