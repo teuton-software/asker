@@ -9,12 +9,8 @@ class Application
   def initialize
     @name="darts-of-teacher"
     @version="0.9.0"
+    
     @param={}
-
-    set_default_values
-  end
-
-  def set_default_values
     @param[:inputbasedir]    = "input"
     @param[:outputdir]       = "output"
     @param[:category]        = :none
