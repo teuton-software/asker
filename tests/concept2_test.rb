@@ -2,7 +2,7 @@
 
 require "minitest/autorun"
 require 'rexml/document'
-require_relative "../lib/concept2/concept_data"
+require_relative "../lib/concept2/concept"
 
 class TestResult < Minitest::Test
   def setup
@@ -11,7 +11,7 @@ class TestResult < Minitest::Test
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name="concept" then
-        @concept << ConceptData.new(xml_data, "pFilename", "en", [])
+        @concept << Concept.new(xml_data, "en", [])
       end
     end
   end
