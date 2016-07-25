@@ -1,6 +1,5 @@
 #!/usr/bin/ruby
 # encoding: utf-8
-#
 
 require 'singleton'
 require 'yaml'
@@ -14,14 +13,6 @@ require_relative 'tool/log_actions'
 require_relative 'tool/input_actions'
 require_relative 'tool/show_actions'
 
-=begin
-The main method of this class is "run", this does
-1) Inicialize configuration parameter values.
-2) Read HAML/XML files from the directories indicated by "inputdirs" values.
-3) Process the contents and definitions from this HAML/XML files.
-4) Create GIFT questions from this contens and save output files into output directory
-=end
-
 class Tool
   include Singleton
   include CreateActions
@@ -34,16 +25,16 @@ class Tool
     create_log_file
     load_input_files
     show_data if Application.instance.show_mode!=:none
-	create_output_files
-	show_stats
-	close_log_file
+	  create_output_files
+	  show_stats
+	  close_log_file
   end
 
   def init(pArgs={})
-	app=Application.instance
+	  app=Application.instance
 
     if pArgs.class==Hash then
-      app.param=pArgs
+      app.param.merge!(pArgs)
     elsif pArgs.class==String then
       if not File.exist?(pArgs)
         verbose Rainbow("[WARN] Tool.init: ").yellow+Rainbow(pArgs).yellow.bright+Rainbow(" dosn't exists!").yellow
@@ -73,7 +64,7 @@ class Tool
       exit
     end
 
-    app.fill_param_with_default_values
+    app.fill_param_with_values
     verbose Rainbow("Initial Params:").blue.bright
     verbose Rainbow("  * inputdirs    = #{app.param[:inputdirs]}").blue.bright
     verbose Rainbow("  * process_file = #{app.param[:process_file]}").blue.bright
