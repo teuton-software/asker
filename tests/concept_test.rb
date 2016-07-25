@@ -2,6 +2,7 @@
 
 require "minitest/autorun"
 require 'rexml/document'
+
 require_relative "../lib/concept/concept"
 require_relative "../lib/concept/table"
 
@@ -83,6 +84,12 @@ class TestResult < Minitest::Test
     for i in 0..2
       assert_equal lRows[i], @concept[0].tables[0].rows[i]
     end
+  end
+
+  def test_calculate_nearest_to_concept
+    assert_equal 28.571428571428573, @concept[0].calculate_nearness_to_concept(@concept[1])
+    assert_same 66.66666666666667, @concept[1].calculate_nearness_to_concept(@concept[0])
+
   end
 
   def get_xml_data

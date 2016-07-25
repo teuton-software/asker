@@ -66,6 +66,7 @@ class TestLang < Minitest::Test
     assert_equal :choice, q.type
     assert_equal "good 2", q.good
     assert_equal [ "bad1", "bad2", "bad3" ], q.bads
+    assert_equal 3, q.bads.size
 
     q.reset
 
