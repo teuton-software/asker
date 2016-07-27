@@ -1,5 +1,7 @@
 # encoding: utf-8
+
 require 'singleton'
+require_relative 'application'
 
 class Project
   include Singleton

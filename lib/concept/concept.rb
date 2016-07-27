@@ -6,7 +6,7 @@ require 'set'
 require 'terminal-table'
 
 require_relative '../lang/lang'
-require_relative '../application'
+require_relative '../project'
 require_relative '../tool'
 require_relative 'ia'
 require_relative 'question'
@@ -26,7 +26,7 @@ class Concept
     @id=@@id
     @num = 0 #Number of questions. Used by <tool/show_actions> module
 
-    @weights=Application.instance.formula_weights
+    @weights=Project.instance.formula_weights
     @output=true
 
     @filename=pFilename

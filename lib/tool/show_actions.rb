@@ -1,29 +1,29 @@
 #!/usr/bin/ruby
-# encoding: utf-8
 
 require 'terminal-table'
 
 module ShowActions
 
   def show_data
-	  app=Application.instance
+	  project=Project.instance
+    return if project.show_mode==:none
 
-    verbose "[INFO] Showing concept data <#{Rainbow(app.show_mode.to_s).bright}>..."
+    project.verbose "[INFO] Showing concept data <#{Rainbow(project.show_mode.to_s).bright}>..."
 
-    case app.show_mode
+    case project.show_mode
     when :resume
 	    s="* Concepts ("+@concepts.count.to_s+"): "
 	    @concepts.each_value { |c| s=s+c.name+", " }
-	    verbose s
+	    project.verbose s
     when :default
-	    @concepts.each_value { |c| verbose c.to_s if c.process? }
+	    @concepts.each_value { |c| project.verbose c.to_s if c.process? }
 	  end
   end
 
   def show_stats
-	  app=Application.instance
-    return if app.show_mode==:none
-    verbose "[INFO] Showing concept stats...\n"
+	  project=Project.instance
+    return if project.show_mode==:none
+    project.verbose "[INFO] Showing concept stats...\n"
     total_q=total_e=total_c=0
 
     my_screen_table = Terminal::Table.new do |st|
@@ -51,6 +51,6 @@ module ShowActions
     end
     my_screen_table.add_separator
     my_screen_table.add_row [ Rainbow("TOTAL = #{total_c.to_s}").bright,Rainbow(total_q.to_s).bright,Rainbow(total_e.to_s).bright,Rainbow((total_q.to_f*100.0/total_e.to_f).to_i).bright ]
-    verbose my_screen_table.to_s+"\n"
+    project.verbose my_screen_table.to_s+"\n"
   end
 end

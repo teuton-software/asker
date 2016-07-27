@@ -2,7 +2,7 @@
 
 require 'rexml/document'
 
-require_relative '../application'
+require_relative '../project'
 require_relative '../lang/lang'
 require_relative '../tool'
 require_relative 'table'
@@ -56,7 +56,7 @@ class Concept
   end
 
   def calculate_nearness_to_concept(pConcept)
-		weights = Application.instance.formula_weights
+		weights = Project.instance.formula_weights
 
     liMax1=@data[:context].count
     liMax2=@data[:tags].count

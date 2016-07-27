@@ -22,7 +22,7 @@ module CreateActions
 
     if project.param[:lessonfile]!=:none then
       #Create lesson file
-      lFile=File.new(projecto.lessonpath,'w')
+      lFile=File.new(project.lessonpath,'w')
       @concepts.each_value do |c|
         c.write_lesson_to(lFile) if c.process?
       end

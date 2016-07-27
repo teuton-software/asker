@@ -20,10 +20,10 @@ class Tool
   def run(pArgs={})
     init pArgs
     load_input_files
-    show_data if Project.instance.show_mode!=:none
+    show_data
 	  create_output_files
 	  show_stats
-	  close_log_file
+	  Project.instance.close
   end
 
   def init(pArgs={})
