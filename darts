@@ -23,9 +23,7 @@ def show_help
 end
 
 def show_version
-  app=Application.instance
-  t = Rainbow(app.name).bright.blue+" (version "+Rainbow(app.version).green+")"
-  puts t
+  puts Rainbow(Application::name).bright.blue+" (version "+Rainbow(Application::version).green+")"
 end
 
 if ARGV.count==0 then
