@@ -1,7 +1,6 @@
 #!/usr/bin/ruby
 # encoding: utf-8
 
-require 'singleton'
 require 'yaml'
 require 'rainbow'
 
@@ -12,7 +11,6 @@ require_relative 'tool/input_actions'
 require_relative 'tool/show_actions'
 
 class Tool
-  include Singleton
   include CreateActions
   include InputActions
   include ShowActions
