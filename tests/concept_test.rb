@@ -89,7 +89,6 @@ class TestResult < Minitest::Test
   def test_calculate_nearest_to_concept
     assert_equal 28.571428571428573, @concept[0].calculate_nearness_to_concept(@concept[1])
     assert_same 66.66666666666667, @concept[1].calculate_nearness_to_concept(@concept[0])
-
   end
 
   def get_xml_data
