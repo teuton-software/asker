@@ -200,7 +200,7 @@ private
       when 'context'
         #DEPRECATED: Don't use xml tag <context> instead define it as attibute of root xml tag
         msg="   │  "+Rainbow(" [DEPRECATED] Concept ").yellow+Rainbow(name).yellow.bright+Rainbow(" use XMLtag <context>. Instead define it as root attibute.").yellow
-        Tool.instance.verbose msg
+        Project.instance.verbose msg
         @data[:context]=i.text.split(",")
         @data[:context].collect! { |k| k.strip }
       when 'tags'
@@ -209,11 +209,11 @@ private
       when 'text'
         #DEPRECATED: Use xml tag <def> instead of <text>
         msg="   │  "+Rainbow(" [DEPRECATED] Concept ").yellow+Rainbow(name).yellow.bright+Rainbow(" use XMLtag <text>, Instead use <def> tag.").yellow
-        Tool.instance.verbose msg
+        Project.instance.verbose msg
         @data[:texts] << i.text.strip
       when 'def'
         if i.attributes['image']
-          puts Rainbow("[DEBUG] Concept#read_data_from_xml: #{Rainbow(i.attributes['image']).bright}").yellow
+          Project.verbose Rainbow("[DEBUG] Concept#read_data_from_xml: #{Rainbow(i.attributes['image']).bright}").yellow
           @data[:images] << i.attributes['image'].strip
         else
           @data[:texts] << i.text.strip
@@ -222,7 +222,7 @@ private
         @data[:tables] << Table.new(self,i)
       else
         msg = Rainbow("   [ERROR] <#{i.name}> attribute into XMLdata (concept#read_data_from_xml)").color(:red)
-        Tool.instance.verbose msg
+        Project.instance.verbose msg
       end
     end
   end
