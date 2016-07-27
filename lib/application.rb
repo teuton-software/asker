@@ -21,6 +21,7 @@ class Application
   end
 
   def fill_param_with_values
+    #We need at least process_file and inputdirs params
     ext = ".haml"
 
     @param[:process_file] = @param[:process_file] || @param[:projectdir].split(File::SEPARATOR).last + ext
