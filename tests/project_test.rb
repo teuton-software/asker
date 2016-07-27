@@ -12,7 +12,7 @@ class TestResult < Minitest::Test
     assert_equal "input", @project.param[:inputbasedir]
   end
 
-  def test_fill_param_with_values
+  def test_open
     dirname     = "path/to/dir/"
     projectname = "myfile"
     filename    = projectname+".haml"
@@ -21,7 +21,7 @@ class TestResult < Minitest::Test
     @project.param[:process_file] = filename
 
     assert_equal 9, @project.param.size
-    @project.fill_param_with_values
+    @project.open
     assert_equal 18, @project.param.size
 
     assert_equal dirname , @project.param[:projectdir]

@@ -58,7 +58,7 @@ class Tool
       exit
     end
 
-    project.fill_param_with_values
+    project.open
     project.verbose Rainbow("Initial Params:").blue.bright
     project.verbose Rainbow("  * inputdirs    = #{project.param[:inputdirs]}").blue.bright
     project.verbose Rainbow("  * process_file = #{project.param[:process_file]}").blue.bright
