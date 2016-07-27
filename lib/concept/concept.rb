@@ -7,7 +7,6 @@ require 'terminal-table'
 
 require_relative '../lang/lang'
 require_relative '../project'
-require_relative '../tool'
 require_relative 'ia'
 require_relative 'question'
 require_relative 'table'
@@ -51,7 +50,9 @@ class Concept
 
 	  read_data_from_xml(pXMLdata)
 
-    @data[:misspelled]=misspelled_name
+    @data[:misspelled]=misspelled_name #revise this???
+
+    @questions=[]
   end
 
   def name
@@ -105,19 +106,17 @@ class Concept
 	end
     t.add_row [Rainbow(".def(text)").color(:blue), lText.join("\n")]
     t.add_row [Rainbow(".def(images)").color(:blue), images.join(", ").to_s]
-
-	if tables.count>0 then
+	  if tables.count>0 then
+	    lText=[]
+	    tables.each { |i| lText << i.to_s }
+	    t.add_row [ Rainbow(".tables").color(:blue), lText.join("\n")]
+	  end
 	  lText=[]
-	  tables.each { |i| lText << i.to_s }
-	  t.add_row [ Rainbow(".tables").color(:blue), lText.join("\n")]
-	end
-
-	lText=[]
-	neighbors[0..5].each { |i| lText << i[:concept].name+"("+i[:value].to_s[0..4]+")" }
-	t.add_row [Rainbow(".neighbors").color(:blue),lText.join("\n")]
+	  neighbors[0..5].each { |i| lText << i[:concept].name+"("+i[:value].to_s[0..4]+")" }
+	  t.add_row [Rainbow(".neighbors").color(:blue),lText.join("\n")]
 
     out << t.to_s+"\n"
-	return out
+	  return out
   end
 
   def write_questions_to(pFile)
