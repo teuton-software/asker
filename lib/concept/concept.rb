@@ -124,7 +124,6 @@ class Concept
 
     #IA process every <text> definition
     @questions[:stage_a] = run_stage_a #process_texts
-    puts Rainbow("* [DEBUG] stage_a #{ @questions[:stage_a].size } vs #{@num}").yellow
 
     #IA process every table of this concept
     tables.each do |lTable|
@@ -151,15 +150,15 @@ class Concept
 
       list3=list1+list2
       @questions[:stage_b] = run_stage_b(lTable, list1, list2) #process table match
-      puts Rainbow("* [DEBUG] stage_b #{ @questions[:stage_b].size } vs #{@num}").yellow
+
+      @questions[:stage_c] = []
+      list1.each do |lRow|
+        reorder_list_with_row(list3, lRow)
+        @questions[:stage_c] = @questions[:stage_c] + run_stage_c(lTable, lRow, list3) #process_tableXfields
+      end
 
       process_table1field(lTable, list1, list2)
       process_sequence(lTable, list1, list2)
-
-      list1.each do |lRow|
-        reorder_list_with_row(list3, lRow)
-        process_tableXfields(lTable, lRow, list3)
-      end
     end
   end
 
@@ -213,7 +212,7 @@ private
         @data[:texts] << i.text.strip
       when 'def'
         if i.attributes['image']
-          Project.verbose Rainbow("[DEBUG] Concept#read_data_from_xml: #{Rainbow(i.attributes['image']).bright}").yellow
+          Project.instance.verbose Rainbow("[DEBUG] Concept#read_data_from_xml: #{Rainbow(i.attributes['image']).bright}").yellow
           @data[:images] << i.attributes['image'].strip
         else
           @data[:texts] << i.text.strip

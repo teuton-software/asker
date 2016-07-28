@@ -53,4 +53,29 @@ module ShowActions
     my_screen_table.add_row [ Rainbow("TOTAL = #{total_c.to_s}").bright,Rainbow(total_q.to_s).bright,Rainbow(total_e.to_s).bright,Rainbow((total_q.to_f*100.0/total_e.to_f).to_i).bright ]
     project.verbose my_screen_table.to_s+"\n"
   end
+
+  def show_stage_stats
+	  project=Project.instance
+    return if project.show_mode==:none
+    project.verbose "\n[INFO] Showing concept STAGE stats...\n"
+
+    my_screen_table = Terminal::Table.new do |st|
+      st << ['Concept','A','B','C','Total','...', 'num']
+      st << :separator
+    end
+
+    @concepts.each_value do |concept|
+      if concept.process?
+        a = concept.questions[:stage_a].size
+        b = concept.questions[:stage_b].size
+        c = concept.questions[:stage_c].size
+        t = a+b+c
+        f = (concept.num-t)
+        n = concept.num.to_s
+        my_screen_table.add_row [Rainbow(concept.name).color(:green),a.to_s, b.to_s, c.to_s, t.to_s, f.to_s, n.to_s]
+      end
+    end
+    project.verbose my_screen_table.to_s+"\n"
+  end
+
 end

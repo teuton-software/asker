@@ -21,6 +21,7 @@ class Tool
     show_data
 	  create_output_files
 	  show_stats
+    show_stage_stats
 	  Project.instance.close
   end
 

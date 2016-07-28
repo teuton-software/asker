@@ -2,23 +2,25 @@
 
 module IA_stage_c
   #range c1-c9
-  
-  def process_tableXfields(pTable, pRow, pList)
+
+  def run_stage_c(pTable, pRow, pList) #process_tableXfields
+    questions = []
     if pTable.fields.count>1 then
-      process_table2fields(pTable, pRow, pList, 0, 1)
+      questions = questions + process_table2fields(pTable, pRow, pList, 0, 1)
     elsif pTable.fields.count>2 then
-      process_table2fields(pTable, pRow, pList, 0, 2)
-      process_table2fields(pTable, pRow, pList, 1, 2)
+      questions = questions + process_table2fields(pTable, pRow, pList, 0, 2)
+      questions = questions + process_table2fields(pTable, pRow, pList, 1, 2)
     elsif pTable.fields.count>3 then
-      process_table2fields(pTable, pRow, pList, 0, 3)
-      process_table2fields(pTable, pRow, pList, 1, 3)
-      process_table2fields(pTable, pRow, pList, 2, 3)
+      questions = questions + process_table2fields(pTable, pRow, pList, 0, 3)
+      questions = questions + process_table2fields(pTable, pRow, pList, 1, 3)
+      questions = questions + process_table2fields(pTable, pRow, pList, 2, 3)
     end
+
+    return questions
   end
 
   def process_table2fields(lTable, lRow, pList, pCol1, pCol2)
-    q=Question.new
-
+    questions = []
     #create gift questions
 
     # Using the column #0
@@ -28,6 +30,7 @@ module IA_stage_c
 
     if s.count>3 then
       @num+=1
+      q=Question.new
       q.init
       q.name="#{name}-#{@num.to_s}-c1table-#{lTable.name}"
       q.text=@lang.text_for(:c1table, name, lTable.fields[0].capitalize, lTable.fields[1].capitalize, lRow[:data][1])
@@ -36,6 +39,7 @@ module IA_stage_c
       q.bads << a[2]
       q.bads << a[3]
       q.write_to_file @file
+      questions << q
     end
 
     s=Set.new [ lRow[:data][0], @lang.text_for(:none) ]
@@ -44,6 +48,7 @@ module IA_stage_c
 
     if s.count>4 then
       @num+=1
+      q=Question.new
       q.init
       q.name="#{name}-#{@num.to_s}-c2table-#{lTable.name}"
       q.text=@lang.text_for(:c2table, name, lTable.fields[0].capitalize, lTable.fields[1].capitalize, lRow[:data][1])
@@ -52,6 +57,7 @@ module IA_stage_c
       q.bads << a[3]
       q.bads << a[4]
       q.write_to_file @file
+      questions << q
     end
 
     # Using the column #1
@@ -61,6 +67,7 @@ module IA_stage_c
 
     if s.count>3 then
       @num+=1
+      q=Question.new
       q.init
       q.name="#{name}-#{@num.to_s}-c3table-#{lTable.name}"
       q.text=@lang.text_for(:c3table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize)
@@ -69,6 +76,7 @@ module IA_stage_c
       q.bads << a[2]
       q.bads << a[3]
       q.write_to_file @file
+      questions << q
     end
 
     s=Set.new [ lRow[:data][1], @lang.text_for(:none) ]
@@ -77,6 +85,7 @@ module IA_stage_c
 
     if s.count>4 then
       @num+=1
+      q=Question.new
       q.init
       q.name="#{name}-#{@num.to_s}-c4table-#{lTable.name}"
       q.text=@lang.text_for(:c4table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize)
@@ -85,16 +94,19 @@ module IA_stage_c
       q.bads << a[3]
       q.bads << a[4]
       q.write_to_file @file
+      questions << q
     end
 
     # Boolean association TRUE
     @num+=1
+    q=Question.new
     q.init
     q.set_boolean
     q.name="#{name}-#{@num.to_s}c5table-#{lTable.name}"
     q.text=@lang.text_for(:c5table, name, lTable.fields[0].capitalize, lRow[:data][0] ,lTable.fields[1].capitalize, lRow[:data][1] )
     q.good="TRUE"
     q.write_to_file @file
+    questions << q
 
     # Boolean association FALSE
     s=Set.new [ lRow[:data][1] ]
@@ -103,12 +115,14 @@ module IA_stage_c
 
     if s.count>1 then
       @num+=1
+      q=Question.new
       q.init
       q.set_boolean
       q.name="#{name}-#{@num.to_s}-c6table-#{lTable.name}"
       q.text=@lang.text_for(:c6table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize, a[1] )
       q.good="FALSE"
       q.write_to_file @file
+      questions << q
     end
 
     s=Set.new [ lRow[:data][0] ]
@@ -117,17 +131,20 @@ module IA_stage_c
 
     if s.count>1 then
       @num+=1
+      q=Question.new
       q.init
       q.set_boolean
       q.name="#{name}-#{@num.to_s}c7table-#{lTable.name}"
       q.text=@lang.text_for(:c7table, name, lTable.fields[0].capitalize, a[1], lTable.fields[1].capitalize, lRow[:data][1] )
       q.good="FALSE"
       q.write_to_file @file
+      questions << q
     end
 
     # Short answer with column #0, 1 word
     if @lang.count_words(lRow[:data][0])==1 then
       @num+=1
+      q=Question.new
       q.init
       q.set_short
       q.name="#{name}-#{@num.to_s}c8table-#{lTable.name}"
@@ -135,8 +152,10 @@ module IA_stage_c
       q.shorts << lRow[:data][0]
       q.shorts << lRow[:data][0].gsub("-"," ").gsub("_"," ")
       q.write_to_file @file
+      questions << q
     elsif @lang.count_words(lRow[:data][0])==2 then
       @num+=1
+      q=Question.new
       q.init
       q.set_short
       q.name="#{name}-#{@num.to_s}c9table-#{lTable.name}"
@@ -144,11 +163,13 @@ module IA_stage_c
       q.shorts << lRow[:data][0]
       q.shorts << lRow[:data][0].gsub("-"," ").gsub("_"," ")
       q.write_to_file @file
+      questions << q
     end
 
     # Short answer with column #1, 1 word
     if @lang.count_words(lRow[:data][1])==1 then
       @num+=1
+      q=Question.new
       q.init
       q.set_short
       q.name="#{name}-#{@num.to_s}c8table-#{lTable.name}"
@@ -156,8 +177,10 @@ module IA_stage_c
       q.shorts << lRow[:data][1]
       q.shorts << lRow[:data][1].gsub("-"," ").gsub("_"," ")
       q.write_to_file @file
+      questions << q
     elsif @lang.count_words(lRow[:data][1])==2 then
       @num+=1
+      q=Question.new
       q.init
       q.set_short
       q.name="#{name}-#{@num.to_s}c9table-#{lTable.name}"
@@ -165,7 +188,9 @@ module IA_stage_c
       q.shorts << lRow[:data][1]
       q.shorts << lRow[:data][1].gsub("-"," ").gsub("_"," ")
       q.write_to_file @file
+      questions << q
     end
-
+    return questions
   end
+
 end
