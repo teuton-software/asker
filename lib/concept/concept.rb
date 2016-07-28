@@ -122,7 +122,7 @@ class Concept
     @file=pFile
     @file.write "\n// Concept name: #{name}\n"
 
-    #IA process every <text> definition
+    #Stage A: IA process every <text> definition
     @questions[:stage_a] = run_stage_a #process_texts
 
     #IA process every table of this concept
@@ -149,15 +149,20 @@ class Concept
       end
 
       list3=list1+list2
+
+      #Stage B
       @questions[:stage_b] = run_stage_b(lTable, list1, list2) #process table match
 
+      #Stage C
       @questions[:stage_c] = []
       list1.each do |lRow|
         reorder_list_with_row(list3, lRow)
         @questions[:stage_c] = @questions[:stage_c] + run_stage_c(lTable, lRow, list3) #process_tableXfields
       end
 
-      process_table1field(lTable, list1, list2)
+      #Stage D
+      @questions[:stage_d] = run_stage_d(lTable, list1, list2) #process_table1field
+
       process_sequence(lTable, list1, list2)
     end
   end

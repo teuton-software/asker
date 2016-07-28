@@ -27,24 +27,30 @@ module ShowActions
     total_q=total_e=total_c=0
 
     my_screen_table = Terminal::Table.new do |st|
-      st << ['Concept','Questions','Entries','Productivity %']
+      st << ['Concept','Questions','Entries','Productivity %','a','b','c','d','...']
       st << :separator
     end
 
-    @concepts.each_value do |c|
-      if c.process?
-        e=c.data[:texts].size
-        c.data[:tables].each { |t| e=e+t.data[:fields].size*t.data[:rows].size }
+    @concepts.each_value do |concept|
+      if concept.process?
+        e = concept.data[:texts].size
+        concept.data[:tables].each { |t| e=e+t.data[:fields].size*t.data[:rows].size }
 
         if e==0 then
           porcent="Unkown"
         else
-          porcent=(c.num.to_f/e.to_f*100.0).to_i.to_s+"%"
+          porcent=(concept.num.to_f/e.to_f*100.0).to_i.to_s+"%"
         end
 
-        my_screen_table.add_row [Rainbow(c.name).color(:green),c.num.to_s,e.to_s, porcent]
+        a = concept.questions[:stage_a].size
+        b = concept.questions[:stage_b].size
+        c = concept.questions[:stage_c].size
+        d = concept.questions[:stage_d].size
+        t = a+b+c+d
+        f = (concept.num-t)
+        my_screen_table.add_row [Rainbow(concept.name).color(:green),concept.num.to_s,e.to_s, porcent,a,b,c,d,f]
 
-        total_q+=c.num
+        total_q+=concept.num
         total_e+=e
         total_c+=1
       end
@@ -60,19 +66,14 @@ module ShowActions
     project.verbose "\n[INFO] Showing concept STAGE stats...\n"
 
     my_screen_table = Terminal::Table.new do |st|
-      st << ['Concept','A','B','C','Total','...', 'num']
+      st << ['Concept','A','B','C','D', 'Total','...', 'num']
       st << :separator
     end
 
     @concepts.each_value do |concept|
       if concept.process?
-        a = concept.questions[:stage_a].size
-        b = concept.questions[:stage_b].size
-        c = concept.questions[:stage_c].size
-        t = a+b+c
-        f = (concept.num-t)
         n = concept.num.to_s
-        my_screen_table.add_row [Rainbow(concept.name).color(:green),a.to_s, b.to_s, c.to_s, t.to_s, f.to_s, n.to_s]
+        my_screen_table.add_row [Rainbow(concept.name).color(:green),a.to_s, b.to_s, c.to_s, d.to_s, t.to_s, f.to_s, n.to_s]
       end
     end
     project.verbose my_screen_table.to_s+"\n"
