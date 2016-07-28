@@ -123,8 +123,9 @@ class Concept
     @file.write "\n// Concept name: #{name}\n"
 
     #IA process every <text> definition
-    process_texts
-
+    @questions[:stage_a] = run_stage_a #process_texts
+    puts "[DEBUG] stage_a #{ @questions[:stage_a].size } vs #{@num}"
+    
     #IA process every table of this concept
     tables.each do |lTable|
       #create <list1> with all the rows from the table

@@ -12,7 +12,8 @@ module IA
   include IA_table1field
   include IA_texts
 
-  def process_texts
+  def run_stage_a
+    #process_texts
     questions=[]
     q=Question.new
 
