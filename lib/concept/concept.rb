@@ -124,8 +124,8 @@ class Concept
 
     #IA process every <text> definition
     @questions[:stage_a] = run_stage_a #process_texts
-    puts "[DEBUG] stage_a #{ @questions[:stage_a].size } vs #{@num}"
-    
+    puts Rainbow("* [DEBUG] stage_a #{ @questions[:stage_a].size } vs #{@num}").yellow
+
     #IA process every table of this concept
     tables.each do |lTable|
       #create <list1> with all the rows from the table
@@ -150,7 +150,9 @@ class Concept
       end
 
       list3=list1+list2
-      process_table_match(lTable, list1, list2)
+      @questions[:stage_b] = run_stage_b(lTable, list1, list2) #process table match
+      puts Rainbow("* [DEBUG] stage_b #{ @questions[:stage_b].size } vs #{@num}").yellow
+
       process_table1field(lTable, list1, list2)
       process_sequence(lTable, list1, list2)
 
