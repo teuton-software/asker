@@ -2,10 +2,13 @@
 
 module IA_stage_e
 
-  def run_stage_e(pTable, pList1, pList2) #process_sequence
-    return if not ( pTable.fields.count==1 and pTable.sequence?)
+  def run_stage_e(pTable, pList1, pList2)
+    #process_sequence
+    questions = []
 
-    q=Question.new
+    if not ( pTable.fields.count==1 and pTable.sequence?)
+      return questions
+    end
 
     #TODO
     #items=[]
@@ -13,10 +16,11 @@ module IA_stage_e
     #puts Rainbow(items).blue.bright
 
     #Question type <d3sequence>: items are part of a sequence
-	if pList1.count>3 and pTable.sequence[0]!=""
-	  a=0..(pList1.count-4)
-	  a.each_entry do |i|
+    if pList1.count>3 and pTable.sequence[0]!=""
+	    a=0..(pList1.count-4)
+	    a.each_entry do |i|
         @num+=1
+        q=Question.new
         q.init
         q.set_match
         q.name="#{name}-#{@num.to_s}-e1sequence-#{pTable.name}"
@@ -26,6 +30,7 @@ module IA_stage_e
         q.matching << [ pList1[i+2][:data][0], '3º' ]
         q.matching << [ pList1[i+3][:data][0], '4º' ]
         q.write_to_file @file
+        questions << q
       end
     end
 
@@ -34,6 +39,7 @@ module IA_stage_e
 	    a=0..(pList1.count-4)
 	    a.each_entry do |i|
         @num+=1
+        q=Question.new
         q.init
         q.set_match
         q.name="#{name}-#{@num.to_s}-e2sequence-#{pTable.name}"
@@ -43,8 +49,11 @@ module IA_stage_e
         q.matching << [ pList1[i+1][:data][0], '3º' ]
         q.matching << [ pList1[i+0][:data][0], '4º' ]
         q.write_to_file @file
+        questions << q
       end
 	  end
+
+    return questions
   end
 
 end

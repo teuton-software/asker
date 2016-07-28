@@ -27,7 +27,7 @@ module ShowActions
     total_q=total_e=total_c=0
 
     my_screen_table = Terminal::Table.new do |st|
-      st << ['Concept','Questions','Entries','Productivity %','a','b','c','d','e','...']
+      st << ['Concept','Questions','Entries','Productivity %','a','b','c','d','e']
       st << :separator
     end
 
@@ -46,10 +46,13 @@ module ShowActions
         sb = concept.questions[:stage_b].size
         sc = concept.questions[:stage_c].size
         sd = concept.questions[:stage_d].size
-        se = 0#concept.questions[:stage_e].size
+        se = concept.questions[:stage_e].size
         t = sa+sb+sc+sd+se
         f = (concept.num-t)
-        my_screen_table.add_row [Rainbow(concept.name).color(:green),concept.num.to_s,e.to_s, porcent,sa,sb,sc,sd,se,f]
+        if f!=0 then
+          project.verbose( Rainbow("[ERROR] Tool#show_stats: Missing #{f.to_s} questions").red )
+        end
+        my_screen_table.add_row [Rainbow(concept.name).color(:green),concept.num.to_s,e.to_s, porcent,sa,sb,sc,sd,se]
 
         total_q+=concept.num
         total_e+=e

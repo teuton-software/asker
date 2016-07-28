@@ -122,8 +122,13 @@ class Concept
     @file=pFile
     @file.write "\n// Concept name: #{name}\n"
 
-    #Stage A: IA process every <text> definition
-    @questions[:stage_a] = run_stage_a #process_texts
+
+    #Stage A: IA process every <def> definition
+    @questions[:stage_a] = run_stage_a
+    @questions[:stage_b] = []
+    @questions[:stage_c] = []
+    @questions[:stage_d] = []
+    @questions[:stage_e] = []
 
     #IA process every table of this concept
     tables.each do |lTable|
@@ -150,20 +155,20 @@ class Concept
 
       list3=list1+list2
 
-      #Stage B
-      @questions[:stage_b] = run_stage_b(lTable, list1, list2) #process table match
+      #Stage B: process table match
+      @questions[:stage_b] = @questions[:stage_b] + run_stage_b(lTable, list1, list2)
 
-      #Stage C
-      @questions[:stage_c] = []
+      #Stage C: process_tableXfields
       list1.each do |lRow|
         reorder_list_with_row(list3, lRow)
-        @questions[:stage_c] = @questions[:stage_c] + run_stage_c(lTable, lRow, list3) #process_tableXfields
+        @questions[:stage_c] = @questions[:stage_c] + run_stage_c(lTable, lRow, list3)
       end
 
-      #Stage D
-      @questions[:stage_d] = run_stage_d(lTable, list1, list2) #process_table1field
+      #Stage D: process table1field
+      @questions[:stage_d] = @questions[:stage_d] + run_stage_d(lTable, list1, list2)
 
-      run_stage_e(lTable, list1, list2) #process_sequence
+      #Stage E: process sequence
+      @questions[:stage_e] = @questions[:stage_e] + run_stage_e(lTable, list1, list2)
     end
   end
 
