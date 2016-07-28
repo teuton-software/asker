@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+require 'set'
 require_relative 'ia_calculate'
 require_relative 'ia_sequence'
 require_relative 'ia_table1field'
@@ -12,7 +13,9 @@ module IA
   include IA_texts
 
   def process_texts
+    questions=[]
     q=Question.new
+
     #for every <text> do this
     texts.each do |t|
       s=Set.new [name, @lang.text_for(:none)]
@@ -32,7 +35,7 @@ module IA
         q.bads << a[2]
         q.bads << a[3]
         q.write_to_file @file
-        @questions << q
+        questions << q
       end
 
       s.delete(name)

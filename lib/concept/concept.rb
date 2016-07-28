@@ -2,7 +2,6 @@
 
 require 'rainbow'
 require 'rexml/document'
-require 'set'
 require 'terminal-table'
 
 require_relative '../lang/lang'
