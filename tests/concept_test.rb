@@ -22,8 +22,9 @@ class TestResult < Minitest::Test
     assert_same @concept[0].id+1, @concept[1].id
   end
 
-  def test_num
+  def test_in_progress
     @concept.each { |c| assert_equal 0, c.num }
+    @concept.each { |c| assert_equal( {}, c.questions) }
   end
 
   def test_names

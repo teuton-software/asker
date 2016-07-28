@@ -15,7 +15,7 @@ class Concept
   include IA
 
   attr_reader :id, :data
-  attr_reader :num
+  attr_reader :num, :questions #in progress...
   attr_accessor :process
 
   @@id=0
@@ -23,7 +23,9 @@ class Concept
   def initialize(pXMLdata, pFilename, pLang="en", pContext=[])
     @@id+=1
     @id=@@id
+
     @num = 0 #Number of questions. Used by <tool/show_actions> module
+    @questions={}
 
     @weights=Project.instance.formula_weights
     @output=true
@@ -51,8 +53,6 @@ class Concept
 	  read_data_from_xml(pXMLdata)
 
     @data[:misspelled]=misspelled_name #revise this???
-
-    @questions=[]
   end
 
   def name
@@ -123,7 +123,6 @@ class Concept
     @file=pFile
     @file.write "\n// Concept name: #{name}\n"
 
-    @num=0
     #IA process every <text> definition
     process_texts
 
