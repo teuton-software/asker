@@ -163,7 +163,7 @@ class Concept
       #Stage D
       @questions[:stage_d] = run_stage_d(lTable, list1, list2) #process_table1field
 
-      process_sequence(lTable, list1, list2)
+      run_stage_e(lTable, list1, list2) #process_sequence
     end
   end
 
