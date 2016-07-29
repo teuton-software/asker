@@ -20,56 +20,9 @@ class Question
     @shorts=[]
   end
 
-  def write_to_file(pFile)
-    return
-    pFile.write self.to_gift
+  def write_to_file(pp)
   end
-
-  def to_gift
-    # Return question using gift format
-    s="// #{@comment}\n" if !@comment.nil?
-    s << "::#{@name}::[html]#{sanitize(@text)}\n"
-
-    case @type
-    when :choice
-      s=s+"{\n"
-      a=["  =#{sanitize(@good)}\n"]
-      @bads.each { |i| a << ('  ~%-25%'+sanitize(i)+"\n") }
-      a.shuffle!
-      a.each do |i|
-        text=i
-        if text.size>255
-          text=i[0,220]+"...(ERROR: text too long)"
-        end
-        s << text
-      end
-      s=s+"}\n\n"
-	  when :boolean
-      s << "{#{@good}}\n\n"
-    when :match
-      s << "{\n"
-      a=[]
-      @matching.each do |i,j|
-        i=i[0,220]+"...(ERROR: text too long)" if i.size>255
-        j=j[0,220]+"...(ERROR: text too long)" if j.size>255
-        a << "  =#{sanitize(i)} -> #{sanitize(j)}\n"
-      end
-      a.shuffle!
-      a.each { |i| s << i }
-      s << "}\n\n"
-    when :short
-      s << "{\n"
-      @shorts.each do |i|
-        text=i
-        text=i[0,220]+"...(ERROR: too long)" if text.size>255
-        s << "  =%100%#{text}#\n"
-      end
-
-      s << "}\n\n"
-    end
-    return s
-  end
-
+  
   def set_choice
     @type=:choice
   end
