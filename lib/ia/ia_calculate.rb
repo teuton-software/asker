@@ -1,10 +1,10 @@
 # encoding: utf-8
 
 module IA_calculate
-		
+
   def calculate_nearness_between_texts(pText1, pText2)
     return 0.0 if pText2.nil? or pText2.size==0
-		
+
     words=pText1.split(" ")
     count=0
     words.each { |w| count +=1 if pText2.include?(w) }
@@ -19,13 +19,13 @@ module IA_calculate
     lfAlike1=0.0
     lfAlike2=0.0
     lfAlike3=0.0
-		
-    @data[:context].each { |i| lfAlike1+=1.0 if !pConcept.context.index(i).nil? }	
+
+    @data[:context].each { |i| lfAlike1+=1.0 if !pConcept.context.index(i).nil? }
     @data[:tags].each { |i| lfAlike2+=1.0 if !pConcept.tags.index(i).nil? }
-    @data[:tables].each { |i| lfAlike3+=1.0 if !pConcept.tables.index(i).nil? }	
+    @data[:tables].each { |i| lfAlike3+=1.0 if !pConcept.tables.index(i).nil? }
 
     lfAlike =(lfAlike1*@weights[0]+lfAlike2*@weights[1]+lfAlike3*@weights[2])
-    liMax = (liMax1*@weights[0]+liMax2*@weights[1]+liMax3*@weights[2]) 
+    liMax = (liMax1*@weights[0]+liMax2*@weights[1]+liMax3*@weights[2])
     return ( lfAlike*100.0/ liMax )
   end
 
@@ -51,5 +51,5 @@ module IA_calculate
     pList.sort! { |a,b| a[:weight] <=> b[:weight] }
     pList.reverse!
   end
-	
+
 end
