@@ -6,6 +6,8 @@ require 'rainbow'
 
 require_relative 'project'
 require_relative 'concept/concept'
+require_relative 'formatter/concept_doc_formatter'
+require_relative 'formatter/concept_string_formatter'
 require_relative 'tool/input_actions'
 require_relative 'tool/show_actions'
 
@@ -15,14 +17,14 @@ class Tool
 
   def start(pArgs={})
     init pArgs
-    
+
     Project.instance.open
     load_input_files
     show_data
 
     Project.instance.verbose "\n[INFO] Creating output files..."
     @concepts.each_value { |c| c.write_questions_to_file }
-    @concepts.each_value { |c| c.write_lesson_to_file }
+    @concepts.each_value { |c| ConceptDocFormatter.new(c).export }
 
 	  show_stats
 	  Project.instance.close

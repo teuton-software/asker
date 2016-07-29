@@ -2,7 +2,6 @@
 
 require 'rainbow'
 require 'rexml/document'
-require 'terminal-table'
 
 require_relative '../project'
 require_relative '../lang/lang'
@@ -86,38 +85,6 @@ class Concept
     @data[:neighbors].reverse!
   end
 
-  def to_s
-    out=""
-
-    t = Terminal::Table.new
-    t.add_row [Rainbow(@id.to_s).bright, Rainbow(name).color(:white).bg(:blue).bright+" (lang=#{@lang.lang}) " ]
-    t.add_row [Rainbow("Filename").color(:blue), @filename.to_s ]
-    t.add_row [Rainbow("Context").color(:blue), context.join(", ").to_s ]
-    t.add_row [Rainbow("Tags").color(:blue), tags.join(", ").to_s]
-
-    lText=[]
-    texts.each do |i|
-      if i.size<60 then
-	    lText << i.to_s
-	  else
-	    lText << i[0...70].to_s+"..."
-	  end
-	end
-    t.add_row [Rainbow(".def(text)").color(:blue), lText.join("\n")]
-    t.add_row [Rainbow(".def(images)").color(:blue), images.join(", ").to_s]
-	  if tables.count>0 then
-	    lText=[]
-	    tables.each { |i| lText << i.to_s }
-	    t.add_row [ Rainbow(".tables").color(:blue), lText.join("\n")]
-	  end
-	  lText=[]
-	  neighbors[0..5].each { |i| lText << i[:concept].name+"("+i[:value].to_s[0..4]+")" }
-	  t.add_row [Rainbow(".neighbors").color(:blue),lText.join("\n")]
-
-    out << t.to_s+"\n"
-	  return out
-  end
-
   def write_questions_to_file
     return if @process==false
 
@@ -172,30 +139,6 @@ class Concept
       #Stage E: process sequence
       @questions[:stage_e] = @questions[:stage_e] + run_stage_e(lTable, list1, list2)
     end
-  end
-
-  def to_doc
-    out="\n"+"="*60+"\n"
-    out << name+":\n\n"
-    texts.each { |i| out << "* "+i+"\n" }
-    out << "\n"
-
-    tables.each do |t|
-      my_screen_table = Terminal::Table.new do |st|
-        st << t.fields
-        st << :separator
-        t.rows.each { |r| st.add_row r }
-      end
-      out << my_screen_table.to_s+"\n"
-    end
-
-    return out
-  end
-
-  def write_lesson_to_file
-    return if @process==false
-    file = Project.instance.lessonfile
-    file.write(self.to_doc)
   end
 
   def method_missing(m, *args, &block)

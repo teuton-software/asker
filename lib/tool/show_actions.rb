@@ -15,7 +15,9 @@ module ShowActions
 	    @concepts.each_value { |c| s=s+c.name+", " }
 	    project.verbose s
     when :default
-	    @concepts.each_value { |c| project.verbose c.to_s if c.process? }
+	    @concepts.each_value do |c| 
+        project.verbose ConceptStringFormatter.new(c).to_s if c.process?
+      end
 	  end
   end
 
