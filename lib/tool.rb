@@ -6,12 +6,10 @@ require 'rainbow'
 
 require_relative 'project'
 require_relative 'concept/concept'
-require_relative 'tool/create_actions'
 require_relative 'tool/input_actions'
 require_relative 'tool/show_actions'
 
 class Tool
-  include CreateActions
   include InputActions
   include ShowActions
 
@@ -20,7 +18,11 @@ class Tool
     Project.instance.open
     load_input_files
     show_data
-	  create_output_files
+
+    Project.instance.verbose "\n[INFO] Creating output files..."
+    @concepts.each_value { |c| c.write_questions_to_file }
+    @concepts.each_value { |c| c.write_lesson_to_file }
+
 	  show_stats
 	  Project.instance.close
   end
