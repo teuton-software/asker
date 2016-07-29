@@ -12,8 +12,7 @@ require_relative 'table'
 class Concept
   include IA
 
-  attr_reader :id, :data
-  attr_reader :num, :questions #in progress...
+  attr_reader :id, :data, :questions
   attr_accessor :process
 
   @@id=0
@@ -22,11 +21,9 @@ class Concept
     @@id+=1
     @id=@@id
 
-    @num = 0 #Number of questions. Used by <tool/show_actions> module
     @questions={}
 
     @weights=Project.instance.formula_weights
-    @output=true
 
     @filename=pFilename
     @lang=Lang.new(pLang)
@@ -88,8 +85,6 @@ class Concept
   def make_questions_from_ia
     return if @process==false
 
-    @file= Project.instance.outputfile
-
     #Stage A: IA process every <def> definition
     @questions[:stage_a] = run_stage_a
     @questions[:stage_b] = []
@@ -109,7 +104,7 @@ class Concept
 
       #create a <list2> with similar rows (same table name) from the neighbours
       list2=[]
-      @data[:neighbors].each do |n|
+      neighbors.each do |n|
         n[:concept].tables.each do |t2|
           if t2.name==lTable.name then
             t2.rows.each do |i|
