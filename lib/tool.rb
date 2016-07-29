@@ -7,6 +7,7 @@ require 'rainbow'
 require_relative 'project'
 require_relative 'concept/concept'
 require_relative 'formatter/concept_doc_formatter'
+require_relative 'formatter/concept_gift_formatter'
 require_relative 'formatter/concept_string_formatter'
 require_relative 'tool/input_actions'
 require_relative 'tool/show_actions'
@@ -24,6 +25,8 @@ class Tool
 
     Project.instance.verbose "\n[INFO] Creating output files..."
     @concepts.each_value { |c| c.make_questions_from_ia }
+    @concepts.each_value { |c| ConceptGiftFormatter.new(c).export }
+
     @concepts.each_value { |c| ConceptDocFormatter.new(c).export }
 
 	  show_stats

@@ -21,6 +21,7 @@ class Question
   end
 
   def write_to_file(pFile)
+    return
     pFile.write self.to_gift
   end
 

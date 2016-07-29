@@ -89,8 +89,6 @@ class Concept
     return if @process==false
 
     @file= Project.instance.outputfile
-    @file.write "\n// Concept name: #{name}\n"
-
 
     #Stage A: IA process every <def> definition
     @questions[:stage_a] = run_stage_a
