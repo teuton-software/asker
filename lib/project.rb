@@ -48,6 +48,10 @@ class Project
     @param[:lessonpath]   = @param[:lessonpath]   || File.join( @param[:outputdir], @param[:lessonname] )
 
     create_log_file
+
+    verbose "[INFO] Project open"
+    verbose "  * inputdirs    = #{@param[:inputdirs]}"
+    verbose "  * process_file = #{@param[:process_file]}"
   end
 
   def close

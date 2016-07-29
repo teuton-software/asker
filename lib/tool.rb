@@ -15,7 +15,7 @@ class Tool
   include InputActions
   include ShowActions
 
-  def run(pArgs={})
+  def start(pArgs={})
     init pArgs
     load_input_files
     show_data
@@ -59,10 +59,6 @@ class Tool
     end
 
     project.open
-    project.verbose Rainbow("Initial Params:").blue.bright
-    project.verbose Rainbow("  * inputdirs    = #{project.param[:inputdirs]}").blue.bright
-    project.verbose Rainbow("  * process_file = #{project.param[:process_file]}").blue.bright
-
     @concepts={}
   end
 
