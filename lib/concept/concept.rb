@@ -4,9 +4,9 @@ require 'rainbow'
 require 'rexml/document'
 require 'terminal-table'
 
-require_relative '../lang/lang'
 require_relative '../project'
-require_relative 'ia'
+require_relative '../lang/lang'
+require_relative '../ia/ia'
 require_relative 'question'
 require_relative 'table'
 
