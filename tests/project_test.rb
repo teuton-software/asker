@@ -22,7 +22,7 @@ class TestResult < Minitest::Test
 
     assert_equal 9, @project.param.size
     @project.open
-    assert_equal 18, @project.param.size
+    assert_equal 19, @project.param.size
 
     assert_equal dirname , @project.param[:projectdir]
     assert_equal dirname , @project.projectdir

@@ -22,15 +22,6 @@ class Project
     return @param[m]
   end
 
-  def verbose(lsText)
-    puts lsText
-    @param[:logfile].write(lsText.to_s+"\n") if @param[:logfile]
-  end
-
-  def verboseln(lsText)
-    verbose(lsText+"\n")
-  end
-
   def open
     #We need at least process_file and inputdirs params
     ext = ".haml"
@@ -48,14 +39,20 @@ class Project
     @param[:lessonpath]   = @param[:lessonpath]   || File.join( @param[:outputdir], @param[:lessonname] )
 
     create_log_file
-
-    verbose "[INFO] Project open"
-    verbose "  * inputdirs    = #{@param[:inputdirs]}"
-    verbose "  * process_file = #{@param[:process_file]}"
+    create_output_file
   end
 
   def close
     @param[:logfile].close
+  end
+
+  def verbose(lsText)
+    puts lsText
+    @param[:logfile].write(lsText.to_s+"\n") if @param[:logfile]
+  end
+
+  def verboseln(lsText)
+    verbose(lsText+"\n")
   end
 
 private
@@ -69,6 +66,22 @@ private
     @param[:logfile].write("File : #{@param[:logname]}\n")
     @param[:logfile].write("Time : "+Time.new.to_s+"\n")
     @param[:logfile].write("="*50+"\n")
+
+    verbose "[INFO] Project open"
+    verbose "  * inputdirs    = #{@param[:inputdirs]}"
+    verbose "  * process_file = #{@param[:process_file]}"
+  end
+
+  def create_output_file
+    #Create or reset output file
+    Dir.mkdir(@param[:outputdir]) if !Dir.exists? @param[:outputdir]
+
+    @param[:outputfile] = File.open(@param[:outputpath],'w')
+    @param[:outputfile].write("// File   : #{@param[:outputname]}\n")
+    @param[:outputfile].write("// Time   : "+Time.new.to_s+"\n")
+    @param[:outputfile].write("// Author : David Vargas\n")
+    @param[:outputfile].write("\n")
+    @param[:outputfile].write("$CATEGORY: $course$/#{@param[:category].to_s}\n") if @param[:category]!=:none
   end
 
 end
