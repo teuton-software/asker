@@ -118,8 +118,10 @@ class Concept
 	  return out
   end
 
-  def write_questions_to(pFile)
-    @file=pFile
+  def write_questions_to_file
+    return if @process==false
+
+    @file= Project.instance.outputfile
     @file.write "\n// Concept name: #{name}\n"
 
 
@@ -190,8 +192,10 @@ class Concept
     return out
   end
 
-  def write_lesson_to(pFile)
-    pFile.write(self.to_doc)
+  def write_lesson_to_file
+    return if @process==false
+    file = Project.instance.lessonfile
+    file.write(self.to_doc)
   end
 
   def method_missing(m, *args, &block)

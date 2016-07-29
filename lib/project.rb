@@ -70,7 +70,7 @@ private
     f.write("File       : #{@param[:logname]}\n")
     f.write("Time       : "+Time.new.to_s+"\n")
     f.write("Author     : David Vargas\n")
-    f.write("="*50+"\n")
+    f.write("="*50+"\n\n")
 
     verbose "[INFO] Project open"
     verbose "  * inputdirs    = #{@param[:inputdirs]}"

@@ -17,6 +17,7 @@ class Tool
 
   def start(pArgs={})
     init pArgs
+    Project.instance.open
     load_input_files
     show_data
 	  create_output_files
@@ -58,7 +59,6 @@ class Tool
       exit
     end
 
-    project.open
     @concepts={}
   end
 
