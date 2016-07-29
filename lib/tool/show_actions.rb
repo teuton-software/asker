@@ -15,7 +15,7 @@ module ShowActions
 	    @concepts.each_value { |c| s=s+c.name+", " }
 	    project.verbose s
     when :default
-	    @concepts.each_value do |c| 
+	    @concepts.each_value do |c|
         project.verbose ConceptStringFormatter.new(c).to_s if c.process?
       end
 	  end
@@ -50,15 +50,9 @@ module ShowActions
         sd = concept.questions[:stage_d].size
         se = concept.questions[:stage_e].size
         t = sa+sb+sc+sd+se
-        f = (concept.num-t)
-        if f!=0 then
-          project.verbose( Rainbow("[ERROR] Tool#show_stats: Missing #{f.to_s} questions").red )
-        end
-        my_screen_table.add_row [Rainbow(concept.name).color(:green),concept.num.to_s,e.to_s, porcent,sa,sb,sc,sd,se]
+        my_screen_table.add_row [Rainbow(concept.name).color(:green), t, e, porcent, sa, sb, sc, sd, se]
 
-        total_q+=concept.num
-        total_e+=e
-        total_c+=1
+        total_q+=t; total_e+=e; total_c+=1
         total_sa+=sa; total_sb+=sb; total_sc+=sc; total_sd+=sd; total_se+=se
       end
     end
