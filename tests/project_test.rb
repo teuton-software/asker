@@ -24,7 +24,7 @@ class TestResult < Minitest::Test
     assert_equal true, @project.param[:verbose]
     @project.param[:verbose] = false
     @project.open
-    assert_equal 19, @project.param.size
+    assert_equal 20, @project.param.size
 
     assert_equal dirname , @project.param[:projectdir]
     assert_equal dirname , @project.projectdir

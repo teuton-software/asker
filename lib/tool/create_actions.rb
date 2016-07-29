@@ -8,20 +8,14 @@ module CreateActions
 
     project.verbose "\n[INFO] Creating output files..."
 
-    lFile = project.outputfile
-    
+    file = project.outputfile
     @concepts.each_value do |c|
-      c.write_questions_to(lFile) if c.process?
+      c.write_questions_to(file) if c.process?
     end
-    lFile.close
 
-    if project.param[:lessonfile]!=:none then
-      #Create lesson file
-      lFile=File.new(project.lessonpath,'w')
-      @concepts.each_value do |c|
-        c.write_lesson_to(lFile) if c.process?
-      end
-      lFile.close
+    file = project.param[:lessonfile]
+    @concepts.each_value do |c|
+      c.write_lesson_to(file) if c.process?
     end
   end
 
