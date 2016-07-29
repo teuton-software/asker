@@ -23,7 +23,7 @@ class Tool
     show_data
 
     Project.instance.verbose "\n[INFO] Creating output files..."
-    @concepts.each_value { |c| c.write_questions_to_file }
+    @concepts.each_value { |c| c.make_questions_from_ia }
     @concepts.each_value { |c| ConceptDocFormatter.new(c).export }
 
 	  show_stats

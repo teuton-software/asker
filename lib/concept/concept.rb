@@ -85,7 +85,7 @@ class Concept
     @data[:neighbors].reverse!
   end
 
-  def write_questions_to_file
+  def make_questions_from_ia
     return if @process==false
 
     @file= Project.instance.outputfile
