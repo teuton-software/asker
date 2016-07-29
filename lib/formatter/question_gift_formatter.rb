@@ -1,39 +1,21 @@
 # encoding: utf-8
 
-class Question
-  attr_accessor :name, :comment, :text
-  attr_accessor :good, :bads, :matching, :shorts
-  attr_reader :type
+class QuestionGiftFormatter
 
-  def initialize
-    init
+  def initialize(question)
+    @question = question
   end
 
-  def init
-    @name=""
-    @comment=""
-    @text=""
-    @type=:choice
-    @good=""
-    @bads=[]
-    @matching=[]
-    @shorts=[]
-  end
-
-  def write_to_file(pFile)
-    pFile.write self.to_gift
-  end
-
-  def to_gift
+  def to_s
     # Return question using gift format
-    s="// #{@comment}\n" if !@comment.nil?
-    s << "::#{@name}::[html]#{sanitize(@text)}\n"
+    s="// #{@question.comment}\n" if not ( @question.comment.nil? and @question.comment.empty? )
+    s << "::#{@question.name}::[html]#{sanitize(@question.text)}\n"
 
-    case @type
+    case @question.type
     when :choice
       s=s+"{\n"
-      a=["  =#{sanitize(@good)}\n"]
-      @bads.each { |i| a << ('  ~%-25%'+sanitize(i)+"\n") }
+      a=["  =#{sanitize(@question.good)}\n"]
+      @question.bads.each { |i| a << ('  ~%-25%'+sanitize(i)+"\n") }
       a.shuffle!
       a.each do |i|
         text=i
@@ -44,11 +26,11 @@ class Question
       end
       s=s+"}\n\n"
 	  when :boolean
-      s << "{#{@good}}\n\n"
+      s << "{#{@question.good}}\n\n"
     when :match
       s << "{\n"
       a=[]
-      @matching.each do |i,j|
+      @question.matching.each do |i,j|
         i=i[0,220]+"...(ERROR: text too long)" if i.size>255
         j=j[0,220]+"...(ERROR: text too long)" if j.size>255
         a << "  =#{sanitize(i)} -> #{sanitize(j)}\n"
@@ -58,7 +40,7 @@ class Question
       s << "}\n\n"
     when :short
       s << "{\n"
-      @shorts.each do |i|
+      @question.shorts.each do |i|
         text=i
         text=i[0,220]+"...(ERROR: too long)" if text.size>255
         s << "  =%100%#{text}#\n"
@@ -67,26 +49,6 @@ class Question
       s << "}\n\n"
     end
     return s
-  end
-
-  def set_choice
-    @type=:choice
-  end
-
-  def set_match
-    @type=:match
-  end
-
-  def set_boolean
-    @type=:boolean
-  end
-
-  def set_short
-    @type=:short
-  end
-
-  def reset
-    init
   end
 
 private
