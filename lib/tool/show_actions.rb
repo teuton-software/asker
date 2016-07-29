@@ -25,9 +25,10 @@ module ShowActions
     return if project.show_mode==:none
     project.verbose "[INFO] Showing concept stats...\n"
     total_q=total_e=total_c=0
+    total_sa=total_sb=total_sc=total_sd=total_se=0
 
     my_screen_table = Terminal::Table.new do |st|
-      st << ['Concept','Questions','Entries','Productivity %','a','b','c','d','e']
+      st << ['Concept','Questions','Entries','xFactor','a','b','c','d','e']
       st << :separator
     end
 
@@ -39,7 +40,7 @@ module ShowActions
         if e==0 then
           porcent="Unkown"
         else
-          porcent=(concept.num.to_f/e.to_f*100.0).to_i.to_s+"%"
+          porcent=(concept.num.to_f/e.to_f).round(2).to_s
         end
 
         sa = concept.questions[:stage_a].size
@@ -57,10 +58,11 @@ module ShowActions
         total_q+=concept.num
         total_e+=e
         total_c+=1
+        total_sa+=sa; total_sb+=sb; total_sc+=sc; total_sd+=sd; total_se+=se
       end
     end
     my_screen_table.add_separator
-    my_screen_table.add_row [ Rainbow("TOTAL = #{total_c.to_s}").bright,Rainbow(total_q.to_s).bright,Rainbow(total_e.to_s).bright,Rainbow((total_q.to_f*100.0/total_e.to_f).to_i).bright ]
+    my_screen_table.add_row [ Rainbow("TOTAL = #{total_c.to_s}").bright,Rainbow(total_q.to_s).bright,Rainbow(total_e.to_s).bright,Rainbow((total_q.to_f/total_e.to_f).round(2)).bright, total_sa, total_sb, total_sc, total_sd, total_se ]
     project.verbose my_screen_table.to_s+"\n"
   end
 
