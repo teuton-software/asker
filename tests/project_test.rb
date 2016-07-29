@@ -21,6 +21,8 @@ class TestResult < Minitest::Test
     @project.param[:process_file] = filename
 
     assert_equal 9, @project.param.size
+    assert_equal true, @project.param[:verbose]
+    @project.param[:verbose] = false
     @project.open
     assert_equal 19, @project.param.size
 
@@ -51,6 +53,6 @@ class TestResult < Minitest::Test
     assert_equal [1,1,1]  , @project.formula_weights
     assert_equal 'en'     , @project.lang
     assert_equal :default , @project.show_mode
-    assert_equal true     , @project.param[:verbose]
+    assert_equal false     , @project.param[:verbose]
   end
 end

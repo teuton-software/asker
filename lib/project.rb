@@ -47,7 +47,7 @@ class Project
   end
 
   def verbose(lsText)
-    puts lsText
+    puts lsText if @param[:verbose]
     @param[:logfile].write(lsText.to_s+"\n") if @param[:logfile]
   end
 
