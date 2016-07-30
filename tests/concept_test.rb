@@ -23,7 +23,6 @@ class TestResult < Minitest::Test
   end
 
   def test_in_progress
-    @concept.each { |c| assert_equal 0, c.num }
     @concept.each { |c| assert_equal( {}, c.questions) }
   end
 
