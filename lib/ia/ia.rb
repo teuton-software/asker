@@ -9,7 +9,6 @@ require_relative 'ia_stage_d'
 require_relative 'ia_stage_e'
 
 require_relative 'ia_calculate'
-require_relative 'ia_texts'
 
 module IA
   include IA_stage_a
@@ -19,5 +18,4 @@ module IA
   include IA_stage_e
 
   include IA_calculate
-  include IA_texts
 end
