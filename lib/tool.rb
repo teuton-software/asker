@@ -6,6 +6,7 @@ require 'rainbow'
 
 require_relative 'project'
 require_relative 'concept/concept'
+require_relative 'concept/concept_ia'
 require_relative 'formatter/concept_doc_formatter'
 require_relative 'formatter/concept_gift_formatter'
 require_relative 'formatter/concept_string_formatter'
@@ -29,9 +30,17 @@ class Tool
     show_data
 
     Project.instance.verbose "\n[INFO] Creating output files..."
-    @concepts.each_value { |c| c.make_questions_from_ia }
-    @concepts.each_value { |c| ConceptGiftFormatter.new(c).export }
-    @concepts.each_value { |c| ConceptDocFormatter.new(c).export }
+    @concepts.each_value do |concept|
+      #concept.make_questions_from_ia
+      concept_ia = ConceptIA.new(concept)
+      concept_ia.make_questions_from_ia
+      ConceptGiftFormatter.new(concept_ia).export
+      @concepts_ia << concept_ia
+    end
+
+    @concepts_ia.each do |concept_ia|
+      ConceptDocFormatter.new(concept_ia.concept).export
+    end
 
 	  show_stats
 	  Project.instance.close

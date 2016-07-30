@@ -33,10 +33,10 @@ module ShowActions
       st << :separator
     end
 
-    @concepts.each_value do |concept|
+    @concepts_ia.each do |concept|
       if concept.process?
-        e = concept.data[:texts].size
-        concept.data[:tables].each { |t| e=e+t.data[:fields].size*t.data[:rows].size }
+        e = concept.texts.size
+        concept.tables.each { |t| e=e+t.data[:fields].size*t.data[:rows].size }
 
         if e==0 then
           porcent="Unkown"

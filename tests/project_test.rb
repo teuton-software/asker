@@ -9,7 +9,15 @@ class TestResult < Minitest::Test
   end
 
   def test_init_params
-    assert_equal "input", @project.param[:inputbasedir]
+    assert_equal "input"  , @project.param[:inputbasedir]
+    assert_equal "output" , @project.param[:outputdir]
+    assert_equal :none    , @project.category
+    assert_equal [1,1,1]  , @project.formula_weights
+    assert_equal 'en'     , @project.lang
+    assert_equal :default , @project.show_mode
+    assert_equal true     , @project.param[:verbose]
+    stages = [ :stage_a, :stage_b, :stage_c, :stage_d, :stage_e ]
+    assert_equal stages   , @project.param[:stages]
   end
 
   def test_open
@@ -20,11 +28,12 @@ class TestResult < Minitest::Test
     @project.param[:projectdir]  = dirname
     @project.param[:process_file] = filename
 
-    assert_equal 9, @project.param.size
+    assert_equal 10, @project.param.size
     assert_equal true, @project.param[:verbose]
     @project.param[:verbose] = false
     @project.open
-    assert_equal 20, @project.param.size
+    @project.param[:verbose] = true
+    assert_equal 21, @project.param.size
 
     assert_equal dirname , @project.param[:projectdir]
     assert_equal dirname , @project.projectdir
@@ -49,10 +58,5 @@ class TestResult < Minitest::Test
     assert_equal File.join("output", projectname+"-log.txt" ), @project.logpath
     assert_equal File.join("output", projectname+"-doc.txt" ), @project.lessonpath
 
-    assert_equal :none    , @project.category
-    assert_equal [1,1,1]  , @project.formula_weights
-    assert_equal 'en'     , @project.lang
-    assert_equal :default , @project.show_mode
-    assert_equal false     , @project.param[:verbose]
   end
 end

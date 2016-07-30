@@ -36,6 +36,14 @@ class ConceptIA
     return @num
   end
 
+  def process
+    return @concept.process
+  end
+
+  def process?
+    return @concept.process?
+  end
+
   def tables
     return @concept.tables
   end

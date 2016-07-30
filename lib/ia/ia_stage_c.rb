@@ -152,7 +152,7 @@ module IA_stage_c
       q=Question.new
       q.set_short
       q.name="#{name}-#{num.to_s}c9table-#{lTable.name}"
-      q.text=lang.text_for(:c9table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize, "[#{@lang.hide_text(lRow[:data][1])}]", @lang.count_words(lRow[:data][1]) )
+      q.text=lang.text_for(:c9table, name, lTable.fields[0].capitalize, lRow[:data][0], lTable.fields[1].capitalize, "[#{lang.hide_text(lRow[:data][1])}]", lang.count_words(lRow[:data][1]) )
       q.shorts << lRow[:data][1]
       q.shorts << lRow[:data][1].gsub("-"," ").gsub("_"," ")
       questions << q
