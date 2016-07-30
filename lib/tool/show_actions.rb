@@ -50,13 +50,13 @@ module ShowActions
         else
           factor=(t.to_f/e.to_f).round(2).to_s
         end
-
         my_screen_table.add_row [Rainbow(concept_ia.name).color(:green), t, e, factor, sa, sb, sc, sd, se]
 
         total_q+=t; total_e+=e; total_c+=1
         total_sa+=sa; total_sb+=sb; total_sc+=sc; total_sd+=sd; total_se+=se
       end
     end
+
     my_screen_table.add_separator
     my_screen_table.add_row [ Rainbow("TOTAL = #{total_c.to_s}").bright,Rainbow(total_q.to_s).bright,Rainbow(total_e.to_s).bright,Rainbow((total_q.to_f/total_e.to_f).round(2)).bright, total_sa, total_sb, total_sc, total_sd, total_se ]
     project.verbose my_screen_table.to_s+"\n"

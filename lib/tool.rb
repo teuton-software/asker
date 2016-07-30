@@ -27,11 +27,10 @@ class Tool
 
     Project.instance.open
     load_input_files
-    show_data
+    show_data # Only show Concepts with process attr true
 
     Project.instance.verbose "\n[INFO] Creating output files..."
     @concepts.each_value do |concept|
-      #concept.make_questions_from_ia
       concept_ia = ConceptIA.new(concept)
       concept_ia.make_questions_from_ia
       ConceptGiftFormatter.new(concept_ia).export
