@@ -16,7 +16,7 @@ class ConceptStringFormatter
 
     t = Terminal::Table.new
     t.add_row [Rainbow(@concept.id.to_s).bright, Rainbow(@concept.name).color(:white).bg(:blue).bright+" (lang=#{@concept.lang.lang}) " ]
-    t.add_row [Rainbow("Filename").color(:blue), @concept.filename.to_s ]
+    t.add_row [Rainbow("Filename").color(:blue), @concept.filename ]
     t.add_row [Rainbow("Context").color(:blue), @concept.context.join(", ").to_s ]
     t.add_row [Rainbow("Tags").color(:blue), @concept.tags.join(", ").to_s]
 

@@ -5,12 +5,12 @@ require 'rexml/document'
 
 require_relative '../project'
 require_relative '../lang/lang'
-require_relative '../ia/ia'
+#require_relative '../ia/ia'
 require_relative 'question'
 require_relative 'table'
 
 class Concept
-  include IA
+#  include IA
 
   attr_reader :id, :data, :questions
   attr_reader :lang #TODO: migrating IA to concept_IA...
