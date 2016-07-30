@@ -19,7 +19,7 @@ module InputActions
 
       files=(Dir.new(dirname).entries-[".",".."]).sort
       accepted = files.select { |f| f[-4..-1]==".xml" || f[-5..-1]==".haml" } # accept only HAML or XML files
-      project.verbose " * Input directory: #{Rainbow(dirname).bright}"
+      project.verbose " * Input directory  = #{Rainbow(dirname).bright}"
 
       flag = accepted.last
       accepted.each do |f|
@@ -34,9 +34,9 @@ module InputActions
 
         begin
           if flag==f then
-            project.verbose "   └── Input file : #{Rainbow(pFilename).bright}..."
+            project.verbose "   └── Input file   = " + Rainbow(pFilename).bright
           else
-            project.verbose "   ├── Input file : #{Rainbow(pFilename).bright}..."
+            project.verbose "   ├── Input file   = " + Rainbow(pFilename).bright
           end
 
           lXMLdata=REXML::Document.new(lFileContent)

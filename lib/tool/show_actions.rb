@@ -7,7 +7,7 @@ module ShowActions
 	  project=Project.instance
     return if project.show_mode==:none
 
-    project.verbose "[INFO] Showing concept data <#{Rainbow(project.show_mode.to_s).bright}>..."
+    project.verbose "\n[INFO] Showing concept data <#{Rainbow(project.show_mode.to_s).bright}>..."
 
     case project.show_mode
     when :resume
@@ -24,7 +24,7 @@ module ShowActions
   def show_stats
 	  project=Project.instance
     return if project.show_mode==:none
-    project.verbose "[INFO] Showing concept stats...\n"
+    project.verbose "\n[INFO] Showing concept stats...\n"
     total_q=total_e=total_c=0
     total_sa=total_sb=total_sc=total_sd=total_se=0
 

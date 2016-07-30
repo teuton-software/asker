@@ -26,11 +26,11 @@ class Concept
 
     @weights=Project.instance.formula_weights
 
-    @filename=pFilename
     @lang=Lang.new(pLang)
     @process=false
 
     @data={}
+    @data[:filename]=pFilename
     @data[:names]=[]
     if pContext.class==Array then
       @data[:context]=pContext

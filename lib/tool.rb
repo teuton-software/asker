@@ -28,19 +28,7 @@ class Tool
     Project.instance.open
     load_input_files
     show_data # Only show Concepts with process attr true
-
-    Project.instance.verbose "\n[INFO] Creating output files..."
-    @concepts.each_value do |concept|
-      concept_ia = ConceptIA.new(concept)
-      concept_ia.make_questions_from_ia
-      ConceptGiftFormatter.new(concept_ia).export
-      @concepts_ia << concept_ia
-    end
-
-    @concepts_ia.each do |concept_ia|
-      ConceptDocFormatter.new(concept_ia.concept).export
-    end
-
+    create_output_files
 	  show_stats
 	  Project.instance.close
   end
@@ -78,7 +66,24 @@ class Tool
       project.verbose Rainbow("[ERROR] Tool.init: Configuration params format is <#{pArgs.class.to_s}>!").red
       exit
     end
-
   end
+
+ def create_output_files
+   Project.instance.verbose "\n"
+   Project.instance.verbose "[INFO] Creating output files..."
+   Project.instance.verbose "   ├── Gift questions file = "+Rainbow(Project.instance.outputpath).bright
+   Project.instance.verbose "   └── Lesson file         = "+Rainbow(Project.instance.lessonpath).bright
+
+   @concepts.each_value do |concept|
+     concept_ia = ConceptIA.new(concept)
+     concept_ia.make_questions_from_ia
+     ConceptGiftFormatter.new(concept_ia).export
+     @concepts_ia << concept_ia
+   end
+
+   @concepts_ia.each do |concept_ia|
+     ConceptDocFormatter.new(concept_ia.concept).export
+   end
+ end
 
 end

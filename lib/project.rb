@@ -74,8 +74,8 @@ private
     f.write("="*50+"\n\n")
 
     verbose "[INFO] Project open"
-    verbose "  * inputdirs    = #{@param[:inputdirs]}"
-    verbose "  * process_file = #{@param[:process_file]}"
+    verbose "   ├── inputdirs    = " + Rainbow( @param[:inputdirs] ).bright
+    verbose "   └── process_file = " + Rainbow( @param[:process_file] ).bright
   end
 
   def create_output_file
