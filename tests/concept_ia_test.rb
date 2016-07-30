@@ -16,6 +16,9 @@ class TestResult < Minitest::Test
         @concept << Concept.new(xml_data, "pFilename", "en", [])
       end
     end
+
+    @concept_ia=[]
+    @concept.each { |concept| @concept_ia << ConceptIA.new(concept) }
   end
 
   def test_questions
@@ -28,6 +31,13 @@ class TestResult < Minitest::Test
     assert_equal 20, @concept[0].questions[:stage_c].size
     assert_equal 0, @concept[0].questions[:stage_d].size
     assert_equal 0, @concept[0].questions[:stage_e].size
+
+    @concept_ia[0].make_questions_from_ia
+    assert_equal 5, @concept_ia[0].questions[:stage_a].size
+    assert_equal 0, @concept_ia[0].questions[:stage_b].size
+    assert_equal 20, @concept_ia[0].questions[:stage_c].size
+    assert_equal 0, @concept_ia[0].questions[:stage_d].size
+    assert_equal 0, @concept_ia[0].questions[:stage_e].size
 
     @concept[1].process = true
     @concept[1].make_questions_from_ia

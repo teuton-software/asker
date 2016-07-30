@@ -7,7 +7,7 @@ require_relative 'question'
 class ConceptIA
   include IA
 
-  attr_reader :concept
+  attr_reader :concept, :questions
 
   def initialize(concept)
     @concept = concept
@@ -16,6 +16,14 @@ class ConceptIA
 
   def method_missing(m, *args, &block)
     return @concept.data[m]
+  end
+
+  def lang
+    return @concept.lang
+  end
+
+  def name
+    return @concept.name
   end
 
   def neighbours

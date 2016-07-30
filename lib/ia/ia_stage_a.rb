@@ -10,7 +10,7 @@ module IA_stage_a
 
     #for every <text> do this
     texts.each do |t|
-      s=Set.new [name, @lang.text_for(:none)]
+      s=Set.new [name, lang.text_for(:none)]
       neighbors.each { |n| s.add n[:concept].name }
       a=s.to_a
 
@@ -19,9 +19,9 @@ module IA_stage_a
         q=Question.new
         q.set_choice
         q.name="#{name}-#{@num.to_s}-a1desc"
-        q.text=@lang.text_for(:a1desc,t)
+        q.text=lang.text_for(:a1desc,t)
         q.good=name
-        q.bads << @lang.text_for(:none)
+        q.bads << lang.text_for(:none)
         q.bads << a[2]
         q.bads << a[3]
         questions << q
@@ -35,8 +35,8 @@ module IA_stage_a
         q = Question.new
         q.set_choice
         q.name="#{name}-#{@num.to_s}-a2desc"
-        q.text=@lang.text_for(:a2desc,t)
-        q.good=@lang.text_for(:none)
+        q.text=lang.text_for(:a2desc,t)
+        q.good=lang.text_for(:none)
         q.bads << a[1]
         q.bads << a[2]
         q.bads << a[3]
@@ -47,9 +47,8 @@ module IA_stage_a
       q = Question.new
       q.set_boolean
       q.name="#{name}-#{@num.to_s}-a3desc"
-      q.text=@lang.text_for(:a3desc,name,t)
+      q.text=lang.text_for(:a3desc,name,t)
       q.good="TRUE"
-      q.write_to_file @file
       questions << q
 
       #Question type <a4desc>: boolean => FALSE
@@ -57,7 +56,7 @@ module IA_stage_a
         q = Question.new
         q.set_boolean
         q.name="#{name}-#{@num.to_s}-a4desc"
-        q.text=@lang.text_for(:a4desc,neighbors[0][:concept].name,t)
+        q.text=lang.text_for(:a4desc,neighbors[0][:concept].name,t)
         q.good="FALSE"
         questions << q
       end
@@ -66,13 +65,13 @@ module IA_stage_a
       q = Question.new
       q.set_short
       q.name="#{name}-#{@num.to_s}-a5desc"
-      q.text=@lang.text_for(:a5desc, @lang.hide_text(name), t )
+      q.text=lang.text_for(:a5desc, lang.hide_text(name), t )
       q.shorts << name
       q.shorts << name.gsub("-"," ").gsub("_"," ")
       questions << q
 
       #Question type <a6match>: filtered text questions
-      filtered=@lang.text_with_connectors(t)
+      filtered=lang.text_with_connectors(t)
       if filtered[:words].size>=4 then
         q = Question.new
         q.set_match
@@ -88,8 +87,8 @@ module IA_stage_a
         end
         indexes=indexes.to_a
 
-        s=@lang.build_text_from_filtered( filtered, indexes )
-        q.text=@lang.text_for(:a6match, name , s)
+        s=lang.build_text_from_filtered( filtered, indexes )
+        q.text=lang.text_for(:a6match, name , s)
         indexes.each { |value| q.matching << [ filtered[:words][value][:word].downcase, value.to_s ] }
         questions << q
       end

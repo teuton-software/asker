@@ -13,6 +13,7 @@ class Concept
   include IA
 
   attr_reader :id, :data, :questions
+  attr_reader :lang #TODO: migrating IA to concept_IA...
   attr_accessor :process
 
   @@id=0

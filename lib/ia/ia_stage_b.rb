@@ -33,7 +33,7 @@ module IA_stage_b
       q=Question.new
       q.set_match
       q.name="#{name}-#{@num.to_s}-b1match-#{pTable.name}"
-      q.text=@lang.text_for(:b1match, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
+      q.text=lang.text_for(:b1match, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
       q.matching << [ pList1[0][:data][pIndex1], pList1[0][:data][pIndex2] ]
       q.matching << [ pList1[1][:data][pIndex1], pList1[1][:data][pIndex2] ]
       q.matching << [ pList1[2][:data][pIndex1], pList1[2][:data][pIndex2] ]
@@ -44,11 +44,11 @@ module IA_stage_b
       q=Question.new
       q.set_match
       q.name="#{name}-#{@num.to_s}-b1match-#{pTable.name}"
-      q.text=@lang.text_for(:b1match, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
+      q.text=lang.text_for(:b1match, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
       q.matching << [ pList1[0][:data][pIndex1], pList1[0][:data][pIndex2] ]
       q.matching << [ pList1[1][:data][pIndex1], pList1[1][:data][pIndex2] ]
       q.matching << [ pList1[2][:data][pIndex1], pList1[2][:data][pIndex2] ]
-      q.matching << [ @lang.do_mistake_to(pList1[3][:data][pIndex1]), @lang.text_for(:error) ]
+      q.matching << [ lang.do_mistake_to(pList1[3][:data][pIndex1]), lang.text_for(:error) ]
       questions << q
 
     end
@@ -57,7 +57,7 @@ module IA_stage_b
       q=Question.new
       q.set_match
       q.name="#{name}-#{@num.to_s}-b1match-#{pTable.name}"
-      q.text=@lang.text_for(:b1match, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
+      q.text=lang.text_for(:b1match, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
       q.matching << [ pList1[4][:data][pIndex1], pList1[4][:data][pIndex2] ]
       q.matching << [ pList1[5][:data][pIndex1], pList1[5][:data][pIndex2] ]
       q.matching << [ pList1[6][:data][pIndex1], pList1[6][:data][pIndex2] ]
@@ -69,7 +69,7 @@ module IA_stage_b
       q=Question.new
       q.set_match
       q.name="#{name}-#{@num.to_s}-b1match-#{pTable.name}"
-      q.text=@lang.text_for(:b1match, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
+      q.text=lang.text_for(:b1match, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
       q.matching << [ pList1[8][:data][pIndex1], pList1[8][:data][pIndex2] ]
       q.matching << [ pList1[9][:data][pIndex1], pList1[9][:data][pIndex2] ]
       q.matching << [ pList1[10][:data][pIndex1], pList1[10][:data][pIndex2] ]
@@ -88,11 +88,11 @@ module IA_stage_b
         q=Question.new
         q.set_match
         q.name="#{name}-#{@num.to_s}-b2match-#{pTable.name}"
-        q.text=@lang.text_for(:b2match, name , pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize)
+        q.text=lang.text_for(:b2match, name , pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize)
         q.matching << [ pList1[0][:data][pIndex1], pList1[0][:data][pIndex2] ]
         q.matching << [ pList1[1][:data][pIndex1], pList1[1][:data][pIndex2] ]
         q.matching << [ pList1[2][:data][pIndex1], pList1[2][:data][pIndex2] ]
-        q.matching << [ pList2[0][:data][pIndex1], @lang.text_for(:error) ]
+        q.matching << [ pList2[0][:data][pIndex1], lang.text_for(:error) ]
         questions << q
       end
     end
