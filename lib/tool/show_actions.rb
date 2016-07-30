@@ -33,24 +33,25 @@ module ShowActions
       st << :separator
     end
 
-    @concepts_ia.each do |concept|
-      if concept.process?
-        e = concept.texts.size
-        concept.tables.each { |t| e=e+t.data[:fields].size*t.data[:rows].size }
+    @concepts_ia.each do |concept_ia|
+      if concept_ia.process?
+        e = concept_ia.texts.size
+        concept_ia.tables.each { |t| e = e+t.data[:fields].size*t.data[:rows].size }
+
+        sa = concept_ia.questions[:stage_a].size
+        sb = concept_ia.questions[:stage_b].size
+        sc = concept_ia.questions[:stage_c].size
+        sd = concept_ia.questions[:stage_d].size
+        se = concept_ia.questions[:stage_e].size
+        t = sa+sb+sc+sd+se
 
         if e==0 then
-          porcent="Unkown"
+          factor="Unkown"
         else
-          porcent=(concept.num.to_f/e.to_f).round(2).to_s
+          factor=(t.to_f/e.to_f).round(2).to_s
         end
 
-        sa = concept.questions[:stage_a].size
-        sb = concept.questions[:stage_b].size
-        sc = concept.questions[:stage_c].size
-        sd = concept.questions[:stage_d].size
-        se = concept.questions[:stage_e].size
-        t = sa+sb+sc+sd+se
-        my_screen_table.add_row [Rainbow(concept.name).color(:green), t, e, porcent, sa, sb, sc, sd, se]
+        my_screen_table.add_row [Rainbow(concept_ia.name).color(:green), t, e, factor, sa, sb, sc, sd, se]
 
         total_q+=t; total_e+=e; total_c+=1
         total_sa+=sa; total_sb+=sb; total_sc+=sc; total_sd+=sd; total_se+=se
