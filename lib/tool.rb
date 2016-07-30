@@ -17,7 +17,7 @@ class Tool
   include ShowActions
 
   def start(pArgs={})
-    init pArgs
+    load_params pArgs
 
     Project.instance.open
     load_input_files
@@ -26,14 +26,13 @@ class Tool
     Project.instance.verbose "\n[INFO] Creating output files..."
     @concepts.each_value { |c| c.make_questions_from_ia }
     @concepts.each_value { |c| ConceptGiftFormatter.new(c).export }
-
     @concepts.each_value { |c| ConceptDocFormatter.new(c).export }
 
 	  show_stats
 	  Project.instance.close
   end
 
-  def init(pArgs={})
+  def load_params(pArgs={})
 	  project=Project.instance
 
     if pArgs.class==Hash then
