@@ -24,6 +24,22 @@ class TestResult < Minitest::Test
 
   def test_questions
     @concept.each { |c| assert_equal( {}, c.questions) }
+
+    @concept[0].process = true
+    @concept[0].make_questions_from_ia
+    assert_equal 5, @concept[0].questions[:stage_a].size
+    assert_equal 0, @concept[0].questions[:stage_b].size
+    assert_equal 20, @concept[0].questions[:stage_c].size
+    assert_equal 0, @concept[0].questions[:stage_d].size
+    assert_equal 0, @concept[0].questions[:stage_e].size
+
+    @concept[1].process = true
+    @concept[1].make_questions_from_ia
+    assert_equal 11, @concept[1].questions[:stage_a].size
+    assert_equal 2, @concept[1].questions[:stage_b].size
+    assert_equal 31, @concept[1].questions[:stage_c].size
+    assert_equal 0, @concept[1].questions[:stage_d].size
+    assert_equal 0, @concept[1].questions[:stage_e].size
   end
 
   def test_names

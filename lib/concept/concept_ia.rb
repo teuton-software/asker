@@ -14,6 +14,10 @@ class ConceptIA
     @questions={}
   end
 
+  def method_missing(m, *args, &block)
+    return @concept.data[m]
+  end
+
   def make_questions_from_ia
     return if @concept.process==false
 
