@@ -12,6 +12,7 @@ class ConceptIA
   def initialize(concept)
     @concept = concept
     @questions={}
+    @num = 0 # Used to add a number questions
   end
 
   def method_missing(m, *args, &block)
@@ -28,6 +29,11 @@ class ConceptIA
 
   def neighbours
     return @concept.neighbours
+  end
+
+  def num
+    @num+=1
+    return @num
   end
 
   def tables

@@ -32,7 +32,7 @@ module IA_stage_b
       #Question type <b1match>: match items from the same table
       q=Question.new
       q.set_match
-      q.name="#{name}-#{@num.to_s}-b1match-#{pTable.name}"
+      q.name="#{name}-#{num.to_s}-b1match-#{pTable.name}"
       q.text=lang.text_for(:b1match, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
       q.matching << [ pList1[0][:data][pIndex1], pList1[0][:data][pIndex2] ]
       q.matching << [ pList1[1][:data][pIndex1], pList1[1][:data][pIndex2] ]
@@ -43,7 +43,7 @@ module IA_stage_b
       #Question type <b1match>: match 3 items from table-A and 1 item with error
       q=Question.new
       q.set_match
-      q.name="#{name}-#{@num.to_s}-b1match-#{pTable.name}"
+      q.name="#{name}-#{num.to_s}-b1match-#{pTable.name}"
       q.text=lang.text_for(:b1match, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
       q.matching << [ pList1[0][:data][pIndex1], pList1[0][:data][pIndex2] ]
       q.matching << [ pList1[1][:data][pIndex1], pList1[1][:data][pIndex2] ]
@@ -56,7 +56,7 @@ module IA_stage_b
     if pList1.count>7 then
       q=Question.new
       q.set_match
-      q.name="#{name}-#{@num.to_s}-b1match-#{pTable.name}"
+      q.name="#{name}-#{num.to_s}-b1match-#{pTable.name}"
       q.text=lang.text_for(:b1match, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
       q.matching << [ pList1[4][:data][pIndex1], pList1[4][:data][pIndex2] ]
       q.matching << [ pList1[5][:data][pIndex1], pList1[5][:data][pIndex2] ]
@@ -68,7 +68,7 @@ module IA_stage_b
     if pList1.count>11 then
       q=Question.new
       q.set_match
-      q.name="#{name}-#{@num.to_s}-b1match-#{pTable.name}"
+      q.name="#{name}-#{num.to_s}-b1match-#{pTable.name}"
       q.text=lang.text_for(:b1match, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
       q.matching << [ pList1[8][:data][pIndex1], pList1[8][:data][pIndex2] ]
       q.matching << [ pList1[9][:data][pIndex1], pList1[9][:data][pIndex2] ]
@@ -87,7 +87,7 @@ module IA_stage_b
       if s.count>3 then
         q=Question.new
         q.set_match
-        q.name="#{name}-#{@num.to_s}-b2match-#{pTable.name}"
+        q.name="#{name}-#{num.to_s}-b2match-#{pTable.name}"
         q.text=lang.text_for(:b2match, name , pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize)
         q.matching << [ pList1[0][:data][pIndex1], pList1[0][:data][pIndex2] ]
         q.matching << [ pList1[1][:data][pIndex1], pList1[1][:data][pIndex2] ]

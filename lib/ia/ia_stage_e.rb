@@ -21,8 +21,8 @@ module IA_stage_e
 	    a.each_entry do |i|
         q=Question.new
         q.set_match
-        q.name="#{name}-#{@num.to_s}-e1sequence-#{pTable.name}"
-        q.text=@lang.text_for(:e1sequence, name, pTable.fields[0].capitalize, pTable.sequence[0] )
+        q.name="#{name}-#{num.to_s}-e1sequence-#{pTable.name}"
+        q.text=lang.text_for(:e1sequence, name, pTable.fields[0].capitalize, pTable.sequence[0] )
         q.matching << [ pList1[i+0][:data][0], '1º' ]
         q.matching << [ pList1[i+1][:data][0], '2º' ]
         q.matching << [ pList1[i+2][:data][0], '3º' ]
@@ -37,8 +37,8 @@ module IA_stage_e
 	    a.each_entry do |i|
         q=Question.new
         q.set_match
-        q.name="#{name}-#{@num.to_s}-e2sequence-#{pTable.name}"
-        q.text=@lang.text_for(:e2sequence, name, pTable.fields[0].capitalize, pTable.sequence[1] )
+        q.name="#{name}-#{num.to_s}-e2sequence-#{pTable.name}"
+        q.text=lang.text_for(:e2sequence, name, pTable.fields[0].capitalize, pTable.sequence[1] )
         q.matching << [ pList1[i+3][:data][0], '1º' ]
         q.matching << [ pList1[i+2][:data][0], '2º' ]
         q.matching << [ pList1[i+1][:data][0], '3º' ]

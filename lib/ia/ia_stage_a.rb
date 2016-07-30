@@ -18,7 +18,7 @@ module IA_stage_a
       if s.count>3 then
         q=Question.new
         q.set_choice
-        q.name="#{name}-#{@num.to_s}-a1desc"
+        q.name="#{name}-#{num.to_s}-a1desc"
         q.text=lang.text_for(:a1desc,t)
         q.good=name
         q.bads << lang.text_for(:none)
@@ -34,7 +34,7 @@ module IA_stage_a
       if s.count>3 then
         q = Question.new
         q.set_choice
-        q.name="#{name}-#{@num.to_s}-a2desc"
+        q.name="#{name}-#{num.to_s}-a2desc"
         q.text=lang.text_for(:a2desc,t)
         q.good=lang.text_for(:none)
         q.bads << a[1]
@@ -46,7 +46,7 @@ module IA_stage_a
       #Question type <a3desc>: boolean => TRUE
       q = Question.new
       q.set_boolean
-      q.name="#{name}-#{@num.to_s}-a3desc"
+      q.name="#{name}-#{num.to_s}-a3desc"
       q.text=lang.text_for(:a3desc,name,t)
       q.good="TRUE"
       questions << q
@@ -55,7 +55,7 @@ module IA_stage_a
       if neighbors.count>0 then
         q = Question.new
         q.set_boolean
-        q.name="#{name}-#{@num.to_s}-a4desc"
+        q.name="#{name}-#{num.to_s}-a4desc"
         q.text=lang.text_for(:a4desc,neighbors[0][:concept].name,t)
         q.good="FALSE"
         questions << q
@@ -64,7 +64,7 @@ module IA_stage_a
       #Question type <a5desc>: hidden name questions
       q = Question.new
       q.set_short
-      q.name="#{name}-#{@num.to_s}-a5desc"
+      q.name="#{name}-#{num.to_s}-a5desc"
       q.text=lang.text_for(:a5desc, lang.hide_text(name), t )
       q.shorts << name
       q.shorts << name.gsub("-"," ").gsub("_"," ")
@@ -75,7 +75,7 @@ module IA_stage_a
       if filtered[:words].size>=4 then
         q = Question.new
         q.set_match
-        q.name="#{name}-#{@num.to_s}-a6match"
+        q.name="#{name}-#{num.to_s}-a6match"
 
         indexes=Set.new
         words=filtered[:words]

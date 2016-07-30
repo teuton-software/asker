@@ -19,8 +19,8 @@ module IA_stage_d
 	    if a.count==4 then
         q=Question.new
         q.set_boolean
-        q.name="#{name}-#{@num.to_s}-d1table-#{pTable.name}"
-        q.text=@lang.text_for(:d1table, name, pTable.fields[0].capitalize, a[0], a[1], a[2], a[3])
+        q.name="#{name}-#{num.to_s}-d1table-#{pTable.name}"
+        q.text=lang.text_for(:d1table, name, pTable.fields[0].capitalize, a[0], a[1], a[2], a[3])
         q.good="TRUE"
         questions << q
 	    end
@@ -37,8 +37,8 @@ module IA_stage_d
 	    if a.count==4 then
         q=Question.new
         q.set_boolean
-        q.name="#{name}-#{@num.to_s}-d2table-#{pTable.name}"
-        q.text=@lang.text_for(:d1table, name, pTable.fields[0].capitalize, a[0], a[1], a[2], a[3])
+        q.name="#{name}-#{num.to_s}-d2table-#{pTable.name}"
+        q.text=lang.text_for(:d1table, name, pTable.fields[0].capitalize, a[0], a[1], a[2], a[3])
         q.good="FALSE"
         questions << q
 	    end

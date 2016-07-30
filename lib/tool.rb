@@ -16,6 +16,11 @@ class Tool
   include InputActions
   include ShowActions
 
+  def initialize
+    @concepts={}
+    @concepts_ia=[]
+  end
+
   def start(pArgs={})
     load_params pArgs
 
@@ -66,7 +71,6 @@ class Tool
       exit
     end
 
-    @concepts={}
   end
 
 end
