@@ -35,7 +35,7 @@ class Concept
     end
     @data[:tags]=[]
     @data[:texts]=[]
-    @data[:images]=[]
+    @data[:images]=[] #TODO: By now We'll treat images separated from texts
     @data[:tables]=[]
     @data[:neighbors]=[]
 
@@ -75,9 +75,7 @@ class Concept
     liMax2=@data[:tags].count
     liMax3=@data[:tables].count
 
-    lfAlike1=0.0
-    lfAlike2=0.0
-    lfAlike3=0.0
+    lfAlike1=lfAlike2=lfAlike3=0.0
 
     @data[:context].each { |i| lfAlike1+=1.0 if !pConcept.context.index(i).nil? }
     @data[:tags].each { |i| lfAlike2+=1.0 if !pConcept.tags.index(i).nil? }
@@ -115,9 +113,9 @@ private
         Project.instance.verbose msg
         @data[:texts] << i.text.strip
       when 'def'
-        if i.attributes['image']
-          Project.instance.verbose Rainbow("[DEBUG] Concept#read_data_from_xml: #{Rainbow(i.attributes['image']).bright}").yellow
-          @data[:images] << i.attributes['image'].strip
+        if i.attributes['type']=='image'
+          Project.instance.verbose Rainbow("[DEBUG] Concept#read_xml: image #{Rainbow(i.text).bright}").yellow
+          @data[:images] << i.text.strip
         else
           @data[:texts] << i.text.strip
         end
