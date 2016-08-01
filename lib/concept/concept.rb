@@ -48,17 +48,6 @@ class Concept
     return @data[:names][0] || 'concept'+@@id.to_s
   end
 
-  def misspelled_name
-    i=rand(name.size+1)
-    j=i
-    j=rand(name.size+1) while(j==i)
-
-    lName=name+i.to_s
-    #lName[i]=name[j]
-    #lName[j]=name[i]
-    return lName
-  end
-
   def text
     return @data[:texts][0] || '...'
   end
