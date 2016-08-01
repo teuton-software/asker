@@ -23,10 +23,8 @@ class Tool
   end
 
   def start(pArgs={})
-    #load_params pArgs
     ProjectLoader::load(pArgs)
     Project.instance.open
-    #load_input_files
     @concepts = ConceptLoader.new.load
     ConceptScreenFormatter.new(@concepts).export
 
@@ -35,7 +33,6 @@ class Tool
 
 	  Project.instance.close
   end
-
 
  def create_output_files
    Project.instance.verbose "\n"
