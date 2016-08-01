@@ -15,7 +15,10 @@ class QuestionGiftFormatter
     when :choice
       s=s+"{\n"
       a=["  =#{sanitize(@question.good)}\n"]
-      @question.bads.each { |i| a << ('  ~%-25%'+sanitize(i)+"\n") }
+      penalties = [ '', '%-50%','%-33%','%-25%','%-20%']
+      penalty = penalties[@question.bads.size]
+
+      @question.bads.each { |i| a << ("  ~#{penalty}" + sanitize(i)+"\n") }
       a.shuffle!
       a.each do |i|
         text=i
@@ -40,6 +43,7 @@ class QuestionGiftFormatter
       s << "}\n\n"
     when :short
       s << "{\n"
+      @question.shorts.uniq!
       @question.shorts.each do |i|
         text=i
         text=i[0,220]+"...(ERROR: too long)" if text.size>255
