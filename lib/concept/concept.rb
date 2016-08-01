@@ -40,8 +40,6 @@ class Concept
     @data[:neighbors]=[]
 
 	  read_data_from_xml(pXMLdata)
-
-    @data[:misspelled]=misspelled_name #revise this???
   end
 
   def name

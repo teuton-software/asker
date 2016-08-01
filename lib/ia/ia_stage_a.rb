@@ -77,6 +77,7 @@ module IA_stage_a
       questions << q
 
       q = Question.new(:choice)
+      q.name="#{name}-#{num}-a3desc"
       q.text=lang.text_for(:a3desc,name, t )
       q.good = lang.text_for(:true)
       q.bads << lang.text_for(:misspelling)
