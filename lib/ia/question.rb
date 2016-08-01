@@ -5,21 +5,21 @@ class Question
   attr_accessor :good, :bads, :matching, :shorts
   attr_reader :type
 
-  def initialize
-    init
+  def initialize(type=:choice)
+    init(type)
   end
 
-  def init
+  def init(type=:choice)
     @name=""
     @comment=""
     @text=""
-    @type=:choice
+    @type=type
     @good=""
     @bads=[]
     @matching=[]
     @shorts=[]
   end
-  
+
   def set_choice
     @type=:choice
   end
