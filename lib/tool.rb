@@ -10,6 +10,8 @@ require_relative 'ia/concept_ia'
 require_relative 'formatter/concept_doc_formatter'
 require_relative 'formatter/concept_gift_formatter'
 require_relative 'formatter/concept_string_formatter'
+require_relative 'formatter/concept_screen_formatter'
+require_relative 'formatter/concept_ia_screen_formatter'
 require_relative 'tool/input_actions'
 require_relative 'tool/show_actions'
 
@@ -27,9 +29,11 @@ class Tool
 
     Project.instance.open
     load_input_files
-    show_data # Only show Concepts with process attr true
+    ConceptScreenFormatter.new(@concepts).export
+
     create_output_files
-	  show_stats
+    ConceptIAScreenFormatter.new(@concepts_ia).export
+
 	  Project.instance.close
   end
 

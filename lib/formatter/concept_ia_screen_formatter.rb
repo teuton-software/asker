@@ -1,11 +1,16 @@
 
 require 'terminal-table'
 
-module ShowActions
+class ConceptIAScreenFormatter
 
-  def show_stats
+  def initialize(concepts_ia)
+    @concepts_ia = concepts_ia
+  end
+
+  def export
 	  project=Project.instance
     return if project.show_mode==:none
+
     project.verbose "\n[INFO] Showing concept stats...\n"
     total_q=total_e=total_c=0
     total_sa=total_sb=total_sc=total_sd=total_se=0

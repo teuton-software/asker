@@ -9,24 +9,6 @@ module IA_calculate
     count=0
     words.each { |w| count +=1 if pText2.include?(w) }
     return (count*100/words.count)
-  end	
-
-  def calculate_nearness_to_concept(pConcept)
-    liMax1=@data[:context].count
-    liMax2=@data[:tags].count
-    liMax3=@data[:tables].count
-
-    lfAlike1=0.0
-    lfAlike2=0.0
-    lfAlike3=0.0
-
-    @data[:context].each { |i| lfAlike1+=1.0 if !pConcept.context.index(i).nil? }
-    @data[:tags].each { |i| lfAlike2+=1.0 if !pConcept.tags.index(i).nil? }
-    @data[:tables].each { |i| lfAlike3+=1.0 if !pConcept.tables.index(i).nil? }
-
-    lfAlike =(lfAlike1*@weights[0]+lfAlike2*@weights[1]+lfAlike3*@weights[2])
-    liMax = (liMax1*@weights[0]+liMax2*@weights[1]+liMax3*@weights[2])
-    return ( lfAlike*100.0/ liMax )
   end
 
   def not_equals(a,b,c,d)
