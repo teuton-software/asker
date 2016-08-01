@@ -13,11 +13,9 @@ require_relative 'formatter/concept_string_formatter'
 require_relative 'formatter/concept_screen_formatter'
 require_relative 'formatter/concept_ia_screen_formatter'
 require_relative 'tool/input_actions'
-require_relative 'tool/show_actions'
 
 class Tool
   include InputActions
-  include ShowActions
 
   def initialize
     @concepts={}
