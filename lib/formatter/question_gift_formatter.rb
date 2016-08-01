@@ -15,7 +15,7 @@ class QuestionGiftFormatter
     when :choice
       s=s+"{\n"
       a=["  =#{sanitize(@question.good)}\n"]
-      penalties = [ '', '%-50%','%-33%','%-25%','%-20%']
+      penalties = [ '', '%-50%','%-33.33333%','%-25%','%-20%']
       penalty = penalties[@question.bads.size]
 
       @question.bads.each { |i| a << ("  ~#{penalty}" + sanitize(i)+"\n") }
