@@ -12,10 +12,9 @@ require_relative 'formatter/concept_gift_formatter'
 require_relative 'formatter/concept_string_formatter'
 require_relative 'formatter/concept_screen_formatter'
 require_relative 'formatter/concept_ia_screen_formatter'
-require_relative 'tool/input_actions'
+require_relative 'loader/concept_loader'
 
 class Tool
-  include InputActions
 
   def initialize
     @concepts={}
@@ -26,7 +25,8 @@ class Tool
     load_params pArgs
 
     Project.instance.open
-    load_input_files
+    #load_input_files
+    @concepts = ConceptLoader.new.load
     ConceptScreenFormatter.new(@concepts).export
 
     create_output_files

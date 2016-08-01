@@ -3,9 +3,13 @@
 require 'haml'
 require 'rexml/document'
 
-module InputActions
+class ConceptLoader
 
-  def load_input_files
+  def initialize
+    @concepts = {}
+  end
+
+  def load
     project=Project.instance
     project.verbose "\n[INFO] Loading input data..."
 
@@ -76,5 +80,7 @@ module InputActions
         end
       end
     end
+
+    return @concepts
   end
 end
