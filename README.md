@@ -44,4 +44,4 @@ This file contains our input definitions in a HAML text file.
 * Use this tool.
 * Report bugs, or ideas for new features.
 * Share your own contents (HAML/XML files) with us.
-* If you like `ruby`, you also could help us with the TO-DO list.
+* If you like `ruby`, you also could help us with the [TO-DO list](./docs/TODO.md).
