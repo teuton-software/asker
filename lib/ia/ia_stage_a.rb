@@ -16,12 +16,23 @@ module IA_stage_a
 
       #Question type <a1desc>: choose between 4 options
       if s.count>3 then
-        q=Question.new
-        q.set_choice
+        q=Question.new(:choice)
         q.name="#{name}-#{num}-a1desc"
         q.text=lang.text_for(:a1desc,t)
         q.good=name
         q.bads << lang.text_for(:none)
+        q.bads << a[2]
+        q.bads << a[3]
+        questions << q
+      end
+
+      #Question type <a1desc>: choose between 4 options, good none (Sintax error)
+      if s.count>3 then
+        q=Question.new(:choice)
+        q.name="#{name}-#{num}-a1desc"
+        q.text=lang.text_for(:a1desc,t)
+        q.good = lang.text_for(:none)
+        q.bads << lang.do_mistake_to(name)
         q.bads << a[2]
         q.bads << a[3]
         questions << q
