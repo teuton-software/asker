@@ -69,6 +69,29 @@ module IA_stage_a
       q.bads << lang.text_for(:false)
       questions << q
 
+      q = Question.new(:choice)
+      q.name="#{name}-#{num}-a3desc"
+      q.text=lang.text_for(:a3desc, lang.do_mistake_to(name), t)
+      q.good=lang.text_for(:misspelling)
+      q.bads << lang.text_for(:true)
+      q.bads << lang.text_for(:false)
+      questions << q
+
+      q = Question.new(:choice)
+      q.text=lang.text_for(:a3desc,name, t )
+      q.good = lang.text_for(:true)
+      q.bads << lang.text_for(:misspelling)
+      q.bads << lang.text_for(:false)
+      questions << q
+
+      q = Question.new(:choice)
+      q.name="#{name}-#{num}-a3desc"
+      q.text=lang.text_for(:a3desc, a[1], t)
+      q.good = lang.text_for(:false)
+      q.bads << lang.text_for(:misspelling)
+      q.bads << lang.text_for(:true)
+      questions << q
+
       #Question type <a4desc>: boolean => FALSE
       if neighbors.count>0 then
         q = Question.new
