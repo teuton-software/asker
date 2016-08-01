@@ -1,8 +1,8 @@
 # encoding: utf-8
 
 require_relative '../lang/lang'
-require_relative '../ia/ia'
-require_relative 'question'
+require_relative 'ia'
+require_relative '../concept/question'
 
 class ConceptIA
   include IA

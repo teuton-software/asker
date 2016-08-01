@@ -6,7 +6,7 @@ require 'rainbow'
 
 require_relative 'project'
 require_relative 'concept/concept'
-require_relative 'concept/concept_ia'
+require_relative 'ia/concept_ia'
 require_relative 'formatter/concept_doc_formatter'
 require_relative 'formatter/concept_gift_formatter'
 require_relative 'formatter/concept_string_formatter'

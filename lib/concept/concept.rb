@@ -5,12 +5,9 @@ require 'rexml/document'
 
 require_relative '../project'
 require_relative '../lang/lang'
-#require_relative '../ia/ia'
-#require_relative 'question'
 require_relative 'table'
 
 class Concept
-#  include IA
 
   attr_reader :id, :data, :questions
   attr_reader :lang #TODO: migrating IA to concept_IA...
@@ -23,8 +20,6 @@ class Concept
     @id=@@id
 
     @questions={}
-
-    @weights=Project.instance.formula_weights
 
     @lang=Lang.new(pLang)
     @process=false
@@ -84,6 +79,26 @@ class Concept
     #Sort neighbors list
     @data[:neighbors].sort! { |a,b| a[:value] <=> b[:value] }
     @data[:neighbors].reverse!
+  end
+
+  def calculate_nearness_to_concept(pConcept)
+    weights=Project.instance.formula_weights
+
+    liMax1=@data[:context].count
+    liMax2=@data[:tags].count
+    liMax3=@data[:tables].count
+
+    lfAlike1=0.0
+    lfAlike2=0.0
+    lfAlike3=0.0
+
+    @data[:context].each { |i| lfAlike1+=1.0 if !pConcept.context.index(i).nil? }
+    @data[:tags].each { |i| lfAlike2+=1.0 if !pConcept.tags.index(i).nil? }
+    @data[:tables].each { |i| lfAlike3+=1.0 if !pConcept.tables.index(i).nil? }
+
+    lfAlike = ( lfAlike1*weights[0] + lfAlike2*weights[1] + lfAlike3*weights[2] )
+    liMax   = ( liMax1  *weights[0] + liMax2  *weights[1] + liMax3*weights[2]   )
+    return ( lfAlike*100.0/ liMax )
   end
 
   def method_missing(m, *args, &block)

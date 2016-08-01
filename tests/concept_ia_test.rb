@@ -4,7 +4,7 @@ require "minitest/autorun"
 require 'rexml/document'
 
 require_relative "../lib/concept/concept"
-require_relative "../lib/concept/concept_ia"
+require_relative "../lib/ia/concept_ia"
 
 class TestResult < Minitest::Test
   def setup
@@ -25,13 +25,6 @@ class TestResult < Minitest::Test
     @concept.each { |c| assert_equal( {}, c.questions) }
 
     @concept[0].process = true
-    @concept[0].make_questions_from_ia
-    assert_equal 5, @concept[0].questions[:stage_a].size
-    assert_equal 0, @concept[0].questions[:stage_b].size
-    assert_equal 20, @concept[0].questions[:stage_c].size
-    assert_equal 0, @concept[0].questions[:stage_d].size
-    assert_equal 0, @concept[0].questions[:stage_e].size
-
     @concept_ia[0].make_questions_from_ia
     assert_equal 5, @concept_ia[0].questions[:stage_a].size
     assert_equal 0, @concept_ia[0].questions[:stage_b].size
@@ -40,12 +33,12 @@ class TestResult < Minitest::Test
     assert_equal 0, @concept_ia[0].questions[:stage_e].size
 
     @concept[1].process = true
-    @concept[1].make_questions_from_ia
-    assert_equal 11, @concept[1].questions[:stage_a].size
-    assert_equal 2, @concept[1].questions[:stage_b].size
-    assert_equal 31, @concept[1].questions[:stage_c].size
-    assert_equal 0, @concept[1].questions[:stage_d].size
-    assert_equal 0, @concept[1].questions[:stage_e].size
+    @concept_ia[1].make_questions_from_ia
+    assert_equal 11, @concept_ia[1].questions[:stage_a].size
+    assert_equal 2, @concept_ia[1].questions[:stage_b].size
+    assert_equal 31, @concept_ia[1].questions[:stage_c].size
+    assert_equal 0, @concept_ia[1].questions[:stage_d].size
+    assert_equal 0, @concept_ia[1].questions[:stage_e].size
   end
 
   def get_xml_data
