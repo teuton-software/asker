@@ -26,3 +26,5 @@
 :d2table: 'Los siguientes elementos son "<%=text2%>" del concepto <b><%=text1%></b>:<br/><ul><li><%=text3%></li><li><%=text4%></li><li><%=text5%></li><li><%=text6%></li></ul>'
 :e1sequence: 'En relación al concepto <b><%=text1%></b>, ordena cada "<%=text2%>" de modo que se cumpla el criterio "<%=text3%>".<br/>'
 :e2sequence: 'En relación al concepto <b><%=text1%></b>, ordena cada "<%=text2%>" de modo que se cumpla el criterio "<%=text3%>".<br/>'
+:f1: '<%=text1%>"<br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>'
+:f2: '<%=text1%><br/>La imagen anterior corresponde a <b><%=text2%></b>.'
