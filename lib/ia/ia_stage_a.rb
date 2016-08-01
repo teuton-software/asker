@@ -43,8 +43,7 @@ module IA_stage_a
 
       #Question type <a2desc>: choose between 4 options, good none
       if s.count>3 then
-        q = Question.new
-        q.set_choice
+        q = Question.new(:choice)
         q.name="#{name}-#{num}-a2desc"
         q.text=lang.text_for(:a2desc,t)
         q.good=lang.text_for(:none)
@@ -94,8 +93,7 @@ module IA_stage_a
 
       #Question type <a4desc>: boolean => FALSE
       if neighbors.count>0 then
-        q = Question.new
-        q.set_boolean
+        q = Question.new(:boolean)
         q.name="#{name}-#{num}-a4desc"
         q.text=lang.text_for(:a4desc,neighbors[0][:concept].name,t)
         q.good="FALSE"
@@ -103,8 +101,7 @@ module IA_stage_a
       end
 
       #Question type <a5desc>: hidden name questions
-      q = Question.new
-      q.set_short
+      q = Question.new(:short)
       q.name="#{name}-#{num}-a5desc"
       q.text=lang.text_for(:a5desc, lang.hide_text(name), t )
       q.shorts << name
