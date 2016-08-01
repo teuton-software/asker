@@ -1,6 +1,9 @@
 ---
 :none: 'No correct'
 :error: 'Error'
+:misspelling: 'Misspelling'
+:true: 'True'
+:false: 'False'
 :a1desc: 'Definition\: "<%=text1%>"<br/>Choose the best association for the previous definition.<br/>'
 :a2desc: 'Definition\: "<%=text1%>"<br/>Choose the best association for the previous definition.<br/>'
 :a3desc: 'Definition of <b><%=text1%></b>\:<br/> "<%=text2%>"<br/>'

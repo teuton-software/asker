@@ -26,10 +26,10 @@ module IA_stage_a
         questions << q
       end
 
-      #Question type <a1desc>: choose between 4 options, good none (Sintax error)
+      #Question type <a2desc>: choose between 4 options, good none (Sintax error)
       if s.count>3 then
         q=Question.new(:choice)
-        q.name="#{name}-#{num}-a1desc"
+        q.name="#{name}-#{num}-a2desc"
         q.text=lang.text_for(:a1desc,t)
         q.good = lang.text_for(:none)
         q.bads << lang.do_mistake_to(name)
@@ -55,11 +55,18 @@ module IA_stage_a
       end
 
       #Question type <a3desc>: boolean => TRUE
-      q = Question.new
-      q.set_boolean
+      q = Question.new(:boolean)
       q.name="#{name}-#{num}-a3desc"
       q.text=lang.text_for(:a3desc,name,t)
       q.good="TRUE"
+      questions << q
+
+      q = Question.new(:choice)
+      q.name="#{name}-#{num}-a3desc"
+      q.text=lang.text_for(:a3desc,name, lang.do_mistake_to(t) )
+      q.good=lang.text_for(:misspelling)
+      q.bads << lang.text_for(:true)
+      q.bads << lang.text_for(:false)
       questions << q
 
       #Question type <a4desc>: boolean => FALSE

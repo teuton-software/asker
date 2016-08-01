@@ -1,6 +1,9 @@
 ---
 :none: 'Ninguna es correcta'
 :error: 'Error'
+:misspelling: 'Error de ortográfico'
+:true: 'Verdadero'
+:false: 'Falso'
 :a1desc: 'Definición \: "<%=text1%>"<br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>'
 :a2desc: 'Definición \: "<%=text1%>"<br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>'
 :a3desc: 'Definición de <b><%=text1%></b>\:<br/> "<%=text2%>"<br/>'
