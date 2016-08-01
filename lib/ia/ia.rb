@@ -7,6 +7,7 @@ require_relative 'ia_stage_b'
 require_relative 'ia_stage_c'
 require_relative 'ia_stage_d'
 require_relative 'ia_stage_e'
+require_relative 'stage_f'
 
 require_relative 'ia_calculate'
 
@@ -29,6 +30,7 @@ module IA
     @questions[:stage_c] = []
     @questions[:stage_d] = []
     @questions[:stage_e] = []
+    @questions[:stage_f] = StageF.new(self).run
 
     #-----------------------------------
     #Process every table of this concept
@@ -69,9 +71,14 @@ module IA
       #-----------------------------------------
       #Stage D: process tables with only 1 field
       @questions[:stage_d] = @questions[:stage_d] + run_stage_d(lTable, list1, list2)
+
       #--------------------------------------
       #Stage E: process tables with sequences
       @questions[:stage_e] = @questions[:stage_e] + run_stage_e(lTable, list1, list2)
     end
+
+    #-------------------------------------
+    #Stage F: process images from def tags
+
   end
 end

@@ -1,22 +1,33 @@
 # encoding: utf-8
 
-Class StageF
+require "base64_compatible"
+require_relative 'question'
+
+class StageF
   #range f1-f2
 
-  def initialize(concept)
-    @concept
+  def initialize(concept_ia)
+    @concept_ia=concept_ia
   end
 
   def images
-    @concept.images
+    @concept_ia.images
   end
 
   def lang
-    @concept.lang
+    @concept_ia.lang
+  end
+
+  def name
+    @concept_ia.name
   end
 
   def neighbors
-    @concept.neighbors
+    @concept_ia.neighbors
+  end
+
+  def num
+    @concept_ia.num
   end
 
   def run
@@ -91,13 +102,16 @@ Class StageF
       q.shorts << name
       q.shorts << name.gsub("-"," ").gsub("_"," ")
       questions << q
-    return questions
+      return questions
+    end
   end
 
 private
 
   def html_for_image(filename)
-    content = File.open(pFilename).read
+    dirname = File.dirname(@concept_ia.filename)
+    filepath = File.join(dirname,filename)
+    content = File.open(filepath).read
     content64 = Base64Compatible.encode64( content )
     output =""
     until(content64.nil?) do
