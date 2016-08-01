@@ -1,12 +1,11 @@
 #Introduction
 
-This application is an Open Source ruby program, that helps teachers
-to create a huge amount of questions, from a simple definitions input file,
-in an easy way.
+This application is a Free Source multiplatform program, that helps teachers
+to create a huge amount of questions, from a simple definitions input file.
 
 Two Steps:
 
-1. Create an input HAML/XML text file with the conceptual map (definitions).
+1. Create an input file (HAML/XML) with your conceptual map (definitions).
 1. Run this tool, that creates an output file with the questions.
 
 #Installation
@@ -19,12 +18,11 @@ Two Steps:
 
 #Run demo
 
-Execute `./darts input/en/starwars/jedi.haml` to run this demo.
-On Windows try with `ruby darts input/en/starwars/jedi.haml`
+To execute Dart, we use `darts` command with a HAML/XML file as argument.
 
-> Prefix:
-> * Use `en` prefix for the English demo.
-> * Use `es` prefix for the Spanish demo.
+For example, execute `./darts input/en/starwars/jedi.haml` to run this first demo.
+
+> On Windows try with `ruby darts input/en/starwars/jedi.haml`
 
 You will see messages on the screen, while the tool is working.
 At the end we'll have our output files into the `output` directory.
@@ -32,16 +30,21 @@ At the end we'll have our output files into the `output` directory.
 In our example, we use sample input definition file, saved on `input/en/starwars`.
 This file contains our input definitions in a HAML text file.
 
+> There are more input HAML/XML files into `input` directory.
+
 #Documentation
 
 * [History](./docs/en/history.md)
+* [Fundamentals](./doc/en/fundamentals.md)
 * [Directories description](./docs/en/dirtree.md)
 * [Input definitions](./docs/en/inputs.md)
 * [Spanish documentation](./docs/es/README.md)
 
 #Contributions
 
+* Talk about this tool with your colleagues.
 * Use this tool.
-* Report bugs, or ideas for new features.
-* Share your own contents (HAML/XML files) with us.
+* Report bugs.
+* Report us, your ideas for new features.
+* Share with us, your own contents files (HAML/XML). Let's see input directory.
 * If you like `ruby`, you also could help us with the [TO-DO list](./docs/TODO.md).

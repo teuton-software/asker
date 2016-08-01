@@ -1,0 +1,46 @@
+#Fundamentals
+
+##Disclaimber
+* I'm not a teacher. I work as a teacher, and I try to do the best I know.
+* I'm a programmer. I studied Computer Science at *Las Plamas de Gran Canaria University*.
+* 90% of what I've learned, I must thank to *Open Source* community.
+The other 10%, It's luck and time wasted working.
+
+## Open vs closed problems
+
+The big problem with test questions are that only are usefull to evaluate
+measurable features. So it could be very limited if we want measure abstract
+features or open problems. But we could do this with other point of view.
+
+I mean, if I get an open and abstract problem, their resolution will have
+several steps or measurable milestones. So we could transform an open problem,
+into a lot of closed mini-problems. And I have to focus on measure this aspects.
+
+Besides, if I *"bomb"* the student with a huge amount of diferent questions
+about one concept, probably I could be near of knowing and measuring, the
+student asimilation of this concepts.
+
+## Making Questions
+
+Creating test questions to solve the previous problem, becames another
+different problem to solve. When I make manually this test questions, it
+took me a lot of time. And I need a lot of them.
+
+And when I'm making the question number 31, I realise that I forgot the
+content of the 30 previous. I'm loosing time and I'm slow.
+
+## The Tool
+
+Finally, I decide to write this tool that help me with the process of
+making test questions from input definition files.
+
+I only waste time making this input file, but as a teacher I have this
+into my mind. It's the resume or concept map of the unit I'm teaching.
+
+I've been using this tools several years/courses, teaching computer
+science. I have a lot of work to improve it and new features to add.
+It's usefull (for me at least), and hope It'll be for you too.
+
+;-)
+
+David Vargas
