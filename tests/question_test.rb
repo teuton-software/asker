@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 require "minitest/autorun"
-require_relative "../lib/concept/question"
+require_relative "../lib/ia/question"
 
 class TestLang < Minitest::Test
   def setup

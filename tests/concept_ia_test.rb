@@ -21,9 +21,8 @@ class TestResult < Minitest::Test
     @concept.each { |concept| @concept_ia << ConceptIA.new(concept) }
   end
 
-  def test_questions
-    @concept.each { |c| assert_equal( {}, c.questions) }
-
+  def test_make_questions_from_ia
+    @concept_ia.each { |c| assert_equal( {}, c.questions) }
     @concept[0].process = true
     @concept_ia[0].make_questions_from_ia
     assert_equal 5, @concept_ia[0].questions[:stage_a].size

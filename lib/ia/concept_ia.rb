@@ -2,7 +2,7 @@
 
 require_relative '../lang/lang'
 require_relative 'ia'
-require_relative '../concept/question'
+require_relative 'question'
 
 class ConceptIA
   include IA

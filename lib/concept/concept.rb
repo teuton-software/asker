@@ -19,8 +19,6 @@ class Concept
     @@id+=1
     @id=@@id
 
-    @questions={}
-
     @lang=Lang.new(pLang)
     @process=false
 
