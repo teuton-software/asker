@@ -30,7 +30,7 @@ module IA
     @questions[:stage_c] = []
     @questions[:stage_d] = []
     @questions[:stage_e] = []
-    @questions[:stage_f] = StageF.new(self).run
+    @questions[:stage_f] = [] #FIX: StageF.new(self).run
 
     #-----------------------------------
     #Process every table of this concept
