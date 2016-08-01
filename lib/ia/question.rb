@@ -19,9 +19,6 @@ class Question
     @matching=[]
     @shorts=[]
   end
-
-  def write_to_file(pp)
-  end
   
   def set_choice
     @type=:choice

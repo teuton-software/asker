@@ -33,7 +33,7 @@ class ConceptIA
 
   def num
     @num+=1
-    return @num
+    return @num.to_s
   end
 
   def process
