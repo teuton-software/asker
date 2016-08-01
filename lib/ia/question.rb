@@ -6,10 +6,10 @@ class Question
   attr_reader :type
 
   def initialize(type=:choice)
-    init(type)
+    reset(type)
   end
 
-  def init(type=:choice)
+  def reset(type=:choice)
     @name=""
     @comment=""
     @text=""
@@ -34,10 +34,6 @@ class Question
 
   def set_short
     @type=:short
-  end
-
-  def reset
-    init
   end
 
 private
