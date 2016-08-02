@@ -111,8 +111,10 @@ private
         Project.instance.verbose msg
         @data[:texts] << i.text.strip
       when 'def'
-        if i.attributes['type']=='image'
+        case i.attributes['type']
+        when 'image'
           Project.instance.verbose Rainbow("[DEBUG] Concept#read_xml: image #{Rainbow(i.text).bright}").yellow
+        when 'image_url'
           @data[:images] << i.text.strip
         else
           @data[:texts] << i.text.strip

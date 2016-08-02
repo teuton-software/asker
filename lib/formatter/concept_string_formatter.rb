@@ -28,8 +28,8 @@ class ConceptStringFormatter
 	    lText << i[0...70].to_s+"..."
 	  end
 	end
-    t.add_row [Rainbow(".def(text)").color(:blue), lText.join("\n")]
-    t.add_row [Rainbow(".def(images)").color(:blue), @concept.images.join(", ").to_s]
+    t.add_row [Rainbow(".def(text)").color(:blue), lText.join("\n") ]
+    t.add_row [Rainbow(".def(images)").color(:blue), @concept.images.size.to_s ]
 	  if @concept.tables.count>0 then
 	    lText=[]
 	    @concept.tables.each { |i| lText << i.to_s }
