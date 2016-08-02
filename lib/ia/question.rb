@@ -36,13 +36,4 @@ class Question
     @type=:short
   end
 
-private
-
-  def sanitize(psText="")
-    lsText=psText.sub("\n", " ")
-    lsText.sub!(":","\:")
-    lsText.sub!("=","\\=")
-    return lsText
-  end
-
 end

@@ -18,8 +18,8 @@ class Lang
     begin
       @templates=YAML::load(File.new(filename))
     rescue Exception => e
-      Tool.instance.verbose "[ERROR] lang.initialize(): Reading YAML file <#{filename}>"
-      Tool.instance.verbose "[ADVISE] Perhaps you use apostrophe into string without \\ character"
+      Project.instance.verbose "[ERROR] lang.initialize(): Reading YAML file <#{filename}>"
+      Project.instance.verbose "[ADVISE] Perhaps you use apostrophe into string without \\ character\n"
       raise e
     end
     filename=File.join( dirbase, "locales", @lang, "connectors.yaml" )

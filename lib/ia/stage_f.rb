@@ -35,7 +35,7 @@ class StageF
     questions=[]
 
     #for every <image> do this
-    images.each do |image|
+    images.each do |url|
       s=Set.new [name, lang.text_for(:none)]
       neighbors.each { |n| s.add n[:concept].name }
       a=s.to_a
@@ -44,7 +44,7 @@ class StageF
       if s.count>3 then
         q=Question.new(:choice)
         q.name="#{name}-#{num}-f1choose"
-        q.text=lang.text_for(:f1, html_for_image(image) )
+        q.text=lang.text_for(:f1, url )
         q.good=name
         q.bads << lang.text_for(:none)
         q.bads << a[2]
@@ -56,7 +56,7 @@ class StageF
       if s.count>3 then
         q=Question.new(:choice)
         q.name="#{name}-#{num}-f1misspelling"
-        q.text=lang.text_for(:f1, html_for_image(image) )
+        q.text=lang.text_for(:f1, url )
         q.good = lang.text_for(:none)
         q.bads << lang.do_mistake_to(name)
         q.bads << a[2]
@@ -71,7 +71,7 @@ class StageF
       if s.count>3 then
         q = Question.new(:choice)
         q.name="#{name}-#{num}-f1none"
-        q.text=lang.text_for(:f1, html_for_image(image) )
+        q.text=lang.text_for(:f1, url )
         q.good=lang.text_for(:none)
         q.bads << a[1]
         q.bads << a[2]
@@ -82,7 +82,7 @@ class StageF
       #Question type <f2>: boolean => TRUE
       q = Question.new(:boolean)
       q.name="#{name}-#{num}-f2true"
-      q.text=lang.text_for(:f2, html_for_image(image), name )
+      q.text=lang.text_for(:f2, url, name )
       q.good="TRUE"
       questions << q
 
@@ -90,7 +90,7 @@ class StageF
       if neighbors.count>0 then
         q = Question.new(:boolean)
         q.name="#{name}-#{num}-f2false"
-        q.text=lang.text_for(:f2, html_for_image(image), neighbors[0][:concept].name )
+        q.text=lang.text_for(:f2, url, neighbors[0][:concept].name )
         q.good="FALSE"
         questions << q
       end
@@ -98,7 +98,7 @@ class StageF
       #Question type <f3>: hidden name questions
       q = Question.new(:short)
       q.name="#{name}-#{num}-f3short"
-      q.text=lang.text_for(:f3, html_for_image(image), lang.hide_text(name) )
+      q.text=lang.text_for(:f3, url, lang.hide_text(name) )
       q.shorts << name
       q.shorts << name.gsub("-"," ").gsub("_"," ")
       questions << q
@@ -108,7 +108,7 @@ class StageF
 
 private
 
-  def html_for_image(filename)
+  def html_for_raw_image(filename)
     dirname = File.dirname(@concept_ia.filename)
     filepath = File.join(dirname,filename)
     content = File.open(filepath).read
