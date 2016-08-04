@@ -1,6 +1,8 @@
 #!/usr/bin/ruby
 
 require "sinatra/base"
+#require_relative 'lib/gui/sinatra_get'
+#require_relative 'lib/gui/sinatra_helpers'
 
 class MyApp < Sinatra::Base
   BASEDIR="./input"
