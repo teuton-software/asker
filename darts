@@ -34,6 +34,8 @@ elsif ['v','-v','version','--version'].include?(ARGV[0]) then
   show_version
 elsif ['c','-c','create','--create'].include?(ARGV[0]) then
   ProjectBuilder::create_project( ARGV[1], Application.instance.param[:inputbasedir])
+elsif ['gui','--gui' ].include?(ARGV[0]) then
+  exec('./sinatra.rb')
 else
   Tool.new.start(ARGV.first)
 end
