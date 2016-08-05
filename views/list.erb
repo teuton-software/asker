@@ -4,8 +4,8 @@
 
 <% @filenames.each do |filename| %>
   <% if File.directory?(filename) %>
-    <li><a href="/ls/<%= route_for(filename) %>"><%= File.basename(filename) %></a></li>
+    <li><a href="/list/<%= route_for(filename) %>"><%= File.basename(filename) %></a></li>
   <% else %>
-    <li><a href="/cat/<%= route_for(filename) %>"><%= File.basename(filename) %></a></li>
+    <li><a href="/show/<%= route_for(filename) %>"><%= File.basename(filename) %></a></li>
   <% end %>
 <% end %>

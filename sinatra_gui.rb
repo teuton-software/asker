@@ -5,23 +5,34 @@ class SinatraGUI < Sinatra::Base
   BASEDIR="./input"
 
   get '/' do
-    redirect '/ls'
+    redirect '/list'
   end
 
-  get '/ls' do
+  get '/list' do
     @current=File.join(BASEDIR)
-    load_dir
+    load_dir @current
     erb :list
   end
 
-  get '/ls/*' do
+  get '/list/*' do
     @current=File.join(BASEDIR, params[:splat])
-    load_dir
+    load_dir @current
     erb :list
   end
 
-  def load_dir
-    @filenames = Dir[@current+"/**"].sort!
+  get '/show/*.*' do |path,ext|
+    @filename = path+"."+ext
+    @current=File.join(BASEDIR, @filename)
+    load_file @current
+    erb :show
+  end
+
+  def load_dir(dir)
+    @filenames = Dir[dir+"/**"].sort!
+  end
+
+  def load_file(filename)
+    @filecontent=open(filename) { |i| i.read }
   end
 
   helpers do
