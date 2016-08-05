@@ -14,16 +14,19 @@ class FileLoader
   def load
     project=Project.instance
 
-    if @filename[-5..-1]==".haml" then
+    if File.extname(@filename).downcase==".haml" then
       template = File.read(@filename)
       haml_engine = Haml::Engine.new(template)
       lFileContent = haml_engine.render
-    else
+    elsif File.extname(@filename).downcase==".xml" then
       lFileContent=open(@filename) { |i| i.read }
+    else
+      msg = "[ERROR] FileLoader: Format error "+@filename.to_s
+      Project.instance.verbose msg
+      raise msg
     end
 
     @concepts = ContentLoader.new(@filename, lFileContent).load
-
     return @concepts
   end
 
