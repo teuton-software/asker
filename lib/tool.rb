@@ -12,8 +12,8 @@ require_relative 'formatter/concept_gift_formatter'
 require_relative 'formatter/concept_string_formatter'
 require_relative 'formatter/concept_screen_formatter'
 require_relative 'formatter/concept_ia_screen_formatter'
-require_relative 'loader/concept_loader'
 require_relative 'loader/project_loader'
+require_relative 'loader/input_loader'
 
 class Tool
 
@@ -25,7 +25,7 @@ class Tool
   def start(pArgs={})
     ProjectLoader::load(pArgs)
     Project.instance.open
-    @concepts = ConceptLoader.new.load
+    @concepts = InputLoader.new.load
     ConceptScreenFormatter.new(@concepts).export
 
     create_output_files
