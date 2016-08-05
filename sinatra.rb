@@ -1,10 +1,7 @@
-#!/usr/bin/ruby
 
 require "sinatra/base"
-#require_relative 'lib/gui/sinatra_get'
-#require_relative 'lib/gui/sinatra_helpers'
 
-class MyApp < Sinatra::Base
+class DartSinatraGUI < Sinatra::Base
   BASEDIR="./input"
 
   get '/' do
@@ -54,8 +51,7 @@ class MyApp < Sinatra::Base
     end
   end
 
-  run!
+#  run!
 end
 
-#app = MyApp.new
-#app.run!
+#DartSinatraGUI.run!
