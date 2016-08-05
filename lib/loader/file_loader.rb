@@ -2,7 +2,7 @@
 
 require 'haml'
 
-require_relative 'concept_loader'
+require_relative 'content_loader'
 
 class FileLoader
 
@@ -22,7 +22,7 @@ class FileLoader
       lFileContent=open(@filename) { |i| i.read }
     end
 
-    @concepts = ConceptLoader.new(@filename, lFileContent).load
+    @concepts = ContentLoader.new(@filename, lFileContent).load
 
     return @concepts
   end

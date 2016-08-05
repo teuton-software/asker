@@ -4,7 +4,7 @@ require 'rainbow'
 require 'rexml/document'
 require_relative '../concept/concept'
 
-class ConceptLoader
+class ContentLoader
 
   def initialize(filename, xml_content)
     @filename  = filename
@@ -17,8 +17,7 @@ class ConceptLoader
 
     begin
       lXMLdata=REXML::Document.new(@content)
-      #system("echo '#{lFileContent}' > output/#{f}.xml")
-      begin
+        begin
         lLang=lXMLdata.root.attributes['lang'] # has lang attribute or not?
         lContext=lXMLdata.root.attributes['context']
       rescue
