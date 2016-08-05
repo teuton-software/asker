@@ -1,7 +1,8 @@
 # encoding: utf-8
 
 require 'haml'
-require 'rexml/document'
+
+require_relative 'concept_loader'
 
 class FileLoader
 
@@ -21,32 +22,7 @@ class FileLoader
       lFileContent=open(@filename) { |i| i.read }
     end
 
-    begin
-      lXMLdata=REXML::Document.new(lFileContent)
-      #system("echo '#{lFileContent}' > output/#{f}.xml")
-      begin
-        lLang=lXMLdata.root.attributes['lang'] # has lang attribute or not?
-        lContext=lXMLdata.root.attributes['context']
-      rescue
-        lLang=project.lang
-        lContext="unknown"
-      end
-
-      lXMLdata.root.elements.each do |xmldata|
-        if xmldata.name=='concept' then
-          c=Concept.new(xmldata, @filename, lLang, lContext)
-          if ( project.process_file==:default or project.process_file== File.basename(@filename) ) then
-            c.process=true
-          end
-          @concepts[c.name]=c
-        end
-      end
-    rescue REXML::ParseException
-      msg = Rainbow("[ERROR] FileLoader: Format error in file ").red+Rainbow(@filename).red.bright
-      project.verbose msg
-      system("echo '#{lFileContent}' > output/error.xml")
-      raise msg
-    end
+    @concepts = ConceptLoader.new(@filename, lFileContent).load
 
     return @concepts
   end
