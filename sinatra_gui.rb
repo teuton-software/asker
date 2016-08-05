@@ -22,8 +22,9 @@ class SinatraGUI < Sinatra::Base
 
   get '/show/*.*' do |path,ext|
     @filename = path+"."+ext
-    @current=File.join(BASEDIR, @filename)
-    load_file @current
+    filepath=File.join(BASEDIR, @filename)
+    load_file filepath
+    @current = File.dirname(filepath)
     erb :show
   end
 
@@ -52,10 +53,10 @@ class SinatraGUI < Sinatra::Base
       before=""
       items.each do |i|
         if i==items.last then
-          output += " | "+i
+          output += " » "+i
         else
           before=before+"/"+i
-          output += " | <a href=\"/ls"+before+"/\">"+i+"</a>"
+          output += " » <a href=\"/list"+before+"/\">"+i+"</a>"
         end
       end
       return output
