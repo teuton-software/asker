@@ -1,7 +1,5 @@
 # encoding: utf-8
 
-require 'haml'
-require 'rexml/document'
 require_relative 'directory_loader'
 
 class InputLoader
@@ -15,12 +13,11 @@ class InputLoader
     project.verbose "\n[INFO] Loading input data..."
 
     inputdirs = project.inputdirs.split(',')
-    concepts = {}
     inputdirs.each do |dirname|
       concepts = DirectoryLoader.new(dirname).load
+      @concepts.merge!(concepts)
     end
-    @concepts.merge!(concepts)
-    
+
     find_neighbors_for_every_concept
     return @concepts
   end
