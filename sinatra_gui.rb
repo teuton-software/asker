@@ -1,7 +1,7 @@
 
 require "sinatra/base"
 
-class DartSinatraGUI < Sinatra::Base
+class SinatraGUI < Sinatra::Base
   BASEDIR="./input"
 
   get '/' do
