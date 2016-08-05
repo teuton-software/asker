@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 require 'haml'
-
 require_relative 'content_loader'
 
 class FileLoader
