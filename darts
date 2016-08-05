@@ -1,10 +1,11 @@
 #!/usr/bin/ruby
 # encoding: utf-8
 
+require 'rainbow'
 require_relative 'lib/tool'
 require_relative 'lib/application'
 require_relative 'lib/project_builder'
-require 'rainbow'
+require_relative 'dart_sinatra_gui'
 
 def show_help
   puts "Usage: #{$0}\n\n"
@@ -35,7 +36,7 @@ elsif ['v','-v','version','--version'].include?(ARGV[0]) then
 elsif ['c','-c','create','--create'].include?(ARGV[0]) then
   ProjectBuilder::create_project( ARGV[1], Application.instance.param[:inputbasedir])
 elsif ['gui','--gui' ].include?(ARGV[0]) then
-  exec('./sinatra.rb')
+  DartSinatraGUI.run!
 else
   Tool.new.start(ARGV.first)
 end
