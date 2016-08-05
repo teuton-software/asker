@@ -25,7 +25,6 @@ class ConceptLoader
       accepted = files.select { |f| f[-4..-1]==".xml" || f[-5..-1]==".haml" } # accept only HAML or XML files
       project.verbose " * Input directory  = " + Rainbow(dirname).bright
 
-      flag = accepted.last
       accepted.each do |f|
         pFilename=dirname+'/'+f
         if pFilename[-5..-1]==".haml" then
@@ -37,7 +36,7 @@ class ConceptLoader
         end
 
         begin
-          if flag==f then
+          if f==accepted.last then
             project.verbose "   └── Input file   = " + Rainbow(pFilename).bright
           else
             project.verbose "   ├── Input file   = " + Rainbow(pFilename).bright
@@ -71,16 +70,17 @@ class ConceptLoader
         end
       end
     end
+    find_neighbors_for_every_concept
+    return @concepts
+  end
 
+  def find_neighbors_for_every_concept
     #find neighbors for every concept
     @concepts.each_value do |i|
       @concepts.each_value do |j|
-        if (i.id!=j.id) then
-          i.try_adding_neighbor j
-        end
+        i.try_adding_neighbor(j) if (i.id!=j.id)
       end
     end
-
-    return @concepts
   end
+
 end
