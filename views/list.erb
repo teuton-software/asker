@@ -1,5 +1,5 @@
 <h2>Searching files</h2>
-<p><a href="/list" accesskey="h">Home</a><%= html_for_current %></p>
+<p><a href="/list" accesskey="h">Home</a><%= html_for_current %> (<%= @filenames.size.to_s%>)</p>
 <hr>
 
 <% @filenames.each do |filename| %>

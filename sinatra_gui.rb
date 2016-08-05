@@ -44,7 +44,7 @@ class SinatraGUI < Sinatra::Base
       return items.join(File::SEPARATOR)
     end
 
-    def html_for_current
+    def html_for_current( option={ :indexlast => false} )
       items=@current.split(File::SEPARATOR)
       items.delete(".")
       items.delete("input")
@@ -52,7 +52,7 @@ class SinatraGUI < Sinatra::Base
       output=""
       before=""
       items.each do |i|
-        if i==items.last then
+        if i==items.last and option[:indexlast]==false then
           output += " » "+i
         else
           before=before+"/"+i

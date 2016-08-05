@@ -1,5 +1,5 @@
 <h2>File: <%= File.basename(@filename) %></h2>
-<p><a href="/list" accesskey="h">Home</a> <%= html_for_current %> | Show | <a href="/edit/<%= route_for(@filename) %>">Edit</a></p>
+<p><a href="/list" accesskey="h">Home</a> <%= html_for_current(:indexlast => true) %> | Show | <a href="/edit/<%= route_for(@filename) %>">Edit</a></p>
 <hr>
 
 <pre>
