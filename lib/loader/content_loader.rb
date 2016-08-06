@@ -18,7 +18,7 @@ class ContentLoader
     begin
       lXMLdata=REXML::Document.new(@content)
         begin
-        lLang=lXMLdata.root.attributes['lang'] # has lang attribute or not?
+        lLang=lXMLdata.root.attributes['lang']
         lContext=lXMLdata.root.attributes['context']
       rescue
         lLang=project.lang
