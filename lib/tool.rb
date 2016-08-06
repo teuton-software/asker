@@ -18,7 +18,7 @@ require_relative 'loader/input_loader'
 class Tool
 
   def initialize
-    @concepts={}
+    @concepts=[]
     @concepts_ia=[]
   end
 
@@ -40,7 +40,7 @@ class Tool
    Project.instance.verbose "   ├── Gift questions file = "+Rainbow(Project.instance.outputpath).bright
    Project.instance.verbose "   └── Lesson file         = "+Rainbow(Project.instance.lessonpath).bright
 
-   @concepts.each_value do |concept|
+   @concepts.each do |concept|
      concept_ia = ConceptIA.new(concept)
      concept_ia.make_questions_from_ia
      ConceptGiftFormatter.new(concept_ia).export

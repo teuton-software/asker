@@ -7,7 +7,7 @@ class FileLoader
 
   def initialize(filename)
     @filename  = filename
-    @concepts = {}
+    @concepts = []
   end
 
   def load

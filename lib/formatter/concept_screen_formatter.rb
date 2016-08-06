@@ -15,11 +15,11 @@ class ConceptScreenFormatter
     case project.show_mode
     when :resume
 	    s="* Concepts ("+@concepts.count.to_s+"): "
-	    @concepts.each_value { |c| s=s+c.name+", " }
+	    @concepts.each { |c| s=s+c.name+", " }
 	    project.verbose s
     when :default
       # Only show Concepts with process attr true
-	    @concepts.each_value do |c|
+	    @concepts.each do |c|
         project.verbose ConceptStringFormatter.new(c).to_s if c.process?
       end
 	  end

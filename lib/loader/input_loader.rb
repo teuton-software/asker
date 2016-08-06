@@ -5,7 +5,7 @@ require_relative 'directory_loader'
 class InputLoader
 
   def initialize
-    @concepts = {}
+    @concepts = []
   end
 
   def load
@@ -14,8 +14,7 @@ class InputLoader
 
     inputdirs = project.inputdirs.split(',')
     inputdirs.each do |dirname|
-      concepts = DirectoryLoader.new(dirname).load
-      @concepts.merge!(concepts)
+      @concepts += DirectoryLoader.new(dirname).load
     end
 
     find_neighbors_for_every_concept
@@ -24,8 +23,8 @@ class InputLoader
 
   def find_neighbors_for_every_concept
     #find neighbors for every concept
-    @concepts.each_value do |i|
-      @concepts.each_value do |j|
+    @concepts.each do |i|
+      @concepts.each do |j|
         i.try_adding_neighbor(j) if (i.id!=j.id)
       end
     end

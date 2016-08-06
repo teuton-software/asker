@@ -6,7 +6,7 @@ class DirectoryLoader
 
   def initialize(dirname)
     @dirname  = dirname
-    @concepts = {}
+    @concepts = []
   end
 
   def load
@@ -30,8 +30,7 @@ class DirectoryLoader
       else
         project.verbose "   ├── Input file   = " + Rainbow(pFilename).bright
       end
-      concepts = FileLoader.new(pFilename).load
-      @concepts.merge!(concepts)
+      @concepts += FileLoader.new(pFilename).load
     end
     return @concepts
   end

@@ -54,19 +54,19 @@ class Concept
     return @process
   end
 
-  def try_adding_neighbor(pConcept)
+  def try_adding_neighbor(other)
 
     #TODO:!? this method comes from module ia_calculate
-    p = calculate_nearness_to_concept(pConcept)
+    p = calculate_nearness_to_concept(other)
 
     return if p==0
-    @data[:neighbors]<< { :concept => pConcept , :value => p }
+    @data[:neighbors]<< { :concept => other , :value => p }
     #Sort neighbors list
     @data[:neighbors].sort! { |a,b| a[:value] <=> b[:value] }
     @data[:neighbors].reverse!
   end
 
-  def calculate_nearness_to_concept(pConcept)
+  def calculate_nearness_to_concept(other)
     weights=Project.instance.formula_weights
 
     liMax1=@data[:context].count
@@ -75,9 +75,9 @@ class Concept
 
     lfAlike1=lfAlike2=lfAlike3=0.0
 
-    @data[:context].each { |i| lfAlike1+=1.0 if !pConcept.context.index(i).nil? }
-    @data[:tags].each { |i| lfAlike2+=1.0 if !pConcept.tags.index(i).nil? }
-    @data[:tables].each { |i| lfAlike3+=1.0 if !pConcept.tables.index(i).nil? }
+    @data[:context].each { |i| lfAlike1+=1.0 if !other.context.index(i).nil? }
+    @data[:tags].each { |i| lfAlike2+=1.0 if !other.tags.index(i).nil? }
+    @data[:tables].each { |i| lfAlike3+=1.0 if !other.tables.index(i).nil? }
 
     lfAlike = ( lfAlike1*weights[0] + lfAlike2*weights[1] + lfAlike3*weights[2] )
     liMax   = ( liMax1  *weights[0] + liMax2  *weights[1] + liMax3*weights[2]   )

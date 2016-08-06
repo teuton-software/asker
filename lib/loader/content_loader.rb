@@ -9,7 +9,7 @@ class ContentLoader
   def initialize(filename, xml_content)
     @filename  = filename
     @content = xml_content
-    @concepts = {}
+    @concepts = []
   end
 
   def load
@@ -31,7 +31,7 @@ class ContentLoader
           if ( project.process_file==:default or project.process_file== File.basename(@filename) ) then
             c.process=true
           end
-          @concepts[c.name]=c
+          @concepts << c
         end
       end
     rescue REXML::ParseException
