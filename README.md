@@ -1,6 +1,6 @@
 #Darts of teacher
 
-This program some AI, to construct questions from conceptual map input file.
+This program use some AI, to construct questions from conceptual map input file.
 
 ##Description
 This application is a Free Source multiplatform program, that helps teachers
