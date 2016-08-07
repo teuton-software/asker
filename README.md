@@ -1,6 +1,6 @@
 #Darts of teacher
 
-This program use some AI, to construct questions from conceptual map input file.
+This program use some AI, to construct a lot of questions from conceptual map input file.
 
 ##Description
 This application is a Free Source multiplatform program, that helps teachers
@@ -14,6 +14,8 @@ Two Steps:
 Features:
 * Read HAML/XML input files.
 * Export format GIFT questions.
+* multiplatform.
+* Free Software.
 
 ##Installation
 
