@@ -21,12 +21,10 @@ class ProjectLoader
         project.param[:inputdirs]      = File.dirname(pArgs)
         project.param[:process_file]   = File.basename(pArgs)
       elsif pArgs.include?(".yaml") then
-        project.param=YAML::load(File.open(pArgs))
-        project.param[:configfilename]=pArgs
-        a=pArgs.split(File::SEPARATOR)
-        a.delete_at(-1)
-        project.param[:projectdir]=a.join(File::SEPARATOR)
-      elsif File.directory?(pArgs) then
+        project.param.merge!( YAML::load(File.open(pArgs)) )
+        project.param[:configfilename] = pArgs
+        project.param[:projectdir]     = File.dirname(pArgs)
+    elsif File.directory?(pArgs) then
         project.verbose Rainbow("[WARN] Tool.init: Directory input ").yellow+Rainbow(pArgs).bright.yellow+Rainbow(" not implemented yet").yellow
         exit 1
         #app.param[:inputdirs]=pArgs
