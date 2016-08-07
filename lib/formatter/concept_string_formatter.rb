@@ -19,6 +19,8 @@ class ConceptStringFormatter
     t.add_row [Rainbow("Filename").color(:blue), @concept.filename ]
     t.add_row [Rainbow("Context").color(:blue), @concept.context.join(", ").to_s ]
     t.add_row [Rainbow("Tags").color(:blue), @concept.tags.join(", ").to_s]
+    t.add_row [Rainbow("Reference to").color(:blue), @concept.reference_to.join(", ").to_s]
+    t.add_row [Rainbow("Reference by").color(:blue), @concept.reference_by.join(", ").to_s]
 
     lText=[]
     @concept.texts.each do |i|

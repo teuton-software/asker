@@ -22,10 +22,12 @@ class InputLoader
   end
 
   def find_neighbors_for_every_concept
-    #find neighbors for every concept
     @concepts.each do |i|
       @concepts.each do |j|
-        i.try_adding_neighbor(j) if (i.id!=j.id)
+        if (i.id!=j.id) then
+          i.try_adding_neighbor(j)
+          i.try_adding_references(j)
+        end
       end
     end
   end

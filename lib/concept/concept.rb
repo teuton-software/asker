@@ -38,6 +38,8 @@ class Concept
     @data[:images]=[] #TODO: By now We'll treat images separated from texts
     @data[:tables]=[]
     @data[:neighbors]=[]
+    @data[:reference_to]=[]
+    @data[:reference_by]=[]
 
 	  read_data_from_xml(pXMLdata)
   end
@@ -55,10 +57,7 @@ class Concept
   end
 
   def try_adding_neighbor(other)
-
-    #TODO:!? this method comes from module ia_calculate
     p = calculate_nearness_to_concept(other)
-
     return if p==0
     @data[:neighbors]<< { :concept => other , :value => p }
     #Sort neighbors list
@@ -75,6 +74,7 @@ class Concept
 
     lfAlike1=lfAlike2=lfAlike3=0.0
 
+    #check if exists items from concept1 into concept2
     @data[:context].each { |i| lfAlike1+=1.0 if !other.context.index(i).nil? }
     @data[:tags].each { |i| lfAlike2+=1.0 if !other.tags.index(i).nil? }
     @data[:tables].each { |i| lfAlike3+=1.0 if !other.tables.index(i).nil? }
@@ -82,6 +82,21 @@ class Concept
     lfAlike = ( lfAlike1*weights[0] + lfAlike2*weights[1] + lfAlike3*weights[2] )
     liMax   = ( liMax1  *weights[0] + liMax2  *weights[1] + liMax3*weights[2]   )
     return ( lfAlike*100.0/ liMax )
+  end
+
+  def try_adding_references(other)
+    reference_to=0
+    @data[:tags].each { |i| reference_to+=1 if !other.names.index(i.downcase).nil? }
+    @data[:texts].each do |t|
+      text=t.clone
+      text.split(" ").each do |word|
+        reference_to+=1 if !other.names.index(word.downcase).nil?
+      end
+    end
+    if reference_to>0 then
+      @data[:reference_to] << other.name
+      other.data[:reference_by] << self.name
+    end
   end
 
   def method_missing(m, *args, &block)
