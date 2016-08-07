@@ -7,15 +7,14 @@
   %concept
     %names clonezilla
     %tags software, programa, software libre,aplicación, clonar, restaurar, respaldo
-    %def [*] es un software de libre distribución para el clonado de equipos 
+    %def [*] es un software de libre distribución para el clonado de equipos
     basado en DRBL, Partclone y pdpcast, que permite hacer copia de seguridad.
-    %def [*] está disponible en dos versiones, una llamada [*] Live que es 
-    adecuado para hacer copia de seguridad y restaurar máquinas y [*] SE 
+    %def [*] está disponible en dos versiones, una llamada [*] Live que es
+    adecuado para hacer copia de seguridad y restaurar máquinas y [*] SE
     que sirve para clonar muchos equipos de forma simultánea.
-    %def [*] guarda y restaura sólo los bloques utilizados en el disco duro. 
+    %def [*] guarda y restaura sólo los bloques utilizados en el disco duro.
     Esto aumenta la eficiencia del clon.
     %table{ :fields => 'características' }
-      %title Características
       %row Software libre
       %row Soporta sistema de archivos ext2, ext3, ext4
       %row Soporta sistemas de archivos XFS,JFS
@@ -25,18 +24,15 @@
       %row El archivo de imagen puede guardarse en disco remoto mediante samba
       %row El archivo de imagen puede guardarse en disco remoto mediante NFS
     %table{ :fields => 'requisitos-mínimos' }
-      %title Requisitos Mínimos
       %row Procesador x86 o x86-64
       %row 196 MB de memoria de sistema (RAM)
       %row Dispositivo de arranque: CD/DVD, puerto USB, PXE, o un disco duro
     %table{ :fields => 'formas-de-arrancar' }
-      %title Formas de arrancar
       %row Para arrancar [*], hay que bajarse la imagen ISO de la página oficial del software (www.clonezilla.org), quemarla en un CD y poner nuestra BIOS para que arranque desde la unidad de CD/DVD.
       %row Existe la posibilidad de arrancar [*] desde un USB, pero para esto habría que convertir nuestra unidad USB en una unidad booteable, y que nuestra BIOS nos permitiera poner el puerto USB como unidad por defecto a la hora de arrancar.
       %row En nuestra práctica usamos la opción del CD/DVD.
     %def [*] puede ser utilizado por usuarios de MS Windows, de GNU/Linux e incluso de Mac OS, puesto que se basa en un LiveCD y no necesita ser instalado en el equipo ni bajo un sistema operativo determinado. Soporta los sistemas de archivos más comunes y eso es una gran ventaja.
     %table{ :fields => 'puede-copiar' }
-      %title Qué puede copiar
       %row El disco duro entero y restaurarlo con todas las particiones con las que viniera de orígen
       %row Las particiones por separado.
       %row Cualquier sistema operativo que contenga la partición.
@@ -44,7 +40,6 @@
       %row Las imágenes clonadas en un servidor SSH
       %row Las imágenes clonadas en un servidor Samba, que es una implementación libre de archivos compartidos de MS Windows para sistemas de tipo UNIX.
     %table{ :fields => 'pasos-para-clonar', :sequence => 'Secuencia temporal para clonar disco' }
-      %title Pasos para el clonado
       %row Grabar imagen del programa en un CD/DVD
       %row Arrancamos el ordenador con el CD con la imagen grabada.
       %row Seleccionar interfaz y resolución de pantalla que más se ajuste a nuestro monitor.
@@ -64,7 +59,6 @@
       %row Start Clonezilla para comenzar el proceso de clonado.
       %row Fin del proceso de clonado.
     %table{ :fields => 'pasos-para-restaurar', :sequence => 'Secuencia temporal para restaurar disco' }
-      %title Pasos para el clonado
       %row Arrancamos el ordenador con el CD con la imagen grabada.
       %row Seleccionar interfaz y resolución de pantalla que más se ajuste a nuestro monitor.
       %row Especificar el lenguaje en el que queremos que nos aparezcan los menús.
@@ -86,7 +80,7 @@
   %concept
     %names TestDisk
     %tags programa, software, libre, recuperar, datos, particion
-    %def [*] es un programa de software-libre para recuperacion de datos. Diseñado principalmente para recuperar las particiones de almacenamiento de datos y solucionar problemas con los discos de arranque. 
+    %def [*] es un programa de software-libre para recuperacion de datos. Diseñado principalmente para recuperar las particiones de almacenamiento de datos y solucionar problemas con los discos de arranque.
     %table{ :fields => 'Sistemas Operativos soportados'}
       %row DOS: real or in a Windows 9x DOS box
       %row Microsoft Windows: NT4, 2000, XP, 2003, 2008, Vista, Windows 7
@@ -118,7 +112,7 @@
       %row Memory Stick
       %row Secure Digital
       %row SmartMedia
-      %row Microdrive, 
+      %row Microdrive,
       %row MMC
       %row USB flash drives
     %table{ :fields => 'Sistemas Operativos compatibles'}

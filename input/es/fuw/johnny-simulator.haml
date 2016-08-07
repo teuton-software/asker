@@ -7,17 +7,16 @@
     %def El conjunto de todos los comandos implementados por un diseño particular de una CPU.
     %def Procesadores con diferentes diseños internos pueden compartir un [*]; por ejemplo, el Intel Pentium y AMD Athlon implementan versiones casi idénticas del [*] x86, aunque tienen diseños diferentes.
     %table{ :fields => 'tipo,descripción' }
-      %title Tipos de conjuntos de instrucciones
       %row
-        %col CISC 
+        %col CISC
         %col Complex Instruction Set Computer
       %row
-        %col RISC 
+        %col RISC
         %col Reduced Instruction Set Computer
       %row
         %col SISC
         %col Simple Instruction Set Computing
- 
+
   %concept
     %names Von-Neumann
     %tags persona, creador, arquitectura, von neumann
@@ -27,7 +26,7 @@
   %concept
     %names CPU, UCP, procesador
     %tags procesador, componente, arquitectura, von neumman
-    %def [*] es el hardware dentro de una computadora u otros dispositivos programables, que interpreta las instrucciones de un programa informático mediante la realización de las operaciones básicas aritméticas, lógicas y de entrada/salida del sistema. 
+    %def [*] es el hardware dentro de una computadora u otros dispositivos programables, que interpreta las instrucciones de un programa informático mediante la realización de las operaciones básicas aritméticas, lógicas y de entrada/salida del sistema.
     %def Una computadora puede tener más de una [*]. Todas las [*] modernas son microprocesadores, lo que significa que contienen un solo circuito integrado (chip). Algunos circuitos integrados pueden contener varias [*] en un solo chip; estos son denominados procesadores multinúcleo.
     %def Dos componentes típicos de una [*] son la unidad aritmético lógica (ALU), que realiza operaciones aritméticas y lógicas, y la unidad de control (CU), que extrae instrucciones de la memoria, las decodifica y las ejecuta, llamando a la ALU cuando sea necesario.
 
@@ -41,7 +40,6 @@
     %tags hardware, componente, arquitectura, von neumman, señales, control
     %def La [*] es uno de los tres bloques funcionales principales en los que se divide una unidad central de procesamiento. Los otros dos bloques son la unidad de proceso y el bus. Su función es buscar las instrucciones en la memoria principal, decodificarlas (interpretación) y ejecutarlas, empleando para ello la unidad de proceso.
     %table{ :fields => 'tipo,descripción' }
-      %title Tipos de unidades de control
       %row
         %col Unidad de control cableada
         %col Usadas generalmente en máquinas sencillas. Los componentes principales son el circuito de lógica secuencial, el de control de estado, el de lógica combinacional y el de emisión de reconocimiento de señales de control.
@@ -54,7 +52,6 @@
     %tags programa, simular, arquitectura, von neumann
     %def Es un programa OpenSource que permite simular una máquina con la arquitectura de Von Neumann.
     %table{ :fields => 'instrucción,descripción' }
-      %title Instrucciones del programa Johnny Simulator
       %row
         %col TAKE dir
         %col Copia el valor de la celda dir al acumulador.
