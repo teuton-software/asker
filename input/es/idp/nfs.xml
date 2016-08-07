@@ -5,7 +5,6 @@
     <tags>sistema, ficheros, almacenamiento, red</tags>
     <def>Sistema de archivos de red, es un protocolo de nivel de aplicación, según el Modelo OSI. Es utilizado para sistemas de archivos distribuido en un entorno de red de computadoras de área local. Posibilita que distintos sistemas conectados a una misma red accedan a ficheros remotos como si se tratara de locales.</def>
     <table fields='acción,resultado'>
-      <title>Asocia cada acción con su resultado.</title>
       <row>
         <col>nfsadmin client start</col>
         <col>Iniciar el servicio NFS cliente, en SO Windows.</col>
@@ -52,5 +51,5 @@
       </row>
     </table>
   </concept>
-	
+
 </map>

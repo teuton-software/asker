@@ -1,18 +1,10 @@
 <map version='1' lang='es' context='sistemas operativos, comando' >
-	
+
 	<concept>
 		<names>chmod</names>
 		<tags>cambiar, permisos, archivos, directorios</tags>
 		<def>Es un comando del sistema operativo GNU/Linux, que permite cambiar los permisos de archivos y directorios.</def>
-		<table fields='atributo, valor'>
-			<title>Asocia cada atributo con su valor</title>
-			<row>
-				<col>path</col>
-				<col>/bin/</col>
-			</row>
-		</table>
 		<table fields='acción,resultado'>
-			<title>Asocia cada acción con su resultado.</title>
 			<row>
 				<col>chmod 666 FILENAME</col>
 				<col>Establece los permisos de FILENAME con lectura/escritura para todos los usuarios.</col>
@@ -27,7 +19,6 @@
 			</row>
 		</table>
 		<table fields='símbolo-chmod, significado'>
-			<title>Asocia cada atributo con su valor</title>
 			<row>
 				<col>u</col>
 				<col>El usuario propietario del fichero o directorio.</col>
@@ -46,15 +37,13 @@
 			</row>
 		</table>
 		<table fields='notación-chmod, significado'>
-			<title>Asocia cada atributo con su valor</title>
 			<row>
 				<col>u+x</col>
 				<col>Añadir permisos de ejecución para el propietario.</col>
 			</row>
 			<row>
 				<col>+x</col>
-				<col>Añadir permisos de ejecución a todos los usuarios.
-				Equivalente a a+x.</col>
+				<col>Añadir permisos de ejecución a todos los usuarios.	Equivalente a a+x.</col>
 			</row>
 			<row>
 				<col>o-rw</col>
@@ -64,13 +53,13 @@
 			</row>
 			<row>
 				<col>go=rw</col>
-				<col>Establece únicamente permisos de lectura y escritura 
+				<col>Establece únicamente permisos de lectura y escritura
 				todos los usuarios excepto al propietario.</col>
 			</row>
 			<row>
 				<col>u+x,go=rx</col>
 				<col>Añade permisos de ejecución para el propietario.
-				Y establece únicamente permisos de lectura y escritura 
+				Y establece únicamente permisos de lectura y escritura
 				todos los usuarios excepto al propietario. Las especificaciones
 				se separan por comas.</col>
 			</row>
@@ -80,17 +69,14 @@
 	<concept>
 		<names>chgrp</names>
 		<tags>cambiar, propietario, grupo, archivos, directorios</tags>
-		<def>Es un comando del sistema operativo GNU/Linux, que permite 
-		cambiar sólo el grupo propietario de archivos y directorios.</def>
+		<def>Es un comando del sistema operativo GNU/Linux, que permite	cambiar sólo el grupo propietario de archivos y directorios.</def>
 	</concept>
-	
+
 	<concept>
 		<names>chown</names>
 		<tags>cambiar, propietario, usuario, grupo, archivos, directorios</tags>
-		<def>Es un comando del sistema operativo GNU/Linux, que permite 
-		cambiar el usuario propietario y el grupo propietario de archivos y directorios.</def>
+		<def>Es un comando del sistema operativo GNU/Linux, que permite cambiar el usuario propietario y el grupo propietario de archivos y directorios.</def>
 		<table fields='acción,resultado'>
-			<title>Asocia cada acción con su resultado.</title>
 			<row>
 				<col>chown bob foo</col>
 				<col>Cambia el propietario del fichero.</col>
@@ -106,7 +92,7 @@
 			</row>
 			<row>
 				<col>chown bob: foo</col>
-				<col>Cambia el usuario propietario del fichero. 
+				<col>Cambia el usuario propietario del fichero.
 				El grupo propietario se modifica por el grupo principal
 				del usuario especificado.</col>
 			</row>
@@ -116,25 +102,14 @@
 	<concept>
 		<names>clear</names>
 		<tags>limpiar, pantalla</tags>
-		<def>Es un comando del sistema operativo GNU/Linux, 
-		que limpia la pantalla.</def>
-		<table fields='atributo, valor'>
-			<title>Asocia cada atributo con su valor</title>
-			<row>
-				<col>path</col>
-				<col>/usr/bin/</col>
-			</row>
-		</table>
+		<def>Es un comando del sistema operativo GNU/Linux,	que limpia la pantalla.</def>
 	</concept>
 
 	<concept>
 		<names>history</names>
 		<tags>mostrar, listado, comandos, historico</tags>
-		<def>Es un comando del sitestema operativo GNU/Linux, 
-		que muestra un listado con todos los comandos utilizados en
-		la sesión actual.</def>
+		<def>Es un comando del sitestema operativo GNU/Linux,	que muestra un listado con todos los comandos utilizados en la sesión actual.</def>
 		<table fields='acción,resultado'>
-			<title>Asocia cada acción con su resultado.</title>
 			<row>
 				<col>history | less</col>
 				<col>Ver todo el contenido del historial de comandos de
@@ -155,12 +130,12 @@
 			</row>
 			<row>
 				<col>!STRING</col>
-				<col>Repite el último comando del historial que empiece 
+				<col>Repite el último comando del historial que empiece
 				por la cadena de texto especificada.</col>
 			</row>
 			<row>
 				<col>!?STRING</col>
-				<col>Repite el último comando del historial que contenga 
+				<col>Repite el último comando del historial que contenga
 				la cadena de texto especificada.</col>
 			</row>
 		</table>
@@ -169,18 +144,10 @@
 	<concept>
 		<names>id</names>
 		<tags>mostrar, informacion, usuario</tags>
-		<def>Es un comando del sistema operativo GNU/Linux, 
+		<def>Es un comando del sistema operativo GNU/Linux,
 		que muestra la información de identificación del usuario
 		especificado y sus grupos.</def>
-		<table fields='atributo, valor'>
-			<title>Asocia cada atributo con su valor</title>
-			<row>
-				<col>path</col>
-				<col>/usr/bin/</col>
-			</row>
-		</table>
 		<table fields='acción,resultado'>
-			<title>Asocia cada acción con su resultado.</title>
 			<row>
 				<col>id</col>
 				<col>Muestra la información de identificación, del usuario actual.</col>
@@ -207,10 +174,9 @@
 	<concept>
 		<names>passwd</names>
 		<tags>cambiar, clave, usuario</tags>
-		<def>Es un comando del sistema operativo GNU/Linux, 
+		<def>Es un comando del sistema operativo GNU/Linux,
 		que permite cambiar la contraseña de un usuario.</def>
 		<table fields='acción,resultado'>
-			<title>Asocia cada acción con su resultado.</title>
 			<row>
 				<col>passwd</col>
 				<col>Cambiar la clave del usuario actual.</col>
@@ -237,11 +203,10 @@
 	<concept>
 		<names>script</names>
 		<tags>guardar, fichero, comandos, utilizados</tags>
-		<def>Es un comando del sistema operativo GNU/Linux, 
+		<def>Es un comando del sistema operativo GNU/Linux,
 		que almacena en un fichero todos los comandos escritos, y sus
 		resultados, después de ser invocado.</def>
 		<table fields='atributo, valor'>
-			<title>Asocia cada atributo con su valor</title>
 			<row>
 				<col>path</col>
 				<col>/usr/bin/</col>
@@ -259,8 +224,7 @@
 		<def>Es una forma de establecer restricciones sobre el acceso
 		a los objetos (Directorios y archivos) dentro de un sistema
 		de ficheros.</def>
-		<table fields='fichero, funcion'>
-	 		<title>Asocia cada atributo con su valor</title>
+		<table fields='fichero, función'>
 			<row>
 				<col>/etc/passwd</col>
 				<col>Contiene la definición de los usuarios del sistema.</col>
@@ -279,7 +243,6 @@
 			</row>
 		</table>
 		<table fields='permisos, significado'>
-	 		<title>Asocia cada atributo con su valor</title>
 			<row>
 				<col>-rwx------</col>
 				<col>Un fichero regular que puede ser leido, modificado y ejecutado
@@ -292,18 +255,18 @@
 			</row>
 			<row>
 				<col>-rw-r--r--</col>
-				<col>Un fichero regular que puede ser modificado por el 
+				<col>Un fichero regular que puede ser modificado por el
 				propietario. Todos los usuarios pueden leerlo.</col>
 			</row>
 			<row>
 				<col>-rwxr-xr-x</col>
-				<col>Un fichero regular que puede ser modificado por el 
+				<col>Un fichero regular que puede ser modificado por el
 				propietario. Todos los usuarios pueden leerlo y
 				ejecutarlo.</col>
 			</row>
 			<row>
 				<col>-rw-rw----</col>
-				<col>Un fichero regular que sólo puede ser leído y 
+				<col>Un fichero regular que sólo puede ser leído y
 				modificado por el usuario propietario y los miembros
 				del grupo propietario.</col>
 			</row>
@@ -331,10 +294,9 @@
 	<concept>
 		<names>su</names>
 		<tags>cambiar, usuario, superusuario</tags>
-		<def>Es un comando del sistema operativo GNU/Linux, 
+		<def>Es un comando del sistema operativo GNU/Linux,
 		que nos permite cambiar el usuario, o convertirnos en el superusuario.</def>
 		<table fields='acción, resultado'>
-			<title>Asocia cada atributo con su valor</title>
 			<row>
 				<col>su</col>
 				<col>Se cambia al superusuario.</col>
@@ -354,11 +316,10 @@
 	<concept>
 		<names>sudo</names>
 		<tags>ejecutar, comando, usuario, distinto</tags>
-		<def>Es un comando del sistema operativo GNU/Linux, 
+		<def>Es un comando del sistema operativo GNU/Linux,
 		que permite ejecutar un comando como si fuéramos otro usuario
 		distinto.</def>
 		<table fields='acción, resultado'>
-			<title>Asocia cada atributo con su valor</title>
 			<row>
 				<col>sudo -A fdisk -l</col>
 				<col>Ejecuta un comando como superusuario. Si se requiere
@@ -375,22 +336,20 @@
 			</row>
 		</table>
 	</concept>
-	
+
 	<concept>
 		<names>umask</names>
 		<tags>mostrar, establecer, máscara, permisos</tags>
-		<def>Es un comando del sistema operativo GNU/Linux, 
+		<def>Es un comando del sistema operativo GNU/Linux,
 		que muestra o establece la máscara de permisos para la creación
 		de nuevos ficheros y/o directorios.</def>
 		<table fields='atributo, valor'>
-			<title>Asocia cada atributo con su valor</title>
 			<row>
 				<col>path</col>
 				<col>Valor no definido</col>
 			</row>
 		</table>
 		<table fields='acción,resultado'>
-			<title>Asocia cada acción con su resultado.</title>
 			<row>
 				<col>umask</col>
 				<col>Muestra la máscara de permisos actual.</col>
@@ -418,7 +377,6 @@
 		documentación, así como consultar todo el catálogo de productos
 		disponibles en los repositorios.</def>
 		<table fields='atributo,valor'>
-			<title>Asocia cada acción con su resultado.</title>
 			<row>
 				<col>Extensión de los paquetes Debian</col>
 				<col>.deb</col>
@@ -429,7 +387,6 @@
 			</row>
 		</table>
 		<table fields='acción,resultado'>
-			<title>Asocia cada acción con su resultado.</title>
 			<row>
 				<col>apt-get update</col>
 				<col>Actualizar el catálogo de paquetes Debian disponibles.</col>
@@ -512,11 +469,10 @@
 	<concept>
 		<names>useradd</names>
 		<tags>crear, usuario</tags>
-		<def>Es un comando que permite añadir un usuario al sistema, 
-		indicando como parámetros la información particular para crear 
+		<def>Es un comando que permite añadir un usuario al sistema,
+		indicando como parámetros la información particular para crear
 		el usuario en la misma línea de comandos.</def>
 		<table fields='acción,resultado'>
-			<title>Asocia cada atributo con su valor</title>
 			<row>
 				<col>useradd debian</col>
 				<col>Crear un usuario.</col>
@@ -531,7 +487,7 @@
 			</row>
 			<row>
 				<col>useradd -m quigon</col>
-				<col>Crear un usuario, especificando la creación de su 
+				<col>Crear un usuario, especificando la creación de su
 				directorio home si es que no existe.</col>
 			</row>
 			<row>
@@ -547,7 +503,6 @@
 		<tags>modificar, usuario</tags>
 		<def>Es un comando que permite modificar un usuario al sistema.</def>
 		<table fields='acción,resultado'>
-			<title>Asocia cada atributo con su valor</title>
 			<row>
 				<col>useradd -d /home/sith vader</col>
 				<col>Modifica el directorio home de un usuario.</col>
@@ -560,7 +515,6 @@
 		<tags>eliminar, borrar, quitar, usuario</tags>
 		<def>Es un comando para eliminar un usuario del sistema.</def>
 		<table fields='acción,resultado'>
-			<title>Asocia cada atributo con su valor</title>
 			<row>
 				<col>userdel -r quigon</col>
 				<col>Elimina el usuario especificado junto con su directorio home.</col>

@@ -15,7 +15,6 @@
     %tags registrar, actividad, sistema, histórico, gnu/linux
     %def Es el servicio que registra los eventos de monitorización, por defecto, en los sistemas basados en GNU/Linux.
     %table{ :fields => 'característica,descripción' }
-      %title Características de rsyslog
       %row
         %col /etc/rsyslog.conf
         %col Por defecto, es el fichero principal de configuración del servicio rsyslog en GNU/Linux.
@@ -41,9 +40,9 @@
       %row
         %col kern.crit /dev/console
         %col Los eventos críticos o de mayor prioridad, generados por el kernel se mostrarán en el dispositivo consola.
-      %row 
+      %row
         %col kern.info;kern.!err /var/log/kernel-info
-        %col Los eventos generados por el kernel, de igual o mayor prioridad a info, pero NO los eventos de error o prioridad superior, se guardarán en el fichero /var/log/kernel-info. 
+        %col Los eventos generados por el kernel, de igual o mayor prioridad a info, pero NO los eventos de error o prioridad superior, se guardarán en el fichero /var/log/kernel-info.
       %row
         %col local0.* /var/log/nombredelalumno/prueba-local.log
         %col Todos los eventos generados por el recurso local0 se almacenarán en el fichero de log personalizado.
@@ -138,8 +137,8 @@
         %col Reiniciar el equipo
         %col Para que se dispare la rotación de log (logrotate) automáticamente.
       %row
-        %col /usr/sbin/logrotate -f /etc/logrotate.conf 
-        %col Comando/programa para ejecutar de forma manual el proceso de rotación de logs del programa logrotate. 
+        %col /usr/sbin/logrotate -f /etc/logrotate.conf
+        %col Comando/programa para ejecutar de forma manual el proceso de rotación de logs del programa logrotate.
 
   %concept
     %names logger

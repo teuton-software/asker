@@ -1,12 +1,11 @@
 <map version='1' lang='es' context='sistemas operativos, comando'>
-	
+
   <concept>
     <names>cd</names>
     <tags>cambiar, directorio, actual, mover</tags>
     <def>Es un comando del sistema operativo GNU/Linux, que permite cambiar nuestro directorio actual.</def>
     <def>Es un comando del sistema operativo GNU/Linux, que permite movernos a otro directorio del sistema de ficheros.</def>
     <table fields='acción, resultado'>
-      <title>Asocia cada acción con su resultado.</title>
       <row>
         <col>cd</col>
         <col>Nos movemos a nuestro directorio HOME</col>
@@ -47,7 +46,7 @@
     <tags>mostrar, calendario</tags>
     <def>Comando que muestra un calendario</def>
   </concept>
-	
+
   <concept>
     <names>date</names>
     <tags>mostrar, fecha, hora, actual</tags>
@@ -59,13 +58,13 @@
     <tags>salir, sistema, cerrar, sesion</tags>
     <def>Comando para cerrar la sesión actual del usuario.</def>
   </concept>
-	
+
   <concept>
     <names>file</names>
     <tags>mostrar, tipo, fichero, archivo, directorio</tags>
     <def>Comandos que muestra el tipo de un fichero, archivo o directorio.</def>
   </concept>
-	
+
   <concept>
     <names>free</names>
     <tags>mostrar, memoria, libre, ocupada</tags>
@@ -77,7 +76,6 @@
     <tags>mostrar, contenido, fichero, texto, ASCII</tags>
     <def>Muestra el contenido de un fichero de texto plano. Realiza un paginado, si no cabe completo en pantalla.</def>
     <table fields='tecla, resultado'>
-      <title>Asocia cada atributo con su valor</title>
       <row>
         <col>Pulsar q</col>
         <col>Salir del programa</col>
@@ -94,7 +92,6 @@
     <tags>crear, enlace, duro, simbolico</tags>
     <def>Comando para crear enlaces duros o simbólicos.</def>
     <table fields='acción, resultado'>
-      <title>Asocia cada atributo con su valor</title>
       <row>
         <col>ln FILE LINK</col>
         <col>Crea un enlace duro al fichero FILE</col>
@@ -115,7 +112,6 @@
     <tags>mostrar, contenido, directorio</tags>
     <def>Lista el contenido de los directorios.</def>
     <table fields='acción, resultado'>
-      <title>Asocia cada atributo con su valor</title>
       <row>
         <col>ls</col>
         <col>Lista el contenido del directorio actual.</col>
@@ -151,15 +147,7 @@
 		<names>mkdir</names>
 		<tags>crear, directorios</tags>
 		<def>Es un comando del sistema operativo GNU/Linux, que sirve para crear nuevos directorios.</def>
-		<table fields='atributo, valor'>
-			<title>Asocia cada atributo con su valor</title>
-			<row>
-				<col>path</col>
-				<col>/bin/</col>
-			</row>
-		</table>
 		<table fields='acción, resultado'>
-			<title>Asocia cada acción con su resultado.</title>
 			<row>
 				<col>mkdir --help</col>
 				<col>Muestra la ayuda del comando mkdir.</col>
@@ -189,15 +177,7 @@
 		<names>rmdir</names>
 		<tags>eliminar, directorios</tags>
 		<def>Es un comando del sistema operativo GNU/Linux, que sirve para eliminar directorios.</def>
-		<table fields='atributo, valor'>
-			<title>Asocia cada atributo con su valor</title>
-			<row>
-				<col>path</col>
-				<col>/bin/</col>
-			</row>
-		</table>
 		<table fields='acción, resultado'>
-			<title>Asocia cada acción con su resultado.</title>
 			<row>
 				<col>rmdir --help</col>
 				<col>Muestra la ayuda del comando rmdir.</col>
@@ -220,20 +200,12 @@
 			</row>
 		</table>
 	</concept>
-	
+
 	<concept>
 		<names>rm</names>
 		<tags>eliminar, archivos, directorios</tags>
 		<def>Es un comando del sistema operativo GNU/Linux, que sirve para eliminar archivos y directorios.</def>
-		<table fields='atributo, valor'>
-			<title>Asocia cada atributo con su valor</title>
-			<row>
-				<col>path</col>
-				<col>/bin/</col>
-			</row>
-		</table>
 		<table fields='acción, resultado'>
-			<title>Asocia cada acción con su resultado.</title>
 			<row>
 				<col>rm -i foo/*</col>
 				<col>Pregunta confirmación al usuario antes de cada eliminación.</col>
@@ -257,10 +229,9 @@
 		<names>sistema-de-ficheros-linux</names>
 		<tags>sistema, ficheros, linux</tags>
 		<def>Es el componente del sistema operativo encargado de administrar los dispositivos de almacenamiento.</def>
-		<def>Sus principales funciones son la asignación de espacio a los archivos, 
+		<def>Sus principales funciones son la asignación de espacio a los archivos,
 		la administración del espacio libre, y el acceso a los datos.</def>
-		<table fields='directorio, funcion'>
-			<title>Asocia cada atributo con su valor</title>
+		<table fields='directorio, función'>
 			<row>
 				<col>/bin</col>
 				<col>Contiene los comandos del sistema.</col>
@@ -315,13 +286,12 @@
 			</row>
 		</table>
 	</concept>
-	
+
 	<concept>
 		<names>which</names>
 		<tags>mostrar, programa, ejecutar, comando</tags>
 		<def>Es un comando del sistema operativo GNU/Linux, que muestra el programa que se ejecutará al invocar un comando concreto.</def>
 		<table fields='accion, resultado'>
-			<title>Asocia cada atributo con su valor</title>
 			<row>
 				<col>which cd</col>
 				<col>(Vacío)</col>

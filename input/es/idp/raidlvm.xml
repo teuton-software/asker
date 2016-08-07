@@ -7,20 +7,19 @@
     <def>Un sistema de almacenamiento de datos que usa múltiples unidades de almacenamiento de datos (discos duros o SSD) entre los que se distribuyen o replican los datos. Dependiendo de su configuración (a la que suele llamarse «nivel»), los beneficios respecto a un único disco son uno o varios de los siguientes: mayor integridad, mayor tolerancia a fallos, mayor throughput (rendimiento) y mayor capacidad.</def>
     <def>En sus implementaciones originales, su ventaja clave era la habilidad de combinar varios dispositivos de bajo coste y tecnología más antigua en un conjunto que ofrecía mayor capacidad, fiabilidad, velocidad o una combinación de éstas que un solo dispositivo de última generación y coste más alto.</def>
     <table fields='tipo,características'>
-      <title>Asocia cada tipo con sus características.</title>
       <row>
         <col>RAID 0</col>
         <col>Distribuye los datos equitativamente entre dos o más discos sin información de paridad que proporcione redundancia.</col>
       </row>
       <row>
         <col>RAID 1</col>
-        <col>Crea una copia exacta (o espejo) de un conjunto de datos en 
-				dos o más discos. Esto resulta útil cuando el rendimiento en 
-				lectura es más importante que la capacidad. El conjunto sólo puede 
-				ser tan grande como el más pequeño de sus discos. Incrementa 
-				exponencialmente la fiabilidad respecto a un solo disco; es decir, 
-				la probabilidad de fallo del conjunto es igual al producto de las 
-				probabilidades de fallo de cada uno de los discos (pues para que el 
+        <col>Crea una copia exacta (o espejo) de un conjunto de datos en
+				dos o más discos. Esto resulta útil cuando el rendimiento en
+				lectura es más importante que la capacidad. El conjunto sólo puede
+				ser tan grande como el más pequeño de sus discos. Incrementa
+				exponencialmente la fiabilidad respecto a un solo disco; es decir,
+				la probabilidad de fallo del conjunto es igual al producto de las
+				probabilidades de fallo de cada uno de los discos (pues para que el
 				conjunto falle es necesario que lo hagan todos sus discos).</col>
       </row>
       <row>
@@ -29,7 +28,6 @@
       </row>
     </table>
     <table fields='acción,resultado'>
-      <title>Asocia cada acción con su resultado.</title>
       <row>
         <col>mdadm --create /dev/md1 --level=mirror -raid-devices=2 /dev/sde /dev/sdd</col>
         <col>Crear un RAID 1 software.</col>
@@ -52,7 +50,6 @@
     <tags>soporte, disco, volumen, fisico, lvm</tags>
     <def>Son las particiones del disco duro con sistema de archivos LVM.</def>
     <table fields='acción,resultado'>
-      <title>Asocia cada acción con su resultado.</title>
       <row>
         <col>pvmove /dev/sdb1 /dev/sdc3</col>
         <col>Mueve la información de un volumen físico a otro.</col>
@@ -65,7 +62,6 @@
     <tags>disco, logico, lvm</tags>
     <def>Es la parte superior de la LVM. Es la "caja" en la que tenemos nuestros volúmenes lógicos (LV) y nuestros volúmenes físicos (PV). Se puede ver como una unidad administrativa en la que se engloban nuestros recursos. Hay que hacer notar que mientras no se añada al VG, no podemos comenzar a usarlo.</def>
     <table fields='acción,resultado'>
-      <title>Asocia cada acción con su resultado.</title>
       <row>
         <col>vgcreate vg-extra /dev/sdb1 /dev/sdc1 /dev/sdc2</col>
         <col>Crear un nuevo grupo de volumen.</col>
@@ -90,7 +86,6 @@
     <tags>particion, lvm, volumen, logico</tags>
     <def>En LVM, es el equivalente a una partición en un sistema tradicional.Es visible como un dispositivo estándar de bloques, por lo que puede contener un sistema de archivos (por ejemplo /home)</def>
     <table fields='acción,resultado'>
-      <title>Asocia cada acción con su resultado.</title>
       <row>
         <col>lvextend -L 400 /dev/vg-debian/lv-datos</col>
         <col>Amplia "en caliente" el espacio del volumen lógico.</col>
@@ -113,5 +108,5 @@
       </row>
     </table>
   </concept>
-	
+
 </map>
