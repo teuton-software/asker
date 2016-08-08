@@ -13,7 +13,6 @@ list=['haml', 'sinatra', 'rainbow', 'terminal-table', 'base64_compatible', 'code
 desc "Install gems "
 task :gems do
   list.each { |name| system("gem install #{name}") }
-  system("zypper in rubygem-rspec") #opensuse13.2
 end
 
 desc "Check installed gems "
@@ -42,6 +41,6 @@ end
 
 desc "Open GUI"
 task :gui do
-  e = ENV.to_h
-  system("#{e["HOME"]}/.shoes/federales/shoes lib/gui/prueba1.rb&")
+  require_relative 'sinatra_gui'
+  SinatraGUI.run!
 end
