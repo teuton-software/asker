@@ -1,6 +1,7 @@
 
 require "sinatra/base"
 require 'coderay'
+require_relative 'lib/loader/file_loader'
 
 class SinatraGUI < Sinatra::Base
   BASEDIR="./input"
@@ -21,23 +22,29 @@ class SinatraGUI < Sinatra::Base
     erb :list
   end
 
-  get '/show/raw/*.*' do |path,ext|
-    @filename = path+"."+ext
-    filepath=File.join(BASEDIR, @filename)
-    load_file filepath
-    @current = File.dirname(filepath)
-    erb :show_raw
-  end
-
   get '/show/*.*' do |path,ext|
     @filename = path+"."+ext
     filepath=File.join(BASEDIR, @filename)
     content = load_file filepath
-    # ...with line numbers
-    #CodeRay.scan("5.times do\n  puts 'Hello, world!'\nend", :ruby).div(:line_numbers => :table)
     @filecontent = CodeRay.scan(content, ext.to_sym).div(:line_numbers => :table)
     @current = File.dirname(filepath)
     erb :show
+  end
+
+  get '/edit/*.*' do |path,ext|
+    @filename = path+"."+ext
+    filepath=File.join(BASEDIR, @filename)
+    @concepts = FileLoader.new(filepath).load
+    @current = File.dirname(filepath)
+    erb :edit
+  end
+
+  get '/show/raw/*.*' do |path,ext|
+    @filename = path+"."+ext
+    filepath=File.join(BASEDIR, @filename)
+    @filecontent = load_file filepath
+    @current = File.dirname(filepath)
+    erb :show_raw
   end
 
   def load_dir(dir)
@@ -45,7 +52,7 @@ class SinatraGUI < Sinatra::Base
   end
 
   def load_file(filename)
-    @filecontent=open(filename) { |i| i.read }
+    return open(filename) { |i| i.read }
   end
 
   helpers do
@@ -75,7 +82,4 @@ class SinatraGUI < Sinatra::Base
     end
   end
 
-#  run!
 end
-
-#DartSinatraGUI.run!

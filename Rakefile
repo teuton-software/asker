@@ -21,9 +21,7 @@ task :check do
   cmd=(`gem list`).split("\n")
   names = cmd.map { |i| i.split(" ")[0]}
   fails = []
-  list.each do |i|
-    fails << i if not names.include?(i)
-  end
+  list.each { |i| fails << i unless names.include?(i) }
 
   if fails.size==0
     puts "Check OK!"

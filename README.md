@@ -3,6 +3,7 @@
 This program use some AI, to construct a lot of questions from conceptual map input file.
 
 ##Description
+
 This application is a Free Source multiplatform program, that helps teachers
 to create a huge amount of questions, from a simple definitions input file.
 
