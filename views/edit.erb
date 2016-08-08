@@ -5,8 +5,4 @@
 </p>
 <hr>
 
-<ul>
-<% @concepts.each do |concept| %>
-<li><%= concept.name %></li>
-<% end %>
-</ul>
+<%= ConceptsHtmlFormFormatter.new(@concepts).to_s %>

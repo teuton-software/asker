@@ -2,6 +2,7 @@
 require "sinatra/base"
 require 'coderay'
 require_relative 'lib/loader/file_loader'
+require_relative 'lib/gui/concepts_html_form_formatter'
 
 class SinatraGUI < Sinatra::Base
   BASEDIR="./input"
