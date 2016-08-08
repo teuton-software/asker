@@ -1,0 +1,12 @@
+<h2>File: <%= File.basename(@filename) %></h2>
+<p>Directory: <a href="/list" accesskey="h">Home</a> <%= html_for_current(:indexlast => true) %>
+  | <a href="/show/<%= route_for(@filename) %>">Show</a>
+  | Edit
+</p>
+<hr>
+
+<ul>
+<% @concepts.each do |concept| %>
+<li><%= concept.name %></li>
+<% end %>
+</ul>
