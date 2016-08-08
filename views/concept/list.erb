@@ -11,7 +11,7 @@ Version: 1</br>
 <hr>
 
 <ul>
-<% @concepts.each do |concept| %>
-  <li> <%= concept.name %> (Show | Edit | Delete)</li>
+<% @concepts.each_with_index do |concept,index| %>
+  <li> <%= concept.name %> ( <a href="/concept/show/<%=index%>">Show</a> | Edit | Delete)</li>
 <% end %>
 </ul>

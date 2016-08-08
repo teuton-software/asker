@@ -36,12 +36,38 @@ class SinatraGUI < Sinatra::Base
 
   get '/concept/list/*.*' do |path,ext|
     @filename = path+"."+ext
-    filepath=File.join(BASEDIR, @filename)
-    @concepts = FileLoader.new(filepath).load
+    filepath = File.join(BASEDIR, @filename)
+    @concepts = FileLoader.new( filepath ).load
     @lang = @concepts[0].lang
     @context = @concepts[0].context
-    @current = File.dirname(filepath)
+
+    session[ 'filename' ] = @filename.to_s
+    session[ 'filepath' ] = filepath
+    session[ 'lang'     ] = @lang.lang
+    session[ 'context'  ] = @context.join(",").to_s
+
+    @current = File.dirname( filepath )
     erb :"concept/list"
+  end
+
+  get '/concept/show/:index' do
+    @filename = session['filename']
+    filepath = session['filepath']
+    @concepts = FileLoader.new( filepath ).load
+    @concept = @concepts[ params[:index].to_i ]
+    @current  = File.dirname( File.join(BASEDIR, @filename) )
+    erb :"concept/show"
+  end
+
+  get '/read/:key' do
+    "key = " << session[ params[:key] ]
+    "session = " << session.inspect
+  end
+
+  get '/write/:key/:value' do
+    "key = " << params[:key]
+    "value = " << params[:value]
+    session[ params[:key] ] = params[:value]
   end
 
   def load_dir(dir)
