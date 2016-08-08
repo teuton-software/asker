@@ -1,6 +1,6 @@
 <h2>File: <%= File.basename(@filename) %></h2>
 <p>Directory: <a href="/list" accesskey="h">Home</a> <%= html_for_current(:indexlast => true) %>
-  | <a href="/file/<%= route_for(@filename) %>">File</a>
+  | <a href="/file/show/<%= route_for(@filename) %>">File</a>
   | Concepts
 </p>
 <hr>

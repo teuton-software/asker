@@ -12,7 +12,6 @@ class ConceptsHtmlFormFormatter
 
   def to_list
     output =""
-    output << MapHtmlFormatter.new(@lang, @context).to_list
     output << "<ul>"
     @concepts.each { |concept| output << ConceptHtmlFormatter.new(concept).to_list }
     output << '</ul>'

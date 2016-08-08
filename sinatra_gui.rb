@@ -11,36 +11,36 @@ class SinatraGUI < Sinatra::Base
   enable :sessions
 
   get '/' do
-    redirect '/list'
+    redirect '/dir/list'
   end
 
-  get '/list' do
+  get '/dir/list' do
     @current=File.join(BASEDIR)
     load_dir @current
-    erb :list
+    erb :dir_list
   end
 
-  get '/list/*' do
+  get '/dir/list/*' do
     @current=File.join(BASEDIR, params[:splat])
     load_dir @current
-    erb :list
+    erb :dir_list
   end
 
-  get '/file/*.*' do |path,ext|
+  get '/file/show/*.*' do |path,ext|
     @filename = path+"."+ext
     filepath=File.join(BASEDIR, @filename)
     content = load_file filepath
     @filecontent = CodeRay.scan(content, ext.to_sym).div(:line_numbers => :table)
     @current = File.dirname(filepath)
-    erb :file
+    erb :file_show
   end
 
-  get '/concepts/*.*' do |path,ext|
+  get '/concept/list/*.*' do |path,ext|
     @filename = path+"."+ext
     filepath=File.join(BASEDIR, @filename)
     @concepts = FileLoader.new(filepath).load
     @current = File.dirname(filepath)
-    erb :concepts
+    erb :concept_list
   end
 
   def load_dir(dir)
