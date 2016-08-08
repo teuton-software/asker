@@ -3,9 +3,12 @@ require "sinatra/base"
 require 'coderay'
 require_relative 'lib/loader/file_loader'
 require_relative 'lib/gui/concepts_html_form_formatter'
+require_relative 'lib/project'
 
 class SinatraGUI < Sinatra::Base
-  BASEDIR="./input"
+  BASEDIR=Project.instance.inputbasedir # "./input"
+
+  enable :sessions
 
   get '/' do
     redirect '/list'
