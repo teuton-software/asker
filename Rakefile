@@ -8,7 +8,7 @@ task :default => [:gems] do
   puts "Darts proyect installation has finish!"
 end
 
-list=['haml', 'sinatra', 'rainbow', 'terminal-table', 'base64_compatible']
+list=['haml', 'sinatra', 'rainbow', 'terminal-table', 'base64_compatible', 'coderay']
 
 desc "Install gems "
 task :gems do

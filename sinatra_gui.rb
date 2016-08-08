@@ -1,5 +1,6 @@
 
 require "sinatra/base"
+require 'coderay'
 
 class SinatraGUI < Sinatra::Base
   BASEDIR="./input"
@@ -20,10 +21,21 @@ class SinatraGUI < Sinatra::Base
     erb :list
   end
 
-  get '/show/*.*' do |path,ext|
+  get '/show/raw/*.*' do |path,ext|
     @filename = path+"."+ext
     filepath=File.join(BASEDIR, @filename)
     load_file filepath
+    @current = File.dirname(filepath)
+    erb :show_raw
+  end
+
+  get '/show/*.*' do |path,ext|
+    @filename = path+"."+ext
+    filepath=File.join(BASEDIR, @filename)
+    content = load_file filepath
+    # ...with line numbers
+    #CodeRay.scan("5.times do\n  puts 'Hello, world!'\nend", :ruby).div(:line_numbers => :table)
+    @filecontent = CodeRay.scan(content, ext.to_sym).div(:line_numbers => :table)
     @current = File.dirname(filepath)
     erb :show
   end
