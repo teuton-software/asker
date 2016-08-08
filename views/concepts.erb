@@ -1,8 +1,8 @@
 <h2>File: <%= File.basename(@filename) %></h2>
 <p>Directory: <a href="/list" accesskey="h">Home</a> <%= html_for_current(:indexlast => true) %>
-  | Show
-  | <a href="/edit/<%= route_for(@filename) %>">Edit</a>
+  | <a href="/file/<%= route_for(@filename) %>">File</a>
+  | Concepts
 </p>
 <hr>
 
-<%= @filecontent %>
+<%= ConceptsHtmlFormFormatter.new(@concepts).to_list %>
