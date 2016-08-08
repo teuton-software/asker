@@ -2,7 +2,6 @@
 require "sinatra/base"
 require 'coderay'
 require_relative 'lib/loader/file_loader'
-require_relative 'lib/gui/concepts_html_form_formatter'
 require_relative 'lib/project'
 
 class SinatraGUI < Sinatra::Base
@@ -17,13 +16,13 @@ class SinatraGUI < Sinatra::Base
   get '/dir/list' do
     @current=File.join(BASEDIR)
     load_dir @current
-    erb :dir_list
+    erb :"dir/list"
   end
 
   get '/dir/list/*' do
     @current=File.join(BASEDIR, params[:splat])
     load_dir @current
-    erb :dir_list
+    erb :"dir/list"
   end
 
   get '/file/show/*.*' do |path,ext|
@@ -32,15 +31,17 @@ class SinatraGUI < Sinatra::Base
     content = load_file filepath
     @filecontent = CodeRay.scan(content, ext.to_sym).div(:line_numbers => :table)
     @current = File.dirname(filepath)
-    erb :file_show
+    erb :"file/show"
   end
 
   get '/concept/list/*.*' do |path,ext|
     @filename = path+"."+ext
     filepath=File.join(BASEDIR, @filename)
     @concepts = FileLoader.new(filepath).load
+    @lang = @concepts[0].lang
+    @context = @concepts[0].context
     @current = File.dirname(filepath)
-    erb :concept_list
+    erb :"concept/list"
   end
 
   def load_dir(dir)
@@ -55,14 +56,14 @@ class SinatraGUI < Sinatra::Base
     def route_for(path)
       items=path.split(File::SEPARATOR)
       items.delete(".")
-      items.delete("input")
+      items.delete(BASEDIR)
       return items.join(File::SEPARATOR)
     end
 
     def html_for_current( option={ :indexlast => false} )
       items=@current.split(File::SEPARATOR)
       items.delete(".")
-      items.delete("input")
+      items.delete(BASEDIR)
 
       output=""
       before=""
@@ -71,7 +72,7 @@ class SinatraGUI < Sinatra::Base
           output += " » "+i
         else
           before=before+"/"+i
-          output += " » <a href=\"/list"+before+"/\">"+i+"</a>"
+          output += " » <a href=\"/dir/list"+before+"/\">"+i+"</a>"
         end
       end
       return output
