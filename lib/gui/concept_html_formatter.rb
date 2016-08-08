@@ -5,7 +5,14 @@ class ConceptHtmlFormatter
     @concept = concept
   end
 
-  def to_s
+  def to_list
+    output= <<-ENDRESPONSE
+    <li>#{@concept.name} (Show | Edit | Delete)</li>
+    ENDRESPONSE
+    return output
+  end
+
+  def to_show
     output= <<-ENDRESPONSE
     Concept : <b>#{@concept.id}</b><br/>
     <ul>

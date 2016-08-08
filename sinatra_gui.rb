@@ -26,29 +26,21 @@ class SinatraGUI < Sinatra::Base
     erb :list
   end
 
-  get '/show/*.*' do |path,ext|
+  get '/file/*.*' do |path,ext|
     @filename = path+"."+ext
     filepath=File.join(BASEDIR, @filename)
     content = load_file filepath
     @filecontent = CodeRay.scan(content, ext.to_sym).div(:line_numbers => :table)
     @current = File.dirname(filepath)
-    erb :show
+    erb :file
   end
 
-  get '/edit/*.*' do |path,ext|
+  get '/concepts/*.*' do |path,ext|
     @filename = path+"."+ext
     filepath=File.join(BASEDIR, @filename)
     @concepts = FileLoader.new(filepath).load
     @current = File.dirname(filepath)
-    erb :edit
-  end
-
-  get '/show/raw/*.*' do |path,ext|
-    @filename = path+"."+ext
-    filepath=File.join(BASEDIR, @filename)
-    @filecontent = load_file filepath
-    @current = File.dirname(filepath)
-    erb :show_raw
+    erb :concepts
   end
 
   def load_dir(dir)

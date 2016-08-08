@@ -6,6 +6,6 @@
   <% if File.directory?(filename) %>
     <li><a href="/list/<%= route_for(filename) %>"><%= File.basename(filename) %></a></li>
   <% else %>
-    <li><a href="/show/<%= route_for(filename) %>"><%= File.basename(filename) %></a></li>
+    <li><a href="/concepts/<%= route_for(filename) %>"><%= File.basename(filename) %></a></li>
   <% end %>
 <% end %>
