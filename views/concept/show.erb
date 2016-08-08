@@ -1,0 +1,30 @@
+<h2>File: <%= File.basename(@filename) %></h2>
+<p>Directory: <a href="/dir/list" accesskey="h">Home</a> <%= html_for_current(:indexlast => true) %>
+  | <a href="/file/show/<%= route_for(@filename) %>">File</a>
+  | <a href="/concept/list/<%= route_for(@filename) %>">Concepts</a>
+  | Concepts
+</p>
+<hr>
+
+<p><b>Name:</b> <%= @concept.name %></p>
+<ul>
+  <li><b>Tags:</b> <%= @concept.tags.join(",").to_s %></li>
+  <li><b>Definitions:</b></li>
+  <ol>
+    <% @concept.texts.each do |text| %>
+    <li><%= text.to_s %></li>
+   <% end %>
+ </ol>
+ <li><b>Images:</b></li>
+ <ol>
+   <% @concept.images.each do |image| %>
+   <li><img src="<%= image.to_s %>"></li>
+  <% end %>
+</ol>
+ <li><b>Tables:</b></li>
+ <ol>
+   <% @concept.tables.each do |table| %>
+   <li><%= table.name.to_s %></li>
+  <% end %>
+</ol>
+</ul>
