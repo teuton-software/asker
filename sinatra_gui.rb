@@ -72,9 +72,18 @@ class SinatraGUI < Sinatra::Base
       return items.join(File::SEPARATOR)
     end
 
+    def remove_basedir(dir)
+      items=@current.split(File::SEPARATOR)
+      items.delete(".")
+      items.delete("..")
+      items.delete(BASEDIR)
+      return File.join(items,File::SEPARATOR)
+    end
+
     def html_for_current( option={ :indexlast => false} )
       items=@current.split(File::SEPARATOR)
       items.delete(".")
+      items.delete("..")
       items.delete(BASEDIR)
 
       output=""
