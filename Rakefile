@@ -41,6 +41,6 @@ end
 
 desc "Open Web GUI"
 task :web do
-  require_relative 'sinatra_front_end'
+  require_relative 'lib/sinatra/sinatra_front_end'
   SinatraFrontEnd.run!
 end
