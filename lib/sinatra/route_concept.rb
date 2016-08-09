@@ -21,12 +21,15 @@ module Sinatra
           @index = params[:index]
           @concepts = session['concepts']
           @concept = @concepts[ @index.to_i ]
+
+          puts ConceptHAMLFormatter.new(@concept).to_s
+
           @filename = @concept.filename
           @current  = File.dirname( File.join( Project.instance.inputbasedir, @filename) )
           erb :"concept/show"
         end
       end
-      
+
     end
   end
 end
