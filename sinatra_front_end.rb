@@ -7,7 +7,6 @@ require_relative 'lib/project'
 class SinatraFrontEnd < Sinatra::Base
   BASEDIR=Project.instance.inputbasedir # "./input"
 
-  #enable :sessions
   use Rack::Session::Pool
 
   get '/' do
@@ -49,8 +48,9 @@ class SinatraFrontEnd < Sinatra::Base
   end
 
   get '/concept/show/:index' do
+    @index = params[:index]
     @concepts = session['concepts']
-    @concept = @concepts[ params[:index].to_i ]
+    @concept = @concepts[ @index.to_i ]
     @filename = @concept.filename
     @current  = File.dirname( File.join(BASEDIR, @filename) )
     erb :"concept/show"

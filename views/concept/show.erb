@@ -2,8 +2,9 @@
 <p>Directory: <a href="/dir/list" accesskey="h">Home</a> <%= html_for_current(:indexlast => true) %>
   | <a href="/file/show/<%= route_for(@filename) %>">File</a>
   | <a href="/concept/list/<%= route_for(@filename) %>">Concepts</a>
-  | Show <%= @concept.name %>
-  | Edit
+  » <%= @concept.name %>
+  | Show
+  | <a href="/concept/edit/<%= @index %>">Edit</a>
 </p>
 <hr>
 
