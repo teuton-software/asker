@@ -7,7 +7,8 @@ require_relative 'lib/project'
 class SinatraGUI < Sinatra::Base
   BASEDIR=Project.instance.inputbasedir # "./input"
 
-  enable :sessions
+  #enable :sessions
+  use Rack::Session::Pool
 
   get '/' do
     redirect '/dir/list'
@@ -20,7 +21,7 @@ class SinatraGUI < Sinatra::Base
   end
 
   get '/dir/list/*' do
-    @current=File.join(BASEDIR, params[:splat])
+    @current=File.join(BASEDIR, params[:splat] )
     load_dir @current
     erb :"dir/list"
   end
@@ -41,33 +42,18 @@ class SinatraGUI < Sinatra::Base
     @lang = @concepts[0].lang
     @context = @concepts[0].context
 
-    session[ 'filename' ] = @filename.to_s
-    session[ 'filepath' ] = filepath
-    session[ 'lang'     ] = @lang.lang
-    session[ 'context'  ] = @context.join(",").to_s
+    session[ 'concepts' ] = @concepts
 
     @current = File.dirname( filepath )
     erb :"concept/list"
   end
 
   get '/concept/show/:index' do
-    @filename = session['filename']
-    filepath = session['filepath']
-    @concepts = FileLoader.new( filepath ).load
+    @concepts = session['concepts']
     @concept = @concepts[ params[:index].to_i ]
+    @filename = @concept.filename
     @current  = File.dirname( File.join(BASEDIR, @filename) )
     erb :"concept/show"
-  end
-
-  get '/read/:key' do
-    "key = " << session[ params[:key] ]
-    "session = " << session.inspect
-  end
-
-  get '/write/:key/:value' do
-    "key = " << params[:key]
-    "value = " << params[:value]
-    session[ params[:key] ] = params[:value]
   end
 
   def load_dir(dir)
