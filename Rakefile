@@ -39,8 +39,8 @@ task :clean do
   system("rm output/*")
 end
 
-desc "Open GUI"
-task :gui do
-  require_relative 'sinatra_gui'
-  SinatraGUI.run!
+desc "Open Web GUI"
+task :web do
+  require_relative 'sinatra_front_end'
+  SinatraFrontEnd.run!
 end

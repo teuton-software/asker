@@ -4,7 +4,7 @@ require 'coderay'
 require_relative 'lib/loader/file_loader'
 require_relative 'lib/project'
 
-class SinatraGUI < Sinatra::Base
+class SinatraFrontEnd < Sinatra::Base
   BASEDIR=Project.instance.inputbasedir # "./input"
 
   #enable :sessions

@@ -6,7 +6,7 @@ require 'pry'
 require_relative 'lib/tool'
 require_relative 'lib/application'
 require_relative 'lib/project_builder'
-require_relative 'sinatra_gui'
+require_relative 'sinatra_front_end'
 
 def show_help
   puts "Usage: #{$0}\n\n"
@@ -36,8 +36,8 @@ elsif ['v','-v','version','--version'].include?(ARGV[0]) then
   show_version
 elsif ['c','-c','create','--create'].include?(ARGV[0]) then
   ProjectBuilder::create_project( ARGV[1], Application.instance.param[:inputbasedir])
-elsif ['gui','--gui' ].include?(ARGV[0]) then
-  SinatraGUI.run!
+elsif ['web','--web' ].include?(ARGV[0]) then
+  SinatraFrontEnd.run!
 else
   Tool.new.start(ARGV.first)
 end
