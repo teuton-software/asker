@@ -1,13 +1,19 @@
 
 require "sinatra/base"
 require 'coderay'
+
 require_relative 'lib/loader/file_loader'
 require_relative 'lib/project'
+require_relative 'lib/sinatra/helpers'
+require_relative 'lib/sinatra/route_file'
 
 class SinatraFrontEnd < Sinatra::Base
-  BASEDIR=Project.instance.inputbasedir # "./input"
+  BASEDIR=Project.instance.inputbasedir
 
   use Rack::Session::Pool
+
+  helpers  Sinatra::SinatraFrontEnd::Helpers
+  register Sinatra::SinatraFrontEnd::RouteFile
 
   get '/' do
     redirect '/dir/list'
@@ -23,15 +29,6 @@ class SinatraFrontEnd < Sinatra::Base
     @current=File.join(BASEDIR, params[:splat] )
     load_dir @current
     erb :"dir/list"
-  end
-
-  get '/file/show/*.*' do |path,ext|
-    @filename = path+"."+ext
-    filepath=File.join(BASEDIR, @filename)
-    content = load_file filepath
-    @filecontent = CodeRay.scan(content, ext.to_sym).div(:line_numbers => :table)
-    @current = File.dirname(filepath)
-    erb :"file/show"
   end
 
   get '/concept/list/*.*' do |path,ext|
@@ -62,42 +59,6 @@ class SinatraFrontEnd < Sinatra::Base
 
   def load_file(filename)
     return open(filename) { |i| i.read }
-  end
-
-  helpers do
-    def route_for(path)
-      items=path.split(File::SEPARATOR)
-      items.delete(".")
-      items.delete(BASEDIR)
-      return items.join(File::SEPARATOR)
-    end
-
-    def remove_basedir(dir)
-      items=@current.split(File::SEPARATOR)
-      items.delete(".")
-      items.delete("..")
-      items.delete(BASEDIR)
-      return File.join(items,File::SEPARATOR)
-    end
-
-    def html_for_current( option={ :indexlast => false} )
-      items=@current.split(File::SEPARATOR)
-      items.delete(".")
-      items.delete("..")
-      items.delete(BASEDIR)
-
-      output=""
-      before=""
-      items.each do |i|
-        if i==items.last and option[:indexlast]==false then
-          output += " » "+i
-        else
-          before=before+"/"+i
-          output += " » <a href=\"/dir/list"+before+"/\">"+i+"</a>"
-        end
-      end
-      return output
-    end
   end
 
 end
