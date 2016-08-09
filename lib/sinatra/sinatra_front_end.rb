@@ -12,8 +12,9 @@ require_relative 'route_file'
 class SinatraFrontEnd < Sinatra::Base
   use Rack::Session::Pool
 
-  set :root, File.join( File.dirname(__FILE__), "..", ".." )
-  set :views, Proc.new { File.join(root, "views") }
+  set :root,  File.join( File.dirname(__FILE__), "..", ".." )
+#  set :views, Proc.new { File.join(root, "views") }
+  set :views, File.join( File.dirname(__FILE__), "views")
 
   helpers  Sinatra::SinatraFrontEnd::Helpers
   register Sinatra::SinatraFrontEnd::RouteConcept
