@@ -15,7 +15,7 @@ Two Steps:
 Features:
 * Read HAML/XML input files.
 * Export format GIFT questions.
-* multiplatform.
+* Multiplatform.
 * Free Software.
 
 ##Installation
@@ -26,17 +26,18 @@ Features:
 
 ##Usage
 
-To execute Dart, we use `darts` command with a HAML/XML file as argument.
-For example, execute `./darts input/en/starwars/jedi.haml` to run this example.
+To execute Dart, we use `darts` command, with an HAML/XML file as argument.
+For example:
 
-> On Windows try with `ruby darts input/en/starwars/jedi.haml`
+* `./darts input/en/starwars/jedi.haml` to run this example, or
+* `ruby darts input/en/starwars/jedi.haml`, to run on Windows.
 
-At the end, we'll have our output files into the `output` directory.
+Then, program saves your output files into the `output` directory.
 
-In our example, we use sample input definition file, saved on `input/en/starwars`.
-This file contains our input definitions in a HAML text file.
+In this example, we use a demo input definition file (`input/en/starwars/jedi.haml`),
+that contains our conceptual map (definitions) about Jedi's theme.
 
-> There are more input HAML/XML files into `input` directory.
+There are more input HAML/XML files into `input/en` and `input/es` directories.
 
 ##Documentation
 
@@ -46,7 +47,7 @@ This file contains our input definitions in a HAML text file.
 * [Input definitions](./docs/en/inputs.md)
 * [Spanish documentation](./docs/es/README.md)
 
-##Contributing
+##Contributions
 
 * Talk about this tool with your colleagues.
 * Use this tool.
