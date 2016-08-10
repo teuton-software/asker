@@ -74,7 +74,7 @@ class Concept
 
     lfAlike1=lfAlike2=lfAlike3=0.0
 
-    #check if exists items from concept1 into concept2
+    #check if exists this items from concept1 into concept2
     @data[:context].each { |i| lfAlike1+=1.0 if !other.context.index(i).nil? }
     @data[:tags].each { |i| lfAlike2+=1.0 if !other.tags.index(i).nil? }
     @data[:tables].each { |i| lfAlike3+=1.0 if !other.tables.index(i).nil? }
