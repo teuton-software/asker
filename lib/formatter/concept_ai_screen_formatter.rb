@@ -1,10 +1,10 @@
 
 require 'terminal-table'
 
-class ConceptIAScreenFormatter
+class ConceptAIScreenFormatter
 
-  def initialize(concepts_ia)
-    @concepts_ia = concepts_ia
+  def initialize(concepts_ai)
+    @concepts_ai = concepts_ai
   end
 
   def export
@@ -20,17 +20,17 @@ class ConceptIAScreenFormatter
       st << :separator
     end
 
-    @concepts_ia.each do |concept_ia|
-      if concept_ia.process?
-        e = concept_ia.texts.size
-        concept_ia.tables.each { |t| e = e+t.data[:fields].size*t.data[:rows].size }
+    @concepts_ai.each do |concept_ai|
+      if concept_ai.process?
+        e = concept_ai.texts.size
+        concept_ai.tables.each { |t| e = e+t.data[:fields].size*t.data[:rows].size }
 
-        sa = concept_ia.questions[:stage_a].size
-        sb = concept_ia.questions[:stage_b].size
-        sc = concept_ia.questions[:stage_c].size
-        sd = concept_ia.questions[:stage_d].size
-        se = concept_ia.questions[:stage_e].size
-        sf = concept_ia.questions[:stage_f].size
+        sa = concept_ai.questions[:stage_a].size
+        sb = concept_ai.questions[:stage_b].size
+        sc = concept_ai.questions[:stage_c].size
+        sd = concept_ai.questions[:stage_d].size
+        se = concept_ai.questions[:stage_e].size
+        sf = concept_ai.questions[:stage_f].size
         t = sa+sb+sc+sd+se+sf
 
         if e==0 then
@@ -38,7 +38,7 @@ class ConceptIAScreenFormatter
         else
           factor=(t.to_f/e.to_f).round(2).to_s
         end
-        my_screen_table.add_row [Rainbow(concept_ia.name).color(:green), t, e, factor, sa, sb, sc, sd, se, sf]
+        my_screen_table.add_row [Rainbow(concept_ai.name).color(:green), t, e, factor, sa, sb, sc, sd, se, sf]
 
         total_q+=t; total_e+=e; total_c+=1
         total_sa+=sa; total_sb+=sb; total_sc+=sc; total_sd+=sd; total_se+=se; total_sf+=sf

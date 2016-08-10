@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module IA_stage_d
+module AI_stage_d
 
   def run_stage_d(pTable, pList1, pList2)
     #process_table1field

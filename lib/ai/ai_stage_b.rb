@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module IA_stage_b
+module AI_stage_b
   #range b1-b2
 
 	def run_stage_b(pTable, pList1, pList2)

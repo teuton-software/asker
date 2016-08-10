@@ -6,12 +6,12 @@ require 'rainbow'
 
 require_relative 'project'
 require_relative 'concept/concept'
-require_relative 'ia/concept_ia'
+require_relative 'ai/concept_ai'
 require_relative 'formatter/concept_doc_formatter'
 require_relative 'formatter/concept_gift_formatter'
 require_relative 'formatter/concept_string_formatter'
 require_relative 'formatter/concept_screen_formatter'
-require_relative 'formatter/concept_ia_screen_formatter'
+require_relative 'formatter/concept_ai_screen_formatter'
 require_relative 'loader/project_loader'
 require_relative 'loader/input_loader'
 
@@ -19,13 +19,13 @@ class Tool
 
   def initialize
     @concepts=[]
-    @concepts_ia=[]
+    @concepts_ai=[]
   end
 
   def start(pArgs={})
     load_input_data(pArgs)
     create_output_files
-    ConceptIAScreenFormatter.new(@concepts_ia).export
+    ConceptAIScreenFormatter.new(@concepts_ai).export
 	  Project.instance.close
   end
 
@@ -50,16 +50,16 @@ private
 
   def create_questions
     @concepts.each do |concept|
-      concept_ia = ConceptIA.new(concept)
-      concept_ia.make_questions_from_ia
-      ConceptGiftFormatter.new(concept_ia).export
-      @concepts_ia << concept_ia
+      concept_ai = ConceptAI.new(concept)
+      concept_ai.make_questions_from_ai
+      ConceptGiftFormatter.new(concept_ai).export
+      @concepts_ai << concept_ai
     end
   end
 
   def create_lesson
-    @concepts_ia.each do |concept_ia|
-      ConceptDocFormatter.new(concept_ia.concept).export
+    @concepts_ai.each do |concept_ai|
+      ConceptDocFormatter.new(concept_ai.concept).export
     end
   end
 

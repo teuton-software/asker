@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module IA_stage_e
+module AI_stage_e
 
   def run_stage_e(pTable, pList1, pList2)
     #process_sequence

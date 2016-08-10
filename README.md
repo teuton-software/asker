@@ -16,7 +16,7 @@ Features:
 * Read HAML/XML input files.
 * Export format GIFT questions.
 * Multiplatform.
-* Free Software.
+* Free Software [LICENSE](LICENSE).
 
 ##Installation
 

@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module IA_calculate
+module AI_calculate
 
   def calculate_nearness_between_texts(pText1, pText2)
     return 0.0 if pText2.nil? or pText2.size==0

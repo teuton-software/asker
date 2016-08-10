@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module IA_stage_a
+module AI_stage_a
   #range a1-a6
   #a7???
 

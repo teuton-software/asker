@@ -1,11 +1,11 @@
 # encoding: utf-8
 
 require_relative '../lang/lang'
-require_relative 'ia'
+require_relative 'ai'
 require_relative 'question'
 
-class ConceptIA
-  include IA
+class ConceptAI
+  include AI
 
   attr_reader :concept, :questions
 

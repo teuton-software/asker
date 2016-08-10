@@ -4,7 +4,7 @@ require "minitest/autorun"
 require 'rexml/document'
 
 require_relative "../lib/concept/concept"
-require_relative "../lib/ia/concept_ia"
+require_relative "../lib/ai/concept_ai"
 
 class TestResult < Minitest::Test
   def setup
@@ -17,27 +17,27 @@ class TestResult < Minitest::Test
       end
     end
 
-    @concept_ia=[]
-    @concept.each { |concept| @concept_ia << ConceptIA.new(concept) }
+    @concept_ai=[]
+    @concept.each { |concept| @concept_ai << ConceptAI.new(concept) }
   end
 
   def test_make_questions_from_ia
-    @concept_ia.each { |c| assert_equal( {}, c.questions) }
+    @concept_ai.each { |c| assert_equal( {}, c.questions) }
     @concept[0].process = true
-    @concept_ia[0].make_questions_from_ia
-    assert_equal 13, @concept_ia[0].questions[:stage_a].size
-    assert_equal 0, @concept_ia[0].questions[:stage_b].size
-    assert_equal 20, @concept_ia[0].questions[:stage_c].size
-    assert_equal 0, @concept_ia[0].questions[:stage_d].size
-    assert_equal 0, @concept_ia[0].questions[:stage_e].size
+    @concept_ai[0].make_questions_from_ai
+    assert_equal 13, @concept_ai[0].questions[:stage_a].size
+    assert_equal 0,  @concept_ai[0].questions[:stage_b].size
+    assert_equal 20, @concept_ai[0].questions[:stage_c].size
+    assert_equal 0,  @concept_ai[0].questions[:stage_d].size
+    assert_equal 0,  @concept_ai[0].questions[:stage_e].size
 
     @concept[1].process = true
-    @concept_ia[1].make_questions_from_ia
-    assert_equal 27, @concept_ia[1].questions[:stage_a].size
-    assert_equal 2, @concept_ia[1].questions[:stage_b].size
-    assert_equal 31, @concept_ia[1].questions[:stage_c].size
-    assert_equal 0, @concept_ia[1].questions[:stage_d].size
-    assert_equal 0, @concept_ia[1].questions[:stage_e].size
+    @concept_ai[1].make_questions_from_ai
+    assert_equal 27, @concept_ai[1].questions[:stage_a].size
+    assert_equal 2,  @concept_ai[1].questions[:stage_b].size
+    assert_equal 31, @concept_ai[1].questions[:stage_c].size
+    assert_equal 0,  @concept_ai[1].questions[:stage_d].size
+    assert_equal 0,  @concept_ai[1].questions[:stage_e].size
   end
 
   def get_xml_data

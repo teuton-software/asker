@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module IA_stage_c
+module AI_stage_c
   #range c1-c9
 
   def run_stage_c(pTable, pRow, pList) #process_tableXfields
