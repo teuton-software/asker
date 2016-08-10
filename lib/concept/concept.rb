@@ -39,7 +39,7 @@ class Concept
     @data[:tables]=[]
     @data[:neighbors]=[]
     @data[:reference_to]=[]
-    @data[:reference_by]=[]
+    @data[:referenced_by]=[]
 
 	  read_data_from_xml(pXMLdata)
   end
@@ -95,7 +95,7 @@ class Concept
     end
     if reference_to>0 then
       @data[:reference_to] << other.name
-      other.data[:reference_by] << self.name
+      other.data[:referenced_by] << self.name
     end
   end
 

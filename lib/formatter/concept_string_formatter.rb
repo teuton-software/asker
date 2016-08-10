@@ -20,7 +20,7 @@ class ConceptStringFormatter
     t.add_row [Rainbow("Context").color(:blue), @concept.context.join(", ").to_s ]
     t.add_row [Rainbow("Tags").color(:blue), @concept.tags.join(", ").to_s]
     t.add_row [Rainbow("Reference to").color(:blue), (@concept.reference_to.join(", "))[0...70].to_s ]
-    t.add_row [Rainbow("Reference by").color(:blue), (@concept.reference_by.join(", "))[0...70].to_s ]
+    t.add_row [Rainbow("Referenced by").color(:blue), (@concept.referenced_by.join(", "))[0...70].to_s ]
 
     lText=[]
     @concept.texts.each do |i|
