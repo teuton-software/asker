@@ -3,7 +3,7 @@
 require_relative '../project'
 require_relative 'question_gift_formatter'
 
-class ConceptGiftFormatter
+class ConceptAIGiftFormatter
 
   def initialize(concept_ai)
     @concept_ai = concept_ai

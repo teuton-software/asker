@@ -8,7 +8,7 @@ require_relative 'project'
 require_relative 'concept/concept'
 require_relative 'ai/concept_ai'
 require_relative 'formatter/concept_doc_formatter'
-require_relative 'formatter/concept_gift_formatter'
+require_relative 'formatter/concept_ai_gift_formatter'
 require_relative 'formatter/concept_string_formatter'
 require_relative 'formatter/concept_screen_formatter'
 require_relative 'formatter/concept_ai_screen_formatter'
@@ -52,7 +52,7 @@ private
     @concepts.each do |concept|
       concept_ai = ConceptAI.new(concept)
       concept_ai.make_questions_from_ai
-      ConceptGiftFormatter.new(concept_ai).export
+      ConceptAIGiftFormatter.new(concept_ai).export
       @concepts_ai << concept_ai
     end
   end
