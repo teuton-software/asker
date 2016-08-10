@@ -2,7 +2,6 @@
 
 require "minitest/autorun"
 require 'rexml/document'
-require 'pry'
 
 require_relative "../../lib/concept/table"
 
@@ -31,13 +30,39 @@ class TableTest < Minitest::Test
   end
 
   def test_table_0_rows
-    lRows=[ [ 'race', 'human' ],
-             [ 'laser sabel color', 'green'],
-             [ 'hair color', 'red' ]
-            ]
-    assert_equal lRows.size, @tables[0].rows.size
-    for i in 0..2
-      assert_equal lRows[i], @tables[0].rows[i]
+    rows=[  [ 'race',              'human' ],
+             [ 'laser sabel color' ,'green' ],
+             [ 'hair color'        ,'red'   ]
+          ]
+
+    assert_equal rows.size, @tables[0].rows.size
+    rows.each_with_index do |row,index|
+      assert_equal row, @tables[0].rows[index]
+    end
+  end
+
+  def test_table_1
+    name = "$film name"
+    table = @tables[1]
+
+    assert_equal name,  table.name
+    assert_equal nil,   table.title
+    assert_equal true,  table.sequence?
+    assert_equal 1,     table.sequence.size
+    assert_equal ["Films ordered by episode number"],    table.sequence
+    assert_equal 1,     table.fields.size
+    assert_equal ["film name"], table.fields
+  end
+
+  def test_table_1_rows
+    rows=[ ['The Phantom Menace'], ['Attack of the Clones'], ['Revenge of the Sith'],
+           ['A New Hope'], ['The Empire Strikes Back'], ['Return of the Jedi'],
+           ['The Force Awakens']
+         ]
+    assert_equal rows.size, @tables[1].rows.size
+
+    rows.each_with_index do |row,index|
+      assert_equal row, @tables[1].rows[index]
     end
   end
 
