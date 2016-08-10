@@ -7,15 +7,18 @@ class TableHAMLFormatter
   end
 
   def to_s
-    out = ""
-    out << "    %table{ :fields => \'#{@table.fields.join(",").to_s}\' }\n"
+    out =  "    %table{:fields => \'#{@table.fields.join(",").to_s}\'"
+    if @table.sequence?
+      out << ", :sequence => \'#{@table.sequence.join(",")}\'"
+    end
+    out << "}\n"
 
     if @table.fields.size==1 then
-      @table.rows.each { |text| out << "      %row #{text}\n" }
+      @table.rows.each { |text| out << "      %row #{text[0].to_s}\n" }
     else
       @table.rows.each do |row|
         out << "      %row\n"
-        row.each  { |text| out << "        %col #{text}\n" }
+        row.each  { |text| out << "        %col #{text.to_s}\n" }
       end
     end
 	  return out
