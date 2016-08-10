@@ -1,9 +1,9 @@
 #!/usr/bin/ruby
 
 require "minitest/autorun"
-require_relative "../lib/lang/lang"
+require_relative "../../lib/lang/lang"
 
-class TestLang < Minitest::Test
+class LangTest < Minitest::Test
   def setup
     @lang = { :en => Lang.new("en"), :es => Lang.new("es") }
     @texts = [ 'hello', 'hello world!', 'bye-bye' ]
