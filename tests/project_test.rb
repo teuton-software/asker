@@ -3,7 +3,7 @@
 require "minitest/autorun"
 require_relative "../lib/project"
 
-class TestResult < Minitest::Test
+class ProjectTest < Minitest::Test
   def setup
     @project = Project.instance
   end
@@ -21,14 +21,15 @@ class TestResult < Minitest::Test
   end
 
   def test_open
-    dirname     = "path/to/dir/"
-    projectname = "myfile"
+    dirname     = "test/input/"
+    projectname = "jedi"
     filename    = projectname+".haml"
 
     @project.param[:projectdir]  = dirname
+    @project.param[:inputdirs]  =  [ dirname ]
     @project.param[:process_file] = filename
 
-    assert_equal 10, @project.param.size
+    assert_equal 11, @project.param.size
     assert_equal true, @project.param[:verbose]
     @project.param[:verbose] = false
     @project.open

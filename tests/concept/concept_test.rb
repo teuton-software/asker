@@ -3,10 +3,9 @@
 require "minitest/autorun"
 require 'rexml/document'
 
-require_relative "../lib/concept/concept"
-require_relative "../lib/concept/table"
+require_relative "../../lib/concept/concept"
 
-class TestResult < Minitest::Test
+class ConceptTest < Minitest::Test
   def setup
     string_data = get_xml_data
     @concept=[]
