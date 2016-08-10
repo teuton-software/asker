@@ -11,7 +11,7 @@ class ConceptTest < Minitest::Test
     @concept=[]
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
-      if xml_data.name="concept" then
+      if xml_data.name=="concept" then
         @concept << Concept.new(xml_data, "pFilename", "en", [])
       end
     end
