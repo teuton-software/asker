@@ -10,7 +10,7 @@ require_relative 'table'
 class Concept
 
   attr_reader :id, :data, :questions
-  attr_reader :lang #TODO: migrating IA to concept_IA...
+  attr_reader :lang
   attr_accessor :process
 
   @@id=0

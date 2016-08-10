@@ -11,7 +11,6 @@ class Table
 
     @data={}
     @data[:fields]=[]
-#    @data[:title]=[]
     @data[:rows]=[]
 
     @data[:fields]=pXMLdata.attributes['fields'].to_s.strip.split(',')
@@ -22,8 +21,6 @@ class Table
     @data[:sequence]=lText.split(",")
 
     pXMLdata.elements.each do |i|
-      #if i.name=='title' then
-      #  @data[:title] << i.text.strip
       if i.name=='row' then
         row=[]
         if i.elements.count>0 then
