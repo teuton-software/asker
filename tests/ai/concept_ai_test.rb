@@ -9,35 +9,42 @@ require_relative "../../lib/ai/concept_ai"
 class ConceptAITest < Minitest::Test
   def setup
     string_data = get_xml_data
-    @concept=[]
+    concepts=[]
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name="concept" then
-        @concept << Concept.new(xml_data, "pFilename", "en", [])
+        concepts << Concept.new(xml_data, "pFilename", "en", [])
       end
     end
 
-    @concept_ai=[]
-    @concept.each { |concept| @concept_ai << ConceptAI.new(concept) }
+    @concepts_ai=[]
+    concepts.each { |concept| @concepts_ai << ConceptAI.new(concept) }
   end
 
-  def test_make_questions_from_ia
-    @concept_ai.each { |c| assert_equal( {}, c.questions) }
-    @concept[0].process = true
-    @concept_ai[0].make_questions_from_ai
-    assert_equal 13, @concept_ai[0].questions[:stage_a].size
-    assert_equal 0,  @concept_ai[0].questions[:stage_b].size
-    assert_equal 20, @concept_ai[0].questions[:stage_c].size
-    assert_equal 0,  @concept_ai[0].questions[:stage_d].size
-    assert_equal 0,  @concept_ai[0].questions[:stage_e].size
+  def test_concept_0_make_questions
+    i=0
+    assert_equal( {}, @concepts_ai[i].questions)
+    @concepts_ai[i].process = true
+    @concepts_ai[i].make_questions_from_ai
+    assert_equal 13, @concepts_ai[i].questions[:stage_a].size
+    assert_equal 0,  @concepts_ai[i].questions[:stage_b].size
+    assert_equal 20, @concepts_ai[i].questions[:stage_c].size
+    assert_equal 0,  @concepts_ai[i].questions[:stage_d].size
+    assert_equal 0,  @concepts_ai[i].questions[:stage_i].size
+    assert_equal 0,  @concepts_ai[i].questions[:stage_s].size
+  end
 
-    @concept[1].process = true
-    @concept_ai[1].make_questions_from_ai
-    assert_equal 27, @concept_ai[1].questions[:stage_a].size
-    assert_equal 2,  @concept_ai[1].questions[:stage_b].size
-    assert_equal 31, @concept_ai[1].questions[:stage_c].size
-    assert_equal 0,  @concept_ai[1].questions[:stage_d].size
-    assert_equal 0,  @concept_ai[1].questions[:stage_e].size
+  def test_concept_1_make_questions
+    i=1
+    assert_equal( {}, @concepts_ai[i].questions)
+    @concepts_ai[i].process = true
+    @concepts_ai[i].make_questions_from_ai
+    assert_equal 27, @concepts_ai[i].questions[:stage_a].size
+    assert_equal 2,  @concepts_ai[i].questions[:stage_b].size
+    assert_equal 31, @concepts_ai[i].questions[:stage_c].size
+    assert_equal 0,  @concepts_ai[i].questions[:stage_d].size
+    assert_equal 0,  @concepts_ai[i].questions[:stage_i].size
+    assert_equal 0,  @concepts_ai[i].questions[:stage_s].size
   end
 
   def get_xml_data
@@ -89,6 +96,20 @@ class ConceptAITest < Minitest::Test
             <col>high</col>
             <col>65 centimetres</col>
           </row>
+        </table>
+      </concept>
+
+      <concept>
+        <names>starwars films</names>
+        <tags>starwars, films</tags>
+        <table fields='film name' sequence='Films ordered by episode number'>
+          <row>The Phantom Menace</row>
+          <row>Attack of the Clones</row>
+          <row>Revenge of the Sith</row>
+          <row>A New Hope</row>
+          <row>The Empire Strikes Back</row>
+          <row>Return of the Jedi</row>
+          <row>The Force Awakens</row>
         </table>
       </concept>
     </map>
