@@ -1,34 +1,11 @@
 # encoding: utf-8
 
 require "base64_compatible"
+require_relative 'base_stage'
 require_relative 'question'
 
-class StageI
+class StageI < BaseStage
   #range i1, i2, i3
-
-  def initialize(concept_ia)
-    @concept_ia=concept_ia
-  end
-
-  def images
-    @concept_ia.images
-  end
-
-  def lang
-    @concept_ia.lang
-  end
-
-  def name
-    @concept_ia.name
-  end
-
-  def neighbors
-    @concept_ia.neighbors
-  end
-
-  def num
-    @concept_ia.num
-  end
 
   def run
     #Stage I: process every image from <def> tag

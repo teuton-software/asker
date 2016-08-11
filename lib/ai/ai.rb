@@ -6,8 +6,8 @@ require_relative 'ai_stage_a'
 require_relative 'ai_stage_b'
 require_relative 'ai_stage_c'
 require_relative 'ai_stage_d'
-require_relative 'ai_stage_e'
 require_relative 'stage_i'
+require_relative 'stage_s'
 
 require_relative 'ai_calculate'
 
@@ -16,7 +16,6 @@ module AI
   include AI_stage_b
   include AI_stage_c
   include AI_stage_d
-  include AI_stage_e
 
   include AI_calculate
 
@@ -29,8 +28,8 @@ module AI
     @questions[:stage_b] = []
     @questions[:stage_c] = []
     @questions[:stage_d] = []
-    @questions[:stage_e] = []
     @questions[:stage_i] = StageI.new(self).run
+    @questions[:stage_s] = []
 
     #-----------------------------------
     #Process every table of this concept
@@ -73,8 +72,8 @@ module AI
       @questions[:stage_d] = @questions[:stage_d] + run_stage_d(lTable, list1, list2)
 
       #--------------------------------------
-      #Stage E: process tables with sequences
-      @questions[:stage_e] = @questions[:stage_e] + run_stage_e(lTable, list1, list2)
+      #Stage S: process tables with sequences
+      @questions[:stage_s] = @questions[:stage_s] + StageS.new(self).run(lTable, list1, list2)
     end
 
     #-------------------------------------
