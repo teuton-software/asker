@@ -47,8 +47,21 @@ class ConceptAITest < Minitest::Test
     assert_equal 0,  @concepts_ai[i].questions[:stage_s].size
   end
 
-  def test_concept_2_make_questions
+  def test_concept_2_image_url
     i=2
+    assert_equal( {}, @concepts_ai[i].questions)
+    @concepts_ai[i].process = true
+    @concepts_ai[i].make_questions_from_ai
+    assert_equal 0, @concepts_ai[i].questions[:stage_a].size
+    assert_equal 0,  @concepts_ai[i].questions[:stage_b].size
+    assert_equal 0, @concepts_ai[i].questions[:stage_c].size
+    assert_equal 0,  @concepts_ai[i].questions[:stage_d].size
+    assert_equal 2,  @concepts_ai[i].questions[:stage_i].size
+    assert_equal 0,  @concepts_ai[i].questions[:stage_s].size
+  end
+
+  def test_concept_3_sequence
+    i=3
     assert_equal( {}, @concepts_ai[i].questions)
     @concepts_ai[i].process = true
     @concepts_ai[i].make_questions_from_ai
@@ -110,6 +123,12 @@ class ConceptAITest < Minitest::Test
             <col>65 centimetres</col>
           </row>
         </table>
+      </concept>
+
+      <concept>
+        <names>maul</names>
+        <tags>lord, sith</tags>
+        <def type="image_url">http://maul.pgn</def>
       </concept>
 
       <concept>
