@@ -5,7 +5,7 @@ require 'set'
 require_relative 'ai_stage_a'
 require_relative 'ai_stage_b'
 require_relative 'ai_stage_c'
-require_relative 'ai_stage_d'
+require_relative 'stage_f'
 require_relative 'stage_i'
 require_relative 'stage_s'
 
@@ -15,7 +15,6 @@ module AI
   include AI_stage_a
   include AI_stage_b
   include AI_stage_c
-  include AI_stage_d
 
   include AI_calculate
 
@@ -27,7 +26,7 @@ module AI
     @questions[:stage_a] = run_stage_a
     @questions[:stage_b] = []
     @questions[:stage_c] = []
-    @questions[:stage_d] = []
+    @questions[:stage_f] = []
     @questions[:stage_i] = StageI.new(self).run
     @questions[:stage_s] = []
 
@@ -59,21 +58,21 @@ module AI
 
       #----------------------------------------------
       #Stage B: process table to make match questions
-      @questions[:stage_b] = @questions[:stage_b] + run_stage_b(lTable, list1, list2)
+      @questions[:stage_b] += run_stage_b(lTable, list1, list2)
       #-----------------------------
       #Stage C: process_tableXfields
       list1.each do |lRow|
         reorder_list_with_row(list3, lRow)
-        @questions[:stage_c] = @questions[:stage_c] + run_stage_c(lTable, lRow, list3)
+        @questions[:stage_c] += run_stage_c(lTable, lRow, list3)
       end
-
-      #-----------------------------------------
-      #Stage D: process tables with only 1 field
-      @questions[:stage_d] = @questions[:stage_d] + run_stage_d(lTable, list1, list2)
 
       #--------------------------------------
       #Stage S: process tables with sequences
-      @questions[:stage_s] = @questions[:stage_s] + StageS.new(self).run(lTable, list1, list2)
+      @questions[:stage_s] += StageS.new(self).run(lTable, list1, list2)
+      #-----------------------------------------
+      #Stage F: process tables with only 1 field
+      @questions[:stage_f] += StageF.new(self).run(lTable, list1, list2)
+
     end
 
     #-------------------------------------

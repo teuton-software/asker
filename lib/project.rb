@@ -16,7 +16,7 @@ class Project
     @param[:lang]            = 'en'
     @param[:show_mode]       = :default
     @param[:verbose]         = true
-    @param[:stages]          = [ :stage_a, :stage_b, :stage_c, :stage_d, :stage_i, :stage_s ]
+    @param[:stages]          = [ :stage_a, :stage_b, :stage_c, :stage_f, :stage_i, :stage_s ]
   end
 
   def method_missing(m, *args, &block)
