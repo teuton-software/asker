@@ -19,7 +19,7 @@ class TableHAMLFormatterTest < Minitest::Test
   end
 
   def test_haml_table_0
-    output = %q{    %table{:fields => 'field1,field2'}
+    output = %q{    %table{:fields => 'field1, field2'}
       %row
         %col col1.1
         %col col1.2

@@ -7,9 +7,9 @@ class TableHAMLFormatter
   end
 
   def to_s
-    out =  "    %table{:fields => \'#{@table.fields.join(",").to_s}\'"
+    out =  "    %table{:fields => \'#{@table.fields.join(", ").to_s}\'"
     if @table.sequence?
-      out << ", :sequence => \'#{@table.sequence.join(",")}\'"
+      out << ", :sequence => \'#{@table.sequence.join(", ")}\'"
     end
     out << "}\n"
 

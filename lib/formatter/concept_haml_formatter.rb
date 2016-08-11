@@ -9,10 +9,10 @@ class ConceptHAMLFormatter
   end
 
   def to_s
-    out = ""
+    out = "\n"
     out << "  %concept\n"
-    out << "    %names #{@concept.names.join(",")}\n"
-    out << "    %tags #{@concept.tags.join(",")}\n"
+    out << "    %names #{@concept.names.join(", ")}\n"
+    out << "    %tags #{@concept.tags.join(", ")}\n"
     @concept.texts.each  { |text| out << "    %def #{text}\n" }
     @concept.images.each { |url|  out << "    %def{ :type => \'image_url\' } #{url}\n" }
     @concept.tables.each { |table| out << TableHAMLFormatter.new(table).to_s }
