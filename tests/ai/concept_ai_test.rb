@@ -47,6 +47,19 @@ class ConceptAITest < Minitest::Test
     assert_equal 0,  @concepts_ai[i].questions[:stage_s].size
   end
 
+  def test_concept_2_make_questions
+    i=2
+    assert_equal( {}, @concepts_ai[i].questions)
+    @concepts_ai[i].process = true
+    @concepts_ai[i].make_questions_from_ai
+    assert_equal 0, @concepts_ai[i].questions[:stage_a].size
+    assert_equal 0,  @concepts_ai[i].questions[:stage_b].size
+    assert_equal 0, @concepts_ai[i].questions[:stage_c].size
+    assert_equal 1,  @concepts_ai[i].questions[:stage_d].size
+    assert_equal 0,  @concepts_ai[i].questions[:stage_i].size
+    assert_equal 4,  @concepts_ai[i].questions[:stage_s].size
+  end
+
   def get_xml_data
     string_data=<<EOF
     <map lang='en' context='character, starwars' version='1'>
