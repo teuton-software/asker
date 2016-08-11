@@ -10,8 +10,8 @@ class ConceptAIScreenFormatter
   def export
 	  project=Project.instance
     return if project.show_mode==:none
+    export_notes
 
-    project.verbose "\n[INFO] Showing concept stats...\n"
     total_q=total_e=total_c=0
     total_sa=total_sb=total_sc=total_sd=total_se=total_si=0
 
@@ -48,6 +48,20 @@ class ConceptAIScreenFormatter
     my_screen_table.add_separator
     my_screen_table.add_row [ Rainbow("TOTAL = #{total_c.to_s}").bright,Rainbow(total_q.to_s).bright,Rainbow(total_e.to_s).bright,Rainbow((total_q.to_f/total_e.to_f).round(2)).bright, total_sa, total_sb, total_sc, total_sd, total_se, total_si ]
     project.verbose my_screen_table.to_s+"\n"
+
   end
 
+private
+
+  def export_notes
+    project=Project.instance
+    project.verbose "\n[INFO] Showing concept stats...\n"
+    project.verbose " * Annotations:"
+    project.verbose "   ├── (a) Definitions => Concept.def"
+    project.verbose "   ├── (b) "
+    project.verbose "   ├── (c) "
+    project.verbose "   ├── (d) "
+    project.verbose "   ├── (s) Sequences   => Concept.table{ :type => 'sequence' }"
+    project.verbose "   └── (i) Images URL  => Concept.def{:type => 'image_url' }\n\n"
+  end
 end
