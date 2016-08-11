@@ -5,6 +5,7 @@ require 'rexml/document'
 
 require_relative "../../lib/concept/concept"
 require_relative "../../lib/ai/concept_ai"
+require 'pry'
 
 class ConceptAITest < Minitest::Test
   def setup
@@ -68,7 +69,7 @@ class ConceptAITest < Minitest::Test
     assert_equal 0,  @concepts_ai[i].questions[:stage_a].size
     assert_equal 0,  @concepts_ai[i].questions[:stage_b].size
     assert_equal 0,  @concepts_ai[i].questions[:stage_c].size
-    assert_equal 1,  @concepts_ai[i].questions[:stage_f].size
+    assert_equal 4,  @concepts_ai[i].questions[:stage_f].size
     assert_equal 0,  @concepts_ai[i].questions[:stage_i].size
     assert_equal 4,  @concepts_ai[i].questions[:stage_s].size
   end
