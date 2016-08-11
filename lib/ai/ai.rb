@@ -7,7 +7,7 @@ require_relative 'ai_stage_b'
 require_relative 'ai_stage_c'
 require_relative 'ai_stage_d'
 require_relative 'ai_stage_e'
-require_relative 'stage_f'
+require_relative 'stage_i'
 
 require_relative 'ai_calculate'
 
@@ -30,7 +30,7 @@ module AI
     @questions[:stage_c] = []
     @questions[:stage_d] = []
     @questions[:stage_e] = []
-    @questions[:stage_f] = StageF.new(self).run
+    @questions[:stage_i] = StageI.new(self).run
 
     #-----------------------------------
     #Process every table of this concept

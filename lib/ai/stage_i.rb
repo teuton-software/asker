@@ -3,8 +3,8 @@
 require "base64_compatible"
 require_relative 'question'
 
-class StageF
-  #range f1-f2
+class StageI
+  #range i1, i2, i3
 
   def initialize(concept_ia)
     @concept_ia=concept_ia
@@ -31,7 +31,7 @@ class StageF
   end
 
   def run
-    #Stage F: process every image from <def> tag
+    #Stage I: process every image from <def> tag
     questions=[]
 
     #for every <image> do this
@@ -43,8 +43,8 @@ class StageF
       #Question type <f1>: choose between 4 options
       if s.count>3 then
         q=Question.new(:choice)
-        q.name="#{name}-#{num}-f1choose"
-        q.text=lang.text_for(:f1, url )
+        q.name="#{name}-#{num}-i1choose"
+        q.text=lang.text_for(:i1, url )
         q.good=name
         q.bads << lang.text_for(:none)
         q.bads << a[2]
@@ -52,11 +52,11 @@ class StageF
         questions << q
       end
 
-      #Question type <f1>: choose between 4 options, good none (Syntax error)
+      #Question type <i1>: choose between 4 options, good none (Syntax error)
       if s.count>3 then
         q=Question.new(:choice)
-        q.name="#{name}-#{num}-f1misspelling"
-        q.text=lang.text_for(:f1, url )
+        q.name="#{name}-#{num}-i1misspelling"
+        q.text=lang.text_for(:i1, url )
         q.good = lang.text_for(:none)
         q.bads << lang.do_mistake_to(name)
         q.bads << a[2]
@@ -67,11 +67,11 @@ class StageF
       s.delete(name)
       a=s.to_a
 
-      #Question type <f1>: choose between 4 options, good none
+      #Question type <i1>: choose between 4 options, good none
       if s.count>3 then
         q = Question.new(:choice)
-        q.name="#{name}-#{num}-f1none"
-        q.text=lang.text_for(:f1, url )
+        q.name="#{name}-#{num}-i1none"
+        q.text=lang.text_for(:i1, url )
         q.good=lang.text_for(:none)
         q.bads << a[1]
         q.bads << a[2]
@@ -81,24 +81,24 @@ class StageF
 
       #Question type <f2>: boolean => TRUE
       q = Question.new(:boolean)
-      q.name="#{name}-#{num}-f2true"
-      q.text=lang.text_for(:f2, url, name )
+      q.name="#{name}-#{num}-i2true"
+      q.text=lang.text_for(:i2, url, name )
       q.good="TRUE"
       questions << q
 
-      #Question type <f2>: boolean => FALSE
+      #Question type <i2>: boolean => FALSE
       if neighbors.count>0 then
         q = Question.new(:boolean)
-        q.name="#{name}-#{num}-f2false"
-        q.text=lang.text_for(:f2, url, neighbors[0][:concept].name )
+        q.name="#{name}-#{num}-i2false"
+        q.text=lang.text_for(:i2, url, neighbors[0][:concept].name )
         q.good="FALSE"
         questions << q
       end
 
-      #Question type <f3>: hidden name questions
+      #Question type <i3>: hidden name questions
       q = Question.new(:short)
-      q.name="#{name}-#{num}-f3short"
-      q.text=lang.text_for(:f3, url, lang.hide_text(name) )
+      q.name="#{name}-#{num}-i3short"
+      q.text=lang.text_for(:i3, url, lang.hide_text(name) )
       q.shorts << name
       q.shorts << name.gsub("-"," ").gsub("_"," ")
       questions << q

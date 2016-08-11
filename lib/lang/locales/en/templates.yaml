@@ -26,6 +26,6 @@
 :d2table: 'The next items are "<%=text2%>" from  [<%=text1%>] concept:<br/><ul><li><%=text3%></li><li><%=text4%></li><li><%=text5%></li><li><%=text6%></li></ul>'
 :e1sequence: "About <b><%=text1%></b> concept, sort every \"<%=text2%>\", so It\'s true that \"<%=text3%>\".<br/>"
 :e2sequence: "About <b><%=text1%></b> concept, sort every \"<%=text2%>\", so It\'s true that \"<%=text3%>\".<br/>"
-:f1: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>Choose the best association for the previous image.<br/>'
-:f2: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>The previous image corresponds to <b><%=text2%></b>.'
-:f3: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>Write the best answer <%=text2%>, for the previous image.<br/>'
+:i1: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>Choose the best association for the previous image.<br/>'
+:i2: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>The previous image corresponds to <b><%=text2%></b>.'
+:i3: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>Write the best answer <%=text2%>, for the previous image.<br/>'
