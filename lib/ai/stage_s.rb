@@ -1,8 +1,10 @@
 # encoding: utf-8
 
-module AI_stage_e
+require_relative 'base_stage'
 
-  def run_stage_e(pTable, pList1, pList2)
+class StageS < BaseStage
+
+  def run(pTable, pList1, pList2)
     #process_sequence
     questions = []
 
@@ -19,10 +21,9 @@ module AI_stage_e
     if pList1.count>3 and pTable.sequence[0]!=""
 	    a=0..(pList1.count-4)
 	    a.each_entry do |i|
-        q=Question.new
-        q.set_match
-        q.name="#{name}-#{num.to_s}-e1sequence-#{pTable.name}"
-        q.text=lang.text_for(:e1sequence, name, pTable.fields[0].capitalize, pTable.sequence[0] )
+        q=Question.new(:match)
+        q.name="#{name}-#{num.to_s}-s1sequence-#{pTable.name}"
+        q.text=lang.text_for(:s1, name, pTable.fields[0].capitalize, pTable.sequence[0] )
         q.matching << [ pList1[i+0][:data][0], '1º' ]
         q.matching << [ pList1[i+1][:data][0], '2º' ]
         q.matching << [ pList1[i+2][:data][0], '3º' ]
@@ -37,8 +38,8 @@ module AI_stage_e
 	    a.each_entry do |i|
         q=Question.new
         q.set_match
-        q.name="#{name}-#{num.to_s}-e2sequence-#{pTable.name}"
-        q.text=lang.text_for(:e2sequence, name, pTable.fields[0].capitalize, pTable.sequence[1] )
+        q.name="#{name}-#{num.to_s}-s2sequence-#{pTable.name}"
+        q.text=lang.text_for(:s1, name, pTable.fields[0].capitalize, pTable.sequence[1] )
         q.matching << [ pList1[i+3][:data][0], '1º' ]
         q.matching << [ pList1[i+2][:data][0], '2º' ]
         q.matching << [ pList1[i+1][:data][0], '3º' ]
