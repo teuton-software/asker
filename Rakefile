@@ -38,9 +38,3 @@ desc "Clean output dir"
 task :clean do
   system("rm output/*")
 end
-
-desc "Open Web GUI"
-task :web do
-  require_relative 'lib/sinatra/sinatra_front_end'
-  SinatraFrontEnd.run!
-end
