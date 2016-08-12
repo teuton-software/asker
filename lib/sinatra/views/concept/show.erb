@@ -2,9 +2,10 @@
 <div class="page-header">
 <h2>File: <a href="/file/show/<%= route_for(@filename) %>"><%= File.basename(@filename) %></a></h2>
 <p>Directory: <%= html_for_current(:indexlast => true) %>
-  | <a href="/concept/list/<%= route_for(@filename) %>">Concepts</a>
+  | <a href="/concept/list/<%= route_for(@filename) %>">Concepts <span class="badge"><%= @concepts.size.to_s%></span></a>
   | Show <b><%= @concept.name %></b>
-  | <a href="/concept/edit/<%= @index %>">Edit</a>
+  | <span class="label label-info"><a href="/concept/edit/<%= @index %>">Edit</a></span>
+  | <span class="label label-danger">Delete</span>
 </p>
 </div>
 

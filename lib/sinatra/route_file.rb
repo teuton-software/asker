@@ -10,6 +10,7 @@ module Sinatra
           content = load_file filepath
 #          @filecontent = CodeRay.scan(content, ext.to_sym).div(:line_numbers => :table)
           @filecontent = "<pre>#{content}</pre>"
+          @concepts = session['concepts']
           @current = File.dirname(filepath)
           erb :"file/show"
         end

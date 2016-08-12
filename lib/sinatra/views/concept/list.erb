@@ -1,8 +1,7 @@
 <div class="page-header">
-
 <h2>File: <a href="/file/show/<%= route_for(@filename) %>"><%= File.basename(@filename) %></a></h2>
 <p>Directory: <%= html_for_current(:indexlast => true) %>
-  | Concepts
+  | Concepts <span class="badge"><%= @concepts.size.to_s%></span>
 </p>
 </div>
 
@@ -14,11 +13,20 @@
         </div>
         <div class="panel-body">
 
-          <ol>
-          <% @concepts.each_with_index do |concept,index| %>
-            <li> <b><%= concept.name %></b> ( <a href="/concept/show/<%=index%>">Show</a> | Edit | Delete)</li>
-          <% end %>
-        </ol>
+<!--             <div class="col-md-6">-->
+               <table class="table table-condensed">
+                 <tbody>
+                   <% @concepts.each_with_index do |concept,index| %>
+                   <tr>
+                     <td><%= index.to_s %></td>
+                     <td><a href="/concept/show/<%=index%>"><b><%= concept.name %></b></a></td>
+                     <td><span class="label label-info">Edit</span> | <span class="label label-danger">Delete</span></td>
+                   <tr>
+                   <% end %>
+                 </tbody>
+               </table>
+<!--             </div>-->
+
 
         </div>
       </div>
