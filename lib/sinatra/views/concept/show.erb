@@ -1,9 +1,8 @@
-<h2>File: <%= File.basename(@filename) %></h2>
+
+<h2>File: <a href="/file/show/<%= route_for(@filename) %>"><%= File.basename(@filename) %></a></h2>
 <p>Directory: <%= html_for_current(:indexlast => true) %>
-  | File: <a href="/file/show/<%= route_for(@filename) %>"><%= File.basename(@filename) %></a>
   | <a href="/concept/list/<%= route_for(@filename) %>">Concepts</a>
-  » <%= @concept.name %>
-  | Show
+  | Show <b><%= @concept.name %></b>
   | <a href="/concept/edit/<%= @index %>">Edit</a>
 </p>
 <hr>
