@@ -1,5 +1,5 @@
 <h2>Searching files: <%= remove_basedir(@current) %></h2>
-<p>Directory: <a href="/dir/list" accesskey="h">Home</a><%= html_for_current %> (<%= @filenames.size.to_s%>)</p>
+<p>Directory: <%= html_for_current %> (<%= @filenames.size.to_s%>)</p>
 <hr>
 
 <% @filenames.each do |filename| %>
