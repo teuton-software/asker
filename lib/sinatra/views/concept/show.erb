@@ -1,12 +1,14 @@
 
+<div class="page-header">
 <h2>File: <a href="/file/show/<%= route_for(@filename) %>"><%= File.basename(@filename) %></a></h2>
 <p>Directory: <%= html_for_current(:indexlast => true) %>
   | <a href="/concept/list/<%= route_for(@filename) %>">Concepts</a>
   | Show <b><%= @concept.name %></b>
   | <a href="/concept/edit/<%= @index %>">Edit</a>
 </p>
-<hr>
+</div>
 
+<div class="well">
 <p><b>Name:</b> <%= @concept.name %></p>
 <ul>
   <li><b>Tags:</b> <%= @concept.tags.join(",").to_s %></li>
@@ -29,3 +31,4 @@
   <% end %>
 </ol>
 </ul>
+</div>
