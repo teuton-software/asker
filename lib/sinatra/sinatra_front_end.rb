@@ -13,9 +13,9 @@ require_relative '../formatter/concept_haml_formatter'
 class SinatraFrontEnd < Sinatra::Base
   use Rack::Session::Pool
 
-  set :root,  File.join( File.dirname(__FILE__), "..", ".." )
-#  set :views, Proc.new { File.join(root, "views") }
-  set :views, File.join( File.dirname(__FILE__), "views")
+  set :root,          File.join( File.dirname(__FILE__), "..", ".." )
+  set :views,         File.join( File.dirname(__FILE__), "views")
+  set :public_folder, File.join( File.dirname(__FILE__), "public")
 
   helpers  Sinatra::SinatraFrontEnd::Helpers
   register Sinatra::SinatraFrontEnd::RouteConcept
