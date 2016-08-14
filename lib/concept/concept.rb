@@ -4,7 +4,7 @@ require 'rainbow'
 require 'rexml/document'
 
 require_relative '../project'
-require_relative '../lang/lang'
+require_relative '../lang/lang_factory'
 require_relative 'table'
 
 class Concept
@@ -19,7 +19,7 @@ class Concept
     @@id+=1
     @id=@@id
 
-    @lang=Lang.new(pLang)
+    @lang=LangFactory.instance.get(pLang)
     @process=false
 
     @data={}

@@ -8,9 +8,9 @@ class LangFactoryTest < Minitest::Test
   end
 
   def test_hide_text
-    en = LangFactory.instance.get(:en)
+    en = LangFactory.instance.get('en')
     assert_equal 'en', en.lang
-    es = LangFactory.instance.get(:es)
+    es = LangFactory.instance.get('es')
     assert_equal 'es', es.lang
   end
 
