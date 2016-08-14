@@ -14,6 +14,7 @@ class Project
     @param[:category]        = :none
     @param[:formula_weights] = [1,1,1]
     @param[:lang]            = 'en'
+    @param[:locales]         = [ 'en', 'es', 'maths' ]
     @param[:show_mode]       = :default
     @param[:verbose]         = true
     @param[:stages]          = [ :stage_a, :stage_b, :stage_c, :stage_f, :stage_i, :stage_s ]

@@ -14,6 +14,7 @@ class ProjectTest < Minitest::Test
     assert_equal :none    , @project.category
     assert_equal [1,1,1]  , @project.formula_weights
     assert_equal 'en'     , @project.lang
+    assert_equal 3        , @project.locales.size
     assert_equal :default , @project.show_mode
     assert_equal true     , @project.param[:verbose]
     stages = [ :stage_a, :stage_b, :stage_c, :stage_f, :stage_i, :stage_s ]
@@ -29,12 +30,12 @@ class ProjectTest < Minitest::Test
     @project.param[:inputdirs]  =  [ dirname ]
     @project.param[:process_file] = filename
 
-    assert_equal 11, @project.param.size
+    assert_equal 12, @project.param.size
     assert_equal true, @project.param[:verbose]
     @project.param[:verbose] = false
     @project.open
     @project.param[:verbose] = true
-    assert_equal 21, @project.param.size
+    assert_equal 22, @project.param.size
 
     assert_equal dirname , @project.param[:projectdir]
     assert_equal dirname , @project.projectdir
