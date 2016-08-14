@@ -45,6 +45,8 @@ private
       case i.name
       when 'lang'
         @lang = LangFactory.instance.get(i.text.strip.to_s)
+      when 'sequence'
+        @data[:sequence]= i.text.split(",")
       when 'row'
         row=[]
         if i.elements.count>0 then
