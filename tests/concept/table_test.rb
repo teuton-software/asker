@@ -36,14 +36,15 @@ class TableTest < Minitest::Test
 
   def test_table_0
     name = "$attribute$value"
+    table = @tables[0]
 
-    assert_equal name,  @tables[0].name
-    assert_equal 'en',  @tables[0].lang.lang
-    assert_equal nil,   @tables[0].title
-    assert_equal false, @tables[0].sequence?
-    assert_equal 0,     @tables[0].sequence.size
-    assert_equal [],    @tables[0].sequence
-    assert_equal 2,     @tables[0].fields.size
+    assert_equal name,  table.name
+    assert_equal 'en',  table.lang.lang
+    assert_equal 'en',  table.lang.locale
+    assert_equal false, table.sequence?
+    assert_equal 0,     table.sequence.size
+    assert_equal [],    table.sequence
+    assert_equal 2,     table.fields.size
     assert_equal ["attribute","value"], @tables[0].fields
   end
 
@@ -64,7 +65,8 @@ class TableTest < Minitest::Test
     table = @tables[1]
 
     assert_equal name,  table.name
-    assert_equal nil,   table.title
+    assert_equal 'es',  table.lang.lang
+    assert_equal 'es',  table.lang.locale
     assert_equal true,  table.sequence?
     assert_equal 1,     table.sequence.size
     assert_equal ["Films ordered by episode number"],    table.sequence
@@ -103,6 +105,7 @@ class TableTest < Minitest::Test
         </table>
 
         <table fields='film name' sequence='Films ordered by episode number'>
+          <lang>es</lang>
           <row>The Phantom Menace</row>
           <row>Attack of the Clones</row>
           <row>Revenge of the Sith</row>
