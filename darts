@@ -5,7 +5,7 @@ require 'rainbow'
 require 'pry'
 require_relative 'lib/tool'
 require_relative 'lib/application'
-require_relative 'lib/project_builder'
+require_relative 'lib/project/project_builder'
 require_relative 'lib/sinatra/sinatra_front_end'
 
 def show_help

@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 require 'rainbow'
-require_relative 'project'
+require_relative '../project'
 
 module ProjectBuilder
 
