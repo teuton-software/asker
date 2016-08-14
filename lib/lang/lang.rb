@@ -3,7 +3,6 @@
 require 'erb'
 require 'yaml'
 require_relative 'text_actions'
-require_relative '../tool'
 
 class Lang
   include TextActions

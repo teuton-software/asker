@@ -6,6 +6,7 @@ require_relative 'application_test'
 
 require_relative 'project_test'
 require_relative 'lang/lang_test'
+require_relative 'lang/lang_factory_test'
 
 require_relative 'concept/concept_test'
 require_relative 'concept/table_test'
