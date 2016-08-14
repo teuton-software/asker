@@ -1,10 +1,11 @@
 # encoding: utf-8
 
 require 'rainbow'
+require_relative 'project'
 
 module ProjectBuilder
 
-  def self.create_project(projectname, inputbasedir)
+  def self.create_project(projectname)
 
     puts "\n[INFO] Creating project <#{Rainbow(projectname).bright}>"
     projectdir="projects/#{projectname}"
@@ -20,7 +21,7 @@ module ProjectBuilder
       puts "* Creating file => #{Rainbow(filename).color(:green)}"
       f=File.new(filename,'w')
       f.write("---\n")
-      f.write(":inputdirs: '#{inputbasedir}/#{projectname}'\n")
+      f.write(":inputdirs: '#{Project.instance.inputbasedir}/#{projectname}'\n")
       f.write(":process_file: '#{projectname}.haml'\n")
       f.write("\n")
       f.close
@@ -38,7 +39,7 @@ module ProjectBuilder
       puts "* Exists file! => #{Rainbow(filename).color(:yellow)}"
     end
 
-    inputdir="#{inputbasedir}/#{projectname}"
+    inputdir="#{Project.instance.inputbasedir}/#{projectname}"
     if !Dir.exists? inputdir
       puts "* Creating directory => #{Rainbow(inputdir).color(:green)}"
       Dir.mkdir(inputdir)
@@ -49,13 +50,10 @@ module ProjectBuilder
     filename=inputdir+"/"+projectname+".haml"
     if !File.exists? filename
       puts "* Creating file => #{Rainbow(filename).color(:green)}"
-      f=File.new(filename,'w')
-      f.write(DATA.read)
-      f.close
+      FileUtils.cp("lib/sample.haml",filename)
     else
-      puts "* Exists file! => #{Rainbow(filename).color(:yellow)}"
+      puts "* Exists file!       => #{Rainbow(dest).color(:yellow)}"
     end
-    puts ""
   end
 
 end

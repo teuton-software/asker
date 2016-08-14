@@ -30,13 +30,13 @@ end
 
 if ARGV.count==0 then
   puts "Usage: "+Rainbow($0+" --help").yellow
-elsif ['h','-h','help','--help'].include?(ARGV.first) then
+elsif ['h', '-h', 'help', '--help'].include?(ARGV.first) then
   show_help
-elsif ['v','-v','version','--version'].include?(ARGV[0]) then
+elsif ['v', '-v', 'version', '--version'].include?(ARGV[0]) then
   show_version
-elsif ['c','-c','create','--create'].include?(ARGV[0]) then
-  ProjectBuilder::create_project( ARGV[1], Application.instance.param[:inputbasedir])
-elsif ['web','--web' ].include?(ARGV[0]) then
+elsif ['c', '-c', 'create', '--create'].include?(ARGV[0]) then
+  ProjectBuilder::create_project( ARGV[1] )
+elsif ['w', '-w', 'web', '--web' ].include?(ARGV[0]) then
   SinatraFrontEnd.run!
 else
   Tool.new.start(ARGV.first)
