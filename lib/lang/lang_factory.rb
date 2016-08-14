@@ -7,9 +7,8 @@ class LangFactory
   include Singleton
 
   def initialize
-    locales  = [ 'en', 'es', 'maths' ]
     @langs   = {}
-    locales.each { |locale| @langs[locale]=Lang.new(locale) }
+    Project.instance.locales.each { |locale| @langs[locale]=Lang.new(locale) }
   end
 
   def get(locale)
