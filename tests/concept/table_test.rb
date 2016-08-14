@@ -3,16 +3,33 @@
 require "minitest/autorun"
 require 'rexml/document'
 
+require_relative "../../lib/concept/concept"
 require_relative "../../lib/concept/table"
 
 class TableTest < Minitest::Test
   def setup
+    string_concept=%q{
+    <map>
+      <concept>
+        <names>Concept1</names>
+        <tags>tag,for,concept,1</tags>
+      </concept>
+    </map>
+    }
+    concepts = []
+    root_xml_data=REXML::Document.new(string_concept)
+    root_xml_data.root.elements.each do |xml_data|
+      if xml_data.name=="concept" then
+        concepts << Concept.new( xml_data, "filename")
+      end
+    end
+
     string_datas = get_xml_data
     @tables=[]
     root_xml_data=REXML::Document.new(string_datas)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name=="table" then
-        @tables << Table.new(nil, xml_data)
+        @tables << Table.new( concepts[0], xml_data)
       end
     end
   end
@@ -21,6 +38,7 @@ class TableTest < Minitest::Test
     name = "$attribute$value"
 
     assert_equal name,  @tables[0].name
+    assert_equal 'en',  @tables[0].lang.lang
     assert_equal nil,   @tables[0].title
     assert_equal false, @tables[0].sequence?
     assert_equal 0,     @tables[0].sequence.size

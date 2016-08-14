@@ -1,11 +1,12 @@
 # encoding: utf-8
 
 class Table
-  attr_reader :name, :data
+  attr_reader :name, :data, :lang
 
   def initialize(pConcept, pXMLdata)
-    @concept=pConcept
-    @name=""
+    @concept = pConcept
+    @lang    = pConcept.lang
+    @name    = ""
 
     @data={}
     @data[:fields]=[]
