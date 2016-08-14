@@ -19,22 +19,7 @@ class Table
     lText=pXMLdata.attributes['sequence'].to_s || ""
     @data[:sequence]=lText.split(",")
 
-    pXMLdata.elements.each do |i|
-      if i.name=='row' then
-        row=[]
-        if i.elements.count>0 then
-          # When row tag has several columns, we add every value to the array
-          i.elements.each { |j| row << j.text.to_s}
-          @data[:rows] << row
-        else
-          # When row tag only has text, we add this text as one value array
-          # This is usefull for tables with only one columns
-          @data[:rows] << [i.text.strip]
-        end
-      else
-        puts Rainbow("[ERROR] concept/table#XMLdata with #{i.name}").red.bright
-      end
-    end
+    read_data_from_xml(pXMLdata)
   end
 
   def to_s
@@ -51,6 +36,30 @@ class Table
 
   def method_missing(m, *args, &block)
     return @data[m]
+  end
+
+private
+
+  def read_data_from_xml(pXMLdata)
+    pXMLdata.elements.each do |i|
+      case i.name
+      when 'lang'
+        @lang = LangFactory.instance.get(i.text.strip.to_s)
+      when 'row'
+        row=[]
+        if i.elements.count>0 then
+          # When row tag has several columns, we add every value to the array
+          i.elements.each { |j| row << j.text.to_s}
+          @data[:rows] << row
+        else
+          # When row tag only has text, we add this text as one value array
+          # This is usefull for tables with only one columns
+          @data[:rows] << [i.text.strip]
+        end
+      else
+        puts Rainbow("[ERROR] concept/table#XMLdata with #{i.name}").red.bright
+      end
+    end
   end
 
 end
