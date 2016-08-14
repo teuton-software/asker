@@ -35,7 +35,7 @@ class Concept
     end
     @data[:tags]=[]
     @data[:texts]=[]
-    @data[:images]=[] #TODO: By now We'll treat images separated from texts
+    @data[:images]=[] #TODO: By now, We'll treat images separated from texts
     @data[:tables]=[]
     @data[:neighbors]=[]
     @data[:reference_to]=[]

@@ -1,7 +1,5 @@
 # encoding: utf-8
 
-require 'rexml/document'
-
 class Table
   attr_reader :name, :data
 
