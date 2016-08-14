@@ -50,7 +50,7 @@ module ProjectBuilder
     filename=inputdir+"/"+projectname+".haml"
     if !File.exists? filename
       puts "* Creating file => #{Rainbow(filename).color(:green)}"
-      FileUtils.cp("lib/sample.haml",filename)
+      FileUtils.cp( File.join( File.dirname(__FILE__), "sample.haml"), filename)
     else
       puts "* Exists file!       => #{Rainbow(dest).color(:yellow)}"
     end
