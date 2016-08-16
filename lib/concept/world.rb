@@ -13,8 +13,11 @@ class World
       @concepts << concept.name
       @image_urls[concept.name] = ImageUrlLoader::load( concept.name )
       @filenames << concept.filename
-      @contexts << concept.context
+      @contexts += concept.context
     end
+    @filenames.uniq!
+    @contexts.uniq!
+
   end
 
 end

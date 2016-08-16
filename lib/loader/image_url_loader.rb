@@ -4,7 +4,11 @@ require 'uri'
 
 module ImageUrlLoader
 
-  def self.load(filters=[])
+  def self.load(input=[])
+    filters = []
+    if input.class==String then
+      filters << input
+    end
     #Search Image URLs from Google site, selected by <filters>
     search_url="https://www.google.es/search?q=#{filters.join("+").to_s}&source=lnms&tbm=isch&sa=X&ved=0ahUKEwie9ruF5KLOAhXCOBQKHY-QBTcQ_AUICCgB&biw=1366&bih=643"
     uri = URI.parse(search_url)
