@@ -24,23 +24,20 @@ class ProjectTest < Minitest::Test
 
   def test_open
     dirname     = "test/input/"
-    projectname = "jedi"
+    projectname = "test"
     filename    = projectname+".haml"
 
-    @project.param[:projectdir]   = dirname
-    @project.param[:inputdirs]    = [ dirname ]
-    @project.param[:process_file] = filename
+    @project.set(:inputdirs   , [ dirname ] )
+    @project.set(:process_file, filename )
+    @project.set(:projectname , projectname )
 
     assert_equal 3, @project.param.size
     assert_equal true, @project.get(:verbose)
-    @project.param[:verbose] = false
+    @project.set(:verbose, false)
     @project.open
-    @project.param[:verbose] = true
-    assert_equal 14, @project.param.size
-    assert_equal 9, @project.default.size
-
-    assert_equal dirname , @project.get(:projectdir)
-    assert_equal dirname , @project.projectdir
+    @project.set(:verbose, true)
+    assert_equal 13, @project.param.size
+    assert_equal 9,  @project.default.size
 
     assert_equal filename, @project.get(:process_file)
     assert_equal filename, @project.process_file

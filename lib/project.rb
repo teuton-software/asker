@@ -27,9 +27,13 @@ class Project
     get(m)
   end
 
-  def get(var)
-    return @param[var] unless @param[var].nil?
-    return @default[var]
+  def get(key)
+    return @param[key] unless @param[key].nil?
+    return @default[key]
+  end
+
+  def set(key,value)
+    @param[key]=value
   end
 
   def open
@@ -70,7 +74,7 @@ class Project
 private
   def create_log_file
     #create or reset logfile
-    Dir.mkdir( get(:outputdir) ) if !Dir.exists? get(:outputdir)
+    Dir.mkdir( get(:outputdir) ) if !Dir.exists?( get(:outputdir) )
 
     @param[:logfile] = File.open( get(:logpath),'w')
     f = get(:logfile)
@@ -82,7 +86,7 @@ private
     f.write("="*50+"\n\n")
 
     verbose "[INFO] Project open"
-    verbose "   ├── inputdirs    = " + Rainbow( get(:inputdirs) ).bright
+    verbose "   ├── inputdirs    = " + Rainbow( get(:inputdirs).to_s ).bright
     verbose "   └── process_file = " + Rainbow( get(:process_file) ).bright
   end
 

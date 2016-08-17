@@ -18,12 +18,12 @@ class ProjectLoader
       end
 
       if pArgs.include?(".haml") then
-        project.param[:inputdirs]      = File.dirname(pArgs)
-        project.param[:process_file]   = File.basename(pArgs)
+        project.set( :inputdirs   , File.dirname(pArgs)  )
+        project.set( :process_file, File.basename(pArgs) )
       elsif pArgs.include?(".yaml") then
         project.param.merge!( YAML::load(File.open(pArgs)) )
-        project.param[:configfilename] = pArgs
-        project.param[:projectdir]     = File.dirname(pArgs)
+        project.set( :configfilename, pArgs )
+        project.set( :projectdir    , File.dirname(pArgs) )
     elsif File.directory?(pArgs) then
         project.verbose Rainbow("[WARN] Tool.init: Directory input ").yellow+Rainbow(pArgs).bright.yellow+Rainbow(" not implemented yet").yellow
         exit 1
