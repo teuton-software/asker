@@ -29,12 +29,12 @@ class ConceptAITest < Minitest::Test
     assert_equal( {}, @concepts_ai[i].questions)
     @concepts_ai[i].process = true
     @concepts_ai[i].make_questions_from_ai
-    assert_equal 11, @concepts_ai[i].questions[:stage_d].size
-    assert_equal 0,  @concepts_ai[i].questions[:stage_b].size
-    assert_equal 20, @concepts_ai[i].questions[:stage_c].size
-    assert_equal 0,  @concepts_ai[i].questions[:stage_f].size
-    assert_equal 0,  @concepts_ai[i].questions[:stage_i].size
-    assert_equal 0,  @concepts_ai[i].questions[:stage_s].size
+    assert_equal 11, @concepts_ai[i].questions[:d].size
+    assert_equal 0,  @concepts_ai[i].questions[:b].size
+    assert_equal 20, @concepts_ai[i].questions[:c].size
+    assert_equal 0,  @concepts_ai[i].questions[:f].size
+    assert_equal 0,  @concepts_ai[i].questions[:i].size
+    assert_equal 0,  @concepts_ai[i].questions[:s].size
   end
 
   def test_concept_1_make_questions
@@ -42,12 +42,12 @@ class ConceptAITest < Minitest::Test
     assert_equal( {}, @concepts_ai[i].questions)
     @concepts_ai[i].process = true
     @concepts_ai[i].make_questions_from_ai
-    assert_equal 23, @concepts_ai[i].questions[:stage_d].size
-    assert_equal 2,  @concepts_ai[i].questions[:stage_b].size
-    assert_equal 31, @concepts_ai[i].questions[:stage_c].size
-    assert_equal 0,  @concepts_ai[i].questions[:stage_f].size
-    assert_equal 0,  @concepts_ai[i].questions[:stage_i].size
-    assert_equal 0,  @concepts_ai[i].questions[:stage_s].size
+    assert_equal 23, @concepts_ai[i].questions[:d].size
+    assert_equal 2,  @concepts_ai[i].questions[:b].size
+    assert_equal 31, @concepts_ai[i].questions[:c].size
+    assert_equal 0,  @concepts_ai[i].questions[:f].size
+    assert_equal 0,  @concepts_ai[i].questions[:i].size
+    assert_equal 0,  @concepts_ai[i].questions[:s].size
   end
 
   def test_concept_2_image_url
@@ -55,12 +55,12 @@ class ConceptAITest < Minitest::Test
     assert_equal( {}, @concepts_ai[i].questions)
     @concepts_ai[i].process = true
     @concepts_ai[i].make_questions_from_ai
-    assert_equal 0,  @concepts_ai[i].questions[:stage_d].size
-    assert_equal 0,  @concepts_ai[i].questions[:stage_b].size
-    assert_equal 0,  @concepts_ai[i].questions[:stage_c].size
-    assert_equal 0,  @concepts_ai[i].questions[:stage_f].size
-    assert_equal 2,  @concepts_ai[i].questions[:stage_i].size
-    assert_equal 0,  @concepts_ai[i].questions[:stage_s].size
+    assert_equal 0,  @concepts_ai[i].questions[:d].size
+    assert_equal 0,  @concepts_ai[i].questions[:b].size
+    assert_equal 0,  @concepts_ai[i].questions[:c].size
+    assert_equal 0,  @concepts_ai[i].questions[:f].size
+    assert_equal 2,  @concepts_ai[i].questions[:i].size
+    assert_equal 0,  @concepts_ai[i].questions[:s].size
   end
 
   def test_concept_3_sequence
@@ -68,12 +68,12 @@ class ConceptAITest < Minitest::Test
     assert_equal( {}, @concepts_ai[i].questions)
     @concepts_ai[i].process = true
     @concepts_ai[i].make_questions_from_ai
-    assert_equal 0,  @concepts_ai[i].questions[:stage_d].size
-    assert_equal 0,  @concepts_ai[i].questions[:stage_b].size
-    assert_equal 0,  @concepts_ai[i].questions[:stage_c].size
-    assert_equal 4,  @concepts_ai[i].questions[:stage_f].size
-    assert_equal 0,  @concepts_ai[i].questions[:stage_i].size
-    assert_equal 4,  @concepts_ai[i].questions[:stage_s].size
+    assert_equal 0,  @concepts_ai[i].questions[:d].size
+    assert_equal 0,  @concepts_ai[i].questions[:b].size
+    assert_equal 0,  @concepts_ai[i].questions[:c].size
+    assert_equal 8,  @concepts_ai[i].questions[:f].size
+    assert_equal 0,  @concepts_ai[i].questions[:i].size
+    assert_equal 4,  @concepts_ai[i].questions[:s].size
   end
 
   def get_xml_data
