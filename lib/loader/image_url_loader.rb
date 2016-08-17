@@ -8,7 +8,7 @@ module ImageUrlLoader
   def self.load(input=[])
     filters = []
     if input.class==String then
-      r = [ ["á","a"], ["é","e"], ["í","i"], ["ó","o"], ["ú","u"] ]
+      r = [ ["á","a"], ["é","e"], ["í","i"], ["ó","o"], ["ú","u"], ["ñ","n"], ]
       r.each { |item| input.gsub!(item[0], item[1]) }
       r = [ "-", "_", "," ]
       r.each { |item| input.gsub!(item, " ")}
