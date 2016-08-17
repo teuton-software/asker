@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require 'singleton'
+require 'rainbow'
 require_relative 'application'
 
 class Project
@@ -86,7 +87,7 @@ private
     f.write("="*50+"\n\n")
 
     verbose "[INFO] Project open"
-    verbose "   ├── inputdirs    = " + Rainbow( get(:inputdirs).to_s ).bright
+    verbose "   ├── inputdirs    = " + Rainbow( get(:inputdirs).join(",") ).bright
     verbose "   └── process_file = " + Rainbow( get(:process_file) ).bright
   end
 

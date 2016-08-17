@@ -9,7 +9,7 @@ class ProjectTest < Minitest::Test
     @project = Project.instance
   end
 
-  def test_defaults
+  def test_defaults_parms
     assert_equal "input"  , @project.inputbasedir
     assert_equal "output" , @project.outputdir
     assert_equal :none    , @project.category
@@ -20,9 +20,9 @@ class ProjectTest < Minitest::Test
     assert_equal true     , @project.get(:verbose)
     stages = [ :stage_d, :stage_b, :stage_c, :stage_f, :stage_i, :stage_s ]
     assert_equal stages   , @project.stages
-  end
+ end
 
-  def test_open
+ def test_open_project
     dirname     = "test/input/"
     projectname = "test"
     filename    = projectname+".haml"
@@ -58,6 +58,5 @@ class ProjectTest < Minitest::Test
     assert_equal File.join("output", projectname+"-gift.txt"), @project.outputpath
     assert_equal File.join("output", projectname+"-log.txt" ), @project.logpath
     assert_equal File.join("output", projectname+"-doc.txt" ), @project.lessonpath
-
   end
 end
