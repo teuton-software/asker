@@ -5,40 +5,47 @@ require_relative 'application'
 
 class Project
   include Singleton
+  attr_reader   :default
   attr_accessor :param
 
   def initialize
-    @param={}
-    @param[:inputbasedir]    = "input"
-    @param[:outputdir]       = "output"
-    @param[:category]        = :none
-    @param[:formula_weights] = [1,1,1]
-    @param[:lang]            = 'en'
-    @param[:locales]         = [ 'en', 'es', 'maths' ]
-    @param[:show_mode]       = :default
-    @param[:verbose]         = true
-    @param[:stages]          = [ :stage_d, :stage_b, :stage_c, :stage_f, :stage_i, :stage_s ]
+    @default = {}
+    @default[:inputbasedir]    = "input"
+    @default[:outputdir]       = "output"
+    @default[:category]        = :none
+    @default[:formula_weights] = [1,1,1]
+    @default[:lang]            = 'en'
+    @default[:locales]         = [ 'en', 'es', 'maths' ]
+    @default[:show_mode]       = :default
+    @default[:verbose]         = true
+    @default[:stages]          = [ :stage_d, :stage_b, :stage_c, :stage_f, :stage_i, :stage_s ]
+
+    @param   = {}
   end
 
   def method_missing(m, *args, &block)
-    return @param[m]
+    get(m)
+  end
+
+  def get(var)
+    return @param[var] unless @param[var].nil?
+    return @default[var]
   end
 
   def open
     #We need at least process_file and inputdirs params
     ext = ".haml"
-
-    @param[:process_file] = @param[:process_file] || @param[:projectdir].split(File::SEPARATOR).last + ext
+    @param[:process_file] = @param[:process_file] || get(:projectdir).split(File::SEPARATOR).last + ext
     @param[:projectname]  = @param[:projectname]  || File.basename( @param[:process_file], ext)
-    @param[:inputdirs]    = @param[:inputdirs]    || File.join( @param[:inputbasedir], @param[:projectdir] )
+    @param[:inputdirs]    = @param[:inputdirs]    || File.join( get(:inputbasedir), @param[:projectdir] )
 
     @param[:logname]      = @param[:logname]      || "#{@param[:projectname]}-log.txt"
     @param[:outputname]   = @param[:outputname]   || "#{@param[:projectname]}-gift.txt"
     @param[:lessonname]   = @param[:lessonname]   || "#{@param[:projectname]}-doc.txt"
 
-    @param[:logpath]      = @param[:logpath]      || File.join( @param[:outputdir], @param[:logname] )
-    @param[:outputpath]   = @param[:outputpath]   || File.join( @param[:outputdir], @param[:outputname] )
-    @param[:lessonpath]   = @param[:lessonpath]   || File.join( @param[:outputdir], @param[:lessonname] )
+    @param[:logpath]      = @param[:logpath]      || File.join( get(:outputdir), @param[:logname] )
+    @param[:outputpath]   = @param[:outputpath]   || File.join( get(:outputdir), @param[:outputname] )
+    @param[:lessonpath]   = @param[:lessonpath]   || File.join( get(:outputdir), @param[:lessonname] )
 
     create_log_file
     create_output_file
@@ -46,14 +53,14 @@ class Project
   end
 
   def close
-    @param[:logfile].close
-    @param[:outputfile].close
-    @param[:lessonfile].close
+    get(:logfile).close
+    get(:outputfile).close
+    get(:lessonfile).close
   end
 
   def verbose(lsText)
-    puts lsText if @param[:verbose]
-    @param[:logfile].write(lsText.to_s+"\n") if @param[:logfile]
+    puts lsText if get(:verbose)
+    get(:logfile).write(lsText.to_s+"\n") if get(:logfile)
   end
 
   def verboseln(lsText)
@@ -63,45 +70,45 @@ class Project
 private
   def create_log_file
     #create or reset logfile
-    Dir.mkdir(@param[:outputdir]) if !Dir.exists? @param[:outputdir]
+    Dir.mkdir( get(:outputdir) ) if !Dir.exists? get(:outputdir)
 
-    @param[:logfile] = File.open(@param[:logpath],'w')
-    f = @param[:logfile]
+    @param[:logfile] = File.open( get(:logpath),'w')
+    f = get(:logfile)
     f.write("="*50+"\n")
     f.write("Created by : #{Application::name} (version #{Application::version})\n")
-    f.write("File       : #{@param[:logname]}\n")
+    f.write("File       : #{get(:logname)}\n")
     f.write("Time       : "+Time.new.to_s+"\n")
     f.write("Author     : David Vargas\n")
     f.write("="*50+"\n\n")
 
     verbose "[INFO] Project open"
-    verbose "   ├── inputdirs    = " + Rainbow( @param[:inputdirs] ).bright
-    verbose "   └── process_file = " + Rainbow( @param[:process_file] ).bright
+    verbose "   ├── inputdirs    = " + Rainbow( get(:inputdirs) ).bright
+    verbose "   └── process_file = " + Rainbow( get(:process_file) ).bright
   end
 
   def create_output_file
     #Create or reset output file
-    Dir.mkdir(@param[:outputdir]) if !Dir.exists? @param[:outputdir]
+    Dir.mkdir( get(:outputdir) ) if !Dir.exists? get(:outputdir)
 
-    @param[:outputfile] = File.open(@param[:outputpath],'w')
-    f = @param[:outputfile]
+    @param[:outputfile] = File.open( get(:outputpath),'w')
+    f = get(:outputfile)
     f.write("// "+("="*50)+"\n")
     f.write("// Created by : #{Application::name} (version #{Application::version})\n")
-    f.write("// File       : #{@param[:outputname]}\n")
+    f.write("// File       : #{ get(:outputname) }\n")
     f.write("// Time       : "+Time.new.to_s+"\n")
     f.write("// Author     : David Vargas\n")
     f.write("// "+("="*50)+"\n")
     f.write("\n")
-    f.write("$CATEGORY: $course$/#{@param[:category].to_s}\n") if @param[:category]!=:none
+    f.write("$CATEGORY: $course$/#{ get(:category).to_s}\n") if get(:category)!=:none
   end
 
   def create_lesson_file
     #Create or reset lesson file
-    @param[:lessonfile] = File.new( @param[:lessonpath],'w')
-    f = @param[:lessonfile]
+    @param[:lessonfile] = File.new( get(:lessonpath),'w')
+    f = get(:lessonfile)
     f.write("="*50+"\n")
     f.write("Created by : #{Application::name} (version #{Application::version})\n")
-    f.write("File       : #{@param[:lessonname]}\n")
+    f.write("File       : #{ get(:lessonname) }\n")
     f.write("Time       : "+Time.new.to_s+"\n")
     f.write("Author     : David Vargas\n")
     f.write("="*50+"\n")
