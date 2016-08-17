@@ -3,7 +3,7 @@
 require "minitest/autorun"
 require 'rexml/document'
 
-require_relative "../../lib/concept/concept"
+require_relative "../../lib/data/concept"
 require_relative "../../lib/ai/concept_ai"
 require 'pry'
 

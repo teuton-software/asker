@@ -3,8 +3,8 @@
 require "minitest/autorun"
 require 'rexml/document'
 
-require_relative "../../lib/concept/concept"
-require_relative "../../lib/concept/table"
+require_relative "../../lib/data/concept"
+require_relative "../../lib/data/table"
 require_relative "../../lib/formatter/table_haml_formatter"
 
 class TableHAMLFormatterTest < Minitest::Test

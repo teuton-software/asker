@@ -3,8 +3,8 @@
 require "minitest/autorun"
 require 'rexml/document'
 
-require_relative "../../lib/concept/world"
-require_relative "../../lib/concept/concept"
+require_relative "../../lib/data/world"
+require_relative "../../lib/data/concept"
 
 class WorldTest < Minitest::Test
   def setup

@@ -5,7 +5,7 @@ require 'yaml'
 require 'rainbow'
 
 require_relative 'project'
-require_relative 'concept/concept'
+require_relative 'data/concept'
 require_relative 'ai/concept_ai'
 require_relative 'formatter/concept_doc_formatter'
 require_relative 'formatter/concept_ai_gift_formatter'
