@@ -8,11 +8,12 @@ module ImageUrlLoader
   def self.load(input=[])
     filters = []
     if input.class==String then
+      i = input.clone
       r = [ ["á","a"], ["é","e"], ["í","i"], ["ó","o"], ["ú","u"], ["ñ","n"], ]
-      r.each { |item| input.gsub!(item[0], item[1]) }
+      r.each { |item| i.gsub!(item[0], item[1]) }
       r = [ "-", "_", "," ]
-      r.each { |item| input.gsub!(item, " ")}
-      filters += input.split(" ")
+      r.each { |item| i.gsub!(item, " ")}
+      filters += i.split(" ")
     end
     #Search Image URLs from Google site, selected by <filters>
     search_url="https://www.google.es/search?q=#{filters.join("+").to_s}&source=lnms&tbm=isch&sa=X&ved=0ahUKEwie9ruF5KLOAhXCOBQKHY-QBTcQ_AUICCgB&biw=1366&bih=643"

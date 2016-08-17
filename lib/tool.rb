@@ -66,4 +66,12 @@ private
     end
   end
 
+  def debug
+    @concepts.each do |c|
+      if c.process then
+        binding.pry
+      end
+    end
+  end
+
 end
