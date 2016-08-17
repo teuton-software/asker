@@ -34,7 +34,7 @@ class Tool
     ProjectLoader::load(pArgs)
     Project.instance.open
     @concepts = InputLoader.new.load
-    Project.instance.verbose "\n[INFO] Creating data World instance..."
+    Project.instance.verbose "\n[INFO] Loading data from Internet..."
     @world    = World.new(@concepts)
     ConceptScreenFormatter.new(@concepts).export
   end

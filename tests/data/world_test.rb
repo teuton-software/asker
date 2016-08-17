@@ -14,7 +14,9 @@ class WorldTest < Minitest::Test
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name=="concept" then
-        @concepts << Concept.new(xml_data, "input.haml", "en", ['character', 'starwars'])
+        c = Concept.new(xml_data, "input.haml", "en", ['character', 'starwars'])
+        c.process = true
+        @concepts << c
       end
     end
 
