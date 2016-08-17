@@ -57,12 +57,12 @@ private
     project=Project.instance
     project.verbose "\n[INFO] Showing concept stats...\n"
     project.verbose " * Annotations:"
-    project.verbose "   ├── (d) Definitions    => Concept.def"
-    project.verbose "   ├── (b) "
-    project.verbose "   ├── (c) "
-    project.verbose "   ├── (f) Tables 1 Field => Concept.table.fields.size==1"
-    project.verbose "   ├── (i) Images URL     => Concept.def{:type => 'image_url' }"
-    project.verbose "   └── (s) Sequences      => Concept.table{ :type => 'sequence' }"
+    project.verbose "   ├── (d) Definitions     => Concept.def"
+    project.verbose "   ├── (b) Table Matching "
+    project.verbose "   ├── (c) Table Rows&Cols "
+    project.verbose "   ├── (f) Tables 1 Field  => Concept.table.fields.size==1"
+    project.verbose "   ├── (i) Images URL      => Concept.def{:type => 'image_url' }"
+    project.verbose "   └── (s) Sequences       => Concept.table{ :type => 'sequence' }"
     project.verbose "\n"
   end
 end
