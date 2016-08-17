@@ -18,7 +18,7 @@ class ProjectLoader
       end
 
       if pArgs.include?(".haml") then
-        project.set( :inputdirs   , File.dirname(pArgs)  )
+        project.set( :inputdirs   ,  File.dirname(pArgs) )
         project.set( :process_file, File.basename(pArgs) )
       elsif pArgs.include?(".yaml") then
         project.param.merge!( YAML::load(File.open(pArgs)) )

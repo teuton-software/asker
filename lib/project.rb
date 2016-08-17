@@ -87,7 +87,7 @@ private
     f.write("="*50+"\n\n")
 
     verbose "[INFO] Project open"
-    verbose "   ├── inputdirs    = " + Rainbow( get(:inputdirs).join(",") ).bright
+    verbose "   ├── inputdirs    = " + Rainbow( get(:inputdirs) ).bright
     verbose "   └── process_file = " + Rainbow( get(:process_file) ).bright
   end
 
