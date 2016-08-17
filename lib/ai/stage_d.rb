@@ -1,11 +1,12 @@
 # encoding: utf-8
 
-module AI_stage_a
-  #range a1-a6
-  #a7???
+require_relative 'base_stage'
 
-  def run_stage_a
-    #Stage A: process every definition, I mean every <def> tag
+class StageD < BaseStage
+  #range d1-d4
+
+  def run
+    #Stage D: process every definition, I mean every <def> tag
     questions=[]
 
     #for every <text> do this
@@ -14,11 +15,11 @@ module AI_stage_a
       neighbors.each { |n| s.add n[:concept].name }
       a=s.to_a
 
-      #Question type <a1desc>: choose between 4 options
+      #Question choose between 4 options
       if s.count>3 then
         q=Question.new(:choice)
-        q.name="#{name}-#{num}-a1desc"
-        q.text=random_image_for(name) + lang.text_for(:a1desc,t)
+        q.name="#{name}-#{num}-d1choose"
+        q.text=random_image_for(name) + lang.text_for(:d1,t)
         q.good=name
         q.bads << lang.text_for(:none)
         q.bads << a[2]
@@ -26,11 +27,11 @@ module AI_stage_a
         questions << q
       end
 
-      #Question type <a2desc>: choose between 4 options, good none (Syntax error)
+      #Question choose between 4 options, good none (Syntax error)
       if s.count>3 then
         q=Question.new(:choice)
-        q.name="#{name}-#{num}-a2desc"
-        q.text=random_image_for(name) + lang.text_for(:a1desc,t)
+        q.name="#{name}-#{num}-d1none"
+        q.text=random_image_for(name) + lang.text_for(:d1,t)
         q.good = lang.text_for(:none)
         q.bads << lang.do_mistake_to(name)
         q.bads << a[2]
@@ -41,11 +42,11 @@ module AI_stage_a
       s.delete(name)
       a=s.to_a
 
-      #Question type <a2desc>: choose between 4 options, good none
+      #Question choose between 4 options, good none
       if s.count>3 then
         q = Question.new(:choice)
-        q.name="#{name}-#{num}-a2desc"
-        q.text=random_image_for(name) + lang.text_for(:a2desc,t)
+        q.name="#{name}-#{num}-d1none"
+        q.text=random_image_for(name) + lang.text_for(:d1,t)
         q.good=lang.text_for(:none)
         q.bads << a[1]
         q.bads << a[2]
@@ -53,40 +54,40 @@ module AI_stage_a
         questions << q
       end
 
-      #Question type <a3desc>: boolean => TRUE
+      #Question boolean => TRUE
       q = Question.new(:boolean)
-      q.name="#{name}-#{num}-a3desc"
-      q.text=random_image_for(name) + lang.text_for(:a3desc,name,t)
+      q.name="#{name}-#{num}-d2true"
+      q.text=random_image_for(name) + lang.text_for(:d2,name,t)
       q.good="TRUE"
       questions << q
 
       q = Question.new(:choice)
-      q.name="#{name}-#{num}-a3desc"
-      q.text=random_image_for(name) + lang.text_for(:a3desc,name, lang.do_mistake_to(t) )
+      q.name="#{name}-#{num}-d1def-mispelled"
+      q.text=random_image_for(name) + lang.text_for(:d1,name, lang.do_mistake_to(t) )
       q.good=lang.text_for(:misspelling)
       q.bads << lang.text_for(:true)
       q.bads << lang.text_for(:false)
       questions << q
 
       q = Question.new(:choice)
-      q.name="#{name}-#{num}-a3desc"
-      q.text=random_image_for(name) + lang.text_for(:a3desc, lang.do_mistake_to(name), t)
+      q.name="#{name}-#{num}-d1name-mispelled"
+      q.text=random_image_for(name) + lang.text_for(:d1, lang.do_mistake_to(name), t)
       q.good=lang.text_for(:misspelling)
       q.bads << lang.text_for(:true)
       q.bads << lang.text_for(:false)
       questions << q
 
       q = Question.new(:choice)
-      q.name="#{name}-#{num}-a3desc"
-      q.text=random_image_for(name) + lang.text_for(:a3desc,name, t )
+      q.name="#{name}-#{num}-d1true"
+      q.text=random_image_for(name) + lang.text_for(:d1,name, t )
       q.good = lang.text_for(:true)
       q.bads << lang.text_for(:misspelling)
       q.bads << lang.text_for(:false)
       questions << q
 
       q = Question.new(:choice)
-      q.name="#{name}-#{num}-a3desc"
-      q.text=random_image_for(name) + lang.text_for(:a3desc, a[1], t)
+      q.name="#{name}-#{num}-d1false"
+      q.text=random_image_for(name) + lang.text_for(:d1, a[1], t)
       q.good = lang.text_for(:false)
       q.bads << lang.text_for(:misspelling)
       q.bads << lang.text_for(:true)
@@ -95,25 +96,25 @@ module AI_stage_a
       #Question type <a4desc>: boolean => FALSE
       if neighbors.count>0 then
         q = Question.new(:boolean)
-        q.name="#{name}-#{num}-a4desc"
-        q.text=random_image_for(name) + lang.text_for(:a4desc,neighbors[0][:concept].name,t)
+        q.name="#{name}-#{num}-d2false"
+        q.text=random_image_for(name) + lang.text_for(:d2, neighbors[0][:concept].name, t)
         q.good="FALSE"
         questions << q
       end
 
-      #Question type <a5desc>: hidden name questions
+      #Question hidden name questions
       q = Question.new(:short)
-      q.name="#{name}-#{num}-a5desc"
-      q.text=random_image_for(name) + lang.text_for(:a5desc, lang.hide_text(name), t )
+      q.name="#{name}-#{num}-d3hidden"
+      q.text=random_image_for(name) + lang.text_for(:d3, lang.hide_text(name), t )
       q.shorts << name
       q.shorts << name.gsub("-"," ").gsub("_"," ")
       questions << q
 
-      #Question type <a6match>: filtered text questions
+      #Question filtered text questions
       filtered=lang.text_with_connectors(t)
       if filtered[:words].size>=4 then
         q = Question.new(:match)
-        q.name="#{name}-#{num}-a6match"
+        q.name="#{name}-#{num}-d4match-words"
 
         indexes=Set.new
         words=filtered[:words]
@@ -126,7 +127,7 @@ module AI_stage_a
         indexes=indexes.to_a
 
         s=lang.build_text_from_filtered( filtered, indexes )
-        q.text=random_image_for(name) + lang.text_for(:a6match, name , s)
+        q.text=random_image_for(name) + lang.text_for(:d4, name , s)
         indexes.each { |value| q.matching << [ filtered[:words][value][:word].downcase, value.to_s ] }
         questions << q
       end

@@ -17,7 +17,7 @@ class ProjectTest < Minitest::Test
     assert_equal 3        , @project.locales.size
     assert_equal :default , @project.show_mode
     assert_equal true     , @project.param[:verbose]
-    stages = [ :stage_a, :stage_b, :stage_c, :stage_f, :stage_i, :stage_s ]
+    stages = [ :stage_d, :stage_b, :stage_c, :stage_f, :stage_i, :stage_s ]
     assert_equal stages   , @project.param[:stages]
   end
 

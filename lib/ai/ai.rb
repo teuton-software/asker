@@ -2,9 +2,9 @@
 
 require 'set'
 
-require_relative 'ai_stage_a'
 require_relative 'ai_stage_b'
 require_relative 'ai_stage_c'
+require_relative 'stage_d'
 require_relative 'stage_f'
 require_relative 'stage_i'
 require_relative 'stage_s'
@@ -12,7 +12,6 @@ require_relative 'stage_s'
 require_relative 'ai_calculate'
 
 module AI
-  include AI_stage_a
   include AI_stage_b
   include AI_stage_c
 
@@ -22,12 +21,12 @@ module AI
     return if @process==false
 
     #---------------------------------------------------------
-    #Stage A: process every definition, I mean every <def> tag
-    @questions[:stage_a] = run_stage_a
+    #Stage D: process every definition, I mean every <def> tag
+    @questions[:stage_d] = StageD.new(self).run
+    @questions[:stage_i] = StageI.new(self).run
     @questions[:stage_b] = []
     @questions[:stage_c] = []
     @questions[:stage_f] = []
-    @questions[:stage_i] = StageI.new(self).run
     @questions[:stage_s] = []
 
     #-----------------------------------
