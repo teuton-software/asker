@@ -71,13 +71,11 @@ module AI
       #-----------------------------------------
       #Stage F: process tables with only 1 field
       @questions[:stage_f] += StageF.new(self).run(lTable, list1, list2)
-
     end
   end
 
   def random_image_for(concept)
-    p = rand
-    return "" if p<=Project.instance.get(:threshold)
+    return "" if rand<=Project.instance.get(:threshold)
 
     keys = @world.image_urls.keys
     keys.shuffle!
