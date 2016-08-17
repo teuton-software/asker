@@ -6,8 +6,7 @@ require_relative 'application'
 
 class Project
   include Singleton
-  attr_reader   :default
-  attr_accessor :param
+  attr_reader   :default, :param
 
   def initialize
     @default = {}
