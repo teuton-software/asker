@@ -74,9 +74,18 @@ module AI
       @questions[:stage_f] += StageF.new(self).run(lTable, list1, list2)
 
     end
-
-    #-------------------------------------
-    #Stage F: process images from def tags
-
   end
+
+  def random_image_for(concept)
+    p = rand
+    return "" if p<=0.5
+
+    keys = @world.image_urls.keys
+    keys.shuffle!
+    values= @world.image_urls[ keys[0] ]
+    return "" if values.nil?
+    values.shuffle!
+    return "<img src=\"#{values[0]}\" alt\=\"darts-of-teacher\"><br/>"
+  end
+
 end
