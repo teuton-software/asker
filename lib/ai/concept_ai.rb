@@ -9,10 +9,11 @@ class ConceptAI
 
   attr_reader :concept, :questions
 
-  def initialize(concept)
-    @concept = concept
-    @questions={}
-    @num = 0 # Used to add a number questions
+  def initialize(concept, world)
+    @concept   = concept
+    @world     = world
+    @questions = {}
+    @num       = 0 # Used to add a unique number to every question
   end
 
   def method_missing(m, *args, &block)

@@ -2,7 +2,7 @@
 
 require 'rainbow'
 require 'rexml/document'
-require_relative '../concept/concept'
+require_relative '../data/concept'
 
 class ContentLoader
 

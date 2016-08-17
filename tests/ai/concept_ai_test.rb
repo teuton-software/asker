@@ -4,13 +4,15 @@ require "minitest/autorun"
 require 'rexml/document'
 
 require_relative "../../lib/data/concept"
+require_relative "../../lib/data/world"
 require_relative "../../lib/ai/concept_ai"
 require 'pry'
 
 class ConceptAITest < Minitest::Test
   def setup
     string_data = get_xml_data
-    concepts=[]
+    concepts = []
+    world    = World.new(concepts)
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name="concept" then
@@ -19,7 +21,7 @@ class ConceptAITest < Minitest::Test
     end
 
     @concepts_ai=[]
-    concepts.each { |concept| @concepts_ai << ConceptAI.new(concept) }
+    concepts.each { |concept| @concepts_ai << ConceptAI.new(concept,world) }
   end
 
   def test_concept_0_make_questions

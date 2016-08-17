@@ -14,7 +14,7 @@ class WorldTest < Minitest::Test
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name=="concept" then
-        @concepts << Concept.new(xml_data, "pFilename", "en", ['character', 'starwars'])
+        @concepts << Concept.new(xml_data, "input.haml", "en", ['character', 'starwars'])
       end
     end
 
@@ -31,6 +31,25 @@ class WorldTest < Minitest::Test
     assert_equal 2, @world.contexts.size
     assert_equal "character", @world.contexts[0]
     assert_equal "starwars", @world.contexts[1]
+  end
+
+  def test_filenames
+    assert_equal 1, @world.filenames.size
+    assert_equal "input.haml", @world.filenames[0]
+  end
+
+  def test_image_urls
+    keys   = @world.image_urls.keys
+    values = @world.image_urls.values
+
+    assert_equal 4, keys.size
+    assert_equal 4, values.size
+
+    keys.each { |key| assert_equal String, key.class }
+    values.each do |value|
+      assert_equal Array, value.class
+      assert_equal 20   , value.size
+    end
   end
 
   def get_xml_data

@@ -6,6 +6,7 @@ require 'rainbow'
 
 require_relative 'project'
 require_relative 'data/concept'
+require_relative 'data/world'
 require_relative 'ai/concept_ai'
 require_relative 'formatter/concept_doc_formatter'
 require_relative 'formatter/concept_ai_gift_formatter'
@@ -33,6 +34,8 @@ class Tool
     ProjectLoader::load(pArgs)
     Project.instance.open
     @concepts = InputLoader.new.load
+    Project.instance.verbose "\n[INFO] Creating data World instance..."
+    @world    = World.new(@concepts)
     ConceptScreenFormatter.new(@concepts).export
   end
 
@@ -50,7 +53,7 @@ private
 
   def create_questions
     @concepts.each do |concept|
-      concept_ai = ConceptAI.new(concept)
+      concept_ai = ConceptAI.new(concept,@world)
       concept_ai.make_questions_from_ai
       ConceptAIGiftFormatter.new(concept_ai).export
       @concepts_ai << concept_ai
