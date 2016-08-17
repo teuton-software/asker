@@ -22,12 +22,12 @@ module AI
 
     #---------------------------------------------------------
     #Stage D: process every definition, I mean every <def> tag
-    @questions[:stage_d] = StageD.new(self).run
-    @questions[:stage_i] = StageI.new(self).run
-    @questions[:stage_b] = []
-    @questions[:stage_c] = []
-    @questions[:stage_f] = []
-    @questions[:stage_s] = []
+    @questions[:d] = StageD.new(self).run
+    @questions[:i] = StageI.new(self).run
+    @questions[:b] = []
+    @questions[:c] = []
+    @questions[:f] = []
+    @questions[:s] = []
 
     #-----------------------------------
     #Process every table of this concept
@@ -57,20 +57,20 @@ module AI
 
       #----------------------------------------------
       #Stage B: process table to make match questions
-      @questions[:stage_b] += run_stage_b(lTable, list1, list2)
+      @questions[:b] += run_stage_b(lTable, list1, list2)
       #-----------------------------
       #Stage C: process_tableXfields
       list1.each do |lRow|
         reorder_list_with_row(list3, lRow)
-        @questions[:stage_c] += run_stage_c(lTable, lRow, list3)
+        @questions[:c] += run_stage_c(lTable, lRow, list3)
       end
 
       #--------------------------------------
       #Stage S: process tables with sequences
-      @questions[:stage_s] += StageS.new(self).run(lTable, list1, list2)
+      @questions[:s] += StageS.new(self).run(lTable, list1, list2)
       #-----------------------------------------
       #Stage F: process tables with only 1 field
-      @questions[:stage_f] += StageF.new(self).run(lTable, list1, list2)
+      @questions[:f] += StageF.new(self).run(lTable, list1, list2)
     end
   end
 

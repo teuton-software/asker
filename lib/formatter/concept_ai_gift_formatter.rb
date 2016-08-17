@@ -19,7 +19,7 @@ class ConceptAIGiftFormatter
     file.write "// "+"="*50+"\n"
 
     stages = Project.instance.stages
-    stages.each do |stage|
+    stages.each_key do |stage|
       @concept_ai.questions[stage].each do |question|
         file.write(QuestionGiftFormatter.new(question).to_s)
       end

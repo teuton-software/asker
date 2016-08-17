@@ -25,12 +25,12 @@ class ConceptAIScreenFormatter
         e = concept_ai.texts.size
         concept_ai.tables.each { |t| e = e+t.data[:fields].size*t.data[:rows].size }
 
-        sd = concept_ai.questions[:stage_d].size
-        sb = concept_ai.questions[:stage_b].size
-        sc = concept_ai.questions[:stage_c].size
-        sf = concept_ai.questions[:stage_f].size
-        si = concept_ai.questions[:stage_i].size
-        ss = concept_ai.questions[:stage_s].size
+        sd = concept_ai.questions[:d].size
+        sb = concept_ai.questions[:b].size
+        sc = concept_ai.questions[:c].size
+        sf = concept_ai.questions[:f].size
+        si = concept_ai.questions[:i].size
+        ss = concept_ai.questions[:s].size
         t = sd+sb+sc+sf+si+ss
 
         if e==0 then
