@@ -55,52 +55,52 @@ class StageD < BaseStage
       end
 
       #Question boolean => TRUE
-      q = Question.new(:boolean)
+      #q = Question.new(:boolean)
+      #q.name="#{name}-#{num}-d2true"
+      #q.text=random_image_for(name) + lang.text_for(:d2,name,t)
+      #q.good="TRUE"
+      #questions << q
+
+      q = Question.new(:choice)
+      q.name="#{name}-#{num}-d2def-mispelled"
+      q.text=random_image_for(name) + lang.text_for(:d2,name, lang.do_mistake_to(t) )
+      q.good=lang.text_for(:misspelling)
+      q.bads << lang.text_for(:true)
+      q.bads << lang.text_for(:false)
+      questions << q
+
+      q = Question.new(:choice)
+      q.name="#{name}-#{num}-d2name-mispelled"
+      q.text=random_image_for(name) + lang.text_for(:d2, lang.do_mistake_to(name), t)
+      q.good=lang.text_for(:misspelling)
+      q.bads << lang.text_for(:true)
+      q.bads << lang.text_for(:false)
+      questions << q
+
+      q = Question.new(:choice)
       q.name="#{name}-#{num}-d2true"
-      q.text=random_image_for(name) + lang.text_for(:d2,name,t)
-      q.good="TRUE"
-      questions << q
-
-      q = Question.new(:choice)
-      q.name="#{name}-#{num}-d1def-mispelled"
-      q.text=random_image_for(name) + lang.text_for(:d1,name, lang.do_mistake_to(t) )
-      q.good=lang.text_for(:misspelling)
-      q.bads << lang.text_for(:true)
-      q.bads << lang.text_for(:false)
-      questions << q
-
-      q = Question.new(:choice)
-      q.name="#{name}-#{num}-d1name-mispelled"
-      q.text=random_image_for(name) + lang.text_for(:d1, lang.do_mistake_to(name), t)
-      q.good=lang.text_for(:misspelling)
-      q.bads << lang.text_for(:true)
-      q.bads << lang.text_for(:false)
-      questions << q
-
-      q = Question.new(:choice)
-      q.name="#{name}-#{num}-d1true"
-      q.text=random_image_for(name) + lang.text_for(:d1,name, t )
+      q.text=random_image_for(name) + lang.text_for(:d2,name, t )
       q.good = lang.text_for(:true)
       q.bads << lang.text_for(:misspelling)
       q.bads << lang.text_for(:false)
       questions << q
 
       q = Question.new(:choice)
-      q.name="#{name}-#{num}-d1false"
-      q.text=random_image_for(name) + lang.text_for(:d1, a[1], t)
+      q.name="#{name}-#{num}-d2false"
+      q.text=random_image_for(name) + lang.text_for(:d2, a[1], t)
       q.good = lang.text_for(:false)
       q.bads << lang.text_for(:misspelling)
       q.bads << lang.text_for(:true)
       questions << q
 
       #Question type <a4desc>: boolean => FALSE
-      if neighbors.count>0 then
-        q = Question.new(:boolean)
-        q.name="#{name}-#{num}-d2false"
-        q.text=random_image_for(name) + lang.text_for(:d2, neighbors[0][:concept].name, t)
-        q.good="FALSE"
-        questions << q
-      end
+      #if neighbors.count>0 then
+      #  q = Question.new(:boolean)
+      #  q.name="#{name}-#{num}-d2false"
+      #  q.text=random_image_for(name) + lang.text_for(:d2, neighbors[0][:concept].name, t)
+      #  q.good="FALSE"
+      #  questions << q
+      #end
 
       #Question hidden name questions
       q = Question.new(:short)
