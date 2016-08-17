@@ -7,8 +7,8 @@ require_relative "../../lib/data/world"
 require_relative "../../lib/data/concept"
 
 class WorldTest < Minitest::Test
-  def setup
 
+  def setup
     string_data = get_xml_data
     @concepts=[]
     root_xml_data=REXML::Document.new(string_data)
@@ -20,7 +20,7 @@ class WorldTest < Minitest::Test
       end
     end
 
-    @world = World.new(@concepts)
+    @world = World.new(@concepts, false) #show_progress = false
   end
 
   def test_concepts

@@ -77,7 +77,7 @@ module AI
 
   def random_image_for(concept)
     p = rand
-    return "" if p<=0.5
+    return "" if p<=Project.instance.get(:threshold)
 
     keys = @world.image_urls.keys
     keys.shuffle!

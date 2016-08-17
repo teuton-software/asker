@@ -19,7 +19,7 @@ class Project
     @default[:show_mode]       = :default
     @default[:verbose]         = true
     @default[:stages]          = [ :stage_d, :stage_b, :stage_c, :stage_f, :stage_i, :stage_s ]
-
+    @default[:threshold]       = 0.5
     @param   = {}
   end
 

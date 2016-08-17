@@ -5,7 +5,7 @@ require_relative '../project'
 class World
   attr_reader :concepts, :filenames, :contexts, :image_urls
 
-  def initialize(concepts)
+  def initialize(concepts, show_progress=true)
     @concepts = []
     @filenames = []
     @contexts = []
@@ -21,14 +21,14 @@ class World
     @contexts.uniq!
 
     @concepts.each do |concept|
-      print(".")
+      print(".") if show_progress
       @image_urls[concept] = ImageUrlLoader::load(concept)
     end
     @contexts.each do |context|
-      print(".")
+      print(".") if show_progress
       @image_urls[context] = ImageUrlLoader::load(context)
     end
-    print("\n")
+    print("\n") if show_progress
   end
 
 end
