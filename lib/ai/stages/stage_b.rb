@@ -34,7 +34,7 @@ class StageB < BaseStage
         e = [ e1, e2, e3, e4 ]
 
         #Question type <b1match>: match 4 items from the same table
-				e.shuffle!
+        e.shuffle!
         q=Question.new(:match)
         q.name="#{name}-#{num.to_s}-b1match4x4-#{pTable.name}"
         q.text= random_image_for(name) + lang.text_for(:b1, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
@@ -45,14 +45,14 @@ class StageB < BaseStage
         questions << q
 
         #Question type <b1match>: match 3 items from table-A and 1 item with error
-				e.shuffle!
+        e.shuffle!
         q=Question.new(:match)
-        q.name="#{name}-#{num.to_s}-b1match1error-#{pTable.name}"
+        q.name="#{name}-#{num.to_s}-b1match3x1misspelling-#{pTable.name}"
         q.text= random_image_for(name) + lang.text_for(:b1, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
         q.matching << [ e[0][:data][pIndex1], e[0][:data][pIndex2] ]
         q.matching << [ e[1][:data][pIndex1], e[1][:data][pIndex2] ]
         q.matching << [ e[2][:data][pIndex1], e[2][:data][pIndex2] ]
-        q.matching << [ lang.do_mistake_to(e[3][:data][pIndex1]), lang.text_for(:error) ]
+        q.matching << [ lang.do_mistake_to(e[3][:data][pIndex1]), lang.text_for(:misspelling) ]
         questions << q
       end
     end
@@ -65,8 +65,7 @@ class StageB < BaseStage
 
       #Question 3 items from table-A, and 1 item from table-B
       if s.count>3 then
-        q=Question.new
-        q.set_match
+        q=Question.new(:match)
         q.name="#{name}-#{num.to_s}-b1match-#{pTable.name}"
         q.text= random_image_for(name) + lang.text_for(:b1, name , pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize)
         q.matching << [ pList1[0][:data][pIndex1], pList1[0][:data][pIndex2] ]
