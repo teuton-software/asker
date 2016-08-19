@@ -62,8 +62,8 @@ module TextActions
           if pIndexes.include? value then
             lText+=" [#{value.to_s}]"
           else
-            lrow = pStruct[:words][value][:row]
-            lcol = pStruct[:words][value][:col]
+            #lrow = pStruct[:words][value][:row]
+            #lcol = pStruct[:words][value][:col]
             lword = pStruct[:words][value][:word]
             lText+=" "+lword
           end

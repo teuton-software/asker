@@ -11,7 +11,16 @@ class Lang
 
   def initialize(locale='en')
     @locale = locale.to_s
+    load_files
+  end
 
+  def lang
+    @locale
+  end
+
+private
+
+  def load_files
     dirbase = File.dirname(__FILE__)
     filename=File.join( dirbase, "locales", @locale ,"templates.yaml" )
     begin
@@ -26,10 +35,6 @@ class Lang
 
     filename=File.join( dirbase, "locales", @locale, "mistakes.yaml" )
     @mistakes=YAML::load(File.new(filename))
-  end
-
-  def lang
-    @locale
   end
 
 end
