@@ -7,10 +7,11 @@ require_relative "../../lib/project"
 
 class LangFactoryTest < Minitest::Test
   def setup
+    @locales = Project.instance.locales
   end
 
   def test_hide_text
-    Project.instance.locales.each do |locale|
+    @locales.each do |locale|
       lang = LangFactory.instance.get( locale )
       assert_equal locale,  lang.lang
       assert_equal locale,  lang.locale
