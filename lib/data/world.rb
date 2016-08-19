@@ -20,14 +20,13 @@ class World
     @filenames.uniq!
     @contexts.uniq!
 
-    @concepts.each do |concept|
+    list = @concepts + @contexts
+    threads = []
+    list.each do |name|
       print(".") if show_progress
-      @image_urls[concept] = ImageUrlLoader::load(concept)
+      threads << Thread.new { @image_urls[name] = ImageUrlLoader::load(name) }
     end
-    @contexts.each do |context|
-      print(".") if show_progress
-      @image_urls[context] = ImageUrlLoader::load(context)
-    end
+    threads.each { |t| t.join } #wait for all threads to finish
     print("\n") if show_progress
   end
 
