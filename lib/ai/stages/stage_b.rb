@@ -1,28 +1,30 @@
 # encoding: utf-8
+# encoding: utf-8
 
-module AI_stage_b
-  #range b1-b2
+require_relative 'base_stage'
+require_relative '../question'
 
-	def run_stage_b(pTable, pList1, pList2)
+class StageB < BaseStage
+	#range b1-b2
+
+  def run(pTable, pList1, pList2)
     #process table match
     questions = []
 
-		if pTable.fields.count<2 then
-      return questions
+    return questions if pTable.fields.count<2
+
+    if pTable.fields.count>1 then
+      questions += process_table_match2fields(pTable, pList1, pList2, 0, 1)
+    elsif pTable.fields.count>2 then
+      questions += process_table_match2fields(pTable, pList1, pList2, 0, 2)
+      questions += process_table_match2fields(pTable, pList1, pList2, 1, 2)
+    elsif pTable.fields.count>3 then
+      questions += process_table_match2fields(pTable, pList1, pList2, 0, 3)
+      questions += process_table_match2fields(pTable, pList1, pList2, 1, 3)
+      questions += process_table_match2fields(pTable, pList1, pList2, 2, 3)
     end
 
-		if pTable.fields.count>1 then
-			questions << process_table_match2fields(pTable, pList1, pList2, 0, 1)
-		elsif pTable.fields.count>2 then
-			questions << process_table_match2fields(pTable, pList1, pList2, 0, 2)
-			questions << process_table_match2fields(pTable, pList1, pList2, 1, 2)
-		elsif pTable.fields.count>3 then
-			questions << process_table_match2fields(pTable, pList1, pList2, 0, 3)
-			questions << process_table_match2fields(pTable, pList1, pList2, 1, 3)
-			questions << process_table_match2fields(pTable, pList1, pList2, 2, 3)
-		end
-
-    return questions.flatten!
+    return questions
 	end
 
   def process_table_match2fields(pTable, pList1, pList2, pIndex1, pIndex2)

@@ -2,9 +2,9 @@
 
 require 'set'
 
-require_relative 'ai_stage_b'
 require_relative 'ai_stage_c'
 require_relative 'stages/stage_d'
+require_relative 'stages/stage_b'
 require_relative 'stages/stage_f'
 require_relative 'stages/stage_i'
 require_relative 'stages/stage_s'
@@ -12,7 +12,6 @@ require_relative 'stages/stage_s'
 require_relative 'ai_calculate'
 
 module AI
-  include AI_stage_b
   include AI_stage_c
 
   include AI_calculate
@@ -57,7 +56,7 @@ module AI
 
       #----------------------------------------------
       #Stage B: process table to make match questions
-      @questions[:b] += run_stage_b(lTable, list1, list2)
+      @questions[:b] += StageB.new(self).run(lTable, list1, list2)
       #-----------------------------
       #Stage C: process_tableXfields
       list1.each do |lRow|
