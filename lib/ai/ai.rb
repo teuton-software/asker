@@ -81,7 +81,7 @@ module AI
     values= @world.image_urls[ keys[0] ]
     return "" if values.nil?
     values.shuffle!
-    return "<img src=\"#{values[0]}\" alt\=\"darts-of-teacher\"><br/>"
+    return "<img src=\"#{values[0]}\" alt\=\"image\"><br/>"
   end
 
 end

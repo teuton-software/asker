@@ -20,8 +20,8 @@
 :c8table: '<b>Concept <%=text1%></b><br/>Complete the next association\:<br/><ul><li><%=text2%>\: "<%=text3%>"</li><li><%=text4%>\: [*]</li></ul>Write only one word.<br/>'
 :c9table: '<b>Concept <%=text1%></b><br/>Complete the next association\:<br/><ul><li><%=text2%>\: "<%=text3%>"</li><li><%=text4%>\: <%=text5%></li></ul>Write <%=text6%> words.<br/>'
 :f1: 'The next items are "<%=text2%>" from <b><%=text1%></b> concept:<br/><ul><li><%=text3%></li></ul>'
-:i1: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>Choose the best association for the previous image.<br/>'
-:i2: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>The previous image corresponds to <b><%=text2%></b>.'
-:i3: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>Write the best answer <%=text2%>, for the previous image.<br/>'
-:i4: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>Definition\:<br/> "<%=text2%>"<br/><br/>(Associate every word with the right position inside the text)'
+:i1: '<img src="<%=text1%>" alt\="image"><br/>Choose the best association for the previous image.<br/>'
+:i2: '<img src="<%=text1%>" alt\="image"><br/>The previous image corresponds to <b><%=text2%></b>.'
+:i3: '<img src="<%=text1%>" alt\="image"><br/>Write the best answer <%=text2%>, for the previous image.<br/>'
+:i4: '<img src="<%=text1%>" alt\="image"><br/>Definition\:<br/> "<%=text2%>"<br/><br/>(Associate every word with the right position inside the text)'
 :s1: "About <b><%=text1%></b> concept, sort every \"<%=text2%>\", so It\'s true that \"<%=text3%>\".<br/>"
