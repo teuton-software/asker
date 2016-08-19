@@ -23,4 +23,5 @@
 :i1: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>'
 :i2: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>La imagen anterior corresponde a <b><%=text2%></b>.'
 :i3: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>Escribe la opción <%=text2%>, que mejor corresponda con la imagen anterior.<br/>'
+:i4: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>Definición\: "<%=text2%>"<br/><br/>(Asocia cada palabra con su posición correcta dentro del texto)'
 :s1: 'En relación al concepto <b><%=text1%></b>, ordena cada "<%=text2%>" de modo que se cumpla el criterio "<%=text3%>".<br/>'

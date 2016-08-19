@@ -79,8 +79,32 @@ class StageI < BaseStage
       q.shorts << name
       q.shorts << name.gsub("-"," ").gsub("_"," ")
       questions << q
-      return questions
-    end
+
+      #Question filtered text questions
+      texts.each do |t|
+        filtered=lang.text_with_connectors(t)
+        if filtered[:words].size>=4 then
+          q = Question.new(:match)
+          q.name="#{name}-#{num}-i4filtered"
+
+          indexes=Set.new
+          words=filtered[:words]
+          while indexes.size<4
+            i=rand(filtered[:words].size)
+            flag=true
+            flag=false if words[i].include?("[") or words[i].include?("]") or words[i].include?("(") or words[i].include?(")") or words[i].include?("\"")
+            indexes << i if flag
+          end
+          indexes=indexes.to_a
+
+          s=lang.build_text_from_filtered( filtered, indexes )
+          q.text = lang.text_for(:i4, url , s)
+          indexes.each { |value| q.matching << [ filtered[:words][value][:word].downcase, value.to_s ] }
+          questions << q
+        end
+      end #each texts
+    end #each images
+    return questions
   end
 
 private

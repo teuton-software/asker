@@ -23,4 +23,5 @@
 :i1: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>Choose the best association for the previous image.<br/>'
 :i2: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>The previous image corresponds to <b><%=text2%></b>.'
 :i3: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>Write the best answer <%=text2%>, for the previous image.<br/>'
+:i4: '<img src="<%=text1%>" alt\="darts-of-teacher"><br/>Definition\:<br/> "<%=text2%>"<br/><br/>(Associate every word with the right position inside the text)'
 :s1: "About <b><%=text1%></b> concept, sort every \"<%=text2%>\", so It\'s true that \"<%=text3%>\".<br/>"

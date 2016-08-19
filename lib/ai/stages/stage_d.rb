@@ -115,7 +115,7 @@ class StageD < BaseStage
       filtered=lang.text_with_connectors(t)
       if filtered[:words].size>=4 then
         q = Question.new(:match)
-        q.name="#{name}-#{num}-d4match-words"
+        q.name="#{name}-#{num}-d4filtered"
 
         indexes=Set.new
         words=filtered[:words]
