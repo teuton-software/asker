@@ -1,9 +1,9 @@
 # encoding: utf-8
 
 require_relative '../project'
-require_relative 'question_gift_formatter'
+require_relative '../formatter/question_gift_formatter'
 
-class ConceptAIGiftFormatter
+class ConceptAIGiftExporter
 
   def initialize(concept_ai)
     @concept_ai = concept_ai

@@ -1,7 +1,7 @@
 
 require 'terminal-table'
 
-class ConceptAIScreenFormatter
+class ConceptAIScreenExporter
 
   def initialize(concepts_ai)
     @concepts_ai = concepts_ai

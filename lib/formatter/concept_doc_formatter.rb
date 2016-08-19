@@ -11,12 +11,6 @@ class ConceptDocFormatter
     @concept = concept
   end
 
-  def export
-    return if @concept.process==false
-    file = Project.instance.lessonfile
-    file.write(self.to_s)
-  end
-
   def to_s
     out = ""
     out << "\n"+Rainbow(@concept.name).bg(:blue).bright+"\n\n"
