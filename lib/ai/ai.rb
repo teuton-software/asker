@@ -4,10 +4,10 @@ require 'set'
 
 require_relative 'ai_stage_b'
 require_relative 'ai_stage_c'
-require_relative 'stage_d'
-require_relative 'stage_f'
-require_relative 'stage_i'
-require_relative 'stage_s'
+require_relative 'stages/stage_d'
+require_relative 'stages/stage_f'
+require_relative 'stages/stage_i'
+require_relative 'stages/stage_s'
 
 require_relative 'ai_calculate'
 

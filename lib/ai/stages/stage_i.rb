@@ -2,7 +2,7 @@
 
 require "base64_compatible"
 require_relative 'base_stage'
-require_relative 'question'
+require_relative '../question'
 
 class StageI < BaseStage
   #range i1, i2, i3
