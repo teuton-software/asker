@@ -26,6 +26,13 @@ class StageF < BaseStage
         q.bads << lang.text_for(:false)
         questions << q
 
+        q=Question.new(:short)
+        q.name="#{name}-#{num.to_s}-f1short-#{pTable.name}"
+        q.text = random_image_for(name) + lang.text_for(:f1, lang.hide_text(name), pTable.fields[0].capitalize, e.join("</li><li>") )
+        q.shorts << name
+        q.shorts << name.gsub("-"," ").gsub("_"," ")
+        questions << q
+
         e.shuffle!
         e[0] = lang.do_mistake_to(e[0])
         q=Question.new(:choice)

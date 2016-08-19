@@ -71,7 +71,7 @@ class ConceptAITest < Minitest::Test
     assert_equal 0,  @concepts_ai[i].questions[:d].size
     assert_equal 0,  @concepts_ai[i].questions[:b].size
     assert_equal 0,  @concepts_ai[i].questions[:c].size
-    assert_equal 8,  @concepts_ai[i].questions[:f].size
+    assert_equal 12,  @concepts_ai[i].questions[:f].size
     assert_equal 0,  @concepts_ai[i].questions[:i].size
     assert_equal 4,  @concepts_ai[i].questions[:s].size
   end
