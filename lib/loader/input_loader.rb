@@ -10,7 +10,7 @@ class InputLoader
 
   def load
     project=Project.instance
-    project.verbose "\n[INFO] Loading input data..."
+    project.verbose "\n[INFO] Loading input data"
 
     inputdirs = project.inputdirs.split(',')
     inputdirs.each do |dirname|

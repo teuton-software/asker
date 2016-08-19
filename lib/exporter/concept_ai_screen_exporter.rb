@@ -55,7 +55,7 @@ private
 
   def export_notes
     project=Project.instance
-    project.verbose "\n[INFO] Showing concept stats...\n"
+    project.verbose "\n[INFO] Showing statistics\n"
     project.verbose " * Annotations:"
     project.verbose "   ├── (d) Definitions     => Concept.def"
     project.verbose "   ├── (b) Table Matching "

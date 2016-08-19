@@ -41,7 +41,7 @@ class Tool
 
   def create_output_files
     Project.instance.verbose "\n"
-    Project.instance.verbose "[INFO] Creating output files..."
+    Project.instance.verbose "[INFO] Creating output files"
     Project.instance.verbose "   ├── Gift questions file = "+Rainbow(Project.instance.outputpath).bright
     Project.instance.verbose "   └── Lesson file         = "+Rainbow(Project.instance.lessonpath).bright
 
