@@ -9,10 +9,10 @@ require_relative 'data/concept'
 require_relative 'data/world'
 require_relative 'ai/concept_ai'
 require_relative 'formatter/concept_string_formatter'
-require_relative 'formatter/concept_screen_formatter'
 require_relative 'exporter/concept_ai_gift_exporter'
 require_relative 'exporter/concept_ai_screen_exporter'
 require_relative 'exporter/concept_doc_exporter'
+require_relative 'exporter/concept_screen_exporter'
 require_relative 'loader/project_loader'
 require_relative 'loader/input_loader'
 
@@ -36,7 +36,7 @@ class Tool
     @concepts = InputLoader.new.load
     print "\n[INFO] Loading data from Internet"
     @world    = World.new(@concepts)
-    ConceptScreenFormatter.new(@concepts).export
+    ConceptScreenExporter.new(@concepts).export
   end
 
   def create_output_files

@@ -1,7 +1,7 @@
 
-require_relative 'concept_string_formatter'
+require_relative '../formatter/concept_string_formatter'
 
-class ConceptScreenFormatter
+class ConceptScreenExporter
 
   def initialize(concepts)
     @concepts = concepts

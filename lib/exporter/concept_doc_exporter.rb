@@ -12,7 +12,6 @@ class ConceptDocExporter
   def export
     file = Project.instance.lessonfile
     @concepts.each do |concept|
-      binding.pry
       if concept.process
         file.write( ConceptDocFormatter.new(concept).to_s )
       end
