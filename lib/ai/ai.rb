@@ -35,7 +35,7 @@ module AI
       list1=[]
       count=1
       lTable.rows.each do |i|
-        list1 << { :id => count, :name => @name, :weight => 0, :data => i }
+        list1 << { :id => count, :name => name, :weight => 0, :data => i }
         count+=1
       end
 
