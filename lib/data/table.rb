@@ -1,24 +1,26 @@
 # encoding: utf-8
 
 class Table
-  attr_reader :name, :data, :lang
+  attr_reader :name, :id, :data, :lang
 
   def initialize(pConcept, pXMLdata)
     @concept = pConcept
-    @lang    = pConcept.lang
-    @name    = ""
-
     @data={}
-    @data[:fields]=[]
-    @data[:rows]=[]
 
-    @data[:fields]=pXMLdata.attributes['fields'].to_s.strip.split(',')
-    @data[:fields].each { |i| i.strip! }
+    #read attributes from XML data
+    t = pXMLdata.attributes['sequence'].to_s || ""
+    @data[:sequence] = t.split(",")
+
+    t = pXMLdata.attributes['fields'].to_s.strip.split(',')
+    t.each { |i| i.strip! }
+    @data[:fields] = t || []
+
+    @name = ""
     @data[:fields].each { |i| @name=@name+"$"+i.to_s.strip.downcase}
+    @id   = @concept.name.to_s + @name
+    @lang = [ pConcept.lang ] * @data[:fields].size
 
-    lText=pXMLdata.attributes['sequence'].to_s || ""
-    @data[:sequence]=lText.split(",")
-
+    @data[:rows]=[]
     read_data_from_xml(pXMLdata)
   end
 
@@ -44,7 +46,11 @@ private
     pXMLdata.elements.each do |i|
       case i.name
       when 'lang'
-        @lang = LangFactory.instance.get(i.text.strip.to_s)
+        j = i.text.split(",")
+        @lang = []
+        j.each do |k|
+          @lang << LangFactory.instance.get( k.strip.to_s )
+        end
       when 'sequence'
         @data[:sequence]= i.text.split(",")
       when 'row'

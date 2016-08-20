@@ -2,6 +2,7 @@
 
 require "minitest/autorun"
 require 'rexml/document'
+require 'pry'
 
 require_relative "../../lib/data/concept"
 require_relative "../../lib/data/table"
@@ -16,11 +17,11 @@ class TableTest < Minitest::Test
       </concept>
     </map>
     }
-    concepts = []
+    @concepts = []
     root_xml_data=REXML::Document.new(string_concept)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name=="concept" then
-        concepts << Concept.new( xml_data, "filename")
+        @concepts << Concept.new( xml_data, "filename")
       end
     end
 
@@ -29,18 +30,23 @@ class TableTest < Minitest::Test
     root_xml_data=REXML::Document.new(string_datas)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name=="table" then
-        @tables << Table.new( concepts[0], xml_data)
+        @tables << Table.new( @concepts[0], xml_data)
       end
     end
   end
 
   def test_table_0
     name = "$attribute$value"
+    id   = @concepts[0].name + name
     table = @tables[0]
 
     assert_equal name,  table.name
-    assert_equal 'en',  table.lang.lang
-    assert_equal 'en',  table.lang.locale
+    assert_equal id,  table.id
+    assert_equal 2,     table.lang.size
+    assert_equal 'en',  table.lang[0].lang
+    assert_equal 'en',  table.lang[0].locale
+    assert_equal 'en',  table.lang[1].lang
+    assert_equal 'en',  table.lang[1].locale
     assert_equal false, table.sequence?
     assert_equal 0,     table.sequence.size
     assert_equal [],    table.sequence
@@ -62,11 +68,13 @@ class TableTest < Minitest::Test
 
   def test_table_1
     name = "$film name"
+    id   = @concepts[0].name + name
     table = @tables[1]
 
     assert_equal name,  table.name
-    assert_equal 'es',  table.lang.lang
-    assert_equal 'es',  table.lang.locale
+    assert_equal 1,     table.lang.size
+    assert_equal 'es',  table.lang[0].lang
+    assert_equal 'es',  table.lang[0].locale
     assert_equal true,  table.sequence?
     assert_equal 1,     table.sequence.size
     assert_equal ["Films ordered by episode number"],    table.sequence
