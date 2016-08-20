@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class Table
-  attr_reader :name, :id, :data, :lang
+  attr_reader :name, :id, :data, :langs
 
   def initialize(pConcept, pXMLdata)
     @concept = pConcept
@@ -15,10 +15,10 @@ class Table
     t.each { |i| i.strip! }
     @data[:fields] = t || []
 
-    @name = ""
+    @name  = ""
     @data[:fields].each { |i| @name=@name+"$"+i.to_s.strip.downcase}
-    @id   = @concept.name.to_s + @name
-    @lang = [ pConcept.lang ] * @data[:fields].size
+    @id    = @concept.name.to_s + @name
+    @langs = [ pConcept.lang ] * @data[:fields].size
 
     @data[:rows]=[]
     read_data_from_xml(pXMLdata)
@@ -47,9 +47,9 @@ private
       case i.name
       when 'lang'
         j = i.text.split(",")
-        @lang = []
+        @langs = []
         j.each do |k|
-          @lang << LangFactory.instance.get( k.strip.to_s )
+          @langs << LangFactory.instance.get( k.strip.to_s )
         end
       when 'sequence'
         @data[:sequence]= i.text.split(",")
