@@ -59,6 +59,7 @@ private
           row = [i.text.strip]
         end
         @rows << row
+        @rowobjects << row
       else
         puts Rainbow("[ERROR] concept/table#XMLdata with #{i.name}").red.bright
       end
