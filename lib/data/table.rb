@@ -3,7 +3,7 @@
 require_relative 'row'
 
 class Table
-  attr_reader :name, :id, :fields, :rows, :types
+  attr_reader :name, :id, :fields, :types
   attr_reader :rowobjects
 
   def initialize(pConcept, pXMLdata)
@@ -21,9 +21,10 @@ class Table
     @fields.each { |i| @name=@name+"$"+i.to_s.strip.downcase}
     @id    = @concept.name.to_s + "." + @name
 
-    @rows  = []
     @rowobjects = [] #DEV experiment replace row data with row objects
     read_data_from_xml(pXMLdata)
+    @rows  = []
+    @rowobjects.each { |r| @rows << r.raws }
   end
 
   def to_s
@@ -38,6 +39,10 @@ class Table
       return @concept.lang
     end
     return @langs[index]
+  end
+
+  def rows
+    @rows
   end
 
   def sequence?
@@ -76,15 +81,15 @@ private
         @types = []
         j.each { |k| @types << k.strip.to_s }
       when 'row'
-        row=[]
-        if i.elements.count>0 then # When row tag has several columns, we add every value to the array
-          i.elements.each { |j| row << j.text.to_s}
-        else
-          # When row tag only has text, we add this text as one value array
-          # This is usefull for tables with only one columns
-          row = [i.text.strip]
-        end
-        @rows << row
+        #row=[]
+        #if i.elements.count>0 then # When row tag has several columns, we add every value to the array
+        #  i.elements.each { |j| row << j.text.to_s}
+        #else
+        #  # When row tag only has text, we add this text as one value array
+        #  # This is usefull for tables with only one columns
+        #  row = [i.text.strip]
+        #end
+        #@rows << row
         @rowobjects << Row.new(self, 0, i)
       else
         puts Rainbow("[ERROR] concept/table#XMLdata with #{i.name}").red.bright
