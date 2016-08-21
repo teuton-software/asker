@@ -37,11 +37,11 @@ class TableTest < Minitest::Test
 
   def test_table_0
     name = "$attribute$value"
-    id   = @concepts[0].name + name
+    id   = @concepts[0].name + "." + name
     table = @tables[0]
 
     assert_equal name,  table.name
-    assert_equal id,  table.id
+    assert_equal id,    table.id
     assert_equal 2,     table.langs.size
     assert_equal 'en',  table.langs[0].lang
     assert_equal 'en',  table.langs[0].locale
@@ -68,7 +68,7 @@ class TableTest < Minitest::Test
 
   def test_table_1
     name = "$film name"
-    id   = @concepts[0].name + name
+    id   = @concepts[0].name + "." + name
     table = @tables[1]
 
     assert_equal name,  table.name

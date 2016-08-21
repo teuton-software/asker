@@ -9,7 +9,7 @@ class Table
 
     #read attributes from XML data
     t = pXMLdata.attributes['sequence'].to_s || ""
-    @data[:sequence] = t.split(",")
+    @sequence = t.split(",")
 
     t = pXMLdata.attributes['fields'].to_s.strip.split(',')
     t.each { |i| i.strip! }
@@ -17,9 +17,9 @@ class Table
 
     @name  = ""
     @data[:fields].each { |i| @name=@name+"$"+i.to_s.strip.downcase}
-    @id    = @concept.name.to_s + @name
-    @langs = [ pConcept.lang ] * @data[:fields].size
+    @id    = @concept.name.to_s + "." + @name
 
+    @langs = [ pConcept.lang ] * @data[:fields].size #default lang values
     @data[:rows]=[]
     read_data_from_xml(pXMLdata)
   end
@@ -29,11 +29,11 @@ class Table
   end
 
   def sequence?
-    return @data[:sequence].size>0
+    return @sequence.size>0
   end
 
   def sequence
-    return @data[:sequence]
+    return @sequence
   end
 
   def method_missing(m, *args, &block)
