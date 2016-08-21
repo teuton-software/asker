@@ -63,7 +63,7 @@ private
         j = i.text.split(",")
         @langs = []
         j.each do |k|
-          if k.strip=='*' or k.strip==''
+          if k.strip=='*' or k.strip=='' then
             @langs << '*'
           else
             @langs << LangFactory.instance.get(k.strip.to_s)
