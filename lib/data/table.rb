@@ -52,8 +52,7 @@ private
         @sequence= i.text.split(",")
       when 'row'
         row=[]
-        if i.elements.count>0 then
-          # When row tag has several columns, we add every value to the array
+        if i.elements.count>0 then # When row tag has several columns, we add every value to the array
           i.elements.each { |j| row << j.text.to_s}
         else
           # When row tag only has text, we add this text as one value array
@@ -61,7 +60,7 @@ private
           row = [i.text.strip]
         end
         @rows << row
-        @rowobjects << row
+        @rowobjects << Row.new(self, 0, i)
       else
         puts Rainbow("[ERROR] concept/table#XMLdata with #{i.name}").red.bright
       end

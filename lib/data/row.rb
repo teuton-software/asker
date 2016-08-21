@@ -1,13 +1,13 @@
 # encoding: utf-8
 
 class Row
-  attr_reader :id, :cols, :langs, :types
+  attr_reader :id, :raws, :langs, :types
 
   def initialize( pTable, order, pXMLdata )
     @table = pTable
     @order = order
     @id    = pTable.id + "." + order.to_s
-    @cols  = []
+    @raws  = []
     @langs = []
     @types = []
 
@@ -17,10 +17,10 @@ class Row
 private
 
   def read_data_from_xml(pXMLdata)
-    if i.elements.count==0 then
+    if pXMLdata.elements.count==0 then
       # When row tag only has text, we add this text as one value array
       # This is usefull for tables with only one columns
-      row = [i.text.strip]
+      @raws = [ pXMLdata.text.strip.to_s ]
     else
       pXMLdata.elements.each do |i|
         case i.name
@@ -30,7 +30,7 @@ private
           j.each { |k| @langs << LangFactory.instance.get(k.strip.to_s) }
         when 'col'
           # When row tag has several columns, we add every value to the array
-          @cols << i.text.to_s
+          @raws << i.text.to_s
         end
       end
     end

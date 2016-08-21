@@ -75,7 +75,7 @@ class RowTest < Minitest::Test
 
     assert_equal rows.size, @tables[0].rowobjects.size
     rows.each_with_index do |row,index|
-      assert_equal row, @tables[0].rowobjects[index]
+      assert_equal row, @tables[0].rowobjects[index].raws
     end
   end
 
@@ -85,9 +85,8 @@ class RowTest < Minitest::Test
            ['The Force Awakens']
          ]
     assert_equal rows.size, @tables[1].rowobjects.size
-
     rows.each_with_index do |row,index|
-      assert_equal row, @tables[1].rowobjects[index]
+      assert_equal row, @tables[1].rowobjects[index].raws
     end
   end
 
