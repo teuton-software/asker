@@ -62,7 +62,7 @@ private
     project.verbose "   ├── (c) Table Rows&Cols "
     project.verbose "   ├── (f) Tables 1 Field  => Concept.table.fields.size==1"
     project.verbose "   ├── (i) Images URL      => Concept.def{:type => 'image_url'}"
-    project.verbose "   └── (s) Sequences       => Concept.table{:type => 'sequence'}"
+    project.verbose "   └── (s) Sequences       => Concept.table{:sequence => '...'}"
     project.verbose "\n"
   end
 end
