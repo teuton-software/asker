@@ -23,7 +23,7 @@ class ConceptAIScreenExporter
     @concepts_ai.each do |concept_ai|
       if concept_ai.process?
         e = concept_ai.texts.size
-        concept_ai.tables.each { |t| e = e+t.data[:fields].size*t.data[:rows].size }
+        concept_ai.tables.each { |t| e = e+t.fields.size*t.rows.size }
 
         sd = concept_ai.questions[:d].size
         sb = concept_ai.questions[:b].size

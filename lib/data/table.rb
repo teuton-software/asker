@@ -2,6 +2,7 @@
 
 class Table
   attr_reader :name, :id, :fields, :langs, :rows
+  attr_accessor :rowobjects
 
   def initialize(pConcept, pXMLdata)
     @concept = pConcept
@@ -20,7 +21,7 @@ class Table
 
     @langs = [ pConcept.lang ] * @fields.size #default lang values
     @rows  = []
-
+    @rowobjects = [] #DEV experiment replace row data with row objects
     read_data_from_xml(pXMLdata)
   end
 
@@ -44,9 +45,7 @@ private
       when 'lang'
         j = i.text.split(",")
         @langs = []
-        j.each do |k|
-          @langs << LangFactory.instance.get( k.strip.to_s )
-        end
+        j.each { |k| @langs << LangFactory.instance.get(k.strip.to_s) }
       when 'sequence'
         @sequence= i.text.split(",")
       when 'row'
@@ -54,12 +53,12 @@ private
         if i.elements.count>0 then
           # When row tag has several columns, we add every value to the array
           i.elements.each { |j| row << j.text.to_s}
-          @rows << row
         else
           # When row tag only has text, we add this text as one value array
           # This is usefull for tables with only one columns
-          @rows << [i.text.strip]
+          row = [i.text.strip]
         end
+        @rows << row
       else
         puts Rainbow("[ERROR] concept/table#XMLdata with #{i.name}").red.bright
       end
