@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require_relative 'row'
+
 class Table
   attr_reader :name, :id, :fields, :langs, :rows
   attr_accessor :rowobjects
