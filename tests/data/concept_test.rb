@@ -12,7 +12,7 @@ class ConceptTest < Minitest::Test
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name=="concept" then
-        @concept << Concept.new(xml_data, "pFilename", "en", [])
+        @concept << Concept.new(xml_data, "input.haml", "en", [])
       end
     end
   end
@@ -61,7 +61,6 @@ class ConceptTest < Minitest::Test
     for i in 0..1
       assert_equal 1, @concept[i].tables.size
       assert_equal name, @concept[i].tables[0].name
-      assert_equal nil, @concept[i].tables[0].title
       assert_equal false, @concept[i].tables[0].sequence?
       assert_equal 0, @concept[i].tables[0].sequence.size
       assert_equal [], @concept[i].tables[0].sequence
