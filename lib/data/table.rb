@@ -34,7 +34,7 @@ class Table
     @langs = ( [@concept.lang]*@fields.size) if @langs.nil?
     return @langs if index==:all
 
-    if @langs[index]=='*' or @langs[index]==''then
+    if @langs[index]=='*' or @langs[index]=='' or @langs[index].nil? then
       return @concept.lang
     end
     return @langs[index]
