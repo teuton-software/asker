@@ -3,7 +3,7 @@
 require_relative 'row'
 
 class Table
-  attr_reader :name, :id, :fields, :rows
+  attr_reader :name, :id, :fields, :rows, :types
   attr_reader :rowobjects
 
   def initialize(pConcept, pXMLdata)
@@ -44,6 +44,12 @@ class Table
     return @sequence
   end
 
+  def types(index=:all)
+    @types = ( ["text"]*@fields.size) if @types.nil?
+    return @types if index==:all
+    return @types[index]
+  end
+
 private
 
   def read_data_from_xml(pXMLdata)
@@ -55,6 +61,10 @@ private
         j.each { |k| @langs << LangFactory.instance.get(k.strip.to_s) }
       when 'sequence'
         @sequence= i.text.split(",")
+      when 'type'
+        j = i.text.split(",")
+        @types = []
+        j.each { |k| @types << k.strip.to_s }
       when 'row'
         row=[]
         if i.elements.count>0 then # When row tag has several columns, we add every value to the array
