@@ -28,8 +28,7 @@ private
           j = i.text.split(",")
           @langs = []
           j.each { |k| @langs << LangFactory.instance.get(k.strip.to_s) }
-        when 'col'
-          # When row tag has several columns, we add every value to the array
+        when 'col' # When row tag has several columns, we add every value to the array
           @raws << i.text.to_s
         end
       end

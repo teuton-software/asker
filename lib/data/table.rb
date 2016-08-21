@@ -33,6 +33,10 @@ class Table
   def langs(index=:all)
     @langs = ( [@concept.lang]*@fields.size) if @langs.nil?
     return @langs if index==:all
+
+    if @langs[index]=='*' or @langs[index]==''then
+      return @concept.lang
+    end
     return @langs[index]
   end
 
@@ -58,7 +62,13 @@ private
       when 'lang'
         j = i.text.split(",")
         @langs = []
-        j.each { |k| @langs << LangFactory.instance.get(k.strip.to_s) }
+        j.each do |k|
+          if k.strip=='*' or k.strip==''
+            @langs << '*'
+          else
+            @langs << LangFactory.instance.get(k.strip.to_s)
+          end
+        end
       when 'sequence'
         @sequence= i.text.split(",")
       when 'type'
