@@ -3,8 +3,8 @@
 require_relative 'row'
 
 class Table
-  attr_reader :name, :id, :fields, :langs, :rows
-  attr_accessor :rowobjects
+  attr_reader :name, :id, :fields, :rows
+  attr_reader :rowobjects
 
   def initialize(pConcept, pXMLdata)
     @concept = pConcept
@@ -21,7 +21,6 @@ class Table
     @fields.each { |i| @name=@name+"$"+i.to_s.strip.downcase}
     @id    = @concept.name.to_s + "." + @name
 
-    @langs = [ pConcept.lang ] * @fields.size #default lang values
     @rows  = []
     @rowobjects = [] #DEV experiment replace row data with row objects
     read_data_from_xml(pXMLdata)
@@ -29,6 +28,12 @@ class Table
 
   def to_s
     @name.to_s
+  end
+
+  def langs(index=:all)
+    @langs = ( [@concept.lang]*@fields.size) if @langs.nil?
+    return @langs if index==:all
+    return @langs[index]
   end
 
   def sequence?
