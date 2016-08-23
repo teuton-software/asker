@@ -42,7 +42,7 @@ class ConceptAITest < Minitest::Test
     assert_equal( {}, @concepts_ai[i].questions)
     @concepts_ai[i].process = true
     @concepts_ai[i].make_questions_from_ai
-    assert_equal 23, @concepts_ai[i].questions[:d].size
+    assert_equal 29, @concepts_ai[i].questions[:d].size
     assert_equal 2,  @concepts_ai[i].questions[:b].size
     assert_equal 31, @concepts_ai[i].questions[:c].size
     assert_equal 0,  @concepts_ai[i].questions[:f].size

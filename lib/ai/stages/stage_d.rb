@@ -113,24 +113,25 @@ class StageD < BaseStage
 
       #Question filtered text questions
       filtered=lang.text_with_connectors(t)
-      if filtered[:words].size>=4 then
+
+      indexes = []
+      exclude = ["[", "]", "(", ")", "\"" ]
+      filtered[:words].each_with_index do |item,index|
+        flag=true
+        exclude.each { |e| flag=false if (item[:word].include?(e)) }
+        indexes << index if flag
+      end
+
+      groups = (indexes.combination(4).to_a).shuffle
+      max    = (indexes.size/4).to_i
+      groups[0,max].each do |e|
+        e.sort!
         q = Question.new(:match)
         q.shuffle_off
         q.name = "#{name}-#{num}-d4filtered"
-
-        indexes=Set.new
-        words=filtered[:words]
-        while indexes.size<4
-          i=rand(filtered[:words].size)
-          flag=true
-          flag=false if words[i].include?("[") or words[i].include?("]") or words[i].include?("(") or words[i].include?(")") or words[i].include?("\"")
-          indexes << i if flag
-        end
-        indexes=indexes.to_a.sort
-
-        s=lang.build_text_from_filtered( filtered, indexes )
-        q.text=random_image_for(name) + lang.text_for(:d4, name , s)
-        indexes.each_with_index do |value,index|
+        s = lang.build_text_from_filtered( filtered, e)
+        q.text = random_image_for(name) + lang.text_for(:d4, name , s)
+        e.each_with_index do |value,index|
           q.matching << [ (index+1).to_s, filtered[:words][value][:word].downcase ]
         end
         questions << q
