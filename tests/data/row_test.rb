@@ -82,6 +82,8 @@ class RowTest < Minitest::Test
       assert_equal index,         row.index
       assert_equal r[index],      row.raws
       assert_equal r[index].size, row.columns.size
+      assert_equal r[index][0],   row.columns[0].raw
+      assert_equal r[index][1],   row.columns[1].raw
     end
   end
 
@@ -94,12 +96,16 @@ class RowTest < Minitest::Test
 
       @tables[1].rowobjects.each_with_index do |row,index|
         assert_equal @tables[1].id, row.table.id
+        id = row.table.id+"."+row.index.to_s
+        assert_equal id,            row.id
         assert_equal index,         row.index
         assert_equal r[index],      row.raws
         assert_equal r[index].size, row.columns.size
+        assert_equal r[index][0],   row.columns[0].raw
       end
   end
 
+=begin
   def get_xml_data
     string_datas=%q{
       <concept>
@@ -133,4 +139,6 @@ class RowTest < Minitest::Test
 
     return string_datas
   end
+=end
+
 end

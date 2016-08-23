@@ -23,7 +23,7 @@ private
     if pXMLdata.elements.count==0 then
       # When row tag only has text, we add this text as one value array
       # This is usefull for tables with only one columns
-      @columns << Column.new( self, 0, pXMLdata)
+      @columns = [ Column.new( self, 0, pXMLdata) ]
       @raws    = [ pXMLdata.text.strip.to_s ]
     else
       pXMLdata.elements.each do |i|
