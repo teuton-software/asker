@@ -1,16 +1,30 @@
 # encoding: utf-8
 
 class Column
-  attr_reader :raw, :lang, :type
+  attr_reader :row, :index, :id, :raw, :lang, :type
 
   def initialize( pRow, index, pXMLdata )
     @row   = pRow
     @index = index
+    @id    = pRow.id + "." + @index.to_s
     @raw   = ""
     @lang  = pRow.langs[@index]
     @type  = "text"
 
     read_data_from_xml(pXMLdata)
+  end
+
+  def to_html
+    case @type
+    when "text"
+      return @raw
+    when "image_url"
+      return "<img src=\"#{raw}\" alt\=\"image\">"
+    when "textfile_path"
+      return "<pre>#{raw}</pre>"
+    else
+      return "ERROR type #{@type}"
+    end
   end
 
 private

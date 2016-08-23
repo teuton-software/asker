@@ -68,26 +68,36 @@ class RowTest < Minitest::Test
   end
 
   def test_rows_table_0
-    rows=[  [ 'race',              'human' ],
-            [ 'laser sabel color' ,'green' ],
-            [ 'hair color'        ,'red'   ]
-          ]
+    r=[  [ 'race',              'human' ],
+         [ 'laser sabel color' ,'green' ],
+         [ 'hair color'        ,'red'   ]
+      ]
 
-    assert_equal rows.size, @tables[0].rowobjects.size
-    rows.each_with_index do |row,index|
-      assert_equal row, @tables[0].rowobjects[index].raws
+    assert_equal r.size, @tables[0].rowobjects.size
+
+    @tables[0].rowobjects.each_with_index do |row,index|
+      assert_equal @tables[0].id, row.table.id
+      id = row.table.id+"."+row.index.to_s
+      assert_equal id,            row.id
+      assert_equal index,         row.index
+      assert_equal r[index],      row.raws
+      assert_equal r[index].size, row.columns.size
     end
   end
 
   def test_rows_table_1
-    rows=[ ['The Phantom Menace'], ['Attack of the Clones'], ['Revenge of the Sith'],
-           ['A New Hope'], ['The Empire Strikes Back'], ['Return of the Jedi'],
-           ['The Force Awakens']
-         ]
-    assert_equal rows.size, @tables[1].rowobjects.size
-    rows.each_with_index do |row,index|
-      assert_equal row, @tables[1].rowobjects[index].raws
-    end
+    r=[ ['The Phantom Menace'], ['Attack of the Clones'], ['Revenge of the Sith'],
+        ['A New Hope'], ['The Empire Strikes Back'], ['Return of the Jedi'],
+        ['The Force Awakens']
+      ]
+      assert_equal r.size, @tables[1].rowobjects.size
+
+      @tables[1].rowobjects.each_with_index do |row,index|
+        assert_equal @tables[1].id, row.table.id
+        assert_equal index,         row.index
+        assert_equal r[index],      row.raws
+        assert_equal r[index].size, row.columns.size
+      end
   end
 
   def get_xml_data
