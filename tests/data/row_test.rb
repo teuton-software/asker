@@ -105,40 +105,4 @@ class RowTest < Minitest::Test
       end
   end
 
-=begin
-  def get_xml_data
-    string_datas=%q{
-      <concept>
-        <table fields='attribute, value'>
-          <row>
-            <col>race</col>
-            <col>human</col>
-          </row>
-          <row>
-            <col>laser sabel color</col>
-            <col>green</col>
-          </row>
-          <row>
-            <col>hair color</col>
-            <col>red</col>
-          </row>
-        </table>
-
-        <table fields='film name' sequence='Films ordered by episode number'>
-          <lang>es</lang>
-          <row>The Phantom Menace</row>
-          <row>Attack of the Clones</row>
-          <row>Revenge of the Sith</row>
-          <row>A New Hope</row>
-          <row>The Empire Strikes Back</row>
-          <row>Return of the Jedi</row>
-          <row>The Force Awakens</row>
-        </table>
-      </concept>
-    }
-
-    return string_datas
-  end
-=end
-
 end
