@@ -1,15 +1,18 @@
 # encoding: utf-8
 
-class Row
-  attr_reader :id, :raws, :langs, :types
+require_relative 'column'
 
-  def initialize( pTable, order, pXMLdata )
-    @table = pTable
-    @order = order
-    @id    = pTable.id + "." + order.to_s
-    @raws  = []
-    @langs = []
-    @types = []
+class Row
+  attr_reader :id, :langs, :types, :raws, :columns
+
+  def initialize( pTable, index, pXMLdata )
+    @table   = pTable
+    @index   = index
+    @id      = pTable.id + "." + @index.to_s
+    @langs   = []
+    @types   = []
+    @raws    = []
+    @columns = []
 
     read_data_from_xml(pXMLdata)
   end
@@ -30,6 +33,8 @@ private
           j.each { |k| @langs << LangFactory.instance.get(k.strip.to_s) }
         when 'col' # When row tag has several columns, we add every value to the array
           @raws << i.text.to_s
+          #Column Objects
+          @columns << Column.new( self, @raws.size, i)
         end
       end
     end
