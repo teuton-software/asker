@@ -63,8 +63,6 @@ class RowTest < Minitest::Test
         @tables << Table.new( @concepts[0], xml_data)
       end
     end
-
-
   end
 
   def test_rows_table_0
