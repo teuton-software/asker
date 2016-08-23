@@ -66,6 +66,7 @@ class TableTest < Minitest::Test
     assert_equal rows.size, @tables[0].rows.size
     rows.each_with_index do |row,index|
       assert_equal row, @tables[0].rows[index]
+      assert_equal row, @tables[0].rowobjects[index].raws
     end
   end
 
@@ -96,6 +97,7 @@ class TableTest < Minitest::Test
 
     rows.each_with_index do |row,index|
       assert_equal row, @tables[1].rows[index]
+      assert_equal row, @tables[1].rowobjects[index].raws
     end
   end
 

@@ -3,7 +3,7 @@
 require_relative 'column'
 
 class Row
-  attr_reader :id, :langs, :types, :raws, :columns
+  attr_reader :table, :index, :id, :langs, :types, :raws, :columns
 
   def initialize( pTable, index, pXMLdata )
     @table   = pTable

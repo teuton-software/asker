@@ -90,7 +90,7 @@ private
         #  row = [i.text.strip]
         #end
         #@rows << row
-        @rowobjects << Row.new(self, 0, i)
+        @rowobjects << Row.new(self, @rowobjects.size, i)
       else
         puts Rainbow("[ERROR] concept/table#XMLdata with #{i.name}").red.bright
       end
