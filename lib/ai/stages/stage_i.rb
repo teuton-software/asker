@@ -84,8 +84,9 @@ class StageI < BaseStage
       texts.each do |t|
         filtered=lang.text_with_connectors(t)
         if filtered[:words].size>=4 then
-          q = Question.new(:match)
-          q.name="#{name}-#{num}-i4filtered"
+          q         = Question.new(:match)
+          q.shuffle = false
+          q.name    = "#{name}-#{num}-i4filtered"
 
           indexes=Set.new
           words=filtered[:words]
@@ -95,11 +96,13 @@ class StageI < BaseStage
             flag=false if words[i].include?("[") or words[i].include?("]") or words[i].include?("(") or words[i].include?(")") or words[i].include?("\"")
             indexes << i if flag
           end
-          indexes=indexes.to_a
+          indexes=indexes.to_a.sort
 
           s=lang.build_text_from_filtered( filtered, indexes )
           q.text = lang.text_for(:i4, url , s)
-          indexes.each { |value| q.matching << [ filtered[:words][value][:word].downcase, value.to_s ] }
+          indexes.each_with_index do |value,index|
+            q.matching << [ (index+1).to_s, filtered[:words][value][:word].downcase ]
+          end
           questions << q
         end
       end #each texts

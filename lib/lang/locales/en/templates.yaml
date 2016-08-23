@@ -7,7 +7,7 @@
 :d1: 'Definition\: "<%=text1%>"<br/>Choose the best association for the previous definition.<br/>'
 :d2: 'Definition of <b><%=text1%></b>\:<br/> "<%=text2%>"<br/>'
 :d3: 'Definition of <b><%=text1%></b>\:<br/> "<%=text2%>"<br/>Note:<br/><ul><i>Every (?) symbol, represents one letter.</i><i>Every (-) symbol, represents one space.</i></ul>'
-:d4: 'Definition of <b><%=text1%></b>\:<br/> "<%=text2%>"<br/><br/>(Associate every word with the right position inside the text)'
+:d4: 'Definition of <b><%=text1%></b>\:<br/> "<%=text2%>"<br/><br/>(Put every word into the right text position)'
 :b1: 'Related with concept <b><%=text1%></b>, associate every "<%=text2%>" with their "<%=text3%>".<br/>'
 :c1table: '<b>Concept <%=text1%></b><br/><%=text2%>\: [*]<br/><%=text3%>: "<%=text4%>"<br/>Choose the right answer.<br/>'
 :c2table: '<b>Concept <%=text1%></b><br/><%=text2%>\: [*]<br/><%=text3%>: "<%=text4%>"<br/>Choose the right answer.<br/>'
@@ -22,5 +22,5 @@
 :i1: '<img src="<%=text1%>" alt\="image"><br/>Choose the best association for the previous image.<br/>'
 :i2: '<img src="<%=text1%>" alt\="image"><br/>The previous image corresponds to <b><%=text2%></b>.'
 :i3: '<img src="<%=text1%>" alt\="image"><br/>Write the best answer <%=text2%>, for the previous image.<br/>'
-:i4: '<img src="<%=text1%>" alt\="image"><br/>Definition\:<br/> "<%=text2%>"<br/><br/>(Associate every word with the right position inside the text)'
+:i4: '<img src="<%=text1%>" alt\="image"><br/>Definition\:<br/> "<%=text2%>"<br/><br/>(Put every word in the right text position)'
 :s1: "About <b><%=text1%></b> concept, sort every \"<%=text2%>\", so It\'s true that \"<%=text3%>\".<br/>"

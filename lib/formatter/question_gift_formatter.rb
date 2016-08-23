@@ -19,7 +19,7 @@ class QuestionGiftFormatter
       penalty = penalties[@question.bads.size]
 
       @question.bads.each { |i| a << ("  ~#{penalty}" + sanitize(i)+"\n") }
-      a.shuffle!
+      a.shuffle! if @question.shuffle?
       a.each do |i|
         text=i
         if text.size>255
@@ -38,7 +38,7 @@ class QuestionGiftFormatter
         j=j[0,220]+"...(ERROR: text too long)" if j.size>255
         a << "  =#{sanitize(i)} -> #{sanitize(j)}\n"
       end
-      a.shuffle!
+      a.shuffle! if @question.shuffle?
       a.each { |i| s << i }
       s << "}\n\n"
     when :short

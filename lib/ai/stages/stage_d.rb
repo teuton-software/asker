@@ -114,8 +114,9 @@ class StageD < BaseStage
       #Question filtered text questions
       filtered=lang.text_with_connectors(t)
       if filtered[:words].size>=4 then
-        q = Question.new(:match)
-        q.name="#{name}-#{num}-d4filtered"
+        q         = Question.new(:match)
+        q.shuffle = false
+        q.name    = "#{name}-#{num}-d4filtered"
 
         indexes=Set.new
         words=filtered[:words]
