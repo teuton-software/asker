@@ -3,7 +3,6 @@
 class Question
   attr_accessor :name, :comment, :text
   attr_accessor :good, :bads, :matching, :shorts
-  attr_writer :shuffle
   attr_reader :type
 
   def initialize(type=:choice)
@@ -19,7 +18,7 @@ class Question
     @bads     = []
     @matching = []
     @shorts   = []
-    @shuffle  = true
+    shuffle_on
   end
 
   def set_choice
@@ -36,6 +35,14 @@ class Question
 
   def set_short
     @type=:short
+  end
+
+  def shuffle_off
+    @shuffle=false
+  end
+
+  def shuffle_on
+    @shuffle=true
   end
 
   def shuffle?

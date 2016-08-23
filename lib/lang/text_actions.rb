@@ -73,6 +73,9 @@ module TextActions
         end
       end
     end
+    lText.gsub!(" .",".")
+    lText.gsub!(" ,",",")
+    lText = lText[1,lText.size] if lText[0]=" "
     return lText
   end
 

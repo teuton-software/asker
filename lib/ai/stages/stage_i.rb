@@ -84,9 +84,9 @@ class StageI < BaseStage
       texts.each do |t|
         filtered=lang.text_with_connectors(t)
         if filtered[:words].size>=4 then
-          q         = Question.new(:match)
-          q.shuffle = false
-          q.name    = "#{name}-#{num}-i4filtered"
+          q = Question.new(:match)
+          q.shuffle_off
+          q.name = "#{name}-#{num}-i4filtered"
 
           indexes=Set.new
           words=filtered[:words]
