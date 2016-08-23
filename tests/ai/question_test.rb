@@ -35,14 +35,19 @@ class QuestionTest < Minitest::Test
   def test_init
     q = @questions[0]
 
-    assert_equal "", q.name
-    assert_equal "", q.comment
-    assert_equal "", q.text
+    assert_equal "",   q.name
+    assert_equal "",   q.comment
+    assert_equal "",   q.text
     assert_equal :choice, q.type
-    assert_equal "", q.good
-    assert_equal [], q.bads
-    assert_equal [], q.matching
-    assert_equal [], q.shorts
+    assert_equal "",   q.good
+    assert_equal [],   q.bads
+    assert_equal [],   q.matching
+    assert_equal [],   q.shorts
+    assert_equal true, q.shuffle?
+    q.shuffle_off
+    assert_equal false, q.shuffle?
+    q.shuffle_on
+    assert_equal true,  q.shuffle?
   end
 
   def test_boolean
@@ -51,19 +56,25 @@ class QuestionTest < Minitest::Test
     assert_equal "my name 1", q.name
     assert_equal "my comment 1", q.comment
     assert_equal "my text 1", q.text
-    assert_equal :boolean, q.type
-    assert_equal true, q.good
+    assert_equal :boolean,    q.type
+    assert_equal true,        q.good
+    assert_equal true,        q.shuffle?
+    q.shuffle_off
+    assert_equal false,       q.shuffle?
 
     q.reset
 
-    assert_equal "", q.name
-    assert_equal "", q.comment
-    assert_equal "", q.text
+    assert_equal "",    q.name
+    assert_equal "",    q.comment
+    assert_equal "",    q.text
     assert_equal :choice, q.type
-    assert_equal "", q.good
-    assert_equal [], q.bads
-    assert_equal [], q.matching
-    assert_equal [], q.shorts
+    assert_equal "",    q.good
+    assert_equal [],    q.bads
+    assert_equal [],    q.matching
+    assert_equal [],    q.shorts
+    assert_equal true,  q.shuffle?
+    q.shuffle_off
+    assert_equal false, q.shuffle?
   end
 
   def test_choice
