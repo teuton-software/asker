@@ -7,22 +7,22 @@ require_relative 'text_actions'
 class Lang
   include TextActions
 
-  attr_accessor :locale
+  attr_reader :code
 
-  def initialize(locale='en')
-    @locale = locale.to_s
+  def initialize(code='en')
+    @code = code.to_s
     load_files
   end
 
   def lang
-    @locale
+    @code
   end
 
 private
 
   def load_files
     dirbase = File.dirname(__FILE__)
-    filename=File.join( dirbase, "locales", @locale ,"templates.yaml" )
+    filename=File.join( dirbase, "locales", @code ,"templates.yaml" )
     begin
       @templates=YAML::load(File.new(filename))
     rescue Exception => e
@@ -30,10 +30,10 @@ private
       Project.instance.verbose "[ADVISE] Perhaps you use apostrophe into string without \\ character\n"
       raise e
     end
-    filename=File.join( dirbase, "locales", @locale, "connectors.yaml" )
+    filename=File.join( dirbase, "locales", @code, "connectors.yaml" )
     @connectors=YAML::load(File.new(filename))
 
-    filename=File.join( dirbase, "locales", @locale, "mistakes.yaml" )
+    filename=File.join( dirbase, "locales", @code, "mistakes.yaml" )
     @mistakes=YAML::load(File.new(filename))
   end
 
