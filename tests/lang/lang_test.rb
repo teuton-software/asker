@@ -31,4 +31,41 @@ class LangTest < Minitest::Test
     end
   end
 
+  def test_text_with_connectors
+    text= %q{Hello, my name is Obiwan. I am a Jedi.}
+    t=@lang[:en].text_with_connectors(text)
+
+    assert_equal 2,    t[:lines].size
+
+    assert_equal 6,    t[:lines][0].size
+    assert_equal 0,    t[:lines][0][0]
+    assert_equal "my", t[:lines][0][1]
+    assert_equal 1,    t[:lines][0][2]
+    assert_equal 2,    t[:lines][0][3]
+    assert_equal 3,    t[:lines][0][4]
+    assert_equal ".",  t[:lines][0][5]
+
+    assert_equal 5,    t[:lines][1].size
+    assert_equal "I",  t[:lines][1][0]
+    assert_equal 4,    t[:lines][1][1]
+    assert_equal "a",  t[:lines][1][2]
+    assert_equal 5,    t[:lines][1][3]
+    assert_equal ".",  t[:lines][1][4]
+
+    assert_equal 6,    t[:words].size
+    assert_equal "Hello,", t[:words][0][:word]
+    assert_equal "name",   t[:words][1][:word]
+    assert_equal "is",     t[:words][2][:word]
+    assert_equal "Obiwan", t[:words][3][:word]
+    assert_equal "am",     t[:words][4][:word]
+    assert_equal "Jedi",   t[:words][5][:word]
+
+    t2 = @lang[:en].build_text_from_filtered(t, [0,1,2,3])
+    puts t2
+
+    t2 = @lang[:en].build_text_from_filtered(t, [2,3,4,5])
+    puts t2
+  end
+
+
 end

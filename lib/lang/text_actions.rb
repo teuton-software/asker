@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require 'pry'
+
 module TextActions
 
   def text_for(pOption, pText1="",pText2="",pText3="",pText4="",pText5="",pText6="",pText7="")
@@ -51,19 +53,20 @@ module TextActions
   end
 
   def build_text_from_filtered( pStruct, pIndexes)
-    lines = pStruct[:lines]
+    lines    = pStruct[:lines]
+    lIndexes = pIndexes.sort
+    counter  = 1
+    lText    = ""
 
-    lText=""
     lines.each do |line|
       line.each do |value|
         if value.class==String
           lText+=" "+value
         elsif value.class==Fixnum
-          if pIndexes.include? value then
-            lText+=" [#{value.to_s}]"
+          if lIndexes.include? value then
+            lText   += " [#{counter.to_s}]"
+            counter += 1
           else
-            #lrow = pStruct[:words][value][:row]
-            #lcol = pStruct[:words][value][:col]
             lword = pStruct[:words][value][:word]
             lText+=" "+lword
           end

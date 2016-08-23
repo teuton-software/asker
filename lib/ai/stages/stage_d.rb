@@ -125,11 +125,13 @@ class StageD < BaseStage
           flag=false if words[i].include?("[") or words[i].include?("]") or words[i].include?("(") or words[i].include?(")") or words[i].include?("\"")
           indexes << i if flag
         end
-        indexes=indexes.to_a
+        indexes=indexes.to_a.sort
 
         s=lang.build_text_from_filtered( filtered, indexes )
         q.text=random_image_for(name) + lang.text_for(:d4, name , s)
-        indexes.each { |value| q.matching << [ filtered[:words][value][:word].downcase, value.to_s ] }
+        indexes.each_with_index do |value,index|
+          q.matching << [ (index+1).to_s, filtered[:words][value][:word].downcase ]
+        end
         questions << q
       end
     end
