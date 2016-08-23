@@ -40,20 +40,20 @@ class TableTest < Minitest::Test
     id   = @concepts[0].name + "." + name
     table = @tables[0]
 
-    assert_equal name,  table.name
-    assert_equal id,    table.id
-    assert_equal 2,     table.langs.size
-    assert_equal 'en',  table.langs[0].lang
-    assert_equal 'en',  table.langs[0].locale
-    assert_equal 'en',  table.langs[1].lang
-    assert_equal 'en',  table.langs[1].locale
-    assert_equal false, table.sequence?
-    assert_equal 0,     table.sequence.size
-    assert_equal [],    table.sequence
+    assert_equal name,   table.name
+    assert_equal id,     table.id
+    assert_equal 2,      table.langs.size
+    assert_equal 'en',   table.langs[0].lang
+    assert_equal 'en',   table.langs[0].code
+    assert_equal 'en',   table.langs[1].lang
+    assert_equal 'en',   table.langs[1].code
+    assert_equal false,  table.sequence?
+    assert_equal 0,      table.sequence.size
+    assert_equal [],     table.sequence
     assert_equal 2,      table.types.size
     assert_equal 'text', table.types[0]
     assert_equal 'text', table.types[1]
-    assert_equal 2,     table.fields.size
+    assert_equal 2,      table.fields.size
     assert_equal ["attribute","value"], @tables[0].fields
   end
 
@@ -79,7 +79,7 @@ class TableTest < Minitest::Test
     assert_equal name,     table.name
     assert_equal 1,        table.langs.size
     assert_equal 'es',     table.langs[0].lang
-    assert_equal 'es',     table.langs[0].locale
+    assert_equal 'es',     table.langs[0].code
     assert_equal true,     table.sequence?
     assert_equal sequence, table.sequence
     assert_equal 1,        table.sequence.size
