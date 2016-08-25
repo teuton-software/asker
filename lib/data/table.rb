@@ -3,15 +3,20 @@
 require_relative 'row'
 
 class Table
-  attr_reader :name, :id, :fields
+  attr_reader :name, :id
+  attr_reader :fields, :langs, :types
   attr_reader :rowobjects
 
   def initialize(pConcept, pXMLdata)
     @concept = pConcept
 
     #read attributes from XML data
-    t = pXMLdata.attributes['sequence'].to_s || ""
-    @sequence = t.split(",")
+    @sequence = []
+    if pXMLdata.attributes['sequence'] then
+      t = pXMLdata.attributes['sequence'].to_s || ""
+      @sequence = t.split(",")
+      #puts "[DEPRECATED] sequence attr #{@name}"
+    end
 
     t = pXMLdata.attributes['fields'].to_s.strip.split(',')
     t.each { |i| i.strip! }

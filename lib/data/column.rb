@@ -8,8 +8,8 @@ class Column
     @index  = index
     @id     = pRow.id + "." + @index.to_s
     @raw    = ""
-    @lang   = pRow.langs[@index]
-    @type   = pRow.types[@index]
+    @lang   = @row.langs[@index]
+    @type   = @row.types[@index]
     @simple = { :lang => true, :type => true }
     read_data_from_xml(pXMLdata)
   end
@@ -36,13 +36,19 @@ private
 
     #read attributes from XML data
     if pXMLdata.attributes['lang'] then
-      @lang = LangFactory.instance.get( pXMLdata.attributes['lang'].strip )
-      @simple[:lang]= false if @lang.code!=@row.langs[@index].code
+      code = pXMLdata.attributes['lang'].strip
+      if code != @lang.code then
+        @lang = LangFactory.instance.get(code)
+        @simple[:lang]= false
+      end
     end
 
     if pXMLdata.attributes['type'] then
-      @type = pXMLdata.attributes['type'].strip
-      @simple[:type]= false if @type!=@row.types[@index]
+      type = pXMLdata.attributes['type'].strip
+      if type != @type then
+        @type = type
+        @simple[:type]= false
+      end
     end
   end
 

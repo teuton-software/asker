@@ -58,23 +58,45 @@ class ColumnTest < Minitest::Test
       ]
 
     table = @concepts[0].tables[0]
+    table.rowobjects.each_with_index do |row, rowindex|
+      assert_equal true, row.simple[:type]
+      assert_equal true, row.simple[:lang]
 
-    assert_equal r.size, table.rowobjects.size
-
-    table.rowobjects.each_with_index do |row,index|
-      assert_equal index,         row.index
-      assert_equal r[index],      row.raws
-      assert_equal r[index].size, row.columns.size
-      assert_equal r[index][0],   row.columns[0].raw
-      assert_equal r[index][1],   row.columns[1].raw
+      row.columns.each_with_index do |column, colindex|
+        assert_equal r[rowindex][colindex], column.raw
+        assert_equal true,   column.simple[:type]
+        assert_equal "text", column.type
+        binding.pry
+        assert_equal true,   column.simple[:lang]
+        assert_equal "es" ,  column.lang.code
+      end
     end
   end
 
   def test_rows_table_1
-    r=[ ['The Phantom Menace'], ['Attack of the Clones'], ['Revenge of the Sith'],
-        ['A New Hope'], ['The Empire Strikes Back'], ['Return of the Jedi'],
-        ['The Force Awakens']
+    r=[ ['La amenaza fantasma'],
+        ['El ataque de los clones'],
+        ['La  venganza de los Sith'],
+        ['Una nueva esperanza'],
+        ['El imperio contraataca'],
+        ['El retorno del Jedi'],
+        ['El despartar de la fuerza']
       ]
+    table = @concepts[0].tables[1]
+
+    table.rowobjects.each_with_index do |row, rowindex|
+      assert_equal true, row.simple[:type]
+      assert_equal false, row.simple[:lang]
+
+      row.columns.each_with_index do |column, colindex|
+        assert_equal r[rowindex][colindex], column.raw
+        assert_equal true,   column.simple[:type]
+        assert_equal "text", column.type
+        binding.pry
+        assert_equal true,   column.simple[:lang]
+        assert_equal "es" ,  column.lang.code
+      end
+    end
   end
 
 end

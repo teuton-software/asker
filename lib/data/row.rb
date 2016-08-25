@@ -3,17 +3,19 @@
 require_relative 'column'
 
 class Row
-  attr_reader :table, :index, :id, :langs, :types, :raws, :columns
+  attr_reader :table, :index, :id
+  attr_reader :langs, :types, :raws, :columns
+  attr_reader :simple
 
   def initialize( pTable, index, pXMLdata )
     @table   = pTable
     @index   = index
     @id      = @table.id + "." + @index.to_s
-    @langs   = [ @table.langs ] * @table.fields.size
-    @types   = [ "text" ] * @table.fields.size
+    @langs   = @table.langs
+    @types   = @table.types
     @raws    = []
     @columns = []
-
+    @simple  = { :lang => true, :type => true }
     read_data_from_xml(pXMLdata)
   end
 
@@ -30,12 +32,20 @@ private
         case i.name
         when 'lang'
           j = i.text.split(",")
-          @langs = []
-          j.each { |k| @langs << LangFactory.instance.get(k.strip.to_s) }
+          codes = @langs.map {|i| i.code  }
+
+          if j.join(",")!=codes.join(",")
+            @langs = []
+            j.each { |k| @langs << LangFactory.instance.get(k.strip.to_s) }
+            @simple[:lang]=false
+          end
         when 'type'
           j = i.text.split(",")
-          @types = []
-          j.each { |k| @types << k.strip.to_s }
+          if j.join(",")!=@types.join(",") then
+            @types = []
+            j.each { |k| @types << k.strip.to_s }
+            @simple[:type]=false
+          end
         when 'col' # When row tag has several columns, we add every value to the array
           #Column Objects
           @columns << Column.new( self, @raws.size, i)
