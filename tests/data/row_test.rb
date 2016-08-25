@@ -15,19 +15,7 @@ class RowTest < Minitest::Test
       <concept>
         <names>Concept1</names>
         <tags>tag,for,concept,1</tags>
-      </concept>
-    </map>
-    }
-    @concepts = []
-    root_xml_data=REXML::Document.new(string_concept)
-    root_xml_data.root.elements.each do |xml_data|
-      if xml_data.name=="concept" then
-        @concepts << Concept.new( xml_data, "input.haml")
-      end
-    end
 
-    string_table = %q{
-      <concept>
         <table fields='attribute, value'>
           <row>
             <col>race</col>
@@ -54,15 +42,16 @@ class RowTest < Minitest::Test
           <row>The Force Awakens</row>
         </table>
       </concept>
+    </map>
     }
-
-    @tables=[]
-    root_xml_data=REXML::Document.new(string_table)
+    @concepts = []
+    root_xml_data=REXML::Document.new(string_concept)
     root_xml_data.root.elements.each do |xml_data|
-      if xml_data.name=="table" then
-        @tables << Table.new( @concepts[0], xml_data)
+      if xml_data.name=="concept" then
+        @concepts << Concept.new( xml_data, "input.haml")
       end
     end
+
   end
 
   def test_rows_table_0
@@ -70,11 +59,12 @@ class RowTest < Minitest::Test
          [ 'laser sabel color' ,'green' ],
          [ 'hair color'        ,'red'   ]
       ]
+    table = @concepts[0].tables[0]
 
-    assert_equal r.size, @tables[0].rowobjects.size
+    assert_equal r.size, table.rowobjects.size
 
-    @tables[0].rowobjects.each_with_index do |row,index|
-      assert_equal @tables[0].id, row.table.id
+    table.rowobjects.each_with_index do |row,index|
+      assert_equal table.id, row.table.id
       id = row.table.id+"."+row.index.to_s
       assert_equal id,            row.id
       assert_equal index,         row.index
@@ -82,6 +72,9 @@ class RowTest < Minitest::Test
       assert_equal r[index].size, row.columns.size
       assert_equal r[index][0],   row.columns[0].raw
       assert_equal r[index][1],   row.columns[1].raw
+
+      assert_equal true, row.simple[:type]
+      assert_equal true, row.simple[:lang]
     end
   end
 
@@ -90,17 +83,21 @@ class RowTest < Minitest::Test
         ['A New Hope'], ['The Empire Strikes Back'], ['Return of the Jedi'],
         ['The Force Awakens']
       ]
-      assert_equal r.size, @tables[1].rowobjects.size
+    table = @concepts[0].tables[1]
+    assert_equal r.size, table.rowobjects.size
 
-      @tables[1].rowobjects.each_with_index do |row,index|
-        assert_equal @tables[1].id, row.table.id
-        id = row.table.id+"."+row.index.to_s
-        assert_equal id,            row.id
-        assert_equal index,         row.index
-        assert_equal r[index],      row.raws
-        assert_equal r[index].size, row.columns.size
-        assert_equal r[index][0],   row.columns[0].raw
-      end
+    table.rowobjects.each_with_index do |row,index|
+      assert_equal table.id, row.table.id
+      id = row.table.id+"."+row.index.to_s
+      assert_equal id,            row.id
+      assert_equal index,         row.index
+      assert_equal r[index],      row.raws
+      assert_equal r[index].size, row.columns.size
+      assert_equal r[index][0],   row.columns[0].raw
+
+      assert_equal true, row.simple[:type]
+      assert_equal true, row.simple[:lang]
+    end
   end
 
 end

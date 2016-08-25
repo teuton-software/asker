@@ -53,6 +53,15 @@ private
         end
       end
     end
+
+    if @simple[:lang] then
+      @columns.each { |c|  @simple[:lang]=@simple[:lang] && c.simple[:lang] }
+
+    end
+    if @simple[:type] then
+      @columns.each { |c|  @simple[:type]=@simple[:type] && c.simple[:type] }
+    end
+
   end
 
 end
