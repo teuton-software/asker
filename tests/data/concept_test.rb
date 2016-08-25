@@ -9,10 +9,11 @@ class ConceptTest < Minitest::Test
   def setup
     string_data = get_xml_data
     @concept=[]
+    @context = [ 'character', 'starwars']
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name=="concept" then
-        @concept << Concept.new(xml_data, "input.haml", "en", [])
+        @concept << Concept.new(xml_data, "input.haml", "en", @context)
       end
     end
   end
@@ -37,6 +38,18 @@ class ConceptTest < Minitest::Test
     lTags = [ 'teacher', 'jedi' ]
     assert_equal lTags.size, @concept[1].tags.size
     assert_equal lTags, @concept[1].tags
+  end
+
+  def test_context
+    assert_equal @context.size, @concept[0].context.size
+    assert_equal @context,      @concept[0].context
+    assert_equal @context.size, @concept[0].contexts.size
+    assert_equal @context,      @concept[0].contexts
+
+    assert_equal @context.size, @concept[1].context.size
+    assert_equal @context,      @concept[1].context
+    assert_equal @context.size, @concept[1].contexts.size
+    assert_equal @context,      @concept[1].contexts
   end
 
   def test_texts
@@ -81,8 +94,8 @@ class ConceptTest < Minitest::Test
   end
 
   def test_calculate_nearest_to_concept
-    assert_equal 28.571428571428573, @concept[0].calculate_nearness_to_concept(@concept[1])
-    assert_same 66.66666666666667, @concept[1].calculate_nearness_to_concept(@concept[0])
+    assert_equal 44.44444444444444, @concept[0].calculate_nearness_to_concept(@concept[1])
+    assert_equal 80.0             , @concept[1].calculate_nearness_to_concept(@concept[0])
   end
 
   def get_xml_data

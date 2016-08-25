@@ -99,6 +99,10 @@ class Concept
     end
   end
 
+  def contexts
+    return @data[:context]
+  end
+
   def method_missing(m, *args, &block)
     return @data[m]
   end
