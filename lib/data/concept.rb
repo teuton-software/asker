@@ -9,8 +9,9 @@ require_relative 'table'
 
 class Concept
 
-  attr_reader :id, :data, :questions
-  attr_reader :lang
+  attr_reader :id
+  attr_reader :lang, :context
+  attr_reader :data, :questions
   attr_accessor :process
 
   @@id=0
@@ -26,12 +27,12 @@ class Concept
     @data[:filename]=pFilename
     @data[:names]=[]
     if pContext.class==Array then
-      @data[:context]=pContext
+      @context=pContext
     elsif pContext.nil? then
-      @data[:context]=[]
+      @context=[]
     else
-      @data[:context]=pContext.split(",")
-      @data[:context].collect! { |i| i.strip }
+      @context=pContext.split(",")
+      @context.collect! { |i| i.strip }
     end
     @data[:tags]=[]
     @data[:texts]=[]
@@ -68,14 +69,14 @@ class Concept
   def calculate_nearness_to_concept(other)
     weights=Project.instance.formula_weights
 
-    liMax1=@data[:context].count
+    liMax1=@context.count
     liMax2=@data[:tags].count
     liMax3=@data[:tables].count
 
     lfAlike1=lfAlike2=lfAlike3=0.0
 
     #check if exists this items from concept1 into concept2
-    @data[:context].each { |i| lfAlike1+=1.0 if !other.context.index(i).nil? }
+    @context.each { |i| lfAlike1+=1.0 if !other.context.index(i).nil? }
     @data[:tags].each { |i| lfAlike2+=1.0 if !other.tags.index(i).nil? }
     @data[:tables].each { |i| lfAlike3+=1.0 if !other.tables.index(i).nil? }
 
@@ -99,10 +100,6 @@ class Concept
     end
   end
 
-  def contexts
-    return @data[:context]
-  end
-
   def method_missing(m, *args, &block)
     return @data[m]
   end
@@ -119,8 +116,8 @@ private
         #DEPRECATED: Don't use xml tag <context> instead define it as attibute of root xml tag
         msg="   │  "+Rainbow(" [DEPRECATED] Concept ").yellow+Rainbow(name).yellow.bright+Rainbow(" use XMLtag <context>. Instead define it as root attibute.").yellow
         Project.instance.verbose msg
-        @data[:context]=i.text.split(",")
-        @data[:context].collect! { |k| k.strip }
+        @context=i.text.split(",")
+        @context.collect! { |k| k.strip }
       when 'tags'
         @data[:tags]=i.text.split(",")
         @data[:tags].collect! { |k| k.strip }

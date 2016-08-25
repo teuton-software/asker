@@ -14,7 +14,7 @@ class World
       if concept.process then
         @concepts << concept
         @filenames << concept.filename
-        @contexts << concept.contexts
+        @contexts << concept.context
       end
     end
     @filenames.uniq!
@@ -23,7 +23,7 @@ class World
     threads = []
     @concepts.each do |c|
       print(".") if show_progress
-      filter = [ c.name ] + c.contexts
+      filter = [ c.name ] + c.context
       threads << Thread.new { @image_urls[c.name] = ImageUrlLoader::load(filter) }
     end
     @contexts.each do |filter|

@@ -43,13 +43,9 @@ class ConceptTest < Minitest::Test
   def test_context
     assert_equal @context.size, @concept[0].context.size
     assert_equal @context,      @concept[0].context
-    assert_equal @context.size, @concept[0].contexts.size
-    assert_equal @context,      @concept[0].contexts
 
     assert_equal @context.size, @concept[1].context.size
     assert_equal @context,      @concept[1].context
-    assert_equal @context.size, @concept[1].contexts.size
-    assert_equal @context,      @concept[1].contexts
   end
 
   def test_texts
