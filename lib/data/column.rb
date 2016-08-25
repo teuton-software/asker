@@ -1,16 +1,16 @@
 # encoding: utf-8
 
 class Column
-  attr_reader :row, :index, :id, :raw, :lang, :type
+  attr_reader :row, :index, :id, :raw, :lang, :type, :simple
 
   def initialize( pRow, index, pXMLdata )
-    @row   = pRow
-    @index = index
-    @id    = pRow.id + "." + @index.to_s
-    @raw   = ""
-    @lang  = pRow.langs[@index]
-    @type  = "text"
-
+    @row    = pRow
+    @index  = index
+    @id     = pRow.id + "." + @index.to_s
+    @raw    = ""
+    @lang   = pRow.langs[@index]
+    @type   = pRow.types[@index]
+    @simple = { :lang => true, :type => true }
     read_data_from_xml(pXMLdata)
   end
 
@@ -37,10 +37,12 @@ private
     #read attributes from XML data
     if pXMLdata.attributes['lang'] then
       @lang = LangFactory.instance.get( pXMLdata.attributes['lang'].strip )
+      @simple[:lang]= false if @lang.code!=@row.langs[@index].code
     end
 
     if pXMLdata.attributes['type'] then
       @type = pXMLdata.attributes['type'].strip
+      @simple[:type]= false if @type!=@row.types[@index]
     end
   end
 

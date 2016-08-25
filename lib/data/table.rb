@@ -3,7 +3,7 @@
 require_relative 'row'
 
 class Table
-  attr_reader :name, :id, :fields, :types
+  attr_reader :name, :id, :fields
   attr_reader :rowobjects
 
   def initialize(pConcept, pXMLdata)

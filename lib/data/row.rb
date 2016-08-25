@@ -8,9 +8,9 @@ class Row
   def initialize( pTable, index, pXMLdata )
     @table   = pTable
     @index   = index
-    @id      = pTable.id + "." + @index.to_s
-    @langs   = []
-    @types   = []
+    @id      = @table.id + "." + @index.to_s
+    @langs   = [ @table.langs ] * @table.fields.size
+    @types   = [ "text" ] * @table.fields.size
     @raws    = []
     @columns = []
 
@@ -32,6 +32,10 @@ private
           j = i.text.split(",")
           @langs = []
           j.each { |k| @langs << LangFactory.instance.get(k.strip.to_s) }
+        when 'type'
+          j = i.text.split(",")
+          @types = []
+          j.each { |k| @types << k.strip.to_s }
         when 'col' # When row tag has several columns, we add every value to the array
           #Column Objects
           @columns << Column.new( self, @raws.size, i)
