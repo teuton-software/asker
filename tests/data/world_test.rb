@@ -10,11 +10,12 @@ class WorldTest < Minitest::Test
 
   def setup
     string_data = get_xml_data
-    @concepts=[]
+    @concepts = []
+    @context  = ['character', 'starwars']
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name=="concept" then
-        c = Concept.new(xml_data, "input.haml", "en", ['character', 'starwars'])
+        c = Concept.new(xml_data, "input.haml", "en", @context)
         c.process = true
         @concepts << c
       end
@@ -25,14 +26,13 @@ class WorldTest < Minitest::Test
 
   def test_concepts
     assert_equal 2, @world.concepts.size
-    assert_equal "obiwan", @world.concepts[0]
-    assert_equal "yoda", @world.concepts[1]
+    assert_equal "obiwan", @world.concepts[0].name
+    assert_equal "yoda",   @world.concepts[1].name
   end
 
   def test_contexts
-    assert_equal 2, @world.contexts.size
-    assert_equal "character", @world.contexts[0]
-    assert_equal "starwars", @world.contexts[1]
+    assert_equal 1,        @world.contexts.size
+    assert_equal @context, @world.contexts[0]
   end
 
   def test_filenames
@@ -44,8 +44,8 @@ class WorldTest < Minitest::Test
     keys   = @world.image_urls.keys
     values = @world.image_urls.values
 
-    assert_equal 4, keys.size
-    assert_equal 4, values.size
+    assert_equal 3, keys.size
+    assert_equal 3, values.size
 
     keys.each { |key| assert_equal String, key.class }
     values.each do |value|

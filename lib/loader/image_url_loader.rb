@@ -14,10 +14,14 @@ module ImageUrlLoader
       r = [ "-", "_", "," ]
       r.each { |item| i.gsub!(item, " ")}
       filters += i.split(" ")
+    elsif input.class==Array then
+      filters = input.clone
+      filters.flatten!
+    else
+      raise "[ERROR] ImageUrlLoader: Unkown type #{input.class.to_s}"
     end
     #Search Image URLs from Google site, selected by <filters>
     search_url="https://www.google.es/search?q=#{filters.join("+").to_s}&source=lnms&tbm=isch&sa=X&ved=0ahUKEwie9ruF5KLOAhXCOBQKHY-QBTcQ_AUICCgB&biw=1366&bih=643"
-
     image_urls = []
     begin
       uri = URI.parse(search_url)

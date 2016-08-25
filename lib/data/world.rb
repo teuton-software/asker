@@ -12,19 +12,23 @@ class World
     @image_urls = {}
     concepts.each do |concept|
       if concept.process then
-        @concepts << concept.name
+        @concepts << concept
         @filenames << concept.filename
-        @contexts += concept.context
+        @contexts << concept.contexts
       end
     end
     @filenames.uniq!
     @contexts.uniq!
 
-    list = @concepts + @contexts
     threads = []
-    list.each do |name|
+    @concepts.each do |c|
       print(".") if show_progress
-      threads << Thread.new { @image_urls[name] = ImageUrlLoader::load(name) }
+      filter = [ c.name ] + c.contexts
+      threads << Thread.new { @image_urls[c.name] = ImageUrlLoader::load(filter) }
+    end
+    @contexts.each do |filter|
+      print(".") if show_progress
+      threads << Thread.new { @image_urls[ filter.join(".").to_s ] = ImageUrlLoader::load(filter) }
     end
     threads.each { |t| t.join } #wait for all threads to finish
     print("\n") if show_progress

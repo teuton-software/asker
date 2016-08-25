@@ -8,6 +8,8 @@ require_relative 'project_test'
 require_relative 'lang/lang_test'
 require_relative 'lang/lang_factory_test'
 
+require_relative 'loader/image_url_loader_test'
+
 require_relative 'data/concept_test'
 require_relative 'data/table_test'
 require_relative 'data/row_test'
