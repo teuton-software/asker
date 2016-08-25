@@ -25,6 +25,7 @@ class Table
     @name  = ""
     @fields.each { |i| @name=@name+"$"+i.to_s.strip.downcase}
     @id    = @concept.name.to_s + "." + @name
+    @simple = { :lang => true, :type => true }
 
     @rowobjects = [] #DEV experiment replace row data with row objects
     read_data_from_xml(pXMLdata)
@@ -62,6 +63,10 @@ class Table
     @types = ( ["text"]*@fields.size) if @types.nil?
     return @types if index==:all
     return @types[index]
+  end
+
+  def simple_off(option)
+    @simple[option]=false
   end
 
 private

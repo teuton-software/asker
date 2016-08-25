@@ -19,6 +19,11 @@ class Row
     read_data_from_xml(pXMLdata)
   end
 
+  def simple_off(option)
+    @simple[option]=false
+    @table.simple_off(option)
+  end
+
 private
 
   def read_data_from_xml(pXMLdata)
@@ -53,15 +58,6 @@ private
         end
       end
     end
-
-    if @simple[:lang] then
-      @columns.each { |c|  @simple[:lang]=@simple[:lang] && c.simple[:lang] }
-
-    end
-    if @simple[:type] then
-      @columns.each { |c|  @simple[:type]=@simple[:type] && c.simple[:type] }
-    end
-
   end
 
 end

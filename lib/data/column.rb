@@ -40,6 +40,7 @@ private
       if code != @lang.code then
         @lang = LangFactory.instance.get(code)
         @simple[:lang]= false
+        @row.simple_off(:lang)
       end
     end
 
@@ -48,6 +49,7 @@ private
       if type != @type then
         @type = type
         @simple[:type]= false
+        @row.simple_off(:type)
       end
     end
   end
