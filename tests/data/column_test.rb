@@ -67,16 +67,20 @@ class ColumnTest < Minitest::Test
     ]
 
     table = @concepts[0].tables[0]
+    assert_equal true, table.simple[:type]
+    assert_equal true, table.simple[:lang]
+
     table.rowobjects.each_with_index do |row, rowindex|
       assert_equal true, row.simple[:type]
       assert_equal true, row.simple[:lang]
 
       row.columns.each_with_index do |column, colindex|
+        assert_equal colindex   , column.index
         assert_equal r[rowindex][colindex], column.raw
-        assert_equal true,   column.simple[:type]
-        assert_equal "text", column.type
-        assert_equal true,   column.simple[:lang]
-        assert_equal "en" ,  column.lang.code
+        assert_equal true       , column.simple[:type]
+        assert_equal "text"     , column.type
+        assert_equal true       , column.simple[:lang]
+        assert_equal "en"       , column.lang.code
       end
     end
   end
@@ -86,6 +90,8 @@ class ColumnTest < Minitest::Test
          [ 'hair color'        ,'rojo'   ]
       ]
     table = @concepts[0].tables[1]
+    assert_equal true, table.simple[:type]
+    assert_equal false, table.simple[:lang]
 
     simple=[ { :lang => true,  :type => true  },
              { :lang => false, :type => true  } ]
@@ -102,6 +108,7 @@ class ColumnTest < Minitest::Test
 
     table.rowobjects.each_with_index do |row, rowindex|
       row.columns.each_with_index do |column, colindex|
+        assert_equal colindex                         , column.index
         assert_equal r[rowindex][colindex]            , column.raw
         assert_equal simple[rowindex][:type][colindex], column.simple[:type]
         assert_equal "text"                           , column.type
@@ -117,17 +124,20 @@ class ColumnTest < Minitest::Test
         ['El retorno del Jedi']
       ]
     table = @concepts[0].tables[2]
+    assert_equal true  , table.simple[:type]
+    assert_equal false , table.simple[:lang]
 
     table.rowobjects.each_with_index do |row, rowindex|
-      assert_equal true, row.simple[:type]
-      assert_equal true, row.simple[:lang]
+      assert_equal true , row.simple[:type]
+      assert_equal true , row.simple[:lang]
 
       row.columns.each_with_index do |column, colindex|
+        assert_equal colindex   , column.index
         assert_equal r[rowindex][colindex], column.raw
-        assert_equal true,   column.simple[:type]
-        assert_equal "text", column.type
-        assert_equal true,   column.simple[:lang]
-        assert_equal "es" ,  column.lang.code
+        assert_equal true       , column.simple[:type]
+        assert_equal "text"     , column.type
+        assert_equal true       , column.simple[:lang]
+        assert_equal "es"       , column.lang.code
       end
     end
 
@@ -143,6 +153,7 @@ class ColumnTest < Minitest::Test
         assert_equal true, row.simple[:lang]
 
         row.columns.each_with_index do |column, colindex|
+          assert_equal colindex   , column.index
           assert_equal r[rowindex][colindex], column.raw
           assert_equal true,   column.simple[:type]
           assert_equal "text", column.type
