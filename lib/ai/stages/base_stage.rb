@@ -9,12 +9,10 @@ class BaseStage
     @concept_ai.name(option)
   end
 
-  def type
-    @concept_ai.type
-  end
-
-  def lang
-    @concept_ai.lang
+  # If a method we call is missing, pass the call onto
+  # the object we delegate to.
+  def method_missing(m, *args, &block)
+    @concept_ai.send(m, *args, &block)
   end
 
   def texts

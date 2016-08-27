@@ -24,6 +24,12 @@ class ConceptAITest < Minitest::Test
     concepts.each { |concept| @concepts_ai << ConceptAI.new(concept,world) }
   end
 
+  def test_concept_0_delegating
+      i=0
+      assert_equal "text", @concepts_ai[i].type
+      assert_equal "en",   @concepts_ai[i].lang.code
+  end
+
   def test_concept_0_make_questions
     i=0
     assert_equal( {}, @concepts_ai[i].questions)

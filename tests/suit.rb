@@ -19,6 +19,7 @@ require_relative 'data/data_field_test'
 
 require_relative 'ai/question_test'
 require_relative 'ai/concept_ai_test'
+require_relative 'ai/stages/base_stage_test'
 
 require_relative 'formatter/table_haml_formatter_test'
 require_relative 'formatter/concept_haml_formatter_test'
