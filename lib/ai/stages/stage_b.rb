@@ -11,6 +11,7 @@ class StageB < BaseStage
     #process table match
     questions = []
     return questions if pTable.fields.count<2
+    return questions unless type=="text"
 
     if pTable.fields.count>1 then
       questions += process_table_match2fields(pTable, pList1, pList2, 0, 1)

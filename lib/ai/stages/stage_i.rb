@@ -10,7 +10,8 @@ class StageI < BaseStage
   def run
     #Stage I: process every image from <def> tag
     questions=[]
-
+    return questions unless type=="text"
+    
     #for every <image> do this
     images.each do |url|
       s=Set.new [name, lang.text_for(:none)]
