@@ -23,11 +23,15 @@ class ConceptTest < Minitest::Test
   end
 
   def test_names
-    assert_equal "obiwan", @concept[0].name
-    assert_equal "obiwan", @concept[0].names[0]
+    assert_equal "obiwan" , @concept[0].name
 
-    assert_equal "yoda", @concept[1].name
-    assert_equal "yoda", @concept[1].names[0]
+    assert_equal 2        , @concept[0].names.size
+    assert_equal "obiwan" , @concept[0].names[0]
+    assert_equal "obi-wan", @concept[0].names[1]
+
+    assert_equal 1        , @concept[1].names.size
+    assert_equal "yoda"   , @concept[1].name
+    assert_equal "yoda"   , @concept[1].names[0]
   end
 
   def test_tags
@@ -99,7 +103,7 @@ class ConceptTest < Minitest::Test
     <map lang='en' context='character, starwars' version='1'>
 
       <concept>
-        <names>obiwan</names>
+        <names>obiwan, obi-wan</names>
         <tags>jedi, teacher, annakin, skywalker, pupil, quigon-jinn</tags>
         <def>Jedi, teacher of Annakin  Skywalker</def>
         <def>Jedi, pupil of Quigon-Jinn</def>

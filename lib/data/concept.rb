@@ -9,23 +9,20 @@ require_relative 'table'
 
 class Concept
 
-  attr_reader :id
-  attr_reader :lang, :context
-  attr_reader :data, :questions
+  attr_reader :id, :lang, :context
+  attr_reader :names
+  attr_reader :data
   attr_accessor :process
 
   @@id=0
 
-  def initialize(pXMLdata, pFilename, pLang="en", pContext=[])
+  def initialize(pXMLdata, pFilename, langCode="en", pContext=[])
     @@id+=1
     @id=@@id
 
-    @lang=LangFactory.instance.get(pLang)
+    @lang=LangFactory.instance.get(langCode)
     @process=false
 
-    @data={}
-    @data[:filename]=pFilename
-    @data[:names]=[]
     if pContext.class==Array then
       @context=pContext
     elsif pContext.nil? then
@@ -34,6 +31,11 @@ class Concept
       @context=pContext.split(",")
       @context.collect! { |i| i.strip }
     end
+    @names=[]
+
+    @data={}
+    @data[:filename]=pFilename
+
     @data[:tags]=[]
     @data[:texts]=[]
     @data[:images]=[] #TODO: By now, We'll treat images separated from texts
@@ -46,7 +48,7 @@ class Concept
   end
 
   def name
-    return @data[:names][0] || 'concept'+@@id.to_s
+    return @names[0] || 'concept.'+@@id.to_s
   end
 
   def text
@@ -111,7 +113,7 @@ private
       case i.name
       when 'names'
         j=i.text.split(",")
-        j.each { |k| @data[:names] << k.strip }
+        j.each { |k| @names << k.strip }
       when 'context'
         #DEPRECATED: Don't use xml tag <context> instead define it as attibute of root xml tag
         msg="   │  "+Rainbow(" [DEPRECATED] Concept ").yellow+Rainbow(name).yellow.bright+Rainbow(" use XMLtag <context>. Instead define it as root attibute.").yellow
