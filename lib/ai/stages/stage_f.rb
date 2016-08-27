@@ -7,6 +7,7 @@ class StageF < BaseStage
 
   def run(pTable, pList1, pList2)
     #process_table1field
+
     questions = []
     return questions if pTable.fields.count>1
 
@@ -20,25 +21,26 @@ class StageF < BaseStage
         e = [ e1, e2, e3, e4 ]
         e.shuffle!
         q=Question.new(:choice)
-        q.name="#{name}-#{num.to_s}-f1true-#{pTable.name}"
-        q.text = random_image_for(name) + lang.text_for(:f1, name, pTable.fields[0].capitalize, e.join("</li><li>") )
+        q.name="#{name(:id)}-#{num.to_s}-f1true-#{pTable.name}"
+        q.text = random_image_for(name(:raw)) + lang.text_for(:f1, name(:decorated), pTable.fields[0].capitalize, e.join("</li><li>") )
         q.good =  lang.text_for(:true)
         q.bads << lang.text_for(:misspelling)
         q.bads << lang.text_for(:false)
         questions << q
 
+        #TODO if type="text"
         q=Question.new(:short)
-        q.name="#{name}-#{num.to_s}-f1short-#{pTable.name}"
-        q.text = random_image_for(name) + lang.text_for(:f1, lang.hide_text(name), pTable.fields[0].capitalize, e.join("</li><li>") )
-        q.shorts << name
-        q.shorts << name.gsub("-"," ").gsub("_"," ")
+        q.name="#{name(:id)}-#{num.to_s}-f1short-#{pTable.name}"
+        q.text = random_image_for(name(:raw)) + lang.text_for(:f1, lang.hide_text(name(:raw)), pTable.fields[0].capitalize, e.join("</li><li>") )
+        q.shorts << name(:raw)
+        q.shorts << name(:raw).gsub("-"," ").gsub("_"," ")
         questions << q
 
         e.shuffle!
         e[0] = lang.do_mistake_to(e[0])
         q=Question.new(:choice)
-        q.name="#{name}-#{num.to_s}-f1mispelled-#{pTable.name}"
-        q.text = random_image_for(name) + lang.text_for(:f1, name, pTable.fields[0].capitalize, e.join("</li><li>") )
+        q.name="#{name(:id)}-#{num.to_s}-f1mispelled-#{pTable.name}"
+        q.text = random_image_for(name(:raw)) + lang.text_for(:f1, name(:decorated), pTable.fields[0].capitalize, e.join("</li><li>") )
         q.good =  lang.text_for(:misspelling)
         q.bads << lang.text_for(:true)
         q.bads << lang.text_for(:false)
@@ -58,8 +60,8 @@ class StageF < BaseStage
         e.shuffle!
 
         q=Question.new(:choice)
-        q.name="#{name}-#{num.to_s}-f1false-#{pTable.name}"
-        q.text = random_image_for(name) + lang.text_for(:f1, name, pTable.fields[0].capitalize, e.join("</li><li>"))
+        q.name="#{name(:id)}-#{num.to_s}-f1false-#{pTable.name}"
+        q.text = random_image_for(name(:raw)) + lang.text_for(:f1, name(:decorated), pTable.fields[0].capitalize, e.join("</li><li>"))
         q.good =  lang.text_for(:false)
         q.bads << lang.text_for(:misspelling)
         q.bads << lang.text_for(:true)

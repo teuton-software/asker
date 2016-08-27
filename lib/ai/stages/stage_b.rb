@@ -59,7 +59,9 @@ class StageB < BaseStage
 
     if pList1.count>2 and pList2.count>0 then
       s=Set.new
-      pList1.each { |i| s.add( i[:data][pIndex1]+"<=>"+i[:data][pIndex2] ) }
+      pList1.each do |i|
+        s.add( i[:data][pIndex1]+"<=>"+i[:data][pIndex2] )
+      end
       s.add( pList2[0][:data][pIndex1]+"<=>"+pList2[0][:data][pIndex2] )
       a=s.to_a
 

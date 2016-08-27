@@ -91,8 +91,8 @@ module TextActions
     return t.split(" ").count
   end
 
-  def do_mistake_to(pText)
-    lText=pText.dup
+  def do_mistake_to(pText="")
+    lText=pText.clone
     keys=@mistakes.keys
 
     keys.shuffle!
