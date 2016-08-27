@@ -30,10 +30,29 @@ class BaseStageTest < Minitest::Test
   def test_base_stage_0_delegating
       b = @base_stages[0]
       c = @concepts_ai[0]
-      assert_equal "text"      , b.type
-      assert_equal c.type      , b.type
-      assert_equal "en"        , b.lang.code
-      assert_equal c.lang.code , b.lang.code
+
+      assert_equal "text"            , b.type
+      assert_equal c.type            , b.type
+      assert_equal "en"              , b.lang.code
+      assert_equal c.lang.code       , b.lang.code
+      assert_equal c.name            , b.name
+      assert_equal c.name(:raw)      , b.name(:raw)
+      assert_equal c.name(:decorated), b.name(:decorated)
+      assert_equal c.name(:id)       , b.name(:id)
+  end
+
+  def test_base_stage_1_delegating
+      b = @base_stages[1]
+      c = @concepts_ai[1]
+
+      assert_equal "text"            , b.type
+      assert_equal c.type            , b.type
+      assert_equal "en"              , b.lang.code
+      assert_equal c.lang.code       , b.lang.code
+      assert_equal c.name            , b.name
+      assert_equal c.name(:raw)      , b.name(:raw)
+      assert_equal c.name(:decorated), b.name(:decorated)
+      assert_equal c.name(:id)       , b.name(:id)
   end
 
   def get_xml_data
