@@ -32,6 +32,8 @@ private
     else
       build_row_with_N_columns(pXMLdata)
     end
+
+    raise "[ERROR] Row: #{pXMLdata}" if @columns.size!=@table.fields.size
   end
 
   def build_row_with_1_column(pXMLdata)

@@ -8,14 +8,10 @@ module ImageUrlLoader
   def self.load(input=[])
     filters = []
     if input.class==String then
-      i = input.clone
-      r = [ ["á","a"], ["é","e"], ["í","i"], ["ó","o"], ["ú","u"], ["ñ","n"], ]
-      r.each { |item| i.gsub!(item[0], item[1]) }
-      r = [ "-", "_", "," ]
-      r.each { |item| i.gsub!(item, " ")}
-      filters += i.split(" ")
+      filters += sanitize_string( input.clone )
+      filters.flatten!
     elsif input.class==Array then
-      filters = input.clone
+      filters = sanitize_array( input.clone )
       filters.flatten!
     else
       raise "[ERROR] ImageUrlLoader: Unkown type #{input.class.to_s}"
@@ -37,6 +33,18 @@ module ImageUrlLoader
       Project.instance.verbose "[ERROR] ImageUrlLoader: #{search_url}"
     end
   return image_urls
+  end
+
+  def self.sanitize_string(input)
+    r = [ ["á","a"], ["é","e"], ["í","i"], ["ó","o"], ["ú","u"], ["ñ","n"], ]
+    r.each { |item| input.gsub!(item[0], item[1]) }
+    r = [ "-", "_", "," ]
+    r.each { |item| input.gsub!(item, " ")}
+    return input.split(" ")
+  end
+
+  def self.sanitize_array(input)
+    output = input.map { |i| sanitize_string(i) }
   end
 
 end
