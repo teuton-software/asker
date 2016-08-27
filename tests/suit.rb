@@ -15,6 +15,7 @@ require_relative 'data/concept_test'
 require_relative 'data/table_test'
 require_relative 'data/row_test'
 require_relative 'data/column_test'
+require_relative 'data/data_field_test'
 
 require_relative 'ai/question_test'
 require_relative 'ai/concept_ai_test'
