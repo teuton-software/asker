@@ -6,11 +6,12 @@ require 'rexml/document'
 require_relative '../project'
 require_relative '../lang/lang_factory'
 require_relative 'table'
+require_relative 'data_field'
 
 class Concept
 
   attr_reader :id, :lang, :context
-  attr_reader :names
+  attr_reader :names, :type, :filename
   attr_reader :data
   attr_accessor :process
 
@@ -20,8 +21,9 @@ class Concept
     @@id+=1
     @id=@@id
 
-    @lang=LangFactory.instance.get(langCode)
-    @process=false
+    @filename = pFilename
+    @process  = false
+    @lang     = LangFactory.instance.get(langCode)
 
     if pContext.class==Array then
       @context=pContext
@@ -31,11 +33,10 @@ class Concept
       @context=pContext.split(",")
       @context.collect! { |i| i.strip }
     end
-    @names=[]
+    @names = [ 'concept.'+@id.to_s ]
+    @type  = "text"
 
     @data={}
-    @data[:filename]=pFilename
-
     @data[:tags]=[]
     @data[:texts]=[]
     @data[:images]=[] #TODO: By now, We'll treat images separated from texts
@@ -47,8 +48,8 @@ class Concept
 	  read_data_from_xml(pXMLdata)
   end
 
-  def name
-    return @names[0] || 'concept.'+@@id.to_s
+  def name(option=:raw)
+    return @names[0]
   end
 
   def text
@@ -112,8 +113,10 @@ private
     pXMLdata.elements.each do |i|
       case i.name
       when 'names'
+        @names = []
         j=i.text.split(",")
         j.each { |k| @names << k.strip }
+        @type = i.attributes['type'].strip if i.attributes['type']
       when 'context'
         #DEPRECATED: Don't use xml tag <context> instead define it as attibute of root xml tag
         msg="   │  "+Rainbow(" [DEPRECATED] Concept ").yellow+Rainbow(name).yellow.bright+Rainbow(" use XMLtag <context>. Instead define it as root attibute.").yellow
