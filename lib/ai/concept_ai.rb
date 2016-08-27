@@ -24,8 +24,12 @@ class ConceptAI
     return @concept.lang
   end
 
-  def name
-    return @concept.name
+  def name(option=:raw)
+    return @concept.name(option)
+  end
+
+  def names
+    return @concept.names
   end
 
   def neighbours

@@ -5,8 +5,8 @@ class BaseStage
     @concept_ai=concept_ai
   end
 
-  def name
-    @concept_ai.name
+  def name(option=:raw)
+    @concept_ai.name(option)
   end
 
   def lang
