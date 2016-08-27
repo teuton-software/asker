@@ -39,6 +39,7 @@ class BaseStageTest < Minitest::Test
       assert_equal c.name(:id)       , b.name(:id)
       assert_equal c.texts           , b.texts
       assert_equal c.images          , b.images
+      assert_equal c.neighbors       , b.neighbors
   end
 
   def test_base_stage_1_delegating
@@ -53,6 +54,7 @@ class BaseStageTest < Minitest::Test
       assert_equal c.name(:id)       , b.name(:id)
       assert_equal c.texts           , b.texts
       assert_equal c.images          , b.images
+      assert_equal c.neighbors       , b.neighbors
   end
 
   def get_xml_data
