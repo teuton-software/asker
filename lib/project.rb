@@ -18,7 +18,7 @@ class Project
     @default[:locales]         = [ 'en', 'es', 'maths' ]
     @default[:show_mode]       = :default
     @default[:verbose]         = true
-    @default[:stages]          = { :d => true, :b => true, :c => true, :f => true, :i => true, :s => true }
+    @default[:stages]          = { :d => true, :b => true, :f => true, :i => true, :s => true, :t => true }
     @default[:threshold]       = 0.5
     @param   = {}
   end

@@ -1,9 +1,12 @@
 # encoding: utf-8
 
-module AI_stage_c
-  #range c1-c9
+require_relative 'base_stage'
+require_relative '../question'
 
-  def run_stage_c(pTable, pRow, pList) #process_tableXfields
+class StageT < BaseStage
+  #range t1-t9...c1-c9
+
+  def run(pTable, pRow, pList) #process_tableXfields
     questions = []
     if pTable.fields.count>1 then
       questions = questions + process_table2fields(pTable, pRow, pList, 0, 1)
@@ -19,6 +22,7 @@ module AI_stage_c
     return questions
   end
 
+private
   def process_table2fields(lTable, lRow, pList, pCol1, pCol2)
     questions = []
     #create gift questions

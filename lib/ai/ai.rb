@@ -2,18 +2,16 @@
 
 require 'set'
 
-require_relative 'ai_stage_c'
 require_relative 'stages/stage_d'
 require_relative 'stages/stage_b'
 require_relative 'stages/stage_f'
 require_relative 'stages/stage_i'
 require_relative 'stages/stage_s'
+require_relative 'stages/stage_t'
 
 require_relative 'ai_calculate'
 
 module AI
-  include AI_stage_c
-
   include AI_calculate
 
   def make_questions_from_ai
@@ -24,9 +22,9 @@ module AI
     @questions[:d] = StageD.new(self).run
     @questions[:i] = StageI.new(self).run
     @questions[:b] = []
-    @questions[:c] = []
     @questions[:f] = []
     @questions[:s] = []
+    @questions[:t] = []
 
     #-----------------------------------
     #Process every table of this concept
@@ -58,10 +56,10 @@ module AI
       #Stage B: process table to make match questions
       @questions[:b] += StageB.new(self).run(lTable, list1, list2)
       #-----------------------------
-      #Stage C: process_tableXfields
+      #Stage T: process_tableXfields
       list1.each do |lRow|
         reorder_list_with_row(list3, lRow)
-        @questions[:c] += run_stage_c(lTable, lRow, list3)
+        @questions[:t] += StageT.new(self).run(lTable, lRow, list3)
       end
 
       #--------------------------------------

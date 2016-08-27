@@ -31,10 +31,10 @@ class ConceptAITest < Minitest::Test
     @concepts_ai[i].make_questions_from_ai
     assert_equal 11, @concepts_ai[i].questions[:d].size
     assert_equal 0,  @concepts_ai[i].questions[:b].size
-    assert_equal 20, @concepts_ai[i].questions[:c].size
     assert_equal 0,  @concepts_ai[i].questions[:f].size
     assert_equal 0,  @concepts_ai[i].questions[:i].size
     assert_equal 0,  @concepts_ai[i].questions[:s].size
+    assert_equal 20, @concepts_ai[i].questions[:t].size
   end
 
   def test_concept_1_make_questions
@@ -44,10 +44,10 @@ class ConceptAITest < Minitest::Test
     @concepts_ai[i].make_questions_from_ai
     assert_equal 29, @concepts_ai[i].questions[:d].size
     assert_equal 2,  @concepts_ai[i].questions[:b].size
-    assert_equal 31, @concepts_ai[i].questions[:c].size
     assert_equal 0,  @concepts_ai[i].questions[:f].size
     assert_equal 0,  @concepts_ai[i].questions[:i].size
     assert_equal 0,  @concepts_ai[i].questions[:s].size
+    assert_equal 31, @concepts_ai[i].questions[:t].size
   end
 
   def test_concept_2_image_url
@@ -57,10 +57,10 @@ class ConceptAITest < Minitest::Test
     @concepts_ai[i].make_questions_from_ai
     assert_equal 0,  @concepts_ai[i].questions[:d].size
     assert_equal 0,  @concepts_ai[i].questions[:b].size
-    assert_equal 0,  @concepts_ai[i].questions[:c].size
     assert_equal 0,  @concepts_ai[i].questions[:f].size
     assert_equal 2,  @concepts_ai[i].questions[:i].size
     assert_equal 0,  @concepts_ai[i].questions[:s].size
+    assert_equal 0,  @concepts_ai[i].questions[:t].size
   end
 
   def test_concept_3_sequence
@@ -70,10 +70,10 @@ class ConceptAITest < Minitest::Test
     @concepts_ai[i].make_questions_from_ai
     assert_equal 0,  @concepts_ai[i].questions[:d].size
     assert_equal 0,  @concepts_ai[i].questions[:b].size
-    assert_equal 0,  @concepts_ai[i].questions[:c].size
     assert_equal 12,  @concepts_ai[i].questions[:f].size
     assert_equal 0,  @concepts_ai[i].questions[:i].size
     assert_equal 4,  @concepts_ai[i].questions[:s].size
+    assert_equal 0,  @concepts_ai[i].questions[:t].size
   end
 
   def get_xml_data
