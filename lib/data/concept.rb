@@ -49,7 +49,8 @@ class Concept
   end
 
   def name(option=:raw)
-    return @names[0]
+#    return @names[0]
+    return DataField.new(@names[0], @id, @type).get(option)
   end
 
   def text
