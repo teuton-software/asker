@@ -10,7 +10,7 @@ class ConceptScreenExporter
   def export
 	  project=Project.instance
     return if project.show_mode==:none
-    project.verbose "\n[INFO] Showing concept data <#{Rainbow(project.show_mode.to_s).bright}>..."
+    project.verbose "\n[INFO] Showing concept data <#{Rainbow(project.show_mode.to_s).bright}>"
 
     case project.show_mode
     when :resume
