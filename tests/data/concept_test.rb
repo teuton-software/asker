@@ -19,7 +19,7 @@ class ConceptTest < Minitest::Test
   end
 
   def test_id
-    assert_same @concept[0].id+1, @concept[1].id
+    assert_equal @concept[0].id+1, @concept[1].id
   end
 
   def test_names
@@ -32,6 +32,11 @@ class ConceptTest < Minitest::Test
     assert_equal 1        , @concept[1].names.size
     assert_equal "yoda"   , @concept[1].name
     assert_equal "yoda"   , @concept[1].names[0]
+  end
+
+  def test_type
+    assert_equal "text", @concept[0].type
+    assert_equal "text", @concept[1].type
   end
 
   def test_tags

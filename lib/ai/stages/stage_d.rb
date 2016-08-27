@@ -9,6 +9,7 @@ class StageD < BaseStage
   def run
     #Stage D: process every definition, I mean every <def> tag
     questions=[]
+    return if type!="text"
 
     #for every <text> do this
     texts.each do |t|

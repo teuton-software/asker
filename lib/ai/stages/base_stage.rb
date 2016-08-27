@@ -9,6 +9,10 @@ class BaseStage
     @concept_ai.name(option)
   end
 
+  def type
+    @concept_ai.type
+  end
+
   def lang
     @concept_ai.lang
   end

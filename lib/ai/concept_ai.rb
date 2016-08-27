@@ -28,6 +28,10 @@ class ConceptAI
     return @concept.name(option)
   end
 
+  def type
+    return @concept.type
+  end
+
   def names
     return @concept.names
   end
