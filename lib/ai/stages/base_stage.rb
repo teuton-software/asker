@@ -11,14 +11,6 @@ class BaseStage
     @concept_ai.send(m, *args, &block)
   end
 
-  def texts
-    @concept_ai.texts
-  end
-
-  def images
-    @concept_ai.images
-  end
-
   def neighbors
     @concept_ai.neighbors
   end
