@@ -24,10 +24,20 @@ class ConceptAITest < Minitest::Test
     concepts.each { |concept| @concepts_ai << ConceptAI.new(concept,world) }
   end
 
-  def test_concept_0_delegating
-      i=0
-      assert_equal "text", @concepts_ai[i].type
-      assert_equal "en",   @concepts_ai[i].lang.code
+  def test_concept_delegating
+    (0..3).each do |index|
+      concept = @concepts_ai[index].concept
+      assert_equal "text"             , @concepts_ai[index].type
+      assert_equal concept.type       , @concepts_ai[index].type
+      assert_equal "en"               , @concepts_ai[index].lang.code
+      assert_equal concept.lang.code  , @concepts_ai[index].lang.code
+      assert_equal concept.name       , @concepts_ai[index].name
+      assert_equal concept.names      , @concepts_ai[index].names
+      assert_equal concept.neighbours , @concepts_ai[index].neighbours
+      assert_equal concept.process    , @concepts_ai[index].process
+      assert_equal concept.process?   , @concepts_ai[index].process?
+      assert_equal concept.tables     , @concepts_ai[index].tables
+    end
   end
 
   def test_concept_0_make_questions
@@ -83,7 +93,7 @@ class ConceptAITest < Minitest::Test
   end
 
   def get_xml_data
-    string_data=<<EOF
+    string_data= %q{
     <map lang='en' context='character, starwars' version='1'>
 
       <concept>
@@ -154,6 +164,6 @@ class ConceptAITest < Minitest::Test
         </table>
       </concept>
     </map>
-EOF
+}
   end
 end
