@@ -93,7 +93,7 @@ class ConceptAITest < Minitest::Test
     assert_equal 0,  @concepts_ai[i].questions[:t].size
   end
 
-  def test_get_list1_and_list2_from_table
+  def donttest_get_list1_and_list2_from_table
     world = World.new(@concepts, false)
 
     c = @concepts_ai[0]
