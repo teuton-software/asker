@@ -6,7 +6,6 @@ require 'rexml/document'
 require_relative "../../lib/data/concept"
 require_relative "../../lib/data/world"
 require_relative "../../lib/ai/concept_ai"
-require 'pry'
 
 class ConceptAITest < Minitest::Test
   def setup
