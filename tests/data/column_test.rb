@@ -70,7 +70,7 @@ class ColumnTest < Minitest::Test
     assert_equal true, table.simple[:type]
     assert_equal true, table.simple[:lang]
 
-    table.rowobjects.each_with_index do |row, rowindex|
+    table.datarows.each_with_index do |row, rowindex|
       assert_equal true, row.simple[:type]
       assert_equal true, row.simple[:lang]
 
@@ -96,7 +96,7 @@ class ColumnTest < Minitest::Test
     simple=[ { :lang => true,  :type => true  },
              { :lang => false, :type => true  } ]
 
-    table.rowobjects.each_with_index do |row, rowindex|
+    table.datarows.each_with_index do |row, rowindex|
       assert_equal simple[rowindex][:type], row.simple[:type]
       assert_equal simple[rowindex][:lang], row.simple[:lang]
     end
@@ -106,7 +106,7 @@ class ColumnTest < Minitest::Test
 
     langcode=[  ['en','en'],  ['en','es'] ]
 
-    table.rowobjects.each_with_index do |row, rowindex|
+    table.datarows.each_with_index do |row, rowindex|
       row.columns.each_with_index do |column, colindex|
         assert_equal colindex                         , column.index
         assert_equal r[rowindex][colindex]            , column.raw
@@ -127,7 +127,7 @@ class ColumnTest < Minitest::Test
     assert_equal true  , table.simple[:type]
     assert_equal false , table.simple[:lang]
 
-    table.rowobjects.each_with_index do |row, rowindex|
+    table.datarows.each_with_index do |row, rowindex|
       assert_equal true , row.simple[:type]
       assert_equal true , row.simple[:lang]
 

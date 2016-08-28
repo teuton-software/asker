@@ -61,9 +61,9 @@ class RowTest < Minitest::Test
       ]
     table = @concepts[0].tables[0]
 
-    assert_equal r.size, table.rowobjects.size
+    assert_equal r.size, table.datarows.size
 
-    table.rowobjects.each_with_index do |row,index|
+    table.datarows.each_with_index do |row,index|
       assert_equal table.id, row.table.id
       id = row.table.id+"."+row.index.to_s
       assert_equal id,            row.id
@@ -84,9 +84,9 @@ class RowTest < Minitest::Test
         ['The Force Awakens']
       ]
     table = @concepts[0].tables[1]
-    assert_equal r.size, table.rowobjects.size
+    assert_equal r.size, table.datarows.size
 
-    table.rowobjects.each_with_index do |row,index|
+    table.datarows.each_with_index do |row,index|
       assert_equal table.id, row.table.id
       id = row.table.id+"."+row.index.to_s
       assert_equal id,            row.id

@@ -27,27 +27,8 @@ module AI
     #-----------------------------------
     #Process every table of this concept
     tables.each do |lTable|
-      #create <list1> with all the rows from the table
-      list1=[]
-      count=1
-      lTable.rows.each do |i|
-        list1 << { :id => count, :name => name, :weight => 0, :data => i }
-        count+=1
-      end
 
-      #create a <list2> with similar rows (same table name) from the neighbours tables
-      list2=[]
-      neighbors.each do |n|
-        n[:concept].tables.each do |t2|
-          if t2.name==lTable.name then
-            t2.rows.each do |i|
-              list2 << { :id => count, :name => n[:concept].name, :weight => 0, :data => i }
-              count+=1
-            end
-          end
-        end
-      end
-
+      list1, list2 = get_list1_and_list2_from(lTable)
       list3=list1+list2
 
       #----------------------------------------------
@@ -67,6 +48,30 @@ module AI
       #Stage F: process tables with only 1 field
       @questions[:f] += StageF.new(self).run(lTable, list1, list2)
     end
+  end
+
+  def get_list1_and_list2_from(lTable)
+    #create <list1> with all the rows from the table
+    list1=[]
+    count=1
+    lTable.rows.each do |i|
+      list1 << { :id => count, :name => name, :weight => 0, :data => i }
+      count+=1
+    end
+
+    #create a <list2> with similar rows (same table name) from the neighbours tables
+    list2=[]
+    neighbors.each do |n|
+      n[:concept].tables.each do |t2|
+        if t2.name==lTable.name then
+          t2.rows.each do |i|
+            list2 << { :id => count, :name => n[:concept].name, :weight => 0, :data => i }
+            count+=1
+          end
+        end
+      end
+    end
+    return list1, list2
   end
 
 end

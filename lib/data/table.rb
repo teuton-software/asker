@@ -5,7 +5,7 @@ require_relative 'row'
 class Table
   attr_reader :name, :id
   attr_reader :fields, :langs, :types
-  attr_reader :rowobjects
+  attr_reader :datarows
   attr_reader :simple
 
   def initialize(pConcept, pXMLdata)
@@ -30,10 +30,9 @@ class Table
     @id    = @concept.name.to_s + "." + @name
     @simple = { :lang => true, :type => true }
 
-    @rowobjects = [] #DEV experiment replace row data with row objects
+    @datarows = [] #DEV experiment replace row data with row objects
     read_data_from_xml(pXMLdata)
-    @rows  = []
-    @rowobjects.each { |r| @rows << r.raws }
+    @rows = @datarows.map { |r| r.raws }
   end
 
   def to_s
@@ -92,7 +91,7 @@ private
       when 'sequence'
         @sequence= i.text.split(",")
       when 'row'
-        @rowobjects << Row.new(self, @rowobjects.size, i)
+        @datarows << Row.new(self, @datarows.size, i)
       else
         puts Rainbow("[ERROR] concept/table#XMLdata with #{i.name}").red.bright
       end
