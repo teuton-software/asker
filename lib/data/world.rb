@@ -7,22 +7,23 @@ class World
 
   def initialize(concepts, show_progress=true)
     find_neighbors_for_every_concept(concepts)
-    @concepts = []
-    @filenames = []
-    @contexts = []
+    @concepts   = {}
+    @filenames  = []
+    @contexts   = []
     @image_urls = {}
-    concepts.each do |concept|
-      if concept.process then
-        @concepts << concept
-        @filenames << concept.filename
-        @contexts << concept.context
+
+    concepts.each do |c|
+      if c.process then
+        @concepts[c.name] = c
+        @filenames << c.filename
+        @contexts  << c.context
       end
     end
     @filenames.uniq!
     @contexts.uniq!
 
     threads = []
-    @concepts.each do |c|
+    concepts.each do |c|
       print(".") if show_progress
       filter = [ c.name ] + c.context
       threads << Thread.new { @image_urls[c.name] = ImageUrlLoader::load(filter) }

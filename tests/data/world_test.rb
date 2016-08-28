@@ -26,8 +26,10 @@ class WorldTest < Minitest::Test
 
   def test_concepts
     assert_equal 2, @world.concepts.size
-    assert_equal "obiwan", @world.concepts[0].name
-    assert_equal "yoda",   @world.concepts[1].name
+    assert_equal false, @world.concepts["obiwan"].nil?
+    assert_equal false, @world.concepts["yoda"].nil?
+    assert_equal true,  @world.concepts["maul"].nil?
+    assert_equal true,  @world.concepts["vader"].nil?
   end
 
   def test_contexts
