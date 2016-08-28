@@ -2,6 +2,32 @@
 
 module AI_calculate
 
+  def get_list1_and_list2_from(lTable)
+    #create <list1> with all the rows from the table
+    list1=[]
+    count=1
+    lTable.rows.each do |i|
+#      list1 << { :id => count, :name => name, :weight => 0, :data => i }
+      list1 << { :id => count, :weight => 0, :data => i }
+      count+=1
+    end
+
+    #create a <list2> with similar rows (same table name) from the neighbours tables
+    list2=[]
+    neighbors.each do |n|
+      n[:concept].tables.each do |t2|
+        if t2.name==lTable.name then
+          t2.rows.each do |i|
+#            list2 << { :id => count, :name => n[:concept].name, :weight => 0, :data => i }
+            list2 << { :id => count, :weight => 0, :data => i }
+            count+=1
+          end
+        end
+      end
+    end
+    return list1, list2
+  end
+
   def calculate_nearness_between_texts(pText1, pText2)
     return 0.0 if pText2.nil? or pText2.size==0
 
