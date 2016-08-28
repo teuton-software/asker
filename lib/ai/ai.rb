@@ -15,10 +15,9 @@ module AI
   def make_questions_from_ai
     return if @process==false
 
-    #---------------------------------------------------------
-    #Stage D: process every definition, I mean every <def> tag
-    @questions[:d] = StageD.new(self).run
-    @questions[:i] = StageI.new(self).run
+    #------------------------------------------------------------------------
+    @questions[:d] = StageD.new(self).run  #Process every def{type=text}
+    @questions[:i] = StageI.new(self).run  #Process every def{type=image_url}
     @questions[:b] = []
     @questions[:f] = []
     @questions[:s] = []
@@ -27,26 +26,24 @@ module AI
     #-----------------------------------
     #Process every table of this concept
     tables.each do |lTable|
-
       list1, list2 = get_list1_and_list2_from(lTable)
-      list3=list1+list2
 
       #----------------------------------------------
       #Stage B: process table to make match questions
       @questions[:b] += StageB.new(self).run(lTable, list1, list2)
-      #-----------------------------
-      #Stage T: process_tableXfields
-      list1.each do |lRow|
-        reorder_list_with_row(list3, lRow)
-        @questions[:t] += StageT.new(self).run(lTable, lRow, list3)
-      end
-
       #--------------------------------------
       #Stage S: process tables with sequences
       @questions[:s] += StageS.new(self).run(lTable, list1, list2)
       #-----------------------------------------
       #Stage F: process tables with only 1 field
       @questions[:f] += StageF.new(self).run(lTable, list1, list2)
+      #-----------------------------
+      #Stage T: process_tableXfields
+      list3=list1+list2
+      list1.each do |lRow|
+        reorder_list_with_row(list3, lRow)
+        @questions[:t] += StageT.new(self).run(lTable, lRow, list3)
+      end
     end
   end
 
@@ -55,7 +52,8 @@ module AI
     list1=[]
     count=1
     lTable.rows.each do |i|
-      list1 << { :id => count, :name => name, :weight => 0, :data => i }
+#      list1 << { :id => count, :name => name, :weight => 0, :data => i }
+      list1 << { :id => count, :weight => 0, :data => i }
       count+=1
     end
 
@@ -65,7 +63,8 @@ module AI
       n[:concept].tables.each do |t2|
         if t2.name==lTable.name then
           t2.rows.each do |i|
-            list2 << { :id => count, :name => n[:concept].name, :weight => 0, :data => i }
+#            list2 << { :id => count, :name => n[:concept].name, :weight => 0, :data => i }
+            list2 << { :id => count, :weight => 0, :data => i }
             count+=1
           end
         end
