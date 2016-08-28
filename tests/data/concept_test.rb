@@ -98,8 +98,15 @@ class ConceptTest < Minitest::Test
 
     assert_equal 1        , @concept[0].neighbors.size
     assert_equal "yoda"   , @concept[0].neighbors[0][:concept].name
+    assert_equal 44.44444444444444 , @concept[0].neighbors[0][:value]
     assert_equal 1        , @concept[1].neighbors.size
     assert_equal "obiwan" , @concept[1].neighbors[0][:concept].name
+    assert_equal 80.0     , @concept[1].neighbors[0][:value]
+  end
+
+  def test_calculate_nearest_to_concept
+    assert_equal 44.44444444444444, @concept[0].calculate_nearness_to_concept(@concept[1])
+    assert_equal 80.0             , @concept[1].calculate_nearness_to_concept(@concept[0])
   end
 
   def test_rows
@@ -113,10 +120,6 @@ class ConceptTest < Minitest::Test
     end
   end
 
-  def test_calculate_nearest_to_concept
-    assert_equal 44.44444444444444, @concept[0].calculate_nearness_to_concept(@concept[1])
-    assert_equal 80.0             , @concept[1].calculate_nearness_to_concept(@concept[0])
-  end
 
   def get_xml_data
     string_data=<<EOF
