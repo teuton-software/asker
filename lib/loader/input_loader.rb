@@ -4,8 +4,8 @@ require_relative 'directory_loader'
 
 class InputLoader
 
-  def initialize
-    @concepts = []
+  def initialize(concepts=[])
+    @concepts = concepts
   end
 
   def load
@@ -17,7 +17,7 @@ class InputLoader
       @concepts += DirectoryLoader.new(dirname).load
     end
 
-    find_neighbors_for_every_concept
+    #find_neighbors_for_every_concept
     return @concepts
   end
 

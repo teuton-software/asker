@@ -4,6 +4,8 @@ require "minitest/autorun"
 require 'rexml/document'
 
 require_relative "../../lib/data/concept"
+require_relative "../../lib/data/world"
+require_relative "../../lib/loader/input_loader"
 
 class ConceptTest < Minitest::Test
   def setup
@@ -77,14 +79,27 @@ class ConceptTest < Minitest::Test
   def test_tables
     name = "$attribute$value"
     for i in 0..1
-      assert_equal 1, @concept[i].tables.size
-      assert_equal name, @concept[i].tables[0].name
+      assert_equal 1,     @concept[i].tables.size
+      assert_equal name,  @concept[i].tables[0].name
       assert_equal false, @concept[i].tables[0].sequence?
-      assert_equal 0, @concept[i].tables[0].sequence.size
-      assert_equal [], @concept[i].tables[0].sequence
-      assert_equal 2, @concept[i].tables[0].fields.size
+      assert_equal 0,     @concept[i].tables[0].sequence.size
+      assert_equal [],    @concept[i].tables[0].sequence
+      assert_equal 2,     @concept[i].tables[0].fields.size
       assert_equal ["attribute","value"], @concept[i].tables[0].fields
     end
+  end
+
+  def test_neighbors
+    assert_equal 0        , @concept[0].neighbors.size
+    assert_equal 0        , @concept[1].neighbors.size
+
+    #InputLoader.new(@concept).find_neighbors_for_every_concept
+    world = World.new(@concept, false)
+
+    assert_equal 1        , @concept[0].neighbors.size
+    assert_equal "yoda"   , @concept[0].neighbors[0][:concept].name
+    assert_equal 1        , @concept[1].neighbors.size
+    assert_equal "obiwan" , @concept[1].neighbors[0][:concept].name
   end
 
   def test_rows

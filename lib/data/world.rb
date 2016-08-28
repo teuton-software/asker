@@ -6,6 +6,7 @@ class World
   attr_reader :concepts, :filenames, :contexts, :image_urls
 
   def initialize(concepts, show_progress=true)
+    find_neighbors_for_every_concept(concepts)
     @concepts = []
     @filenames = []
     @contexts = []
@@ -32,6 +33,17 @@ class World
     end
     threads.each { |t| t.join } #wait for all threads to finish
     print("\n") if show_progress
+  end
+
+  def find_neighbors_for_every_concept(concepts)
+    concepts.each do |i|
+      concepts.each do |j|
+        if (i.id!=j.id) then
+          i.try_adding_neighbor(j)
+          i.try_adding_references(j)
+        end
+      end
+    end
   end
 
 end

@@ -24,7 +24,7 @@ class ConceptAITest < Minitest::Test
     concepts.each { |concept| @concepts_ai << ConceptAI.new(concept,world) }
   end
 
-  def test_concept_delegating
+  def test_concept_ai_delegating
     (0..3).each do |index|
       concept = @concepts_ai[index].concept
       assert_equal "text"             , @concepts_ai[index].type
@@ -66,7 +66,7 @@ class ConceptAITest < Minitest::Test
     assert_equal 31, @concepts_ai[i].questions[:t].size
   end
 
-  def test_concept_2_image_url
+  def test_concept_2_make_questions
     i=2
     assert_equal( {}, @concepts_ai[i].questions)
     @concepts_ai[i].process = true
@@ -79,17 +79,31 @@ class ConceptAITest < Minitest::Test
     assert_equal 0,  @concepts_ai[i].questions[:t].size
   end
 
-  def test_concept_3_sequence
+  def test_concept_3_make_questions
     i=3
     assert_equal( {}, @concepts_ai[i].questions)
     @concepts_ai[i].process = true
     @concepts_ai[i].make_questions_from_ai
     assert_equal 0,  @concepts_ai[i].questions[:d].size
     assert_equal 0,  @concepts_ai[i].questions[:b].size
-    assert_equal 12,  @concepts_ai[i].questions[:f].size
+    assert_equal 12, @concepts_ai[i].questions[:f].size
     assert_equal 0,  @concepts_ai[i].questions[:i].size
     assert_equal 4,  @concepts_ai[i].questions[:s].size
     assert_equal 0,  @concepts_ai[i].questions[:t].size
+  end
+
+  def test_get_list1_and_list2_from_table
+    c = @concepts_ai[0]
+    t = c.tables[0]
+    list1, list2 = c.get_list1_and_list2_from(t)
+    verbose list1, list2
+  end
+
+  def verbose(list1,list2)
+    puts "list1"
+    puts list1
+    puts "list2"
+    puts list2
   end
 
   def get_xml_data
