@@ -11,7 +11,7 @@ require 'pry'
 class ConceptAITest < Minitest::Test
   def setup
     string_data = get_xml_data
-    concepts    = []
+    concepts   = []
     world       = World.new(concepts, false)
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
@@ -20,6 +20,7 @@ class ConceptAITest < Minitest::Test
       end
     end
 
+    @concepts = concepts
     @concepts_ai=[]
     concepts.each { |concept| @concepts_ai << ConceptAI.new(concept,world) }
   end
@@ -93,6 +94,8 @@ class ConceptAITest < Minitest::Test
   end
 
   def test_get_list1_and_list2_from_table
+    world = World.new(@concepts, false)
+
     c = @concepts_ai[0]
     t = c.tables[0]
     list1, list2 = c.get_list1_and_list2_from(t)

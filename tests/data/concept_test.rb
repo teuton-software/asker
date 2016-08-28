@@ -5,7 +5,6 @@ require 'rexml/document'
 
 require_relative "../../lib/data/concept"
 require_relative "../../lib/data/world"
-require_relative "../../lib/loader/input_loader"
 
 class ConceptTest < Minitest::Test
   def setup
@@ -93,7 +92,6 @@ class ConceptTest < Minitest::Test
     assert_equal 0        , @concept[0].neighbors.size
     assert_equal 0        , @concept[1].neighbors.size
 
-    #InputLoader.new(@concept).find_neighbors_for_every_concept
     world = World.new(@concept, false)
 
     assert_equal 1        , @concept[0].neighbors.size
