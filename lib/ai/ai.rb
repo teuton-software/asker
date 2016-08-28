@@ -69,15 +69,4 @@ module AI
     end
   end
 
-  def random_image_for(concept)
-    return "" if rand<=Project.instance.get(:threshold)
-
-    keys = @world.image_urls.keys
-    keys.shuffle!
-    values= @world.image_urls[ keys[0] ]
-    return "" if values.nil?
-    values.shuffle!
-    return "<img src=\"#{values[0]}\" alt\=\"image\"><br/>"
-  end
-
 end

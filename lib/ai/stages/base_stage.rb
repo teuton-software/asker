@@ -11,10 +11,6 @@ class BaseStage
     @concept_ai.send(m, *args, &block)
   end
 
-  def random_image_for(concept)
-    @concept_ai.random_image_for(concept)
-  end
-
   def run
     raise "Implement run method!"
   end

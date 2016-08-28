@@ -16,15 +16,26 @@ class ConceptAI
     @num       = 0 # Used to add a unique number to every question
   end
 
+  def num
+    @num+=1
+    return @num.to_s
+  end
+
   # If a method we call is missing, pass the call onto
   # the object we delegate to.
   def method_missing(m, *args, &block)
     @concept.send(m, *args, &block)
   end
 
-  def num
-    @num+=1
-    return @num.to_s
+  def random_image_for(conceptname)
+    return "" if rand<=Project.instance.get(:threshold)
+
+    keys = @world.image_urls.keys
+    keys.shuffle!
+    values= @world.image_urls[ keys[0] ]
+    return "" if values.nil?
+    values.shuffle!
+    return "<img src=\"#{values[0]}\" alt\=\"image\"><br/>"
   end
 
 end

@@ -27,9 +27,10 @@ class BaseStageTest < Minitest::Test
     @concepts_ai.each { |concept_ai| @base_stages << BaseStage.new(concept_ai) }
   end
 
-  def test_base_stage_0_delegating
-      b = @base_stages[0]
-      c = @concepts_ai[0]
+  def test_base_stage_delegating
+    (0..3).each do |index|
+      b = @base_stages[index]
+      c = @concepts_ai[index]
 
       assert_equal c.type            , b.type
       assert_equal c.lang.code       , b.lang.code
@@ -40,21 +41,7 @@ class BaseStageTest < Minitest::Test
       assert_equal c.texts           , b.texts
       assert_equal c.images          , b.images
       assert_equal c.neighbors       , b.neighbors
-  end
-
-  def test_base_stage_1_delegating
-      b = @base_stages[1]
-      c = @concepts_ai[1]
-
-      assert_equal c.type            , b.type
-      assert_equal c.lang.code       , b.lang.code
-      assert_equal c.name            , b.name
-      assert_equal c.name(:raw)      , b.name(:raw)
-      assert_equal c.name(:decorated), b.name(:decorated)
-      assert_equal c.name(:id)       , b.name(:id)
-      assert_equal c.texts           , b.texts
-      assert_equal c.images          , b.images
-      assert_equal c.neighbors       , b.neighbors
+    end
   end
 
   def get_xml_data

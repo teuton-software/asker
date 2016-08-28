@@ -11,10 +11,6 @@ module AI_calculate
     return (count*100/words.count)
   end
 
-  def not_equals(a,b,c,d)
-    return (a!=b && a!=c && a!=d && b!=c && b!=d && c!=d)
-  end
-
   def reorder_list_with_row(pList, pRow)
     #evaluate every row of the list2
     pList.each do |lRow|
