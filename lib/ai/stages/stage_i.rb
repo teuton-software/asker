@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 require "base64_compatible"
+require 'set'
+
 require_relative 'base_stage'
 require_relative '../question'
 
@@ -11,7 +13,7 @@ class StageI < BaseStage
     #Stage I: process every image from <def> tag
     questions=[]
     return questions unless type=="text"
-    
+
     #for every <image> do this
     images.each do |url|
       s=Set.new [name, lang.text_for(:none)]

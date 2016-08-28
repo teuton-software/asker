@@ -1,7 +1,5 @@
 # encoding: utf-8
 
-require 'set'
-
 require_relative 'stages/stage_d'
 require_relative 'stages/stage_b'
 require_relative 'stages/stage_f'

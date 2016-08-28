@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+require 'set'
 require_relative 'base_stage'
 require_relative '../question'
 
