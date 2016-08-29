@@ -29,8 +29,8 @@ Features:
 To execute Dart, we use `darts` command, with an HAML/XML file as argument.
 For example:
 
-* `./darts input/en/starwars/jedi.haml` to run this example, or
-* `ruby darts input/en/starwars/jedi.haml`, to run on Windows.
+* `./darts file input/en/starwars/jedi.haml` to run this example, or
+* `ruby darts file input/en/starwars/jedi.haml`, to run on Windows.
 
 Then, program saves your output files into the `output` directory.
 
