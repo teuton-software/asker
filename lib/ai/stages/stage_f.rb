@@ -72,6 +72,28 @@ private
         q.bads << lang.text_for(:true)
         q.bads << lang.text_for(:false)
         questions << q
+
+        #Question filtered text
+        e = [ e1, e2, e3, e4 ]
+        e.shuffle!
+        t = "(a) #{e[0]}, (b) #{e[1]}, (c) #{e[2]}, (d) #{e[3]}"
+        filtered=lang.text_with_connectors(t)
+        indexes = filtered[:indexes]
+
+        groups = (indexes.combination(4).to_a).shuffle
+        max    = (indexes.size/4).to_i
+        groups[0,max].each do |e|
+          e.sort!
+          q = Question.new(:match)
+          q.shuffle_off
+          q.name = "#{name}-#{num}-f3filtered"
+          s = lang.build_text_from_filtered( filtered, e)
+          q.text = random_image_for(name(:raw)) + lang.text_for(:f3, name(:decorated), pTable.fields[0].capitalize, s)
+          e.each_with_index do |value,index|
+            q.matching << [ (index+1).to_s, filtered[:words][value][:word].downcase ]
+          end
+          questions << q
+        end
       end
     end
     return questions

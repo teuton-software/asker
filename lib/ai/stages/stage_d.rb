@@ -114,8 +114,6 @@ class StageD < BaseStage
       q.shorts << name(:raw).gsub("-"," ").gsub("_"," ")
       questions << q
 
-      #Question filtered text questions
-      filtered=lang.text_with_connectors(t)
 
 #      indexes = []
 #      exclude = ["[", "]", "(", ")", "\"" ]
@@ -124,8 +122,11 @@ class StageD < BaseStage
 #        exclude.each { |e| flag=false if (item[:word].include?(e)) }
 #        indexes << index if flag
 #      end
+
+      #Question filtered text questions
+      filtered=lang.text_with_connectors(t)
       indexes = filtered[:indexes]
-      
+
       groups = (indexes.combination(4).to_a).shuffle
       max    = (indexes.size/4).to_i
       groups[0,max].each do |e|
