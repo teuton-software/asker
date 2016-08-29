@@ -16,7 +16,7 @@ class StageD < BaseStage
     #for every <text> do this
     texts.each do |t|
       s=Set.new [name(:raw), lang.text_for(:none)]
-      neighbors.each { |n| s.add n[:concept].name }
+      neighbors.each { |n| s.add n[:concept].name(:decorated) }
       a=s.to_a
 
       #Question choose between 4 options
@@ -32,7 +32,7 @@ class StageD < BaseStage
       end
 
       #Question choose between 4 options, good none (Syntax error)
-      if s.count>3 then
+      if s.count>3 and type=="text" then
         q=Question.new(:choice)
         q.name="#{name(:id)}-#{num}-d1none"
         q.text=random_image_for(name(:raw)) + lang.text_for(:d1,t)
@@ -73,13 +73,15 @@ class StageD < BaseStage
       q.bads << lang.text_for(:false)
       questions << q
 
-      q = Question.new(:choice)
-      q.name="#{name(:id)}-#{num}-d2name-mispelled"
-      q.text=random_image_for(name(:raw)) + lang.text_for(:d2, lang.do_mistake_to(name(:raw)), t)
-      q.good=lang.text_for(:misspelling)
-      q.bads << lang.text_for(:true)
-      q.bads << lang.text_for(:false)
-      questions << q
+      if type=="text"
+        q = Question.new(:choice)
+        q.name="#{name(:id)}-#{num}-d2name-mispelled"
+        q.text=random_image_for(name(:raw)) + lang.text_for(:d2, lang.do_mistake_to(name(:raw)), t)
+        q.good=lang.text_for(:misspelling)
+        q.bads << lang.text_for(:true)
+        q.bads << lang.text_for(:false)
+        questions << q
+      end
 
       q = Question.new(:choice)
       q.name="#{name(:id)}-#{num}-d2true"
@@ -106,14 +108,15 @@ class StageD < BaseStage
       #  questions << q
       #end
 
-      #Question hidden name questions
-      q = Question.new(:short)
-      q.name="#{name(:id)}-#{num}-d3hidden"
-      q.text=random_image_for(name(:raw)) + lang.text_for(:d3, lang.hide_text(name(:raw)), t )
-      q.shorts << name(:raw)
-      q.shorts << name(:raw).gsub("-"," ").gsub("_"," ")
-      questions << q
-
+      if type=="text"
+        #Question hidden name questions
+        q = Question.new(:short)
+        q.name="#{name(:id)}-#{num}-d3hidden"
+        q.text=random_image_for(name(:raw)) + lang.text_for(:d3, lang.hide_text(name(:raw)), t )
+        q.shorts << name(:raw)
+        q.shorts << name(:raw).gsub("-"," ").gsub("_"," ")
+        questions << q
+      end
 
 #      indexes = []
 #      exclude = ["[", "]", "(", ")", "\"" ]
