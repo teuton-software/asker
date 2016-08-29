@@ -32,9 +32,9 @@ class MyCLI < Thor
   This is the most usefull function.
   These are 3 ways of use it:
 
-  #{Rainbow($0+" file input/foo/foo.haml").yellow}, Build questions from HAML input file\n
-  #{Rainbow($0+" file input/foo/foo.xml").yellow}, Build questions from XML input file\n
-  #{Rainbow($0+" file projects/foo/foo.yaml").yellow}, Build questions from YAML project config file\n
+  #{Rainbow($0+" file input/foo/foo.haml").yellow}, Build questions from HAML file\n
+  #{Rainbow($0+" file input/foo/foo.xml").yellow}, Build questions from XML file\n
+  #{Rainbow($0+" file projects/foo/foo.yaml").yellow}, Build questions from YAML project file\n
 
 LONGDESC
   def file(name)
@@ -57,8 +57,3 @@ LONGDESC
 end
 
 MyCLI.start(ARGV)
-
-=begin
-  puts ""
-end
-=end
