@@ -6,7 +6,7 @@
 :false: 'Falso'
 :d1: 'Definición \: "<%=text1%>"<br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>'
 :d2: 'Definición de <b><%=text1%></b>\:<br/> "<%=text2%>"<br/>'
-:d3: 'Definición de <b><%=text1%></b>\:<br/> "<%=text2%>"<br/>Nota:<br/><ul><li>Cada símbolo (?) representa una letra.</li><li>Cada símbolo (-) representa un espacio</li></ul><br/>'
+:d3: 'Definición de <b><%=text1%></b>\:<br/> "<%=text2%>"<br/><p>Nota: Cada símbolo ? representa una letra, y * a varias.</p>'
 :d4: 'Definición de <b><%=text1%></b>\:<br/> "<%=text2%>"<br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)'
 :b1: 'En relación al concepto <b><%=text1%></b>, asocia cada "<%=text2%>" con su "<%=text3%>".<br/>'
 :c1table: 'Concepto <b><%=text1%></b><br/><%=text2%>\: [*]<br/><%=text3%>\: "<%=text4%>"<br/>Elige la opción correcta.<br/>'

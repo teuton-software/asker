@@ -6,7 +6,7 @@
 :false: 'False'
 :d1: 'Definition\: "<%=text1%>"<br/>Choose the best association for the previous definition.<br/>'
 :d2: 'Definition of <b><%=text1%></b>\:<br/> "<%=text2%>"<br/>'
-:d3: 'Definition of <b><%=text1%></b>\:<br/> "<%=text2%>"<br/>Note:<br/><ul><i>Every (?) symbol, represents one letter.</i><i>Every (-) symbol, represents one space.</i></ul>'
+:d3: 'Definition of <b><%=text1%></b>\:<br/> "<%=text2%>"<br/><p>Note: Every ? symbol represents one letter, and * severals.</p>'
 :d4: 'Definition of <b><%=text1%></b>\:<br/> "<%=text2%>"<br/><br/>(Put every word into the right position)'
 :b1: 'Related with concept <b><%=text1%></b>, associate every "<%=text2%>" with their "<%=text3%>".<br/>'
 :c1table: '<b>Concept <%=text1%></b><br/><%=text2%>\: [*]<br/><%=text3%>: "<%=text4%>"<br/>Choose the right answer.<br/>'
