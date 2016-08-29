@@ -9,6 +9,8 @@ class StageT < BaseStage
 
   def run(pTable, pRow, pList) #process_tableXfields
     questions = []
+    return questions unless type=="text"
+
     if pTable.fields.count>1 then
       questions = questions + process_table2fields(pTable, pRow, pList, 0, 1)
     elsif pTable.fields.count>2 then
