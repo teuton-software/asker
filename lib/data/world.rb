@@ -25,7 +25,7 @@ class World
     threads = []
     concepts.each do |c|
       print(".") if show_progress
-      filter = [ c.name ] + c.context
+      filter = [ c.name.clone ] + c.context.clone
       threads << Thread.new { @image_urls[c.name] = ImageUrlLoader::load(filter) }
     end
     @contexts.each do |filter|

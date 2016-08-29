@@ -10,7 +10,7 @@ class StageF < BaseStage
 
     questions = []
     return questions if pTable.fields.count>1
-
+    
     s1 = Set.new #Set of rows from this concept
     pList1.each { |item| s1 << item[:data][0] }
     a1=s1.to_a
@@ -28,23 +28,26 @@ class StageF < BaseStage
         q.bads << lang.text_for(:false)
         questions << q
 
-        #TODO if type="text"
-        q=Question.new(:short)
-        q.name="#{name(:id)}-#{num.to_s}-f1short-#{pTable.name}"
-        q.text = random_image_for(name(:raw)) + lang.text_for(:f1, lang.hide_text(name(:raw)), pTable.fields[0].capitalize, e.join("</li><li>") )
-        q.shorts << name(:raw)
-        q.shorts << name(:raw).gsub("-"," ").gsub("_"," ")
-        questions << q
+        if type=="text" then
+          q=Question.new(:short)
+          q.name="#{name(:id)}-#{num.to_s}-f1short-#{pTable.name}"
+          q.text = random_image_for(name(:raw)) + lang.text_for(:f1, lang.hide_text(name(:raw)), pTable.fields[0].capitalize, e.join("</li><li>") )
+          q.shorts << name(:raw)
+          q.shorts << name(:raw).gsub("-"," ").gsub("_"," ")
+          questions << q
+        end
 
-        e.shuffle!
-        e[0] = lang.do_mistake_to(e[0])
-        q=Question.new(:choice)
-        q.name="#{name(:id)}-#{num.to_s}-f1mispelled-#{pTable.name}"
-        q.text = random_image_for(name(:raw)) + lang.text_for(:f1, name(:decorated), pTable.fields[0].capitalize, e.join("</li><li>") )
-        q.good =  lang.text_for(:misspelling)
-        q.bads << lang.text_for(:true)
-        q.bads << lang.text_for(:false)
-        questions << q
+        if type=="text" then
+          e.shuffle!
+          e[0] = lang.do_mistake_to(e[0])
+          q=Question.new(:choice)
+          q.name="#{name(:id)}-#{num.to_s}-f1mispelled-#{pTable.name}"
+          q.text = random_image_for(name(:raw)) + lang.text_for(:f1, name(:decorated), pTable.fields[0].capitalize, e.join("</li><li>") )
+          q.good =  lang.text_for(:misspelling)
+          q.bads << lang.text_for(:true)
+          q.bads << lang.text_for(:false)
+          questions << q
+        end
       end
     end
 

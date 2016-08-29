@@ -13,7 +13,7 @@ module AI
   include AI_calculate
 
   def make_questions_from_ai
-    return if @process==false
+    return unless process?
 
     @questions[:d] = StageD.new(self).run  #Process every def{type=text}
     @questions[:i] = StageI.new(self).run  #Process every def{type=image_url}

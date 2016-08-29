@@ -33,7 +33,7 @@ private
     when :id
       return "textfile_url.#{@id.to_s}"
     when :decorated
-      return "<a href=\"#{@data}\">textfile_url.#{@id.to_s}</a>"
+      return "<a href=\"#{@data}\">textfile_url</a>"
     when :screen
       return @data[0,20]+"..."+@data[-30,30] if @data.size>50
       return @data
