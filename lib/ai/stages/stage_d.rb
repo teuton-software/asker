@@ -117,14 +117,15 @@ class StageD < BaseStage
       #Question filtered text questions
       filtered=lang.text_with_connectors(t)
 
-      indexes = []
-      exclude = ["[", "]", "(", ")", "\"" ]
-      filtered[:words].each_with_index do |item,index|
-        flag=true
-        exclude.each { |e| flag=false if (item[:word].include?(e)) }
-        indexes << index if flag
-      end
-
+#      indexes = []
+#      exclude = ["[", "]", "(", ")", "\"" ]
+#      filtered[:words].each_with_index do |item,index|
+#        flag=true
+#        exclude.each { |e| flag=false if (item[:word].include?(e)) }
+#        indexes << index if flag
+#      end
+      indexes = filtered[:indexes]
+      
       groups = (indexes.combination(4).to_a).shuffle
       max    = (indexes.size/4).to_i
       groups[0,max].each do |e|
@@ -140,6 +141,7 @@ class StageD < BaseStage
         questions << q
       end
     end
+
     return questions
   end
 

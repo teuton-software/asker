@@ -86,25 +86,30 @@ class StageI < BaseStage
       #Question filtered text questions
       texts.each do |t|
         filtered=lang.text_with_connectors(t)
+
         if filtered[:words].size>=4 then
-          q = Question.new(:match)
-          q.shuffle_off
-          q.name = "#{name}-#{num}-i4filtered"
-
-          indexes=Set.new
-          words=filtered[:words]
-          while indexes.size<4
-            i=rand(filtered[:words].size)
-            flag=true
-            flag=false if words[i].include?("[") or words[i].include?("]") or words[i].include?("(") or words[i].include?(")") or words[i].include?("\"")
-            indexes << i if flag
-          end
-          indexes=indexes.to_a.sort
-
-          s=lang.build_text_from_filtered( filtered, indexes )
-          q.text = lang.text_for(:i4, url , s)
-          indexes.each_with_index do |value,index|
-            q.matching << [ (index+1).to_s, filtered[:words][value][:word].downcase ]
+#          indexes=Set.new
+#          words=filtered[:words]
+#          while indexes.size<4
+#            i=rand(filtered[:words].size)
+#            flag=true
+#            flag=false if words[i].include?("[") or words[i].include?("]") or words[i].include?("(") or words[i].include?(")") or words[i].include?("\"")
+#            indexes << i if flag
+#          end
+#          indexes=indexes.to_a.sort
+          indexes = filtered[:indexes]
+          groups = (indexes.combination(4).to_a).shuffle
+          max    = (indexes.size/4).to_i
+          groups[0,max].each do |e|
+            q = Question.new(:match)
+            q.shuffle_off
+            q.name = "#{name}-#{num}-i4filtered"
+            e.sort!
+            s=lang.build_text_from_filtered( filtered, e )
+            q.text = lang.text_for(:i4, url , s)
+            e.each_with_index do |value,index|
+              q.matching << [ (index+1).to_s, filtered[:words][value][:word].downcase ]
+            end
           end
           questions << q
         end

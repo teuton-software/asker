@@ -40,7 +40,16 @@ module TextActions
 	    row << "."
 	    output_lines << row
 	  end
-	  result={ :lines => output_lines, :words => output_words }
+
+    indexes = []
+    exclude = ["[", "]", "(", ")", "\"" ]
+    output_words.each_with_index do |item,index|
+      flag=true
+      exclude.each { |e| flag=false if (item[:word].include?(e)) }
+      indexes << index if flag
+    end
+
+	  result={ :lines => output_lines, :words => output_words, :indexes => indexes }
 	  return result
   end
 
