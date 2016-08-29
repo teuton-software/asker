@@ -7,10 +7,19 @@ class StageF < BaseStage
 
   def run(pTable, pList1, pList2)
     #process_table1field
-
     questions = []
     return questions if pTable.fields.count>1
 
+    questions += run_only_this_concept(pTable, pList1, pList2)
+    questions += run_with_other_concepts(pTable, pList1, pList2)
+
+    return questions
+  end
+
+private
+
+  def run_only_this_concept(pTable, pList1, pList2)
+    questions =[]
     s1 = Set.new #Set of rows from this concept
     pList1.each { |item| s1 << item[:data][0] }
     a1=s1.to_a
@@ -65,6 +74,16 @@ class StageF < BaseStage
         questions << q
       end
     end
+    return questions
+  end
+
+  def run_with_other_concepts(pTable, pList1, pList2)
+    questions = []
+
+    s1 = Set.new #Set of rows from this concept
+    pList1.each { |item| s1 << item[:data][0] }
+    a1=s1.to_a
+    a1.shuffle!
 
     s2 = Set.new #Set of rows from other concepts
     pList2.each { |item| s2 << item[:data][0] }
