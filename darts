@@ -23,11 +23,28 @@ class MyCLI < Thor
   end
 
   desc "file NAME", "Build output files, from HAML/XML input file."
+  long_desc <<-LONGDESC
+  It builds questions. This is the most usefull function.
+  You must specify path to HAML or XML input file.
+
+  Examples:\n
+  > #{$0} file input/foo/foo.haml\n
+  > #{$0} file input/foo/foo.xml\n
+
+LONGDESC
   def file(name)
     Tool.new.start(name)
   end
 
   desc "create PROJECTNAME", "Create files for a new project"
+  long_desc <<-LONGDESC
+  ADVANCED FUNCTION
+
+  Create new FOO project. Example:
+
+  > #{$0} create foo
+
+LONGDESC
   def create(projectname)
     ProjectBuilder::create_project( projectname )
   end
@@ -38,17 +55,10 @@ MyCLI.start(ARGV)
 
 =begin
 def show_help
-  puts "Usage: #{$0}\n\n"
-  puts "  "+Rainbow("input/path/to/[HAMLFILE|XMLFILE]").green+" => Build output files, from HAML/XML input file."
-  puts "                                      Example: "+Rainbow($0+" input/foo/foo.haml").yellow
-  puts "                                      Example: "+Rainbow($0+" input/foo/foo.xml").yellow
   puts "  "+Rainbow("--web, -w, web, w  ").green+"              => Init Web Editor."
   puts "  "+Rainbow("--help, -h, help, h").green+"              => Show this help."
   puts "  "+Rainbow("--version, -v, version, v").green+"        => Show the program version."
   puts "\n\n"
-  puts "  DEPRECATED:\n"
-  puts "    --create PROJECTNAME      => Create new FOO project."
-  puts "                                 Example: #{$0} create foo"
   puts "    project/path/to/YAMLFILE  => Build output files from YAML config file."
   puts "                                 Example: #{$0} projects/foo/foo.yaml"
   puts ""
