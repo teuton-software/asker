@@ -1,11 +1,10 @@
-# encoding: utf-8
 
 require_relative 'directory_loader'
 
 class InputLoader
 
-  def initialize(concepts=[])
-    @concepts = concepts
+  def initialize
+    @concepts = []
   end
 
   def load
