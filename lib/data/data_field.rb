@@ -34,6 +34,9 @@ private
       return "textfile_url.#{@id.to_s}"
     when :decorated
       return "<a href=\"#{@data}\">textfile_url.#{@id.to_s}</a>"
+    when :screen
+      return @data[0,20]+"..."+@data[-30,30] if @data.size>50
+      return @data
     else
       raise "[ERROR] DataField.get_textfile_url: data=#{@data}, type=#{@type}, option=#{option}"
     end
@@ -47,6 +50,9 @@ private
       return "image_url.#{@id.to_s}"
     when :decorated
       return "<img src=\"#{@data}\" alt=\"image\">"
+    when :screen
+      return @data[0,20]+"..."+@data[-30,30] if @data.size>50
+      return @data
     else
       raise "[ERROR] DataField.get_image_url: data=#{@data}, type=#{@type}, option=#{option}"
     end

@@ -38,7 +38,7 @@ class ConceptAIScreenExporter
         else
           factor=(t.to_f/e.to_f).round(2).to_s
         end
-        my_screen_table.add_row [Rainbow(concept_ai.name).color(:green), t, e, factor, sd, sb, sf, si, ss, st]
+        my_screen_table.add_row [Rainbow(concept_ai.name(:screen)).color(:green), t, e, factor, sd, sb, sf, si, ss, st]
 
         total_q+=t; total_e+=e; total_c+=1
         total_sd+=sd; total_sb+=sb; total_sf+=sf; total_si+=si; total_ss+=ss; total_st+=st

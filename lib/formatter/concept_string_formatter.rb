@@ -15,7 +15,7 @@ class ConceptStringFormatter
     out=""
 
     t = Terminal::Table.new
-    t.add_row [Rainbow(@concept.id.to_s).bright, Rainbow(@concept.name).color(:white).bg(:blue).bright+" (lang=#{@concept.lang.lang}) " ]
+    t.add_row [Rainbow(@concept.id.to_s).bright, Rainbow(@concept.name(:screen)).color(:white).bg(:blue).bright+" (lang=#{@concept.lang.lang}) " ]
     t.add_row [Rainbow("Filename").color(:blue), @concept.filename ]
     t.add_row [Rainbow("Context").color(:blue), @concept.context.join(", ").to_s ]
     t.add_row [Rainbow("Tags").color(:blue), @concept.tags.join(", ").to_s]
@@ -38,7 +38,7 @@ class ConceptStringFormatter
 	    t.add_row [ Rainbow(".tables").color(:blue), lText.join("\n")]
 	  end
 	  lText=[]
-	  @concept.neighbors[0..5].each { |i| lText << i[:concept].name+"("+i[:value].to_s[0..4]+")" }
+	  @concept.neighbors[0..5].each { |i| lText << i[:concept].name(:screen,)+"("+i[:value].to_s[0..4]+")" }
 	  t.add_row [Rainbow(".neighbors").color(:blue),lText.join("\n")]
 
     out << t.to_s+"\n"
