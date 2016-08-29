@@ -10,7 +10,7 @@ class StageF < BaseStage
 
     questions = []
     return questions if pTable.fields.count>1
-    
+
     s1 = Set.new #Set of rows from this concept
     pList1.each { |item| s1 << item[:data][0] }
     a1=s1.to_a
@@ -29,6 +29,7 @@ class StageF < BaseStage
         questions << q
 
         if type=="text" then
+          e.shuffle!
           q=Question.new(:short)
           q.name="#{name(:id)}-#{num.to_s}-f1short-#{pTable.name}"
           q.text = random_image_for(name(:raw)) + lang.text_for(:f1, lang.hide_text(name(:raw)), pTable.fields[0].capitalize, e.join("</li><li>") )
@@ -41,13 +42,23 @@ class StageF < BaseStage
           e.shuffle!
           e[0] = lang.do_mistake_to(e[0])
           q=Question.new(:choice)
-          q.name="#{name(:id)}-#{num.to_s}-f1mispelled-#{pTable.name}"
-          q.text = random_image_for(name(:raw)) + lang.text_for(:f1, name(:decorated), pTable.fields[0].capitalize, e.join("</li><li>") )
+          q.name="#{name(:id)}-#{num.to_s}-f1namemispelled-#{pTable.name}"
+          q.text = random_image_for(name(:raw)) + lang.text_for(:f1, lang.do_mistake_to(name(:decorated)), pTable.fields[0].capitalize, e.join("</li><li>") )
           q.good =  lang.text_for(:misspelling)
           q.bads << lang.text_for(:true)
           q.bads << lang.text_for(:false)
           questions << q
         end
+
+        e.shuffle!
+        e[0] = lang.do_mistake_to(e[0])
+        q=Question.new(:choice)
+        q.name="#{name(:id)}-#{num.to_s}-f1truemispelled-#{pTable.name}"
+        q.text = random_image_for(name(:raw)) + lang.text_for(:f1, name(:decorated), pTable.fields[0].capitalize, e.join("</li><li>") )
+        q.good =  lang.text_for(:misspelling)
+        q.bads << lang.text_for(:true)
+        q.bads << lang.text_for(:false)
+        questions << q
       end
     end
 
@@ -58,16 +69,37 @@ class StageF < BaseStage
 
     if a1.size>2 and a2.size>0 then
       a1.each_cons(3) do |e1,e2,e3|
+
         f4 = a2.shuffle![0]
         e = [ e1, e2, e3, f4 ]
         e.shuffle!
-
         q=Question.new(:choice)
         q.name="#{name(:id)}-#{num.to_s}-f1false-#{pTable.name}"
         q.text = random_image_for(name(:raw)) + lang.text_for(:f1, name(:decorated), pTable.fields[0].capitalize, e.join("</li><li>"))
         q.good =  lang.text_for(:false)
         q.bads << lang.text_for(:misspelling)
         q.bads << lang.text_for(:true)
+        questions << q
+
+        f4 = a2.shuffle![0]
+        e = [ lang.do_mistake_to(e1), e2, e3, f4 ]
+        e.shuffle!
+        q=Question.new(:choice)
+        q.name="#{name(:id)}-#{num.to_s}-f1falsemispelled-#{pTable.name}"
+        q.text = random_image_for(name(:raw)) + lang.text_for(:f1, name(:decorated), pTable.fields[0].capitalize, e.join("</li><li>") )
+        q.good =  lang.text_for(:misspelling)
+        q.bads << lang.text_for(:true)
+        q.bads << lang.text_for(:false)
+        questions << q
+
+        f4 = a2.shuffle![0]
+        q=Question.new(:choice)
+        q.name="#{name(:id)}-#{num.to_s}-f2outsider-#{pTable.name}"
+        q.text = random_image_for(name(:raw)) + lang.text_for(:f2, name(:decorated), pTable.fields[0].capitalize)
+        q.good =  f4
+        q.bads << e1
+        q.bads << e2
+        q.bads << e3
         questions << q
       end
     end

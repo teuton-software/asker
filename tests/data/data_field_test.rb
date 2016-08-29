@@ -25,7 +25,7 @@ class DataFieldTest < Minitest::Test
     d = @data[1]
     url = "http://www1/url/to/textfile.rb"
     assert_equal url                                , d.get(:raw)
-    assert_equal "<a href=\"#{url}\">textfile_url</a>", d.get(:decorated)
+    assert_equal "<a href=\"#{url}\">Textfile URL</a>", d.get(:decorated)
     assert_equal "textfile_url.1"                   , d.get(:id)
   end
 
