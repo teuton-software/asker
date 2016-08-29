@@ -12,11 +12,13 @@ require_relative 'lib/sinatra/sinatra_front_end'
 
 class MyCLI < Thor
 
+  #  puts "  "+Rainbow("--version, -v, version, v").green+"        => Show the program version."
   desc "version", "show the program version"
   def version
     puts Rainbow(Application::name).bright.blue+" (version "+Rainbow(Application::version).green+")"
   end
 
+  #  puts "  "+Rainbow("--web, -w, web, w  ").green+"              => Init Web Editor."
   desc "web", "Run web editor"
   def web
     SinatraFrontEnd.run!
@@ -24,12 +26,15 @@ class MyCLI < Thor
 
   desc "file NAME", "Build output files, from HAML/XML input file."
   long_desc <<-LONGDESC
-  It builds questions. This is the most usefull function.
-  You must specify path to HAML or XML input file.
+  Build output files, from HAML/XML input file.
 
-  Examples:\n
-  > #{$0} file input/foo/foo.haml\n
-  > #{$0} file input/foo/foo.xml\n
+  It builds questions for contents into the HAML or XML input file specified.
+  This is the most usefull function.
+  These are 3 ways of use it:
+
+  #{Rainbow($0+" file input/foo/foo.haml").yellow}, Build questions from HAML input file\n
+  #{Rainbow($0+" file input/foo/foo.xml").yellow}, Build questions from XML input file\n
+  #{Rainbow($0+" file projects/foo/foo.yaml").yellow}, Build questions from YAML project config file\n
 
 LONGDESC
   def file(name)
@@ -54,13 +59,6 @@ end
 MyCLI.start(ARGV)
 
 =begin
-def show_help
-  puts "  "+Rainbow("--web, -w, web, w  ").green+"              => Init Web Editor."
-  puts "  "+Rainbow("--help, -h, help, h").green+"              => Show this help."
-  puts "  "+Rainbow("--version, -v, version, v").green+"        => Show the program version."
-  puts "\n\n"
-  puts "    project/path/to/YAMLFILE  => Build output files from YAML config file."
-  puts "                                 Example: #{$0} projects/foo/foo.yaml"
   puts ""
 end
 =end
