@@ -6,8 +6,8 @@ require_relative "../../lib/lang/lang"
 class LangTest < Minitest::Test
   def setup
     @lang = { :en => Lang.new("en"), :es => Lang.new("es") }
-    @texts = [ 'hello', 'hello world!', 'bye-bye' ]
-    @hides = [ '?????', '????? ?????!', '???-???' ]
+    @texts = [ 'hello', 'hello world!', 'bye,bye' ]
+    @hides = [ '[*]', '????? ?????!', '???,???' ]
   end
 
   def test_count_words
@@ -69,6 +69,5 @@ class LangTest < Minitest::Test
     r2= "Hello, my name [1] [2]. I [3] a [4]."
     assert_equal r2, @lang[:en].build_text_from_filtered(t, [2,3,4,5])
   end
-
 
 end

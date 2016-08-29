@@ -93,6 +93,7 @@ module TextActions
     t = pInputText.clone
     t.gsub!("\n"," ")
     t.gsub!("/"," ")
+    #t.gsub!("-"," ")
     t.gsub!("."," ")
     t.gsub!(","," ")
     t.gsub!("   "," ")
@@ -118,13 +119,17 @@ module TextActions
   end
 
   def hide_text(pInputText)
-    input=pInputText
-    output=""
-    input.each_char do |char|
-      if ' !|"@#$%&/()=?¿¡+*(){}[],.-_<>'.include? char then
-        output=output+char
-      else
-        output=output+'?'
+    input=pInputText.clone
+    if count_words(input)<2 and input.size<10
+      output="[*]"
+    else
+      output=""
+      input.each_char do |char|
+        if ' !|"@#$%&/()=?¿¡+*(){}[],.-_<>'.include? char then
+          output=output+char
+        else
+          output=output+'?'
+        end
       end
     end
     return output
