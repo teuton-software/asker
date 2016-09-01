@@ -23,6 +23,9 @@ class DataField
 private
 
   def get_text(option)
+    if option==:screen
+      return to_screen(@data)
+    end
     return @data
   end
 
@@ -35,8 +38,7 @@ private
     when :decorated
       return "<a href=\"#{@data}\">Textfile URL</a>"
     when :screen
-      return @data[0,10]+"..."+@data[-20,20] if @data.size>40
-      return @data
+      return to_screen(@data)
     else
       raise "[ERROR] DataField.get_textfile_url: data=#{@data}, type=#{@type}, option=#{option}"
     end
@@ -51,11 +53,15 @@ private
     when :decorated
       return "<img src=\"#{@data}\" alt=\"image\">"
     when :screen
-      return @data[0,10]+"..."+@data[-20,20] if @data.size>40
-      return @data
+      return to_screen(@data)
     else
       raise "[ERROR] DataField.get_image_url: data=#{@data}, type=#{@type}, option=#{option}"
     end
+  end
+
+  def to_screen(text)
+    return text[0,7]+"..."+text[-15,15] if text.size>25
+    return text
   end
 
 end
