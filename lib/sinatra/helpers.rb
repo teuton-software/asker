@@ -52,7 +52,7 @@ module Sinatra
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/Home">Home</a></a></li>
+            <li class="active"><a href="/">Home</a></li>
             <li><a href="https://github.com/dvarrui/darts-of-teacher">GitHub</a></li>
             <li><a href="https://github.com/dvarrui/darts-of-teacher/blob/master/README.md">About</a></li>
           </ul>
