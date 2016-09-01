@@ -10,19 +10,21 @@ require_relative 'lib/application'
 require_relative 'lib/builder/project_builder'
 require_relative 'lib/sinatra/sinatra_front_end'
 
-class MyCLI < Thor
+class DartsCLI < Thor
 
-  #  puts "  "+Rainbow("--version, -v, version, v").green+"        => Show the program version."
+  map ["h","-h","--help"] => "help"
+
   desc "version", "show the program version"
   def version
     puts Rainbow(Application::name).bright.blue+" (version "+Rainbow(Application::version).green+")"
   end
+  map ["v","-v","--version"] => "version"
 
-  #  puts "  "+Rainbow("--web, -w, web, w  ").green+"              => Init Web Editor."
   desc "web", "Run web editor"
   def web
     SinatraFrontEnd.run!
   end
+  map ["w","-w","--web"] => "web"
 
   desc "file NAME", "Build output files, from HAML/XML input file."
   long_desc <<-LONGDESC
@@ -53,7 +55,8 @@ LONGDESC
   def create(projectname)
     ProjectBuilder::create_project( projectname )
   end
+  map ["c","-c","--create"] => "create"
 
 end
 
-MyCLI.start(ARGV)
+DartsCLI.start(ARGV)
