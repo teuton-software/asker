@@ -14,18 +14,19 @@ class DartsCLI < Thor
 
   map ["h","-h","--help"] => "help"
 
+  map ["v","-v","--version"] => "version"
   desc "version", "show the program version"
   def version
     puts Rainbow(Application::name).bright.blue+" (version "+Rainbow(Application::version).green+")"
   end
-  map ["v","-v","--version"] => "version"
 
-  desc "web", "Run web editor"
-  def web
+  map ["e","-e","--editor"] => "editor"
+  desc "editor", "Run web platform editor"
+  def editor
     SinatraFrontEnd.run!
   end
-  map ["w","-w","--web"] => "web"
 
+  map ["f","-f","--file"] => "file"
   desc "file NAME", "Build output files, from HAML/XML input file."
   long_desc <<-LONGDESC
   Build output files, from HAML/XML input file.
@@ -43,6 +44,7 @@ LONGDESC
     Tool.new.start(name)
   end
 
+  map ["c","-c","--create"] => "create"
   desc "create PROJECTNAME", "Create files for a new project"
   long_desc <<-LONGDESC
   ADVANCED FUNCTION
@@ -55,7 +57,6 @@ LONGDESC
   def create(projectname)
     ProjectBuilder::create_project( projectname )
   end
-  map ["c","-c","--create"] => "create"
 
 end
 
