@@ -4,11 +4,15 @@
 </div>
 
 <div class="well">
+<ul>
 <% @filenames.each do |filename| %>
   <% if File.directory?(filename) %>
     <li><a href="/dir/list/<%= route_for(filename) %>"><%= File.basename(filename) %></a></li>
-  <% else %>
+  <% elsif ['.haml','.xml'].include? File.extname(filename).downcase  %>
     <li><a href="/concept/list/<%= route_for(filename) %>"><%= File.basename(filename) %></a></li>
+  <% else %>
+    <li><span class="label label-default"><%= File.basename(filename) %></span></li>
   <% end %>
 <% end %>
+</ul>
 </div>
