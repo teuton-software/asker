@@ -16,6 +16,11 @@ module Sinatra
           erb :"dir/list"
         end
 
+        app.get '/dir/create/*' do
+          @current=File.join( Project.instance.inputbasedir, params[:splat] )
+          "Create dir #{@current}"
+          #erb :"dir/create"
+        end
       end
 
     end

@@ -16,3 +16,15 @@
 <% end %>
 </ul>
 </div>
+
+<div>
+  <p><form method="POST" action="/file/new">
+    <input type="hidden" name="basedir" value="<%= route_for(@current)%>">
+    <select name="type">
+      <option value="file">File</option>
+      <option value="dir">Directory</option>
+    </select>
+    Name <input type="text" name="filename">
+    <input type="submit" value="Create">
+  </form></p>
+</div>
