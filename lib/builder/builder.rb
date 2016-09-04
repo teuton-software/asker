@@ -13,7 +13,7 @@ module Builder
 
     filename=projectdir+"/config.yaml"
     if !File.exists? filename
-      puts "* Creating file => #{Rainbow(filename).color(:green)}"
+      puts "* Creating file      => #{Rainbow(filename).color(:green)}"
       f=File.new(filename,'w')
       f.write("---\n")
       f.write(":inputdirs: '#{Project.instance.inputbasedir}/#{projectname}'\n")
@@ -35,14 +35,14 @@ module Builder
       puts "* Creating directory => #{Rainbow(dirname).color(:green)}"
       Dir.mkdir(dirname)
     else
-      puts "* Exists directory! => #{Rainbow(dirname).color(:yellow)}"
+      puts "* Exists directory!  => #{Rainbow(dirname).color(:yellow)}"
     end
   end
 
   def self.create_hamlfile(filename)
     source = File.join( File.dirname(__FILE__), "sample.haml")
     if !File.exists? filename
-      puts "* Creating file => #{Rainbow(filename).color(:green)}"
+      puts "* Creating file      => #{Rainbow(filename).color(:green)}"
       FileUtils.cp( source, filename)
     else
       puts "* Exists file!       => #{Rainbow(dest).color(:yellow)}"
