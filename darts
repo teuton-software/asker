@@ -7,7 +7,7 @@ require 'rainbow'
 require 'pry'
 require_relative 'lib/tool'
 require_relative 'lib/application'
-require_relative 'lib/builder/project_builder'
+require_relative 'lib/builder/builder'
 require_relative 'lib/sinatra/sinatra_front_end'
 
 class DartsCLI < Thor
@@ -55,7 +55,7 @@ LONGDESC
 
 LONGDESC
   def create(projectname)
-    ProjectBuilder::create_project( projectname )
+    Builder::create_project( projectname )
   end
 
 end
