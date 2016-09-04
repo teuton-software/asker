@@ -1,4 +1,6 @@
 
+require_relative '../builder/builder'
+
 module Sinatra
   module SinatraFrontEnd
     module RouteFile
@@ -16,8 +18,6 @@ module Sinatra
         end
 
         app.post '/file/new' do
-          #"Params #{params.to_s}"
-          #filepath = File.join( Project.instance.inputbasedir, params[:basedir], params[:filename] )
           filepath = File.join( params[:basedir], params[:filename] )
           if params[:type]=='file' then
             redirect "/file/create/#{filepath}"
@@ -28,8 +28,8 @@ module Sinatra
 
         app.get '/file/create/*' do
           @current=File.join( Project.instance.inputbasedir, params[:splat] )
-          "Create file #{@current}"
-          #erb :"dir/create"
+          Builder::create_hamlfile(@current)
+          redirect "/concept/list/#{route_for(@current)}"
         end
       end
 
