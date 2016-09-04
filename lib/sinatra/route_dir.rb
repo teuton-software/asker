@@ -21,7 +21,9 @@ module Sinatra
         app.get '/dir/create/*' do
           @current=File.join( Project.instance.inputbasedir, params[:splat] )
           Builder::create_dir(@current)
-          redirect "dir/list/#{@current}"
+          load_dir @current
+          #redirect "dir/list/#{@current}"
+          erb :"dir/list"
         end
       end
 
