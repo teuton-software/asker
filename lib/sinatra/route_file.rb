@@ -26,8 +26,9 @@ module Sinatra
           end
         end
 
-        app.get '/file/create/*' do
-          @current=File.join( Project.instance.inputbasedir, params[:splat] )
+        app.get '/file/create/*' do |name|
+          filename = name+".haml"
+          @current=File.join( Project.instance.inputbasedir, filename )
           Builder::create_hamlfile(@current)
           redirect "/concept/list/#{route_for(@current)}"
         end
