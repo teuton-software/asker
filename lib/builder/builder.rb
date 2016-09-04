@@ -3,18 +3,13 @@
 require 'rainbow'
 require_relative '../project'
 
-module ProjectBuilder
+module Builder
 
   def self.create_project(projectname)
 
     puts "\n[INFO] Creating project <#{Rainbow(projectname).bright}>"
     projectdir="projects/#{projectname}"
-    if !Dir.exists? projectdir
-      puts "* Creating directory => #{Rainbow(projectdir).color(:green)}"
-      Dir.mkdir(projectdir)
-    else
-      puts "* Exists directory! => #{Rainbow(projectdir).color(:yellow)}"
-    end
+    Builder::create_dir(projectdir)
 
     filename=projectdir+"/config.yaml"
     if !File.exists? filename
@@ -40,17 +35,25 @@ module ProjectBuilder
     end
 
     inputdir="#{Project.instance.inputbasedir}/#{projectname}"
-    if !Dir.exists? inputdir
-      puts "* Creating directory => #{Rainbow(inputdir).color(:green)}"
-      Dir.mkdir(inputdir)
-    else
-      puts "* Exists directory! => #{Rainbow(inputdir).color(:yellow)}"
-    end
-
+    Builder::create_dir(inputdir)
     filename=inputdir+"/"+projectname+".haml"
+    Builder::create_hamlfile(filename)
+  end
+
+  def self.create_dir(dirname)
+    if !Dir.exists? dirname
+      puts "* Creating directory => #{Rainbow(dirname).color(:green)}"
+      Dir.mkdir(dirname)
+    else
+      puts "* Exists directory! => #{Rainbow(dirname).color(:yellow)}"
+    end
+  end
+
+  def self.create_hamlfile(filename)
+    source = File.join( File.dirname(__FILE__), "sample.haml")
     if !File.exists? filename
       puts "* Creating file => #{Rainbow(filename).color(:green)}"
-      FileUtils.cp( File.join( File.dirname(__FILE__), "sample.haml"), filename)
+      FileUtils.cp( source, filename)
     else
       puts "* Exists file!       => #{Rainbow(dest).color(:yellow)}"
     end
