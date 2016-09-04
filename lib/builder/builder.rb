@@ -24,16 +24,6 @@ module Builder
       puts "* Exists file! => #{Rainbow(filename).color(:yellow)}"
     end
 
-    filename=projectdir+"/.gitignore"
-    if !File.exists? filename
-      puts "* Creating file => #{Rainbow(filename).color(:green)}"
-      f=File.new(filename,'w')
-      f.write("*.txt\n*.log\n*.tmp\n")
-      f.close
-    else
-      puts "* Exists file! => #{Rainbow(filename).color(:yellow)}"
-    end
-
     inputdir="#{Project.instance.inputbasedir}/#{projectname}"
     Builder::create_dir(inputdir)
     filename=inputdir+"/"+projectname+".haml"
