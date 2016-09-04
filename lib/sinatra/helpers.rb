@@ -33,7 +33,7 @@ module Sinatra
             output += "/"+i
           else
             before=before+"/"+i
-            output += "/<a href=\"/dir/list"+before+"/\">"+i+"</a>"
+            output += "/<a href=\"/dir/list"+before+"\">"+i+"</a>"
           end
         end
         return output
