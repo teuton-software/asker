@@ -1,4 +1,6 @@
 
+require_relative '../builder/builder'
+
 module Sinatra
   module SinatraFrontEnd
     module RouteDir
@@ -18,8 +20,8 @@ module Sinatra
 
         app.get '/dir/create/*' do
           @current=File.join( Project.instance.inputbasedir, params[:splat] )
-          "Create dir #{@current}"
-          #erb :"dir/create"
+          Builder::create_dir(@current)
+          redirect "dir/list/#{@current}"
         end
       end
 
