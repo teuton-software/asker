@@ -2,6 +2,7 @@
 <h2>File: <a href="/file/show/<%= route_for(@filename) %>"><%= File.basename(@filename) %></a></h2>
 <p>Directory: <%= html_for_current(:indexlast => true) %>
   | Concepts <span class="badge"><%= @concepts.size.to_s%></span>
+  | <a href="/file/delete/<%=route_for(@filename)%>"><span class="label label-danger">Delete File</span></a>
 </p>
 </div>
 
