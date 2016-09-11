@@ -9,7 +9,10 @@
   <% if File.directory?(filename) %>
     <li><a href="/dir/list/<%= route_for(filename) %>"><%= File.basename(filename) %></a></li>
   <% elsif ['.haml','.xml'].include? File.extname(filename).downcase  %>
-    <li><a href="/concept/list/<%= route_for(filename) %>"><%= File.basename(filename) %></a></li>
+    <li><a href="/concept/list/<%= route_for(filename) %>">
+        <span class="label label-primary"><%= File.basename(filename) %></span>
+        </a>
+    </li>
   <% else %>
     <li><span class="label label-default"><%= File.basename(filename) %></span></li>
   <% end %>
