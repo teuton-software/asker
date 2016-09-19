@@ -38,7 +38,7 @@
         %col /usr/lib/nagios/plugins/check_load -w 15,10,5 -c 30,25,20
         %col Comando Nagios para comprobar la carga de la CPU
       %row
-        %col "/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -x sda" 
+        %col "/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -x sda"
         %col Comando Nagios para obtener el espacio disponible en el disco /dev/sda y alertar si queda menos de 20% de espacio en alguna partición
     %table{ :fields => 'directorio o fichero,descripción' }
       %row
@@ -115,7 +115,7 @@
         %col el nombre del hostgroup que estamos definiendo
       %row
         %col alias
-        %coluna breve descripción de la funcionalidad del hostgroup
+        %col una breve descripción de la funcionalidad del hostgroup
       %row
         %col members
         %col listado de hosts, separados por coma, que pertenecen a este hostgroup
