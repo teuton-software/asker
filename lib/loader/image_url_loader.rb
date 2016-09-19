@@ -36,7 +36,7 @@ module ImageUrlLoader
   end
 
   def self.sanitize_string(input)
-    r = [ ["á","a"], ["é","e"], ["í","i"], ["ó","o"], ["ú","u"], ["ñ","n"], ]
+    r = [ ["á","a"], ["é","e"], ["í","i"], ["ó","o"], ["ú","u"], ["ñ","n"], ["Á","A"], ["É","E"], ["Í","I"], ["Ó","O"], ["Ú","U"]]
     r.each { |item| input.gsub!(item[0], item[1]) }
     r = [ "-", "_", ",", "\"" ]
     r.each { |item| input.gsub!(item, " ")}
