@@ -125,7 +125,7 @@ private
         @context=i.text.split(",")
         @context.collect! { |k| k.strip }
       when 'tags'
-        raise '[Error] tags label empty!' if i.text.size==0
+        raise '[Error] tags label empty!' if i.text.nil? or i.text.size==0
         @data[:tags]=i.text.split(",")
         @data[:tags].collect! { |k| k.strip }
       when 'text'
