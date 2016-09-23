@@ -30,5 +30,31 @@
     %def [*] es un protocolo propietario desarrollado por Microsoft que permite la comunicación en la ejecución de una aplicación entre un terminal (mostrando la información procesada que recibe del servidor) y un servidor (recibiendo la información dada por el usuario en el terminal mediante el ratón ó el teclado).
     %table{ :fields => 'atributo,valor' }
       %row
-        %col Puerto por defecto donde da servicio
+        %col Puerto donde da servicio, por defecto
         %col 3389
+
+  %concept
+    %names SSH, Secure Shell
+    %tags protocolo, acceso, remoto, shell, segura
+    %def Nombre de un protocolo y del programa que implementa intérprete de órdenes seguro.
+    %def Protocolo/herramienta que sirve para acceder a máquinas remotas a través de una red de forma segura, mediante un intérprete de comandos.
+    %table{ :fields => 'comando,descripción' }
+      %row
+        %col scp fichero.iso usuario@host2
+        %col Copia el fichero en la máquina local, pero con otro nombre
+      %row
+        %col scp fichero.iso usuario@host2:/home/usuario
+        %col Copia el fichero en la máquina remota host2
+      %row
+        %col ssh usuario@host2
+        %col Se intenta abrir una conexión SSH con la máquina host2
+      %row
+        %col ssh usuario@localhost
+        %col Se intenta abrir una conexión SSH con la máquina local
+      %row
+        %col ssh usuario@host2:/home/usuario
+        %col Error ssh: "Could not resolve hostname"
+    %table{ :fields => 'atributo,valor' }
+      %row
+        %col Puerto donde da servicio, por defecto
+        %col 22
