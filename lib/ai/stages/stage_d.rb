@@ -115,6 +115,9 @@ class StageD < BaseStage
         q.text=random_image_for(name(:raw)) + lang.text_for(:d3, lang.hide_text(name(:raw)), t )
         q.shorts << name(:raw)
         q.shorts << name(:raw).gsub("-"," ").gsub("_"," ")
+        names.each do |n|
+          q.shorts << n if n!=name
+        end
         questions << q
       end
 
