@@ -1,0 +1,45 @@
+%map{ :version => '1', :lang => 'es', :context=>'git, herramienta, control, versiones, markdown' }
+
+  %concept
+    %names git
+    %tags herramienta, control, versiones
+    %def Es un software de control de versiones diseñado por Linus Torvalds.
+    %table{ :fields => 'comando,descripción' }
+      %row
+        %col apt-get install -y git
+        %col Instalar git en sistemas operativos basados en Debian/Ubuntu
+      %row
+        %col zypper in git
+        %col Instalar git en sistemas basados en OpenSUSE
+      %row
+        %col git init
+        %col Crea un repositorio nuevo en la carpeta actual
+      %row
+        %col git clone username@host:/path/to/repository
+        %col Crea una copia de un repositorio ubicado en un servidor remoto
+      %row
+        %col git clone /path/to/repository
+        %col Crea una copia de un repositorio local
+      %row
+        %col git add FILENAME
+        %col Registra sólo los cambios de FILENAME (añadirlos al Index)
+      %row
+        %col git add .
+        %col Registra todos los cambios de todos los archivos
+      %row
+        %col git commit -m "Commit message"
+        %col Graba los cambios, (Ahora los cambios están incluídos en el HEAD de tu copia local), pero aún no están en el repositorio remoto
+      %row
+        %col git push
+        %col Enviar los cambios de la copia local a tu repositorio remoto
+      %row
+        %col git pull
+        %col Actualizar tu repositorio local al commit más nuevo del repositorio remoto
+    %table{ :fields => 'Tareas/acciones con git', :sequence => 'Secuencia ordenada de tareas a realizar cada día de trabajo' }
+      %row Ir al directorio de trabajo con la copia de nuestro repositorio local
+      %row git pull
+      %row Crear, modificar y borrar ficheros
+      %row git status
+      %row git add FICHEROS
+      %row git commit -m "Message"
+      %row git push
