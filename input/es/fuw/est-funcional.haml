@@ -25,8 +25,80 @@
     %names Sistema informático
     %tags conjunto, hardware, software, personal, humano
     %def Conjunto de partes interrelacionadas: hardware, software y personal informático.
+    %def Es un conjunto de elementos de hardware y software interconectados para el tratamiento de la información.
+    %def Una serie de elementos físicos (hardware) capaz de realizar muchas tareas a gran velocidad y con gran precisión. Para que estos elementos físicos realicen un proceso determinado, es necesario que en él se ejecuten un conjunto de órdenes o instrucciones (software), componentes no físicos que pongan en funcionamiento todos esos componentes físicos.
+
+  %concept
+    %names programa informático, programa, programa de computadora
+    %tags conjunto, ordenado, instrucciones, software
+    %def Constituido por un conjunto de instrucciones ordenadas y agrupadas de forma adecuada.
+    %def Secuencia de instrucciones, escritas para realizar una tarea específica en una computadora.
+
+  %concept
+    %names Aplicación informática
+    %tags conjunto, programas, realizar, tareas, usuario
 
   %concept
     %names Soporte humano
     %tags usuarios, personas, mantienen, sistema
     %def Incluye al personal técnico que crean y mantienen el sistema (analistas, programadores, operarios, etc.) y a los usuarios que lo utilizan.
+
+  %concept
+    %names firmware
+    %tags software, integrado, dentro, hardware
+    %def Es un software que viene integrado directamente dentro de un hardware, en una memoria especial.
+    %def Se puede denominar al software que se encuentra pregrabado en un chip.
+
+  %concept
+    %names Estructura del ordenador, estructura de los ordenadores
+    %tags arquitectura, estructura, ordenador
+    %def Es un conjunto de componentes físicos interconectados unos con otros que interactúan para procesar datos y dar un resultado.
+    %def [*] en la actualidad, está basado en la arquitectura de Von Neuman.
+    %table{:fields => 'Componentes físicos' }
+      %row Unidad central de proceso (UCP)
+      %row Memoria central/principal o RAM
+      %row Unidades de entrada y salida
+      %row Controladores
+      %row Buses (Datos, direccciones y control)
+      %row Unidades periféricas o periféricos
+
+  %concept
+    %names memoria
+    %tags unidad, almacena, datos
+    %def Es la unidad donde se almacenan tanto los datos como las instrucciones. Existen dos tipos básicos de [*], que se diferencian sobre todo por su velocidad de acceso
+
+  %concept
+    %names memoria principal, memoria central, RAM
+    %tags unidad, lectura, escritura, datos, volátil
+    %def Es la memoria que actúa con mayor velocidad y está ligada directamente a las unidades más rápidas del computador (UC y ALU).
+    %def Para que un programa se ejecute debe estar almacenado (cargado) en [*].
+    %def Está dividida en posiciones (palabras de memoria) de un determinado número de bits. Para leer o escribir una información es necesario dar dicha posición.
+    %def Se puede leer y escribir en ella, y además es volátil (se pierden los datos al desconectar la corriente).
+
+  %concept
+    %names ROM, memoria ROM
+    %tags memoria, sólo, lectura
+    %def Memoria en la que sólo se puede leer y que es permanente (no se pierde al desconectar el ordenador)
+
+  %concept
+    %names memoria auxiliar, memoria secundaria, memoria externa
+    %tags memoria, capacidad, datos, lectura, escritura, permanentes
+    %def Memoria con gran capacidad para almacenar información.
+    %def Las unidades de disco, cintas magnéticas, discos ópticos son ejemplos de [*].
+    %def La información almacenada en dispositivos de [*], permanece indefinidamente hasta que el usuario la borre expresamente.
+
+  %concept
+    %names ALU, Unidad Aritmético-lógica, Arithmetic Logic Unit
+    %tags parte, CPU, realizar, operaciones, aritméticas, lógicas
+    %def Esta unidad contiene los circuitos electrónicos con los que se hacen las operaciones de tipo aritmético (sumas, restas, etc...) y de tipo lógico (comparar dos números, hacer operaciones del Álgebra de Boole binaria - and, or, not, xor, etc.).
+    %def Es uno de los bloques principales de la CPU. Calcula operaciones aritméticas y operaciones lógicas.
+
+  %concept
+    %names Unidad de Control, UC, CU
+    %tags parte, CPU, controla, unidades, leer, enviar, señales
+    %def Es uno de los bloques funcionales principales en los que se divide la CPU. Su función es buscar las instrucciones en la memoria principal, decodificarlas (interpretación) y ejecutarlas.
+
+  %concept
+    %names reloj, generador de pulsos
+    %tags genera, pulsos, sincronizar, operaciones, elementales, ordenador
+    %def Está dentro de la UC. Sincroniza todas las operaciones elementales del computador.
