@@ -91,14 +91,16 @@ class StageD < BaseStage
       q.bads << lang.text_for(:false)
       questions << q
 
-      q = Question.new(:choice)
-      q.name="#{name(:id)}-#{num}-d2false"
-      q.text=random_image_for(name(:raw)) + lang.text_for(:d2, a[1], t)
-      q.good =  lang.text_for(:false)
-      q.bads << lang.text_for(:misspelling)
-      q.bads << lang.text_for(:true)
-      questions << q
-
+      if a.size>1 then
+        q = Question.new(:choice)
+        q.name="#{name(:id)}-#{num}-d2false"
+        q.text=random_image_for(name(:raw)) + lang.text_for(:d2, a[1], t)
+        q.good =  lang.text_for(:false)
+        q.bads << lang.text_for(:misspelling)
+        q.bads << lang.text_for(:true)
+        questions << q
+      end
+      
       #Question type <a4desc>: boolean => FALSE
       #if neighbors.count>0 then
       #  q = Question.new(:boolean)
