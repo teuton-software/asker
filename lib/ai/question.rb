@@ -3,7 +3,8 @@
 class Question
   attr_accessor :name, :comment, :text
   attr_accessor :good, :bads, :matching, :shorts
-  attr_reader :type
+  attr_accessor :feedback
+  attr_reader   :type
 
   def initialize(type=:choice)
     reset(type)
@@ -18,6 +19,7 @@ class Question
     @bads     = []
     @matching = []
     @shorts   = []
+    @feedback = nil
     shuffle_on
   end
 

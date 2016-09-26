@@ -27,9 +27,10 @@ class QuestionGiftFormatter
         end
         s << text
       end
+      s=s+"  #####{@question.feedback.to_s}\n" if @question.feedback
       s=s+"}\n\n"
 	  when :boolean
-      s << "{#{@question.good}}\n\n"
+      s << "{#{@question.good}#####{@question.feedback.to_s}}\n\n"
     when :match
       s << "{\n"
       a=[]
@@ -49,7 +50,7 @@ class QuestionGiftFormatter
         text=i[0,220]+"...(ERROR: too long)" if text.size>255
         s << "  =%100%#{text}#\n"
       end
-
+      s << "  #####{@question.feedback.to_s}\n" if @question.feedback
       s << "}\n\n"
     end
     return s

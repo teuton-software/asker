@@ -40,6 +40,7 @@ class StageD < BaseStage
         q.bads << lang.do_mistake_to(name(:raw))
         q.bads << a[2]
         q.bads << a[3]
+        q.feedback="Option mispelled!: #{name(:raw)}"
         questions << q
       end
 
@@ -71,6 +72,7 @@ class StageD < BaseStage
       q.good=lang.text_for(:misspelling)
       q.bads << lang.text_for(:true)
       q.bads << lang.text_for(:false)
+      q.feedback="Definition text mispelled!: #{t}"
       questions << q
 
       if type=="text"
@@ -80,6 +82,7 @@ class StageD < BaseStage
         q.good=lang.text_for(:misspelling)
         q.bads << lang.text_for(:true)
         q.bads << lang.text_for(:false)
+        q.feedback="Concept name mispelled!: #{name(:raw)}"
         questions << q
       end
 
@@ -100,7 +103,7 @@ class StageD < BaseStage
         q.bads << lang.text_for(:true)
         questions << q
       end
-      
+
       #Question type <a4desc>: boolean => FALSE
       #if neighbors.count>0 then
       #  q = Question.new(:boolean)
