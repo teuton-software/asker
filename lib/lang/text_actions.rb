@@ -105,6 +105,7 @@ module TextActions
     lText=pText.clone
     keys=@mistakes.keys
 
+    #Try to do mistake with one item from the key list
     keys.shuffle!
     keys.each do |key|
       if lText.include? key.to_s then
@@ -115,7 +116,13 @@ module TextActions
       end
     end
 
-    return lText
+    #Force mistake by swapping letters
+    i=rand(lText.size-1)
+    aux=lText[i]
+    lText[i]=lText[i+1]
+    lText[i+1]=aux
+    return lText if lText!=pText
+    return lText+"s"
   end
 
   def hide_text(pInputText)
