@@ -1,0 +1,71 @@
+%map{ :version => '1', :lang => 'es', :context=>'hardware, estructura, funcional, introducción' }
+
+  %concept
+    %names BIOS, Basic Input Ouput System, EFI
+    %tags sistema, básico, entrada, salida, primer, programa, ejecuta, máquina
+    %def En español se denomina "sistema básico de entrada y salida"
+    %def Es un firmware instalado dentro de la computadora personal (PC), y es el primer programa que se ejecuta cuando se enciende la computadora.
+    %def Su propósito fundamental es iniciar y probar el hardware del sistema y cargar un gestor de arranque o un sistema operativo desde un dispositivo de almacenamiento de datos.
+
+  %concept
+    %names UEFI, Unified Extensible Firmware Interface
+    %tags nueva, BIOS, sustituto, interfaz, firmware, extensible
+    %def En español es la "Interfaz de Firmware Extensible Unificada".
+    %def Es una especificación que define una interfaz entre el sistema operativo y el firmware. Remplaza la antigua interfaz del Sistema Básico de Entrada y Salida (BIOS) estándar presentado en los computadores personales.
+    %table{:fields => 'caracteríticas'}
+      %row Fue desarrollada inicialmente por Intel en el 2002
+      %row Puede proporcionar menús gráficos adicionales
+      %row Puede proporcionar acceso remoto para la solución de problemas o mantenimiento
+      %row Compatibilidad y emulación del BIOS para los sistemas operativos solo compatibles con esta última
+      %row Soporte completo para la Tabla de particiones GUID (GPT)
+      %row Capacidad de arranque desde unidades de almacenamiento grandes, dado que no sufren de las limitaciones del MBR.
+      %row Entorno amigable y flexible Pre-Sistema Operativo, incluyendo capacidades de red.
+
+  %concept
+    %names periféricos, periférico
+    %tags dispositivo, hardware, usuario, interactuar, ordenador
+    %def Los [*] son dispositivos hardware con los cuales el usuario puede interactuar con el ordenador, almacenar o leer datos y programas, imprimir resultados, etc.
+    %def Los [*] se conectan con el ordenador y sus componentes a través de los denominados puertos o conectores externos. Esta gestión la realiza otra parte esencial del ordenador: la unidad de entrada y salida, que es el componente hardware utilizado para la gestión de [*].
+    %table{:fields => 'característica,descripción'}
+      %row
+        %col Fiabilidad
+        %col Es la probabilidad de que se produzca un error en la entrada y salida, y depende de la naturaleza del periférico, de las condiciones ambientales en que se conserva el mismo o de sus características.
+      %row
+        %col Tipo de acceso
+        %col Se dice que un dispositivo es de acceso secuencial si para acceder a un dato determinado debemos acceder primero a todos los que le preceden físicamente (por ejemplo: las cintas magnéticas). En cambio, se dice que un dispositivo permite el acceso directo si es posible acceder a un dato de forma directa, es decir, sin necesidad de acceder primero a los datos que le preceden (por ejemplo: discos duros).
+      %row
+        %col Velocidad de transferencia
+        %col Es la cantidad de información que el dispositivo puede leer o grabar, o bien enviar o recibir, por unidad de tiempo.
+
+  %concept
+    %names Acceso secuencial
+    %tags primero, acceder, datos, anteriores
+    %def Se dice que un dispositivo es de [*] si para acceder a un dato determinado debemos acceder primero a todos los que le preceden físicamente (por ejemplo: las cintas magnéticas).
+
+  %concept
+    %names Acceso directo
+    %tags acceder, datos, directo
+    %def Se dice que un dispositivo permite el [*] si es posible acceder a un dato de forma directa, es decir, sin necesidad de acceder primero a los datos que le preceden (por ejemplo: discos duros).
+
+  %concept
+    %names velocidad de transferencia
+    %tags cantidad, información, dispositivo, leer, escribir, unidad, tiempo
+    %def Es la cantidad de información que el dispositivo puede leer o grabar, o bien enviar o recibir, por unidad de tiempo.
+    %def La [*] se mide por ejemplo, en bits/segundo, caracteres/segundo, etc.
+
+  %concept
+    %names periféricos de entrada, periférico de entrada
+    %tags dispositivo, hardware, usuario, entrada, datos, ordenador
+    %def Son dispositivos que sirven para introducir datos y programas en el ordenador.
+    %def En los [*], la información circula por el bus datos desde teclado, ratón, etc. hacia la memoria central.
+
+  %concept
+    %names periféricos de salida, periférico de salida
+    %tags dispositivo, hardware, usuario, salida, datos, ordenador
+    %def Son dispositivos que sirven para extraer información desde el ordenador hacia el exterior.
+    %def En los [*], la información circula por el bus de datos desde la memoria central al monitor, impresora, etc.
+
+  %concept
+    %names periféricos de entrada y salida, periféricos de entrada-salida, periféricos de entrada salida
+    %tags dispositivo, hardware, usuario, entrada, salida, datos, ordenador
+    %def En los [*], la información circula por el bus de datos en ambos sentidos (joystick con motores, monitor táctil, impresoras multifunción, etc.).
