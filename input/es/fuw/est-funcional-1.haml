@@ -48,6 +48,7 @@
     %tags arquitectura, estructura, ordenador
     %def Es un conjunto de componentes físicos interconectados unos con otros que interactúan para procesar datos y dar un resultado.
     %def [*] en la actualidad, está basado en la arquitectura de Von Neuman.
+    %def Fue Von Neuman el que creó la [*] utilizada en los microprocesadores actuales.
     %table{:fields => 'Componentes físicos' }
       %row Unidad central de proceso (UCP)
       %row Memoria central/principal o RAM
@@ -100,9 +101,9 @@
     %def La información almacenada en dispositivos de [*], permanece indefinidamente hasta que el usuario la borre expresamente.
 
   %concept
-    %names ALU, Unidad Aritmético-lógica, Arithmetic Logic Unit
+    %names ALU, Unidad Aritmético-lógica, Arithmetic Logic Unit, UAL
     %tags parte, CPU, realizar, operaciones, aritméticas, lógicas
-    %def Esta unidad contiene los circuitos electrónicos con los que se hacen las operaciones de tipo aritmético (sumas, restas, etc...) y de tipo lógico (comparar dos números, hacer operaciones del Álgebra de Boole binaria - and, or, not, xor, etc.).
+    %def Esta unidad contiene los circuitos electrónicos con los que se hacen las operaciones de tipo aritmético (Como sumar) y de tipo lógico (Como comparar).
     %def Es uno de los bloques principales de la CPU. Calcula operaciones aritméticas y operaciones lógicas.
 
   %concept
@@ -125,11 +126,6 @@
     %def Es como se denomina al período de la señal generada por el reloj de la UC. Es del orden de nanosegundos.
 
   %concept
-    %names Ancho de banda
-    %tags cantidad, información, transferir, segundo
-    %def Representa la cantidad de información transferida por segundos entre una unidad y otra.
-
-  %concept
     %names palabra
     %tags unidad, información, múltiplo, byte
     %def El byte es una unidad de información relativamente pequeña para los cálculos que realiza la ALU, por lo que se utiliza una unidad superior denominada [*].
@@ -143,13 +139,12 @@
     %def Cuando la ALU va a realizar una suma, los datos con los que va a operar se guardan temporalmente en dos [*] y el resultado en un tercero, que suele ser uno de los dos anteriores.
 
   %concept
-    %names CPU, UCP, unidad de procesamiento, Unidad Central de Proceso, procesador
+    %names CPU, UCP, unidad de procesamiento, Unidad Central de Proceso, procesador, microprocesador
     %tags conjunto, UC, ALU
     %def Se denomina al conjunto de UC y ALU.
     %def Es el elemento encargado del control y ejecución de las operaciones que se efectúan dentro del ordenador con el fin de realizar el tratamiento automático de la información.
     %def Es la parte fundamental del ordenador; se encarga de controlar todas las tareas y procesos que se realizan dentro de él.
     %def Está formado por la unidad de control (UC), la unidad aritmético-lógica y su propia memoria interna, integrada en él.
-    %def Fue Von Neuman el que descubríó el funcionamiento de la [*] utilizada en los microprocesadores actuales.
     %def Es la parte que gobierna el ordenador; se encarga de todo: controla los dispositivos periféricos, la memoria, la información que se va a procesar, etc. Para que el [*] pueda trabajar necesita utilizar la memoria principal o central del ordenador.
 
   %concept
