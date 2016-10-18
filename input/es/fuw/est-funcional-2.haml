@@ -58,14 +58,64 @@
     %tags dispositivo, hardware, usuario, entrada, datos, ordenador
     %def Son dispositivos que sirven para introducir datos y programas en el ordenador.
     %def En los [*], la información circula por el bus datos desde teclado, ratón, etc. hacia la memoria central.
+    %table{ :fields => 'Dispositivos' }
+      %row Teclado
+      %row Lápiz óptico
+      %row Pantalla táctil
+      %row Digitalizador o tableta gráfica
+      %row Ratón (mouse)
+      %row Lectora de banda magnética (ej.: de tarjetas de créditos)
+      %row Detector de caracteres magnetizables
+      %row Escáner
 
   %concept
     %names periféricos de salida, periférico de salida
     %tags dispositivo, hardware, usuario, salida, datos, ordenador
     %def Son dispositivos que sirven para extraer información desde el ordenador hacia el exterior.
     %def En los [*], la información circula por el bus de datos desde la memoria central al monitor, impresora, etc.
+    %table{ :fields => 'Dispositivos' }
+      %row Monitores de visualización o pantallas
+      %row Impresora y plotter
+      %row Altavoces
 
   %concept
     %names periféricos de entrada y salida, periféricos de entrada-salida, periféricos de entrada salida
     %tags dispositivo, hardware, usuario, entrada, salida, datos, ordenador
     %def En los [*], la información circula por el bus de datos en ambos sentidos (joystick con motores, monitor táctil, impresoras multifunción, etc.).
+
+  %concept
+    %names resolución
+    %tags número, puntos, representar, monitor, pantalla
+    %def Se trata del número de puntos que puede representar el monitor por pantalla, en horizontal por vertical.
+    %def Un monitor cuya [*] máxima es de 1024x768 puntos, quiere decir que es capaz de representar hasta 768 líneas horizontales de 1024 puntos cada una, además de otras resoluciones inferiores, como 640x480 u 800x600.
+    %def Cuanto mayor sea la [*] de un monitor, mejor será la calidad de la imagen en pantalla, y mayor será la calidad del monitor. La [*] debe ser apropiada además al tamaño del monitor.
+
+  %concept
+    %names refresco de pantalla, Frecuencia de Refresco Vertical
+    %tags número, veces, escribir, información, pantalla, segundo
+    %def Es el número de veces que se escribe la información en pantalla por unidad de segundo.
+    %def El [*] se puede comparar al número de fotogramas por segundo de una película de cine, por lo que deberá ser lo mayor posible.
+    %def El [*] se mide en Hz (hertzios) y debe estar por encima de 60 Hz, preferiblemente 70 u 80. A partir de esta cifra, la imagen en la pantalla es sumamente estable, sin parpadeos apreciables, con lo que la vista sufre mucho menos.
+
+  %concept
+    %names tamaño de punto, dot pitch
+    %tags medir,nitidez,imagen,distancia,entre,dos, punto
+    %def El [*] es un parámetro que mide la nitidez de la imagen, midiendo la distancia entre dos puntos del mismo color.
+
+  %concept
+    %names impresora, impresoras
+    %tags dispositivo,periférico,salida,escribir,información,papel
+    %def Las [*] son dispositivos de salida que escriben la información sobre papel.
+    %table{ :fields => 'tipo,descripción' }
+      %row
+        %col Matricial
+        %col Se basan en una matriz de agujas (también se pueden llamar impresoras de agujas) que percuten individualmente sobre una cinta entintada que marca el papel.
+      %row
+        %col Térmica
+        %col Mecanismo equivalente a las impresoras matriciales, pero utilizando papel termosensible y agujas de impresión por calentamiento.
+      %row
+        %col Inyección de Tinta
+        %col Su funcionamiento se basa en la expulsión de gotas de tinta líquida a través de unos inyectores que impactan en el papel formando los puntos necesarios para la realización de gráficos y textos.
+      %row
+        %col Láser
+        %col Se basa en un láser que ioniza un rodillo para que se impregne de tinta de forma selectiva y al pasar sobre la superficie a imprimir plasma el gráfico o texto deseado.
