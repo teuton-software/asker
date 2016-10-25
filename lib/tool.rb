@@ -3,6 +3,7 @@
 
 require 'yaml'
 require 'rainbow'
+require 'pry-byebug'
 
 require_relative 'project'
 require_relative 'data/concept'
