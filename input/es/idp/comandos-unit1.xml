@@ -226,11 +226,10 @@
 	</concept>
 
 	<concept>
-		<names>sistema-de-ficheros-linux</names>
+		<names>sistema de ficheros linux</names>
 		<tags>sistema, ficheros, linux</tags>
-		<def>Es el componente del sistema operativo encargado de administrar los dispositivos de almacenamiento.</def>
-		<def>Sus principales funciones son la asignación de espacio a los archivos,
-		la administración del espacio libre, y el acceso a los datos.</def>
+		<def>Es el componente del sistema operativo GNU/Linux encargado de administrar los dispositivos de almacenamiento.</def>
+		<def>Sus principales funciones son la asignación de espacio a los archivos, la administración del espacio libre, y el acceso a los datos.</def>
 		<table fields='directorio, función'>
 			<row>
 				<col>/bin</col>
