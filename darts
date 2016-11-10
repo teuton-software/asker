@@ -11,23 +11,22 @@ require_relative 'lib/builder/builder'
 require_relative 'lib/sinatra/sinatra_front_end'
 
 class DartsCLI < Thor
+  map ['h', '-h', '--help'] => 'help'
 
-  map ["h","-h","--help"] => "help"
-
-  map ["v","-v","--version"] => "version"
-  desc "version", "show the program version"
+  map ['v', '-v', '--version'] => 'version'
+  desc 'version', 'show the program version'
   def version
-    puts Rainbow(Application::name).bright.blue+" (version "+Rainbow(Application::version).green+")"
+    puts Rainbow(Application::name).bright.blue+' (version '+Rainbow(Application::version).green+')'
   end
 
-  map ["e","-e","--editor"] => "editor"
-  desc "editor", "Run web platform editor"
+  map ['e', '-e', '--editor'] => 'editor'
+  desc 'editor', 'Run web platform editor'
   def editor
     SinatraFrontEnd.run!
   end
 
-  map ["f","-f","--file"] => "file"
-  desc "file NAME", "Build output files, from HAML/XML input file."
+  map ['f', '-f', '--file'] => 'file'
+  desc 'file NAME', 'Build output files, from HAML/XML input file.'
   long_desc <<-LONGDESC
   Build output files, from HAML/XML input file.
 
@@ -35,17 +34,17 @@ class DartsCLI < Thor
   This is the most usefull function.
   These are 3 ways of use it:
 
-  #{Rainbow($0+" file input/foo/foo.haml").yellow}, Build questions from HAML file\n
-  #{Rainbow($0+" file input/foo/foo.xml").yellow}, Build questions from XML file\n
-  #{Rainbow($0+" file projects/foo/foo.yaml").yellow}, Build questions from YAML project file\n
+  #{Rainbow($0+' file input/foo/foo.haml').yellow}, Build questions from HAML file\n
+  #{Rainbow($0+' file input/foo/foo.xml').yellow}, Build questions from XML file\n
+  #{Rainbow($0+' file projects/foo/foo.yaml').yellow}, Build questions from YAML project file\n
 
 LONGDESC
   def file(name)
     Tool.new.start(name)
   end
 
-  map ["c","-c","--create"] => "create"
-  desc "create PROJECTNAME", "Create files for a new project"
+  map ['c', '-c', '--create'] => 'create'
+  desc 'create PROJECTNAME', 'Create files for a new project'
   long_desc <<-LONGDESC
   ADVANCED FUNCTION
 
@@ -55,9 +54,8 @@ LONGDESC
 
 LONGDESC
   def create(projectname)
-    Builder::create_project( projectname )
+    Builder::create_project(projectname)
   end
-
 end
 
 DartsCLI.start(ARGV)
