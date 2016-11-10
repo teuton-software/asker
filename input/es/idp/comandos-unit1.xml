@@ -68,7 +68,7 @@
   <concept>
     <names>free</names>
     <tags>mostrar, memoria, libre, ocupada</tags>
-    <def>Comandos que muestra la memoria libre y ocupada del sistema.</def>
+    <def>Comando que sirve únicamente para mostrar la memoria libre y ocupada del sistema.</def>
   </concept>
 
   <concept>
@@ -94,7 +94,11 @@
     <table fields='acción, resultado'>
       <row>
         <col>ln FILE LINK</col>
-        <col>Crea un enlace duro al fichero FILE</col>
+        <col>Crea un enlace duro al fichero FILE (No directorios)</col>
+      </row>
+      <row>
+        <col>ln -d FILE LINK</col>
+        <col>Crea un enlace duro al directorio FILE</col>
       </row>
       <row>
         <col>ln -s FILE LINK</col>
@@ -154,7 +158,7 @@
 			</row>
 			<row>
 				<col>mkdir DIRNAME1 DIRNAME2 DIRNAME3</col>
-				<col>Crea todos los directorios directamente en la ruta actual.</col>
+				<col>Crea todos los directorios directamente en la ruta actual. Todos al mismo nivel.</col>
 			</row>
 			<row>
 				<col>mkdir --parents DIRNAME1/DIRNAME2/DIRNAME3</col>
@@ -208,32 +212,32 @@
 		<table fields='acción, resultado'>
 			<row>
 				<col>rm -i foo/*</col>
-				<col>Pregunta confirmación al usuario antes de cada eliminación.</col>
+				<col>Pregunta confirmación al usuario antes de eliminar el archivo.</col>
 			</row>
 			<row>
 				<col>rm foo</col>
-				<col>Elimina el fichero.</col>
+				<col>Elimina un fichero (No directorio)</col>
 			</row>
 			<row>
 				<col>rm -r foo</col>
-				<col>Elimina el directorio y sus contenidos de forma recursiva.</col>
+				<col>Elimina el fichero. Y si es directorio, lo elimina junto con sus contenidos de forma recursiva.</col>
 			</row>
 			<row>
 				<col>rm ./-foo</col>
-				<col>Elimina un fichero cuyo nombre empieza por '-'.</col>
+				<col>Elimina un fichero cuando su nombre empieza por el símbolo '-'.</col>
 			</row>
 		</table>
 	</concept>
 
 	<concept>
-		<names>sistema de ficheros linux</names>
+		<names>sistema de ficheros linux, sistema de archivos</names>
 		<tags>sistema, ficheros, linux</tags>
 		<def>Es el componente del sistema operativo GNU/Linux encargado de administrar los dispositivos de almacenamiento.</def>
 		<def>Sus principales funciones son la asignación de espacio a los archivos, la administración del espacio libre, y el acceso a los datos.</def>
 		<table fields='directorio, función'>
 			<row>
 				<col>/bin</col>
-				<col>Contiene los comandos del sistema.</col>
+				<col>Contiene comandos del sistema que pueden usar todos los usuarios.</col>
 			</row>
 			<row>
 				<col>/boot</col>
@@ -253,7 +257,7 @@
 			</row>
 			<row>
 				<col>/sbin</col>
-				<col>Contiene comandos que reservados para el superusuario.</col>
+				<col>Contiene comandos que reservados sólo para el superusuario.</col>
 			</row>
 			<row>
 				<col>/tmp</col>
@@ -296,17 +300,10 @@
 				<col>(Vacío)</col>
 			</row>
 			<row>
-				<col>which ls</col>
-				<col>/bin/ls</col>
-			</row>
-			<row>
 				<col>which cp</col>
-				<col>/bin/cp</col>
+				<col>/bin/cp o /usr/bin/cp</col>
 			</row>
-			<row>
-				<col>which vdir</col>
-				<col>/bin/vdir</col>
-			</row>
+
 		</table>
 	</concept>
 </map>
