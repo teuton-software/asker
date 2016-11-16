@@ -37,7 +37,7 @@ class ContentLoader
     rescue REXML::ParseException
       msg = Rainbow("[ERROR] ConceptLoader: Format error in file ").red+Rainbow(@filename).red.bright
       project.verbose msg
-      system("echo '#{lFileContent}' > output/error.xml")
+      system("echo '#{@content}' > output/error.xml")
       raise msg
     end
 
