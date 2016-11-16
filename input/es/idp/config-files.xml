@@ -8,31 +8,31 @@
     <def>Una línea de ejemplo del fichero [*]: "quigon:FXWUuZ.vwXttg:1000:1001:Quigon Jinn:/home/quigon:/bin/bash"</def>
 		<table fields='campo del fichero,descripción'>
 			<row>
-				<col>1</col>
+				<col>Campo 1</col>
 				<col>Nombre de la cuenta (Login)</col>
 			</row>
 			<row>
-				<col>2</col>
+				<col>Campo 2</col>
 				<col>Clave de acceso encriptada (password)</col>
 			</row>
 			<row>
-				<col>3</col>
+				<col>Campo 3</col>
 				<col>UID de la cuenta</col>
 			</row>
 			<row>
-				<col>4</col>
+				<col>Campo 4</col>
 				<col>GID del grupo principal al que pertenece la cuenta</col>
 			</row>
 			<row>
-				<col>5</col>
+				<col>Campo 5</col>
 				<col>Descripción del usuario</col>
 			</row>
 			<row>
-				<col>6</col>
+				<col>Campo 6</col>
 				<col>Directorio de trabajo del usuario (home)</col>
 			</row>
 			<row>
-				<col>7</col>
+				<col>Campo 7</col>
 				<col>Interprete de comando (shell)</col>
 			</row>
     </table>
