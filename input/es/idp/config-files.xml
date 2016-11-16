@@ -1,0 +1,42 @@
+<map version='1' lang='es' context='sistemas operativos, comando' >
+
+  <concept>
+		<names>/etc/passwd</names>
+		<tags>fichero, configuración, usuario, sistema</tags>
+	  <def>El contenido de este fichero determina quien puede acceder al sistema de manera legitima.</def>
+	  <def>En este fichero tenemos registrados las cuentas de usuarios, grupo principal, etc.</def>
+    <def>Una línea de ejemplo del fichero [*]: "quigon:FXWUuZ.vwXttg:1000:1001:Quigon Jinn:/home/quigon:/bin/bash"</def>
+		<table fields='campo del fichero,descripción'>
+			<row>
+				<col>1</col>
+				<col>Nombre de la cuenta (Login)</col>
+			</row>
+			<row>
+				<col>2</col>
+				<col>Clave de acceso encriptada (password)</col>
+			</row>
+			<row>
+				<col>3</col>
+				<col>UID de la cuenta</col>
+			</row>
+			<row>
+				<col>4</col>
+				<col>GID del grupo principal al que pertenece la cuenta</col>
+			</row>
+			<row>
+				<col>5</col>
+				<col>Descripción del usuario</col>
+			</row>
+			<row>
+				<col>6</col>
+				<col>Directorio de trabajo del usuario (home)</col>
+			</row>
+			<row>
+				<col>7</col>
+				<col>Interprete de comando (shell)</col>
+			</row>
+    </table>
+		<def>En el fichero de configuración [*], el UID de cuenta 0, pertenece al administrador (root), por debajo de UID 1000 esta reservado para el sistema y por encima de UID 1000 para los usuarios del sistema.</def>
+  </concept>
+
+</map>
