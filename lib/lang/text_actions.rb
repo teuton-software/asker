@@ -117,10 +117,12 @@ module TextActions
     end
 
     #Force mistake by swapping letters
-    i=rand(lText.size-1)
-    aux=lText[i]
-    lText[i]=lText[i+1]
-    lText[i+1]=aux
+    if lText.size>1
+      i=rand(lText.size-2)
+      aux=lText[i]
+      lText[i]=lText[i+1]
+      lText[i+1]=aux
+    end
     return lText if lText!=pText
     return lText+"s"
   end
