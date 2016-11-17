@@ -64,4 +64,59 @@
     </table>
   </concept>
 
+  <concept>
+    <names>/etc/shadow</names>
+    <tags>fichero, configuración, contraseñas, claves, sistema</tags>
+	  <def>En este fichero almacenamos las contraseñas cifradas y nos da información sobre caducidad y validez de la cuenta.</def>
+    <def>Una línea de ejemplo del fichero [*]: "profesor:$6$b0fj1:16979:0:99999:7:::"</def>
+    <table fields='campo del fichero,descripción'>
+      <row>
+				<col>Campo 1</col>
+				<col>El nombre del usuario</col>
+			</row>
+      <row>
+				<col>Campo 2</col>
+				<col>Clave cifrada del usuario</col>
+			</row>
+      <row>
+				<col>Campo 3</col>
+				<col>Días transcurridos desde 1-1-1970 donde el password fue cambiado por última vez</col>
+			</row>
+      <row>
+				<col>Campo 4</col>
+				<col>El mínimo número de días entre cambios de contraseña</col>
+			</row>
+      <row>
+				<col>Campo 5</col>
+				<col>Días máximos de validez de la cuenta</col>
+			</row>
+      <row>
+				<col>Campo 6</col>
+				<col>Días que avisa antes de caducar la contraseña</col>
+			</row>
+      <row>
+				<col>Campo 7</col>
+				<col>Días después de que un password caduque para deshabiltar la cuenta</col>
+			</row>
+      <row>
+				<col>Campo 8</col>
+				<col>Fecha de caducidad. días desde 1-1-1970, donde la cuenta es deshabilatada y el usuario no podrá iniciar sesión</col>
+			</row>
+    </table>
+  </concept>
+
+  <concept>
+    <names>/etc/hostname</names>
+    <tags>fichero, configuración, nombre, equipo, sistema</tags>
+	  <def>En la mayoría de los SSOO GNU/Linux hay que modificar el archivo [*] para que su contenido sea el nuevo nombre de la máquina.</def>
+    <def>Una línea de ejemplo del fichero [*]: "camaleon.ies"</def>
+  </concept>
+
+  <concept>
+    <names>/etc/hosts</names>
+    <tags>fichero, configuración, asociar, correspondencia, nombre, equipo, ip</tags>
+    <def>El archivo [*] es usado por el sistema operativo para guardar la correspondencia entre nombres de equipos y direcciones IP.</def>
+    <def>Una línea de ejemplo del fichero [*]: "127.0.0.1         localhost"</def>
+  </concept>
+
 </map>
