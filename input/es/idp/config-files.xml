@@ -3,7 +3,7 @@
   <concept>
 		<names>/etc/passwd</names>
 		<tags>fichero, configuración, usuario, sistema</tags>
-	  <def>El contenido de este fichero determina quien puede acceder al sistema de manera legitima.</def>
+	  <def>El contenido de este fichero determina los usuarios que puede acceder al sistema.</def>
 	  <def>En este fichero tenemos registrados las cuentas de usuarios, grupo principal, etc.</def>
     <def>Una línea de ejemplo del fichero [*]: "quigon:FXWUuZ.vwXttg:1000:1001:Quigon Jinn:/home/quigon:/bin/bash"</def>
 		<table fields='campo del fichero,descripción'>
@@ -37,6 +37,31 @@
 			</row>
     </table>
 		<def>En el fichero de configuración [*], el UID de cuenta 0, pertenece al administrador (root), por debajo de UID 1000 esta reservado para el sistema y por encima de UID 1000 para los usuarios del sistema.</def>
+  </concept>
+
+  <concept>
+		<names>/etc/group</names>
+		<tags>fichero, configuración, grupo, sistema</tags>
+	  <def>Contiene los nombres de los grupos del sistema, y una lista con los usuarios que pertenecen a cada grupo.</def>
+    <def>Una línea de ejemplo del fichero [*]: "users:x:100:quigon,obiwan"</def>
+		<table fields='campo del fichero,descripción'>
+      <row>
+				<col>Campo 1</col>
+				<col>El nombre del grupo</col>
+			</row>
+      <row>
+				<col>Campo 2</col>
+				<col>La contraseña cifrada o bien una x que indica la existencia de un archivo gshadow</col>
+			</row>
+      <row>
+				<col>Campo 3</col>
+				<col>El número de GID</col>
+			</row>
+      <row>
+				<col>Campo 4</col>
+				<col>Lista de los miembros del grupo, separados por comas (sin espacios)</col>
+			</row>
+    </table>
   </concept>
 
 </map>
