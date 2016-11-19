@@ -33,3 +33,24 @@
       %row
         %col netstat -a
         %col Muestra información de todos los sockets (tcp/udp, conectados o no)
+
+  %concept
+    %names systemctl
+    %tags control, systemd, sistema, gestor, servicio
+    %def Comando para controlar los servicios gestionados por systemd
+    %table{:fields => 'acción, resultado'}
+      %row
+        %col systemctl status NAME
+        %col Muestra información del estado del servicio NAME
+      %row
+        %col systemctl stop NAME
+        %col Para el servicio NAME
+      %row
+        %col systemctl start NAME
+        %col Inicia el servicio NAME
+      %row
+        %col systemctl enable NAME
+        %col Activa el inicio automático del servicio NAME
+      %row
+        %col systemctl disable NAME
+        %col Desactiva el inicio automático del servicio NAME
