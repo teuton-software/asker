@@ -23,10 +23,11 @@ task :check do
   list.each { |i| fails << i unless names.include?(i) }
 
   if fails.size==0
-    puts "Check OK!"
+    puts "Check gems OK!"
   else
-    puts "Check FAILS!: "+fails.join(",")
- end
+    puts "Check gems FAILS!: "+fails.join(",")
+  end
+  system('./tests/all.rb')
 end
 
 desc "Update this project"
