@@ -4,16 +4,16 @@ class DataField
   def initialize(data, id, type)
     @data = data
     @id   = id
-    @type = type
+    @type = type.to_sym
   end
 
   def get(option=:raw)
     case @type
-    when "text"
+    when :text
       return get_text(option)
-    when "textfile_url"
+    when :textfile_url
       return get_textfile_url(option)
-    when "image_url"
+    when :image_url
       return get_image_url(option)
     else
       raise "[ERROR] DataField.get: data=#{@data}, type=#{@type}, option=#{option}"
