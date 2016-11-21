@@ -17,7 +17,7 @@ task :gems do
   list.each { |name| system("gem install #{name}") }
 end
 
-desc 'Check installed gems'
+desc 'Check installation'
 task :check do
   cmd = `gem list`.split("\n")
   names = cmd.map { |i| i.split(" ")[0] }
