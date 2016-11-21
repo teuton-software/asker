@@ -1,9 +1,15 @@
 
-# Class DataField used to contain data from fields
+# Contain data information for every field
+# Params:
+# * +data+ - Data (Text). This is the field content
+# * +id+ - Identifier (Integer)
+# * +type+ - May be "text", "textfile_url" or "image_url"
 class DataField
+  attr_reader :id, :type
+
   def initialize(data, id, type)
     @data = data
-    @id   = id
+    @id   = id.to_i
     @type = type.to_sym
   end
 
