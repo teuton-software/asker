@@ -1,0 +1,107 @@
+<map version='1' lang='es' context='sistemas operativos, comando, paquetes, gestión' >
+
+	<concept>
+		<names>script</names>
+		<tags>guardar, fichero, comandos, utilizados</tags>
+		<def>Es un comando del sistema operativo GNU/Linux, que almacena en un fichero todos los comandos escritos, y sus resultados, después de ser invocado.</def>
+	</concept>
+
+	<concept>
+		<names>gestión de paquetes</names>
+		<tags>gestionar, paquetes, instalar, desinstalar, consultar</tags>
+		<def>Sistema para la actualización del sistema operativo. De modo que nos permite instalar/desinstalar programas y documentación, así como consultar todo el catálogo de productos disponibles en los repositorios.</def>
+		<table fields='atributo,valor'>
+			<row>
+				<col>Extensión de los paquetes Debian</col>
+				<col>.deb</col>
+			</row>
+			<row>
+				<col>Extensión de los paquetes OpenSUSE/Red Hat</col>
+				<col>.rpm</col>
+			</row>
+		</table>
+		<table fields='acción,resultado'>
+			<row>
+				<col>apt-get update</col>
+				<col>Actualizar el catálogo de paquetes Debian disponibles.</col>
+			</row>
+			<row>
+				<col>apt-cache search tree</col>
+				<col>Buscar un paquete Debian concreto en los repositorios.</col>
+			</row>
+			<row>
+				<col>apt-cache install ruby</col>
+				<col>Instalar un paquete Debian concreto desde los repositorios.</col>
+			</row>
+			<row>
+				<col>apt-get remove pascal</col>
+				<col>Deinstalar un paquete Debian.</col>
+			</row>
+			<row>
+				<col>apt-get upgrade</col>
+				<col>Actualizar todos los paquetes Debian.</col>
+			</row>
+			<row>
+				<col>zypper refresh</col>
+				<col>>Actualizar el catálogo de paquetes OpenSUSE disponibles.</col>
+			</row>
+			<row>
+				<col>zypper search wget</col>
+				<col>Buscar un paquete OpenSUSE concreto en los repositorios.</col>
+			</row>
+			<row>
+				<col>zypper install python</col>
+				<col>Instalar un paquete OpenSUSE concreto desde los repositorios.</col>
+			</row>
+			<row>
+				<col>zypper update</col>
+				<col>Actualizar todos los paquetes OpenSUSE.</col>
+			</row>
+			<row>
+				<col>zypper remove emacs</col>
+				<col>Deinstalar un paquete OpenSUSE.</col>
+			</row>
+			<row>
+				<col>rpm -i lightdm_1.8.4_amd64.rpm</col>
+				<col>Instalar un paquete apartir de un fichero conformato RPM.</col>
+			</row>
+			<row>
+				<col>rpm -U lxde_0.8.11_all.rpm</col>
+				<col>Actualizar un paquete desde un fichero con formato RPM.</col>
+			</row>
+			<row>
+				<col>rpm -qa</col>
+				<col>Listar los paquetes RPM instalados.</col>
+			</row>
+			<row>
+				<col>rpm -q nmap</col>
+				<col>Consultar el estado de un paquete Red Hat.</col>
+			</row>
+			<row>
+				<col>rpm -qf --search /sbin/route</col>
+				<col>Averiguar qué paquete RPM instaló el fichero.</col>
+			</row>
+			<row>
+  			<col>dpkg --install mozilla_0.8.11_all.deb</col>
+				<col>Actualizar un paquete desde un fichero con formato Debian.</col>
+			</row>
+			<row>
+				<col>dpkg --install lightdm_1.8.4_amd64.deb</col>
+				<col>Instalar un paquete a partir de un fichero con formato Debian.</col>
+			</row>
+			<row>
+				<col>dpkg --list</col>
+				<col>Listar los paquetes Debian instalados.</col>
+			</row>
+			<row>
+				<col>dpkg --status bash</col>
+				<col>Consultar el estado de un paquete Debian.</col>
+			</row>
+			<row>
+				<col>dpkg --search /sbin/fdisk</col>
+				<col>Averiguar qué paquete Debian instaló el fichero.</col>
+			</row>
+		</table>
+	</concept>
+
+</map>
