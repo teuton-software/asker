@@ -25,7 +25,7 @@ class Table
     @types  = ['text']        * @fields.size
     @langs  = [@concept.lang] * @fields.size
 
-    @name   = ""
+    @name   = ''
     @fields.each { |i| @name=@name+"$"+i.to_s.strip.downcase}
     @id    = @concept.name.to_s + "." + @name
     @simple = { :lang => true, :type => true }
