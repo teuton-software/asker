@@ -90,8 +90,12 @@
 				<col>Pone como propietario del directorio DIRNAME al usuario USERNAME.</col>
 			</row>
 			<row>
-				<col>chown bob:users foo</col>
-				<col>Cambia el usuario propietario y el grupo propietario del fichero/directorio.</col>
+				<col>chown USERNAME:GROUPNAME DIRNAME</col>
+				<col>Pone como usuario propietario USERNAME y como grupo propietario GROUPNAME en el directorio DIRNAME.</col>
+			</row>
+			<row>
+				<col>chown USERNAME:GROUPNAME FILENAME</col>
+				<col>Pone como usuario propietario USERNAME y como grupo propietario GROUPNAME en el fichero FILENAME.</col>
 			</row>
 		</table>
 	</concept>
