@@ -47,21 +47,15 @@
 			</row>
 			<row>
 				<col>o-rw</col>
-				<col>Quitar permisos de lectura y escritura a todos los
-				usuarios excepto para el propietario y miembros del grupo
-				propietario.</col>
+				<col>Quitar permisos de lectura y escritura a todos los usuarios excepto para el propietario y miembros del grupo propietario.</col>
 			</row>
 			<row>
 				<col>go=rw</col>
-				<col>Establece únicamente permisos de lectura y escritura
-				todos los usuarios excepto al propietario.</col>
+				<col>Establece únicamente permisos de lectura y escritura todos los usuarios excepto al propietario.</col>
 			</row>
 			<row>
 				<col>u+x,go=rx</col>
-				<col>Añade permisos de ejecución para el propietario.
-				Y establece únicamente permisos de lectura y escritura
-				todos los usuarios excepto al propietario. Las especificaciones
-				se separan por comas.</col>
+				<col>Añade permisos de ejecución para el propietario. Y establece únicamente permisos de lectura y escritura todos los usuarios excepto al propietario. Las especificaciones se separan por comas.</col>
 			</row>
 		</table>
 	</concept>
@@ -78,167 +72,149 @@
 		</table>
 	</concept>
 
+	<concept>
+		<names>chown</names>
+		<tags>cambiar, propietario, usuario, grupo, archivos, directorios</tags>
+		<def>Es un comando del sistema operativo GNU/Linux, que permite cambiar el usuario propietario y el grupo propietario de archivos y directorios.</def>
+		<table fields='acción,resultado'>
+			<row>
+				<col>chown bob foo</col>
+				<col>Cambia el propietario del fichero/directorio.</col>
+			</row>
+			<row>
+				<col>chown bob:users foo</col>
+				<col>Cambia el usuario propietario y el grupo propietario del fichero/directorio.</col>
+			</row>
+		</table>
+	</concept>
 
-		<concept>
-			<names>chown</names>
-			<tags>cambiar, propietario, usuario, grupo, archivos, directorios</tags>
-			<def>Es un comando del sistema operativo GNU/Linux, que permite cambiar el usuario propietario y el grupo propietario de archivos y directorios.</def>
-			<table fields='acción,resultado'>
-				<row>
-					<col>chown bob foo</col>
-					<col>Cambia el propietario del fichero/directorio.</col>
-				</row>
-				<row>
-					<col>chown bob:users foo</col>
-					<col>Cambia el usuario propietario y el grupo propietario del fichero/directorio.</col>
-				</row>
-			</table>
-		</concept>
+	<concept>
+		<names>clear</names>
+		<tags>limpiar, pantalla</tags>
+		<def>Es un comando del sistema operativo GNU/Linux,	que limpia la pantalla.</def>
+	</concept>
 
-		<concept>
-			<names>clear</names>
-			<tags>limpiar, pantalla</tags>
-			<def>Es un comando del sistema operativo GNU/Linux,	que limpia la pantalla.</def>
-		</concept>
+	<concept>
+		<names>history</names>
+		<tags>mostrar, listado, comandos, historico</tags>
+		<def>Es un comando del sistema operativo GNU/Linux,	que muestra un listado con todos los comandos utilizados en la sesión actual.</def>
+		<table fields='acción,resultado'>
+			<row>
+				<col>history | less</col>
+				<col>Ver todo el contenido del historial de comandos de forma paginada.</col>
+			</row>
+			<row>
+				<col>history | grep w</col>
+				<col>Listar el contenido del historial, filtrando la salida.</col>
+			</row>
+			<row>
+				<col>!NUMBER</col>
+				<col>Ejecuta el comando del historial almacenado en la
+				posición especificada.</col>
+			</row>
+			<row>
+				<col>!!</col>
+				<col>Repite el último comando.</col>
+			</row>
+			<row>
+				<col>!STRING</col>
+				<col>Repite el último comando del historial que empiece por la cadena de texto especificada.</col>
+			</row>
+			<row>
+				<col>!?STRING</col>
+				<col>Repite el último comando del historial que contenga la cadena de texto especificada.</col>
+			</row>
+		</table>
+	</concept>
 
+	<concept>
+		<names>id</names>
+		<tags>mostrar, informacion, usuario</tags>
+		<def>Es un comando del sistema operativo GNU/Linux, que muestra la información de identificación del usuario especificado y sus grupos.</def>
+		<table fields='acción,resultado'>
+			<row>
+				<col>id</col>
+				<col>Muestra la información de identificación, del usuario actual.</col>
+			</row>
+			<row>
+				<col>id USERNAME</col>
+				<col>Muestra la informacion de identificación, del usuario especificado.</col>
+			</row>
+			<row>
+				<col>id -u</col>
+				<col>Muestra la identificación del usuario efectivo, del usuario actual.</col>
+			</row>
+			<row>
+				<col>id -g</col>
+				<col>Muestra la identificación del grupo efectivo, del usuario actual.</col>
+			</row>
+			<row>
+				<col>id -G</col>
+				<col>Muestra sólo las identificaciones de todos los grupos a los que pertenece el usuario actual.</col>
+			</row>
+		</table>
+	</concept>
 
-			<concept>
-				<names>history</names>
-				<tags>mostrar, listado, comandos, historico</tags>
-				<def>Es un comando del sitestema operativo GNU/Linux,	que muestra un listado con todos los comandos utilizados en la sesión actual.</def>
-				<table fields='acción,resultado'>
-					<row>
-						<col>history | less</col>
-						<col>Ver todo el contenido del historial de comandos de
-						forma paginada.</col>
-					</row>
-					<row>
-						<col>history | grep w</col>
-						<col>Listar el contenido del historial, filtrando la salida.</col>
-					</row>
-					<row>
-						<col>!NUMBER</col>
-						<col>Ejecuta el comando del historial almacenado en la
-						posición especificada.</col>
-					</row>
-					<row>
-						<col>!!</col>
-						<col>Repite el último comando.</col>
-					</row>
-					<row>
-						<col>!STRING</col>
-						<col>Repite el último comando del historial que empiece
-						por la cadena de texto especificada.</col>
-					</row>
-					<row>
-						<col>!?STRING</col>
-						<col>Repite el último comando del historial que contenga
-						la cadena de texto especificada.</col>
-					</row>
-				</table>
-			</concept>
+	<concept>
+		<names>passwd</names>
+		<tags>cambiar, clave, usuario</tags>
+		<def>Es un comando del sistema operativo GNU/Linux, que permite cambiar la contraseña de un usuario.</def>
+		<table fields='acción,resultado'>
+			<row>
+				<col>passwd</col>
+				<col>Cambiar la clave del usuario actual.</col>
+			</row>
+			<row>
+				<col>passwd bob</col>
+				<col>Cambiar la clave del usuario especificado.</col>
+			</row>
+			<row>
+				<col>passwd -d</col>
+				<col>Borra la clave del usuario actual.</col>
+			</row>
+			<row>
+				<col>passwd -l</col>
+				<col>Bloquea la clave del usuario actual.</col>
+			</row>
+			<row>
+				<col>passwd -u</col>
+				<col>Desbloquea la clave del usuario actual.</col>
+			</row>
+		</table>
+	</concept>
 
-			<concept>
-				<names>id</names>
-				<tags>mostrar, informacion, usuario</tags>
-				<def>Es un comando del sistema operativo GNU/Linux,
-				que muestra la información de identificación del usuario
-				especificado y sus grupos.</def>
-				<table fields='acción,resultado'>
-					<row>
-						<col>id</col>
-						<col>Muestra la información de identificación, del usuario actual.</col>
-					</row>
-					<row>
-						<col>id USERNAME</col>
-						<col>Muestra la informacion de identificación, del usuario especificado.</col>
-					</row>
-					<row>
-						<col>id -u</col>
-						<col>Muestra la identificación del usuario efectivo, del usuario actual.</col>
-					</row>
-					<row>
-						<col>id -g</col>
-						<col>Muestra la identificación del grupo efectivo, del usuario actual.</col>
-					</row>
-					<row>
-						<col>id -G</col>
-						<col>Muestra sólo las identificaciones de todos los grupos a los que pertenece el usuario actual.</col>
-					</row>
-				</table>
-			</concept>
-
-			<concept>
-				<names>passwd</names>
-				<tags>cambiar, clave, usuario</tags>
-				<def>Es un comando del sistema operativo GNU/Linux,
-				que permite cambiar la contraseña de un usuario.</def>
-				<table fields='acción,resultado'>
-					<row>
-						<col>passwd</col>
-						<col>Cambiar la clave del usuario actual.</col>
-					</row>
-					<row>
-						<col>passwd bob</col>
-						<col>Cambiar la clave del usuario especificado.</col>
-					</row>
-					<row>
-						<col>passwd -d</col>
-						<col>Borra la clave del usuario actual.</col>
-					</row>
-					<row>
-						<col>passwd -l</col>
-						<col>Bloquea la clave del usuario actual.</col>
-					</row>
-					<row>
-						<col>passwd -u</col>
-						<col>Desbloquea la clave del usuario actual.</col>
-					</row>
-				</table>
-			</concept>
-
-			<concept>
-				<names>script</names>
-				<tags>guardar, fichero, comandos, utilizados</tags>
-				<def>Es un comando del sistema operativo GNU/Linux, que almacena en un fichero todos los comandos escritos, y sus resultados, después de ser invocado.</def>
-			</concept>
-
-			<concept>
-				<names>permisos del sistema de ficheros linux</names>
-				<tags>permisos, sistema, ficheros, linux</tags>
-				<def>Es una forma de establecer restricciones sobre el acceso
-				a los objetos (Directorios y archivos) dentro de un sistema
-				de ficheros.</def>
-				<table fields='fichero, función'>
-					<row>
-						<col>/etc/passwd</col>
-						<col>Contiene la definición de los usuarios del sistema.</col>
-					</row>
-					<row>
-						<col>/etc/group</col>
-						<col>Contiene la definición de los grupos del sistema.</col>
-					</row>
-					<row>
-						<col>/etc/shadow</col>
-						<col>Guarda las claves encriptadas de los usuarios del sistema.</col>
-					</row>
-					<row>
-						<col>/etc/sudoers</col>
-						<col>Define los usuarios/grupos que pueden ejecutar el comando sudo.</col>
-					</row>
-				</table>
-				<table fields='permisos, significado'>
-					<row>
-						<col>-rwx------</col>
-						<col>Un fichero regular que puede ser leido, modificado y ejecutado
-						por el propietario. Nadie más tiene acceso.</col>
-					</row>
-					<row>
-						<col>-rw-------</col>
-						<col>Un fichero regular que sólo puede ser leido y modificado por
-						el propietario. Nadie más tiene acceso.</col>
-					</row>
-					<row>
+	<concept>
+		<names>permisos del sistema de ficheros linux</names>
+		<tags>permisos, sistema, ficheros, linux</tags>
+		<def>Es una forma de establecer restricciones sobre el acceso a los objetos (Directorios y archivos) dentro de un sistema de ficheros.</def>
+		<table fields='fichero, función'>
+			<row>
+				<col>/etc/passwd</col>
+				<col>Contiene la definición de los usuarios del sistema.</col>
+			</row>
+			<row>
+				<col>/etc/group</col>
+				<col>Contiene la definición de los grupos del sistema.</col>
+			</row>
+			<row>
+				<col>/etc/shadow</col>
+				<col>Guarda las claves encriptadas de los usuarios del sistema.</col>
+			</row>
+			<row>
+				<col>/etc/sudoers</col>
+				<col>Define los usuarios/grupos que pueden ejecutar el comando sudo.</col>
+			</row>
+		</table>
+		<table fields='permisos, significado'>
+			<row>
+				<col>-rwx------</col>
+				<col>Un fichero regular que puede ser leido, modificado y ejecutado por el propietario. Nadie más tiene acceso.</col>
+			</row>
+			<row>
+				<col>-rw-------</col>
+				<col>Un fichero regular que sólo puede ser leido y modificado por el propietario. Nadie más tiene acceso.</col>
+			</row>
+			<row>
 						<col>-rw-r--r--</col>
 						<col>Un fichero regular que puede ser modificado por el
 						propietario. Todos los usuarios pueden leerlo.</col>
@@ -348,165 +324,66 @@
 				</table>
 			</concept>
 
-			<concept>
-				<names>gestión de paquetes</names>
-				<tags>gestionar, paquetes, instalar, desinstalar, consultar</tags>
-				<def>Sistema para la actualización del sistema operativo. De modo que nos permite instalar/desinstalar programas y documentación, así como consultar todo el catálogo de productos disponibles en los repositorios.</def>
-				<table fields='atributo,valor'>
-					<row>
-						<col>Extensión de los paquetes Debian</col>
-						<col>.deb</col>
-					</row>
-					<row>
-						<col>Extensión de los paquetes OpenSUSE/Red Hat</col>
-						<col>.rpm</col>
-					</row>
-				</table>
-				<table fields='acción,resultado'>
-					<row>
-						<col>apt-get update</col>
-						<col>Actualizar el catálogo de paquetes Debian disponibles.</col>
-					</row>
-					<row>
-						<col>apt-cache search tree</col>
-						<col>Buscar un paquete Debian concreto en los repositorios.</col>
-					</row>
-					<row>
-						<col>apt-cache install ruby</col>
-						<col>Instalar un paquete Debian concreto desde los repositorios.</col>
-					</row>
-					<row>
-						<col>apt-get remove pascal</col>
-						<col>Deinstalar un paquete Debian.</col>
-					</row>
-					<row>
-						<col>apt-get upgrade</col>
-						<col>Actualizar todos los paquetes Debian.</col>
-					</row>
-					<row>
-						<col>zypper refresh</col>
-						<col>>Actualizar el catálogo de paquetes OpenSUSE disponibles.</col>
-					</row>
-					<row>
-						<col>zypper search wget</col>
-						<col>Buscar un paquete OpenSUSE concreto en los repositorios.</col>
-					</row>
-					<row>
-						<col>zypper install python</col>
-						<col>Instalar un paquete OpenSUSE concreto desde los repositorios.</col>
-					</row>
-					<row>
-						<col>zypper update</col>
-						<col>Actualizar todos los paquetes OpenSUSE.</col>
-					</row>
-					<row>
-						<col>zypper remove emacs</col>
-						<col>Deinstalar un paquete OpenSUSE.</col>
-					</row>
-					<row>
-						<col>rpm -i lightdm_1.8.4_amd64.rpm</col>
-						<col>Instalar un paquete apartir de un fichero conformato RPM.</col>
-					</row>
-					<row>
-						<col>rpm -U lxde_0.8.11_all.rpm</col>
-						<col>Actualizar un paquete desde un fichero con formato RPM.</col>
-					</row>
-					<row>
-						<col>rpm -qa</col>
-						<col>Listar los paquetes RPM instalados.</col>
-					</row>
-					<row>
-						<col>rpm -q nmap</col>
-						<col>Consultar el estado de un paquete Red Hat.</col>
-					</row>
-					<row>
-						<col>rpm -qf --search /sbin/route</col>
-						<col>Averiguar qué paquete RPM instaló el fichero.</col>
-					</row>
-					<row>
-						<col>dpkg --install mozilla_0.8.11_all.deb</col>
-						<col>Actualizar un paquete desde un fichero con formato Debian.</col>
-					</row>
-					<row>
-						<col>dpkg --install lightdm_1.8.4_amd64.deb</col>
-						<col>Instalar un paquete a partir de un fichero con formato Debian.</col>
-					</row>
-					<row>
-						<col>dpkg --list</col>
-						<col>Listar los paquetes Debian instalados.</col>
-					</row>
-					<row>
-						<col>dpkg --status bash</col>
-						<col>Consultar el estado de un paquete Debian.</col>
-					</row>
-					<row>
-						<col>dpkg --search /sbin/fdisk</col>
-						<col>Averiguar qué paquete Debian instaló el fichero.</col>
-					</row>
-				</table>
-			</concept>
+	<concept>
+		<names>useradd</names>
+		<tags>crear, usuario</tags>
+		<def>Es un comando que permite añadir un usuario al sistema, indicando como parámetros la información particular para crear	el usuario en la misma línea de comandos.</def>
+		<table fields='acción,resultado'>
+			<row>
+				<col>useradd vader</col>
+				<col>Crear un usuario.</col>
+			</row>
+			<row>
+				<col>useradd -g jedi yoda</col>
+				<col>Crear un usuario, especificando su grupo principal.</col>
+			</row>
+			<row>
+				<col>useradd -d /home/kenobi obiwab</col>
+				<col>Crear un usuario, especificando su directorio home.</col>
+			</row>
+			<row>
+				<col>useradd -m quigon</col>
+				<col>Crear un usuario, especificando la creación de su directorio home si es que no existe.</col>
+			</row>
+			<row>
+				<col>useradd -s /bin/zsh c3po</col>
+				<col>Crear un usuario, especificando el intérprete de comandos (shell) que debe tener configurado.</col>
+			</row>
+		</table>
+	</concept>
 
-			<concept>
-				<names>useradd</names>
-				<tags>crear, usuario</tags>
-				<def>Es un comando que permite añadir un usuario al sistema, indicando como parámetros la información particular para crear	el usuario en la misma línea de comandos.</def>
-				<table fields='acción,resultado'>
-					<row>
-						<col>useradd vader</col>
-						<col>Crear un usuario.</col>
-					</row>
-					<row>
-						<col>useradd -g jedi yoda</col>
-						<col>Crear un usuario, especificando su grupo principal.</col>
-					</row>
-					<row>
-						<col>useradd -d /home/kenobi obiwab</col>
-						<col>Crear un usuario, especificando su directorio home.</col>
-					</row>
-					<row>
-						<col>useradd -m quigon</col>
-						<col>Crear un usuario, especificando la creación de su directorio home si es que no existe.</col>
-					</row>
-					<row>
-						<col>useradd -s /bin/zsh c3po</col>
-						<col>Crear un usuario, especificando el intérprete de comandos (shell) que debe tener configurado.</col>
-					</row>
-				</table>
-			</concept>
+	<concept>
+		<names>usermod</names>
+		<tags>modificar, usuario</tags>
+		<def>Es un comando que permite modificar un usuario al sistema.</def>
+		<table fields='acción,resultado'>
+			<row>
+				<col>usermod -d /home/sith vader</col>
+				<col>Modifica el directorio home de un usuario.</col>
+			</row>
+		</table>
+	</concept>
 
-			<concept>
-				<names>usermod</names>
-				<tags>modificar, usuario</tags>
-				<def>Es un comando que permite modificar un usuario al sistema.</def>
-				<table fields='acción,resultado'>
-					<row>
-						<col>usermod -d /home/sith vader</col>
-						<col>Modifica el directorio home de un usuario.</col>
-					</row>
-				</table>
-			</concept>
+	<concept>
+		<names>userdel</names>
+		<tags>eliminar, borrar, quitar, usuario</tags>
+		<def>Es un comando para eliminar un usuario del sistema.</def>
+		<table fields='acción,resultado'>
+			<row>
+				<col>userdel -r palpatine</col>
+				<col>Elimina el usuario especificado junto con su directorio home.</col>
+			</row>
+			<row>
+				<col>userdel maul</col>
+				<col>Elimina el usuario especificado del sistema, pero no sus datos.</col>
+			</row>
+		</table>
+	</concept>
 
-			<concept>
-				<names>userdel</names>
-				<tags>eliminar, borrar, quitar, usuario</tags>
-				<def>Es un comando para eliminar un usuario del sistema.</def>
-				<table fields='acción,resultado'>
-					<row>
-						<col>userdel -r palpatine</col>
-						<col>Elimina el usuario especificado junto con su directorio home.</col>
-					</row>
-					<row>
-						<col>userdel manul</col>
-						<col>Elimina el usuario especificado del sistema, pero no sus datos.</col>
-					</row>
-				</table>
-			</concept>
-
-			<concept>
-				<names>groupadd</names>
-				<tags>crear, grupo</tags>
-				<def>Es un comando para crear nuevos grupos de usuarios.</def>
-			</concept>
-
+	<concept>
+		<names>groupadd</names>
+		<tags>crear, grupo</tags>
+		<def>Es un comando para crear nuevos grupos de usuarios.</def>
+	</concept>
 
 </map>
