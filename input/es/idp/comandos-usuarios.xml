@@ -1,4 +1,4 @@
-<map version='1' lang='es' context='sistemas operativos, comando' >
+<map version='1' lang='es' context='sistemas operativos, comando, usuario, grupo, permisos, gestión' >
 
 	<concept>
 		<names>chmod</names>
@@ -66,8 +66,12 @@
 		<def>Es un comando del sistema operativo GNU/Linux, que permite	cambiar sólo el grupo propietario de archivos y directorios.</def>
 		<table fields='acción,resultado'>
 			<row>
-				<col>chgrp users foo</col>
-				<col>Cambia el grupo propietario del fichero/directorio.</col>
+				<col>chgrp GROUPNAME DIRNAME</col>
+				<col>Cambia el grupo propietario por GROUPNAME, en el directorio DIRNAME.</col>
+			</row>
+			<row>
+				<col>chgrp GROUPNAME FILENAME</col>
+				<col>Cambia el grupo propietario por GROUPNAME, en el fichero FILENAME.</col>
 			</row>
 		</table>
 	</concept>
@@ -78,8 +82,12 @@
 		<def>Es un comando del sistema operativo GNU/Linux, que permite cambiar el usuario propietario y el grupo propietario de archivos y directorios.</def>
 		<table fields='acción,resultado'>
 			<row>
-				<col>chown bob foo</col>
-				<col>Cambia el propietario del fichero/directorio.</col>
+				<col>chown USERNAME FILENAME</col>
+				<col>Pone como propietario del fichero FILENAME al usuario USERNAME.</col>
+			</row>
+			<row>
+				<col>chown USERNAME DIRNAME</col>
+				<col>Pone como propietario del directorio DIRNAME al usuario USERNAME.</col>
 			</row>
 			<row>
 				<col>chown bob:users foo</col>
@@ -292,37 +300,29 @@
 				</table>
 			</concept>
 
-			<concept>
-				<names>umask</names>
-				<tags>mostrar, establecer, máscara, permisos</tags>
-				<def>Es un comando del sistema operativo GNU/Linux,
-				que muestra o establece la máscara de permisos para la creación
-				de nuevos ficheros y/o directorios.</def>
-				<table fields='atributo, valor'>
-					<row>
-						<col>path</col>
-						<col>Valor no definido</col>
-					</row>
-				</table>
-				<table fields='acción,resultado'>
-					<row>
-						<col>umask</col>
-						<col>Muestra la máscara de permisos actual.</col>
-					</row>
-					<row>
-						<col>umask 0000; touch foo</col>
-						<col>El nuevo fichero se crea con los permisos -rw-rw-rw-.</col>
-					</row>
-					<row>
-						<col>umask 0022; touch foo</col>
-						<col>El nuevo fichero se crea con los permisos -rw-r--r--.</col>
-					</row>
-					<row>
-						<col>umask 0022; mkdir foo</col>
-						<col>El nuevo directorio se crea con los permisos -rwxr-xr-x.</col>
-					</row>
-				</table>
-			</concept>
+	<concept>
+		<names>umask</names>
+		<tags>mostrar, establecer, máscara, permisos</tags>
+		<def>Es un comando del sistema operativo GNU/Linux, que muestra o establece la máscara de permisos para la creación de nuevos ficheros y/o directorios.</def>
+		<table fields='acción,resultado'>
+			<row>
+				<col>umask</col>
+				<col>Muestra la máscara de permisos actual.</col>
+			</row>
+			<row>
+				<col>umask 0000; touch foo</col>
+				<col>El nuevo fichero se crea con los permisos -rw-rw-rw-.</col>
+			</row>
+			<row>
+				<col>umask 0022; touch foo</col>
+				<col>El nuevo fichero se crea con los permisos -rw-r--r--.</col>
+			</row>
+			<row>
+				<col>umask 0022; mkdir foo</col>
+				<col>El nuevo directorio se crea con los permisos -rwxr-xr-x.</col>
+			</row>
+		</table>
+	</concept>
 
 	<concept>
 		<names>useradd</names>
