@@ -1,14 +1,16 @@
-#File: Rakefile
-#Usage: rake
+# File: Rakefile
+# Usage: rake
 
-#Define tasks
+# Define tasks
 
 desc 'Installation'
-task :default => :gems do
+task default: :check do
   puts 'Darts proyect installation has finish!'
 end
 
-list=['haml', 'sinatra', 'rainbow', 'terminal-table', 'thor', 'base64_compatible', 'coderay']
+list = ['haml', 'sinatra', 'rainbow', 'terminal-table', 'thor']
+list << %w(base64_compatible coderay)
+list.flatten!
 
 desc 'Install gems'
 task :gems do
@@ -23,9 +25,9 @@ task :check do
   list.each { |i| fails << i unless names.include?(i) }
 
   if fails.size.zero?
-    puts '[ OK ] Check gems!'
+    puts '[ OK ] Installed gems!'
   else
-    puts '[FAIL] Check gems!: ' + fails.join(',')
+    puts '[FAIL] Installed gems!: ' + fails.join(',')
   end
   a = `cat tests/all.rb|grep "_test"|wc -l`
   b = `vdir -R tests/ |grep "_test.rb"|wc -l`
