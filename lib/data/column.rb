@@ -1,17 +1,22 @@
 # encoding: utf-8
 
+# Contain data information for every column
+# Params:
+# * +pRow+ - Parent row for this column
+# * +index+ - Sequence order (Integer)
+# * +xml_data+ - XML input data
 class Column
   attr_reader :row, :index, :id, :raw, :lang, :type, :simple
 
-  def initialize( pRow, index, pXMLdata )
-    @row    = pRow
+  def initialize(row, index, xml_data)
+    @row    = row
     @index  = index
-    @id     = pRow.id + "." + @index.to_s
-    @raw    = ""
+    @id     = @row.id + '.' + @index.to_s
+    @raw    = ''
     @lang   = @row.langs[@index]
     @type   = @row.types[@index]
-    @simple = { :lang => true, :type => true }
-    read_data_from_xml(pXMLdata)
+    @simple = {:lang => true, :type => true}
+    read_data_from_xml(xml_data)
   end
 
   def to_html
@@ -27,31 +32,30 @@ class Column
     end
   end
 
-private
-  def read_data_from_xml(pXMLdata)
-    if pXMLdata.elements.count>0 then
-      raise "[ERROR] Column: read data from xml"
-    end
-    @raw = pXMLdata.text.strip.to_s
+  private
 
-    #read attributes from XML data
-    if pXMLdata.attributes['lang'] then
-      code = pXMLdata.attributes['lang'].strip
-      if code != @lang.code then
+  def read_data_from_xml(xml_data)
+    raise '[ERROR] Column XML data with elements!' if xml_data.elements.count > 0
+
+    @raw = xml_data.text.strip.to_s
+
+    # read attributes from XML input data
+    if xml_data.attributes['lang']
+      code = xml_data.attributes['lang'].strip
+      if code != @lang.code
         @lang = LangFactory.instance.get(code)
-        @simple[:lang]= false
+        @simple[:lang] = false
         @row.simple_off(:lang)
       end
     end
 
-    if pXMLdata.attributes['type'] then
-      type = pXMLdata.attributes['type'].strip
-      if type != @type then
+    if xml_data.attributes['type']
+      type = xml_data.attributes['type'].strip
+      if type != @type.to_s
         @type = type
-        @simple[:type]= false
+        @simple[:type] = false
         @row.simple_off(:type)
       end
     end
   end
-
 end
