@@ -27,7 +27,7 @@ class ContentLoader
 
       lXMLdata.root.elements.each do |xmldata|
         if xmldata.name=='concept' then
-          c=Concept.new(xmldata, @filename, lLang, lContext)
+          c = Concept.new(xmldata, @filename, lLang, lContext)
           if ( project.process_file==:default or project.process_file== File.basename(@filename) ) then
             c.process=true
           end
