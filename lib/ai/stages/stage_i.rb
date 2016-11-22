@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-require "base64_compatible"
+require 'base64_compatible' # TODO: Don't work with Moodle Gift images
 require 'set'
 
 require_relative 'base_stage'

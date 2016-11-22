@@ -37,5 +37,4 @@ class ConceptAI
     values.shuffle!
     return "<img src=\"#{values[0]}\" alt\=\"image\"><br/>"
   end
-
 end

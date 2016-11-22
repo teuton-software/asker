@@ -63,7 +63,7 @@ class Concept
   def try_adding_neighbor(other)
     p = calculate_nearness_to_concept(other)
     return if p==0
-    @data[:neighbors]<< { :concept => other , :value => p }
+    @data[:neighbors] << { :concept => other , :value => p }
     #Sort neighbors list
     @data[:neighbors].sort! { |a,b| a[:value] <=> b[:value] }
     @data[:neighbors].reverse!
@@ -78,7 +78,7 @@ class Concept
 
     lfAlike1=lfAlike2=lfAlike3=0.0
 
-    #check if exists this items from concept1 into concept2
+    # check if exists this items from concept1 into concept2
     @context.each { |i| lfAlike1+=1.0 if !other.context.index(i).nil? }
     @data[:tags].each { |i| lfAlike2+=1.0 if !other.tags.index(i).nil? }
     @data[:tables].each { |i| lfAlike3+=1.0 if !other.tables.index(i).nil? }
@@ -117,16 +117,16 @@ private
         j=i.text.split(",")
         j.each { |k| @names << k.strip }
         @type = i.attributes['type'].strip if i.attributes['type']
+      when 'tags'
+        raise '[Error] tags label empty!' if i.text.nil? or i.text.size==0
+        @data[:tags]=i.text.split(",")
+        @data[:tags].collect! { |k| k.strip }
       when 'context'
         #DEPRECATED: Don't use xml tag <context> instead define it as attibute of root xml tag
         msg="   │  "+Rainbow(" [DEPRECATED] Concept ").yellow+Rainbow(name).yellow.bright+Rainbow(" use XMLtag <context>. Instead define it as root attibute.").yellow
         Project.instance.verbose msg
         @context=i.text.split(",")
         @context.collect! { |k| k.strip }
-      when 'tags'
-        raise '[Error] tags label empty!' if i.text.nil? or i.text.size==0
-        @data[:tags]=i.text.split(",")
-        @data[:tags].collect! { |k| k.strip }
       when 'text'
         #DEPRECATED: Use xml tag <def> instead of <text>
         msg="   │  "+Rainbow(" [DEPRECATED] Concept ").yellow+Rainbow(name).yellow.bright+Rainbow(" use XMLtag <text>, Instead use <def> tag.").yellow
@@ -142,7 +142,7 @@ private
           @data[:texts] << i.text.strip
         end
       when 'table'
-        @data[:tables] << Table.new(self,i)
+        @data[:tables] << Table.new(self, i)
       else
         msg = Rainbow("   [ERROR] <#{i.name}> attribute into XMLdata (concept#read_data_from_xml)").color(:red)
         Project.instance.verbose msg
