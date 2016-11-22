@@ -1,14 +1,6 @@
 %map{ :version =>'1' }
 
   %concept
-    %names	chipset
-    %context hardware, placa base, virtualizacion
-    %tags chip, placa-base
-    %text Es el conjunto de circuitos integrados diseñados con base a la arquitectura de un procesador (en algunos casos, diseñados como parte integral de esa arquitectura), permitiendo que ese tipo de procesadores funcionen en una placa base.
-    %text Sirven de puente de comunicación con el resto de componentes de la placa, como son la memoria, las tarjetas de expansión, los puertos USB, ratón, teclado, etc.
-    %text Las placas base modernas suelen incluir dos integrados, denominados puente norte y puente sur, y suelen ser los circuitos integrados más grandes después de la GPU y el microprocesador. Las últimas placa base carecen de puente norte, ya que los procesadores de última generación lo llevan integrado.
-
-  %concept
     %names APIC
     %context hardware, virtualizacion
     %tags controlador, interrupciones, cpu, procesador
@@ -33,22 +25,6 @@
     %tags programa, placa base, manejo, entrada, salida
     %text El Sistema Básico de Entrada/Salida (Basic Input-Output System)
     %text Es un programa informático inscrito en componentes electrónicos de memoria Flash existentes en la placa base. Este programa controla el funcionamiento de la placa base y de dichos componentes. Se encarga de realizar las funciones básicas de manejo y configuración del ordenador.
-
-  %concept
-    %names IDE, PATA, ATA
-    %context hardware, controladora
-    %tags interfaz, conexión, placa base, dispositivos, almacenamiento
-    %text El interfaz ATA (del inglés Advanced Technology Attachment) o PATA
-    %text Conocido como Integrated Device Electronics
-    %text Es un estándar de interfaz para la conexión de los dispositivos de almacenamiento masivo de datos y las unidades ópticas que utiliza el estándar derivado de ATA y el estándar ATAPI.
-
-  %concept
-    %names SATA
-    %context hardware, controladora
-    %tags interfaz, conexión, placa base, dispositivos, almacenamiento
-    %text Serial ATA o acrónimo de Serial Advanced Technology Attachment
-    %text Es una interfaz de transferencia de datos entre la placa base y algunos dispositivos de almacenamiento, como puede ser el disco duro, lectores y regrabadores de CD/DVD/BR, Unidades de Estado Sólido u otros dispositivos de altas prestaciones que están siendo todavía desarrollados.
-    %text Sustituye a la tradicional Parallel ATA o P-ATA. Proporciona mayores velocidades, mejor aprovechamiento cuando hay varias unidades, mayor longitud del cable de transmisión de datos y capacidad para conectar unidades al instante, es decir, insertar el dispositivo sin tener que apagar el ordenador o que sufra un cortocircuito como con los viejos Molex.
     %table{ :fields => 'referencia-a-imagen,descripción' }
       %title Asocia Ref de imágenes a un componente.
       %row
@@ -91,4 +67,3 @@
     %text Es un identificador de 48 bits (6 bloques hexadecimales) que corresponde de forma única a una tarjeta o dispositivo de red.
     %text Se le conoce también como dirección física, y es única para cada dispositivo. Está determinada y configurada por el IEEE (los últimos 24 bits) y el fabricante (los primeros 24 bits) utilizando el organizationally unique identifier.
     %text La Dirección del Hardware de Control de acceso a soportes de un distribuidor que identifica los equipos, los servidores, los routers u otros dispositivos de red. Al mismo tiempo es un identificador único que está disponible en NIC y otros equipamientos de red.
-    
