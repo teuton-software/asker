@@ -7,20 +7,20 @@ require_relative 'base_stage'
 require_relative '../question'
 
 class StageI < BaseStage
-  #range i1, i2, i3
+  # range i1, i2, i3
 
   def run
-    #Stage I: process every image from <def> tag
+    # Stage I: process every image from <def> tag
     questions=[]
     return questions unless type=="text"
 
-    #for every <image> do this
+    # for every <image> do this
     images.each do |url|
       s=Set.new [name, lang.text_for(:none)]
       neighbors.each { |n| s.add n[:concept].name }
       a=s.to_a
 
-      #Question type <f1>: choose between 4 options
+      # Question type <f1>: choose between 4 options
       if s.count>3 then
         q=Question.new(:choice)
         q.name="#{name}-#{num}-i1choose"
