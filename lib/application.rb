@@ -1,13 +1,12 @@
 # encoding: utf-8
 
+# Global parameters
 module Application
-
   def self.name
-    "darts-of-teacher"
+    'darts-of-teacher'
   end
 
   def self.version
-    "0.11.0"
+    '0.12.0'
   end
-
 end
