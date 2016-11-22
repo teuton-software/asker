@@ -10,6 +10,7 @@ require_relative 'lib/application'
 require_relative 'lib/builder/builder'
 require_relative 'lib/sinatra/sinatra_front_end'
 
+# Command Line User Interface
 class DartsCLI < Thor
   map ['h', '-h', '--help'] => 'help'
 
@@ -34,9 +35,9 @@ class DartsCLI < Thor
   This is the most usefull function.
   These are 3 ways of use it:
 
-  #{Rainbow($0+' file input/foo/foo.haml').yellow}, Build questions from HAML file\n
-  #{Rainbow($0+' file input/foo/foo.xml').yellow}, Build questions from XML file\n
-  #{Rainbow($0+' file projects/foo/foo.yaml').yellow}, Build questions from YAML project file\n
+  #{Rainbow($PROGRAM_NAME + ' file input/foo/foo.haml').yellow}, Build questions from HAML file\n
+  #{Rainbow($PROGRAM_NAME + ' file input/foo/foo.xml').yellow}, Build questions from XML file\n
+  #{Rainbow($PROGRAM_NAME + ' file projects/foo/foo.yaml').yellow}, Build questions from YAML project file\n
 
 LONGDESC
   def file(name)
@@ -50,7 +51,7 @@ LONGDESC
 
   Create new FOO project. Example:
 
-  > #{$0} create foo
+  > #{$PROGRAM_NAME} create foo
 
 LONGDESC
   def create(projectname)
