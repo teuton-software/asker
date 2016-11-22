@@ -1,4 +1,5 @@
 %map{ :version =>'1' }
+
   %concept
     %names	chipset
     %context hardware, placa base, virtualizacion
@@ -6,28 +7,33 @@
     %text Es el conjunto de circuitos integrados diseñados con base a la arquitectura de un procesador (en algunos casos, diseñados como parte integral de esa arquitectura), permitiendo que ese tipo de procesadores funcionen en una placa base.
     %text Sirven de puente de comunicación con el resto de componentes de la placa, como son la memoria, las tarjetas de expansión, los puertos USB, ratón, teclado, etc.
     %text Las placas base modernas suelen incluir dos integrados, denominados puente norte y puente sur, y suelen ser los circuitos integrados más grandes después de la GPU y el microprocesador. Las últimas placa base carecen de puente norte, ya que los procesadores de última generación lo llevan integrado.
+
   %concept
     %names APIC
     %context hardware, virtualizacion
     %tags controlador, interrupciones, cpu, procesador
     %text Es un controlador de interrupciones, incorporado en la unidad central de procesamiento y diseñado por y para el multiproceso, concretamente para poder incorporar múltiples microprocesadores a la placa madre.
+
   %concept
     %names IO-APIC
     %context hardware, virtualizacion
     %tags elemento, placa base, manejo, interrupciones, IRQ
-    %text Elemento de la placa base que consiste en una mejora del PIC clásico de la arquitectura AT y la ventaja es que ofrece más de 16 IRQs y un manejo más rápido de las mismas.    
+    %text Elemento de la placa base que consiste en una mejora del PIC clásico de la arquitectura AT y la ventaja es que ofrece más de 16 IRQs y un manejo más rápido de las mismas.
+
   %concept
     %names EFI
     %context hardware, firmware
     %tags interfaz, firmware, sustituye, BIOS
     %text Interfaz Extensible del Firmware
     %text Es una especificación desarrollada por Intel dirigida a reemplazar la antigua interfaz del estándar IBM PC BIOS, e interactúa como puente entre el sistema operativo y el firmware base.
+
   %concept
     %names BIOS
     %context hardware, firmware
     %tags programa, placa base, manejo, entrada, salida
     %text El Sistema Básico de Entrada/Salida (Basic Input-Output System)
     %text Es un programa informático inscrito en componentes electrónicos de memoria Flash existentes en la placa base. Este programa controla el funcionamiento de la placa base y de dichos componentes. Se encarga de realizar las funciones básicas de manejo y configuración del ordenador.
+
   %concept
     %names IDE, PATA, ATA
     %context hardware, controladora
@@ -35,6 +41,7 @@
     %text El interfaz ATA (del inglés Advanced Technology Attachment) o PATA
     %text Conocido como Integrated Device Electronics
     %text Es un estándar de interfaz para la conexión de los dispositivos de almacenamiento masivo de datos y las unidades ópticas que utiliza el estándar derivado de ATA y el estándar ATAPI.
+
   %concept
     %names SATA
     %context hardware, controladora
@@ -59,19 +66,22 @@
       %row
         %col REF vb005.jpg
         %col Chipsets
-  %concept 
+
+  %concept
     %names SCSI
     %context hardware, controladora
     %tags interfaz, conexión, placa base, dispositivos, almacenamiento
     %text Acrónimo inglés de Small Computers System Interface
     %text Interfaz de Sistema para Pequeñas Computadoras
-    %text Es una interfaz estándar para la transferencia de datos entre distintos dispositivos del bus de la computadora. Actualmente es popular en estaciones de trabajo de alto rendimiento y servidores. Los sistemas RAID en servidores casi siempre usan este tipo de discos duros, aunque varios fabricantes ofrecen sistemas RAID basados en SATA como una opción de menor coste.  
+    %text Es una interfaz estándar para la transferencia de datos entre distintos dispositivos del bus de la computadora. Actualmente es popular en estaciones de trabajo de alto rendimiento y servidores. Los sistemas RAID en servidores casi siempre usan este tipo de discos duros, aunque varios fabricantes ofrecen sistemas RAID basados en SATA como una opción de menor coste.
+
   %concept
     %names NAT
     %context hadware, red
     %tags mecanismo, router, intercambio, paquetes, entre, redes
     %text Network Address Translation - Traducción de Dirección de Red
     %text Se usa habitualmente para ocultar un espacio completo de direcciones IP, normalmente son direcciones privadas IP, detrás de una única dirección IP (o pequeño grupo de direcciones IP) en otro espacio de direcciones (normalmente público).
+
   %concept
     %names MAC
     %context hadware, red
@@ -80,5 +90,5 @@
     %text En español dirección de "control de acceso al medio".
     %text Es un identificador de 48 bits (6 bloques hexadecimales) que corresponde de forma única a una tarjeta o dispositivo de red.
     %text Se le conoce también como dirección física, y es única para cada dispositivo. Está determinada y configurada por el IEEE (los últimos 24 bits) y el fabricante (los primeros 24 bits) utilizando el organizationally unique identifier.
-    %text La Dirección del Hardware de Control de acceso a soportes de un distribuidor que identifica los equipos, los servidores, los routers u otros dispositivos de red. Al mismo tiempo es un identificador único que está disponible en NIC y otros equipamientos de red. 
+    %text La Dirección del Hardware de Control de acceso a soportes de un distribuidor que identifica los equipos, los servidores, los routers u otros dispositivos de red. Al mismo tiempo es un identificador único que está disponible en NIC y otros equipamientos de red.
     
