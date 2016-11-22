@@ -5,7 +5,6 @@
 
 desc 'Installation'
 task default: :check do
-  puts 'Darts proyect installation has finish!'
 end
 
 list = ['haml', 'sinatra', 'rainbow', 'terminal-table', 'thor']
