@@ -8,7 +8,7 @@ require_relative '../../lib/data/data_field'
 
 # Define class DataFieldTest to test DataField class
 class DataFieldTest < Minitest::Test
-  def test_data_0
+  def test_text_data
     d = DataField.new('obiwan', 0, 'text')
 
     assert_equal 0,        d.id
@@ -19,7 +19,7 @@ class DataFieldTest < Minitest::Test
     assert_equal 'obiwan', d.get(:screen)
   end
 
-  def test_data_1
+  def test_textfile_url_data
     url = 'http://www1/url/to/textfile.rb'
     d = DataField.new(url, 1, 'textfile_url')
 
@@ -31,7 +31,7 @@ class DataFieldTest < Minitest::Test
     assert_equal 'http://.../to/textfile.rb',           d.get(:screen)
   end
 
-  def test_data_2
+  def test_image_url_data
     url = 'http://www2/url/to/image.png'
     d = DataField.new(url, 2, 'image_url')
 
@@ -43,15 +43,30 @@ class DataFieldTest < Minitest::Test
     assert_equal 'http://...rl/to/image.png',          d.get(:screen)
   end
 
-  def test_data_3
+  def test_long_text_data
     longname = 'this-is-just-a-very-0123456789-very-long-name'
-    d = DataField.new(longname, 0, 'text')
+    d = DataField.new(longname, 3, 'text')
 
-    assert_equal 0,                           d.id
+    assert_equal 3,                           d.id
     assert_equal :text,                       d.type
     assert_equal longname,                    d.get(:raw)
     assert_equal longname,                    d.get(:decorated)
     assert_equal longname,                    d.get(:id)
     assert_equal 'this-is...-very-long-name', d.get(:screen)
+  end
+
+  def test_textfile_path
+    filepath = File.join('tests','input','etc','hosts')
+    d = DataField.new(filepath, 4, 'textfile_path')
+
+    assert_equal 4,                           d.id
+    assert_equal :textfile_path,              d.type
+    assert_equal filepath,                    d.get(:raw)
+    lines = d.get(:decorated).split("\n")
+    assert_equal lines.first,                '<pre>'
+    assert_equal lines.count,                26
+    assert_equal lines.last,                 '</pre>'
+    assert_equal 'textfile_path.4',           d.get(:id)
+    assert_equal filepath,                    d.get(:screen)
   end
 end
