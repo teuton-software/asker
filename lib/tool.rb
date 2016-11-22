@@ -17,44 +17,47 @@ require_relative 'exporter/concept_screen_exporter'
 require_relative 'loader/project_loader'
 require_relative 'loader/input_loader'
 
+# This class does all the job
+# Organize the hole job, sending orders to others classes
 class Tool
-
   def initialize
-    @concepts=[]
-    @concepts_ai=[]
+    @concepts = []
+    @concepts_ai = []
   end
 
-  def start(pArgs={})
-    load_input_data(pArgs)
+  def start(args = {})
+    load_input_data(args)
     create_output_files
     ConceptAIScreenExporter.new(@concepts_ai).export
-	  Project.instance.close
+    Project.instance.close
   end
 
-  def load_input_data(pArgs)
-    ProjectLoader::load(pArgs)
+  def load_input_data(args)
+    ProjectLoader.load(args)
     Project.instance.open
     @concepts = InputLoader.new.load
     print "\n[INFO] Loading data from Internet"
-    @world    = World.new(@concepts)
+    @world = World.new(@concepts)
     ConceptScreenExporter.new(@concepts).export
   end
 
   def create_output_files
     Project.instance.verbose "\n"
-    Project.instance.verbose "[INFO] Creating output files"
-    Project.instance.verbose "   ├── Gift questions file = "+Rainbow(Project.instance.outputpath).bright
-    Project.instance.verbose "   └── Lesson file         = "+Rainbow(Project.instance.lessonpath).bright
+    Project.instance.verbose '[INFO] Creating output files'
+    text = Rainbow(Project.instance.outputpath).bright
+    Project.instance.verbose '   ├── Gift questions file = ' + text
+    text = Rainbow(Project.instance.lessonpath).bright
+    Project.instance.verbose '   └── Lesson file         = ' + text
 
     create_questions
     ConceptDocExporter.new(@concepts).export
   end
 
-private
+  private
 
   def create_questions
     @concepts.each do |concept|
-      concept_ai = ConceptAI.new(concept,@world)
+      concept_ai = ConceptAI.new(concept, @world)
       concept_ai.make_questions_from_ai
       ConceptAIGiftExporter.new(concept_ai).export
       @concepts_ai << concept_ai
@@ -63,9 +66,7 @@ private
 
   def debug
     @concepts.each do |c|
-      if c.process then
-        binding.pry
-      end
+      binding.pry if c.process
     end
   end
 
