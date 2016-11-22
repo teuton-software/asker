@@ -56,7 +56,7 @@ class DataFieldTest < Minitest::Test
   end
 
   def test_textfile_path
-    filepath = File.join('tests','input','etc','hosts')
+    filepath = File.join('tests', 'input', 'etc', 'hosts')
     d = DataField.new(filepath, 4, 'textfile_path')
 
     assert_equal 4,                           d.id
