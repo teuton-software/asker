@@ -8,8 +8,8 @@ require_relative '../lang/lang_factory'
 require_relative 'table'
 require_relative 'data_field'
 
+# Store Concept information
 class Concept
-
   attr_reader :id, :lang, :context
   attr_reader :names, :type, :filename
   attr_reader :data
@@ -49,8 +49,7 @@ class Concept
   end
 
   def name(option=:raw)
-#    return @names[0]
-    return DataField.new(@names[0], @id, @type).get(option)
+    DataField.new(@names[0], @id, @type).get(option)
   end
 
   def text
@@ -58,7 +57,7 @@ class Concept
   end
 
   def process?
-    return @process
+    @process
   end
 
   def try_adding_neighbor(other)
