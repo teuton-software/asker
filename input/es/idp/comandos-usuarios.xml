@@ -154,11 +154,11 @@
 			</row>
 			<row>
 				<col>id -u</col>
-				<col>Muestra la identificación del usuario efectivo, del usuario actual.</col>
+				<col>Muestra sólo la identificación del usuario efectivo, del usuario actual.</col>
 			</row>
 			<row>
 				<col>id -g</col>
-				<col>Muestra la identificación del grupo efectivo, del usuario actual.</col>
+				<col>Muestra sólo la identificación del grupo efectivo, del usuario actual.</col>
 			</row>
 			<row>
 				<col>id -G</col>
@@ -217,7 +217,7 @@
 				<col>Define los usuarios/grupos que pueden ejecutar el comando sudo.</col>
 			</row>
 		</table>
-		<table fields='permisos, significado'>
+		<table fields='Tipo y permisos (10 letras), significado'>
 			<row>
 				<col>-rwx------</col>
 				<col>Un fichero regular que puede ser leido, modificado y ejecutado por el propietario. Nadie más tiene acceso.</col>
@@ -227,19 +227,19 @@
 				<col>Un fichero regular que sólo puede ser leido y modificado por el propietario. Nadie más tiene acceso.</col>
 			</row>
 			<row>
-						<col>-rw-r--r--</col>
-						<col>Un fichero regular que puede ser modificado por el
-						propietario. Todos los usuarios pueden leerlo.</col>
-					</row>
-					<row>
-						<col>-rwxr-xr-x</col>
-						<col>Un fichero regular que puede ser modificado por el
-						propietario. Todos los usuarios pueden leerlo y
-						ejecutarlo.</col>
-					</row>
-					<row>
-						<col>-rw-rw----</col>
-						<col>Un fichero regular que sólo puede ser leído y
+				<col>-rw-r--r--</col>
+				<col>Un fichero regular que puede ser modificado por el
+				propietario. Todos los usuarios pueden leerlo.</col>
+			</row>
+			<row>
+				<col>-rwxr-xr-x</col>
+				<col>Un fichero regular que puede ser modificado por el
+				propietario. Todos los usuarios pueden leerlo y
+				ejecutarlo.</col>
+			</row>
+			<row>
+				<col>-rw-rw----</col>
+				<col>Un fichero regular que sólo puede ser leído y
 						modificado por el usuario propietario y los miembros
 						del grupo propietario.</col>
 					</row>
