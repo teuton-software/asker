@@ -146,7 +146,7 @@
 		<table fields='acción,resultado'>
 			<row>
 				<col>id</col>
-				<col>Muestra la información de identificación, del usuario actual.</col>
+				<col>Muestra la información UID y grupos asigandos del usuario actual.</col>
 			</row>
 			<row>
 				<col>id USERNAME</col>
@@ -177,8 +177,8 @@
 				<col>Cambiar la clave del usuario actual.</col>
 			</row>
 			<row>
-				<col>passwd bob</col>
-				<col>Cambiar la clave del usuario especificado.</col>
+				<col>passwd USERNAME</col>
+				<col>Cambiar la clave del usuario USERNAME.</col>
 			</row>
 			<row>
 				<col>passwd -d</col>
