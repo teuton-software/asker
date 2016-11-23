@@ -1,8 +1,8 @@
-<map version='1' lang='es' context='sistemas operativos, almacenamiento, redes, red'>
+<map version='1' lang='es' context='sistemas operativos, almacenamiento, red, integración, sistemas'>
 
   <concept>
     <names>nfs</names>
-    <tags>sistema, ficheros, almacenamiento, red</tags>
+    <tags>sistema, ficheros, almacenamiento, red, integración</tags>
     <def>Sistema de archivos de red, es un protocolo de nivel de aplicación, según el Modelo OSI. Es utilizado para sistemas de archivos distribuido en un entorno de red de computadoras de área local. Posibilita que distintos sistemas conectados a una misma red accedan a ficheros remotos como si se tratara de locales.</def>
     <table fields='acción,resultado'>
       <row>
@@ -10,8 +10,8 @@
         <col>Iniciar el servicio NFS cliente, en SO Windows.</col>
       </row>
       <row>
-        <col>mount –o anon,nolock,r,casesensitive \Nombre-equipo\Nombre-recurso *</col>
-        <col>Montar el recurso NFS remoto, en SO Windows.</col>
+        <col>mount –o anon,nolock,r,casesensitive \SERVERNAME\private *</col>
+        <col>Montar el recurso NFS remoto (private), en SO Windows.</col>
       </row>
       <row>
         <col>umount z:</col>
@@ -19,11 +19,11 @@
       </row>
       <row>
         <col>mount.nfs 172.16.108.227:/c/export/public /mnt/dir</col>
-        <col>Desde un cliente SO GNU/Linux, montar un recurso NFS remoto, en un servidor Windows.</col>
+        <col>Desde un cliente SO GNU/Linux, montar un recurso NFS remoto (public), en un servidor Windows.</col>
       </row>
       <row>
         <col>apt-get install nfs-common nfs-kernel-server</col>
-        <col>Instalar el servidor NFS, en SO GNU/Linux Debian.</col>
+        <col>Instalar el servidor NFS, en SO GNU/Linux Debian/Ubuntu.</col>
       </row>
       <row>
         <col>/var/export/public *(rw,sync,subtree_check)</col>
@@ -35,19 +35,19 @@
       </row>
       <row>
         <col>service nfs-kernel-server status</col>
-        <col>Consultar el estado del servicio NFS en SO GNU/Linux.</col>
+        <col>Consultar el estado del servicio NFS en SO Debian/Ubuntu.</col>
       </row>
       <row>
         <col>service nfs-kernel-server stop</col>
-        <col>Detener el servicio NFS en SO GNU/Linux.</col>
+        <col>Detener el servicio NFS en SO Debian/Ubuntu.</col>
       </row>
       <row>
         <col>service nfs-kernel-server start</col>
-        <col>Iniciar el servicio NFS en SO GNU/Linux.</col>
+        <col>Iniciar el servicio NFS en SO Debian/Ubuntu.</col>
       </row>
       <row>
         <col>mount ip-del-servidor:/var/export/public /mnt/remoto/public</col>
-        <col>En GNU/Linux, montar un recurso NFS remoto.</col>
+        <col>En GNU/Linux, montar un recurso NFS remoto (public).</col>
       </row>
     </table>
   </concept>
