@@ -58,8 +58,15 @@
 				<col>Actualizar todos los paquetes OpenSUSE.</col>
 			</row>
 			<row>
-				<col>zypper remove emacs</col>
-				<col>Deinstalar un paquete OpenSUSE.</col>
+				<col>zypper rm PACKAGENAME</col>
+		    <col>Eliminar el paquete PACKAGENAME de OpenSUSE, pero no toca las dependencias.</col>
+			</row>
+		  <row>
+				<col>zypper rm --clean-deps PACKAGENAME</col>
+		    <col>Eliminar el paquete PACKAGENAME de OpenSUSE y también eliminar las dependencias de estos que no sean necesarias en el sistema.</col>
+			<row>
+				<col>zypper lr</col>
+				<col>Lista los repositorios de instalación de paquetes definidos en nuestra máquina OpenSUSE.</col>
 			</row>
 			<row>
 				<col>rpm -i lightdm_1.8.4_amd64.rpm</col>
