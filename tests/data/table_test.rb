@@ -43,10 +43,10 @@ class TableTest < Minitest::Test
     </map>
     }
     @concepts = []
-    root_xml_data=REXML::Document.new(string_concept)
+    root_xml_data = REXML::Document.new(string_concept)
     root_xml_data.root.elements.each do |xml_data|
-      if xml_data.name=="concept" then
-        @concepts << Concept.new( xml_data, "input.html", "en", ['test','table'])
+      if xml_data.name == "concept"
+        @concepts << Concept.new(xml_data, "input.html", "en", ['test','table'])
       end
     end
   end
@@ -70,30 +70,30 @@ class TableTest < Minitest::Test
     assert_equal 'text', table.types[0]
     assert_equal 'text', table.types[1]
     assert_equal 2,      table.fields.size
-    assert_equal ["attribute","value"], table.fields
+    assert_equal %w(attribute value), table.fields
   end
 
   def test_table_0_rows
-    rows=[  [ 'race',              'human' ],
-             [ 'laser sabel color' ,'green' ],
-             [ 'hair color'        ,'red'   ]
-          ]
+    rows = [%w(race human),
+            ['laser sabel color', 'green'],
+            ['hair color', 'red']]
     table = @concepts[0].tables[0]
 
     assert_equal rows.size, table.rows.size
-    rows.each_with_index do |row,index|
+    rows.each_with_index do |row, index|
       assert_equal row, table.rows[index]
       assert_equal row, table.datarows[index].raws
     end
   end
 
   def test_table_1
-    name  = "$film name"
-    id    = @concepts[0].name + "." + name
+    name  = '$film name'
+    id    = @concepts[0].name + '.' + name
     table = @concepts[0].tables[1]
-    sequence=['Films ordered by episode number']
+    sequence = ['Films ordered by episode number']
 
     assert_equal name,     table.name
+    assert_equal id,       table.id
     assert_equal 1,        table.langs.size
     assert_equal 'es',     table.langs[0].lang
     assert_equal 'es',     table.langs[0].code
@@ -103,18 +103,17 @@ class TableTest < Minitest::Test
     assert_equal 1,        table.types.size
     assert_equal 'text',   table.types[0]
     assert_equal 1,        table.fields.size
-    assert_equal ["film name"], table.fields
+    assert_equal ['film name'], table.fields
   end
 
   def test_table_1_rows
-    rows=[ ['The Phantom Menace'], ['Attack of the Clones'], ['Revenge of the Sith'],
-           ['A New Hope'], ['The Empire Strikes Back'], ['Return of the Jedi'],
-           ['The Force Awakens']
-         ]
+    rows = [['The Phantom Menace'], ['Attack of the Clones'], ['Revenge of the Sith'],
+            ['A New Hope'], ['The Empire Strikes Back'], ['Return of the Jedi'],
+            ['The Force Awakens']]
     table = @concepts[0].tables[1]
     assert_equal rows.size, table.rows.size
 
-    rows.each_with_index do |row,index|
+    rows.each_with_index do |row, index|
       assert_equal row, table.rows[index]
       assert_equal row, table.datarows[index].raws
     end

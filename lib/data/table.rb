@@ -11,14 +11,7 @@ class Table
   def initialize(pConcept, pXMLdata)
     @concept = pConcept
 
-    #read attributes from XML data
-    @sequence = []
-    if pXMLdata.attributes['sequence'] then
-      t = pXMLdata.attributes['sequence'].to_s || ""
-      @sequence = t.split(",")
-      #puts "[DEPRECATED] sequence attr #{@name}"
-    end
-
+    # read attributes from XML data
     t = pXMLdata.attributes['fields'].to_s.strip.split(',')
     t.each { |i| i.strip! }
     @fields = t || []
@@ -29,6 +22,13 @@ class Table
     @fields.each { |i| @name=@name+"$"+i.to_s.strip.downcase}
     @id    = @concept.name.to_s + "." + @name
     @simple = { :lang => true, :type => true }
+
+    @sequence = []
+    if pXMLdata.attributes['sequence'] then
+      t = pXMLdata.attributes['sequence'].to_s || ""
+      @sequence = t.split(",")
+      # puts "[DEPRECATED] sequence attr on table <#{@name}>"
+    end
 
     @datarows = [] #DEV experiment replace row data with row objects
     read_data_from_xml(pXMLdata)
@@ -81,6 +81,13 @@ private
             end
           end
         end
+      when 'row'
+        @datarows << Row.new(self, @datarows.size, i)
+      when 'sequence'
+        @sequence= i.text.split(",")
+      when 'template'
+        puts "[DEBUG] Testing <template> tag..."
+        @datarows << Row.new(self, @datarows.size, i)
       when 'type'
         j = i.text.split(",")
         if j.join(",")!=@types.join(",") then
@@ -88,10 +95,6 @@ private
           @types = []
           j.each { |k| @types << k.strip.to_s }
         end
-      when 'sequence'
-        @sequence= i.text.split(",")
-      when 'row'
-        @datarows << Row.new(self, @datarows.size, i)
       else
         puts Rainbow("[ERROR] concept/table#XMLdata with #{i.name}").red.bright
       end
