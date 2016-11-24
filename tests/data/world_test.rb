@@ -15,13 +15,13 @@ class WorldTest < Minitest::Test
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name=="concept" then
-        c = Concept.new(xml_data, "input.haml", "en", @context)
+        c = Concept.new(xml_data, 'input.haml', 'en', @context)
         c.process = true
         @concepts << c
       end
     end
 
-    @world = World.new(@concepts, false) #show_progress = false
+    @world = World.new(@concepts, false) # show_progress = false
   end
 
   def test_concepts

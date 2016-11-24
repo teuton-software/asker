@@ -28,6 +28,7 @@ module ImageUrlLoader
     image_urls = []
     begin
       uri = URI.parse(search_url)
+      # puts "\n[DEBUG] Loading...#{uri}\n"
       response = Net::HTTP.get_response(uri)
 
       r = response.body.split(' ')
