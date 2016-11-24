@@ -7,6 +7,7 @@ class World
 
   def initialize(concepts, show_progress=true)
     find_neighbors_for_every_concept(concepts)
+
     @concepts   = {}
     @filenames  = []
     @contexts   = []
