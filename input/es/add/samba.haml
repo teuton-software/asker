@@ -56,6 +56,15 @@
       %row
         %col smbclient --list SMB-SERVER
         %col Comando de GNU/Linux que muestra los recursos SMB/CIFS del equipo SMB-SERVER
+      %row
+        %col mount -t cifs //SMB-SERVER/SHARE DIRPATH -o username=USERNAME
+        %col Comando GNU/Linux para montar el recurso SHARE del equipo SMB-SERVER en la carpeta DIRPATH.
+      %row
+        %col mount
+        %col Comando GNU/Linux para consultar los recursos montados
+      %row
+        %col more /etc/fstab
+        %col Muestra en pantalla el contenido del fichero de configuración para el montaje automático de recursos
 
   %concept
     %names net
