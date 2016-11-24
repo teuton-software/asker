@@ -13,7 +13,7 @@ class World
     @image_urls = {}
 
     concepts.each do |c|
-      if c.process then
+      if c.process
         @concepts[c.name] = c
         @filenames << c.filename
         @contexts  << c.context
@@ -25,13 +25,15 @@ class World
     threads = []
     concepts.each do |c|
       print('.') if show_progress
-      filter = [ c.name.clone ] + c.context.clone
+      # puts "[DEBUG] #{c.name}\n"
+      # filter = [ c.name.clone ] + c.context.clone
+      filter = c.name.clone
       threads << Thread.new { @image_urls[c.name] = ImageUrlLoader::load(filter) }
     end
-    @contexts.each do |filter|
-      print('.') if show_progress
-      threads << Thread.new { @image_urls[ filter.join('.').to_s ] = ImageUrlLoader::load(filter) }
-    end
+#    @contexts.each do |filter|
+#      print('.') if show_progress
+#      threads << Thread.new { @image_urls[ filter.join('.').to_s ] = ImageUrlLoader::load(filter) }
+#    end
     threads.each { |t| t.join } # wait for all threads to finish
     print("\n") if show_progress
   end
