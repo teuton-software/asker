@@ -1,0 +1,61 @@
+%map{ :version => '1',  :lang => 'es',  :context => 'sistemas operativos, servicio, red, compartir, recursos, integración, sistemas'}
+
+  %concept
+    %names samba
+    %tags servicio, ficheros, copartir, almacenamiento, red, integración, sistemas, smb, cifs
+    %def Es una implementación libre del protocolo de archivos compartidos de Microsoft Windows (antiguamente llamado SMB, renombrado recientemente a CIFS) para sistemas de tipo UNIX.
+    %def Con [*] es posible que computadoras con GNU/Linux, Mac OS X o Unix en general se vean como servidores o actúen como clientes en redes de Windows.
+    %def [*] permite validar usuarios haciendo de Controlador Principal de Dominio (PDC), en equipos GNU/Linux, como miembro de dominio e incluso como un dominio Active Directory para redes basadas en Windows.
+    %def Es un software para GNU/Linux capaz de servir colas de impresión, directorios compartidos SMB/CIFS y autentificar con su propio archivo de usuarios.
+    %table{:fields => 'acción,resultado'}
+      %row
+        %col more /etc/samba/smb.conf
+        %col Muestra en pantalla el contenido del fichero de configuración de Samba
+      %row
+        %col cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
+        %col Hacer copia de seguridad del fichero de configuración de Samba
+      %row
+        %col testparm
+        %col Comprueba que la sintaxis del fichero de configuración de Samba es correcta y muestra todas las secciones en pantalla
+      %row
+        %col testparm --section-name SECTIONNAME
+        %col Comprueba que la sintaxis del fichero de configuración de Samba es correcta y muestra sólo la sección SECTIONNAME
+      %row
+        %col smbpasswd -a USERNAME
+        %col Crear clave de Samba para el usuario del sistema USERNAME
+      %row
+        %col smbpasswd -d USERNAME
+        %col Desabilita al usuario USERNAME en Samba
+      %row
+        %col smbpasswd -e USERNAME
+        %col Habilita al usuario USERNAME en Samba.
+      %row
+        %col pdbedit -L
+        %col Muestra la lista de usuarios/claves definidos en Samba.
+      %row
+        %col Para el servicio SERVICENAME (Sistema de servicios systemd)
+        %col systemctl stop SERVICENAME
+      %row
+        %col Inicia el servicio SERVICENAME (Sistema de servicios systemd)
+        %col systemctl start SERVICENAME
+      %row
+        %col Muestra el estado del servicio SERVICENAME (Sistema de servicios systemd)
+        %col systemctl status SERVICENAME
+      %row
+        %col Activa el servicio SERVICENAME (Sistema de servicios systemd)
+        %col systemctl enable SERVICENAME
+      %row
+        %col Desactiva el servicio SERVICENAME (Sistema de servicios systemd)
+        %col systemctl disable SERVICENAME
+
+  %concept
+    %names net
+    %tags comando,herramienta,administrar,Samab,servidor,CFIS,SMB
+    %def Herramienta/comando para administrar servidores Samba locales o servidores CIFS remotos.
+    %table{:fields => 'acción,resultado'}
+      %row
+        %col net use
+        %col En Windows muestra las conexiones establecidas a recursos SMB/CIFS. Muestra las letras asignadas a las unidades montadas.
+      %row
+        %col net status shares
+        %col En GNU/Linux muestra las conexiones establecidas a recursos SMB/CIFS.
