@@ -55,20 +55,4 @@
       </row>
     </table>
   </concept>
-
-  <concept>
-    <names>net</names>
-    <tags>comando,herramienta,administrar,Samab,servidor,CFIS,SMB</tags>
-    <def>Herramienta/comando para administrar servidores Samba locales o servidores CIFS remotos.</def>
-    <table fields='acción,resultado'>
-      <row>
-        <col>net use</col>
-        <col>En Windows muestra las conexiones establecidas a recursos SMB/CIFS. Muestra las letras asignadas a las unidades montadas.</col>
-      </row>
-      <row>
-        <col>net status shares</col>
-        <col>En GNU/Linux muestra las conexiones establecidas a recursos SMB/CIFS.</col>
-      </row>
-    </table>
-  </concept>
 </map>
