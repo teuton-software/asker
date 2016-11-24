@@ -30,10 +30,10 @@ class World
       filter = c.name.clone
       threads << Thread.new { @image_urls[c.name] = ImageUrlLoader::load(filter) }
     end
-#    @contexts.each do |filter|
-#      print('.') if show_progress
-#      threads << Thread.new { @image_urls[ filter.join('.').to_s ] = ImageUrlLoader::load(filter) }
-#    end
+    @contexts.each do |filter|
+      print('.') if show_progress
+      threads << Thread.new { @image_urls[ filter.join('.').to_s ] = ImageUrlLoader::load(filter) }
+    end
     threads.each { |t| t.join } # wait for all threads to finish
     print("\n") if show_progress
   end
