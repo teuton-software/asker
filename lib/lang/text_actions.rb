@@ -101,8 +101,8 @@ module TextActions
     return t.split(" ").count
   end
 
-  def do_mistake_to(pText="")
-    lText=pText.clone
+  def do_mistake_to(pText='')
+    lText=pText.dup
     keys=@mistakes.keys
 
     #Try to do mistake with one item from the key list
