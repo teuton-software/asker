@@ -116,10 +116,11 @@ module TextActions
       end
     end
 
-    #Force mistake by swapping letters
+    # Force mistake by swapping letters
     if lText.size>1
       i=rand(lText.size-2)
       aux=lText[i]
+      # binding.pry
       lText[i]=lText[i+1]
       lText[i+1]=aux
     end
