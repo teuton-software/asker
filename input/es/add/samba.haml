@@ -33,20 +33,29 @@
         %col pdbedit -L
         %col Muestra la lista de usuarios/claves definidos en Samba.
       %row
-        %col Para el servicio SERVICENAME (Sistema de servicios systemd)
         %col systemctl stop SERVICENAME
+        %col Para el servicio SERVICENAME (Sistema de servicios systemd)
       %row
-        %col Inicia el servicio SERVICENAME (Sistema de servicios systemd)
         %col systemctl start SERVICENAME
+        %col Inicia el servicio SERVICENAME (Sistema de servicios systemd)
       %row
-        %col Muestra el estado del servicio SERVICENAME (Sistema de servicios systemd)
         %col systemctl status SERVICENAME
+        %col Muestra el estado del servicio SERVICENAME (Sistema de servicios systemd)
       %row
-        %col Activa el servicio SERVICENAME (Sistema de servicios systemd)
         %col systemctl enable SERVICENAME
+        %col Activa el servicio SERVICENAME (Sistema de servicios systemd)
       %row
-        %col Desactiva el servicio SERVICENAME (Sistema de servicios systemd)
         %col systemctl disable SERVICENAME
+        %col Desactiva el servicio SERVICENAME (Sistema de servicios systemd)
+      %row
+        %col smbstatus
+        %col Comando de GNU/Linux que muestra información de las conexiones SMB/CIFS.
+      %row
+        %col smbtree
+        %col Comando de GNU/Linux que muestra las máquinas y recursos SMB/CIFS accesibles por la red.
+      %row
+        %col smbclient --list SMB-SERVER
+        %col Comando de GNU/Linux que muestra los recursos SMB/CIFS del equipo SMB-SERVER
 
   %concept
     %names net
@@ -57,5 +66,14 @@
         %col net use
         %col En Windows muestra las conexiones establecidas a recursos SMB/CIFS. Muestra las letras asignadas a las unidades montadas.
       %row
+        %col net use S: \\SMB-SERVER\SHARE /USER:PASSWORD
+        %col Comando de Windows que establece una conexión CIFS con el recurso SHARE del equipo SMB-SERVER, y lo monta en la unidad S.
+      %row
+        %col net use * /d /y
+        %col Comando de Windows para cerrar las conexiones SMB/CIFS que hayan.
+      %row
+        %col net view
+        %col Comando de Windows que muestra las máquinas y recursos SMB/CIFS accesibles por la red.
+      %row
         %col net status shares
-        %col En GNU/Linux muestra las conexiones establecidas a recursos SMB/CIFS.
+        %col Comando net en GNU/Linux muestra las conexiones establecidas a recursos SMB/CIFS.
