@@ -87,6 +87,7 @@ private
         @sequence= i.text.split(",")
       when 'template'
         puts "[DEBUG] Testing <template> tag..."
+        puts i.to_s
         @datarows << Row.new(self, @datarows.size, i)
       when 'type'
         j = i.text.split(",")
