@@ -1,8 +1,7 @@
 #!/usr/bin/ruby
 
 require 'minitest/autorun'
-require 'pry'
-require_relative "../../lib/loader/image_url_loader"
+require_relative '../../lib/loader/image_url_loader'
 
 class ImageUrlLoaderTest < Minitest::Test
 
