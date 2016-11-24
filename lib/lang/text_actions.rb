@@ -125,7 +125,7 @@ module TextActions
       lText[i+1]=aux
     end
     return lText if lText!=pText
-    return lText+"s"
+    lText + 's'
   end
 
   def hide_text(pInputText)
