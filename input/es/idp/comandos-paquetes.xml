@@ -81,32 +81,28 @@
 				<col>Listar los paquetes RPM instalados.</col>
 			</row>
 			<row>
-				<col>rpm -q nmap</col>
-				<col>Consultar el estado de un paquete Red Hat.</col>
+				<col>rpm -q PACKAGENAME</col>
+				<col>Consultar el estado del paquete PACKAGENAME en OpenSUSE/Red Hat.</col>
 			</row>
 			<row>
-				<col>rpm -qf --search /sbin/route</col>
-				<col>Averiguar qué paquete RPM instaló el fichero.</col>
+				<col>rpm -qf --search FILEPATH</col>
+				<col>Averiguar qué paquete RPM instaló el fichero FILEPATH.</col>
 			</row>
 			<row>
-  			<col>dpkg --install mozilla_0.8.11_all.deb</col>
-				<col>Actualizar un paquete desde un fichero con formato Debian.</col>
-			</row>
-			<row>
-				<col>dpkg --install lightdm_1.8.4_amd64.deb</col>
-				<col>Instalar un paquete a partir de un fichero con formato Debian.</col>
+  			<col>dpkg --install PACKAGENAME.deb</col>
+				<col>Actualizar un paquete PACKAGENAME desde un fichero con formato Debian.</col>
 			</row>
 			<row>
 				<col>dpkg --list</col>
 				<col>Listar los paquetes Debian instalados.</col>
 			</row>
 			<row>
-				<col>dpkg --status bash</col>
-				<col>Consultar el estado de un paquete Debian.</col>
+				<col>dpkg --status PACKAGENAME</col>
+				<col>Consultar el estado de un paquete PACKAGENAME Debian.</col>
 			</row>
 			<row>
-				<col>dpkg --search /sbin/fdisk</col>
-				<col>Averiguar qué paquete Debian instaló el fichero.</col>
+				<col>dpkg --search FILEPATH</col>
+				<col>Averiguar qué paquete Debian instaló el fichero FILEPATH.</col>
 			</row>
 		</table>
 	</concept>
