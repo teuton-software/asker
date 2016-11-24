@@ -6,6 +6,10 @@
     <def>Sistema de archivos de red, es un protocolo de nivel de aplicación, según el Modelo OSI. Es utilizado para sistemas de archivos distribuido en un entorno de red de computadoras de área local. Posibilita que distintos sistemas conectados a una misma red accedan a ficheros remotos como si se tratara de locales.</def>
     <table fields='acción,resultado'>
       <row>
+        <col>showmount -e NFS-SERVER</col>
+        <col>Muestra los recursos NFS exportados por el equipo NFS-SERVER.</col>
+      </row>
+      <row>
         <col>nfsadmin client start</col>
         <col>Iniciar el servicio NFS cliente, en SO Windows.</col>
       </row>
@@ -52,4 +56,18 @@
     </table>
   </concept>
 
+  <concept>
+    <names>net</names>
+    <tags>comando,herramienta,administrar,Samab,servidor,CFIS,SMB</tags>
+    <def>Herramienta/comando para administrar servidores Samba locales o servidores CIFS remotos.</def>
+    <table fields='acción,resultado'>
+      <row>
+        <col>net use</col>
+        <col>En Windows muestra las conexiones establecidas a recursos SMB/CIFS. Muestra las letras asignadas a las unidades montadas.</col>
+      </row>
+      <row>
+        <col>net status shares</col>
+        <col>En GNU/Linux muestra las conexiones establecidas a recursos SMB/CIFS.</col>
+      </row>
+    </table>
 </map>
