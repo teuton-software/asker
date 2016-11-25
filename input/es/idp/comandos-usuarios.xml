@@ -29,7 +29,7 @@
 			</row>
 			<row>
 				<col>o</col>
-				<col>Todos los usuarios excepto el propietario y miembros del grupo propietario.</col>
+				<col>EL resto de otros usuarios. Excepto el propietario y miembros del grupo propietario.</col>
 			</row>
 			<row>
 				<col>a</col>
@@ -39,23 +39,23 @@
 		<table fields='notación chmod, significado'>
 			<row>
 				<col>u+x</col>
-				<col>Añadir permisos de ejecución para el propietario.</col>
+				<col>Usando notación de letras, añadir permisos de ejecución para el propietario.</col>
 			</row>
 			<row>
 				<col>+x</col>
-				<col>Añadir permisos de ejecución a todos los usuarios.	Equivalente a a+x.</col>
+				<col>Usando notación de letras, añadir permisos de ejecución a todos los usuarios.	Equivalente a a+x.</col>
 			</row>
 			<row>
 				<col>o-rw</col>
-				<col>Quitar permisos de lectura y escritura a todos los usuarios excepto para el propietario y miembros del grupo propietario.</col>
+				<col>Usando notación de letras, quitar permisos de lectura y escritura a todos los usuarios excepto para el propietario y miembros del grupo propietario.</col>
 			</row>
 			<row>
 				<col>go=rw</col>
-				<col>Establece únicamente permisos de lectura y escritura todos los usuarios excepto al propietario.</col>
+				<col>Usando notación de letras, establece únicamente permisos de lectura y escritura todos los usuarios excepto al propietario.</col>
 			</row>
 			<row>
 				<col>u+x,go=rx</col>
-				<col>Añade permisos de ejecución para el propietario. Y establece únicamente permisos de lectura y escritura todos los usuarios excepto al propietario. Las especificaciones se separan por comas.</col>
+				<col>Usando notación de letras, añade permisos de ejecución para el propietario. Y establece únicamente permisos de lectura y escritura todos los usuarios excepto al propietario. Las especificaciones se separan por comas.</col>
 			</row>
 		</table>
 	</concept>
@@ -116,8 +116,8 @@
 				<col>Ver todo el contenido del historial de comandos de forma paginada.</col>
 			</row>
 			<row>
-				<col>history | grep w</col>
-				<col>Listar el contenido del historial, filtrando la salida.</col>
+				<col>history | grep FILTER</col>
+				<col>Listar el contenido del historial pero filtrando las líneas que contengan FILTER.</col>
 			</row>
 			<row>
 				<col>!NUMBER</col>
@@ -220,51 +220,40 @@
 		<table fields='Tipo y permisos (10 letras), significado'>
 			<row>
 				<col>-rwx------</col>
-				<col>Un fichero regular que puede ser leido, modificado y ejecutado por el propietario. Nadie más tiene acceso.</col>
+				<col>Escribir 10 caractéres que representen los permisos de un fichero regular que puede ser leido, modificado y ejecutado por el propietario. Nadie más tiene acceso.</col>
 			</row>
 			<row>
 				<col>-rw-------</col>
-				<col>Un fichero regular que sólo puede ser leido y modificado por el propietario. Nadie más tiene acceso.</col>
+				<col>Escribir 10 caractéres que representen un fichero regular que sólo puede ser leido y modificado por el propietario. Nadie más tiene acceso.</col>
 			</row>
 			<row>
 				<col>-rw-r--r--</col>
-				<col>Un fichero regular que puede ser modificado por el
-				propietario. Todos los usuarios pueden leerlo.</col>
+				<col>Escribir 10 caractéres que representen un fichero regular que puede ser modificado por el propietario. Todos los usuarios pueden leerlo.</col>
 			</row>
 			<row>
 				<col>-rwxr-xr-x</col>
-				<col>Un fichero regular que puede ser modificado por el
-				propietario. Todos los usuarios pueden leerlo y
-				ejecutarlo.</col>
+				<col>Escribir 10 caractéres que representen un fichero regular que puede ser modificado por el propietario. Todos los usuarios pueden leerlo y ejecutarlo.</col>
 			</row>
 			<row>
 				<col>-rw-rw----</col>
-				<col>Un fichero regular que sólo puede ser leído y
-						modificado por el usuario propietario y los miembros
-						del grupo propietario.</col>
-					</row>
-					<row>
-						<col>lrwxrwxrwx</col>
-						<col>Un enlace simbólico. Los permisos reales son los que
-						posea el objeto al cual apunta el enlace simbólico.</col>
-					</row>
-					<row>
-						<col>drwxrwx---</col>
-						<col>Un directorio donde el usuario propietario y los
-						miembros del grupo propietario tiene permisos
-						para entrar, crear, renombrar, eliminar.</col>
-					</row>
-					<row>
-						<col>drwxr-x---</col>
-						<col>Un directorio donde el usuario propietario tiene permisos
-						para entrar, crear, renombrar, eliminar ficheros y directorios.
-						Los miembros del grupo propietario tiene permisos
-						para entrar, pero no pueden crear, renombrar, eliminar.</col>
-					</row>
-				</table>
-			</concept>
+				<col>Escribir 10 caractéres que representen un fichero regular que sólo puede ser leído y modificado por el usuario propietario y los miembros del grupo propietario.</col>
+			</row>
+			<row>
+				<col>lrwxrwxrwx</col>
+				<col>Escribir 10 caractéres que representen un enlace simbólico. Los permisos reales son los que posea el objeto al cual apunta el enlace simbólico.</col>
+			</row>
+			<row>
+				<col>drwxrwx---</col>
+				<col>Escribir 10 caractéres que representen un directorio donde el usuario propietario y los miembros del grupo propietario tiene permisos para entrar, crear, renombrar, eliminar.</col>
+			</row>
+			<row>
+				<col>drwxr-x---</col>
+				<col>Escribir 10 caractéres que representen un directorio donde el usuario propietario tiene permisos	para entrar, crear, renombrar, eliminar ficheros y directorios.	Los miembros del grupo propietario tiene permisos para entrar, pero no pueden crear, renombrar, eliminar.</col>
+			</row>
+		</table>
+	</concept>
 
-			<concept>
+	<concept>
 				<names>su</names>
 				<tags>cambiar, usuario, superusuario</tags>
 				<def>Es un comando del sistema operativo GNU/Linux, que nos permite abrir sesión con otro usuario.</def>
