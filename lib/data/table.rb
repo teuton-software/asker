@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require_relative 'row'
+require_relative 'template'
 
 class Table
   attr_reader :name, :id
@@ -86,9 +87,7 @@ private
       when 'sequence'
         @sequence= i.text.split(",")
       when 'template'
-        puts "[DEBUG] Testing <template> tag..."
-        puts i.to_s
-        @datarows << Row.new(self, @datarows.size, i)
+        Template.new(self, @datarows.size, i.to_s)
       when 'type'
         j = i.text.split(",")
         if j.join(",")!=@types.join(",") then
