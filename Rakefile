@@ -19,7 +19,7 @@ end
 desc 'Check installation'
 task :check do
   cmd = `gem list`.split("\n")
-  names = cmd.map { |i| i.split(" ")[0] }
+  names = cmd.map { |i| i.split(' ')[0] }
   fails = []
   list.each { |i| fails << i unless names.include?(i) }
 
@@ -28,16 +28,17 @@ task :check do
   else
     puts '[FAIL] Installed gems!: ' + fails.join(',')
   end
-  a = `cat tests/all.rb|grep "_test"|wc -l`
+  testfile = './tests/all.rb'
+  a = `cat #{testfile}|grep "_test"|wc -l`
   b = `vdir -R tests/ |grep "_test.rb"|wc -l`
   if a.to_i == b.to_i
-    puts '[ OK ] All ruby tests into test/all.rb'
+    puts "[ OK ] All ruby tests into #{testfile}"
   else
-    puts '[FAIL] some ruby tests are not into test/all.rb'
+    puts "[FAIL] some ruby tests are not into #{testfile}"
   end
 
-  puts '[INFO] Running tests...'
-  system('./tests/all.rb')
+  puts "[INFO] Running #{testfile}"
+  system(testfile)
 end
 
 desc 'Update this project'
