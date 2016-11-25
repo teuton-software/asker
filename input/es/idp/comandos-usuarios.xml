@@ -314,16 +314,16 @@
 				<col>Muestra la máscara de permisos actual.</col>
 			</row>
 			<row>
-				<col>umask 0000; touch foo</col>
-				<col>El nuevo fichero se crea con los permisos -rw-rw-rw-.</col>
+				<col>umask 0000; touch FILENAME</col>
+				<col>El nuevo fichero regular FILENAME se crea con los permisos -rw-rw-rw-.</col>
 			</row>
 			<row>
-				<col>umask 0022; touch foo</col>
-				<col>El nuevo fichero se crea con los permisos -rw-r--r--.</col>
+				<col>umask 0022; touch FILENAME</col>
+				<col>El nuevo fichero regular FILENAME se crea con los permisos -rw-r--r--.</col>
 			</row>
 			<row>
-				<col>umask 0022; mkdir foo</col>
-				<col>El nuevo directorio se crea con los permisos -rwxr-xr-x.</col>
+				<col>umask 0022; mkdir DIRNAME</col>
+				<col>El nuevo directorio DIRNAME se crea con los permisos -rwxr-xr-x.</col>
 			</row>
 		</table>
 	</concept>

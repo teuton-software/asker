@@ -26,16 +26,16 @@
 				<col>Actualizar el catálogo de paquetes Debian disponibles.</col>
 			</row>
 			<row>
-				<col>apt-cache search tree</col>
-				<col>Buscar un paquete Debian concreto en los repositorios.</col>
+				<col>apt-cache search PACKAGENAME</col>
+				<col>Buscar el paquete PACKAGENAME Debian concreto en los repositorios.</col>
 			</row>
 			<row>
-				<col>apt-cache install ruby</col>
-				<col>Instalar un paquete Debian concreto desde los repositorios.</col>
+				<col>apt-get install PACKAGENAME</col>
+				<col>Instalar el paquete PACKAGENAME Debian concreto desde los repositorios.</col>
 			</row>
 			<row>
-				<col>apt-get remove pascal</col>
-				<col>Deinstalar un paquete Debian.</col>
+				<col>apt-get remove PACKAGENAME</col>
+				<col>Desinstalar el paquete PACKAGENAME Debian.</col>
 			</row>
 			<row>
 				<col>apt-get upgrade</col>
@@ -43,15 +43,15 @@
 			</row>
 			<row>
 				<col>zypper refresh</col>
-				<col>>Actualizar el catálogo de paquetes OpenSUSE disponibles.</col>
+				<col>Actualizar el catálogo de paquetes OpenSUSE disponibles.</col>
 			</row>
 			<row>
-				<col>zypper search wget</col>
-				<col>Buscar un paquete OpenSUSE concreto en los repositorios.</col>
+				<col>zypper search PACKAGENAME</col>
+				<col>Buscar el paquete PACKAGENAME OpenSUSE concreto en los repositorios.</col>
 			</row>
 			<row>
-				<col>zypper install python</col>
-				<col>Instalar un paquete OpenSUSE concreto desde los repositorios.</col>
+				<col>zypper install PACKAGENAME</col>
+				<col>Instalar el paquete PACKAGENAME OpenSUSE concreto desde los repositorios.</col>
 			</row>
 			<row>
 				<col>zypper update</col>
@@ -90,7 +90,7 @@
 			</row>
 			<row>
   			<col>dpkg --install PACKAGENAME.deb</col>
-				<col>Actualizar un paquete PACKAGENAME desde un fichero con formato Debian.</col>
+				<col>Instalar el paquete PACKAGENAME desde un fichero con formato Debian.</col>
 			</row>
 			<row>
 				<col>dpkg --list</col>
