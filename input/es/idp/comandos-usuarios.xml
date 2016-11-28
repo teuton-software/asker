@@ -7,11 +7,23 @@
 		<table fields='acción,resultado'>
 			<row>
 				<col>chmod 666 FILENAME</col>
-				<col>Establece los permisos de FILENAME con lectura/escritura para todos los usuarios.</col>
+				<col>Establece permisos de FILENAME con lectura/escritura para todos los usuarios.</col>
+			</row>
+			<row>
+				<col>chmod 700 FILENAME</col>
+				<col>Establece permisos de FILENAME con lectura/escritura/ejecución sólo para el usuario propietario.</col>
+			</row>
+			<row>
+				<col>chmod 770 FILENAME</col>
+				<col>Establece permisos de FILENAME con lectura/escritura/ejecución para el usuario y grupo propietario.</col>
+			</row>
+			<row>
+				<col>chmod 777 FILENAME</col>
+				<col>Establece permisos de FILENAME con lectura/escritura/ejecución para todos los usuarios.</col>
 			</row>
 			<row>
 				<col>chmod 755 DIRNAME -R</col>
-				<col>Establece permisos sobre el directorio DIRNAME y todo sus contenidos de forma recursiva.</col>
+				<col>Establece permisos sobre el directorio DIRNAME y todos sus contenidos de forma recursiva.</col>
 			</row>
 			<row>
 				<col>chmod o-rwx FILENAME</col>
