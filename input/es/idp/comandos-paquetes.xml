@@ -1,10 +1,10 @@
 <map version='1' lang='es' context='sistemas operativos, comando, paquetes, gestión' >
 
-	<concept>
-		<names>script</names>
-		<tags>guardar, fichero, comandos, utilizados</tags>
-		<def>Es un comando del sistema operativo GNU/Linux, que almacena en un fichero todos los comandos escritos, y sus resultados, después de ser invocado.</def>
-	</concept>
+  <concept>
+	  <names>script</names>
+    <tags>guardar, fichero, comandos, utilizados</tags>
+    <def>Es un comando del sistema operativo GNU/Linux, que almacena en un fichero todos los comandos escritos, y sus resultados, después de ser invocado.</def>
+  </concept>
 
 	<concept>
 		<names>gestión de paquetes</names>
@@ -61,20 +61,21 @@
 				<col>zypper rm PACKAGENAME</col>
 		    <col>Eliminar el paquete PACKAGENAME de OpenSUSE, pero no toca las dependencias.</col>
 			</row>
-		  <row>
+			<row>
 				<col>zypper rm --clean-deps PACKAGENAME</col>
-		    <col>Eliminar el paquete PACKAGENAME de OpenSUSE y también eliminar las dependencias de estos que no sean necesarias en el sistema.</col>
+				<col>Eliminar el paquete PACKAGENAME de OpenSUSE y también eliminar las dependencias de estos que no sean necesarias en el sistema.</col>
+			</row>
 			<row>
 				<col>zypper lr</col>
 				<col>Lista los repositorios de instalación de paquetes definidos en nuestra máquina OpenSUSE.</col>
 			</row>
 			<row>
-				<col>rpm -i lightdm_1.8.4_amd64.rpm</col>
-				<col>Instalar un paquete apartir de un fichero conformato RPM.</col>
+				<col>rpm -i PACKAGENAME.rpm</col>
+				<col>Instalar paquete PACKAGENAME a partir de un fichero conformato RPM.</col>
 			</row>
 			<row>
-				<col>rpm -U lxde_0.8.11_all.rpm</col>
-				<col>Actualizar un paquete desde un fichero con formato RPM.</col>
+				<col>rpm -U PACKAGENAME.rpm</col>
+				<col>Actualizar paquete PACKAGENAME desde un fichero con formato RPM.</col>
 			</row>
 			<row>
 				<col>rpm -qa</col>
@@ -89,7 +90,7 @@
 				<col>Averiguar qué paquete RPM instaló el fichero FILEPATH.</col>
 			</row>
 			<row>
-  			<col>dpkg --install PACKAGENAME.deb</col>
+				<col>dpkg --install PACKAGENAME.deb</col>
 				<col>Instalar el paquete PACKAGENAME desde un fichero con formato Debian.</col>
 			</row>
 			<row>
@@ -105,6 +106,6 @@
 				<col>Averiguar qué paquete Debian instaló el fichero FILEPATH.</col>
 			</row>
 		</table>
-	</concept>
+  </concept>
 
 </map>
