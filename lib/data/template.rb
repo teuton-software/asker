@@ -3,15 +3,12 @@ require 'rexml/document'
 require_relative 'row'
 
 class Template
-  attr_reader :rows
+  attr_reader :datarows
 
   def initialize( table, index, xml )
-    @table   = table
-    @index   = index
-    @rows    = []
     vars, template = load_info_from(xml)
     data_string = apply_vars_to_template(vars, template)
-    @rows = read_rows_from(data_string)
+    @datarows = read_rows_from(table, index, data_string)
   end
 
   def load_info_from(xml)
@@ -33,15 +30,16 @@ class Template
     output
   end
 
-  def read_rows_from(data_string)
-    puts data_string
+  def read_rows_from(table, index, data_string)
+    datarows = []
     data = "<template>\n#{data_string}\n</template>"
     xml = REXML::Document.new(data)
-    xml.elements.each do |i|
+    xml.root.elements.each do |i|
       if i.name == 'row'
-        puts "OK"+i.to_s
+        datarows << Row.new(table, index, i)
+        index += 1
       end
     end
-    []
+    datarows
   end
 end
