@@ -1,19 +1,17 @@
-%map{ :lang => 'es', :context => 'matemáticas,sumar', :version => '1'}
+%map{ :lang => 'es', :context => 'template', :version => '1'}
 
   %concept
-    %names matemáticas
-    %tags matemáticas
-    %table{ :fields => 'operación,resultado' }
+    %names servicio
+    %tags servicio
+    %table{ :fields => 'comando,resultado' }
       %row
-        %col 3 + 4
-        %col 7
-      %row
-        %col 7 - 2
-        %col 5
-      %template{:NUMBER => '3,7,11'}
+        %col reboot
+        %col Reiniciar la máquina
+      %template{:SERVICENAME => 'smb,nmb,sshd'}
         %row
-          %col NUMBER + NUMBER
-          %col Multiplicar NUMBER * 2
+          %col systemctl start SERVICENAME
+          %col Iniciar el servicio SERVICENAME
+      %template{:NUMBER => '1138,1611,1970'}
         %row
-          %col NUMBER * 121
-          %col 121 x NUMBER
+          %col kill -9 NUMBER
+          %col Matar el proceso con PID NUMBER
