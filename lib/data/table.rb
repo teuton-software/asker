@@ -87,7 +87,7 @@ private
       when 'sequence'
         @sequence= i.text.split(",")
       when 'template'
-        Template.new(self, @datarows.size, i.to_s)
+        rows = Template.new(self, @datarows.size, i)
       when 'type'
         j = i.text.split(",")
         if j.join(",")!=@types.join(",") then
