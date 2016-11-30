@@ -1,0 +1,36 @@
+==================================================
+Created by : darts-of-teacher (version 0.12.0)
+File       : jedi-doc.txt
+Time       : 2016-11-30 09:05:14 +0000
+Author     : David Vargas
+==================================================
+
+[44m[1mobiwan[0m
+
+* Jedi, maestro de Anakin Skywalker
+* Jedi, alumno de Quigon-Jinn
+* Vive en Tatooine, cerca de la casa de Luke Skywalker
+
++-------------------+----------+
+| atributo          | valor    |
++-------------------+----------+
+| raza              | humano   |
+| color sable laser | verde    |
+| color del pelo    | pelirojo |
++-------------------+----------+
+
+[44m[1myoda[0m
+
+* Jedi, maestro de todos los jedis
+* Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.
+* Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.
+* Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.
+
++-------------------+----------------+
+| atributo          | valor          |
++-------------------+----------------+
+| color sable laser | verde          |
+| color del pelo    | blanco         |
+| color de piel     | verde          |
+| altura            | 65 centímetros |
++-------------------+----------------+
