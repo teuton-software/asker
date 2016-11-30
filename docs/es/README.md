@@ -11,75 +11,12 @@ Steps:
 > The GIFT format is very common format, in elearning software as Moodle.
 
 
-**History**
-===========
-As a teacher, one of the most boring taks is check the same exercises
-again and again, for every student, and for ever year. The test questions
-allow as to create activities that are automaticaly checked/resolved by 
-software application (For example: Moodle cuestionairs). In this case
-the teacher has time to waste analising the results. And apply that 
-knowledge to improve his work, to try new ways of doing his job, to
-find or redefined the activities or lessons contents, just to find
-a better way of teaching. And an easier way of learning for the students.
+# Documentación
 
-The big problem with test questions are that only are usefull to evaluate
-measurable features. So it could be very limited if we want measure abstract
-features. But we could do this with other view. I mean.
+* [Historia](./historia.md)
+* [Instalación](./instalacion.md)
+* [Directorios del proyectos](./directorios.md)
 
-If I get an open and abstract problem, their resolution will have several
-steps or measurable milestones. So we could transform an open problem, 
-into a close one. And I have to focus on measure this aspects.
-
-Besides, if I "bomb" the student with a huge amount of diferent questions
-about one concept, probably I could be near of knowing and measuring, the
-student asimilation of this concepts.
-
-**Installation**
-================
-Required software:
-* ruby (1.9.3 version)
-* rake
-
-Install required gems with `rake install_gems`.
-
-**Directories description**
-===========================
-
-This is the directory tree:
-
-```
-.
-├── build
-├── docs
-├── lib
-├── LICENSE
-├── MANTAINERS.md
-├── maps
-│   └── demo
-│       └── starwars
-│           ├── jedi.haml
-│           └── sith.haml
-├── projects
-│   └── demo
-│       └── starwars
-│           ├── config.yaml
-│           └── sith.yaml
-├── Rakefile
-├── README.md
-└── spec
-
-```
-
-* *README.es.md*: This help file
-* *build*: This is the script file that will "build" our questions file 
-from conceptual map files.
-* *lib*: Directory that contains the ruby classes and modules of this project.
-* *maps*: Directories where we save our own conceptual maps (using HAML or XML file format).
-* *projects*: Directory that contains config files for every project. This config 
-file are necessary to easily group parameters used by this tool. Also, 
-into this directory will be created the reports and output files (as GIFT, etc.)
-of every project.
-* *spec*: Directory that will contain the test units in the next future. I hope!.
 
 Conceptual Map
 ==============
@@ -142,7 +79,7 @@ asssociated to the concept. Descriptions that are uniques for this concept, but 
 the concept into the text.
 * **table**: Other way to build more sofisticated definitions/schemas is using "tables". It's similar
 to HTML tag. I mean, with this "table", we build tables of knowledge into the concept. We use "row",
-ans "col", to defines table-rows and row-cols, of course. We could see an 
+ans "col", to defines table-rows and row-cols, of course. We could see an
 example into `maps/demo/starwars/jedi.haml`.
 
 
@@ -152,19 +89,19 @@ First we need to create a config file. Let see `projects/demo/starwars/config-je
 
 ```
 ---
-:inputdirs: 'maps/demo/starwars' 
+:inputdirs: 'maps/demo/starwars'
 :process_file: 'jedi.haml'
 
 ```
 
-To run the tool we do `./build projects/demo/starwars/config-jedi.yaml` or 
-`ruby build projects/demo/starwars/config-jedi.yaml`, and we'll see something 
+To run the tool we do `./build projects/demo/starwars/config-jedi.yaml` or
+`ruby build projects/demo/starwars/config-jedi.yaml`, and we'll see something
 like this on the screen.
 
 
 ```
 [INFO] Loading input data...
-* HAML/XML files from maps/demo/starwars: jedi.haml, sith.haml 
+* HAML/XML files from maps/demo/starwars: jedi.haml, sith.haml
 [INFO] Showing concept data...
  <sidious(3)> lang=es
   .context    = personaje, starwars
@@ -194,4 +131,3 @@ Output files
 Let's see output files (*.txt) into `projects/demo/starwars/*.txt` directory.
 
 > Let's see docs directory for more details.
-
