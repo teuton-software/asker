@@ -1,133 +1,17 @@
-**darts-of-teacher**
-====================
 
-*darts-of-teacher** un un programa Ruby con licencia Open Sourcer, que ayuda
+# darts-of-teacher
+
+**darts-of-teacher** es un programa Ruby con licencia Open Source, que ayuda
 al profesor a crear una gran cantidad de preguntas de forma sencilla, a partir
 de una especie de mapa conceptual.
 
-Steps:
-1) The teacher create a text file with our conceptual map.
-2) The tool read it and create a file with GIFT questions.
-> The GIFT format is very common format, in elearning software as Moodle.
-
+1. El profesor crea un fichero con el mapa conceptual que quiere trabajar.
+2. La aplicación lee el fichero y crea un fichero de salida con las preguntas del tema.
 
 # Documentación
 
-* [Historia](./historia.md)
 * [Instalación](./instalacion.md)
+* [Demo](./demo/README.md)
+* [Historia](./historia.md)
 * [Directorios del proyectos](./directorios.md)
-
-
-Conceptual Map
-==============
-Into *maps* directory we save our own concept map files. We could use subdirectories to
-better organization. As example we have the file `maps/demo/starwars/jedi.haml`, that
-contains one concept map about Jedi characters of StarWars film into HAML format.
-
-Let's take a look (Spanish example, I know. Soon I'll write the english version):
-```
-%map{ :version => '1', :lang => 'es' }
-  %concept
-    %names obiwan
-    %context personaje, starwars
-    %tags maestro, jedi, profesor, annakin, skywalker, alumno, quigon-jinn
-    %text Jedi, maestro de Annakin Skywalker
-    %text Jedi, alumno de Quigon-Jinn
-    %table{ :fields => 'característica, descripción' }
-      %title Asocia cada característica con su valor
-      %row
-        %col raza
-        %col humano
-      %row
-        %col color sable laser
-        %col verde
-      %row
-        %col color-del-pelo
-        %col pelirojo
-
-  %concept
-    %names yoda
-    %context personaje, starwars
-    %tags maestro, jedi
-    %text Jedi, maestro de todos los jedis
-    %text Midiendo 65 centímetros, fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.
-    %text Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.
-    %text Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.    
-    %table{ :fields => 'característica, descripción' }
-      %title Asocia cada característica con su valor
-      %row
-        %col color sable laser
-        %col verde
-      %row
-        %col color-del-pelo
-        %col blanco
-      %row
-        %col color-de-piel
-        %col verde
-...
-```
-As we see, we defined 2 concepts about Jedi characters. This are "obiwan" and "yoda". And
-we use special sintax (tags) to define it.
-
-At now we have a this list of tags to define our own sintax for build conceptual maps:
-* **names**: List of one or more names that identify the concept. At least one is requiered, of course!.
-* **context**: List of comma separated words, that identify the context where this concept "lives" or "exists".
-* **tags**: List of comma separated words, that briefly describe the concept. I mean, a short list of words
-that came in mind when we think in it, and are useful for their identification.
-* **text**: We use this tags as many times we need. In it, we write using natural language descriptions
-asssociated to the concept. Descriptions that are uniques for this concept, but don't write the name of
-the concept into the text.
-* **table**: Other way to build more sofisticated definitions/schemas is using "tables". It's similar
-to HTML tag. I mean, with this "table", we build tables of knowledge into the concept. We use "row",
-ans "col", to defines table-rows and row-cols, of course. We could see an
-example into `maps/demo/starwars/jedi.haml`.
-
-
-Run it
-======
-First we need to create a config file. Let see `projects/demo/starwars/config-jedi.yaml`:
-
-```
----
-:inputdirs: 'maps/demo/starwars'
-:process_file: 'jedi.haml'
-
-```
-
-To run the tool we do `./build projects/demo/starwars/config-jedi.yaml` or
-`ruby build projects/demo/starwars/config-jedi.yaml`, and we'll see something
-like this on the screen.
-
-
-```
-[INFO] Loading input data...
-* HAML/XML files from maps/demo/starwars: jedi.haml, sith.haml
-[INFO] Showing concept data...
- <sidious(3)> lang=es
-  .context    = personaje, starwars
-  .tags       = humano, maestro, sith, alumno, plagueis
-  .text       = Sith, maestro de todos los siths...
-  .tables     = [$característica$descripción]
-  .neighbors  = maul(50.0), obiwan(50.0), yoda(37.5)
- <maul(4)> lang=es
-  .context    = personaje, starwars
-  .tags       = lord, sith, alumno, emperador
-  .text       = Lord Sirve como el aprendiz de Darth Sidious. Portando un sab...
-  .tables     = [$característica$descripción]
-  .neighbors  = sidious(57.14), obiwan(42.85), yoda(28.57)
-
-[INFO] Creating output files...
-[INFO] Showing concept stats...
-* Concept: name=sidious -----------------------(Q=42, E=10, %=400)
-* Concept: name=maul --------------------------(Q=32, E=8, %=400)
-* TOTAL(2) -----------------------------------(Q=74, E=18, %=400)
-
-```
-It's only brief screen report the building process.
-
-
-Output files
-============
-Let's see output files (*.txt) into `projects/demo/starwars/*.txt` directory.
-
-> Let's see docs directory for more details.
+* [Inputs o mapas conceptuales](./input.md)
