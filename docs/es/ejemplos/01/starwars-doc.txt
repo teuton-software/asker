@@ -1,0 +1,11 @@
+==================================================
+Created by : darts-of-teacher (version 0.12.0)
+File       : starwars-doc.txt
+Time       : 2016-11-30 12:39:28 +0000
+Author     : David Vargas
+==================================================
+
+[44m[1mobiwan[0m
+
+* Jedi, maestro de Anakin Skywalker
+

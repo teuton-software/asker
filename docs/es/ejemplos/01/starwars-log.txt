@@ -1,0 +1,53 @@
+==================================================
+Created by : darts-of-teacher (version 0.12.0)
+File       : starwars-log.txt
+Time       : 2016-11-30 12:39:28 +0000
+Author     : David Vargas
+==================================================
+
+[INFO] Project open
+   ├── inputdirs    = [1mdocs/es/ejemplos/01[0m
+   └── process_file = [1mstarwars.haml[0m
+
+[INFO] Loading input data
+ * Input directory  = [1mdocs/es/ejemplos/01[0m
+   └── Input file   = [1mdocs/es/ejemplos/01/starwars.haml[0m
+
+[INFO] Showing concept data <[1mdefault[0m>
++---------------+-----------------------------------------------------------------+
+| [1m1[0m             | [37m[44m[1mobiwan[0m (lang=es)                                                |
+| [34mFilename[0m      | docs/es/ejemplos/01/starwars.haml                               |
+| [34mContext[0m       | personajes, starwars                                            |
+| [34mTags[0m          | maestro, jedi, profesor, anakin, skywalker, alumno, quigon-jinn |
+| [34mReference to[0m  |                                                                 |
+| [34mReferenced by[0m |                                                                 |
+| [34m.def(text)[0m    | Jedi, maestro de Anakin Skywalker                               |
+| [34m.def(images)[0m  | 0                                                               |
+| [34m.neighbors[0m    |                                                                 |
++---------------+-----------------------------------------------------------------+
+
+
+
+[INFO] Creating output files
+   ├── Gift questions file = [1moutput/starwars-gift.txt[0m
+   └── Lesson file         = [1moutput/starwars-doc.txt[0m
+
+[INFO] Showing statistics
+
+ * Annotations:
+   ├── (d) Definitions     => Concept.def
+   ├── (b) Table Matching 
+   ├── (f) Tables 1 Field  => Concept.table.fields.size==1
+   ├── (i) Images URL      => Concept.def{:type => 'image_url'}
+   ├── (s) Sequences       => Concept.table{:sequence => '...'}
+   └── (t) Table Rows&Cols => Concept.tables.rows.columns
+
+
++-----------+-----------+---------+---------+---+---+---+---+---+---+
+| Concept   | Questions | Entries | xFactor | d | b | f | i | s | t |
++-----------+-----------+---------+---------+---+---+---+---+---+---+
+| [32mobiwan[0m    | 5         | 1       | 5.0     | 5 | 0 | 0 | 0 | 0 | 0 |
++-----------+-----------+---------+---------+---+---+---+---+---+---+
+| [1mTOTAL = 1[0m | [1m5[0m         | [1m1[0m       | [1m5.0[0m     | 5 | 0 | 0 | 0 | 0 | 0 |
++-----------+-----------+---------+---------+---+---+---+---+---+---+
+
