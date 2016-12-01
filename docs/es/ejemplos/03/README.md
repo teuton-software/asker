@@ -7,10 +7,15 @@ nueva información en forma de "tablas".
 ## Input
 
 Hemos modificado el fichero [`starwars.haml`](./starwars.haml),
-ampliando la información del concepto `obiwan`, usando "tablas".
+ampliando la información del concepto `obiwan` con "tablas". Éstas sirven
+para incluir nueva información que acompaña al concepto pero
+que no puede ser "definición" porque no identifica al concepto
+(No es un valor único de dicho concepto).
 
-Éstas sirven para incluir nueva información que acompaña al concepto pero
-que no puede ser "definición" porque no identifica al concepto.
+> Usamos definiciones para reflejar información que sólo posee dicho concepto.
+Es informacion única para él.
+> Usamos las tablas para reflajar información del concepto pero que se pueden
+repetir en otros conceptos del mapa conceptual.
 
 Por ejemplo, vamos a añadir "tabla" con información de "atributo,valor".
 Esto es un conjunto de atributos del personaje "obiwan" junto con el valor de
