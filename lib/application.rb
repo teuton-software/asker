@@ -9,4 +9,9 @@ module Application
   def self.version
     '0.12.0'
   end
+
+  def self.color_output
+    true
+  end
+
 end
