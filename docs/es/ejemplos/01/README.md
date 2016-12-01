@@ -18,9 +18,9 @@ hacemos:
 
 `./darts file docs/es/ejemplos/01/starwars.xml`,
 
-Vemos que aparece en pantalla la siguiente [información](./starwars-log.txt).
+Vemos que aparece en pantalla la siguiente [información](./starwars.xml-log.txt).
 
 ## Output
 
-Se ha generado este [fichero](./starwars-gift.txt) con las preguntas en
+Se ha generado este [fichero](./starwars.xml-gift.txt) con las preguntas en
 format Gift, preparadas para cargarse en Moodle.
