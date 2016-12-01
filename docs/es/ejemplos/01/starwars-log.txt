@@ -1,7 +1,7 @@
 ==================================================
 Created by : darts-of-teacher (version 0.12.0)
 File       : starwars-log.txt
-Time       : 2016-12-01 08:07:27 +0000
+Time       : 2016-12-01 08:22:25 +0000
 Author     : David Vargas
 ==================================================
 
@@ -17,7 +17,7 @@ Author     : David Vargas
 +---------------+-----------------------------------+
 | [1m1[0m             | [37m[44m[1mobiwan[0m (lang=es)                  |
 | [34mFilename[0m      | docs/es/ejemplos/01/starwars.haml |
-| [34mContext[0m       | personajes, starwars              |
+| [34mContext[0m       |                                   |
 | [34mTags[0m          |                                   |
 | [34mReference to[0m  |                                   |
 | [34mReferenced by[0m |                                   |
