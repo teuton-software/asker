@@ -1,7 +1,7 @@
 // ==================================================
 // Created by : darts-of-teacher (version 0.12.0)
 // File       : starwars-gift.txt
-// Time       : 2016-12-01 11:19:22 +0000
+// Time       : 2016-12-01 12:57:41 +0000
 // Author     : David Vargas
 // ==================================================
 
@@ -10,39 +10,75 @@
 // Concept name: obiwan
 // ==================================================
 // 
-::obiwan-1-d2def-mispelled::[html]<img src\="" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywlaker</i><br/>
+::obiwan-1-d1choose::[html]Definición \: <i>Jedi, maestro de Anakin Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  =Error ortográfico
-  ~%-33.33333%Verdadero
+  ~%-25%yoda
+  ~%-25%Ninguna es correcta
+  ~%-25%sidious
+  =obiwan
+}
+
+// 
+::obiwan-2-d1none::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSnW1nSjHh0C0fnrYsG8l9xBpIUAaQDq0W4TDe8aSHeXXlLwv8SECBTkkk" alt="image"><br/>Definición \: <i>Jedi, maestro de Anakin Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%sidious
+  ~%-25%obiwam
+  =Ninguna es correcta
+  ~%-25%yoda
+  ####Option mispelled!: obiwan
+}
+
+// 
+::obiwan-3-d1none::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTpRSyVBhsXbWt8sVJ77chiA5rzaJbm-t3GUiD-n9kKe_loaiTcx6qFuggp" alt="image"><br/>Definición \: <i>Jedi, maestro de Anakin Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  =Ninguna es correcta
+  ~%-25%sidious
+  ~%-25%yoda
+  ~%-25%maul
+}
+
+// 
+::obiwan-4-d2def-mispelled::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSc7yUey617yoMrhdzD7haWhq0F5-czQwQ71C9PLiYzriqfSqQGF7nKOGw" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Jedi, maeatro de Anakin Skywalker</i><br/>
+{
   ~%-33.33333%Falso
+  ~%-33.33333%Verdadero
+  =Error ortográfico
   ####Definition text mispelled!: Jedi, maestro de Anakin Skywalker
 }
 
 // 
-::obiwan-2-d2name-mispelled::[html]<img src\="" alt="image"><br/>Definición de <b>óbiwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
+::obiwan-5-d2name-mispelled::[html]<img src\="" alt="image"><br/>Definición de <b>óbiwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
 {
-  ~%-33.33333%Verdadero
   =Error ortográfico
   ~%-33.33333%Falso
+  ~%-33.33333%Verdadero
   ####Concept name mispelled!: obiwan
 }
 
 // 
-::obiwan-3-d2true::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
+::obiwan-6-d2true::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
 {
-  ~%-33.33333%Falso
   ~%-33.33333%Error ortográfico
   =Verdadero
+  ~%-33.33333%Falso
 }
 
 // 
-::obiwan-4-d3hidden::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQV5El88tbV9ZZ6-KT3rHyPNcAqI92GB6QkYkrlJmGLEumMI0BWOW_5tbo" alt="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+::obiwan-7-d2false::[html]Definición de <b>sidious</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
+{
+  ~%-33.33333%Error ortográfico
+  =Falso
+  ~%-33.33333%Verdadero
+}
+
+// 
+::obiwan-8-d3hidden::[html]<img src\="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQIv56fmOJ2WVvs8v4NCXOTsFKCwZ3h94udBypU5Q8noYtRdwsJfQRg-PtE1w" alt="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
 {
   =%100%obiwan#
 }
 
 // 
-::obiwan-5-d4filtered::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRv72nF5M-2CBF6yqJv0iDVpnvQt7C_H1Gs25cKTrAg5iUbN-1mHx71ecw" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>[1] [2] de [3] [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+::obiwan-9-d4filtered::[html]<img src\="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQfKYc9rmb2rkDTUFpyAcRZ0aqnU7HVBXcFhM85EwhF3QeWDMp_M4EWQ8lX" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>[1] [2] de [3] [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
   =1 -> jedi,
   =2 -> maestro
@@ -51,16 +87,44 @@
 }
 
 // 
-::obiwan-6-d2def-mispelled::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, alumnó de Quigon-Jinn</i><br/>
+::obiwan-10-d1choose::[html]Definición \: <i>Jedi, alumno de Quigon-Jinn</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%sidious
+  ~%-25%Ninguna es correcta
+  ~%-25%yoda
+  =obiwan
+}
+
+// 
+::obiwan-11-d1none::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRQDtpeQwj0UXkzYDiLQKBCyFw9uOgf4Mo32ky_ldFETU_jYdMBG9CNGSZJ" alt="image"><br/>Definición \: <i>Jedi, alumno de Quigon-Jinn</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  =Ninguna es correcta
+  ~%-25%obiwañ
+  ~%-25%sidious
+  ~%-25%yoda
+  ####Option mispelled!: obiwan
+}
+
+// 
+::obiwan-12-d1none::[html]Definición \: <i>Jedi, alumno de Quigon-Jinn</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  =Ninguna es correcta
+  ~%-25%yoda
+  ~%-25%sidious
+  ~%-25%maul
+}
+
+// 
+::obiwan-13-d2def-mispelled::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, alumño de Quigon-Jinn</i><br/>
 {
   ~%-33.33333%Falso
-  =Error ortográfico
   ~%-33.33333%Verdadero
+  =Error ortográfico
   ####Definition text mispelled!: Jedi, alumno de Quigon-Jinn
 }
 
 // 
-::obiwan-7-d2name-mispelled::[html]Definición de <b>obiguan</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/>
+::obiwan-14-d2name-mispelled::[html]Definición de <b>obiwhan</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/>
 {
   ~%-33.33333%Verdadero
   ~%-33.33333%Falso
@@ -69,39 +133,75 @@
 }
 
 // 
-::obiwan-8-d2true::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRioReuztSIF2JtZs-whzPip26vJnP0ClVHNtyuEYJSvdsc6F3KtrcpcA" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/>
+::obiwan-15-d2true::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/>
 {
+  ~%-33.33333%Error ortográfico
   ~%-33.33333%Falso
   =Verdadero
+}
+
+// 
+::obiwan-16-d2false::[html]<img src\="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSFc8XdKPBa-In0-dFwqsEFzKFFpom3oZMTl2mipB0hGRMfSi91iZfFdMZm" alt="image"><br/>Definición de <b>sidious</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/>
+{
+  =Falso
+  ~%-33.33333%Verdadero
   ~%-33.33333%Error ortográfico
 }
 
 // 
-::obiwan-9-d3hidden::[html]Definición de <b>[*]</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+::obiwan-17-d3hidden::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUYvb5YVU-RB7D4TKajhuMw6IXq8Vvj6yENQGCmtRYeqJx1KQOg-zvfyQ" alt="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
 {
   =%100%obiwan#
 }
 
 // 
-::obiwan-10-d2def-mispelled::[html]Definición de <b>obiwan</b>\:<br/> <i>Vive eñ Tatooine, cerca de la casa de Luke Skywalker</i><br/>
+::obiwan-18-d1choose::[html]Definición \: <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  =obiwan
+  ~%-25%Ninguna es correcta
+  ~%-25%yoda
+  ~%-25%sidious
+}
+
+// 
+::obiwan-19-d1none::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSc7yUey617yoMrhdzD7haWhq0F5-czQwQ71C9PLiYzriqfSqQGF7nKOGw" alt="image"><br/>Definición \: <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%sidious
+  ~%-25%yoda
+  =Ninguna es correcta
+  ~%-25%obíwan
+  ####Option mispelled!: obiwan
+}
+
+// 
+::obiwan-20-d1none::[html]Definición \: <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%maul
+  ~%-25%sidious
+  =Ninguna es correcta
+  ~%-25%yoda
+}
+
+// 
+::obiwan-21-d2def-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6zlMu9fA7_ejioo-8K332lT9TE8keD2z1ze1DhWFHJu_BxRGxPxFfhFY" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Vive en Tatooine, ceeca de la casa de Luke Skywalker</i><br/>
 {
   =Error ortográfico
-  ~%-33.33333%Falso
   ~%-33.33333%Verdadero
+  ~%-33.33333%Falso
   ####Definition text mispelled!: Vive en Tatooine, cerca de la casa de Luke Skywalker
 }
 
 // 
-::obiwan-11-d2name-mispelled::[html]<img src\="" alt="image"><br/>Definición de <b>obiwán</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>
+::obiwan-22-d2name-mispelled::[html]<img src\="" alt="image"><br/>Definición de <b>obíwan</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>
 {
-  ~%-33.33333%Falso
   ~%-33.33333%Verdadero
+  ~%-33.33333%Falso
   =Error ortográfico
   ####Concept name mispelled!: obiwan
 }
 
 // 
-::obiwan-12-d2true::[html]Definición de <b>obiwan</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>
+::obiwan-23-d2true::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQV5El88tbV9ZZ6-KT3rHyPNcAqI92GB6QkYkrlJmGLEumMI0BWOW_5tbo" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>
 {
   ~%-33.33333%Error ortográfico
   =Verdadero
@@ -109,32 +209,71 @@
 }
 
 // 
-::obiwan-13-d3hidden::[html]Definición de <b>[*]</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+::obiwan-24-d2false::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ_LQ8nXxZT3IQtX0SAMrTvPTDQsB-NlMJWK77q2neEn5ntB_rfmv00uNEb" alt="image"><br/>Definición de <b>sidious</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>
+{
+  =Falso
+  ~%-33.33333%Verdadero
+  ~%-33.33333%Error ortográfico
+}
+
+// 
+::obiwan-25-d3hidden::[html]<img src\="" alt="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
 {
   =%100%obiwan#
 }
 
 // 
-::obiwan-14-d4filtered::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRv72nF5M-2CBF6yqJv0iDVpnvQt7C_H1Gs25cKTrAg5iUbN-1mHx71ecw" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>[1] en Tatooine, [2] de la [3] de [4] Skywalker.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+::obiwan-26-d4filtered::[html]Definición de <b>obiwan</b>\:<br/> <i>[1] en [2] cerca de la [3] de Luke [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
   =1 -> vive
-  =2 -> cerca
+  =2 -> tatooine,
   =3 -> casa
-  =4 -> luke
+  =4 -> skywalker
 }
 
 // 
-::obiwan-15-i2true::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>La imagen anterior corresponde a <b>obiwan</b>.
+::obiwan-27-i1choose::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
+{
+  ~%-25%Ninguna es correcta
+  ~%-25%yoda
+  ~%-25%sidious
+  =obiwan
+}
+
+// 
+::obiwan-28-i1misspelling::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
+{
+  =Ninguna es correcta
+  ~%-25%obywan
+  ~%-25%yoda
+  ~%-25%sidious
+}
+
+// 
+::obiwan-29-i1none::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
+{
+  ~%-25%maul
+  =Ninguna es correcta
+  ~%-25%sidious
+  ~%-25%yoda
+}
+
+// 
+::obiwan-30-i2true::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>La imagen anterior corresponde a <b>obiwan</b>.
 {TRUE####}
 
 // 
-::obiwan-16-i3short::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>Escribe la opción [*], que mejor corresponda con la imagen anterior.<br/>
+::obiwan-31-i2false::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>La imagen anterior corresponde a <b>sidious</b>.
+{FALSE####}
+
+// 
+::obiwan-32-i3short::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>Escribe la opción [*], que mejor corresponda con la imagen anterior.<br/>
 {
   =%100%obiwan#
 }
 
 // 
-::obiwan-17-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>Definición\: <i>[1] [2] de [3] [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+::obiwan-33-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>Definición\: <i>[1] [2] de [3] [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
   =1 -> jedi,
   =2 -> maestro
@@ -143,125 +282,1042 @@
 }
 
 // 
-::obiwan-18-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>Definición\: <i>[1] en [2] cerca de la casa de [3] [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+::obiwan-34-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>Definición\: <i>Vive en [1] [2] de la [3] de Luke [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
-  =1 -> vive
-  =2 -> tatooine,
-  =3 -> luke
+  =1 -> tatooine,
+  =2 -> cerca
+  =3 -> casa
   =4 -> skywalker
 }
 
+
+// ==================================================
+// Concept name: yoda
+// ==================================================
 // 
-::obiwan-19-t1table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: [*]<br/>Valor\: "humano"<br/>Elige la opción correcta.<br/>
+::yoda-1-d1choose::[html]Definición \: <i>Jedi, maestro de todos los jedis</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  ~%-25%color del pelo
-  =raza
+  ~%-25%sidious
   ~%-25%Ninguna es correcta
-  ~%-25%color sable laser
+  =yoda
+  ~%-25%obiwan
 }
 
 // 
-::obiwan-20-t3table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: "raza"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
+::yoda-2-d1none::[html]Definición \: <i>Jedi, maestro de todos los jedis</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  ~%-25%pelirojo
-  =humano
-  ~%-25%Ninguna es correcta
-  ~%-25%verde
+  =Ninguna es correcta
+  ~%-25%voda
+  ~%-25%obiwan
+  ~%-25%sidious
+  ####Option mispelled!: yoda
 }
 
 // 
-::obiwan-21t5table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>La asociación siguiente es correcta\:<br/><ul><li>Atributo\: "raza"</li><li>Valor\: "humano"</li></ul>
+::yoda-3-d2def-mispelled::[html]Definición de <b>yoda</b>\:<br/> <i>Jedi, maestro de todas los jedis</i><br/>
+{
+  =Error ortográfico
+  ~%-33.33333%Falso
+  ~%-33.33333%Verdadero
+  ####Definition text mispelled!: Jedi, maestro de todos los jedis
+}
+
+// 
+::yoda-4-d2name-mispelled::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQS02a23B3tguhF5j0Gz8OkWnXqn3zW0JOrjIEd_LY7b2gSTBtMv6cAMIM" alt="image"><br/>Definición de <b>lloda</b>\:<br/> <i>Jedi, maestro de todos los jedis</i><br/>
+{
+  ~%-33.33333%Verdadero
+  =Error ortográfico
+  ~%-33.33333%Falso
+  ####Concept name mispelled!: yoda
+}
+
+// 
+::yoda-5-d2true::[html]Definición de <b>yoda</b>\:<br/> <i>Jedi, maestro de todos los jedis</i><br/>
+{
+  =Verdadero
+  ~%-33.33333%Error ortográfico
+  ~%-33.33333%Falso
+}
+
+// 
+::yoda-6-d2false::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQrdqXrd8i8miPz2XR3DaQuhPb9Mx8M1UFSPx1K7rBKMOh7TLTaa0arlDcS" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Jedi, maestro de todos los jedis</i><br/>
+{
+  ~%-33.33333%Verdadero
+  ~%-33.33333%Error ortográfico
+  =Falso
+}
+
+// 
+::yoda-7-d3hidden::[html]Definición de <b>[*]</b>\:<br/> <i>Jedi, maestro de todos los jedis</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+{
+  =%100%yoda#
+}
+
+// 
+::yoda-8-d1choose::[html]<img src\="" alt="image"><br/>Definición \: <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%obiwan
+  ~%-25%sidious
+  ~%-25%Ninguna es correcta
+  =yoda
+}
+
+// 
+::yoda-9-d1none::[html]<img src\="" alt="image"><br/>Definición \: <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%lloda
+  ~%-25%obiwan
+  =Ninguna es correcta
+  ~%-25%sidious
+  ####Option mispelled!: yoda
+}
+
+// 
+::yoda-10-d2def-mispelled::[html]Definición de <b>yoda</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más imqortantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>
+{
+  ~%-33.33333%Verdadero
+  =Error ortográfico
+  ~%-33.33333%Falso
+  ####Definition text mispelled!: Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.
+}
+
+// 
+::yoda-11-d2name-mispelled::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRq8NTE42xdYVUlaGyRzEe6TrBsmd2qpXzmWn2CbwghSzFk-O_CDDU6djs" alt="image"><br/>Definición de <b>yóda</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>
+{
+  =Error ortográfico
+  ~%-33.33333%Falso
+  ~%-33.33333%Verdadero
+  ####Concept name mispelled!: yoda
+}
+
+// 
+::yoda-12-d2true::[html]Definición de <b>yoda</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>
+{
+  ~%-33.33333%Falso
+  ~%-33.33333%Error ortográfico
+  =Verdadero
+}
+
+// 
+::yoda-13-d2false::[html]Definición de <b>obiwan</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>
+{
+  =Falso
+  ~%-33.33333%Error ortográfico
+  ~%-33.33333%Verdadero
+}
+
+// 
+::yoda-14-d3hidden::[html]<img src\="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSmZJUE_FL6vgKhr8XqONW6EJG1ftM4Qw1b7LLDt55QDxXeyGRT2GbAuEa3" alt="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+{
+  =%100%yoda#
+}
+
+// 
+::yoda-15-d4filtered::[html]<img src\="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQW8gQ9Djf2URpxgI2Uf8TBYuHGSFByM1YIa6GiCS0PyWjmVApe-4QsUr6u" alt="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los [1] más importantes del [2] [3] Jedi en los últimos días de la [4] Galáctica.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> miembros
+  =2 -> alto
+  =3 -> consejo
+  =4 -> república
+}
+
+// 
+::yoda-16-d4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJUjZ8pBAe1ck4SRx4luS6wE10d_UVfqzck7W5MXK4yJgJP90s2Zsvtyo" alt="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Fue el [1] Maestro de la Orden [2] y uno de los miembros más importantes del [3] Consejo Jedi en los últimos días de la República [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> gran
+  =2 -> jedi
+  =3 -> alto
+  =4 -> galáctica
+}
+
+// 
+::yoda-17-d4filtered::[html]<img src\="" alt="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Fue el [1] Maestro de la [2] Jedi y uno de los miembros más importantes del Alto [3] Jedi en los últimos [4] de la República Galáctica.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> gran
+  =2 -> orden
+  =3 -> consejo
+  =4 -> días
+}
+
+// 
+::yoda-18-d1choose::[html]<img src\="" alt="image"><br/>Definición \: <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  =yoda
+  ~%-25%Ninguna es correcta
+  ~%-25%sidious
+  ~%-25%obiwan
+}
+
+// 
+::yoda-19-d1none::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQG9PNYc7Gbuf1Jwi1oGVB9Q44Ca-bYucRT0tB7sSPO6RIlgXe8MQX_1BA" alt="image"><br/>Definición \: <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%obiwan
+  ~%-25%lloda
+  =Ninguna es correcta
+  ~%-25%sidious
+  ####Option mispelled!: yoda
+}
+
+// 
+::yoda-20-d2def-mispelled::[html]Definición de <b>yoda</b>\:<br/> <i>Tenía havilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>
+{
+  ~%-33.33333%Verdadero
+  =Error ortográfico
+  ~%-33.33333%Falso
+  ####Definition text mispelled!: Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.
+}
+
+// 
+::yoda-21-d2name-mispelled::[html]Definición de <b>lloda</b>\:<br/> <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>
+{
+  =Error ortográfico
+  ~%-33.33333%Falso
+  ~%-33.33333%Verdadero
+  ####Concept name mispelled!: yoda
+}
+
+// 
+::yoda-22-d2true::[html]<img src\="" alt="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>
+{
+  =Verdadero
+  ~%-33.33333%Falso
+  ~%-33.33333%Error ortográfico
+}
+
+// 
+::yoda-23-d2false::[html]Definición de <b>obiwan</b>\:<br/> <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>
+{
+  ~%-33.33333%Error ortográfico
+  =Falso
+  ~%-33.33333%Verdadero
+}
+
+// 
+::yoda-24-d3hidden::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSEqR7egjoNJgh4e56u425crrUV27AIGuc-jDL48QzvpjXkLcy30pJZHTUI" alt="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+{
+  =%100%yoda#
+}
+
+// 
+::yoda-25-d4filtered::[html]<img src\="" alt="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Tenía [1] excepcionales en el [2] con sables de [3] empleando técnicas [4] del Ataru.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> habilidades
+  =2 -> combate
+  =3 -> luz,
+  =4 -> acrobáticas
+}
+
+// 
+::yoda-26-d4filtered::[html]Definición de <b>yoda</b>\:<br/> <i>[1] habilidades excepcionales en el combate con sables de [2] empleando técnicas [3] del [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> tenía
+  =2 -> luz,
+  =3 -> acrobáticas
+  =4 -> ataru
+}
+
+// 
+::yoda-27-d1choose::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTaIdoc4Hc6dundODea9XC_nK4XVyIpWJUh633AuDQOdjrBXZd405m80lx6" alt="image"><br/>Definición \: <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  =yoda
+  ~%-25%obiwan
+  ~%-25%Ninguna es correcta
+  ~%-25%sidious
+}
+
+// 
+::yoda-28-d1none::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQnPwEcujZ4BHDDl9KjUM5QoqjofA264ZH0cUxp4U5FY3IW5eIP9hUnkbM" alt="image"><br/>Definición \: <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%lloda
+  ~%-25%sidious
+  ~%-25%obiwan
+  =Ninguna es correcta
+  ####Option mispelled!: yoda
+}
+
+// 
+::yoda-29-d2def-mispelled::[html]Definición de <b>yoda</b>\:<br/> <i>Eras un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>
+{
+  =Error ortográfico
+  ~%-33.33333%Verdadero
+  ~%-33.33333%Falso
+  ####Definition text mispelled!: Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.
+}
+
+// 
+::yoda-30-d2name-mispelled::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRv72nF5M-2CBF6yqJv0iDVpnvQt7C_H1Gs25cKTrAg5iUbN-1mHx71ecw" alt="image"><br/>Definición de <b>yodá</b>\:<br/> <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>
+{
+  =Error ortográfico
+  ~%-33.33333%Falso
+  ~%-33.33333%Verdadero
+  ####Concept name mispelled!: yoda
+}
+
+// 
+::yoda-31-d2true::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTyoTNwtFbAfHDIghl0BUInxrHZX1kPzyJcVB0EDaWeIE51uKmxmRDKZ_w" alt="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>
+{
+  ~%-33.33333%Error ortográfico
+  =Verdadero
+  ~%-33.33333%Falso
+}
+
+// 
+::yoda-32-d2false::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7NOrDMbOSWtoijIMHUwWw_Oeti7Z21RySUOUwZmsq7a75BXOQSLwnV4YS" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>
+{
+  ~%-33.33333%Verdadero
+  =Falso
+  ~%-33.33333%Error ortográfico
+}
+
+// 
+::yoda-33-d3hidden::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTpRSyVBhsXbWt8sVJ77chiA5rzaJbm-t3GUiD-n9kKe_loaiTcx6qFuggp" alt="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+{
+  =%100%yoda#
+}
+
+// 
+::yoda-34-d4filtered::[html]Definición de <b>yoda</b>\:<br/> <i>Era un [1] en todas las formas del combate con [2] de luz y era considerado por muchos como un [3] de [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> maestro
+  =2 -> sables
+  =3 -> maestro
+  =4 -> espadas
+}
+
+// 
+::yoda-35-d4filtered::[html]Definición de <b>yoda</b>\:<br/> <i>Era un [1] en todas las formas del [2] con sables de [3] y era [4] por muchos como un Maestro de Espadas.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> maestro
+  =2 -> combate
+  =3 -> luz
+  =4 -> considerado
+}
+
+// 
+::yoda-36-i1choose::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\="image"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
+{
+  ~%-25%obiwan
+  =yoda
+  ~%-25%sidious
+  ~%-25%Ninguna es correcta
+}
+
+// 
+::yoda-37-i1misspelling::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\="image"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
+{
+  ~%-25%obiwan
+  ~%-25%ioda
+  ~%-25%sidious
+  =Ninguna es correcta
+}
+
+// 
+::yoda-38-i2true::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\="image"><br/>La imagen anterior corresponde a <b>yoda</b>.
 {TRUE####}
 
 // 
-::obiwan-22-t6table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>La asociación siguiente es correcta\:<br/><ul><li>Atributo\: "raza"</li><li>Valor\: "pelirojo"</li></ul>
+::yoda-39-i2false::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\="image"><br/>La imagen anterior corresponde a <b>obiwan</b>.
 {FALSE####}
 
 // 
-::obiwan-23t7table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>La asociación siguiente es correcta\:<br/><ul><li>Atributo\: "color del pelo"</li><li>Valor\: "humano"</li></ul>
-{FALSE####}
-
-// 
-::obiwan-24t8table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Completa la siguiente asociación\:<br/><ul><li>Valor\: "humano"</li><li>Atributo\: [*]</li></ul>Escribir una palabra.<br/>
+::yoda-40-i3short::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\="image"><br/>Escribe la opción [*], que mejor corresponda con la imagen anterior.<br/>
 {
-  =%100%raza#
+  =%100%yoda#
 }
 
 // 
-::obiwan-25t8table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Completa la siguiente asociación\:<br/><ul><li>Atributo\: "raza"</li><li>Valor\: [*]</li></ul>Escribir una palabra.<br/>
+::yoda-43-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\="image"><br/>Definición\: <i>Fue el Gran Maestro de la [1] [2] y uno de los [3] más importantes del Alto Consejo Jedi en los [4] días de la República Galáctica.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
-  =%100%humano#
+  =1 -> orden
+  =2 -> jedi
+  =3 -> miembros
+  =4 -> últimos
 }
 
 // 
-::obiwan-26-t1table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: [*]<br/>Valor\: "verde"<br/>Elige la opción correcta.<br/>
+::yoda-45-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\="image"><br/>Definición\: <i>Tenía [1] [2] en el combate con sables de [3] empleando técnicas [4] del Ataru.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
-  ~%-25%raza
+  =1 -> habilidades
+  =2 -> excepcionales
+  =3 -> luz,
+  =4 -> acrobáticas
+}
+
+// 
+::yoda-47-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\="image"><br/>Definición\: <i>Era un [1] en todas las formas del combate con [2] de [3] y [4] considerado por muchos como un Maestro de Espadas.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> maestro
+  =2 -> sables
+  =3 -> luz
+  =4 -> era
+}
+
+
+// ==================================================
+// Concept name: sidious
+// ==================================================
+// 
+::sidious-1-d1choose::[html]Definición \: <i>Sith, maestro de todos los siths</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%maul
+  ~%-25%obiwan
   ~%-25%Ninguna es correcta
-  ~%-25%color del pelo
-  =color sable laser
+  =sidious
 }
 
 // 
-::obiwan-27-t3table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: "color sable laser"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
+::sidious-2-d1none::[html]Definición \: <i>Sith, maestro de todos los siths</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  =verde
-  ~%-25%pelirojo
-  ~%-25%humano
+  ~%-25%maul
+  =Ninguna es correcta
+  ~%-25%obiwan
+  ~%-25%sydious
+  ####Option mispelled!: sidious
+}
+
+// 
+::sidious-3-d1none::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTuKaKGMQsHzttaJhbyK4aUUcRsFJvliWDSkhq7gT6p3rmVw0f35Siq4h9V" alt="image"><br/>Definición \: <i>Sith, maestro de todos los siths</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%yoda
+  =Ninguna es correcta
+  ~%-25%obiwan
+  ~%-25%maul
+}
+
+// 
+::sidious-4-d2def-mispelled::[html]<img src\="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSmZJUE_FL6vgKhr8XqONW6EJG1ftM4Qw1b7LLDt55QDxXeyGRT2GbAuEa3" alt="image"><br/>Definición de <b>sidious</b>\:<br/> <i>Sit , maestro de todos los siths</i><br/>
+{
+  =Error ortográfico
+  ~%-33.33333%Verdadero
+  ~%-33.33333%Falso
+  ####Definition text mispelled!: Sith, maestro de todos los siths
+}
+
+// 
+::sidious-5-d2name-mispelled::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRBpSw8orBE7_aK1q-fphU--qFtEEkYsAoaptNVGyJWmMWU394MPiDrQCY" alt="image"><br/>Definición de <b>aidious</b>\:<br/> <i>Sith, maestro de todos los siths</i><br/>
+{
+  =Error ortográfico
+  ~%-33.33333%Verdadero
+  ~%-33.33333%Falso
+  ####Concept name mispelled!: sidious
+}
+
+// 
+::sidious-6-d2true::[html]Definición de <b>sidious</b>\:<br/> <i>Sith, maestro de todos los siths</i><br/>
+{
+  ~%-33.33333%Falso
+  ~%-33.33333%Error ortográfico
+  =Verdadero
+}
+
+// 
+::sidious-7-d2false::[html]Definición de <b>maul</b>\:<br/> <i>Sith, maestro de todos los siths</i><br/>
+{
+  =Falso
+  ~%-33.33333%Verdadero
+  ~%-33.33333%Error ortográfico
+}
+
+// 
+::sidious-8-d3hidden::[html]Definición de <b>[*]</b>\:<br/> <i>Sith, maestro de todos los siths</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+{
+  =%100%sidious#
+}
+
+// 
+::sidious-9-d1choose::[html]<img src\="" alt="image"><br/>Definición \: <i>Es un hombre muy elocuente, hablador, astuto, verdaderamente manipulador e hipócrita, que durante mucho tiempo aparentó ser un político modesto, pero hábil.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  =sidious
+  ~%-25%maul
+  ~%-25%Ninguna es correcta
+  ~%-25%obiwan
+}
+
+// 
+::sidious-10-d1none::[html]Definición \: <i>Es un hombre muy elocuente, hablador, astuto, verdaderamente manipulador e hipócrita, que durante mucho tiempo aparentó ser un político modesto, pero hábil.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%sidióus
+  ~%-25%maul
+  =Ninguna es correcta
+  ~%-25%obiwan
+  ####Option mispelled!: sidious
+}
+
+// 
+::sidious-11-d1none::[html]<img src\="" alt="image"><br/>Definición \: <i>Es un hombre muy elocuente, hablador, astuto, verdaderamente manipulador e hipócrita, que durante mucho tiempo aparentó ser un político modesto, pero hábil.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%yoda
+  ~%-25%obiwan
+  =Ninguna es correcta
+  ~%-25%maul
+}
+
+// 
+::sidious-12-d2def-mispelled::[html]Definición de <b>sidious</b>\:<br/> <i>Es un honbre muy elocuente, hablador, astuto, verdaderamente manipulador e hipócrita, que durante mucho tiempo aparentó ser un político modesto, pero hábil.</i><br/>
+{
+  ~%-33.33333%Falso
+  =Error ortográfico
+  ~%-33.33333%Verdadero
+  ####Definition text mispelled!: Es un hombre muy elocuente, hablador, astuto, verdaderamente manipulador e hipócrita, que durante mucho tiempo aparentó ser un político modesto, pero hábil.
+}
+
+// 
+::sidious-13-d2name-mispelled::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRq8NTE42xdYVUlaGyRzEe6TrBsmd2qpXzmWn2CbwghSzFk-O_CDDU6djs" alt="image"><br/>Definición de <b>aidious</b>\:<br/> <i>Es un hombre muy elocuente, hablador, astuto, verdaderamente manipulador e hipócrita, que durante mucho tiempo aparentó ser un político modesto, pero hábil.</i><br/>
+{
+  ~%-33.33333%Falso
+  =Error ortográfico
+  ~%-33.33333%Verdadero
+  ####Concept name mispelled!: sidious
+}
+
+// 
+::sidious-14-d2true::[html]<img src\="" alt="image"><br/>Definición de <b>sidious</b>\:<br/> <i>Es un hombre muy elocuente, hablador, astuto, verdaderamente manipulador e hipócrita, que durante mucho tiempo aparentó ser un político modesto, pero hábil.</i><br/>
+{
+  =Verdadero
+  ~%-33.33333%Falso
+  ~%-33.33333%Error ortográfico
+}
+
+// 
+::sidious-15-d2false::[html]Definición de <b>maul</b>\:<br/> <i>Es un hombre muy elocuente, hablador, astuto, verdaderamente manipulador e hipócrita, que durante mucho tiempo aparentó ser un político modesto, pero hábil.</i><br/>
+{
+  =Falso
+  ~%-33.33333%Error ortográfico
+  ~%-33.33333%Verdadero
+}
+
+// 
+::sidious-16-d3hidden::[html]Definición de <b>[*]</b>\:<br/> <i>Es un hombre muy elocuente, hablador, astuto, verdaderamente manipulador e hipócrita, que durante mucho tiempo aparentó ser un político modesto, pero hábil.</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+{
+  =%100%sidious#
+}
+
+// 
+::sidious-17-d4filtered::[html]Definición de <b>sidious</b>\:<br/> <i>Es un hombre muy elocuente, hablador, astuto, [1] [2] e hipócrita, que durante mucho tiempo aparentó [3] un político modesto, pero [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> verdaderamente
+  =2 -> manipulador
+  =3 -> ser
+  =4 -> hábil
+}
+
+// 
+::sidious-18-d4filtered::[html]Definición de <b>sidious</b>\:<br/> <i>Es un hombre muy elocuente, hablador, [1] verdaderamente manipulador e [2] que [3] mucho tiempo [4] ser un político modesto, pero hábil.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> astuto,
+  =2 -> hipócrita,
+  =3 -> durante
+  =4 -> aparentó
+}
+
+// 
+::sidious-19-d4filtered::[html]Definición de <b>sidious</b>\:<br/> <i>Es un hombre muy elocuente, hablador, astuto, [1] [2] e [3] que durante mucho tiempo aparentó ser un [4] modesto, pero hábil.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> verdaderamente
+  =2 -> manipulador
+  =3 -> hipócrita,
+  =4 -> político
+}
+
+// 
+::sidious-20-d1choose::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJUjZ8pBAe1ck4SRx4luS6wE10d_UVfqzck7W5MXK4yJgJP90s2Zsvtyo" alt="image"><br/>Definición \: <i>Fue acogido por el poderoso Señor Oscuro de los Sith Darth Plagueis el Sabio, aproximadamente ochenta años antes de la batalla de Yavin, quien lo convirtió en un Lord Sith.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%maul
+  =sidious
+  ~%-25%obiwan
   ~%-25%Ninguna es correcta
 }
 
 // 
-::obiwan-28t5table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>La asociación siguiente es correcta\:<br/><ul><li>Atributo\: "color sable laser"</li><li>Valor\: "verde"</li></ul>
+::sidious-21-d1none::[html]Definición \: <i>Fue acogido por el poderoso Señor Oscuro de los Sith Darth Plagueis el Sabio, aproximadamente ochenta años antes de la batalla de Yavin, quien lo convirtió en un Lord Sith.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%zidious
+  =Ninguna es correcta
+  ~%-25%obiwan
+  ~%-25%maul
+  ####Option mispelled!: sidious
+}
+
+// 
+::sidious-22-d1none::[html]<img src\="" alt="image"><br/>Definición \: <i>Fue acogido por el poderoso Señor Oscuro de los Sith Darth Plagueis el Sabio, aproximadamente ochenta años antes de la batalla de Yavin, quien lo convirtió en un Lord Sith.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%obiwan
+  =Ninguna es correcta
+  ~%-25%maul
+  ~%-25%yoda
+}
+
+// 
+::sidious-23-d2def-mispelled::[html]Definición de <b>sidious</b>\:<br/> <i>Fue acogido por el podero o Señor Oscuro de los Sith Darth Plagueis el Sabio, aproximadamente ochenta años antes de la batalla de Yavin, quien lo convirtió en un Lord Sith.</i><br/>
+{
+  =Error ortográfico
+  ~%-33.33333%Falso
+  ~%-33.33333%Verdadero
+  ####Definition text mispelled!: Fue acogido por el poderoso Señor Oscuro de los Sith Darth Plagueis el Sabio, aproximadamente ochenta años antes de la batalla de Yavin, quien lo convirtió en un Lord Sith.
+}
+
+// 
+::sidious-24-d2name-mispelled::[html]Definición de <b>sidieus</b>\:<br/> <i>Fue acogido por el poderoso Señor Oscuro de los Sith Darth Plagueis el Sabio, aproximadamente ochenta años antes de la batalla de Yavin, quien lo convirtió en un Lord Sith.</i><br/>
+{
+  ~%-33.33333%Verdadero
+  ~%-33.33333%Falso
+  =Error ortográfico
+  ####Concept name mispelled!: sidious
+}
+
+// 
+::sidious-25-d2true::[html]Definición de <b>sidious</b>\:<br/> <i>Fue acogido por el poderoso Señor Oscuro de los Sith Darth Plagueis el Sabio, aproximadamente ochenta años antes de la batalla de Yavin, quien lo convirtió en un Lord Sith.</i><br/>
+{
+  ~%-33.33333%Error ortográfico
+  =Verdadero
+  ~%-33.33333%Falso
+}
+
+// 
+::sidious-26-d2false::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRioReuztSIF2JtZs-whzPip26vJnP0ClVHNtyuEYJSvdsc6F3KtrcpcA" alt="image"><br/>Definición de <b>maul</b>\:<br/> <i>Fue acogido por el poderoso Señor Oscuro de los Sith Darth Plagueis el Sabio, aproximadamente ochenta años antes de la batalla de Yavin, quien lo convirtió en un Lord Sith.</i><br/>
+{
+  =Falso
+  ~%-33.33333%Error ortográfico
+  ~%-33.33333%Verdadero
+}
+
+// 
+::sidious-27-d3hidden::[html]Definición de <b>[*]</b>\:<br/> <i>Fue acogido por el poderoso Señor Oscuro de los Sith Darth Plagueis el Sabio, aproximadamente ochenta años antes de la batalla de Yavin, quien lo convirtió en un Lord Sith.</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+{
+  =%100%sidious#
+}
+
+// 
+::sidious-28-d4filtered::[html]Definición de <b>sidious</b>\:<br/> <i>[1] acogido por el poderoso Señor [2] de los [3] Darth Plagueis el Sabio, aproximadamente ochenta años [4] de la batalla de Yavin, quien lo convirtió en un Lord Sith.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> fue
+  =2 -> oscuro
+  =3 -> sith
+  =4 -> antes
+}
+
+// 
+::sidious-29-d4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQS02a23B3tguhF5j0Gz8OkWnXqn3zW0JOrjIEd_LY7b2gSTBtMv6cAMIM" alt="image"><br/>Definición de <b>sidious</b>\:<br/> <i>Fue acogido por el poderoso Señor Oscuro de los Sith [1] Plagueis el Sabio, aproximadamente [2] años antes de la batalla de Yavin, quien lo [3] en un [4] Sith.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> darth
+  =2 -> ochenta
+  =3 -> convirtió
+  =4 -> lord
+}
+
+// 
+::sidious-30-d4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQCJRAplyrFkVZujfXYAWyxQDbVmZyy5ZatqC9simr6_Q3i7vx8EtMXfA" alt="image"><br/>Definición de <b>sidious</b>\:<br/> <i>[1] acogido por el poderoso Señor Oscuro de los Sith Darth Plagueis el Sabio, [2] ochenta años antes de la batalla de Yavin, quien lo [3] en un Lord [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> fue
+  =2 -> aproximadamente
+  =3 -> convirtió
+  =4 -> sith
+}
+
+// 
+::sidious-31-d4filtered::[html]Definición de <b>sidious</b>\:<br/> <i>Fue acogido por el [1] Señor Oscuro de los Sith Darth Plagueis el Sabio, aproximadamente ochenta años antes de la [2] de Yavin, quien lo [3] en un Lord [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> poderoso
+  =2 -> batalla
+  =3 -> convirtió
+  =4 -> sith
+}
+
+// 
+::sidious-32-d1choose::[html]<img src\="" alt="image"><br/>Definición \: <i>Su maestro podía manipular los midiclorianos y, con esto, manipular la vida. Traspasó todo ese conocimiento a su discípulo excepto la influencia de midiclorianos, pero él no dudó en matarlo mientras dormía, convirtiéndose en el nuevo líder de los Sith.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  =sidious
+  ~%-25%maul
+  ~%-25%obiwan
+  ~%-25%Ninguna es correcta
+}
+
+// 
+::sidious-33-d1none::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRHUflQlQ_9VdTviICrGmnqHvrtosGV_b5LalnNcE5WVLLxYwlGmEmeOw" alt="image"><br/>Definición \: <i>Su maestro podía manipular los midiclorianos y, con esto, manipular la vida. Traspasó todo ese conocimiento a su discípulo excepto la influencia de midiclorianos, pero él no dudó en matarlo mientras dormía, convirtiéndose en el nuevo líder de los Sith.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%obiwan
+  ~%-25%maul
+  =Ninguna es correcta
+  ~%-25%sidióus
+  ####Option mispelled!: sidious
+}
+
+// 
+::sidious-34-d1none::[html]Definición \: <i>Su maestro podía manipular los midiclorianos y, con esto, manipular la vida. Traspasó todo ese conocimiento a su discípulo excepto la influencia de midiclorianos, pero él no dudó en matarlo mientras dormía, convirtiéndose en el nuevo líder de los Sith.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%yoda
+  ~%-25%obiwan
+  =Ninguna es correcta
+  ~%-25%maul
+}
+
+// 
+::sidious-35-d2def-mispelled::[html]<img src\="" alt="image"><br/>Definición de <b>sidious</b>\:<br/> <i>Su maestro podía manypular los midiclorianos y, con esto, manipular la vida. Traspasó todo ese conocimiento a su discípulo excepto la influencia de midiclorianos, pero él no dudó en matarlo mientras dormía, convirtiéndose en el nuevo líder de los Sith.</i><br/>
+{
+  ~%-33.33333%Falso
+  ~%-33.33333%Verdadero
+  =Error ortográfico
+  ####Definition text mispelled!: Su maestro podía manipular los midiclorianos y, con esto, manipular la vida. Traspasó todo ese conocimiento a su discípulo excepto la influencia de midiclorianos, pero él no dudó en matarlo mientras dormía, convirtiéndose en el nuevo líder de los Sith.
+}
+
+// 
+::sidious-36-d2name-mispelled::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQnPwEcujZ4BHDDl9KjUM5QoqjofA264ZH0cUxp4U5FY3IW5eIP9hUnkbM" alt="image"><br/>Definición de <b>sídious</b>\:<br/> <i>Su maestro podía manipular los midiclorianos y, con esto, manipular la vida. Traspasó todo ese conocimiento a su discípulo excepto la influencia de midiclorianos, pero él no dudó en matarlo mientras dormía, convirtiéndose en el nuevo líder de los Sith.</i><br/>
+{
+  ~%-33.33333%Falso
+  ~%-33.33333%Verdadero
+  =Error ortográfico
+  ####Concept name mispelled!: sidious
+}
+
+// 
+::sidious-37-d2true::[html]Definición de <b>sidious</b>\:<br/> <i>Su maestro podía manipular los midiclorianos y, con esto, manipular la vida. Traspasó todo ese conocimiento a su discípulo excepto la influencia de midiclorianos, pero él no dudó en matarlo mientras dormía, convirtiéndose en el nuevo líder de los Sith.</i><br/>
+{
+  ~%-33.33333%Falso
+  =Verdadero
+  ~%-33.33333%Error ortográfico
+}
+
+// 
+::sidious-38-d2false::[html]<img src\="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS_D0MpEjArA4A-RnCI2-w8dgkYwe9IaowSG9tGkdR0a5rdLzVphrvh7oM" alt="image"><br/>Definición de <b>maul</b>\:<br/> <i>Su maestro podía manipular los midiclorianos y, con esto, manipular la vida. Traspasó todo ese conocimiento a su discípulo excepto la influencia de midiclorianos, pero él no dudó en matarlo mientras dormía, convirtiéndose en el nuevo líder de los Sith.</i><br/>
+{
+  =Falso
+  ~%-33.33333%Verdadero
+  ~%-33.33333%Error ortográfico
+}
+
+// 
+::sidious-39-d3hidden::[html]Definición de <b>[*]</b>\:<br/> <i>Su maestro podía manipular los midiclorianos y, con esto, manipular la vida. Traspasó todo ese conocimiento a su discípulo excepto la influencia de midiclorianos, pero él no dudó en matarlo mientras dormía, convirtiéndose en el nuevo líder de los Sith.</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+{
+  =%100%sidious#
+}
+
+// 
+::sidious-40-d4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTHXeeMtoT2yj4gO91LzHwtKSM1gRxwrVzNK5R3dW2iztZ_fCBsjtYMPg" alt="image"><br/>Definición de <b>sidious</b>\:<br/> <i>Su [1] podía manipular los midiclorianos y, con esto, manipular la vida. Traspasó todo ese conocimiento a su discípulo excepto la influencia de midiclorianos, pero él [2] [3] en [4] mientras dormía, convirtiéndose en el nuevo líder de los Sith.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> maestro
+  =2 -> no
+  =3 -> dudó
+  =4 -> matarlo
+}
+
+// 
+::sidious-41-d4filtered::[html]Definición de <b>sidious</b>\:<br/> <i>Su maestro podía [1] los midiclorianos y, con esto, manipular la vida. Traspasó todo ese conocimiento a su discípulo excepto la influencia de midiclorianos, pero él no [2] en matarlo [3] dormía, convirtiéndose en el nuevo [4] de los Sith.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> manipular
+  =2 -> dudó
+  =3 -> mientras
+  =4 -> líder
+}
+
+// 
+::sidious-42-d4filtered::[html]Definición de <b>sidious</b>\:<br/> <i>Su maestro podía manipular los midiclorianos [1] con esto, manipular la vida. Traspasó todo ese conocimiento a su [2] excepto la [3] de midiclorianos, pero él no dudó en matarlo mientras dormía, convirtiéndose en el [4] líder de los Sith.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> y,
+  =2 -> discípulo
+  =3 -> influencia
+  =4 -> nuevo
+}
+
+// 
+::sidious-43-d4filtered::[html]Definición de <b>sidious</b>\:<br/> <i>Su maestro [1] manipular los midiclorianos y, con esto, manipular la [2]. Traspasó todo ese conocimiento a su discípulo excepto la influencia de midiclorianos, pero él no dudó en matarlo mientras [3] convirtiéndose en el nuevo [4] de los Sith.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> podía
+  =2 -> vida
+  =3 -> dormía,
+  =4 -> líder
+}
+
+// 
+::sidious-44-d4filtered::[html]Definición de <b>sidious</b>\:<br/> <i>Su maestro podía manipular los midiclorianos y, con esto, manipular la vida. [1] todo ese [2] a su discípulo [3] la influencia de midiclorianos, pero él no dudó en [4] mientras dormía, convirtiéndose en el nuevo líder de los Sith.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> traspasó
+  =2 -> conocimiento
+  =3 -> excepto
+  =4 -> matarlo
+}
+
+// 
+::sidious-45-i1choose::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNg1WGrDzXwUi6wC_FJL4W8w1MwvB1O1_G4jxHHNYKS5uUeOX" alt\="image"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
+{
+  =sidious
+  ~%-25%obiwan
+  ~%-25%maul
+  ~%-25%Ninguna es correcta
+}
+
+// 
+::sidious-46-i1misspelling::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNg1WGrDzXwUi6wC_FJL4W8w1MwvB1O1_G4jxHHNYKS5uUeOX" alt\="image"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
+{
+  ~%-25%zidious
+  ~%-25%obiwan
+  ~%-25%maul
+  =Ninguna es correcta
+}
+
+// 
+::sidious-47-i1none::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNg1WGrDzXwUi6wC_FJL4W8w1MwvB1O1_G4jxHHNYKS5uUeOX" alt\="image"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
+{
+  ~%-25%yoda
+  =Ninguna es correcta
+  ~%-25%obiwan
+  ~%-25%maul
+}
+
+// 
+::sidious-48-i2true::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNg1WGrDzXwUi6wC_FJL4W8w1MwvB1O1_G4jxHHNYKS5uUeOX" alt\="image"><br/>La imagen anterior corresponde a <b>sidious</b>.
 {TRUE####}
 
 // 
-::obiwan-29-t6table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>La asociación siguiente es correcta\:<br/><ul><li>Atributo\: "color sable laser"</li><li>Valor\: "pelirojo"</li></ul>
+::sidious-49-i2false::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNg1WGrDzXwUi6wC_FJL4W8w1MwvB1O1_G4jxHHNYKS5uUeOX" alt\="image"><br/>La imagen anterior corresponde a <b>maul</b>.
 {FALSE####}
 
 // 
-::obiwan-30t7table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>La asociación siguiente es correcta\:<br/><ul><li>Atributo\: "color del pelo"</li><li>Valor\: "verde"</li></ul>
-{FALSE####}
-
-// 
-::obiwan-31t8table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Completa la siguiente asociación\:<br/><ul><li>Atributo\: "color sable laser"</li><li>Valor\: [*]</li></ul>Escribir una palabra.<br/>
+::sidious-50-i3short::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNg1WGrDzXwUi6wC_FJL4W8w1MwvB1O1_G4jxHHNYKS5uUeOX" alt\="image"><br/>Escribe la opción [*], que mejor corresponda con la imagen anterior.<br/>
 {
-  =%100%verde#
+  =%100%sidious#
 }
 
 // 
-::obiwan-32-t1table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: [*]<br/>Valor\: "pelirojo"<br/>Elige la opción correcta.<br/>
+::sidious-53-i4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNg1WGrDzXwUi6wC_FJL4W8w1MwvB1O1_G4jxHHNYKS5uUeOX" alt\="image"><br/>Definición\: <i>Es un hombre muy elocuente, hablador, [1] verdaderamente manipulador e hipócrita, que durante mucho tiempo [2] [3] un [4] modesto, pero hábil.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
-  ~%-25%raza
+  =1 -> astuto,
+  =2 -> aparentó
+  =3 -> ser
+  =4 -> político
+}
+
+// 
+::sidious-57-i4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNg1WGrDzXwUi6wC_FJL4W8w1MwvB1O1_G4jxHHNYKS5uUeOX" alt\="image"><br/>Definición\: <i>Fue [1] por el [2] Señor Oscuro de los Sith [3] Plagueis el Sabio, aproximadamente ochenta años antes de la batalla de Yavin, quien lo [4] en un Lord Sith.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> acogido
+  =2 -> poderoso
+  =3 -> darth
+  =4 -> convirtió
+}
+
+// 
+::sidious-62-i4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNg1WGrDzXwUi6wC_FJL4W8w1MwvB1O1_G4jxHHNYKS5uUeOX" alt\="image"><br/>Definición\: <i>Su maestro podía manipular los midiclorianos y, con [1] [2] la vida. Traspasó todo ese conocimiento a su [3] excepto la influencia de midiclorianos, pero él no dudó en [4] mientras dormía, convirtiéndose en el nuevo líder de los Sith.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> esto,
+  =2 -> manipular
+  =3 -> discípulo
+  =4 -> matarlo
+}
+
+
+// ==================================================
+// Concept name: maul
+// ==================================================
+// 
+::maul-1-d1choose::[html]Definición \: <i>Lord Sirve como el aprendiz de Darth Sidious. Portando un sable de luz de doble hoja y formado como un maestro del combate con sables de luz.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  =maul
+  ~%-25%sidious
   ~%-25%Ninguna es correcta
-  ~%-25%color sable laser
-  =color del pelo
+  ~%-25%obiwan
 }
 
 // 
-::obiwan-33-t3table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: "color del pelo"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
+::maul-2-d1none::[html]Definición \: <i>Lord Sirve como el aprendiz de Darth Sidious. Portando un sable de luz de doble hoja y formado como un maestro del combate con sables de luz.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%obiwan
+  =Ninguna es correcta
+  ~%-25%sidious
+  ~%-25%meul
+  ####Option mispelled!: maul
+}
+
+// 
+::maul-3-d2def-mispelled::[html]Definición de <b>maul</b>\:<br/> <i>Loed Sirve como el aprendiz de Darth Sidious. Portando un sable de luz de doble hoja y formado como un maestro del combate con sables de luz.</i><br/>
+{
+  ~%-33.33333%Falso
+  =Error ortográfico
+  ~%-33.33333%Verdadero
+  ####Definition text mispelled!: Lord Sirve como el aprendiz de Darth Sidious. Portando un sable de luz de doble hoja y formado como un maestro del combate con sables de luz.
+}
+
+// 
+::maul-4-d2name-mispelled::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcThmiJkELj2LHQyxxx8zeDyZd7lsSUyqJo7rwPUDwJSrANKXVsnsj2ygL0f" alt="image"><br/>Definición de <b>maur</b>\:<br/> <i>Lord Sirve como el aprendiz de Darth Sidious. Portando un sable de luz de doble hoja y formado como un maestro del combate con sables de luz.</i><br/>
+{
+  =Error ortográfico
+  ~%-33.33333%Falso
+  ~%-33.33333%Verdadero
+  ####Concept name mispelled!: maul
+}
+
+// 
+::maul-5-d2true::[html]Definición de <b>maul</b>\:<br/> <i>Lord Sirve como el aprendiz de Darth Sidious. Portando un sable de luz de doble hoja y formado como un maestro del combate con sables de luz.</i><br/>
+{
+  ~%-33.33333%Error ortográfico
+  =Verdadero
+  ~%-33.33333%Falso
+}
+
+// 
+::maul-6-d2false::[html]Definición de <b>sidious</b>\:<br/> <i>Lord Sirve como el aprendiz de Darth Sidious. Portando un sable de luz de doble hoja y formado como un maestro del combate con sables de luz.</i><br/>
+{
+  =Falso
+  ~%-33.33333%Verdadero
+  ~%-33.33333%Error ortográfico
+}
+
+// 
+::maul-7-d3hidden::[html]<img src\="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQxriv4S-NtZC1-EdKA2rE5phHccyvt59NKBXbVG_ja8KiuleefSf5n8mYy" alt="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Lord Sirve como el aprendiz de Darth Sidious. Portando un sable de luz de doble hoja y formado como un maestro del combate con sables de luz.</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+{
+  =%100%maul#
+}
+
+// 
+::maul-8-d4filtered::[html]Definición de <b>maul</b>\:<br/> <i>Lord Sirve como el aprendiz de Darth Sidious. [1] un sable de luz de [2] hoja y formado como un [3] del combate con [4] de luz.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> portando
+  =2 -> doble
+  =3 -> maestro
+  =4 -> sables
+}
+
+// 
+::maul-9-d4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSG6Ypmd5FJWfjjDjpHZhRxb5bOvO1lfR_gNyB-x9tgwo5GXVwoUpN2n3zj" alt="image"><br/>Definición de <b>maul</b>\:<br/> <i>Lord Sirve como el aprendiz de [1] Sidious. Portando un sable de luz de [2] hoja y formado como un [3] del [4] con sables de luz.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> darth
+  =2 -> doble
+  =3 -> maestro
+  =4 -> combate
+}
+
+// 
+::maul-10-d4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTHXeeMtoT2yj4gO91LzHwtKSM1gRxwrVzNK5R3dW2iztZ_fCBsjtYMPg" alt="image"><br/>Definición de <b>maul</b>\:<br/> <i>Lord Sirve como el aprendiz de [1] [2]. Portando un sable de luz de doble hoja y formado como un [3] del combate con [4] de luz.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> darth
+  =2 -> sidious
+  =3 -> maestro
+  =4 -> sables
+}
+
+// 
+::maul-11-d1choose::[html]Definición \: <i>Sirve como un asesino personal de Darth Sidious y es enviado para eliminar a dos Jedis.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
   ~%-25%Ninguna es correcta
-  ~%-25%humano
-  ~%-25%verde
-  =pelirojo
+  ~%-25%sidious
+  ~%-25%obiwan
+  =maul
 }
 
 // 
-::obiwan-34t5table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>La asociación siguiente es correcta\:<br/><ul><li>Atributo\: "color del pelo"</li><li>Valor\: "pelirojo"</li></ul>
+::maul-12-d1none::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTCMJs4hnJ5jHQcFSoYY3O6bk9-bHvodq-j-bh0b2INJ_zPgzNZAVlLMRQ" alt="image"><br/>Definición \: <i>Sirve como un asesino personal de Darth Sidious y es enviado para eliminar a dos Jedis.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
+  ~%-25%sidious
+  ~%-25%moul
+  ~%-25%obiwan
+  =Ninguna es correcta
+  ####Option mispelled!: maul
+}
+
+// 
+::maul-13-d2def-mispelled::[html]Definición de <b>maul</b>\:<br/> <i>Sirve como un asesino personal de Darth Sidious e es enviado para eliminar a dos Jedis.</i><br/>
+{
+  ~%-33.33333%Verdadero
+  =Error ortográfico
+  ~%-33.33333%Falso
+  ####Definition text mispelled!: Sirve como un asesino personal de Darth Sidious y es enviado para eliminar a dos Jedis.
+}
+
+// 
+::maul-14-d2name-mispelled::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSc7yUey617yoMrhdzD7haWhq0F5-czQwQ71C9PLiYzriqfSqQGF7nKOGw" alt="image"><br/>Definición de <b>maur</b>\:<br/> <i>Sirve como un asesino personal de Darth Sidious y es enviado para eliminar a dos Jedis.</i><br/>
+{
+  ~%-33.33333%Falso
+  ~%-33.33333%Verdadero
+  =Error ortográfico
+  ####Concept name mispelled!: maul
+}
+
+// 
+::maul-15-d2true::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSKRk_MnNIkMusftnTY1buF5dPlszYbqGX2HdZF5AqKSVUS6zA0ACR0" alt="image"><br/>Definición de <b>maul</b>\:<br/> <i>Sirve como un asesino personal de Darth Sidious y es enviado para eliminar a dos Jedis.</i><br/>
+{
+  ~%-33.33333%Error ortográfico
+  =Verdadero
+  ~%-33.33333%Falso
+}
+
+// 
+::maul-16-d2false::[html]<img src\="" alt="image"><br/>Definición de <b>sidious</b>\:<br/> <i>Sirve como un asesino personal de Darth Sidious y es enviado para eliminar a dos Jedis.</i><br/>
+{
+  =Falso
+  ~%-33.33333%Error ortográfico
+  ~%-33.33333%Verdadero
+}
+
+// 
+::maul-17-d3hidden::[html]Definición de <b>[*]</b>\:<br/> <i>Sirve como un asesino personal de Darth Sidious y es enviado para eliminar a dos Jedis.</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+{
+  =%100%maul#
+}
+
+// 
+::maul-18-d4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7q6eKur5T4zU4c0fy9-kaN2CkfauKy7X1O4Yl8r_r74CEq9_oVHb7BafD" alt="image"><br/>Definición de <b>maul</b>\:<br/> <i>Sirve como un [1] [2] de Darth Sidious y es enviado para [3] a [4] Jedis.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> asesino
+  =2 -> personal
+  =3 -> eliminar
+  =4 -> dos
+}
+
+// 
+::maul-19-d4filtered::[html]<img src\="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQxriv4S-NtZC1-EdKA2rE5phHccyvt59NKBXbVG_ja8KiuleefSf5n8mYy" alt="image"><br/>Definición de <b>maul</b>\:<br/> <i>Sirve como un asesino [1] de [2] [3] y es enviado para [4] a dos Jedis.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> personal
+  =2 -> darth
+  =3 -> sidious
+  =4 -> eliminar
+}
+
+// 
+::maul-20-i1choose::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF4usBxXJjrbgif9BHnWBv9ltoG4j_c-yDni0Z5UHlBBjZWrgv" alt\="image"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
+{
+  =maul
+  ~%-25%sidious
+  ~%-25%obiwan
+  ~%-25%Ninguna es correcta
+}
+
+// 
+::maul-21-i1misspelling::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF4usBxXJjrbgif9BHnWBv9ltoG4j_c-yDni0Z5UHlBBjZWrgv" alt\="image"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
+{
+  =Ninguna es correcta
+  ~%-25%obiwan
+  ~%-25%mhaul
+  ~%-25%sidious
+}
+
+// 
+::maul-22-i2true::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF4usBxXJjrbgif9BHnWBv9ltoG4j_c-yDni0Z5UHlBBjZWrgv" alt\="image"><br/>La imagen anterior corresponde a <b>maul</b>.
 {TRUE####}
 
 // 
-::obiwan-35-t6table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>La asociación siguiente es correcta\:<br/><ul><li>Atributo\: "color del pelo"</li><li>Valor\: "verde"</li></ul>
+::maul-23-i2false::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF4usBxXJjrbgif9BHnWBv9ltoG4j_c-yDni0Z5UHlBBjZWrgv" alt\="image"><br/>La imagen anterior corresponde a <b>sidious</b>.
 {FALSE####}
 
 // 
-::obiwan-36t7table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>La asociación siguiente es correcta\:<br/><ul><li>Atributo\: "color sable laser"</li><li>Valor\: "pelirojo"</li></ul>
-{FALSE####}
-
-// 
-::obiwan-37t8table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Completa la siguiente asociación\:<br/><ul><li>Atributo\: "color del pelo"</li><li>Valor\: [*]</li></ul>Escribir una palabra.<br/>
+::maul-24-i3short::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF4usBxXJjrbgif9BHnWBv9ltoG4j_c-yDni0Z5UHlBBjZWrgv" alt\="image"><br/>Escribe la opción [*], que mejor corresponda con la imagen anterior.<br/>
 {
-  =%100%pelirojo#
+  =%100%maul#
+}
+
+// 
+::maul-27-i4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF4usBxXJjrbgif9BHnWBv9ltoG4j_c-yDni0Z5UHlBBjZWrgv" alt\="image"><br/>Definición\: <i>[1] Sirve como el aprendiz de Darth Sidious. [2] un sable de luz de doble hoja y formado como un maestro del [3] con [4] de luz.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> lord
+  =2 -> portando
+  =3 -> combate
+  =4 -> sables
+}
+
+// 
+::maul-29-i4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF4usBxXJjrbgif9BHnWBv9ltoG4j_c-yDni0Z5UHlBBjZWrgv" alt\="image"><br/>Definición\: <i>Sirve como un asesino personal de [1] [2] y es [3] para [4] a dos Jedis.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> darth
+  =2 -> sidious
+  =3 -> enviado
+  =4 -> eliminar
 }
 
