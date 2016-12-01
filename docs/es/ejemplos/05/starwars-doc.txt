@@ -1,7 +1,7 @@
 ==================================================
 Created by : darts-of-teacher (version 0.12.0)
 File       : starwars-doc.txt
-Time       : 2016-12-01 13:02:24 +0000
+Time       : 2016-12-01 19:49:47 +0000
 Author     : David Vargas
 ==================================================
 
@@ -11,13 +11,6 @@ Author     : David Vargas
 * Jedi, alumno de Quigon-Jinn
 * Vive en Tatooine, cerca de la casa de Luke Skywalker
 
-+-------------------+----------+
-| atributo          | valor    |
-+-------------------+----------+
-| raza              | humano   |
-| color sable laser | verde    |
-| color del pelo    | pelirojo |
-+-------------------+----------+
 
 [44m[1myoda[0m
 
@@ -26,14 +19,6 @@ Author     : David Vargas
 * Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.
 * Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.
 
-+-------------------+----------------+
-| atributo          | valor          |
-+-------------------+----------------+
-| color sable laser | verde          |
-| color del pelo    | blanco         |
-| color de piel     | verde          |
-| altura            | 65 centímetros |
-+-------------------+----------------+
 
 [44m[1msidious[0m
 
@@ -42,23 +27,9 @@ Author     : David Vargas
 * Fue acogido por el poderoso Señor Oscuro de los Sith Darth Plagueis el Sabio, aproximadamente ochenta años antes de la batalla de Yavin, quien lo convirtió en un Lord Sith.
 * Su maestro podía manipular los midiclorianos y, con esto, manipular la vida. Traspasó todo ese conocimiento a su discípulo excepto la influencia de midiclorianos, pero él no dudó en matarlo mientras dormía, convirtiéndose en el nuevo líder de los Sith.
 
-+-------------------+-------------+
-| característica    | descripción |
-+-------------------+-------------+
-| raza              | humano      |
-| color del pelo    | castaño     |
-| color sable laser | rojo        |
-+-------------------+-------------+
 
 [44m[1mmaul[0m
 
 * Lord Sirve como el aprendiz de Darth Sidious. Portando un sable de luz de doble hoja y formado como un maestro del combate con sables de luz.
 * Sirve como un asesino personal de Darth Sidious y es enviado para eliminar a dos Jedis.
 
-+-------------------+-------------+
-| característica    | descripción |
-+-------------------+-------------+
-| raza              | zabrack     |
-| color sable laser | rojo        |
-| color de piel     | rojo        |
-+-------------------+-------------+

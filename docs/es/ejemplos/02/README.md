@@ -1,24 +1,22 @@
 
 # Ejemplo 02
 
-Vamos a ampliar las definiciones del concepto `obiwan`.
+Vamos crear un concepto sobre los personajes de StarWars.
 
 ## Input
 
-Hemos modificado el fichero [`starwars.haml`](./starwars.haml),
-ampliando las definiciones del concepto `obiwan`.
+Creamos el fichero [`starwars.haml`](./starwars.haml),
+con el concepto `obiwan` con una definición.
 
-Además hemos incluido
-una definición de tipo `image_url`. Esto es, un URL a una imagen, la cual
-identifica de forma inequívoca el conceto al cual se refiere.
-
-> Por tanto, podemos tener definiciones de texto y URL a una imagen.
+> Entendemos por `definición` una descripción textual que identifica de
+forma inequívoca al concepto al que se refiere.
 
 ## Ejecución
 
-Para ejecutar *darts* usando como entrada el fichero con los conceptos, hacemos:
+Para ejecutar *darts* usando como entrada el fichero las definiciones del concepto,
+hacemos:
 
-`./darts file docs/es/ejemplos/02/starwars.haml`
+`./darts file docs/es/ejemplos/01/starwars.haml`,
 
 Vemos que aparece en pantalla la siguiente [información](./starwars-log.txt).
 
@@ -26,6 +24,3 @@ Vemos que aparece en pantalla la siguiente [información](./starwars-log.txt).
 
 Se ha generado este [fichero](./starwars-gift.txt) con las preguntas en
 format Gift, preparadas para cargarse en Moodle.
-
-> Podemos comprobar como al aumentar las definiciones aumenta significativamente
-el número de preguntas que se generan.

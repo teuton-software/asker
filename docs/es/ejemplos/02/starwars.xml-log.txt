@@ -1,22 +1,22 @@
 ==================================================
 Created by : darts-of-teacher (version 0.12.0)
-File       : starwars-log.txt
-Time       : 2016-12-01 19:48:53 +0000
+File       : starwars.xml-log.txt
+Time       : 2016-12-01 19:48:29 +0000
 Author     : David Vargas
 ==================================================
 
 [INFO] Project open
-   ├── inputdirs    = docs/es/ejemplos/02
-   └── process_file = starwars.haml
+   ├── inputdirs    = docs/es/ejemplos/01
+   └── process_file = starwars.xml
 
 [INFO] Loading input data
- * Input directory  = docs/es/ejemplos/02
-   └── Input file   = docs/es/ejemplos/02/starwars.haml
+ * Input directory  = docs/es/ejemplos/01
+   └── Input file   = docs/es/ejemplos/01/starwars.xml
 
 [INFO] Showing concept data <default>
 +---------------+-----------------------------------+
 | 1             | obiwan (lang=es)                  |
-| Filename      | docs/es/ejemplos/02/starwars.haml |
+| Filename      | docs/es/ejemplos/01/starwars.xml  |
 | Context       |                                   |
 | Tags          |                                   |
 | Reference to  |                                   |
@@ -29,8 +29,8 @@ Author     : David Vargas
 
 
 [INFO] Creating output files
-   ├── Gift questions file = output/starwars-gift.txt
-   └── Lesson file         = output/starwars-doc.txt
+   ├── Gift questions file = output/starwars.xml-gift.txt
+   └── Lesson file         = output/starwars.xml-doc.txt
 
 [INFO] Showing statistics
 

@@ -1,7 +1,7 @@
 ==================================================
 Created by : darts-of-teacher (version 0.12.0)
 File       : starwars-log.txt
-Time       : 2016-12-01 12:45:22 +0000
+Time       : 2016-12-01 19:49:08 +0000
 Author     : David Vargas
 ==================================================
 
@@ -14,61 +14,19 @@ Author     : David Vargas
    └── Input file   = docs/es/ejemplos/03/starwars.haml
 
 [INFO] Showing concept data <default>
-+---------------+-----------------------------------------------------------------+
-| 1             | obiwan (lang=es)                                                |
-| Filename      | docs/es/ejemplos/03/starwars.haml                               |
-| Context       |                                                                 |
-| Tags          | maestro, jedi, profesor, anakin, skywalker, alumno, quigon-jinn |
-| Reference to  |                                                                 |
-| Referenced by |                                                                 |
-| .def(text)    | Jedi, maestro de Anakin Skywalker                               |
-|               | Jedi, alumno de Quigon-Jinn                                     |
-|               | Vive en Tatooine, cerca de la casa de Luke Skywalker            |
-| .def(images)  | 1                                                               |
-| .neighbors    | sidious(28.57)                                                  |
-|               | yoda(28.57)                                                     |
-|               | maul(14.28)                                                     |
-+---------------+-----------------------------------------------------------------+
-
-+---------------+-----------------------------------+
-| 2             | yoda (lang=es)                    |
-| Filename      | docs/es/ejemplos/03/starwars.haml |
-| Context       |                                   |
-| Tags          | maestro, jedi                     |
-| Reference to  |                                   |
-| Referenced by |                                   |
-| .def(text)    |                                   |
-| .def(images)  | 0                                 |
-| .neighbors    | obiwan(100.0)                     |
-|               | sidious(50.0)                     |
-+---------------+-----------------------------------+
-
-+---------------+-----------------------------------------+
-| 3             | sidious (lang=es)                       |
-| Filename      | docs/es/ejemplos/03/starwars.haml       |
-| Context       |                                         |
-| Tags          | humano, maestro, sith, alumno, plagueis |
-| Reference to  |                                         |
-| Referenced by |                                         |
-| .def(text)    |                                         |
-| .def(images)  | 0                                       |
-| .neighbors    | maul(40.0)                              |
-|               | obiwan(40.0)                            |
-|               | yoda(20.0)                              |
-+---------------+-----------------------------------------+
-
-+---------------+-----------------------------------+
-| 4             | maul (lang=es)                    |
-| Filename      | docs/es/ejemplos/03/starwars.haml |
-| Context       |                                   |
-| Tags          | lord, sith, alumno, emperador     |
-| Reference to  |                                   |
-| Referenced by |                                   |
-| .def(text)    |                                   |
-| .def(images)  | 0                                 |
-| .neighbors    | sidious(50.0)                     |
-|               | obiwan(25.0)                      |
-+---------------+-----------------------------------+
++---------------+------------------------------------------------------+
+| 1             | obiwan (lang=es)                                     |
+| Filename      | docs/es/ejemplos/03/starwars.haml                    |
+| Context       |                                                      |
+| Tags          |                                                      |
+| Reference to  |                                                      |
+| Referenced by |                                                      |
+| .def(text)    | Jedi, maestro de Anakin Skywalker                    |
+|               | Jedi, alumno de Quigon-Jinn                          |
+|               | Vive en Tatooine, cerca de la casa de Luke Skywalker |
+| .def(images)  | 1                                                    |
+| .neighbors    |                                                      |
++---------------+------------------------------------------------------+
 
 
 
@@ -90,11 +48,8 @@ Author     : David Vargas
 +-----------+-----------+---------+---------+----+---+---+---+---+---+
 | Concept   | Questions | Entries | xFactor | d  | b | f | i | s | t |
 +-----------+-----------+---------+---------+----+---+---+---+---+---+
-| obiwan    | 34        | 3       | 11.33   | 26 | 0 | 0 | 8 | 0 | 0 |
-| yoda      | 0         | 0       | Unkown  | 0  | 0 | 0 | 0 | 0 | 0 |
-| sidious   | 0         | 0       | Unkown  | 0  | 0 | 0 | 0 | 0 | 0 |
-| maul      | 0         | 0       | Unkown  | 0  | 0 | 0 | 0 | 0 | 0 |
+| obiwan    | 18        | 3       | 6.0     | 14 | 0 | 0 | 4 | 0 | 0 |
 +-----------+-----------+---------+---------+----+---+---+---+---+---+
-| TOTAL = 4 | 34        | 3       | 11.33   | 26 | 0 | 0 | 8 | 0 | 0 |
+| TOTAL = 1 | 18        | 3       | 6.0     | 14 | 0 | 0 | 4 | 0 | 0 |
 +-----------+-----------+---------+---------+----+---+---+---+---+---+
 

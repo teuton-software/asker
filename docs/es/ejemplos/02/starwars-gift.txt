@@ -1,7 +1,7 @@
 // ==================================================
 // Created by : darts-of-teacher (version 0.12.0)
 // File       : starwars-gift.txt
-// Time       : 2016-12-01 09:31:46 +0000
+// Time       : 2016-12-01 19:48:53 +0000
 // Author     : David Vargas
 // ==================================================
 
@@ -10,29 +10,29 @@
 // Concept name: obiwan
 // ==================================================
 // 
-::obiwan-1-d2def-mispelled::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, maesteo de Anakin Skywalker</i><br/>
+::obiwan-1-d2def-mispelled::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, maestro de Anaqin Skywalker</i><br/>
 {
   =Error ortográfico
-  ~%-33.33333%Falso
   ~%-33.33333%Verdadero
+  ~%-33.33333%Falso
   ####Definition text mispelled!: Jedi, maestro de Anakin Skywalker
 }
 
 // 
-::obiwan-2-d2name-mispelled::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT3t45wwxyzbdlbfqXdIOWca5D6DrNSKYOvFddMohdbrvvGMkKYh-kn4hQ" alt="image"><br/>Definición de <b>obiwañ</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
+::obiwan-2-d2name-mispelled::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQo2zdnLrO1FDYDPa-cO8BOmJw0glJtqBS65Z2zg_A66pNUVNmacfQOLe5L" alt="image"><br/>Definición de <b>obiguan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
 {
-  ~%-33.33333%Verdadero
-  ~%-33.33333%Falso
   =Error ortográfico
+  ~%-33.33333%Falso
+  ~%-33.33333%Verdadero
   ####Concept name mispelled!: obiwan
 }
 
 // 
-::obiwan-3-d2true::[html]<img src\="" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
+::obiwan-3-d2true::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRioReuztSIF2JtZs-whzPip26vJnP0ClVHNtyuEYJSvdsc6F3KtrcpcA" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
 {
-  =Verdadero
-  ~%-33.33333%Falso
   ~%-33.33333%Error ortográfico
+  ~%-33.33333%Falso
+  =Verdadero
 }
 
 // 
@@ -47,107 +47,6 @@
   =1 -> jedi,
   =2 -> maestro
   =3 -> anakin
-  =4 -> skywalker
-}
-
-// 
-::obiwan-6-d2def-mispelled::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, alvmno de Quigon-Jinn</i><br/>
-{
-  =Error ortográfico
-  ~%-33.33333%Falso
-  ~%-33.33333%Verdadero
-  ####Definition text mispelled!: Jedi, alumno de Quigon-Jinn
-}
-
-// 
-::obiwan-7-d2name-mispelled::[html]Definición de <b>obywan</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/>
-{
-  ~%-33.33333%Verdadero
-  =Error ortográfico
-  ~%-33.33333%Falso
-  ####Concept name mispelled!: obiwan
-}
-
-// 
-::obiwan-8-d2true::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSlwHZ2hgcj3yTRAbuxcQdPbn-S2ik3IMaPbK-3_VVCWt35hzjvtz9KMtc" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/>
-{
-  ~%-33.33333%Falso
-  =Verdadero
-  ~%-33.33333%Error ortográfico
-}
-
-// 
-::obiwan-9-d3hidden::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSlwHZ2hgcj3yTRAbuxcQdPbn-S2ik3IMaPbK-3_VVCWt35hzjvtz9KMtc" alt="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
-{
-  =%100%obiwan#
-}
-
-// 
-::obiwan-10-d2def-mispelled::[html]<img src\="" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Vive en Tatooine, cerca de ra casa de Luke Skywalker</i><br/>
-{
-  ~%-33.33333%Verdadero
-  ~%-33.33333%Falso
-  =Error ortográfico
-  ####Definition text mispelled!: Vive en Tatooine, cerca de la casa de Luke Skywalker
-}
-
-// 
-::obiwan-11-d2name-mispelled::[html]<img src\="" alt="image"><br/>Definición de <b>obiguan</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>
-{
-  ~%-33.33333%Verdadero
-  =Error ortográfico
-  ~%-33.33333%Falso
-  ####Concept name mispelled!: obiwan
-}
-
-// 
-::obiwan-12-d2true::[html]Definición de <b>obiwan</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>
-{
-  ~%-33.33333%Falso
-  =Verdadero
-  ~%-33.33333%Error ortográfico
-}
-
-// 
-::obiwan-13-d3hidden::[html]<img src\="" alt="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
-{
-  =%100%obiwan#
-}
-
-// 
-::obiwan-14-d4filtered::[html]Definición de <b>obiwan</b>\:<br/> <i>[1] en [2] [3] de la casa de [4] Skywalker.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
-{
-  =1 -> vive
-  =2 -> tatooine,
-  =3 -> cerca
-  =4 -> luke
-}
-
-// 
-::obiwan-15-i2true::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>La imagen anterior corresponde a <b>obiwan</b>.
-{TRUE####}
-
-// 
-::obiwan-16-i3short::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>Escribe la opción [*], que mejor corresponda con la imagen anterior.<br/>
-{
-  =%100%obiwan#
-}
-
-// 
-::obiwan-17-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>Definición\: <i>[1] [2] de [3] [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
-{
-  =1 -> jedi,
-  =2 -> maestro
-  =3 -> anakin
-  =4 -> skywalker
-}
-
-// 
-::obiwan-18-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\="image"><br/>Definición\: <i>Vive en [1] cerca de la [2] de [3] [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
-{
-  =1 -> tatooine,
-  =2 -> casa
-  =3 -> luke
   =4 -> skywalker
 }
 

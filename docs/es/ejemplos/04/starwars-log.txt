@@ -1,7 +1,7 @@
 ==================================================
 Created by : darts-of-teacher (version 0.12.0)
 File       : starwars-log.txt
-Time       : 2016-12-01 12:57:41 +0000
+Time       : 2016-12-01 19:49:33 +0000
 Author     : David Vargas
 ==================================================
 
@@ -30,52 +30,45 @@ Author     : David Vargas
 |               | maul(14.28)                                                     |
 +---------------+-----------------------------------------------------------------+
 
-+---------------+---------------------------------------------------------------------------+
-| 2             | yoda (lang=es)                                                            |
-| Filename      | docs/es/ejemplos/04/starwars.haml                                         |
-| Context       |                                                                           |
-| Tags          | maestro, jedi                                                             |
-| Reference to  |                                                                           |
-| Referenced by |                                                                           |
-| .def(text)    | Jedi, maestro de todos los jedis                                          |
-|               | Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importa... |
-|               | Tenía habilidades excepcionales en el combate con sables de luz, emple... |
-|               | Era un maestro en todas las formas del combate con sables de luz y era... |
-| .def(images)  | 1                                                                         |
-| .neighbors    | obiwan(100.0)                                                             |
-|               | sidious(50.0)                                                             |
-+---------------+---------------------------------------------------------------------------+
++---------------+-----------------------------------+
+| 2             | yoda (lang=es)                    |
+| Filename      | docs/es/ejemplos/04/starwars.haml |
+| Context       |                                   |
+| Tags          | maestro, jedi                     |
+| Reference to  |                                   |
+| Referenced by |                                   |
+| .def(text)    |                                   |
+| .def(images)  | 0                                 |
+| .neighbors    | obiwan(100.0)                     |
+|               | sidious(50.0)                     |
++---------------+-----------------------------------+
 
-+---------------+---------------------------------------------------------------------------+
-| 3             | sidious (lang=es)                                                         |
-| Filename      | docs/es/ejemplos/04/starwars.haml                                         |
-| Context       |                                                                           |
-| Tags          | humano, maestro, sith, alumno, plagueis                                   |
-| Reference to  |                                                                           |
-| Referenced by | maul                                                                      |
-| .def(text)    | Sith, maestro de todos los siths                                          |
-|               | Es un hombre muy elocuente, hablador, astuto, verdaderamente manipulad... |
-|               | Fue acogido por el poderoso Señor Oscuro de los Sith Darth Plagueis el... |
-|               | Su maestro podía manipular los midiclorianos y, con esto, manipular la... |
-| .def(images)  | 1                                                                         |
-| .neighbors    | maul(40.0)                                                                |
-|               | obiwan(40.0)                                                              |
-|               | yoda(20.0)                                                                |
-+---------------+---------------------------------------------------------------------------+
++---------------+-----------------------------------------+
+| 3             | sidious (lang=es)                       |
+| Filename      | docs/es/ejemplos/04/starwars.haml       |
+| Context       |                                         |
+| Tags          | humano, maestro, sith, alumno, plagueis |
+| Reference to  |                                         |
+| Referenced by |                                         |
+| .def(text)    |                                         |
+| .def(images)  | 0                                       |
+| .neighbors    | maul(40.0)                              |
+|               | obiwan(40.0)                            |
+|               | yoda(20.0)                              |
++---------------+-----------------------------------------+
 
-+---------------+---------------------------------------------------------------------------+
-| 4             | maul (lang=es)                                                            |
-| Filename      | docs/es/ejemplos/04/starwars.haml                                         |
-| Context       |                                                                           |
-| Tags          | lord, sith, alumno, emperador                                             |
-| Reference to  | sidious                                                                   |
-| Referenced by |                                                                           |
-| .def(text)    | Lord Sirve como el aprendiz de Darth Sidious. Portando un sable de luz... |
-|               | Sirve como un asesino personal de Darth Sidious y es enviado para elim... |
-| .def(images)  | 1                                                                         |
-| .neighbors    | sidious(50.0)                                                             |
-|               | obiwan(25.0)                                                              |
-+---------------+---------------------------------------------------------------------------+
++---------------+-----------------------------------+
+| 4             | maul (lang=es)                    |
+| Filename      | docs/es/ejemplos/04/starwars.haml |
+| Context       |                                   |
+| Tags          | lord, sith, alumno, emperador     |
+| Reference to  |                                   |
+| Referenced by |                                   |
+| .def(text)    |                                   |
+| .def(images)  | 0                                 |
+| .neighbors    | sidious(50.0)                     |
+|               | obiwan(25.0)                      |
++---------------+-----------------------------------+
 
 
 
@@ -94,14 +87,14 @@ Author     : David Vargas
    └── (t) Table Rows&Cols => Concept.tables.rows.columns
 
 
-+-----------+-----------+---------+---------+-----+---+---+----+---+---+
-| Concept   | Questions | Entries | xFactor | d   | b | f | i  | s | t |
-+-----------+-----------+---------+---------+-----+---+---+----+---+---+
-| obiwan    | 34        | 3       | 11.33   | 26  | 0 | 0 | 8  | 0 | 0 |
-| yoda      | 43        | 4       | 10.75   | 35  | 0 | 0 | 8  | 0 | 0 |
-| sidious   | 53        | 4       | 13.25   | 44  | 0 | 0 | 9  | 0 | 0 |
-| maul      | 26        | 2       | 13.0    | 19  | 0 | 0 | 7  | 0 | 0 |
-+-----------+-----------+---------+---------+-----+---+---+----+---+---+
-| TOTAL = 4 | 156       | 13      | 12.0    | 124 | 0 | 0 | 32 | 0 | 0 |
-+-----------+-----------+---------+---------+-----+---+---+----+---+---+
++-----------+-----------+---------+---------+----+---+---+---+---+---+
+| Concept   | Questions | Entries | xFactor | d  | b | f | i | s | t |
++-----------+-----------+---------+---------+----+---+---+---+---+---+
+| obiwan    | 34        | 3       | 11.33   | 26 | 0 | 0 | 8 | 0 | 0 |
+| yoda      | 0         | 0       | Unkown  | 0  | 0 | 0 | 0 | 0 | 0 |
+| sidious   | 0         | 0       | Unkown  | 0  | 0 | 0 | 0 | 0 | 0 |
+| maul      | 0         | 0       | Unkown  | 0  | 0 | 0 | 0 | 0 | 0 |
++-----------+-----------+---------+---------+----+---+---+---+---+---+
+| TOTAL = 4 | 34        | 3       | 11.33   | 26 | 0 | 0 | 8 | 0 | 0 |
++-----------+-----------+---------+---------+----+---+---+---+---+---+
 
