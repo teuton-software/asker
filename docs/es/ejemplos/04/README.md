@@ -25,7 +25,7 @@ difícil responder al alumno.
 
 Para ejecutar *darts* usando como entrada el fichero con los conceptos, hacemos:
 
-`./darts file docs/es/ejemplos/03/starwars.haml`
+`./darts file docs/es/ejemplos/04/starwars.haml`
 
 Vemos que aparece en pantalla la siguiente [información](./starwars-log.txt).
 
