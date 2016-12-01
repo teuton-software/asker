@@ -1,8 +1,9 @@
 #Fundamentals
 
-##Disclaimber
+## Disclaimber
+
 * I'm not a teacher. I work as a teacher, and I try to do the best I know.
-* I'm a programmer. I studied Computer Science at *Las Plamas de Gran Canaria University*.
+* I'm a programmer. I studied Computer Science at *Las Palmas de Gran Canaria University*.
 * 90% of what I've learned, I must thank to *Open Source* community.
 The other 10%, It's luck and time wasted working.
 

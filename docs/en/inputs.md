@@ -5,7 +5,7 @@ Format
 HAML format files are the same as XML format files.
 HAML files are translated automaticaly to an XML equivalent.
 
-Why write into HAML instead of XML? HAML It's more easy. You don't have to 
+Why write into HAML instead of XML? HAML It's more easy. You don't have to
 close every tag, only be carefuly with indentation.
 
 If you prefer, you could write your input files using XML.
@@ -33,10 +33,10 @@ Let's take a look (Spanish example, I know. Soon I'll write the english version)
         %col race
         %col human
       %row
-        %col laser_sabel_color
+        %col laser sabel color
         %col green
       %row
-        %col hair_color
+        %col hair color
         %col red
 
   %concept
@@ -48,20 +48,20 @@ Let's take a look (Spanish example, I know. Soon I'll write the english version)
     %def He was master of all light sable combat styles and was considered during years as a Sword Master.    
     %table{ :fields => 'attribute, value' }
       %row
-        %col color_laser_sabel
+        %col color laser sabel
         %col green
       %row
-        %col hair_color
+        %col hair color
         %col white
       %row
-        %col skin_color
+        %col skin color
         %col green
       %row
         %col high
         %col 65 centimetres
 ...
 ```
-As we see, we defined 2 concepts about Jedi characters. This are `obiwan` and `yoda`. 
+As we see, we defined 2 concepts about Jedi characters. This are `obiwan` and `yoda`.
 And we use special sintax (tags) to define it.
 
 At now we have a this list of tags to define our own sintax for build conceptual maps:
@@ -70,10 +70,9 @@ At now we have a this list of tags to define our own sintax for build conceptual
 * **tags**: List of comma separated words, that briefly describe the concept. I mean, a short list of words
 that came in mind when we think in it, and are useful for their identification.
 * **def**: We use this tags as many times we need. In it, we write using natural language descriptions
-asssociated to the concept. This are definitions/descriptions that are uniques 
+asssociated to the concept. This are definitions/descriptions that are uniques
 for this concept, but don't write the name of the concept into the text.
 * **table**: Other way to build more sofisticated definitions/schemas is using "tables". It's similar
 to HTML tag. I mean, with this "table", we build tables of knowledge into the concept. We use "row",
-and "col", to defines table-rows and row-cols, of course. We could see an 
+and "col", to defines table-rows and row-cols, of course. We could see an
 example into `input/en/starwars/jedi.haml`.
-

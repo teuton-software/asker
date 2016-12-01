@@ -1,6 +1,6 @@
-#History
+# History
 
-##The problem
+## The problem
 
 Working as a teacher, one of the most boring taks is check the same exercises
 again and again, for every student, and every year.
