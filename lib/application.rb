@@ -11,7 +11,7 @@ module Application
   end
 
   def self.color_output
-    true
+    false
   end
 
 end

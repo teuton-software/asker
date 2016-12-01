@@ -63,6 +63,10 @@ class Project
   end
 
   def verbose(lsText)
+    unless Application.color_output
+      esp = ["\e[0m", "\e[1m", "\e[32m", "\e[34m", "\e[37m", "\e[44m"]
+      esp.each { |i| lsText.gsub!(i, '') }
+    end
     puts lsText if get(:verbose)
     get(:logfile).write(lsText.to_s+"\n") if get(:logfile)
   end
