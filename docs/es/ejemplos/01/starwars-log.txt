@@ -1,7 +1,7 @@
 ==================================================
 Created by : darts-of-teacher (version 0.12.0)
 File       : starwars-log.txt
-Time       : 2016-11-30 12:39:28 +0000
+Time       : 2016-12-01 08:07:27 +0000
 Author     : David Vargas
 ==================================================
 
@@ -14,17 +14,17 @@ Author     : David Vargas
    └── Input file   = [1mdocs/es/ejemplos/01/starwars.haml[0m
 
 [INFO] Showing concept data <[1mdefault[0m>
-+---------------+-----------------------------------------------------------------+
-| [1m1[0m             | [37m[44m[1mobiwan[0m (lang=es)                                                |
-| [34mFilename[0m      | docs/es/ejemplos/01/starwars.haml                               |
-| [34mContext[0m       | personajes, starwars                                            |
-| [34mTags[0m          | maestro, jedi, profesor, anakin, skywalker, alumno, quigon-jinn |
-| [34mReference to[0m  |                                                                 |
-| [34mReferenced by[0m |                                                                 |
-| [34m.def(text)[0m    | Jedi, maestro de Anakin Skywalker                               |
-| [34m.def(images)[0m  | 0                                                               |
-| [34m.neighbors[0m    |                                                                 |
-+---------------+-----------------------------------------------------------------+
++---------------+-----------------------------------+
+| [1m1[0m             | [37m[44m[1mobiwan[0m (lang=es)                  |
+| [34mFilename[0m      | docs/es/ejemplos/01/starwars.haml |
+| [34mContext[0m       | personajes, starwars              |
+| [34mTags[0m          |                                   |
+| [34mReference to[0m  |                                   |
+| [34mReferenced by[0m |                                   |
+| [34m.def(text)[0m    | Jedi, maestro de Anakin Skywalker |
+| [34m.def(images)[0m  | 0                                 |
+| [34m.neighbors[0m    |                                   |
++---------------+-----------------------------------+
 
 
 

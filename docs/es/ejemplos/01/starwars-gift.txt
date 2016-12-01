@@ -1,7 +1,7 @@
 // ==================================================
 // Created by : darts-of-teacher (version 0.12.0)
 // File       : starwars-gift.txt
-// Time       : 2016-11-30 12:39:28 +0000
+// Time       : 2016-12-01 08:07:27 +0000
 // Author     : David Vargas
 // ==================================================
 
@@ -10,7 +10,7 @@
 // Concept name: obiwan
 // ==================================================
 // 
-::obiwan-1-d2def-mispelled::[html]<img src\="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSA8Z2xv7u8uVREJeGWG9l6d-62mMx_0Ip1ou1FTiyhRvZNXSnbkMewGuYv" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Jedi, maesteo de Anakin Skywalker</i><br/>
+::obiwan-1-d2def-mispelled::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRv72nF5M-2CBF6yqJv0iDVpnvQt7C_H1Gs25cKTrAg5iUbN-1mHx71ecw" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Jedí, maestro de Anakin Skywalker</i><br/>
 {
   =Error ortográfico
   ~%-33.33333%Verdadero
@@ -19,16 +19,16 @@
 }
 
 // 
-::obiwan-2-d2name-mispelled::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcThmiJkELj2LHQyxxx8zeDyZd7lsSUyqJo7rwPUDwJSrANKXVsnsj2ygL0f" alt="image"><br/>Definición de <b>oviwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
+::obiwan-2-d2name-mispelled::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTHXeeMtoT2yj4gO91LzHwtKSM1gRxwrVzNK5R3dW2iztZ_fCBsjtYMPg" alt="image"><br/>Definición de <b>obíwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
 {
   ~%-33.33333%Falso
-  =Error ortográfico
   ~%-33.33333%Verdadero
+  =Error ortográfico
   ####Concept name mispelled!: obiwan
 }
 
 // 
-::obiwan-3-d2true::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
+::obiwan-3-d2true::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRb9sQBjSoNpUZgOAMHCq0RpG1xAX7Fs2bAnRrCpcBOhC6-ygESeLUOMzc" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
 {
   ~%-33.33333%Error ortográfico
   =Verdadero
@@ -36,13 +36,13 @@
 }
 
 // 
-::obiwan-4-d3hidden::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQV5El88tbV9ZZ6-KT3rHyPNcAqI92GB6QkYkrlJmGLEumMI0BWOW_5tbo" alt="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+::obiwan-4-d3hidden::[html]Definición de <b>[*]</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
 {
   =%100%obiwan#
 }
 
 // 
-::obiwan-5-d4filtered::[html]<img src\="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQIhHj1snJOlGolJY8jXEeafUsW0_0ByZb4t0CRkGNYOZfjnBUoGEoz-pU" alt="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>[1] [2] de [3] [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+::obiwan-5-d4filtered::[html]Definición de <b>obiwan</b>\:<br/> <i>[1] [2] de [3] [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
   =1 -> jedi,
   =2 -> maestro
