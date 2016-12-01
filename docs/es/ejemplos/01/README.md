@@ -22,5 +22,6 @@ Vemos que aparece en pantalla la siguiente [información](./starwars.xml-log.txt
 
 ## Output
 
-Se ha generado este [fichero](./starwars.xml-gift.txt) con las preguntas en
-format Gift, preparadas para cargarse en Moodle.
+Dentro del directorio `output`, se han creado varios ficheros de salida.
+Entre ellos, el fichero [starwars-gift.txt](./starwars-gift.txt) con las preguntas
+en formato Gift, preparadas para cargarse en un cuestionario como los de Moodle.
