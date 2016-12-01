@@ -12,10 +12,10 @@ para incluir nueva información que acompaña al concepto pero
 que no puede ser "definición" porque no identifica al concepto
 (No es un valor único de dicho concepto).
 
-> Usamos definiciones para reflejar información que sólo posee dicho concepto.
+> Usamos **definiciones** para representar información que sólo posee dicho concepto.
 Es informacion única para él.
-> Usamos las tablas para reflajar información del concepto pero que se pueden
-repetir en otros conceptos del mapa conceptual.
+> Usamos las **tablas** para representar información asociada al concepto pero
+no de forma única. Estos datos se pueden repetir en otros conceptos del mapa conceptual.
 
 Por ejemplo, vamos a añadir "tabla" con información de "atributo,valor".
 Esto es un conjunto de atributos del personaje "obiwan" junto con el valor de
