@@ -1,0 +1,20 @@
+==================================================
+Created by : darts-of-teacher (version 0.12.0)
+File       : starwars-doc.txt
+Time       : 2016-12-01 11:19:22 +0000
+Author     : David Vargas
+==================================================
+
+[44m[1mobiwan[0m
+
+* Jedi, maestro de Anakin Skywalker
+* Jedi, alumno de Quigon-Jinn
+* Vive en Tatooine, cerca de la casa de Luke Skywalker
+
++-------------------+----------+
+| atributo          | valor    |
++-------------------+----------+
+| raza              | humano   |
+| color sable laser | verde    |
+| color del pelo    | pelirojo |
++-------------------+----------+
