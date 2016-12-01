@@ -1,7 +1,7 @@
 ==================================================
 Created by : darts-of-teacher (version 0.12.0)
 File       : starwars-doc.txt
-Time       : 2016-12-01 12:45:22 +0000
+Time       : 2016-12-01 11:19:22 +0000
 Author     : David Vargas
 ==================================================
 
@@ -11,15 +11,10 @@ Author     : David Vargas
 * Jedi, alumno de Quigon-Jinn
 * Vive en Tatooine, cerca de la casa de Luke Skywalker
 
-
-[44m[1myoda[0m
-
-
-
-[44m[1msidious[0m
-
-
-
-[44m[1mmaul[0m
-
-
++-------------------+----------+
+| atributo          | valor    |
++-------------------+----------+
+| raza              | humano   |
+| color sable laser | verde    |
+| color del pelo    | pelirojo |
++-------------------+----------+
