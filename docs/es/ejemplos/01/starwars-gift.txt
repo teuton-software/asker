@@ -1,7 +1,7 @@
 // ==================================================
 // Created by : darts-of-teacher (version 0.12.0)
 // File       : starwars-gift.txt
-// Time       : 2016-12-01 08:22:25 +0000
+// Time       : 2016-12-01 09:27:51 +0000
 // Author     : David Vargas
 // ==================================================
 
@@ -10,7 +10,7 @@
 // Concept name: obiwan
 // ==================================================
 // 
-::obiwan-1-d2def-mispelled::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywlaker</i><br/>
+::obiwan-1-d2def-mispelled::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, maeztro de Anakin Skywalker</i><br/>
 {
   ~%-33.33333%Verdadero
   =Error ortográfico
@@ -19,11 +19,11 @@
 }
 
 // 
-::obiwan-2-d2name-mispelled::[html]<img src\="" alt="image"><br/>Definición de <b>obiwhan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
+::obiwan-2-d2name-mispelled::[html]Definición de <b>obiwen</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
 {
-  ~%-33.33333%Falso
-  ~%-33.33333%Verdadero
   =Error ortográfico
+  ~%-33.33333%Verdadero
+  ~%-33.33333%Falso
   ####Concept name mispelled!: obiwan
 }
 
