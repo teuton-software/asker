@@ -1,22 +1,22 @@
 ==================================================
 Created by : darts-of-teacher (version 0.12.0)
 File       : starwars-log.txt
-Time       : 2016-12-01 13:02:24 +0000
+Time       : 2016-12-01 19:50:32 +0000
 Author     : David Vargas
 ==================================================
 
 [INFO] Project open
-   ├── inputdirs    = docs/es/ejemplos/05
+   ├── inputdirs    = docs/es/ejemplos/06
    └── process_file = starwars.haml
 
 [INFO] Loading input data
- * Input directory  = docs/es/ejemplos/05
-   └── Input file   = docs/es/ejemplos/05/starwars.haml
+ * Input directory  = docs/es/ejemplos/06
+   └── Input file   = docs/es/ejemplos/06/starwars.haml
 
 [INFO] Showing concept data <default>
 +---------------+-----------------------------------------------------------------+
 | 1             | obiwan (lang=es)                                                |
-| Filename      | docs/es/ejemplos/05/starwars.haml                               |
+| Filename      | docs/es/ejemplos/06/starwars.haml                               |
 | Context       | personaje, starwars                                             |
 | Tags          | maestro, jedi, profesor, anakin, skywalker, alumno, quigon-jinn |
 | Reference to  |                                                                 |
@@ -33,7 +33,7 @@ Author     : David Vargas
 
 +---------------+---------------------------------------------------------------------------+
 | 2             | yoda (lang=es)                                                            |
-| Filename      | docs/es/ejemplos/05/starwars.haml                                         |
+| Filename      | docs/es/ejemplos/06/starwars.haml                                         |
 | Context       | personaje, starwars                                                       |
 | Tags          | maestro, jedi                                                             |
 | Reference to  |                                                                           |
@@ -51,7 +51,7 @@ Author     : David Vargas
 
 +---------------+---------------------------------------------------------------------------+
 | 3             | sidious (lang=es)                                                         |
-| Filename      | docs/es/ejemplos/05/starwars.haml                                         |
+| Filename      | docs/es/ejemplos/06/starwars.haml                                         |
 | Context       | personaje, starwars                                                       |
 | Tags          | humano, maestro, sith, alumno, plagueis                                   |
 | Reference to  |                                                                           |
@@ -69,7 +69,7 @@ Author     : David Vargas
 
 +---------------+---------------------------------------------------------------------------+
 | 4             | maul (lang=es)                                                            |
-| Filename      | docs/es/ejemplos/05/starwars.haml                                         |
+| Filename      | docs/es/ejemplos/06/starwars.haml                                         |
 | Context       | personaje, starwars                                                       |
 | Tags          | lord, sith, alumno, emperador                                             |
 | Reference to  | sidious                                                                   |
