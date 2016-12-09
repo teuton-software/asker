@@ -3,6 +3,7 @@
 require_relative '../project'
 require_relative '../formatter/question_gift_formatter'
 
+# Use to export data from ConceptIA to gift format 
 class ConceptAIGiftExporter
 
   def initialize(concept_ai)
