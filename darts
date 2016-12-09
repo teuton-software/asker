@@ -17,7 +17,7 @@ class DartsCLI < Thor
   map ['v', '-v', '--version'] => 'version'
   desc 'version', 'show the program version'
   def version
-    puts Rainbow(Application::name).bright.blue+' (version '+Rainbow(Application::version).green+')'
+    puts Rainbow(Application.name).bright.blue + ' (version ' + Rainbow(Application.version).green + ')'
   end
 
   map ['e', '-e', '--editor'] => 'editor'
@@ -29,9 +29,9 @@ class DartsCLI < Thor
   map ['f', '-f', '--file'] => 'file'
   desc 'file NAME', 'Build output files, from HAML/XML input file.'
   long_desc <<-LONGDESC
-  Build output files, from HAML/XML input file.
+  Build output files, from input file (HAML/XML format).
 
-  It builds questions for contents into the HAML or XML input file specified.
+  It builds questions about contents into input file specified.
   This is the most usefull function.
   These are 3 ways of use it:
 
@@ -55,7 +55,7 @@ LONGDESC
 
 LONGDESC
   def create(projectname)
-    Builder::create_project(projectname)
+    Builder.create_project(projectname)
   end
 end
 
