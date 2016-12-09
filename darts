@@ -17,7 +17,8 @@ class DartsCLI < Thor
   map ['v', '-v', '--version'] => 'version'
   desc 'version', 'show the program version'
   def version
-    puts Rainbow(Application.name).bright.blue + ' (version ' + Rainbow(Application.version).green + ')'
+    print Rainbow(Application.name).bright.blue
+    puts  ' (version ' + Rainbow(Application.version).green + ')'
   end
 
   map ['e', '-e', '--editor'] => 'editor'
