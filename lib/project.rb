@@ -20,6 +20,7 @@ class Project
     @default[:verbose]         = true
     @default[:stages]          = { :d => true, :b => true, :f => true, :i => true, :s => true, :t => true }
     @default[:threshold]       = 0.5
+    @default[:color_output]    = false
     @param   = {}
   end
 
@@ -63,7 +64,7 @@ class Project
   end
 
   def verbose(lsText)
-    unless Application.color_output
+    unless get(:color_output)
       (0..50).each { |i| lsText.gsub!("\e[#{i}m", '') }
     end
     puts lsText if get(:verbose)

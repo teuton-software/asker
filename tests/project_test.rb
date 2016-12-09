@@ -37,7 +37,7 @@ class ProjectTest < Minitest::Test
     @project.open
     @project.set(:verbose, true)
     assert_equal 13, @project.param.size
-    assert_equal 10,  @project.default.size
+    assert_equal 11,  @project.default.size
 
     assert_equal filename, @project.get(:process_file)
     assert_equal filename, @project.process_file
