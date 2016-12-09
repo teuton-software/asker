@@ -3,17 +3,18 @@
 require_relative 'row'
 require_relative 'template'
 
+# Contains data table information
 class Table
   attr_reader :name, :id
   attr_reader :fields, :langs, :types
   attr_reader :datarows
   attr_reader :simple
 
-  def initialize(pConcept, pXMLdata)
-    @concept = pConcept
+  def initialize(concept, xml_data)
+    @concept = concept
 
     # read attributes from XML data
-    t = pXMLdata.attributes['fields'].to_s.strip.split(',')
+    t = xml_data.attributes['fields'].to_s.strip.split(',')
     t.each { |i| i.strip! }
     @fields = t || []
     @types  = ['text']        * @fields.size
@@ -25,14 +26,14 @@ class Table
     @simple = { :lang => true, :type => true }
 
     @sequence = []
-    if pXMLdata.attributes['sequence'] then
-      t = pXMLdata.attributes['sequence'].to_s || ""
+    if xml_data.attributes['sequence'] then
+      t = xml_data.attributes['sequence'].to_s || ""
       @sequence = t.split(",")
       # puts "[DEPRECATED] sequence attr on table <#{@name}>"
     end
 
     @datarows = [] #DEV experiment replace row data with row objects
-    read_data_from_xml(pXMLdata)
+    read_data_from_xml(xml_data)
     @rows = @datarows.map { |r| r.raws }
   end
 
@@ -68,14 +69,14 @@ private
     pXMLdata.elements.each do |i|
       case i.name
       when 'lang'
-        j = i.text.split(",")
-        codes = @langs.map{ |i| i.code }
+        j = i.text.split(',')
+        codes = @langs.map { |k| k.code }
 
-        if j.join(",")!=codes.join(",") then
+        if j.join(',') != codes.join(',')
           simple_off(:lang)
           @langs = []
           j.each do |k|
-            if k.strip=='*' or k.strip=='' then
+            if k.strip == '*' || k.strip == ''
               @langs << @concept.lang
             else
               @langs << LangFactory.instance.get(k.strip.to_s)
@@ -85,12 +86,12 @@ private
       when 'row'
         @datarows << Row.new(self, @datarows.size, i)
       when 'sequence'
-        @sequence= i.text.split(",")
+        @sequence = i.text.split(',')
       when 'template'
         @datarows += Template.new(self, @datarows.size, i).datarows
       when 'type'
-        j = i.text.split(",")
-        if j.join(",")!=@types.join(",") then
+        j = i.text.split(',')
+        if j.join(',') != @types.join(',')
           simple_off(:type)
           @types = []
           j.each { |k| @types << k.strip.to_s }
@@ -100,5 +101,4 @@ private
       end
     end
   end
-
 end
