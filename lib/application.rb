@@ -7,11 +7,7 @@ module Application
   end
 
   def self.version
-    '0.12.0'
-  end
-
-  def self.color_output
-    false
+    '0.13.0'
   end
 
 end
