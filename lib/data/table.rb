@@ -6,8 +6,8 @@ require_relative 'template'
 # Contains data table information
 class Table
   attr_reader :name, :id
-  attr_reader :fields, :langs, :types
-  attr_reader :datarows
+  attr_reader :fields, :langs, :types, :sequence
+  attr_reader :datarows, :rows
   attr_reader :simple
 
   def initialize(concept, xml_data)
@@ -21,12 +21,12 @@ class Table
     @langs  = [@concept.lang] * @fields.size
 
     @name   = ''
-    @fields.each { |i| @name=@name+"$"+i.to_s.strip.downcase}
-    @id    = @concept.name.to_s + "." + @name
-    @simple = { :lang => true, :type => true }
+    @fields.each { |i| @name=@name + '$' + i.to_s.strip.downcase}
+    @id     = @concept.name.to_s + '.' + @name
+    @simple = { lang: true, type: true }
 
     @sequence = []
-    if xml_data.attributes['sequence'] then
+    if xml_data.attributes['sequence']
       t = xml_data.attributes['sequence'].to_s || ""
       @sequence = t.split(",")
       # puts "[DEPRECATED] sequence attr on table <#{@name}>"
@@ -41,36 +41,28 @@ class Table
     @name.to_s
   end
 
-  def rows
-    @rows
-  end
-
   def sequence?
-    return @sequence.size>0
+    @sequence.size > 0
   end
 
-  def sequence
-    return @sequence
-  end
-
-  def types(index=:all)
-    @types = ( ["text"]*@fields.size) if @types.nil?
-    return @types if index==:all
-    return @types[index]
+  def types(index = :all)
+    @types = (['text'] * @fields.size) if @types.nil?
+    return @types if index == :all
+    @types[index]
   end
 
   def simple_off(option)
-    @simple[option]=false
+    @simple[option] = false
   end
 
-private
+  private
 
-  def read_data_from_xml(pXMLdata)
-    pXMLdata.elements.each do |i|
+  def read_data_from_xml(xml_data)
+    xml_data.elements.each do |i|
       case i.name
       when 'lang'
         j = i.text.split(',')
-        codes = @langs.map { |k| k.code }
+        codes = @langs.map(&:code)
 
         if j.join(',') != codes.join(',')
           simple_off(:lang)
@@ -97,7 +89,7 @@ private
           j.each { |k| @types << k.strip.to_s }
         end
       else
-        puts Rainbow("[ERROR] concept/table#XMLdata with #{i.name}").red.bright
+        puts Rainbow("[ERROR] concept/table#xml_data with #{i.name}").red.bright
       end
     end
   end
