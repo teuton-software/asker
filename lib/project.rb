@@ -11,12 +11,12 @@ class Project
 
   def initialize
     @default = {}
-    @default[:inputbasedir]    = "input"
-    @default[:outputdir]       = "output"
+    @default[:inputbasedir]    = 'input'
+    @default[:outputdir]       = 'output'
     @default[:category]        = :none
     @default[:formula_weights] = [1,1,1]
     @default[:lang]            = 'en'
-    @default[:locales]         = [ 'en', 'es', 'maths' ]
+    @default[:locales]         = ['en', 'es', 'maths']
     @default[:show_mode]       = :default
     @default[:verbose]         = true
     @default[:stages]          = { :d => true, :b => true, :f => true, :i => true, :s => true, :t => true }
