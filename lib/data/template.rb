@@ -25,7 +25,9 @@ class Template
     return if vars.size.zero?
     max = vars.first[1].size
     (1..max).each do |index|
-      vars.each_pair { |k,v| output += template.dup.gsub!(k,v[index-1]) }
+      t = template.dup
+      vars.each_pair { |k,v| t.gsub!(k,v[index-1]) }
+      output += t
     end
     output
   end
