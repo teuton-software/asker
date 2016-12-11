@@ -16,6 +16,7 @@ class Template
     template = ''
     v = xml.attributes
     v.keys.each { |i| vars[i]=v[i].split(',') }
+
     xml.elements.each { |i| template << i.to_s + "\n" }
     return vars, template
   end
