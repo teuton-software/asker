@@ -2,11 +2,12 @@
 
   %concept
     %names samba
-    %tags servicio, ficheros, copartir, almacenamiento, red, integración, sistemas, smb, cifs
+    %tags servicio, ficheros, compartir, almacenamiento, red, integración, sistemas, smb, cifs
     %def Es una implementación libre del protocolo de archivos compartidos de Microsoft Windows (antiguamente llamado SMB, renombrado recientemente a CIFS) para sistemas de tipo UNIX.
     %def Con [*] es posible que computadoras con GNU/Linux, Mac OS X o Unix en general se vean como servidores o actúen como clientes en redes de Windows.
     %def [*] permite validar usuarios haciendo de Controlador Principal de Dominio (PDC), en equipos GNU/Linux, como miembro de dominio e incluso como un dominio Active Directory para redes basadas en Windows.
     %def Es un software para GNU/Linux capaz de servir colas de impresión, directorios compartidos SMB/CIFS y autentificar con su propio archivo de usuarios.
+    %def El servicio [*], por defecto, hace uso de los puertos 139 y 445.
     %table{:fields => 'acción,resultado'}
       %row
         %col more /etc/samba/smb.conf
@@ -56,12 +57,14 @@
       %row
         %col smbtree
         %col Comando de GNU/Linux que muestra las máquinas y recursos SMB/CIFS accesibles por la red.
-      %row
-        %col smbclient --list SMB-SERVER
-        %col Comando de GNU/Linux que muestra los recursos SMB/CIFS del equipo SMB-SERVER
-      %row
-        %col mount -t cifs //SMB-SERVER/SHARE DIRPATH -o username=USERNAME
-        %col Comando GNU/Linux para montar el recurso SHARE del equipo SMB-SERVER en la carpeta DIRPATH.
+      %template{:HOST => 'smb-server16,172.18.16.31,192.168.1.1'}
+        %row
+          %col smbclient --list HOST
+          %col Comando de GNU/Linux que muestra los recursos SMB/CIFS del equipo HOST
+      %template{:SHARE => 'barco,castillo,aldea'}
+        %row
+          %col mount -t cifs //SMB-SERVER/SHARE DIRPATH -o username=USERNAME
+          %col Comando GNU/Linux para montar el recurso "SHARE" del equipo SMB-SERVER en la carpeta DIRPATH.
       %row
         %col mount
         %col Comando GNU/Linux para consultar los recursos montados
