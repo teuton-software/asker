@@ -3,6 +3,7 @@
 require 'singleton'
 require 'rainbow'
 require_relative 'application'
+require_relative 'formatter/string_color_filter'
 
 class Project
   include Singleton
@@ -63,12 +64,14 @@ class Project
     get(:lessonfile).close
   end
 
-  def verbose(lsText)
-    unless get(:color_output)
-      (0..50).each { |i| lsText.gsub!("\e[#{i}m", '') }
-    end
-    puts lsText if get(:verbose)
-    get(:logfile).write(lsText.to_s+"\n") if get(:logfile)
+  def verbose(p_text)
+
+#    unless get(:color_output)
+#      (0..50).each { |i| lsText.gsub!("\e[#{i}m", '') }
+#    end
+    l_text = StringColorFilter.filter(p_text)
+    puts l_text if get(:verbose)
+    get(:logfile).write(l_text.to_s + "\n") if get(:logfile)
   end
 
   def verboseln(lsText)
