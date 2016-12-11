@@ -80,9 +80,10 @@
       %row
         %col net use
         %col En Windows muestra las conexiones establecidas a recursos SMB/CIFS. Muestra las letras asignadas a las unidades montadas.
-      %row
-        %col net use S: \\SMB-SERVER\SHARE /USER:PASSWORD
-        %col Comando de Windows que establece una conexión CIFS con el recurso SHARE del equipo SMB-SERVER, y lo monta en la unidad S.
+      %template{:SHARE => 'barco,castillo,aldea'}
+        %row
+          %col net use S: \\SMB-SERVER\SHARE /USER:PASSWORD
+          %col Comando de Windows que establece una conexión CIFS con el recurso "SHARE" del equipo SMB-SERVER, y lo monta en la unidad S.
       %row
         %col net use * /d /y
         %col Comando de Windows para cerrar las conexiones SMB/CIFS que hayan.
