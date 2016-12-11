@@ -15,15 +15,15 @@
       </row>
       <row>
         <col>mount –o anon,nolock,r,casesensitive \SERVERNAME\private *</col>
-        <col>Montar el recurso NFS remoto (private), en SO Windows.</col>
+        <col>Desde un equipo con SO Windows, montar un recurso NFS remoto (private).</col>
       </row>
       <row>
         <col>umount z:</col>
-        <col>Desmontar un recurso NFS, en SO Windows.</col>
+        <col>Desde un equipo con SO Windows, desmontar un recurso NFS.</col>
       </row>
       <row>
-        <col>mount.nfs 172.16.108.227:/c/export/public /mnt/dir</col>
-        <col>Desde un cliente SO GNU/Linux, montar un recurso NFS remoto (public), en un servidor Windows.</col>
+        <col>mount.nfs 172.16.108.227:/c/export/public /mnt/remoto</col>
+        <col>Desde un cliente SO GNU/Linux, montar un recurso NFS remoto (public) alojado en un servidor Windows.</col>
       </row>
       <row>
         <col>apt-get install nfs-common nfs-kernel-server</col>
@@ -51,7 +51,7 @@
       </row>
       <row>
         <col>mount ip-del-servidor:/var/export/public /mnt/remoto/public</col>
-        <col>En GNU/Linux, montar un recurso NFS remoto (public).</col>
+        <col>Desde un equipo GNU/Linux, montar un recurso NFS remoto (public).</col>
       </row>
     </table>
   </concept>
