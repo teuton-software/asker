@@ -21,7 +21,7 @@ class Project
     @default[:verbose]         = true
     @default[:stages]          = { :d => true, :b => true, :f => true, :i => true, :s => true, :t => true }
     @default[:threshold]       = 0.5
-    @default[:color_output]    = false
+    @default[:color_output]    = true
     @param   = {}
   end
 
