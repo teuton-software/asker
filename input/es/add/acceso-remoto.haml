@@ -28,26 +28,31 @@
     %def Nombre de un protocolo y del programa que implementa intérprete de órdenes seguro.
     %def Protocolo/herramienta que sirve para acceder a máquinas remotas a través de una red de forma segura, mediante un intérprete de comandos.
     %def [*] permite tomar acceder a un ordenador remoto. Usa por defecto el puerto 22.
-    %def El servicio [*] usa por defecto el puerto 22
+    %def El servicio [*] usa por defecto el puerto 22.
     %table{ :fields => 'comando,descripción' }
       %row
         %col ssh-keygen
-        %col Generar par de claves pública/privada para el usuario actual
-      %row
-        %col scp fichero.iso usuario@host2
-        %col Copia el fichero en la máquina local, pero con otro nombre
-      %row
-        %col scp fichero.iso usuario@host2:/home/usuario
-        %col Copia el fichero en la máquina remota host2
-      %row
-        %col ssh usuario1@host2
-        %col Se intenta abrir una conexión SSH con la máquina host2 usando la cuenta del usuario1
-      %row
-        %col ssh usuario2@host1
-        %col Se intenta abrir una conexión SSH con la máquina host1 usando la cuenta del usuario2
-      %row
-        %col ssh usuario@localhost
-        %col Se intenta abrir una conexión SSH con la máquina local
+        %col Comando para generar par de claves pública/privada para el usuario actual
+      %template{:TIPOCLAVE => 'rsa,dsa,ecdsa,ed25519'}
+        %row
+          %col ssh-keygen -t TIPOCLAVE -f /etc/ssh/ssh_host_rsa_key
+          %col Comando para generar par de claves TIPOCLAVE pública/privada para el servidor SSH
+      %template{:FILENAME => 'knoppix.iso,debian.md5,jhony.zip'}
+        %row
+          %col scp FILENAME usuario@host2
+          %col Copia el fichero FILENAME en la máquina local, pero con otro nombre
+      %template{:FILENAME => 'knoppix.iso,debian.md5,jhony.zip'}
+        %row
+          %col scp FILENAME usuario@host2:/home/usuario
+          %col Copia el fichero FILENAME en la máquina remota host2
+      %template{:USERNAME => 'obiwan,yoda,vader,emperador'}
+        %row
+          %col ssh USERNAME@start
+          %col Se intenta abrir una conexión SSH con la máquina star usando la cuenta del USERNAME
+      %template{:HOSTNAME => 'localhost,leela,fry,bender,brannigan'}
+        %row
+          %col ssh usuario2@HOSTNAME
+          %col Se intenta abrir una conexión SSH con la máquina HOSTNAME usando la cuenta del usuario2
       %row
         %col ssh usuario@host2:/home/usuario
         %col Error ssh: "Could not resolve hostname"
