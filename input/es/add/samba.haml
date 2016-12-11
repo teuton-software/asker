@@ -17,36 +17,39 @@
       %row
         %col testparm
         %col Comprueba que la sintaxis del fichero de configuración de Samba es correcta y muestra todas las secciones en pantalla
-      %row
-        %col testparm --section-name SECTIONNAME
-        %col Comprueba que la sintaxis del fichero de configuración de Samba es correcta y muestra sólo la sección SECTIONNAME
-      %row
-        %col smbpasswd -a USERNAME
-        %col Crear clave de Samba para el usuario del sistema USERNAME
-      %row
-        %col smbpasswd -d USERNAME
-        %col Desabilita al usuario USERNAME en Samba
-      %row
-        %col smbpasswd -e USERNAME
-        %col Habilita al usuario USERNAME en Samba.
+      %template{:SECTIONNAME => 'barco,castillo,aldea'}
+        %row
+          %col testparm --section-name SECTIONNAME
+          %col Comprueba que la sintaxis del fichero de configuración de Samba es correcta y muestra sólo la sección SECTIONNAME
+      %template{:USERNAME => 'pirata1,soldado1,aldeano1'}
+        %row
+          %col smbpasswd -a USERNAME
+          %col Crear clave de Samba para el usuario USERNAME
+        %row
+          %col smbpasswd -d USERNAME
+          %col Desabilita al usuario USERNAME en Samba
+        %row
+          %col smbpasswd -e USERNAME
+          %col Habilita al usuario USERNAME en Samba.
       %row
         %col pdbedit -L
         %col Muestra la lista de usuarios/claves definidos en Samba.
-      %row
-        %col systemctl stop SERVICENAME
-        %col Para el servicio SERVICENAME (Sistema de servicios systemd)
-      %row
-        %col systemctl start SERVICENAME
-        %col Inicia el servicio SERVICENAME (Sistema de servicios systemd)
-      %row
-        %col systemctl status SERVICENAME
-        %col Muestra el estado del servicio SERVICENAME (Sistema de servicios systemd)
-      %row
-        %col systemctl enable SERVICENAME
-        %col Activa el servicio SERVICENAME (Sistema de servicios systemd)
-      %row
-        %col systemctl disable SERVICENAME
-        %col Desactiva el servicio SERVICENAME (Sistema de servicios systemd)
+      %template{:SERVICENAME => 'smb,nmb,sshd'}
+        %row
+          %col systemctl stop SERVICENAME
+          %col Para el servicio SERVICENAME (Sistema de servicios systemd)
+        %row
+          %col systemctl start SERVICENAME
+          %col Inicia el servicio SERVICENAME (Sistema de servicios systemd)
+        %row
+          %col systemctl status SERVICENAME
+          %col Muestra el estado del servicio SERVICENAME (Sistema de servicios systemd)
+        %row
+          %col systemctl enable SERVICENAME
+          %col Activa el servicio SERVICENAME (Sistema de servicios systemd)
+        %row
+          %col systemctl disable SERVICENAME
+          %col Desactiva el servicio SERVICENAME (Sistema de servicios systemd)
       %row
         %col smbstatus
         %col Comando de GNU/Linux que muestra información de las conexiones SMB/CIFS.
