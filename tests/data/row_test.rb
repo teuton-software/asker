@@ -2,7 +2,6 @@
 
 require "minitest/autorun"
 require 'rexml/document'
-require 'pry'
 
 require_relative "../../lib/data/concept"
 require_relative "../../lib/data/table"
@@ -48,7 +47,7 @@ class RowTest < Minitest::Test
     root_xml_data=REXML::Document.new(string_concept)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name=="concept" then
-        @concepts << Concept.new( xml_data, "input.haml")
+        @concepts << Concept.new( xml_data, 'input.haml')
       end
     end
 

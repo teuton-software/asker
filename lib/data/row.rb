@@ -1,4 +1,3 @@
-# encoding: utf-8
 
 require_relative 'column'
 
@@ -7,8 +6,8 @@ class Row
   attr_reader :langs, :types, :raws, :columns
   attr_reader :simple
 
-  def initialize( pTable, index, pXMLdata )
-    @table   = pTable
+  def initialize( table, index, xml_data )
+    @table   = table
     @index   = index
     @id      = @table.id + "." + @index.to_s
     @langs   = @table.langs
@@ -16,7 +15,7 @@ class Row
     @raws    = []
     @columns = []
     @simple  = { :lang => true, :type => true }
-    read_data_from_xml(pXMLdata)
+    read_data_from_xml(xml_data)
   end
 
   def simple_off(option)
