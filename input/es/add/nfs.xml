@@ -50,6 +50,18 @@
         <col>Iniciar el servicio NFS en SO Debian/Ubuntu.</col>
       </row>
       <row>
+        <col>systemctl status nfsserver</col>
+        <col>Consultar el estado del servicio NFS en SO OpenSUSE.</col>
+      </row>
+      <row>
+        <col>systemctl stop nfsserver</col>
+        <col>Parar el servicio NFS en SO OpenSUSE.</col>
+      </row>
+      <row>
+        <col>systemctl start nfsserver</col>
+        <col>Iniciar el servicio NFS en SO OpenSUSE.</col>
+      </row>
+      <row>
         <col>mount ip-del-servidor:/var/export/public /mnt/remoto/public</col>
         <col>Desde un equipo GNU/Linux, montar un recurso NFS remoto (public).</col>
       </row>
