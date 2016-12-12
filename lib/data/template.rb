@@ -24,8 +24,12 @@ class Template
         vars[i] = v[i].split(',')
       end
     end
-
+    # fill_vars_values(vars,mode)
     vars
+  end
+
+  def fill_vars_values(vars, mode)
+    # create sizes arrya
   end
 
   def load_template_from(xml)
