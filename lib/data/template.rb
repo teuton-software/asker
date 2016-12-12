@@ -2,10 +2,11 @@
 require 'rexml/document'
 require_relative 'row'
 
+# This class process "template" tag used by Tables
 class Template
   attr_reader :datarows
 
-  def initialize( table, index, xml )
+  def initialize(table, index, xml)
     @mode = :simple
     vars = load_vars_from(xml)
     template = load_template_from(xml)
@@ -15,13 +16,12 @@ class Template
 
   def load_vars_from(xml)
     vars = {}
-    template = ''
     v = xml.attributes
     v.keys.each do |i|
       if i == 'mode'
         @mode = v[i].to_sym
       else
-        vars[i]=v[i].split(',')
+        vars[i] = v[i].split(',')
       end
     end
 
@@ -34,13 +34,13 @@ class Template
     template
   end
 
-  def apply_vars_to_template(vars,template)
+  def apply_vars_to_template(vars, template)
     output = ''
     return if vars.size.zero?
     max = vars.first[1].size
     (1..max).each do |index|
       t = template.dup
-      vars.each_pair { |k,v| t.gsub!(k,v[index-1]) }
+      vars.each_pair { |k, v| t.gsub!(k, v[index - 1]) }
       output += t
     end
     output
