@@ -6,6 +6,7 @@ class Template
   attr_reader :datarows
 
   def initialize( table, index, xml )
+    @mode = :simple
     vars, template = load_info_from(xml)
     data_string = apply_vars_to_template(vars, template)
     @datarows = read_rows_from(table, index, data_string)
@@ -15,7 +16,13 @@ class Template
     vars = {}
     template = ''
     v = xml.attributes
-    v.keys.each { |i| vars[i]=v[i].split(',') }
+    v.keys.each do |i|
+      if i == 'mode'
+        @mode = v[i].to_sym
+      else
+        vars[i]=v[i].split(',')
+      end
+    end
 
     xml.elements.each { |i| template << i.to_s + "\n" }
     return vars, template
