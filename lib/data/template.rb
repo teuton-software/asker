@@ -7,12 +7,13 @@ class Template
 
   def initialize( table, index, xml )
     @mode = :simple
-    vars, template = load_info_from(xml)
+    vars = load_vars_from(xml)
+    template = load_template_from(xml)
     data_string = apply_vars_to_template(vars, template)
     @datarows = read_rows_from(table, index, data_string)
   end
 
-  def load_info_from(xml)
+  def load_vars_from(xml)
     vars = {}
     template = ''
     v = xml.attributes
@@ -24,8 +25,13 @@ class Template
       end
     end
 
+    vars
+  end
+
+  def load_template_from(xml)
+    template = ''
     xml.elements.each { |i| template << i.to_s + "\n" }
-    return vars, template
+    template
   end
 
   def apply_vars_to_template(vars,template)
