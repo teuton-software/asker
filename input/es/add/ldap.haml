@@ -1,4 +1,4 @@
-%map{ :version => '1', :lang => 'es', :context=>'protocolo, directorio, datos, red, ldap' }
+%map{ :version => '1', :lang => 'es', :context=>'protocolo, directorio, datos, red, ldap, compartir, datos, integración' }
 
   %concept
     %names ldap
@@ -7,6 +7,7 @@
     %def [*] hace referencia a un protocolo que permite el acceso a un servicio de directorio ordenado y distribuido en un entorno de red.
     %def El servicio [*] usa por defecto el puerto 389 para conexiones no seguras.
     %def El servicio [*] usa por defecto el puerto 636 para las conexiones seguras SSL.
+    %def Un directorio [*] es un conjunto de objetos con atributos organizados en una manera lógica y jerárquica.
     %table{:fields => 'características'}
       %row Se considera una base de datos aunque su sistema de almacenamiento puede ser diferente.
       %row Es óptimo para hacer muchas consultas de datos en poco tiempo.
@@ -14,4 +15,29 @@
       %row Habitualmente, almacena la información de autenticación (usuario y contraseña)
       %row [*] usa por defecto el puerto 389 para conexiones no seguras.
       %row [*] usa por defecto el puerto 636 para las conexiones seguras SSL.
-    %def Un directorio [*] es un conjunto de objetos con atributos organizados en una manera lógica y jerárquica.
+    %table{:fields => 'atributo,valor'}
+      %row
+        %col LDAP/host URI
+        %col ldap://ldap-serverXX
+      %row
+        %col LDAP port
+        %col 389
+      %row
+        %col Base DN
+        %col dc=nombre-alumnoXX,dc=curso1617
+      %row
+        %col Administrator DN
+        %col cn=Administrator,dc=nombre-alumnoXX,dc=curso1617
+      %row
+        %col LDAP Schema
+        %col rfc2307bis
+    %table{:fields => 'comando,descripción'}
+      %row
+        %col zypper in yast2-auth-server
+        %col En OpenSUSE instala módulo de Yast para la gestión de autenticación en el servidor
+      %row
+        %col zypper in yast2-auth-client
+        %col En OpenSUSE instala módulo de Yast para la gestión de autenticación en el cliente
+      %row
+        %col gq
+        %col Iniciar un programa LDAP browser
