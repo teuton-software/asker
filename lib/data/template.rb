@@ -29,7 +29,7 @@ class Template
   end
 
   def fill_vars_values(vars, mode)
-    # create sizes arrya
+    # create sizes array
   end
 
   def load_template_from(xml)

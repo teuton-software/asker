@@ -3,7 +3,7 @@
 
 # Define tasks
 
-desc 'Installation'
+desc 'Default'
 task default: :check do
 end
 
