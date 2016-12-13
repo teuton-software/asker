@@ -1,0 +1,17 @@
+%map{ :version => '1', :lang => 'es', :context=>'protocolo, directorio, datos, red, ldap' }
+
+  %concept
+    %names ldap
+    %tags protocolo,ligero,acceder,diretorio,directorios
+    %def [*] son las siglas de Lightweight Directory Access Protocol (en español Protocolo Ligero/Simplificado de Acceso a Directorios)
+    %def [*] hace referencia a un protocolo que permite el acceso a un servicio de directorio ordenado y distribuido en un entorno de red.
+    %def El servicio [*] usa por defecto el puerto 389 para conexiones no seguras.
+    %def El servicio [*] usa por defecto el puerto 636 para las conexiones seguras SSL.
+    %table{:fields => 'características'}
+      %row Se considera una base de datos aunque su sistema de almacenamiento puede ser diferente.
+      %row Es óptimo para hacer muchas consultas de datos en poco tiempo.
+      %row No es óptimo para hacer muchas escrituras de datos.
+      %row Habitualmente, almacena la información de autenticación (usuario y contraseña)
+      %row [*] usa por defecto el puerto 389 para conexiones no seguras.
+      %row [*] usa por defecto el puerto 636 para las conexiones seguras SSL.
+    %def Un directorio [*] es un conjunto de objetos con atributos organizados en una manera lógica y jerárquica.
