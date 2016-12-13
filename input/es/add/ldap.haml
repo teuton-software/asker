@@ -15,7 +15,7 @@
       %row Habitualmente, almacena la información de autenticación (usuario y contraseña)
       %row [*] usa por defecto el puerto 389 para conexiones no seguras.
       %row [*] usa por defecto el puerto 636 para las conexiones seguras SSL.
-    %table{:fields => 'atributo,valor'}
+    %table{:fields => 'parámetro,valor'}
       %row
         %col LDAP/host URI
         %col ldap://ldap-serverXX
@@ -23,11 +23,17 @@
         %col LDAP port
         %col 389
       %row
-        %col Base DN
+        %col DN base
         %col dc=nombre-alumnoXX,dc=curso1617
       %row
-        %col Administrator DN
+        %col DN del usuario Administrator
         %col cn=Administrator,dc=nombre-alumnoXX,dc=curso1617
+      %row
+        %col DN del usuario pirata21
+        %col uid=pirata21,ou=people,dc=nombre-alumnoXX,dc=curso1617
+      %row
+        %col Directorio por defecto de la base de datos
+        %col /var/lib/ldap
       %row
         %col LDAP Schema
         %col rfc2307bis
@@ -41,3 +47,12 @@
       %row
         %col gq
         %col Iniciar un programa LDAP browser
+      %row
+        %col systemctl status slapd
+        %col Consultar el estado del servidor LDAP (systemd)
+      %row
+        %col systemctl start slapd
+        %col Iniciar el servidor LDAP (systemd)
+      %row
+        %col systemctl stop slapd
+        %col Parar el servidor LDAP (systemd)
