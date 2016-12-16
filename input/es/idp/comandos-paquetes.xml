@@ -21,89 +21,93 @@
 			</row>
 		</table>
 		<table fields='acción,resultado'>
-			<row>
+      <template PACKAGENAME='nano,tree,geany,wget'>
+  			<row>
+	  			<col>apt-cache search PACKAGENAME</col>
+		  		<col>Buscar el paquete PACKAGENAME Debian en los repositorios.</col>
+		  	</row>
+			  <row>
+				  <col>apt-get install PACKAGENAME</col>
+	  			<col>Instalar el paquete PACKAGENAME Debian desde los repositorios.</col>
+	  		</row>
+  			<row>
+	  			<col>apt-get remove PACKAGENAME</col>
+		  		<col>Desinstalar el paquete PACKAGENAME Debian.</col>
+  			</row>
+	  		<row>
+		  		<col>zypper search PACKAGENAME</col>
+			  	<col>Buscar el paquete PACKAGENAME OpenSUSE en los repositorios.</col>
+	  		</row>
+  			<row>
+	  			<col>zypper install PACKAGENAME</col>
+		  		<col>Instalar el paquete PACKAGENAME OpenSUSE desde los repositorios.</col>
+	  		</row>
+        <row>
+  				<col>zypper rm PACKAGENAME</col>
+  		    <col>Eliminar el paquete PACKAGENAME de OpenSUSE, pero no toca las dependencias.</col>
+  			</row>
+  			<row>
+  				<col>zypper rm --clean-deps PACKAGENAME</col>
+  				<col>Eliminar el paquete PACKAGENAME de OpenSUSE y también eliminar las dependencias de estos que no sean necesarias en el sistema.</col>
+  			</row>
+        <row>
+  				<col>rpm -i PACKAGENAME.rpm</col>
+  				<col>Instalar paquete PACKAGENAME a partir de un fichero conformato RPM.</col>
+  			</row>
+  			<row>
+  				<col>rpm -U PACKAGENAME.rpm</col>
+  				<col>Actualizar paquete PACKAGENAME desde un fichero con formato RPM.</col>
+  			</row>
+        <row>
+  				<col>rpm -q PACKAGENAME</col>
+  				<col>Consultar el estado del paquete PACKAGENAME en OpenSUSE/Red Hat.</col>
+  			</row>
+        <row>
+  				<col>dpkg --install PACKAGENAME.deb</col>
+  				<col>Instalar el paquete PACKAGENAME desde un fichero con formato Debian.</col>
+  			</row>
+        <row>
+  				<col>dpkg --status PACKAGENAME</col>
+  				<col>Consultar el estado de un paquete PACKAGENAME Debian.</col>
+  			</row>
+      </template>
+      <template FILEPATH='/bin/cp,/usr/bin/ruby,/sbin/ifconfig'>
+        <row>
+	  			<col>rpm -qf FILEPATH</col>
+		  		<col>Averiguar qué paquete RPM instaló el fichero FILEPATH.</col>
+			  </row>
+        <row>
+	  			<col>dpkg --search FILEPATH</col>
+		  		<col>Averiguar qué paquete Debian instaló el fichero FILEPATH.</col>
+		  	</row>
+      </template>
+      <row>
 				<col>apt-get update</col>
 				<col>Actualizar el catálogo de paquetes Debian disponibles.</col>
-			</row>
-			<row>
-				<col>apt-cache search PACKAGENAME</col>
-				<col>Buscar el paquete PACKAGENAME Debian concreto en los repositorios.</col>
-			</row>
-			<row>
-				<col>apt-get install PACKAGENAME</col>
-				<col>Instalar el paquete PACKAGENAME Debian concreto desde los repositorios.</col>
-			</row>
-			<row>
-				<col>apt-get remove PACKAGENAME</col>
-				<col>Desinstalar el paquete PACKAGENAME Debian.</col>
-			</row>
-			<row>
-				<col>apt-get upgrade</col>
-				<col>Actualizar todos los paquetes Debian.</col>
-			</row>
-			<row>
-				<col>zypper refresh</col>
-				<col>Actualizar el catálogo de paquetes OpenSUSE disponibles.</col>
-			</row>
-			<row>
-				<col>zypper search PACKAGENAME</col>
-				<col>Buscar el paquete PACKAGENAME OpenSUSE concreto en los repositorios.</col>
-			</row>
-			<row>
-				<col>zypper install PACKAGENAME</col>
-				<col>Instalar el paquete PACKAGENAME OpenSUSE concreto desde los repositorios.</col>
 			</row>
 			<row>
 				<col>zypper update</col>
 				<col>Actualizar todos los paquetes OpenSUSE.</col>
 			</row>
-			<row>
-				<col>zypper rm PACKAGENAME</col>
-		    <col>Eliminar el paquete PACKAGENAME de OpenSUSE, pero no toca las dependencias.</col>
+      <row>
+				<col>apt-get upgrade</col>
+				<col>Actualizar todos los paquetes Debian.</col>
 			</row>
-			<row>
-				<col>zypper rm --clean-deps PACKAGENAME</col>
-				<col>Eliminar el paquete PACKAGENAME de OpenSUSE y también eliminar las dependencias de estos que no sean necesarias en el sistema.</col>
+      <row>
+				<col>zypper refresh</col>
+				<col>Actualizar el catálogo de paquetes OpenSUSE disponibles.</col>
 			</row>
 			<row>
 				<col>zypper lr</col>
 				<col>Lista los repositorios de instalación de paquetes definidos en nuestra máquina OpenSUSE.</col>
 			</row>
 			<row>
-				<col>rpm -i PACKAGENAME.rpm</col>
-				<col>Instalar paquete PACKAGENAME a partir de un fichero conformato RPM.</col>
-			</row>
-			<row>
-				<col>rpm -U PACKAGENAME.rpm</col>
-				<col>Actualizar paquete PACKAGENAME desde un fichero con formato RPM.</col>
-			</row>
-			<row>
 				<col>rpm -qa</col>
 				<col>Listar los paquetes RPM instalados.</col>
 			</row>
 			<row>
-				<col>rpm -q PACKAGENAME</col>
-				<col>Consultar el estado del paquete PACKAGENAME en OpenSUSE/Red Hat.</col>
-			</row>
-			<row>
-				<col>rpm -qf --search FILEPATH</col>
-				<col>Averiguar qué paquete RPM instaló el fichero FILEPATH.</col>
-			</row>
-			<row>
-				<col>dpkg --install PACKAGENAME.deb</col>
-				<col>Instalar el paquete PACKAGENAME desde un fichero con formato Debian.</col>
-			</row>
-			<row>
 				<col>dpkg --list</col>
 				<col>Listar los paquetes Debian instalados.</col>
-			</row>
-			<row>
-				<col>dpkg --status PACKAGENAME</col>
-				<col>Consultar el estado de un paquete PACKAGENAME Debian.</col>
-			</row>
-			<row>
-				<col>dpkg --search FILEPATH</col>
-				<col>Averiguar qué paquete Debian instaló el fichero FILEPATH.</col>
 			</row>
 		</table>
   </concept>
