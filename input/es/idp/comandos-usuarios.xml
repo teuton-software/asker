@@ -414,7 +414,7 @@
  			  </row>
 				<row>
  				  <col>net localgroup GROUPNAME</col>
- 				  <col>Muestra los miembros del grupo GROUPNAME en un SO Windows.</col>
+ 				  <col>Muestra los miembros del grupo local GROUPNAME en un SO Windows.</col>
  			  </row>
 		  </template>
 		  <template GROUPNAME='jedis,siths' USERNAME='obiwan,vader'>
