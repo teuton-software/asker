@@ -399,8 +399,12 @@
     <table fields='acción,resultado'>
 			<template USERNAME='jedi1,sith1'>
 			  <row>
-				  <col>net user USERNAME /add</col>
-				  <col>Crear el usuario USERNAME en un SO Windows.</col>
+				  <col>net user USERNAME 123456 /add</col>
+				  <col>Crear el usuario USERNAME con clave 123456 en un SO Windows.</col>
+			  </row>
+				<row>
+				  <col>net user USERNAME</col>
+				  <col>Muestra información del usuario local USERNAME en un SO Windows.</col>
 			  </row>
 		  </template>
 		  <template GROUPNAME='jedis,siths'>
@@ -418,6 +422,10 @@
 		  <row>
 		  	<col>net localgroup</col>
 	  		<col>Mostrar una listado con los grupos locales en un SO Windows.</col>
+  		</row>
+			<row>
+		  	<col>net user</col>
+	  		<col>Mostrar una listado con los usuarios locales en un SO Windows.</col>
   		</row>
 		</table>
   </concept>
