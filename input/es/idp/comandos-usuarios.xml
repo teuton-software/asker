@@ -374,14 +374,16 @@
 		<tags>eliminar, borrar, quitar, usuario</tags>
 		<def>Es un comando para eliminar un usuario del sistema.</def>
 		<table fields='acción,resultado'>
-			<row>
-				<col>userdel -r palpatine</col>
-				<col>Elimina el usuario especificado junto con su directorio home.</col>
-			</row>
-			<row>
-				<col>userdel maul</col>
-				<col>Elimina el usuario especificado del sistema, pero no sus datos.</col>
-			</row>
+			<template USERNAME='obiwan,yoda,vader,emperador'>
+			  <row>
+				  <col>userdel USERNAME</col>
+				  <col>Elimina el usuario USERNAME del sistema, pero no sus datos.</col>
+			 </row>
+			 <row>
+ 				<col>userdel -r USERNAME</col>
+ 				<col>Elimina el usuario USERNAME junto con su directorio home.</col>
+ 			</row>
+		 </template>
 		</table>
 	</concept>
 
@@ -390,5 +392,34 @@
 		<tags>crear, grupo</tags>
 		<def>Es un comando para crear nuevos grupos de usuarios.</def>
 	</concept>
+
+	<concept>
+		<names>Comandos de Windows</names>
+		<tags>conjunto,comandos, sistema, operativo, windows</tags>
+    <table fields='acción,resultado'>
+			<template USERNAME='obiwan,yoda,vader,emperador'>
+			  <row>
+				  <col>net user USERNAME /add</col>
+				  <col>Crear el usuario USERNAME en un SO Windows.</col>
+			  </row>
+		  </template>
+		  <template GROUPNAME='jedis,siths,stormtroopers,rebeldes'>
+			  <row>
+ 				  <col>net localgroup GROUPNAME /add</col>
+ 				  <col>Crear el grupo GROUPNAME en un SO Windows.</col>
+ 			  </row>
+		  </template>
+		  <template GROUPNAME='jedis,jedis,siths,siths' USERNAME='obiwan,yoda,vader,emperador'>
+			  <row>
+ 				  <col>net localgroup GROUPNAME USERNAME /add</col>
+ 				  <col>Incluir el usuario USERNAME como miembro del grupo GROUPNAME en un SO Windows.</col>
+ 			  </row>
+		  </template>
+		  <row>
+		  	<col>net localgroup</col>
+	  		<col>Mostrar una listado con los grupos locales en un SO Windows.</col>
+  		</row>
+		</table>
+  </concept>
 
 </map>
