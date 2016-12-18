@@ -412,8 +412,12 @@
  				  <col>net localgroup GROUPNAME /add</col>
  				  <col>Crear el grupo GROUPNAME en un SO Windows.</col>
  			  </row>
+				<row>
+ 				  <col>net localgroup GROUPNAME</col>
+ 				  <col>Muestra los miembros del grupo GROUPNAME en un SO Windows.</col>
+ 			  </row>
 		  </template>
-		  <template GROUPNAME='jedis,siths' USERNAME='obiwan,emperador'>
+		  <template GROUPNAME='jedis,siths' USERNAME='obiwan,vader'>
 			  <row>
  				  <col>net localgroup GROUPNAME USERNAME /add</col>
  				  <col>Incluir el usuario USERNAME como miembro del grupo GROUPNAME en un SO Windows.</col>
@@ -427,6 +431,12 @@
 		  	<col>net user</col>
 	  		<col>Mostrar una listado con los usuarios locales en un SO Windows.</col>
   		</row>
+			<template USERNAME='yoda,emperador'>
+				<row>
+			  	<col>net user USERNAME</col>
+		  		<col>Mostra la información del usuario local USERNAME en un SO Windows.</col>
+	  		</row>
+			</template>
 		</table>
   </concept>
 </map>
