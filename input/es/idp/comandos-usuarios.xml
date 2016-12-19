@@ -240,11 +240,11 @@
 			</row>
 			<row>
 				<col>-rw-r--r--</col>
-				<col>Escribir 10 caractéres que representen un fichero regular que puede ser modificado por el propietario. Todos los usuarios pueden leerlo.</col>
+				<col>Escribir 10 caractéres que representen un fichero regular que puede ser leído y modificado por el propietario. Todos los usuarios pueden leerlo.</col>
 			</row>
 			<row>
 				<col>-rwxr-xr-x</col>
-				<col>Escribir 10 caractéres que representen un fichero regular que puede ser modificado por el propietario. Todos los usuarios pueden leerlo y ejecutarlo.</col>
+				<col>Escribir 10 caractéres que representen un fichero regular con todos los permisos para el propietario. Todos los usuarios pueden leerlo y ejecutarlo.</col>
 			</row>
 			<row>
 				<col>-rw-rw----</col>
