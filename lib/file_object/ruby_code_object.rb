@@ -1,15 +1,19 @@
 
 require_relative 'file_object'
+require_relative 'utils'
+require_relative '../ai/question'
 
 class RubyCodeObject
   attr_reader :filename, :type
+  attr_accessor :description, :process
 
   def initialize(filename)
     @filename = filename
     @type = :rubycode
-    @lines = FileObject.load(@filename)
-    @output = ''
-    @log = []
+    @process = true
+    @lines = Utils.load(@filename)
+    @questions = []
+    @output = '' #FIXME
   end
 
   def debug
@@ -25,7 +29,7 @@ class RubyCodeObject
     puts @output
   end
 
-  def make_errors
+  def make_questions_from_ai
     make_comment_error
     make_string_error
     make_keyword_error
@@ -37,7 +41,7 @@ class RubyCodeObject
       error_lines << index if line.include?('#')
     end
     error_lines.each do |index|
-      lines = FileObject.clone_array @lines
+      lines = Utils.clone_array @lines
       lines[index].sub!('#','').strip!
       @output << "make comment error (line #{index})\n"
       lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
@@ -50,7 +54,7 @@ class RubyCodeObject
       error_lines << index if line.include?("'")
     end
     error_lines.each do |index|
-      lines = FileObject.clone_array @lines
+      lines = Utils.clone_array @lines
       lines[index].sub!("'",'')
       @output << "make string error (line #{index})\n"
       lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
@@ -63,11 +67,10 @@ class RubyCodeObject
       error_lines << index if line.include?("end")
     end
     error_lines.each do |index|
-      lines = FileObject.clone_array @lines
+      lines = Utils.clone_array @lines
       lines[index].sub!('end','edn')
       @output << "make keyword error (line #{index})\n"
       lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
     end
   end
-
 end
