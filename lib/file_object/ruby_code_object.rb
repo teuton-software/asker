@@ -1,10 +1,13 @@
-#!/usr/bin/ruby
 
-class CodeObject
+require_relative 'file_object'
+
+class RubyCodeObject
+  attr_reader :filename, :type
 
   def initialize(filename)
     @filename = filename
-    @lines = load(@filename)
+    @type = :rubycode
+    @lines = FileObject.load(@filename)
     @output = ''
     @log = []
   end
@@ -22,18 +25,6 @@ class CodeObject
     puts @output
   end
 
-  def load(filename)
-    return if filename.nil?
-    content = File.read(filename)
-    content.split("\n")
-  end
-
-  def clone_data
-    lines = []
-    @lines.each { |line| lines << line.dup }
-    lines
-  end
-
   def make_errors
     make_comment_error
     make_string_error
@@ -46,7 +37,7 @@ class CodeObject
       error_lines << index if line.include?('#')
     end
     error_lines.each do |index|
-      lines = clone_data
+      lines = FileObject.clone_array @lines
       lines[index].sub!('#','').strip!
       @output << "make comment error (line #{index})\n"
       lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
@@ -59,7 +50,7 @@ class CodeObject
       error_lines << index if line.include?("'")
     end
     error_lines.each do |index|
-      lines = clone_data
+      lines = FileObject.clone_array @lines
       lines[index].sub!("'",'')
       @output << "make string error (line #{index})\n"
       lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
@@ -72,7 +63,7 @@ class CodeObject
       error_lines << index if line.include?("end")
     end
     error_lines.each do |index|
-      lines = clone_data
+      lines = FileObject.clone_array @lines
       lines[index].sub!('end','edn')
       @output << "make keyword error (line #{index})\n"
       lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
@@ -80,7 +71,3 @@ class CodeObject
   end
 
 end
-
-#c = CodeObject.new('lib/application.rb')
-#c.make_errors
-#c.debug

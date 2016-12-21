@@ -1,13 +1,11 @@
-#!/usr/bin/ruby
 
-require_relative 'code_object'
+require_relative 'ruby_code_object'
 
-class FileObject
-
-  def initialize(filename,type)
+module FileObject
+  def self.factory(filename,type)
     case type
     when :rubycode
-      return RubyCodeObject.new(filename, type)
+      return RubyCodeObject.new(filename)
     end
     nil
   end
