@@ -23,6 +23,7 @@ class Tool
   def initialize
     @concepts = []
     @concepts_ai = []
+    @file_objects = []
   end
 
   def start(args = {})

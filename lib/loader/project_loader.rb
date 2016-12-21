@@ -1,7 +1,5 @@
-# encoding: utf-8
 
 require 'yaml'
-
 require_relative '../project'
 
 class ProjectLoader

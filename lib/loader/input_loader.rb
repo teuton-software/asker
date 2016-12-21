@@ -20,15 +20,14 @@ class InputLoader
     return @concepts
   end
 
-  def find_neighbors_for_every_concept
-    @concepts.each do |i|
-      @concepts.each do |j|
-        if (i.id!=j.id) then
-          i.try_adding_neighbor(j)
-          i.try_adding_references(j)
-        end
-      end
-    end
-  end
-
+#  def find_neighbors_for_every_concept
+#    @concepts.each do |i|
+#      @concepts.each do |j|
+#        if (i.id!=j.id) then
+#          i.try_adding_neighbor(j)
+#          i.try_adding_references(j)
+#        end
+#      end
+#    end
+#  end
 end
