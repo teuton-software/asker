@@ -81,6 +81,6 @@ class CodeObject
 
 end
 
-c = CodeObject.new('lib/application.rb')
-c.make_errors
-c.debug
+#c = CodeObject.new('lib/application.rb')
+#c.make_errors
+#c.debug
