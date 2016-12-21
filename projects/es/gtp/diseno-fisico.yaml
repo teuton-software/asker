@@ -1,0 +1,3 @@
+---
+:inputdirs: 'input/es/add,input/es/idp,input/es/fuw,input/es/gtb'
+:process_file: 'diseno-fisico.haml'
