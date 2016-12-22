@@ -1,18 +1,24 @@
-
-require_relative 'utils'
+require_relative 'object_ai_factory'
 require_relative '../ai/question'
 
 class DataObject
   attr_reader :filename, :type
   attr_accessor :description, :process
+  attr_reader :lines
 
-  def initialize(filename)
+  def initialize(filename,type)
     @filename = filename
-    @type = :rubycode
+    @type = type
     @process = true
-    @lines = Utils.load(@filename)
+    @lines = load(@filename)
     @questions = []
-    @output = '' #FIXME
+    @object_ai = ObjectAIFactory.get(type)
+  end
+
+  def load(filename)
+    return if filename.nil?
+    content = File.read(filename)
+    content.split("\n")
   end
 
   def debug
@@ -24,52 +30,8 @@ class DataObject
     @lines.each_with_index do |line,index|
       puts "[%2d] #{line}"%index
     end
-    puts "[INFO] Output:"
-    puts @output
   end
 
-  def make_questions_from_ai
-    make_comment_error
-    make_string_error
-    make_keyword_error
-  end
-
-  def make_comment_error
-    error_lines = []
-    @lines.each_with_index do |line,index|
-      error_lines << index if line.include?('#')
-    end
-    error_lines.each do |index|
-      lines = Utils.clone_array @lines
-      lines[index].sub!('#','').strip!
-      @output << "make comment error (line #{index})\n"
-      lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
-    end
-  end
-
-  def make_string_error
-    error_lines = []
-    @lines.each_with_index do |line,index|
-      error_lines << index if line.include?("'")
-    end
-    error_lines.each do |index|
-      lines = Utils.clone_array @lines
-      lines[index].sub!("'",'')
-      @output << "make string error (line #{index})\n"
-      lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
-    end
-  end
-
-  def make_keyword_error
-    error_lines = []
-    @lines.each_with_index do |line,index|
-      error_lines << index if line.include?("end")
-    end
-    error_lines.each do |index|
-      lines = Utils.clone_array @lines
-      lines[index].sub!('end','edn')
-      @output << "make keyword error (line #{index})\n"
-      lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
-    end
+  def make_questions
   end
 end

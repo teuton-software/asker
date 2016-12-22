@@ -8,28 +8,14 @@ class RubyCodeAI
     @filename = data_object.filename
     @type = :rubycode
     @process = data_object.process
-    @lines = load(@filename)
+    @lines = data_object.lines
     @questions = []
     @output = '' #FIXME
   end
 
   def debug
-    puts "[INFO] Params:"
-    puts "  * filename : #{@filename}"
-    puts "  * lines    : #{@lines.size}"
-    puts "\n"
-    puts "[INFO] Source code:"
-    @lines.each_with_index do |line,index|
-      puts "[%2d] #{line}"%index
-    end
     puts "[INFO] Output:"
     puts @output
-  end
-
-  def load(filename)
-    return if filename.nil?
-    content = File.read(filename)
-    content.split("\n")
   end
 
   def clone_array(array)

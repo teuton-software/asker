@@ -1,6 +1,6 @@
 
-require_relative 'object_factory'
+require_relative 'data_object'
 
-c = ObjectFactory.get('lib/application.rb', :rubycode)
+c = DataObject.new('lib/application.rb', :rubycode)
 c.make_questions
 c.debug
