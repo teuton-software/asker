@@ -1,5 +1,4 @@
 require_relative 'object_ai_factory'
-require_relative '../ai/question'
 
 class DataObject
   attr_reader :filename, :type
@@ -12,7 +11,7 @@ class DataObject
     @process = true
     @lines = load(@filename)
     @questions = []
-    @object_ai = ObjectAIFactory.get(type)
+    @object_ai = ObjectAIFactory.get(self)
   end
 
   def load(filename)
@@ -30,8 +29,10 @@ class DataObject
     @lines.each_with_index do |line,index|
       puts "[%2d] #{line}"%index
     end
+    @object_ai.debug
   end
 
   def make_questions
+    @object_ai.make_questions
   end
 end

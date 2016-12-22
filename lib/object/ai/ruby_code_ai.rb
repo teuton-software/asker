@@ -1,5 +1,5 @@
 
-require_relative '../ai/question'
+require_relative '../../ai/question'
 
 class RubyCodeAI
 
@@ -24,7 +24,7 @@ class RubyCodeAI
     out
   end
 
-  def make_questions_from_ai
+  def make_questions
     make_comment_error
     make_string_error
     make_keyword_error
@@ -36,7 +36,7 @@ class RubyCodeAI
       error_lines << index if line.include?('#')
     end
     error_lines.each do |index|
-      lines = Utils.clone_array @lines
+      lines = clone_array @lines
       lines[index].sub!('#','').strip!
       @output << "make comment error (line #{index})\n"
       lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
@@ -49,7 +49,7 @@ class RubyCodeAI
       error_lines << index if line.include?("'")
     end
     error_lines.each do |index|
-      lines = Utils.clone_array @lines
+      lines = clone_array @lines
       lines[index].sub!("'",'')
       @output << "make string error (line #{index})\n"
       lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
@@ -62,7 +62,7 @@ class RubyCodeAI
       error_lines << index if line.include?("end")
     end
     error_lines.each do |index|
-      lines = Utils.clone_array @lines
+      lines = clone_array @lines
       lines[index].sub!('end','edn')
       @output << "make keyword error (line #{index})\n"
       lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
