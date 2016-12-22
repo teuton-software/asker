@@ -1,17 +1,14 @@
 
-require_relative 'file_object'
-require_relative 'utils'
 require_relative '../ai/question'
 
-class RubyCodeObject
-  attr_reader :filename, :type
-  attr_accessor :description, :process
+class RubyCodeAI
 
-  def initialize(filename)
-    @filename = filename
+  def initialize(data_object)
+    @data_object = data_object
+    @filename = data_object.filename
     @type = :rubycode
-    @process = true
-    @lines = Utils.load(@filename)
+    @process = data_object.process
+    @lines = load(@filename)
     @questions = []
     @output = '' #FIXME
   end
@@ -27,6 +24,18 @@ class RubyCodeObject
     end
     puts "[INFO] Output:"
     puts @output
+  end
+
+  def load(filename)
+    return if filename.nil?
+    content = File.read(filename)
+    content.split("\n")
+  end
+
+  def clone_array(array)
+    out = []
+    array.each { |item| out << item.dup }
+    out
   end
 
   def make_questions_from_ai
