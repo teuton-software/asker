@@ -1,21 +1,23 @@
 
+require_relative '../../lang/lang_factory'
 require_relative '../../ai/question'
 
 class RubyCodeAI
-
   def initialize(data_object)
     @data_object = data_object
-    @filename = data_object.filename
-    @type = :rubycode
-    @process = data_object.process
     @lines = data_object.lines
+    @lang = LangFactory.instance.get(:es)
+    @num = 0
     @questions = []
     @output = '' #FIXME
   end
 
-  def debug
-    puts "[INFO] Output:"
-    puts @output
+  def name
+    @data_object.filename
+  end
+
+  def num
+    @num+=1
   end
 
   def clone_array(array)
@@ -25,7 +27,7 @@ class RubyCodeAI
   end
 
   def make_questions
-    make_comment_error
+    @questions += make_comment_error
     make_string_error
     make_keyword_error
   end
@@ -35,12 +37,21 @@ class RubyCodeAI
     @lines.each_with_index do |line,index|
       error_lines << index if line.include?('#')
     end
+
     error_lines.each do |index|
       lines = clone_array @lines
       lines[index].sub!('#','').strip!
-      @output << "make comment error (line #{index})\n"
-      lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
+
+      q=Question.new(:short)
+      q.name="#{name}-#{num}-d1choose"
+      q.text= @lang.text_for(:d1,t)
+      q.good=name
+      q.bads << lang.text_for(:none)
+      q.bads << a[2]
+      q.bads << a[3]
+      questions << q
     end
+    questions
   end
 
   def make_string_error
