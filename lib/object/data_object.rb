@@ -20,6 +20,10 @@ class DataObject
     content.split("\n")
   end
 
+  def make_questions
+    @object_ai.make_questions
+  end
+
   def debug
     puts "[INFO] Params:"
     puts "  * filename : #{@filename}"
@@ -30,9 +34,5 @@ class DataObject
       puts "[%2d] #{line}"%index
     end
     @object_ai.debug
-  end
-
-  def make_questions
-    @object_ai.make_questions
   end
 end
