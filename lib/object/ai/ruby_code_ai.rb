@@ -53,7 +53,7 @@ class RubyCodeAI
       q = Question.new(:short)
       q.name = "#{name}-#{num}-code1comment"
       q.text = @lang.text_for(:code1,lines_to_s(lines))
-      q.good = index
+      q.good = (index+1)
       questions << q
     end
     questions
