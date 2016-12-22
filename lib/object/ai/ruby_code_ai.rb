@@ -6,7 +6,7 @@ class RubyCodeAI
   def initialize(data_object)
     @data_object = data_object
     @lines = data_object.lines
-    @lang = LangFactory.instance.get(:es)
+    @lang = LangFactory.instance.get('es')
     @num = 0
     @questions = []
     @output = '' #FIXME
@@ -26,6 +26,13 @@ class RubyCodeAI
     out
   end
 
+  def lines_to_s(lines)
+    out = ''
+    lines.each_with_index do |line,index|
+        out << "[%2d] #{line}\n"%(index+1)
+    end
+  end
+
   def make_questions
     @questions += make_comment_error
     make_string_error
@@ -34,6 +41,7 @@ class RubyCodeAI
 
   def make_comment_error
     error_lines = []
+    questions = []
     @lines.each_with_index do |line,index|
       error_lines << index if line.include?('#')
     end
@@ -42,13 +50,10 @@ class RubyCodeAI
       lines = clone_array @lines
       lines[index].sub!('#','').strip!
 
-      q=Question.new(:short)
-      q.name="#{name}-#{num}-d1choose"
-      q.text= @lang.text_for(:d1,t)
-      q.good=name
-      q.bads << lang.text_for(:none)
-      q.bads << a[2]
-      q.bads << a[3]
+      q = Question.new(:short)
+      q.name = "#{name}-#{num}-code1comment"
+      q.text = @lang.text_for(:code1,lines_to_s(lines))
+      q.good = index
       questions << q
     end
     questions

@@ -21,7 +21,15 @@ class DataObject
   end
 
   def make_questions
-    @object_ai.make_questions
+    @questions += @object_ai.make_questions
+  end
+
+  def lines_to_s(lines)
+    out = ''
+    lines.each_with_index do |line,index|
+        out << "[%2d] #{line}\n"%(index+1)
+    end
+    out
   end
 
   def debug
@@ -30,9 +38,8 @@ class DataObject
     puts "  * lines    : #{@lines.size}"
     puts "\n"
     puts "[INFO] Source code:"
-    @lines.each_with_index do |line,index|
-      puts "[%2d] #{line}"%index
-    end
-    @object_ai.debug
+    puts lines_to_s(@lines)
+    puts "[INFO] Questions:"
+    puts @questions.size
   end
 end
