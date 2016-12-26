@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 # Global parameters
 module Application
   def self.name
@@ -9,5 +7,4 @@ module Application
   def self.version
     '0.13.0'
   end
-
 end
