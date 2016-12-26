@@ -29,14 +29,24 @@ class RubyCodeAI
   def lines_to_s(lines)
     out = ''
     lines.each_with_index do |line,index|
-        out << "[%2d] #{line}\n"%(index+1)
+        out << "%2d| #{line}\n"%(index+1)
     end
+    out
+  end
+
+  def lines_to_html(lines)
+    out = ''
+    lines.each_with_index do |line,index|
+        out << "%2d| #{line}</br>"%(index+1)
+    end
+    out
   end
 
   def make_questions
     @questions += make_comment_error
-    make_string_error
-    make_keyword_error
+    @questions += make_string_error
+    @questions += make_keyword_error
+    @questions
   end
 
   def make_comment_error
@@ -52,8 +62,9 @@ class RubyCodeAI
 
       q = Question.new(:short)
       q.name = "#{name}-#{num}-code1comment"
-      q.text = @lang.text_for(:code1,lines_to_s(lines))
-      q.good = (index+1)
+      q.text = @lang.text_for(:code1,lines_to_html(lines))
+      q.shorts << (index+1)
+      q.feedback = 'Comment error: symbol removed'
       questions << q
     end
     questions
@@ -61,27 +72,40 @@ class RubyCodeAI
 
   def make_string_error
     error_lines = []
+    questions = []
     @lines.each_with_index do |line,index|
       error_lines << index if line.include?("'")
     end
     error_lines.each do |index|
       lines = clone_array @lines
       lines[index].sub!("'",'')
-      @output << "make string error (line #{index})\n"
-      lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
+
+      q = Question.new(:short)
+      q.name = "#{name}-#{num}-code1string"
+      q.text = @lang.text_for(:code1,lines_to_html(lines))
+      q.shorts << (index+1)
+      q.feedback = 'String error: simple apostrophe removed'
+      questions << q
     end
+    questions
   end
 
   def make_keyword_error
     error_lines = []
+    questions = []
     @lines.each_with_index do |line,index|
       error_lines << index if line.include?("end")
     end
     error_lines.each do |index|
       lines = clone_array @lines
       lines[index].sub!('end','edn')
-      @output << "make keyword error (line #{index})\n"
-      lines.each_with_index { |line,index| @output << "[%2d] #{line}\n"%index }
+      q = Question.new(:short)
+      q.name = "#{name}-#{num}-code1keyword"
+      q.text = @lang.text_for(:code1,lines_to_html(lines))
+      q.shorts << (index+1)
+      q.feedback = 'Keyword error: "edn" must be "end"'
+      questions << q
     end
+    questions
   end
 end

@@ -27,7 +27,7 @@ class DataObject
   def lines_to_s(lines)
     out = ''
     lines.each_with_index do |line,index|
-        out << "[%2d] #{line}\n"%(index+1)
+        out << "%2d| #{line}\n"%(index+1)
     end
     out
   end
