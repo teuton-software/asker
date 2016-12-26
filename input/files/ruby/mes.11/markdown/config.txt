@@ -1,0 +1,3 @@
+seccion1:1:2
+seccion2:2:3
+seccion3:3:4

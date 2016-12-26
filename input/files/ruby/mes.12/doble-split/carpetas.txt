@@ -1,0 +1,5 @@
+private:700
+group:750
+public:777
+piratas:750
+soldados:750
