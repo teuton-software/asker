@@ -26,4 +26,4 @@
 :t7table: 'Concepto <b><%=text1%></b><br/>La asociación siguiente es correcta\:<br/><ul><li><%=text2%>\: "<%=text3%>"</li><li><%=text4%>\: "<%=text5%>"</li></ul>'
 :t8table: 'Concepto <b><%=text1%></b><br/>Completa la siguiente asociación\:<br/><ul><li><%=text2%>\: "<%=text3%>"</li><li><%=text4%>\: [*]</li></ul>Escribir una palabra.<br/>'
 :t9table: 'Concepto <b><%=text1%></b><br/>Completa la siguiente asociación\:<br/><ul><li><%=text2%>\: "<%=text3%>"</li><li><%=text4%>\: <%=text5%></li></ul>Escribir <%=text6%> palabras.<br/>'
-:code1: '<pre><%=text1%></pre><br/><p>Escribir el número de línea donde está el primer error. Escribir 0 en el caso de que no hay ningún error.</p>'
+:code1: '<code><%=text1%></code><br/><p>Escribir el número de línea donde está el primer error. Escribir 0 en el caso de que no hay ningún error.</p>'
