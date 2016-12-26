@@ -1,13 +1,15 @@
 #!/usr/bin/ruby
 
-require 'pry-byebug'
 require_relative 'data_object'
 require_relative '../formatter/question_gift_formatter'
 
-data = DataObject.new('lib/application.rb', :rubycode)
-questions = data.make_questions
-# data.debug
+files = ['data-array.rb','data-string1.rb','data-string2.rb']
 
-questions.each do |question|
-  puts QuestionGiftFormatter.new(question).to_s
+files.each do |filename|
+  filepath = File.join('input','files','ruby',filename)
+  data = DataObject.new(filepath, :rubycode)
+  questions = data.make_questions
+  questions.each do |question|
+    puts QuestionGiftFormatter.new(question).to_s
+  end
 end

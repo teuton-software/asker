@@ -58,10 +58,20 @@ class RubyCodeAI
         lines[index].sub!('#','').strip!
 
         q = Question.new(:short)
+        q.name = "#{name}-#{num}-code1uncomment"
+        q.text = @lang.text_for(:code1,lines_to_html(lines))
+        q.shorts << (index+1)
+        q.feedback = 'Comment symbol removed'
+        questions << q
+      elsif line.strip.size>0
+        lines = clone_array @lines
+        lines[index]='# ' + lines[index]
+
+        q = Question.new(:short)
         q.name = "#{name}-#{num}-code1comment"
         q.text = @lang.text_for(:code1,lines_to_html(lines))
         q.shorts << (index+1)
-        q.feedback = 'Comment error: symbol removed'
+        q.feedback = 'Comment symbol added'
         questions << q
       end
     end
@@ -72,18 +82,47 @@ class RubyCodeAI
     error_lines = []
     questions = []
     @lines.each_with_index do |line,index|
-      error_lines << index if line.include?("'")
-    end
-    error_lines.each do |index|
-      lines = clone_array @lines
-      lines[index].sub!("'",'')
+      if line.include?("'")
+        lines = clone_array @lines
+        lines[index].sub!("'",'')
 
-      q = Question.new(:short)
-      q.name = "#{name}-#{num}-code1string"
-      q.text = @lang.text_for(:code1,lines_to_html(lines))
-      q.shorts << (index+1)
-      q.feedback = 'String error: simple apostrophe removed'
-      questions << q
+        q = Question.new(:short)
+        q.name = "#{name}-#{num}-code1string"
+        q.text = @lang.text_for(:code1,lines_to_html(lines))
+        q.shorts << (index+1)
+        q.feedback = 'String error: simple apostrophe deleted'
+        questions << q
+
+        lines = clone_array @lines
+        lines[index].sub!("'",'"')
+
+        q = Question.new(:short)
+        q.name = "#{name}-#{num}-code1string"
+        q.text = @lang.text_for(:code1,lines_to_html(lines))
+        q.shorts << (index+1)
+        q.feedback = 'String error: simple apostrophe changed'
+        questions << q
+      elsif line.include?('"')
+        lines = clone_array @lines
+        lines[index].sub!('"',"'")
+
+        q = Question.new(:short)
+        q.name = "#{name}-#{num}-code1string"
+        q.text = @lang.text_for(:code1,lines_to_html(lines))
+        q.shorts << (index+1)
+        q.feedback = 'String error: doble apostrophe changed'
+        questions << q
+
+        lines = clone_array @lines
+        lines[index].sub!('"',"")
+
+        q = Question.new(:short)
+        q.name = "#{name}-#{num}-code1string"
+        q.text = @lang.text_for(:code1,lines_to_html(lines))
+        q.shorts << (index+1)
+        q.feedback = 'String error: doble apostrophe deleted'
+        questions << q
+      end
     end
     questions
   end
