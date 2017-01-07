@@ -25,28 +25,11 @@ private
     a1=s1.to_a
     a1.shuffle!
 
-    if a1.size>3 then
+    if a1.size>3
       a1.each_cons(4) do |e1,e2,e3,e4|
         e = [ e1, e2, e3, e4 ]
         e.shuffle!
-        q=Question.new(:choice)
-        q.name="#{name(:id)}-#{num.to_s}-f1true-#{pTable.name}"
-        q.text = random_image_for(name(:raw)) + lang.text_for(:f1, name(:decorated), pTable.fields[0].capitalize, e.join("</li><li>") )
-        q.good =  lang.text_for(:true)
-        q.bads << lang.text_for(:misspelling)
-        q.bads << lang.text_for(:false)
-        questions << q
-
-        if type=="text" then
-          e = [ e1, e2, e3, e4 ]
-          e.shuffle!
-          q=Question.new(:short)
-          q.name="#{name(:id)}-#{num.to_s}-f1short-#{pTable.name}"
-          q.text = random_image_for(name(:raw)) + lang.text_for(:f1, lang.hide_text(name(:raw)), pTable.fields[0].capitalize, e.join("</li><li>") )
-          q.shorts << name(:raw)
-          q.shorts << name(:raw).gsub("-"," ").gsub("_"," ")
-          questions << q
-        end
+        questions += make_questions_with(e, pTable)
 
         if type=="text" then
           e = [ e1, e2, e3, e4 ]
@@ -95,6 +78,9 @@ private
           questions << q
         end
       end
+    else # INFO: a1.size <=3
+      e = a1
+      questions += make_questions_with(e, pTable)
     end
     return questions
   end
@@ -139,6 +125,31 @@ private
     end
 
     return questions
+  end
+
+private
+
+  def make_questions_with(e, table)
+    questions = []
+
+    q = Question.new(:choice)
+    q.name = "#{name(:id)}-#{num.to_s}-f1true#{e.size}-#{table.name}"
+    q.text = random_image_for(name(:raw)) + lang.text_for(:f1, name(:decorated), table.fields[0].capitalize, e.join("</li><li>") )
+    q.good =  lang.text_for(:true)
+    q.bads << lang.text_for(:misspelling)
+    q.bads << lang.text_for(:false)
+
+    if type=="text" then
+      e.shuffle!
+      q=Question.new(:short)
+      q.name="#{name(:id)}-#{num.to_s}-f1short#{e.size}-#{table.name}"
+      q.text = random_image_for(name(:raw)) + lang.text_for(:f1, lang.hide_text(name(:raw)), table.fields[0].capitalize, e.join("</li><li>") )
+      q.shorts << name(:raw)
+      q.shorts << name(:raw).gsub("-"," ").gsub("_"," ")
+      questions << q
+    end
+
+    questions << q
   end
 
 end
