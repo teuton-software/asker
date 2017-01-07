@@ -31,19 +31,6 @@ private
         e.shuffle!
         questions += make_questions_with(e, pTable)
 
-        if type=="text" then
-          e = [ e1, e2, e3, e4 ]
-          e.shuffle!
-          e[0] = lang.do_mistake_to(e[0])
-          q=Question.new(:choice)
-          q.name="#{name(:id)}-#{num.to_s}-f1namemispelled-#{pTable.name}"
-          q.text = random_image_for(name(:raw)) + lang.text_for(:f1, lang.do_mistake_to(name(:decorated)), pTable.fields[0].capitalize, e.join("</li><li>") )
-          q.good =  lang.text_for(:misspelling)
-          q.bads << lang.text_for(:true)
-          q.bads << lang.text_for(:false)
-          questions << q
-        end
-
         e = [ e1, e2, e3, e4 ]
         e.shuffle!
         e[0] = lang.do_mistake_to(e[0])
@@ -147,6 +134,20 @@ private
       q.shorts << name(:raw)
       q.shorts << name(:raw).gsub("-"," ").gsub("_"," ")
       questions << q
+    end
+
+    if type=="text" then
+      e.shuffle!
+      save = e[0]
+      e[0] = lang.do_mistake_to(e[0])
+      q=Question.new(:choice)
+      q.name="#{name(:id)}-#{num.to_s}-f1namemispelled#{e.size}-#{table.name}"
+      q.text = random_image_for(name(:raw)) + lang.text_for(:f1, lang.do_mistake_to(name(:decorated)), table.fields[0].capitalize, e.join("</li><li>") )
+      q.good =  lang.text_for(:misspelling)
+      q.bads << lang.text_for(:true)
+      q.bads << lang.text_for(:false)
+      questions << q
+      e[0] = save
     end
 
     questions << q
