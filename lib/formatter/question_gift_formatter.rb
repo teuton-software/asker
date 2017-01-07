@@ -59,7 +59,7 @@ class QuestionGiftFormatter
 private
 
   def sanitize(psText='')
-    lsText = psText.clone
+    lsText = psText.dup
     lsText.gsub!("\n", " ")
     lsText.gsub!(":","\:")
     lsText.gsub!("=","\\=")
