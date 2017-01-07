@@ -1,0 +1,3 @@
+---
+:inputdirs: 'input/es/add,input/es/idp,input/es/fuw,input/es/base-de-datos'
+:process_file: 'mysql.haml'

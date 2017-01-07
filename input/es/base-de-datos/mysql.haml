@@ -1,8 +1,8 @@
-%map{ :version => '1', :lang => 'es', :context=>'lenguaje,sql,base.datos' }
+%map{ :version => '1', :lang => 'es', :context=>'lenguaje,sql,base,datos' }
 
   %concept
     %names SQL
-    %tags lenguaje,base,datos
+    %tags lenguaje,query,consulta,base,datos
     %def El lenguaje [*] consta de tres lenguajes específicos: DDL, DML Y DCL.
     %def [*] es un lenguaje específico del dominio que da acceso a un sistema de gestión de bases de datos relacionales que permite especificar diversos tipos de operaciones en ellos.
     %def Una de las características de [*] es el manejo del álgebra y el cálculo relacional que permiten efectuar consultas con el fin de recuperar, de forma sencilla, información de bases de datos, así como hacer cambios en ellas.
@@ -55,7 +55,7 @@
 
   %concept
     %names MySql
-    %tags software, herramient, base, datos
+    %tags software,programa,herramienta,base,datos
     %def [*] es un sistema de gestión de bases de datos relacional desarrollado bajo licencia dual GPL/Licencia comercial por Oracle Corporation.
     %def El servidor de [*] usa por defecto el puerto 3306.
     %table{:fields => 'comando, descripción'}
@@ -103,13 +103,13 @@
         %col Selecciona la version del gestor y la fecha actual
       %row
         %col source /home/malu/crearbbdd.sql
-        %col Ejecución del script de creación crearbbdd.sql
+        %col Ejecución del script de creación crearbbdd.sql desde la shell de mysql
       %row
         %col mysql -u root -pPassWdUsuario &lt; crear_bbdd.sql
         %col Ejecución de un script sql en modo batch sin almacenar resultados
       %row
         %col mysql -u root -pPassWdUsuario &lt; crear_bbdd.sql &gt; resultado
-        %col Ejecución en modo batch almacenando resultados
+        %col Ejecución en modo batch almacenando los resultados en un fichero
     %table{:fields =>'opción del intérprete de comandos, descripción'}
       %row
         %col --help

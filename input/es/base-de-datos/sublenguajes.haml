@@ -1,0 +1,31 @@
+%map{ :version => '1', :lang => 'es', :context=>'lenguaje,sql,base,datos' }
+
+  %concept
+    %names DDL, Data Definition Language, Lenguaje de definición de datos
+    %tags lenguaje,definición,datos,base,sql
+    %def [*] es el sublenguaje de SQL que permite la definición de datos.
+    %table{:fields => 'funciones'}
+      %row Crear tablas, índices y otros objetos de la base de datos (como vistas, sinónimos, etc.)
+      %row Definir las estructuras físicas donde se almacenarán los objetos de las bases de datos (espacios de tablas (tablespaces), ficheros de datos (datafiles), etc.)
+    %table{:fields => 'sentencia,descripción'}
+      %row
+        %col CREATE tipo.objeto Nombre Definición
+        %col Crea un objeto de un determinado tipo (DATABASE, TABLE, INDEX, etc.) con un nombre (por ejemplo Actores o Personajes) y una definición (CodigoPersonaje, ombre, etc.).
+      %row
+        %col DROP tipo.objeto Nombre.
+        %col Elimina un tipo de objeto especificado mediante un nombre.
+      %row
+        %col DROP TABLE Actores
+        %col Borrar de la base de datos la tabla Actores junto con todos sus datos.
+      %row
+        %col DROP DATABASE Proveedores
+        %col Eliminar la base de datos de Proveedores
+      %row
+        %col ALTER tipo.objeto Nombre Modificación.
+        %col Modifir la definición de un objeto.
+      %row
+        %col ALTER TABLE Actores DROP COLUMN Fecha.
+        %col Modificar la tabla Actores, eliminando sólo la columna Fecha.
+      %row
+        %col RENAME TABLE Mascotas TO Animales
+        %col Renombrar la tabla Mascotas por Animales
