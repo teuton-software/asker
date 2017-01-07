@@ -8,24 +8,28 @@
       %row Crear tablas, índices y otros objetos de la base de datos (como vistas, sinónimos, etc.)
       %row Definir las estructuras físicas donde se almacenarán los objetos de las bases de datos (espacios de tablas (tablespaces), ficheros de datos (datafiles), etc.)
     %table{:fields => 'sentencia,descripción'}
-      %row
-        %col CREATE tipo.objeto Nombre Definición
-        %col Crea un objeto de un determinado tipo (DATABASE, TABLE, INDEX, etc.) con un nombre (por ejemplo Actores o Personajes) y una definición (CodigoPersonaje, ombre, etc.).
-      %row
-        %col DROP tipo.objeto Nombre.
-        %col Elimina un tipo de objeto especificado mediante un nombre.
-      %row
-        %col DROP TABLE Actores
-        %col Borrar de la base de datos la tabla Actores junto con todos sus datos.
-      %row
-        %col DROP DATABASE Proveedores
-        %col Eliminar la base de datos de Proveedores
-      %row
-        %col ALTER tipo.objeto Nombre Modificación.
-        %col Modifir la definición de un objeto.
-      %row
-        %col ALTER TABLE Actores DROP COLUMN Fecha.
-        %col Modificar la tabla Actores, eliminando sólo la columna Fecha.
-      %row
-        %col RENAME TABLE Mascotas TO Animales
-        %col Renombrar la tabla Mascotas por Animales
+      %template{:VAR=>'A1,B2,C3'}
+        %row
+          %col CREATE TABLE VAR Definición
+          %col Crea la tabla VAR
+        %row
+          %col DROP TABLE VAR
+          %col Elimina la table VAR
+        %row
+          %col CREATE DATABASE VAR Definición
+          %col Crea la base de datos VAR
+        %row
+          %col DROP DATABASE VAR
+          %col Elimina la base de datos VAR
+        %row
+          %col CREATE INDEX VAR Definición
+          %col Crea el índice VAR
+        %row
+          %col DROP INDEX VAR
+          %col Elimina el índice VAR
+        %row
+          %col ALTER TABLE VAR DROP COLUMN cVAR.
+          %col Modificar la tabla VAR, eliminando la columna cVAR.
+        %row
+          %col RENAME TABLE VAR TO VAR2
+          %col Renombrar la tabla VAR por VAR2
