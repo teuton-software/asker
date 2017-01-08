@@ -6,10 +6,9 @@ class RubyCodeAI
   def initialize(data_object)
     @data_object = data_object
     @lines = data_object.lines
-    @lang = LangFactory.instance.get('es')
+    @lang = LangFactory.instance.get('ruby')
     @num = 0
     @questions = []
-    @output = '' #FIXME
   end
 
   def name
@@ -29,7 +28,7 @@ class RubyCodeAI
   def lines_to_s(lines)
     out = ''
     lines.each_with_index do |line,index|
-        out << "%2d: #{line}\n"%(index+1)
+      out << "%2d: #{line}\n"%(index+1)
     end
     out
   end
@@ -37,14 +36,13 @@ class RubyCodeAI
   def lines_to_html(lines)
     out = ''
     lines.each_with_index do |line,index|
-        out << "%2d: #{line}</br>"%(index+1)
+      out << "%2d: #{line}</br>"%(index+1)
     end
     out
   end
 
   def make_questions
     @questions += make_comment_error
-    @questions += make_string_error
     @questions += make_keyword_error
     @questions
   end
@@ -78,70 +76,28 @@ class RubyCodeAI
     questions
   end
 
-  def make_string_error
-    error_lines = []
-    questions = []
-    @lines.each_with_index do |line,index|
-      if line.include?("'")
-        lines = clone_array @lines
-        lines[index].sub!("'",'')
-
-        q = Question.new(:short)
-        q.name = "#{name}-#{num}-code1string"
-        q.text = @lang.text_for(:code1,lines_to_html(lines))
-        q.shorts << (index+1)
-        q.feedback = 'String error: simple apostrophe deleted'
-        questions << q
-
-        lines = clone_array @lines
-        lines[index].sub!("'",'"')
-
-        q = Question.new(:short)
-        q.name = "#{name}-#{num}-code1string"
-        q.text = @lang.text_for(:code1,lines_to_html(lines))
-        q.shorts << (index+1)
-        q.feedback = 'String error: simple apostrophe changed'
-        questions << q
-      elsif line.include?('"')
-        lines = clone_array @lines
-        lines[index].sub!('"',"'")
-
-        q = Question.new(:short)
-        q.name = "#{name}-#{num}-code1string"
-        q.text = @lang.text_for(:code1,lines_to_html(lines))
-        q.shorts << (index+1)
-        q.feedback = 'String error: doble apostrophe changed'
-        questions << q
-
-        lines = clone_array @lines
-        lines[index].sub!('"',"")
-
-        q = Question.new(:short)
-        q.name = "#{name}-#{num}-code1string"
-        q.text = @lang.text_for(:code1,lines_to_html(lines))
-        q.shorts << (index+1)
-        q.feedback = 'String error: doble apostrophe deleted'
-        questions << q
-      end
-    end
-    questions
-  end
-
   def make_keyword_error
     error_lines = []
     questions = []
-    @lines.each_with_index do |line,index|
-      error_lines << index if line.include?("end")
-    end
-    error_lines.each do |index|
-      lines = clone_array @lines
-      lines[index].sub!('end','edn')
-      q = Question.new(:short)
-      q.name = "#{name}-#{num}-code1keyword"
-      q.text = @lang.text_for(:code1,lines_to_html(lines))
-      q.shorts << (index+1)
-      q.feedback = 'Keyword error: "edn" must be "end"'
-      questions << q
+
+    @lang.mistakes.each_pair do |key,values|
+      v = values.split(',')
+      v.each do |value|
+        @lines.each_with_index do |line,index|
+          error_lines << index if line.include?(key.to_s)
+        end
+
+        error_lines.each do |index|
+          lines = clone_array @lines
+          lines[index].sub!(key.to_s, value)
+          q = Question.new(:short)
+          q.name = "#{name}-#{num}-code1keyword"
+          q.text = @lang.text_for(:code1,lines_to_html(lines))
+          q.shorts << (index+1)
+          q.feedback = "Keyword error: '#{value}' must be '#{key}'"
+          questions << q
+        end
+      end
     end
     questions
   end
