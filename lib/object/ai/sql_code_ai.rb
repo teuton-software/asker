@@ -9,7 +9,6 @@ class SQLCodeAI
     @lang = LangFactory.instance.get('sql')
     @num = 0
     @questions = []
-    @output = '' #FIXME
   end
 
   def name
@@ -37,7 +36,7 @@ class SQLCodeAI
   def lines_to_html(lines)
     out = ''
     lines.each_with_index do |line,index|
-        out << "%2d: #{line}</br>"%(index+1)
+      out << "%2d: #{line}</br>"%(index+1)
     end
     out
   end
