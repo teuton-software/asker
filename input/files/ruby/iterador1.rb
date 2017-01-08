@@ -4,8 +4,8 @@ nombres = [ "David","Jesús","Bruno", "Daniel", "Nieves", "Raúl" ]
 
 nombres.each do |i|
 
-  if i=="Daniel" then
-    puts "Bay bye #{i.upcase}!"
+  if i=="Nieves" then
+    puts "Hello #{i.upcase}!"
   else
     puts "Hola #{i}!"
   end

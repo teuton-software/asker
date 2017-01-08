@@ -3,7 +3,7 @@
 require_relative 'data_object'
 require_relative '../formatter/question_gift_formatter'
 
-files = ['data-array.rb','data-string1.rb','data-string2.rb']
+files = ['data_array.rb','data_string1.rb','data_string2.rb']
 
 files.each do |filename|
   filepath = File.join('input','files','ruby',filename)
