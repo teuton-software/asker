@@ -15,7 +15,7 @@ class ProjectTest < Minitest::Test
     assert_equal :none    , @project.category
     assert_equal [1,1,1]  , @project.formula_weights
     assert_equal 'en'     , @project.lang
-    assert_equal 3        , @project.locales.size
+    assert_equal 4        , @project.locales.size
     assert_equal :default , @project.show_mode
     assert_equal true     , @project.get(:verbose)
     stages = { :d => true, :b => true, :f => true, :i => true, :s => true, :t => true }

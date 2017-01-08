@@ -6,7 +6,7 @@ class SQLCodeAI
   def initialize(data_object)
     @data_object = data_object
     @lines = data_object.lines
-    @lang = LangFactory.instance.get('es')
+    @lang = LangFactory.instance.get('sql')
     @num = 0
     @questions = []
     @output = '' #FIXME
@@ -29,7 +29,7 @@ class SQLCodeAI
   def lines_to_s(lines)
     out = ''
     lines.each_with_index do |line,index|
-        out << "%2d: #{line}\n"%(index+1)
+      out << "%2d: #{line}\n"%(index+1)
     end
     out
   end
@@ -80,22 +80,24 @@ class SQLCodeAI
   def make_keyword_error
     error_lines = []
     questions = []
-    mistakes = { 'CREATE' => 'CRETAE', 'TABLE' => 'TABEL', 'INTEGER' => 'ENTERO', ';' => ':', ',' => ';', '(' => '['}
 
-    mistakes.each_pair do |key,value|
-      @lines.each_with_index do |line,index|
-        error_lines << index if line.include?(key)
-      end
+    @lang.mistakes.each_pair do |key,values|
+      v = values.split(',')
+      v.each do |value|
+        @lines.each_with_index do |line,index|
+          error_lines << index if line.include?(key.to_s)
+        end
 
-      error_lines.each do |index|
-        lines = clone_array @lines
-        lines[index].sub!(key, value)
-        q = Question.new(:short)
-        q.name = "#{name}-#{num}-code1keyword"
-        q.text = @lang.text_for(:code1,lines_to_html(lines))
-        q.shorts << (index+1)
-        q.feedback = "Keyword error: '#{value}' must be '#{key}'"
-        questions << q
+        error_lines.each do |index|
+          lines = clone_array @lines
+          lines[index].sub!(key.to_s, value)
+          q = Question.new(:short)
+          q.name = "#{name}-#{num}-code1keyword"
+          q.text = @lang.text_for(:code1,lines_to_html(lines))
+          q.shorts << (index+1)
+          q.feedback = "Keyword error: '#{value}' must be '#{key}'"
+          questions << q
+        end
       end
     end
     questions
