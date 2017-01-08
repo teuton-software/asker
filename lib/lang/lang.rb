@@ -7,7 +7,7 @@ require_relative 'text_actions'
 class Lang
   include TextActions
 
-  attr_reader :code
+  attr_reader :code, :mistakes
 
   def initialize(code='en')
     @code = code.to_s

@@ -1,0 +1,10 @@
+---
+:ALTER: 'MODIFICAR', 'ATLER'
+:CREATE: 'CREAR', 'CRETAE'
+:DROP: 'ELIMINAR', 'DORP'
+:INTEGER: 'ENTERO', 'INTEGUER'
+:VARCHAR: 'TEXTO', 'VARHCAR'
+:;: ':'
+:);: ')'
+:(: '[', '{'
+:): ']', '}'
