@@ -1,13 +1,13 @@
 #!/usr/bin/ruby
 
-nombres = [ "David","Jesús","Bruno", "Daniel", "Nieves", "Raúl" ]
+nombres = ['obi-wan', 'yoda', 'darth Vader']
 
 nombres.each do |i|
 
-  if i=="Nieves" then
-    puts "Hello #{i.upcase}!"
+  if i[0,5]=='darth'
+    puts "Bye #{i.upcase}!"
   else
-    puts "Hola #{i}!"
+    puts "Hello #{i.capitalize}!"
   end
   
 end
