@@ -1,0 +1,2 @@
+---
+:code1: '<pre><%=text1%></pre><br/><p>Escribir el número de línea donde está el primer error. Escribir 0 si no hay ningún error.</p>'
