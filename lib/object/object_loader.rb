@@ -21,8 +21,9 @@ class ObjectLoader
   def show
     t = 0
     puts '//' + '=' * 80
+    puts "// type: #{@type}"
     @questions.each_pair do |k, v|
-      puts "// #{k} #{v.size}"
+      puts "// * #{k}: #{v.size}"
       t += v.size
     end
     puts "// TOTAL = #{t}"

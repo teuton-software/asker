@@ -1,5 +1,5 @@
 
-require_relative 'ai/ruby_code_ai'
+require_relative 'ruby_code_ai'
 
 module ObjectAIFactory
   def self.get(data_object)

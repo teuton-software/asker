@@ -1,4 +1,4 @@
-require_relative 'object_ai_factory'
+require_relative 'ai/object_ai_factory'
 
 class DataObject
   attr_reader :filename, :type
