@@ -51,7 +51,7 @@ class RubyCodeAI
     error_lines = []
     questions = []
     @lines.each_with_index do |line,index|
-      if line.include?('#')
+      if line.strip.start_with?('#')
         lines = clone_array @lines
         lines[index].sub!('#','').strip!
 
@@ -77,16 +77,16 @@ class RubyCodeAI
   end
 
   def make_keyword_error
-    error_lines = []
     questions = []
 
     @lang.mistakes.each_pair do |key,values|
+      error_lines = []
+      @lines.each_with_index do |line,index|
+        error_lines << index if line.include?(key.to_s)
+      end
+
       v = values.split(',')
       v.each do |value|
-        @lines.each_with_index do |line,index|
-          error_lines << index if line.include?(key.to_s)
-        end
-
         error_lines.each do |index|
           lines = clone_array @lines
           lines[index].sub!(key.to_s, value)
