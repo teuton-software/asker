@@ -1,0 +1,21 @@
+%map{ :version => '1', :lang => 'es', :context=>'devops,herramienta,automatización,sysadmin' }
+
+  %concept
+    %names vagrant
+    %tags herramienta,programa,automatizar,máquinas,virtuales
+    %table{:fields => 'comando,descripción'}
+      %row
+        %col apt-get install vagrant
+        %col Instala Vagrant en Debian/Ubuntu
+      %row
+        %col zypper install vagrant
+        %col Instala Vagrant en OpenSUSE
+      %row
+        %col vagrant init
+        %col Crear el fichero Vagrantfile en la ruta actual
+      %row
+        %col vagrant box list
+        %col Muestra las cajas/boxes disponibles
+      %row
+        %col vagrant box add precise32 http://files.vagrantup.com/precise32.box
+        %col Descarga una caja en nuestro equipo y le asigna el nombre precise32
