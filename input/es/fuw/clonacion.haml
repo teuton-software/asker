@@ -7,13 +7,8 @@
   %concept
     %names clonezilla
     %tags software, programa, software libre,aplicación, clonar, restaurar, respaldo
-    %def [*] es un software de libre distribución para el clonado de equipos
-    basado en DRBL, Partclone y pdpcast, que permite hacer copia de seguridad.
-    %def [*] está disponible en dos versiones, una llamada [*] Live que es
-    adecuado para hacer copia de seguridad y restaurar máquinas y [*] SE
-    que sirve para clonar muchos equipos de forma simultánea.
-    %def [*] guarda y restaura sólo los bloques utilizados en el disco duro.
-    Esto aumenta la eficiencia del clon.
+    %def [*] es un software de libre distribución para el clonado de equipos basado en DRBL, Partclone y pdpcast, que permite hacer copia de seguridad.
+    %def [*] está disponible en dos versiones, una llamada [*] Live que es adecuado para hacer copia de seguridad y restaurar máquinas y [*] SE que sirve para clonar muchos equipos de forma simultánea.
     %table{ :fields => 'características' }
       %row Software libre
       %row Soporta sistema de archivos ext2, ext3, ext4
@@ -23,6 +18,8 @@
       %row El archivo de imagen puede guardarse en disco remoto mediante ssh
       %row El archivo de imagen puede guardarse en disco remoto mediante samba
       %row El archivo de imagen puede guardarse en disco remoto mediante NFS
+      %row Guarda y restaura sólo los bloques utilizados en el disco duro.
+      %row Puede ser utilizado por usuarios de MS Windows, de GNU/Linux e incluso de Mac OS, puesto que se basa en un LiveCD y no necesita ser instalado en el equipo ni bajo un sistema operativo determinado. Soporta los sistemas de archivos más comunes y eso es una gran ventaja.
     %table{ :fields => 'requisitos-mínimos' }
       %row Procesador x86 o x86-64
       %row 196 MB de memoria de sistema (RAM)
@@ -31,7 +28,6 @@
       %row Para arrancar [*], hay que bajarse la imagen ISO de la página oficial del software (www.clonezilla.org), quemarla en un CD y poner nuestra BIOS para que arranque desde la unidad de CD/DVD.
       %row Existe la posibilidad de arrancar [*] desde un USB, pero para esto habría que convertir nuestra unidad USB en una unidad booteable, y que nuestra BIOS nos permitiera poner el puerto USB como unidad por defecto a la hora de arrancar.
       %row En nuestra práctica usamos la opción del CD/DVD.
-    %def [*] puede ser utilizado por usuarios de MS Windows, de GNU/Linux e incluso de Mac OS, puesto que se basa en un LiveCD y no necesita ser instalado en el equipo ni bajo un sistema operativo determinado. Soporta los sistemas de archivos más comunes y eso es una gran ventaja.
     %table{ :fields => 'puede-copiar' }
       %row El disco duro entero y restaurarlo con todas las particiones con las que viniera de orígen
       %row Las particiones por separado.
