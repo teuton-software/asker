@@ -3,6 +3,12 @@
   %concept
     %names vagrant
     %tags herramienta,programa,automatizar,máquinas,virtuales
+    %def [*] es una herramienta para la creación y configuración de entornos de desarrollo virtualizados.
+    %def Originalmente se desarrolló [*] para VirtualBox y sistemas de configuración tales como Chef, Salt y Puppet. Sin embargo es capaz de trabajar con múltiples proveedores, como VMware, Amazon EC2, LXC, DigitalOcean, etc.
+    %table{:fields => 'características'}
+      %row Se ha desarrollado en Ruby se puede usar en multitud de proyectos escritos en otros lenguajes.
+      %row Para configurar cada máquina virtual se usa un fichero llamado Vagrantfile.
+      %row Existen repositorios (Por ejemplo https://atlas.hashicorp.com/boxes/search y http://www.vagrantbox.es/) donde podemos descargar cajas/boxes de [*].
     %table{:fields => 'comando,descripción'}
       %row
         %col apt-get install vagrant
@@ -11,11 +17,39 @@
         %col zypper install vagrant
         %col Instala Vagrant en OpenSUSE
       %row
+        %col vagrant -v
+        %col Muestra la versión de vagrant instalada
+      %row
         %col vagrant init
         %col Crear el fichero Vagrantfile en la ruta actual
       %row
         %col vagrant box list
-        %col Muestra las cajas/boxes disponibles
+        %col Muestra las cajas/boxes disponibles en nuestro equipo local
       %row
-        %col vagrant box add precise32 http://files.vagrantup.com/precise32.box
-        %col Descarga una caja en nuestro equipo y le asigna el nombre precise32
+        %col vagrant box add ubuntu http://files.vagrantup.com/precise32.box
+        %col Descarga una caja en nuestro equipo y le asigna el nombre ubuntu
+      %row
+        %col vagrant up
+        %col Para iniciar una nueva instancia de la MV
+      %row
+        %col vagrant ssh
+        %col Conectar/entrar en nuestra máquina virtual usando SSH
+      %row
+        %col vagrant suspend
+        %col Suspender la máquina virtual (ponerla en pausa)
+      %row
+        %col vagrant resume
+        %col Volver a despertar/activar la máquina virtual que estaba en pausa
+      %row
+        %col vagrant halt
+        %col Apagarla la máquina virtual
+      %row
+        %col vagrant status
+        %col Muestra el estado actual de la máquina virtual
+      %row
+        %col vagrant destroy
+        %col Para eliminar la máquina virtual (No los ficheros de configuración)
+    %table{:fields => 'configuración Vagranfile,descripción'}
+      %row
+        %col config.vm.box
+        %col Define el nombre de la caja/box local que vamos a usar para construir nuestra MV.
