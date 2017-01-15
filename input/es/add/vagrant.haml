@@ -61,6 +61,12 @@
       %row
         %col netstat
         %col Muestra las conexiones de red de la máquina así como los servicios que están en escucha
+      %row
+        %col vagrant package --base MVNAME
+        %col Crea un caja/box vagrant de la MV con el nombre MVNAME
+      %row
+        %col vagrant add box BOXNAME package.box
+        %col Añade la caja/box vagrant BOXNAME, a partir del fichero package.box
     %table{:fields => 'configuración Vagranfile,descripción'}
       %row
         %col config.vm.box = "base"
