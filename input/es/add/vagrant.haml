@@ -49,7 +49,28 @@
       %row
         %col vagrant destroy
         %col Para eliminar la máquina virtual (No los ficheros de configuración)
+      %row
+        %col vagrant reload
+        %col Se aplican los cambios de configuración en la MV (excepto la provisión)
+      %row
+        %col vagrant provision
+        %col Se vuelve a ejecutar la provisión en la MV
+      %row
+        %col nmap -p 4500-4600 localhost
+        %col Escanear un rango de puertos de la propia máquina
+      %row
+        %col netstat
+        %col Muestra las conexiones de red de la máquina así como los servicios que están en escucha
     %table{:fields => 'configuración Vagranfile,descripción'}
       %row
-        %col config.vm.box
+        %col config.vm.box = "base"
         %col Define el nombre de la caja/box local que vamos a usar para construir nuestra MV.
+      %row
+        %col config.vm.network :forwarded_port, host: 4567, guest: 80
+        %col Redirige el tráfico del puerto 4567 de la máquina real al puerto 80 de la máquina virtual
+      %row
+        %col config.vm.provision :shell, :path => "install_apache.sh"
+        %col Ejecuta un shell script en el momento de provisionar la máquina virtual
+      %row
+        %col config.vm.provision "shell", inline: "echo 'Hola'"
+        %col Ejecuta un comando en el momento de provisionar la máquina virtual
