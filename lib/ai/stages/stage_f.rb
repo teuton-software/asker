@@ -1,4 +1,3 @@
-# encoding: utf-8
 
 require_relative 'base_stage'
 require_relative '../question'
@@ -6,7 +5,7 @@ require_relative '../question'
 class StageF < BaseStage
 
   def run(table, list1, list2)
-    #process_table1field
+    # process_table1field
     questions = []
     return questions if table.fields.count>1
 
@@ -132,7 +131,7 @@ private
       e = [e1, e2, e3, f4]
       e.shuffle!
       q = Question.new(:choice)
-      q.name = "#{name(:id)}-#{num}-f1false-#{pTable.name}"
+      q.name = "#{name(:id)}-#{num}-f1false-#{table.name}"
       q.text = random_image_for(name(:raw))
       q.text += lang.text_for(:f1, name(:decorated), table.fields[0].capitalize, e.join('</li><li>'))
       q.good =  lang.text_for(:false)
@@ -142,7 +141,7 @@ private
 
       f4 = a2.shuffle![0]
       q = Question.new(:choice)
-      q.name = "#{name(:id)}-#{num}-f2outsider-#{pTable.name}"
+      q.name = "#{name(:id)}-#{num}-f2outsider-#{table.name}"
       q.text = random_image_for(name(:raw))
       q.text += lang.text_for(:f2, name(:decorated), table.fields[0].capitalize)
       q.good =  f4

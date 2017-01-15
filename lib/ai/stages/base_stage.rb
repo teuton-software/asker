@@ -2,7 +2,7 @@
 class BaseStage
 
   def initialize(concept_ai)
-    @concept_ai=concept_ai
+    @concept_ai = concept_ai
   end
 
   # If a method we call is missing, pass the call onto
