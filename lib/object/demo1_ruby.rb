@@ -2,7 +2,8 @@
 
 require_relative 'object_loader'
 
-files = ['data_array.rb','data_string1.rb','data_string2.rb', 'iterador1.rb']
+#files = [,'data_string1.rb',, 'iterador1.rb']
+files = ['data_array.rb', 'data_string1.rb', 'data_string2.rb']
 dirbase = File.join('input','files','ruby')
 type = :rubycode
 
