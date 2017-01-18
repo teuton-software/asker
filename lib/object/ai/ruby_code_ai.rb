@@ -88,7 +88,7 @@ class RubyCodeAI
       v = values.split(',')
       v.each do |value|
         error_lines.each do |index|
-g          lines = clone_array @lines
+          lines = clone_array(@lines)
           lines[index].sub!(key.to_s, value)
           q = Question.new(:short)
           q.name = "#{name}-#{num}-code1keyword"
