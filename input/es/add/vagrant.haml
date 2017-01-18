@@ -80,3 +80,12 @@
       %row
         %col config.vm.provision "shell", inline: "echo 'Hola'"
         %col Ejecuta un comando en el momento de provisionar la máquina virtual
+      %row
+        %col config.ssh.username = 'root'
+        %col Define el usuario que usará Vagrant en la conexión SSH con la MV
+      %row
+        %col config.ssh.password = 'vagrant'
+        %col Define la clave que usará Vagrant en la conexión SSH con la MV
+      %row
+        %col %HOME/.vagrant.d/boxes
+        %col Directorio por defecto donde se almacenan las cajas/boxes vagrant de nuestro usuario actual.
