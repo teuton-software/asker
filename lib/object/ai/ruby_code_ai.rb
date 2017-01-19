@@ -43,20 +43,21 @@ class RubyCodeAI
 
   def make_questions
     @questions += make_comment_error
+    @questions += make_no_error_changes
     @questions += make_keyword_error
     @questions
   end
 
   def make_comment_error
-    error_lines = []
     questions = []
+    error_lines = []
     @lines.each_with_index do |line,index|
       if line.strip.start_with?('#')
         lines = clone_array @lines
         lines[index].sub!('#','').strip!
 
         q = Question.new(:short)
-        q.name = "#{name}-#{num}-code1uncomment"
+        q.name = "#{name}-#{num}-uncomment"
         q.text = @lang.text_for(:code1,lines_to_html(lines))
         q.shorts << (index+1)
         q.feedback = 'Comment symbol removed'
@@ -66,13 +67,39 @@ class RubyCodeAI
         lines[index]='# ' + lines[index]
 
         q = Question.new(:short)
-        q.name = "#{name}-#{num}-code1comment"
+        q.name = "#{name}-#{num}-comment"
         q.text = @lang.text_for(:code1,lines_to_html(lines))
         q.shorts << (index+1)
         q.feedback = 'Comment symbol added'
         questions << q
       end
     end
+    questions
+  end
+
+  def make_no_error_changes
+    questions = []
+    empty_lines = []
+    used_lines = []
+    @lines.each_with_index do |line,index|
+      if line.strip.size.zero?
+        empty_lines << index
+      else
+        used_lines << index
+      end
+    end
+
+    used_lines.each do |index|
+      lines = clone_array(@lines)
+      lines.insert(index, ' ')
+      q = Question.new(:short)
+      q.name = "#{name}-#{num}-ok"
+      q.text = @lang.text_for(:code1,lines_to_html(lines))
+      q.shorts << (index+1)
+      q.feedback = 'Code is OK'
+      questions << q
+    end
+
     questions
   end
 
@@ -91,7 +118,7 @@ class RubyCodeAI
           lines = clone_array(@lines)
           lines[index].sub!(key.to_s, value)
           q = Question.new(:short)
-          q.name = "#{name}-#{num}-code1keyword"
+          q.name = "#{name}-#{num}-keyword"
           q.text = @lang.text_for(:code1,lines_to_html(lines))
           q.shorts << (index+1)
           q.feedback = "Keyword error: '#{value}' must be '#{key}'"
