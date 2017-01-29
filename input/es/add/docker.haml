@@ -1,0 +1,114 @@
+%map{ :version => '1', :lang => 'es', :context=>'devops,herramienta,automatización,sysadmin' }
+
+  %concept
+    %names contenedores, contenedor
+    %tags aplicación,empaquetada,autosuficiente,docker,lxc
+    %def Los [*] son aplicaciones empaquetadas auto-suficientes, muy livianas que son capaces de funcionar en prácticamente cualquier ambiente, ya que tiene su propio sistema de archivos, librerías, terminal, etc.
+
+  %concept
+    %names docker
+    %tags herramienta,programa,automatizar,gestionar,contenedor,contenedores
+    %def [*] es un proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software.
+    %def Dockerfile es el nombre del fichero de configuración que utiliza [*] por defecto.
+    %table{:fields => 'comando,descripción'}
+      %row
+        %col uname -a
+        %col Este comando nos muestra la versión del Kernel actual del sistema en GNU/Linux
+      %row
+        %col apt-get install docker
+        %col Instala Docker en Debian/Ubuntu
+      %row
+        %col zypper install docker
+        %col Instala Docker en OpenSUSE
+      %row
+        %col systemctl status docker
+        %col Mostrar el estado del servicio Docker
+      %row
+        %col systemctl start docker
+        %col Iniciar el servicio Docker
+      %row
+        %col systemctl stop docker
+        %col Parar el servicio Docker
+      %row
+        %col systemctl enable docker
+        %col El servicio Docker se ejecutará al iniciar la máquina
+      %row
+        %col systemctl disenable docker
+        %col El servicio Docker no se ejecutará automáticamente al iniciar la máquina
+      %row
+        %col docker version
+        %col Muestra la versión instalada de docker
+      %row
+        %col usermod -a -G docker USERNAME
+        %col Incluir al usuario USERNAME dentro del grupo docker
+      %row
+        %col docker images
+        %col Muestra las imágenes docker descargadas hasta ahora
+      %row
+        %col docker ps -a
+        %col Muestra todos los contenedores docker creados. Estén activos o no.
+      %row
+        %col docker ps
+        %col Muestra todos los contenedores docker creados y en activo.
+      %row
+        %col docker run hello-world
+        %col Descarga una imagen docker hello-world, crea un contenedor y lo ejecuta
+      %row
+        %col docker search debian
+        %col Buscar en los repositorios de Docker Hub, contenedores con la etiqueta debian
+      %row
+        %col docker pull debian:8
+        %col Descargar de DockerHub, un contenedor docker con la etiqueta debian:8
+      %row
+        %col docker pull opensuse
+        %col Descargar de DockerHub, un contenedor docker con la etiqueta opensuse
+      %row
+        %col docker commit 7d193d728925 dvarrui/nginx
+        %col A partir del contenedor 7d193d728925, crea una imagen docker nueva de nombre dvarrui/nginx
+      %row
+        %col docker stop mv_debian
+        %col Detiene el contenedor docker con nombre mv_debian
+      %row
+        %col docker stop mv_nginx
+        %col Detiene el contenedor docker con nombre mv_nginx
+      %row
+        %col docker rm 7d193d728925
+        %col Elimina el contenedor docker con ID 7d193d728925
+      %row
+        %col docker rm mv_nginx
+        %col Elimina el contenedor docker con nombre mv_nginx
+      %row
+        %col docker run --name=mv_nginx -p 80 -t dvarrui/nginx /root/server.sh
+        %col Crea un contenedor docker con el nombre mv_nginx, a partir de la imagen dvarrui/nginx. Ejecuta el script /root/server.sh y expone el puerto 80 al mundo exterior.
+      %row
+        %col docker start CONTAINERID
+        %col Inicia el contenedor docker CONTAINERID que estaba parado.
+      %row
+        %col docker attach CONTAINERID
+        %col Conecta el terminal actual con la salida del contenedor docker CONTAINERID.
+
+    %table{:fields => 'configuración Dockerfile,descripción'}
+      %row
+        %col FROM debian:8
+        %col Para crear el contenedor docker se usará la imagen debian:8
+      %row
+        %col MAINTAINER Nombre-del-Alumno 1.0
+        %col Se informa del creador del contenedor docker y su versión.
+      %template{ :COMANDO => 'zypper refresh, apt-get update, zypper --non-interactive install apache, apt-get install -y apache2'}
+        %row
+          %col RUN COMANDO
+          %col Se ejecuta el comando "COMANDO" dentro del contenedor docker
+      %row
+        %col COPY holamundo.html /var/www/html
+        %col Se copia el fichero holamundo.html dentro del directorio /var/www/html del contenedor docker
+      %row
+        %col COPY server.sh /root
+        %col Se copia el fichero server.sh dentro del directorio /root del contenedor docker
+      %template{ :PORT => '80,23,8080' }
+        %row
+          %col EXPOSE PORT
+          %col El puerto PORT del contenedor docker será accesible desde el exterior.
+      %template{ :COMANDO => '/root/server.sh, echo hola' }
+      %row
+        %col CMD ["COMANDO"]
+        %col El comando "COMANDO" se ejecutará al iniciarse el contenedor docker.
