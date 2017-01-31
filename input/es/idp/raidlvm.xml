@@ -46,7 +46,7 @@
   </concept>
 
   <concept>
-    <names>volumen-físico</names>
+    <names>volumen físico</names>
     <tags>soporte, disco, volumen, fisico, lvm</tags>
     <def>Son las particiones del disco duro con sistema de archivos LVM.</def>
     <table fields='acción,resultado'>
@@ -58,7 +58,7 @@
   </concept>
 
   <concept>
-    <names>grupo-de-volumen</names>
+    <names>grupo de volumen</names>
     <tags>disco, logico, lvm</tags>
     <def>Es la parte superior de la LVM. Es la "caja" en la que tenemos nuestros volúmenes lógicos (LV) y nuestros volúmenes físicos (PV). Se puede ver como una unidad administrativa en la que se engloban nuestros recursos. Hay que hacer notar que mientras no se añada al VG, no podemos comenzar a usarlo.</def>
     <table fields='acción,resultado'>
@@ -82,7 +82,7 @@
   </concept>
 
   <concept>
-    <names>volumen-lógico</names>
+    <names>volumen lógico</names>
     <tags>particion, lvm, volumen, logico</tags>
     <def>En LVM, es el equivalente a una partición en un sistema tradicional.Es visible como un dispositivo estándar de bloques, por lo que puede contener un sistema de archivos (por ejemplo /home)</def>
     <table fields='acción,resultado'>
