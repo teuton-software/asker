@@ -33,9 +33,40 @@
         <col>Crear un RAID 1 software.</col>
       </row>
       <row>
-        <col>mount /dev/md1 /mnt/raid1</col>
-        <col>Montar un dispositivo RAID</col>
+        <col>mount /dev/md0 /mnt/raid</col>
+        <col>Montar un dispositivo RAID /dev/md0 en /mnt/raid</col>
       </row>
+      <row>
+        <col>mount /dev/md1 /mnt/raid</col>
+        <col>Montar un dispositivo RAID /dev/md1 en /mnt/raid</col>
+      </row>
+    </table>
+  </concept>
+
+  <concept>
+    <names>raid0,raid 0, raid-0</names>
+    <tags>multiarray, disk, raid, 0</tags>
+    <def>Tipo de RAID que distribuye los datos equitativamente entre dos o más discos sin información de paridad que proporcione redundancia.</def>
+  </concept>
+
+  <concept>
+    <names>raid1,raid 1, raid-1</names>
+    <tags>multiarray, disk, raid, 1</tags>
+    <def>Tipo de RAID que crea una copia exacta (o espejo) de un conjunto de datos en dos o más discos.</def>
+    <table fields='características'>
+      <row>Resulta útil cuando el rendimiento en lectura es más importante que la capacidad.</row>
+      <row>El conjunto sólo puede ser tan grande como el más pequeño de sus discos.</row>
+      <row>Incrementa exponencialmente la fiabilidad respecto a un solo disco; es decir, la probabilidad de fallo del conjunto es igual al producto de las probabilidades de fallo de cada uno de los discos (pues para que el conjunto falle es necesario que lo hagan todos sus discos).</row>
+    </table>
+  </concept>
+
+  <concept>
+    <names>raid5,raid 5, raid-5</names>
+    <tags>multiarray, disk, raid, 5</tags>
+    <def>Tipo de RAID que presenta una división de datos a nivel de bloques distribuyendo la información de paridad entre todos los discos miembros del conjunto. Necesitará un mínimo de 3 discos para ser implementado.</def>
+    <table fields='características'>
+      <row>Distribuye la información de paridad entre todos los discos miembros del conjunto.</row>
+      <row>Necesitará un mínimo de 3 discos para ser implementado.</row>
     </table>
   </concept>
 
@@ -48,7 +79,7 @@
   <concept>
     <names>volumen físico</names>
     <tags>soporte, disco, volumen, fisico, lvm</tags>
-    <def>Son las particiones del disco duro con sistema de archivos LVM.</def>
+    <def>Son como las particiones del disco duro pero en un sistema LVM.</def>
     <table fields='acción,resultado'>
       <row>
         <col>pvmove /dev/sdb1 /dev/sdc3</col>
@@ -100,11 +131,11 @@
       </row>
       <row>
         <col>lvcreate -L690M -n lv-extra vg-extra</col>
-        <col>Crea un nuevo volumen lógico dentro de un grupo de volumen.</col>
+        <col>Crea un nuevo volumen lógico dentro de un grupo de volumen vg-extra.</col>
       </row>
       <row>
         <col>mkfs -t ext4 /dev/vg-extra/lv-extra</col>
-        <col>Da formato a un volumen lógico.</col>
+        <col>Da formato a un volumen lógico del grupo de volumen vg-extra.</col>
       </row>
     </table>
   </concept>
