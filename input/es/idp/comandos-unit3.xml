@@ -80,7 +80,7 @@
     <names>ssh</names>
     <tags>acceder, entrar, maquina, remota, red, comunicacion, segura, encriptada</tags>
     <def>Es un programa para acceder y ejecutar comandos en una máquina remota.</def>
-    <def>Proporciona comunicación encriptada segura entre dos máquinas, sonre una red insegura</def>
+    <def>Proporciona comunicación encriptada segura entre dos máquinas, sobre una red insegura</def>
     <table fields='acción,resultado'>
       <row>
         <col>ssh USERNAME@HOSTIP</col>

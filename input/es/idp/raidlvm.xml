@@ -3,7 +3,7 @@
   <concept>
     <names>raid</names>
     <tags>implementacion, volumenes, logicos, kernel, linux</tags>
-    <def>Redundant Array of Independent Disks, originalmente Redundant Array Inexpensive Disks. Traducido como «conjunto redundante de discos independientes».</def>
+    <def>Redundant Array of Independent Disks, originalmente Redundant Array of Inexpensive Disks. Traducido como «conjunto redundante de discos independientes».</def>
     <def>Un sistema de almacenamiento de datos que usa múltiples unidades de almacenamiento de datos (discos duros o SSD) entre los que se distribuyen o replican los datos. Dependiendo de su configuración (a la que suele llamarse «nivel»), los beneficios respecto a un único disco son uno o varios de los siguientes: mayor integridad, mayor tolerancia a fallos, mayor throughput (rendimiento) y mayor capacidad.</def>
     <def>En sus implementaciones originales, su ventaja clave era la habilidad de combinar varios dispositivos de bajo coste y tecnología más antigua en un conjunto que ofrecía mayor capacidad, fiabilidad, velocidad o una combinación de éstas que un solo dispositivo de última generación y coste más alto.</def>
     <table fields='tipo,características'>
@@ -29,7 +29,7 @@
     </table>
     <table fields='acción,resultado'>
       <row>
-        <col>mdadm --create /dev/md1 --level=mirror -raid-devices=2 /dev/sde /dev/sdd</col>
+        <col>mdadm --create /dev/md1 --level=mirror --raid-devices=2 /dev/sde /dev/sdd</col>
         <col>Crear un RAID 1 software.</col>
       </row>
       <row>
