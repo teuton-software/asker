@@ -20,11 +20,23 @@
         %col apt-get --no-install-recommends install nagios-nrpe-server nagios-plugins-basic
         %col Instalar el agente Nagios en Debian
       %row
-        %col /etc/init.d/nagios-nrpe-server restart
-        %col Reiniciar el servicio del Agente Nagios en Debian (System V)
+        %col service nagios-nrpe-server stop
+        %col Parar el servicio del Agente Nagios en Debian
       %row
-        %col /etc/init.d/nagios3 restart
-        %col Reiniciar el servidor NAgios en Debian (System V)
+        %col service nagios-nrpe-server start
+        %col Iniciar el servicio del Agente Nagios en Debian
+      %row
+        %col service nagios-nrpe-server restart
+        %col Reiniciar el servicio del Agente Nagios en Debian
+      %row
+        %col service nagios3 stop
+        %col Parar el servidor Nagios en Debian
+      %row
+        %col service nagios3 start
+        %col Iniciar el servidor Nagios en Debian
+      %row
+        %col service nagios3 restart
+        %col Reiniciar el servidor Nagios en Debian
       %row
         %col /usr/lib/nagios/plugins/check_tcp -H $HOSTADDRESS$ -p '$ARG1$' -4
         %col Se comprueba el puerto TCP $ARG1$ del equipo $HOSTADDRESS$
@@ -83,10 +95,10 @@
         %col permiten agrupar hosts
       %row
         %col servicegroups
-        %col agrupan servicios
+        %col agrupar servicios
       %row
         %col contactgroups
-        %col agrupan contactos
+        %col agrupar contactos
     %table{ :fields => 'Parámetro del objeto service, descripción' }
       %row
         %col use
@@ -153,7 +165,7 @@
         %col Esta variable indica si se permite que el agente reciba comandos con parámetros
       %row
         %col "command[check_users]"
-        %col alias para obtener la cantidad de usuarios logueados
+        %col alias para obtener la cantidad de usuarios logueados en el sistema
       %row
         %col "command[check_load]"
         %col alias para obtener la carga de CPU
