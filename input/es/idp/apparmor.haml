@@ -4,13 +4,13 @@
     %names AppArmor
     %tags programa,seguridad,monitorizar,auditar,sistema,perfil
     %def [*] es un programa de seguridad para Linux, lanzado bajo la licencia GPL. Actualmente se encarga de mantenerlo la empresa Novell.
-    %def [*] permite al administrador del sistema asociar a cada programa un perfil de seguridad que restrinja las capacidades de ese programa. 
+    %def [*] permite al administrador del sistema asociar a cada programa un perfil de seguridad que restrinja las capacidades de ese programa.
     %def Además de la especificación manual de perfiles, [*] incluye un modo de aprendizaje, en el que las violaciones del perfil son registradas pero no prevenidas. Este registro puede utilizarse para crear un perfil basado en el comportamiento típico del programa.
     %table{ :fields => 'características' }
-      %row Fue creado en parte como alternativa a SELinux, que era criticado por los administradores por ser demasiado difícil de instalar y mantener. 
+      %row Fue creado en parte como alternativa a SELinux, que era criticado por los administradores por ser demasiado difícil de instalar y mantener.
       %row Trabaja con las rutas de los ficheros, al contrario que SELinux, que se basa en añadir etiquetas a los archivos.
-      %row Según sus autores, es menos complejo y más fácil de aprender a utilizar para un usuario medio que SELinux. 
-      %row Necesita realizar pocas modificaciones en el sistema de ficheros mientras que SELinux necesita un sistema de ficheros que soporte sus atributos extendidos, lo que implica que no pueda controlar el acceso a archivos montados vía NFS. 
+      %row Según sus autores, es menos complejo y más fácil de aprender a utilizar para un usuario medio que SELinux.
+      %row Necesita realizar pocas modificaciones en el sistema de ficheros mientras que SELinux necesita un sistema de ficheros que soporte sus atributos extendidos, lo que implica que no pueda controlar el acceso a archivos montados vía NFS.
       %row No importa en qué clase de sistema de ficheros estén montados los archivos.
     %table{ :fields => 'comando,descripción' }
       %row
@@ -21,14 +21,14 @@
         %col Inicia el servicio apparmor
       %row
         %col systemctl stop apparmor
-        %col Detieneel servicio apparmor
+        %col Detiene el servicio apparmor
       %row
         %col systemctl enable apparmor
         %col Configura el servicio apparmor para que se ejecute al iniciar la máquina
       %row
         %col systemctl disable apparmor
         %col Configura el servicio apparmor para que no se ejecute al iniciar la máquina
-      %row 
+      %row
         %col aa-genprof /home/nombre-alumno/aa/mycopy
         %col Iniciar la generación de un perfil apparmor
       %row
@@ -56,4 +56,3 @@
       %row
         %col enforce
         %col Obliga a que se apliquen las políticas/reglas de seguridad
-
