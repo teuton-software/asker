@@ -1,0 +1,48 @@
+%map{ :version => '1', :lang => 'es', :context=>'herramienta,sysadmingame,yaml' }
+
+  %concept
+    %names SysadminGame
+    %tags sysadmingame,herramienta,automatizar,test,máquina,remota
+    %def Esta es una herramienta para evaluar de forma remota y automática el trabajo de clase realizado por los alumnos en sus máquinas.
+    %table{ :fields => 'características' }
+      %row Licencia Open Source
+      %row Programada en Ruby
+      %row Alojada en un repostorio GitHub
+    %table{ :fields => 'comando,acción' }
+      %row
+        %col apt-get install ruby
+        %col Instalar ruby en un equipo Debian/Ubuntu
+      %row
+        %col zypper install ruby
+        %col Instalar ruby en un equipo OpenSUSE
+      %row
+        %col gem install rake
+        %col Instalar la gema rake en nuestro equipo
+      %row
+        %col rake debian
+        %col Instalar las librerías y gemas en un sistema Debian/Ubuntu
+      %row
+        %col rake opensuse
+        %col Instalar las librerías y gemas en un sistema OpenSUSE
+      %row
+        %col rake check
+        %col Comprobar que la aplicación está correctamente instalada en nuestro equipo
+      %row
+        %col ./project -v
+        %col Muestra en pantalla la versión del proyecto
+      %row
+        %col ./project -h
+        %col Muestra en pantalla la ayuda del comando project
+      %row
+        %col ./project create check/demo/foo.rb
+        %col Crea un fichero foo.rb y otro foo.yaml en el directorio check/demo
+    %table{ :fields => 'paso', :sequence => 'Pasos para instalar SysadminGame en Debian/Ubuntu' }
+      %row apt-get install ruby
+      %row gem install rake
+      %row rake debian
+      %row rake check
+    %table{ :fields => 'paso', :sequence => 'Pasos para instalar SysadminGame en OpenSUSE' }
+      %row zypper install ruby
+      %row gem install rake
+      %row rake opensuse
+      %row rake check
