@@ -36,6 +36,9 @@
       %row
         %col ./project create check/demo/foo.rb
         %col Crea un fichero foo.rb y otro foo.yaml en el directorio check/demo
+      %row
+        %col ./project check/demo/foo.rb
+        %col Ejecuta los test definidos en el fichero, sobre las máquinas remotas
     %table{ :fields => 'paso', :sequence => 'Pasos para instalar SysadminGame en Debian/Ubuntu' }
       %row apt-get install ruby
       %row gem install rake
@@ -46,3 +49,25 @@
       %row gem install rake
       %row rake opensuse
       %row rake check
+
+  %concept
+    %names task
+    %tags palabra,dls,agrupar,target,objetivo
+    %def Es una palabra del DSL que sirve para definir un grupo de objetivos o elementos de comprobación.
+    %def Como mínimo es obligatorio crear un [*] donde podremos definir nuestros objetivos o elementos de evaluación. Podemos usar [*], tantas veces como queramos.
+    %def Sirve para agrupar objetivos que están relacionados por razones de claridad para nosotros.
+
+  %concept
+    %names target
+    %tags palabra,dls,describir,target,objetivo
+    %def Es una palabra del DSL que nos permite introducir una descripción del objetivo que vamos a evaluar, usando nuestras propias palabras, de modo que cualquiera pueda entender fácilmente lo que estamos tratando de hacer.
+
+  %concept
+    %names goto
+    %tags palabra,dls,ejecutar,comando,equipo,remoto
+    %def Es una palabra del DSL que nos permite ejecutar un comando en una máquina remota.
+
+  %concept
+    %names expect
+    %tags palabra,dls,evaluar,resultado,devuelto,goto
+    %def Es una palabra del DSL que evalua si el resultado obtenido coincide o no con el valor esperado.
