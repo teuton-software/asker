@@ -1,0 +1,32 @@
+%map{ :version => '1', :lang => 'es', :context=>'hardware, almacenamiento' }
+
+  %concept
+    %names NAS
+    %tags alamacenamiento,conectar,red,CIFS
+    %def [*] son las siglas en inglés de almacenamiento conectado en red.
+    %def [*] son las siglas de Network Attached Storage.
+    %def [*] es el nombre dado a una tecnología de almacenamiento dedicada a compartir la capacidad de almacenamiento de un computador (servidor) con computadoras personales o servidores clientes a través de una red (normalmente TCP/IP), haciendo uso de un sistema operativo optimizado para dar acceso con los protocolos CIFS, NFS, FTP o TFTP.
+    %def Los sistemas [*] son dispositivos de almacenamiento a los que se accede desde los equipos a través de protocolos de red (normalmente TCP/IP).
+    %def Se podría considerar un sistema [*] a un servidor (Microsoft Windows, Linux, etcétera) que comparte sus unidades por red, pero la definición suele aplicarse a sistemas específicos.
+
+  %concept
+    %names SAN
+    %tags red,área,almacenamiento
+    %def [*] son las siglas de red de área de almacenamiento.
+    %def Una [*]es una red dedicada al almacenamiento que está conectada a las redes de comunicación de una compañía. Además de contar con interfaces de red tradicionales, los equipos con acceso a la [*] tienen una interfaz de red específica que se conecta a la [*].
+    %def El rendimiento de la [*] está directamente relacionado con el tipo de red que se utiliza. En el caso de una red de canal de fibra, el ancho de banda es de aproximadamente 100 megabytes/segundo y se puede extender aumentando la cantidad de conexiones de acceso.
+    %def La capacidad de una [*] se puede extender de manera casi ilimitada y puede alcanzar cientos y hasta miles de terabytes.
+    %def Una [*] permite compartir datos entre varios equipos de la red sin afectar el rendimiento porque el tráfico de [*] está totalmente separado del tráfico de usuario. Son los servidores de aplicaciones que funcionan como una interfaz entre la red de datos (generalmente un canal de fibra) y la red de usuario (por lo general Ethernet).
+    %def Una [*] es mucho más costosa que un almacenamiento conectado en red ya que la primera es una arquitectura completa que utiliza una tecnología que todavía es muy cara.
+    %def Además es una red concebida para conectar servidores, matrices (arrays) de discos y librerías de soporte. Principalmente, está basada en tecnología fibre channel y más recientemente en iSCSI.
+
+  %concept
+    %names DAS
+    %tags almacenamiento,conectar,directo
+    %def [*] son las siglas de almacenamiento de conexión directa.
+    %def [*] son las siglas de Direct Attached Storage (DAS).
+    %def [*] es el método tradicional de almacenamiento y el más sencillo. Consiste en conectar el dispositivo de almacenamiento directamente al servidor o estación de trabajo, es decir, físicamente conectado al dispositivo que hace uso de él.
+    %def Tanto en [*] como en Storage Area Network, las aplicaciones y programas de usuarios hacen sus peticiones de datos al sistema de archivos directamente. La diferencia entre ambas tecnologías reside en la manera en la que dicho sistema de archivos obtiene los datos requeridos del almacenamiento.
+    %def En un [*], el almacenamiento es local al sistema de archivos, mientras que en un SAN, el almacenamiento es remoto.
+    %def En el lado opuesto de [*] se encuentra la tecnología Network-Attached Storage, donde las aplicaciones hacen las peticiones de datos a los sistemas de archivos de manera remota.
+    
