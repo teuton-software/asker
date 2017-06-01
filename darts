@@ -58,6 +58,10 @@ LONGDESC
   def create(projectname)
     Builder.create_project(projectname)
   end
+
+  def method_missing(m, *args, &block)
+    puts "There's no method called #{m} here -- please try again."
+  end
 end
 
 DartsCLI.start(ARGV)
