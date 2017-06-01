@@ -61,6 +61,7 @@ LONGDESC
 
   def method_missing(m, *args, &block)
     puts "There's no method called #{m} here -- please try again."
+    file(m.to_s)
   end
 end
 
