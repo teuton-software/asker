@@ -38,11 +38,11 @@
     %def La fabricación de almacenamientos basados en [*] es menos costosa y está resultando una alternativa a las soluciones SAN basadas en Canal de fibra.
     %table{ :fields => 'comando,descripción'}
       %row
-        %col dd if=/dev/zero of=/home/dispositivo1.img bs=1M count=500
+        %col dd if=/dev/zero of=/home/disco01.img bs=1M count=500
         %col Creamos un fichero lleno de ceros en /home con un tamaño 500MB
       %row
-        %col du -sh /home/dispositivo1.img
-        %col Consultar el tamaño del fichero /home/dispositivo1.img
+        %col du -sh /home/disco01.img
+        %col Consultar el tamaño del fichero /home/disco01.img
       %row
         %col zypper in yast2-iscsi-lio-server
         %col Instalar el software para crear un Target iSCSI y sus dependencias en OpenSUSE
