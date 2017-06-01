@@ -29,4 +29,92 @@
     %def Tanto en [*] como en Storage Area Network, las aplicaciones y programas de usuarios hacen sus peticiones de datos al sistema de archivos directamente. La diferencia entre ambas tecnologías reside en la manera en la que dicho sistema de archivos obtiene los datos requeridos del almacenamiento.
     %def En un [*], el almacenamiento es local al sistema de archivos, mientras que en un SAN, el almacenamiento es remoto.
     %def En el lado opuesto de [*] se encuentra la tecnología Network-Attached Storage, donde las aplicaciones hacen las peticiones de datos a los sistemas de archivos de manera remota.
-    
+
+  %concept
+    %names iSCSI
+    %tags almacenamiento,san,iscsi,scsi,red
+    %def [*] es la abreviatura de Internet SCSI
+    %def [*] es un estándar que permite el uso del protocolo SCSI sobre redes TCP/IP.
+    %def La fabricación de almacenamientos basados en [*] es menos costosa y está resultando una alternativa a las soluciones SAN basadas en Canal de fibra.
+    %table{ :fields => 'comando,descripción'}
+      %row
+        %col dd if=/dev/zero of=/home/dispositivo1.img bs=1M count=500
+        %col Creamos un fichero lleno de ceros en /home con un tamaño 500MB
+      %row
+        %col du -sh /home/dispositivo1.img
+        %col Consultar el tamaño del fichero /home/dispositivo1.img
+      %row
+        %col zypper in yast2-iscsi-lio-server
+        %col Instalar el software para crear un Target iSCSI y sus dependencias en OpenSUSE
+      %row
+        %col systemctl status target.service
+        %col Consultar el estado del servicio iSCSI Target en OpenSUSE
+      %row
+        %col systemctl start target.service
+        %col Iniciar el servicio iSCSI Target en OpenSUSE
+      %row
+        %col systemctl stop target.service
+        %col Parar el servicio iSCSI Target en OpenSUSE
+      %row
+        %col systemctl enable target.service
+        %col Configuar el servicio iSCSI Target en OpenSUSE para iniciarse en el arranque
+      %row
+        %col systemctl disable target.service
+        %col Configuar el servicio iSCSI Target en OpenSUSE para que no se inicie en el arranque
+      %row
+        %col zypper se open-iscsi yast2-iscsi-client
+        %col Comprobar que tenemos instalado el software iniciador iSCSI en OpenSUSE
+      %row
+        %col fdisk -l
+        %col Consultar los discos y particiones de la máquina local
+      %row
+        %col iscsiadm -m discovery -t sendtargets -p IP-DEL-TARGET
+        %col Descubrir los destinos disponibles que ofrece un target concreto
+      %row
+        %col iscsiadm -m node --targetname iqn.2017-05.curso1617.vargas42g:test -p IP-TARGET --login
+        %col Desde un iniciador, nos conectamos a un destino de un target concreto
+      %row
+        %col lsscsi
+        %col Encontrar la ruta del dispositivo local para el dispositivo Target iSCSI al que nos hemos conectado
+      %row
+        %col more /etc/iscsi/initiatorname.iscsi
+        %col Consultamos el nombre de nuestro iniciador iSCSI
+    %table{ :fields => 'proceso,descripción'}
+      %row
+        %col Descubrir
+        %col El iniciador busca targets disponibles
+      %row
+        %col Conectar
+        %col El iniciador se conecta a un target concreto
+
+  %concept
+    %names target
+    %tags target,iscsi,servidor,ofrece,almacenamiento
+    %def En iSCSI, [*] es el nombre de la máquina que ofrece el almacenamiento iSCSI
+    %def En iSCSI, la máquina [*] tiene una interfaz de red en la LAN de almacenamiento
+    %def El puerto, donde trabaja por defecto el servicio [*] iSCSI, es el 3260
+
+  %concept
+    %names initiator, iniciador
+    %tags initiator,iniciador,iscsi,servidor,consume,almacenamiento
+    %def En iSCSI, el [*] es el nombre de la máquina que consume el almacenamiento
+    %def En iSCSI, la máquina [*] tiene una interfaz de red en la LAN de almacenamiento y la otra en la LAN de la empresa.
+
+  %concept
+    %names iqn
+    %tags idintificador,iscsi,máquina,servidor,host
+    %def [*] es el nombre de los identificadores de las máquinas iSCSI
+    %def Ejemplos de [*] válidos: iqn.2005-02.au.com.empresa:san.200G.samba, iqn.2017-05.curso1617.target42:test.
+
+  %concept
+    %names lun
+    %tags dispositivo,iscsi,almacenamiento
+    %def [*] es el nombre de los dispositivos de almacenamiento en la jerga iSCSI
+    %def Los [*], se definen en la máquina Target iSCSI y pueden ser discos reales, discos virtuales o ficheros, etc.
+    %table{ :fields => 'configuración, descripción'}
+      %row
+        %col Lun 0 Path=/home/dispositivo1.img,Type=fileio
+        %col Configura un fichero como dispositivo de almacenamiento iSCSI
+      %row
+        %col Lun 1 Path=/dev/sdb,Type=fileio
+        %col Configura un disco como dispositivo de almacenamiento iSCSI
