@@ -18,7 +18,7 @@ module AI_calculate
         if t2.name == lTable.name
           t2.rows.each do |i|
 #            list2 << { :id => count, :name => n[:concept].name, :weight => 0, :data => i }
-            list2 << { :id => count, :weight => 0, :data => i }
+            list2 << { id: count, weight: 0, data: i }
             count += 1
           end
         end
