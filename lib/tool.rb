@@ -1,4 +1,3 @@
-#!/usr/bin/ruby
 # encoding: utf-8
 
 require 'yaml'
@@ -70,5 +69,4 @@ class Tool
       binding.pry if c.process
     end
   end
-
 end
