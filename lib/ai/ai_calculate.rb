@@ -1,13 +1,13 @@
 # encoding: utf-8
 
+# Methods that calculate something
 module AI_calculate
-  def get_list1_and_list2_from(lTable)
+  def get_list1_and_list2_from(ltable)
     # create <list1> with all the rows from the table
     list1 = []
     count = 1
-    lTable.rows.each do |i|
-#      list1 << { :id => count, :name => name, :weight => 0, :data => i }
-      list1 << { :id => count, :weight => 0, :data => i }
+    ltable.rows.each do |i|
+      list1 << { id: count, weight: 0, data: i }
       count += 1
     end
 
@@ -15,12 +15,10 @@ module AI_calculate
     list2 = []
     neighbors.each do |n|
       n[:concept].tables.each do |t2|
-        if t2.name == lTable.name
-          t2.rows.each do |i|
-#            list2 << { :id => count, :name => n[:concept].name, :weight => 0, :data => i }
-            list2 << { id: count, weight: 0, data: i }
-            count += 1
-          end
+        next if t2.name != ltable.name
+        t2.rows.each do |i|
+          list2 << { id: count, weight: 0, data: i }
+          count += 1
         end
       end
     end
