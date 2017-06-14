@@ -22,8 +22,8 @@ class Concept
     @id = @@id
 
     @filename = filename
-    @process  = false
-    @lang     = LangFactory.instance.get(lang_code)
+    @process = false
+    @lang = LangFactory.instance.get(lang_code)
 
     if context.class == Array
       @context = context
