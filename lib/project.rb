@@ -5,33 +5,34 @@ require 'rainbow'
 require_relative 'application'
 require_relative 'formatter/string_color_filter'
 
+# Contains Project info and methods
 class Project
   include Singleton
-  attr_reader   :default, :param
+  attr_reader :default, :param
 
   def initialize
     @default = {}
-    @default[:inputbasedir]    = 'input'
-    @default[:outputdir]       = 'output'
-    @default[:category]        = :none
-    @default[:formula_weights] = [1,1,1]
-    @default[:lang]            = 'en'
-    @default[:locales]         = ['en', 'es', 'maths', 'ruby', 'sql']
-    @default[:show_mode]       = :default
-    @default[:verbose]         = true
-    @default[:stages]          = { :d => true, :b => true, :f => true, :i => true, :s => true, :t => true }
-    @default[:threshold]       = 0.5
-    @default[:color_output]    = true
-    @param   = {}
+    @default[:inputbasedir] = 'input'
+    @default[:outputdir] = 'output'
+    @default[:category] = :none
+    @default[:formula_weights] = [1, 1, 1]
+    @default[:lang] = 'en'
+    @default[:locales] = ['en', 'es', 'maths', 'ruby', 'sql']
+    @default[:show_mode] = :default
+    @default[:verbose] = true
+    @default[:stages] = { d: true, b: true, f: true, i: true, s: true, t: true }
+    @default[:threshold] = 0.5
+    @default[:color_output] = true
+    @param = {}
   end
 
-  def method_missing(m, *args, &block)
+  def method_missing(m, *_args, &_block)
     get(m)
   end
 
   def get(key)
     return @param[key] unless @param[key].nil?
-    return @default[key]
+    @default[key]
   end
 
   def set(key, value)

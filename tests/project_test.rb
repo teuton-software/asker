@@ -10,19 +10,19 @@ class ProjectTest < Minitest::Test
   end
 
   def test_defaults_parms
-    assert_equal "input"  , @project.inputbasedir
-    assert_equal "output" , @project.outputdir
+    assert_equal 'input'  , @project.inputbasedir
+    assert_equal 'output' , @project.outputdir
     assert_equal :none    , @project.category
-    assert_equal [1,1,1]  , @project.formula_weights
+    assert_equal [1, 1, 1] , @project.formula_weights
     assert_equal 'en'     , @project.lang
     assert_equal 5        , @project.locales.size
     assert_equal :default , @project.show_mode
     assert_equal true     , @project.get(:verbose)
-    stages = { :d => true, :b => true, :f => true, :i => true, :s => true, :t => true }
+    stages = {d: true, b: true, f: true, i: true, s: true, t: true}
     assert_equal stages   , @project.stages
- end
+  end
 
- def test_open_project
+  def test_open_project
     dirname     = "test/input/"
     projectname = "test"
     filename    = projectname+".haml"
