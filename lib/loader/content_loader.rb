@@ -4,44 +4,46 @@ require 'rainbow'
 require 'rexml/document'
 require_relative '../data/concept'
 
+# Define methods that load data from XML contents
 class ContentLoader
-
   def initialize(filename, xml_content)
-    @filename  = filename
+    @filename = filename
     @content = xml_content
     @concepts = []
   end
 
   def load
-    project=Project.instance
+    project = Project.instance
 
     begin
-      lXMLdata=REXML::Document.new(@content)
-        begin
-        lLang=lXMLdata.root.attributes['lang']
-        lContext=lXMLdata.root.attributes['context']
+      lxmldata = REXML::Document.new(@content)
+      begin
+        lLang = lxmldata.root.attributes['lang']
+        lContext = lxmldata.root.attributes['context']
       rescue
-        lLang=project.lang
-        lContext="unknown"
+        lLang = project.lang
+        lContext = 'unknown'
       end
 
-      lXMLdata.root.elements.each do |xmldata|
-        if xmldata.name=='concept' then
+      lxmldata.root.elements.each do |xmldata|
+        if xmldata.name == 'concept'
           c = Concept.new(xmldata, @filename, lLang, lContext)
-          if ( project.process_file==:default or project.process_file== File.basename(@filename) ) then
-            c.process=true
+          if (project.process_file == :default || project.process_file == File.basename(@filename))
+            c.process = true
           end
           @concepts << c
+        elsif xmldata.name == 'fob'
+          puts '[DEBUG] FOB tag  found!'
         end
       end
     rescue REXML::ParseException
-      msg = Rainbow("[ERROR] ConceptLoader: Format error in file ").red+Rainbow(@filename).red.bright
+      msg = Rainbow('[ERROR] ConceptLoader: Format error in file ').red
+      msg += Rainbow(@filename).red.bright
       project.verbose msg
       system("echo '#{@content}' > output/error.xml")
       raise msg
     end
 
-    return @concepts
+    @concepts
   end
-
 end
