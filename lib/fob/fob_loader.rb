@@ -1,8 +1,8 @@
 
-require_relative 'data_object'
+require_relative 'data_fob'
 require_relative '../formatter/question_gift_formatter'
 
-class ObjectLoader
+class FOBLoader
   def initialize(dirbase, files, type)
     @files = files
     @dirbase = dirbase
@@ -13,7 +13,7 @@ class ObjectLoader
   def load
     @files.each do |filename|
       filepath = File.join(@dirbase, filename)
-      data = DataObject.new(filepath, @type)
+      data = DataFOB.new(filepath, @type)
       @questions[filename] = data.make_questions
     end
   end

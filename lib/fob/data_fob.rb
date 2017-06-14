@@ -1,6 +1,6 @@
 require_relative 'ai/object_ai_factory'
 
-class DataObject
+class DataFOB
   attr_reader :filename, :type
   attr_accessor :description, :process
   attr_reader :lines
