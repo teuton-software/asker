@@ -110,15 +110,14 @@ private
   end
 
   def create_lesson_file
-    #Create or reset lesson file
+    # Create or reset lesson file
     @param[:lessonfile] = File.new( get(:lessonpath),'w')
     f = get(:lessonfile)
-    f.write("="*50+"\n")
-    f.write("Created by : #{Application::name} (version #{Application::version})\n")
-    f.write("File       : #{ get(:lessonname) }\n")
-    f.write("Time       : "+Time.new.to_s+"\n")
+    f.write('=' * 50 + "\n")
+    f.write("Created by : #{Application.name} (version #{Application.version})\n")
+    f.write("File       : #{get(:lessonname)}\n")
+    f.write("Time       : #{Time.new}\n")
     f.write("Author     : David Vargas\n")
-    f.write("="*50+"\n")
+    f.write('=' * 50 + "\n")
   end
-
 end
