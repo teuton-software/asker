@@ -33,7 +33,9 @@ class ContentLoader
           end
           @concepts << c
         elsif xmldata.name == 'fob'
-          puts '[DEBUG] FOB tag  found!'
+          puts Rainbow('[DEBUG] FOB tag found!').blue
+        else
+          puts Rainbow("[ERROR] Tag error <#{xmldata.name}>").red
         end
       end
     rescue REXML::ParseException
