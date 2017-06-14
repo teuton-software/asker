@@ -28,11 +28,11 @@ class ProjectLoader
         #app.param[:inputdirs]=pArgs
         #app.param[:process_file]=Dir.entries(pArgs)
       else
-        project.verbose Rainbow("[ERR ] ProjectLoader.load: Input ").red+Rainbow(pArgs).red.bright+Rainbow(" unkown").red
+        project.verbose Rainbow("[ERR ] ProjectLoader.load: Input ").red + Rainbow(pArgs).red.bright + Rainbow(" unkown").red
         exit 1
       end
     else
-      project.verbose Rainbow("[ERROR] Tool.init: Configuration params format is <#{pArgs.class.to_s}>!").red
+      project.verbose Rainbow("[ERROR] Tool.init: Configuration params format is <#{pArgs.class}>!").red
       exit
     end
   end

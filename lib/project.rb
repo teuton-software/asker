@@ -65,17 +65,13 @@ class Project
   end
 
   def verbose(p_text)
-
-#    unless get(:color_output)
-#      (0..50).each { |i| lsText.gsub!("\e[#{i}m", '') }
-#    end
     l_text = StringColorFilter.filter(p_text)
     puts l_text if get(:verbose)
     get(:logfile).write(l_text.to_s + "\n") if get(:logfile)
   end
 
   def verboseln(lsText)
-    verbose(lsText+"\n")
+    verbose(lsText + "\n")
   end
 
 private
