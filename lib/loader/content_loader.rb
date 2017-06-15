@@ -35,13 +35,11 @@ class ContentLoader
           end
           @concepts << c
         elsif xmldata.name == 'file'
-          puts Rainbow('[DEBUG] <FILE> tag found!').yellow
-          f = FOBLoader.new(xmldata, @filename).fob
-          #if (project.process_file == :default || project.process_file == File.basename(@filename))
-          #  c.process = true
-          #end
-          f.debug
-          @fobs << f
+          if (project.process_file == :default || project.process_file == File.basename(@filename))
+            f = FOBLoader.new(xmldata, @filename).fob
+            f.debug
+            @fobs << f
+          end
         else
           puts Rainbow("[ERROR] Tag error <#{xmldata.name}>").red
         end
