@@ -31,7 +31,6 @@ class DirectoryLoader
       end
       @concepts += FileLoader.new(pFilename).load
     end
-    return @concepts
+    @concepts
   end
-
 end
