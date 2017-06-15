@@ -13,7 +13,8 @@ module ProjectLoader
     end
 
     if pArgs.class != String
-      msg = "[ERR ] ProjectLoader: Configuration params format is <#{pArgs.class}>!"
+      msg = '[ERR ] ProjectLoader:'
+      msg += "Configuration params format is <#{pArgs.class}>!"
       project.verbose Rainbow(msg).red
       exit
     end
