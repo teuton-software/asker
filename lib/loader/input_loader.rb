@@ -16,7 +16,7 @@ class InputLoader
     end
 
     #find_neighbors_for_every_concept
-    return @concepts
+    @concepts
   end
 
 #  def find_neighbors_for_every_concept

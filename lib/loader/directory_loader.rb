@@ -4,21 +4,21 @@ require_relative 'file_loader'
 
 class DirectoryLoader
   def initialize(dirname)
-    @dirname  = dirname
+    @dirname = dirname
     @concepts = []
   end
 
   def load
-    project=Project.instance
+    project = Project.instance
 
-    dirname=@dirname
-    if !Dir.exists? dirname then
+    dirname = @dirname
+    unless Dir.exist? dirname
       msg = "["+Rainbow(ERROR).color(:red)+"] <#{Rainbow(dirname).color(:red)}> directory dosn't exist!"
       project.verboseln msg
       raise msg
     end
 
-    files=(Dir.new(dirname).entries-[".",".."]).sort
+    files = (Dir.new(dirname).entries-[".",".."]).sort
     accepted = files.select { |f| f[-4..-1]==".xml" || f[-5..-1]==".haml" } # accept only HAML or XML files
     project.verbose " * Input directory  = " + Rainbow(dirname).bright
 
