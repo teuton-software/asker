@@ -22,7 +22,7 @@ class Tool
   def initialize
     @concepts = []
     @concepts_ai = []
-    @file_objects = []
+    @fobs =[]
   end
 
   def start(args = {})
@@ -35,7 +35,9 @@ class Tool
   def load_input_data(args)
     ProjectLoader.load(args)
     Project.instance.open
-    @concepts = InputLoader.new.load
+    data = InputLoader.new.load
+    @concepts = data[:concepts]
+    @fobs = data[:fobs]
     print "\n[INFO] Loading data from Internet"
     @world = World.new(@concepts)
     ConceptScreenExporter.new(@concepts).export

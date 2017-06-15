@@ -7,7 +7,7 @@ require_relative 'content_loader'
 class FileLoader
   def initialize(filename)
     @filename = filename
-    @concepts = []
+    @data = {}
   end
 
   def load
@@ -25,7 +25,7 @@ class FileLoader
       raise msg
     end
 
-    @concepts = ContentLoader.new(@filename, file_content).load
-    @concepts
+    @data = ContentLoader.new(@filename, file_content).load
+    @data
   end
 end

@@ -5,7 +5,7 @@ require_relative 'file_loader'
 class DirectoryLoader
   def initialize(dirname)
     @dirname = dirname
-    @concepts = []
+    @data = {concepts: [], fobs: []}
   end
 
   def load
@@ -23,14 +23,16 @@ class DirectoryLoader
     project.verbose " * Input directory  = " + Rainbow(dirname).bright
 
     accepted.each do |f|
-      pFilename=dirname+'/'+f
-      if f==accepted.last then
+      pFilename = File.join(dirname, f)
+      if f == accepted.last
         project.verbose "   └── Input file   = " + Rainbow(pFilename).bright
       else
         project.verbose "   ├── Input file   = " + Rainbow(pFilename).bright
       end
-      @concepts += FileLoader.new(pFilename).load
+      data = FileLoader.new(pFilename).load
+      @data[:concepts] += data[:concepts]
+      @data[:fobs] += data[:fobs]
     end
-    @concepts
+    @data
   end
 end

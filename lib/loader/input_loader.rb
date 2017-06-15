@@ -3,30 +3,20 @@ require_relative 'directory_loader'
 
 class InputLoader
   def initialize
-    @concepts = []
+    @data = {concepts: [], fobs: []}
   end
 
   def load
-    project=Project.instance
+    project = Project.instance
     project.verbose "\n[INFO] Loading input data"
 
     inputdirs = project.inputdirs.split(',')
     inputdirs.each do |dirname|
-      @concepts += DirectoryLoader.new(dirname).load
+      data = DirectoryLoader.new(dirname).load
+      @data[:concepts] += data[:concepts]
+      @data[:fobs] += data[:fobs]
     end
 
-    #find_neighbors_for_every_concept
-    @concepts
+    @data
   end
-
-#  def find_neighbors_for_every_concept
-#    @concepts.each do |i|
-#      @concepts.each do |j|
-#        if (i.id!=j.id) then
-#          i.try_adding_neighbor(j)
-#          i.try_adding_references(j)
-#        end
-#      end
-#    end
-#  end
 end

@@ -11,7 +11,8 @@ class ContentLoader
     @filename = filename
     @content = xml_content
     @concepts = []
-    @fobs =[]
+    @fobs = []
+    @data = {}
   end
 
   def load
@@ -52,7 +53,8 @@ class ContentLoader
       raise msg
     end
 
-    project.fobs = @fobs # temporaly pass params using project accesor...
-    @concepts
+    @data[:concepts] = @concepts
+    @data[:fobs] = @fobs
+    @data
   end
 end
