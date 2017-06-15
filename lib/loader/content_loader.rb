@@ -32,8 +32,8 @@ class ContentLoader
             c.process = true
           end
           @concepts << c
-        elsif xmldata.name == 'fob'
-          puts Rainbow('[DEBUG] FOB tag found!').blue
+        elsif xmldata.name == 'file'
+          puts Rainbow('[DEBUG] <FILE> tag found!').yellow
         else
           puts Rainbow("[ERROR] Tag error <#{xmldata.name}>").red
         end
