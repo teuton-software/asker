@@ -2,7 +2,7 @@
 require 'yaml'
 require_relative '../project'
 
-class ProjectLoader
+module ProjectLoader
   def self.load(pArgs = {})
     project = Project.instance
 
