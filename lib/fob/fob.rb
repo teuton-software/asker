@@ -29,6 +29,7 @@ class FOB
   def debug
     puts "[INFO] Params:"
     puts "  * filename : #{@filename}"
+    puts "  * type     : #{@type}"
     puts "  * lines    : #{@lines.size}"
     puts "\n"
     puts "[INFO] Source code:"
