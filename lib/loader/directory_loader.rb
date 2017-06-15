@@ -33,7 +33,7 @@ module DirectoryLoader
       else
         project.verbose '   ├── Input file   = ' + Rainbow(filename).bright
       end
-      data = FileLoader.new(filename).load
+      data = FileLoader.load(filename)
       output[:concepts] += data[:concepts]
       output[:fobs] += data[:fobs]
     end
