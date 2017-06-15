@@ -4,44 +4,49 @@ require_relative '../project'
 
 # Load params into Project class using arg input
 module ProjectLoader
-  def self.load(pArgs = {})
+  def self.load(args = {})
     project = Project.instance
 
-    if pArgs.class == Hash
-      project.param.merge!(pArgs)
+    if args.class == Hash
+      project.param.merge!(args)
       return true
     end
 
-    if pArgs.class != String
+    if args.class != String
       msg = '[ERR ] ProjectLoader:'
       msg += "Configuration params format is <#{pArgs.class}>!"
       project.verbose Rainbow(msg).red
       exit
     end
 
-    unless File.exist?(pArgs)
+    ProjectLoader.load_from_string(args)
+  end
+
+  def self.load_from_string(arg)
+    project = Project.instance
+    unless File.exist?(arg)
       msg = Rainbow('[WARN] ProjectLoader.load: ').yellow
-      msg += Rainbow(pArgs).yellow.bright + Rainbow(" dosn't exists!").yellow
+      msg += Rainbow(arg).yellow.bright + Rainbow(" dosn't exists!").yellow
       project.verbose msg
       exit 1
     end
 
-    if File.extname(pArgs) == '.haml' || File.extname(pArgs) == '.xml'
-      project.set(:inputdirs, File.dirname(pArgs))
-      project.set(:process_file, File.basename(pArgs))
-    elsif File.extname(pArgs) == '.yaml'
-      project.param.merge!(YAML.load(File.open(pArgs)))
-      project.set(:configfilename, pArgs)
-      project.set(:projectdir, File.dirname(pArgs))
-    elsif File.directory?(pArgs)
+    if File.extname(arg) == '.haml' || File.extname(arg) == '.xml'
+      project.set(:inputdirs, File.dirname(arg))
+      project.set(:process_file, File.basename(arg))
+    elsif File.extname(arg) == '.yaml'
+      project.param.merge!(YAML.load(File.open(arg)))
+      project.set(:configfilename, arg)
+      project.set(:projectdir, File.dirname(arg))
+    elsif File.directory?(arg)
       msg = Rainbow('[WARN] ProjectLoader.load: Directory input ').yellow
-      msg += Rainbow(pArgs).bright.yellow
+      msg += Rainbow(arg).bright.yellow
       msg += Rainbow(' not implemented yet').yellow
       project.verbose msg
       exit 1
     else
       msg = Rainbow('[ERR ] ProjectLoader: Input ').red
-      msg += Rainbow(pArgs).red.bright + Rainbow(' unkown').red
+      msg += Rainbow(arg).red.bright + Rainbow(' unkown').red
       project.verbose msg
       exit 1
     end
