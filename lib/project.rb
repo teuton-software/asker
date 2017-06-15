@@ -10,8 +10,12 @@ class Project
   include Singleton
   attr_reader :default, :param
   attr_accessor :fobs
-  
+
   def initialize
+    reset
+  end
+
+  def reset
     @default = {}
     @default[:inputbasedir] = 'input'
     @default[:outputdir] = 'output'
