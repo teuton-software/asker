@@ -2,7 +2,6 @@
 require_relative 'directory_loader'
 
 class InputLoader
-
   def initialize
     @concepts = []
   end

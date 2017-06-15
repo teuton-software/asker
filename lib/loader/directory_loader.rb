@@ -3,7 +3,6 @@
 require_relative 'file_loader'
 
 class DirectoryLoader
-
   def initialize(dirname)
     @dirname  = dirname
     @concepts = []

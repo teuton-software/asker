@@ -5,7 +5,6 @@ require_relative 'content_loader'
 
 # Methods that load a filename and return list of concepts
 class FileLoader
-
   def initialize(filename)
     @filename = filename
     @concepts = []
