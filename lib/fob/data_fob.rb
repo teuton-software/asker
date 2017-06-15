@@ -1,4 +1,4 @@
-require_relative 'ai/object_ai_factory'
+require_relative 'ai/fob_ai_factory'
 
 class DataFOB
   attr_reader :filename, :type
@@ -11,7 +11,7 @@ class DataFOB
     @process = true
     @lines = load(@filename)
     @questions = []
-    @object_ai = ObjectAIFactory.get(self)
+    @object_ai = FOBAIFactory.get(self)
   end
 
   def make_questions
