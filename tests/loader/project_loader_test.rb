@@ -11,9 +11,23 @@ class ProjectLoaderTest < Minitest::Test
 
   def test_load_jedi
     project = Project.instance
-    assert_equal 0, project.param.size
+    project.reset
 
+    assert_equal 0, project.param.size
     ProjectLoader.load(@args[0])
     assert_equal 2, project.param.size
+    assert_equal 'tests/input', project.param[:inputdirs]
+    assert_equal 'jedi.haml', project.param[:process_file]
+  end
+
+  def test_load_sith
+    project = Project.instance
+    project.reset
+
+    assert_equal 0, project.param.size
+    ProjectLoader.load(@args[1])
+    assert_equal 2, project.param.size
+    assert_equal 'tests/input', project.param[:inputdirs]
+    assert_equal 'sith.haml', project.param[:process_file]
   end
 end
