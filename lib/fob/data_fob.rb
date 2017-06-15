@@ -14,12 +14,6 @@ class DataFOB
     @object_ai = ObjectAIFactory.get(self)
   end
 
-  def load(filename)
-    return if filename.nil?
-    content = File.read(filename)
-    content.split("\n")
-  end
-
   def make_questions
     @questions += @object_ai.make_questions
   end
@@ -27,7 +21,7 @@ class DataFOB
   def lines_to_s(lines)
     out = ''
     lines.each_with_index do |line,index|
-        out << "%2d| #{line}\n"%(index+1)
+        out << format("%2d| #{line}\n", (index + 1))
     end
     out
   end
@@ -41,5 +35,13 @@ class DataFOB
     puts lines_to_s(@lines)
     puts "[INFO] Questions:"
     puts @questions.size
+  end
+
+  private
+
+  def load(filename)
+    return if filename.nil?
+    content = File.read(filename)
+    content.split("\n")
   end
 end
