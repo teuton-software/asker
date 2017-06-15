@@ -10,9 +10,7 @@ module ProjectLoader
     if args.class == Hash
       project.param.merge!(args)
       return true
-    end
-
-    if args.class == String
+    elsif args.class == String
       ProjectLoader.load_from_string(args)
       return true
     end
