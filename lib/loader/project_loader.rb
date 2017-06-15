@@ -12,14 +12,15 @@ module ProjectLoader
       return true
     end
 
-    if args.class != String
-      msg = '[ERR ] ProjectLoader:'
-      msg += "Configuration params format is <#{pArgs.class}>!"
-      project.verbose Rainbow(msg).red
-      exit
+    if args.class == String
+      ProjectLoader.load_from_string(args)
+      return true
     end
 
-    ProjectLoader.load_from_string(args)
+    msg = '[ERR ] ProjectLoader:'
+    msg += "Configuration params format is <#{pArgs.class}>!"
+    project.verbose Rainbow(msg).red
+    exit 1
   end
 
   def self.load_from_string(arg)
