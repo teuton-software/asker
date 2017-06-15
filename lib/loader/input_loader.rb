@@ -14,7 +14,7 @@ module InputLoader
 
     inputdirs = project.inputdirs.split(',')
     inputdirs.each do |dirname|
-      data = DirectoryLoader.new(dirname).load
+      data = DirectoryLoader.load(dirname)
       output[:concepts] += data[:concepts]
       output[:fobs] += data[:fobs]
     end
