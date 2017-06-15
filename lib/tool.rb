@@ -35,7 +35,7 @@ class Tool
   def load_input_data(args)
     ProjectLoader.load(args)
     Project.instance.open
-    data = InputLoader.new.load
+    data = InputLoader.load
     @concepts = data[:concepts]
     @fobs = data[:fobs]
     print "\n[INFO] Loading data from Internet"

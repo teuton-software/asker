@@ -12,7 +12,7 @@ class InputLoaderTest < Minitest::Test
     project.set(:verbose, false)
     ProjectLoader.load(filepath)
 
-    data = InputLoader.new.load
+    data = InputLoader.load
     assert_equal 4, data[:concepts].size
     assert_equal 'obiwan', data[:concepts][0].name
     assert_equal 'yoda', data[:concepts][1].name

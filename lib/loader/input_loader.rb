@@ -6,22 +6,19 @@ require_relative 'directory_loader'
 # DirectoryLoader use FileLoader
 # FileLoader use ContentLoader
 # ContentLoader use Concept and FOBLoader
-class InputLoader
-  def initialize
-    @data = { concepts: [], fobs: [] }
-  end
-
-  def load
+module InputLoader
+  def self.load
+    output = { concepts: [], fobs: [] }
     project = Project.instance
     project.verbose "\n[INFO] Loading input data"
 
     inputdirs = project.inputdirs.split(',')
     inputdirs.each do |dirname|
       data = DirectoryLoader.new(dirname).load
-      @data[:concepts] += data[:concepts]
-      @data[:fobs] += data[:fobs]
+      output[:concepts] += data[:concepts]
+      output[:fobs] += data[:fobs]
     end
 
-    @data
+    output
   end
 end
