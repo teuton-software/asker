@@ -1,6 +1,6 @@
 require_relative 'ai/fob_ai_factory'
 
-class DataFOB
+class FOB
   attr_reader :filename, :type
   attr_accessor :description, :process
   attr_reader :lines

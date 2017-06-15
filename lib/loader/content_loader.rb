@@ -3,6 +3,7 @@
 require 'rainbow'
 require 'rexml/document'
 require_relative '../data/concept'
+require_relative '../fob/fob'
 
 # Define methods that load data from XML contents
 class ContentLoader
@@ -10,6 +11,7 @@ class ContentLoader
     @filename = filename
     @content = xml_content
     @concepts = []
+    @fobs =[]
   end
 
   def load
@@ -34,6 +36,11 @@ class ContentLoader
           @concepts << c
         elsif xmldata.name == 'file'
           puts Rainbow('[DEBUG] <FILE> tag found!').yellow
+          #f = DataFOB.new(xmldata, @filename, lLang, lContext)
+          #if (project.process_file == :default || project.process_file == File.basename(@filename))
+          #  c.process = true
+          #end
+          #@fobs << f
         else
           puts Rainbow("[ERROR] Tag error <#{xmldata.name}>").red
         end
