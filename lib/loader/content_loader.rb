@@ -52,6 +52,7 @@ class ContentLoader
       raise msg
     end
 
+    project.fobs = @fobs # temporaly pass params using project accesor...
     @concepts
   end
 end

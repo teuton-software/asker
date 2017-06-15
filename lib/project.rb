@@ -9,7 +9,8 @@ require_relative 'formatter/string_color_filter'
 class Project
   include Singleton
   attr_reader :default, :param
-
+  attr_accessor :fobs
+  
   def initialize
     @default = {}
     @default[:inputbasedir] = 'input'
