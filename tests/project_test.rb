@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 
 require 'pry'
-require "minitest/autorun"
-require_relative "../lib/project"
+require 'minitest/autorun'
+require_relative '../lib/project'
 
 class ProjectTest < Minitest::Test
   def setup

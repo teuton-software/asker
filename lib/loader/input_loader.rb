@@ -1,9 +1,14 @@
 
 require_relative 'directory_loader'
 
+# load DATA defined by Project
+# InputLoader use DirectoryLoader
+# DirectoryLoader use FileLoader
+# FileLoader use ContentLoader
+# ContentLoader use Concept and FOBLoader
 class InputLoader
   def initialize
-    @data = {concepts: [], fobs: []}
+    @data = { concepts: [], fobs: [] }
   end
 
   def load
