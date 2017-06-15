@@ -2,7 +2,7 @@
 require_relative 'data_fob'
 require_relative '../formatter/question_gift_formatter'
 
-class FOBLoader
+class DemoLoader
   def initialize(dirbase, files, type)
     @files = files
     @dirbase = dirbase
