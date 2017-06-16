@@ -6,7 +6,7 @@ module FOBAIFactory
   def self.get(data_fob)
     type = data_fob.type
     case type
-    when :rubycode
+    when :ruby
       return RubyCodeAI.new(data_fob)
     when :sqlcode
       return SQLCodeAI.new(data_fob)
