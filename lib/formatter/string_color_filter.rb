@@ -3,10 +3,9 @@ require_relative '../project'
 
 class StringColorFilter
   def self.filter(p_text)
+    return p_text if Project.instance.get(:color_output)
     l_text = p_text.to_s.clone
-    unless Project.instance.get(:color_output)
-      (0..50).each { |i| l_text.gsub!("\e[#{i}m", '') }
-    end
+    (0..50).each { |i| l_text.gsub!("\e[#{i}m", '') }
     l_text
   end
 end
