@@ -20,23 +20,20 @@ class ContentLoader
 
     begin
       lxmldata = REXML::Document.new(@content)
-      begin
-        lLang = lxmldata.root.attributes['lang']
-        lContext = lxmldata.root.attributes['context']
-      rescue
-        lLang = project.lang
-        lContext = 'unknown'
-      end
+      lang = read_lang_attribute(lxmldata)
+      context = read_context_attribute(lxmldata)
 
       lxmldata.root.elements.each do |xmldata|
         if xmldata.name == 'concept'
-          c = Concept.new(xmldata, @filename, lLang, lContext)
-          if (project.process_file == :default || project.process_file == File.basename(@filename))
-            c.process = true
-          end
+          c = Concept.new(xmldata, @filename, lang, context)
+          cond1 = project.process_file == :default
+          cond2 = project.process_file == File.basename(@filename)
+          c.process = true if cond1 || cond2
           @concepts << c
         elsif xmldata.name == 'file'
-          if (project.process_file == :default || project.process_file == File.basename(@filename))
+          cond1 = project.process_file == :default
+          cond2 = project.process_file == File.basename(@filename)
+          if cond1 || cond2
             f = FOBLoader.new(xmldata, @filename).fob
             f.debug
             @fobs << f
@@ -56,5 +53,25 @@ class ContentLoader
     @data[:concepts] = @concepts
     @data[:fobs] = @fobs
     @data
+  end
+
+  private
+
+  def read_lang_attribute(lxmldata)
+    begin
+      lang = lxmldata.root.attributes['lang']
+    rescue
+      lang = Project.instance.lang
+    end
+    lang
+  end
+
+  def read_context_attribute(lxmldata)
+    begin
+      context = lxmldata.root.attributes['context']
+    rescue
+      context = 'unknown'
+    end
+    context
   end
 end
