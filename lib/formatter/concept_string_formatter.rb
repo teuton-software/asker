@@ -32,17 +32,16 @@ class ConceptStringFormatter
 	end
     t.add_row [Rainbow(".def(text)").color(:blue), lText.join("\n") ]
     t.add_row [Rainbow(".def(images)").color(:blue), @concept.images.size.to_s ]
-	  if @concept.tables.count>0 then
-	    lText=[]
+	  if @concept.tables.count > 0
+	    lText = []
 	    @concept.tables.each { |i| lText << i.to_s }
 	    t.add_row [ Rainbow(".tables").color(:blue), lText.join("\n")]
 	  end
-	  lText=[]
+    lText = []
 	  @concept.neighbors[0..5].each { |i| lText << i[:concept].name(:screen,)+"("+i[:value].to_s[0..4]+")" }
-	  t.add_row [Rainbow(".neighbors").color(:blue),lText.join("\n")]
+    t.add_row [Rainbow('.neighbors').blue, lText.join("\n")]
 
-    out << t.to_s+"\n"
-	  return out
+    out << t.to_s + "\n"
+    out
   end
-
 end
