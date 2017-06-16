@@ -1,6 +1,7 @@
 
 require_relative '../project'
 
+# Filter color output from text if needed
 class StringColorFilter
   def self.filter(p_text)
     return p_text if Project.instance.get(:color_output)
