@@ -6,7 +6,7 @@ require_relative '../../lib/loader/input_loader'
 
 class InputLoaderTest < Minitest::Test
   def test_load_jedi_haml
-    filepath = 'tests/input/jedi.haml'
+    filepath = 'tests/input/starwars/jedi.haml'
     project = Project.instance
     project.reset
     project.set(:verbose, false)

@@ -6,13 +6,13 @@ require_relative '../../lib/loader/directory_loader'
 
 class DirectoryLoaderTest < Minitest::Test
   def test_load_test_input
-    filepath = 'tests/input/jedi.haml'
+    filepath = 'tests/input/starwars/jedi.haml'
     project = Project.instance
     project.reset
     project.set(:verbose, false)
     ProjectLoader.load(filepath)
 
-    data = DirectoryLoader.load 'tests/input'
+    data = DirectoryLoader.load 'tests/input/starwars'
 
     assert_equal 4, data[:concepts].size
     assert_equal 'obiwan', data[:concepts][0].name

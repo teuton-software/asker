@@ -18,7 +18,7 @@ module ProjectLoader
     msg = '[ERR ] ProjectLoader:'
     msg += "Configuration params format is <#{pArgs.class}>!"
     project.verbose Rainbow(msg).red
-    exit 1
+    raise msg
   end
 
   def self.load_from_string(arg)
@@ -27,7 +27,7 @@ module ProjectLoader
       msg = Rainbow('[WARN] ProjectLoader.load: ').yellow
       msg += Rainbow(arg).yellow.bright + Rainbow(" dosn't exists!").yellow
       project.verbose msg
-      exit 1
+      raise msg
     end
 
     if File.extname(arg) == '.haml' || File.extname(arg) == '.xml'
@@ -47,7 +47,7 @@ module ProjectLoader
       msg = Rainbow('[ERR ] ProjectLoader: Input ').red
       msg += Rainbow(arg).red.bright + Rainbow(' unkown').red
       project.verbose msg
-      exit 1
+      raise msg
     end
   end
 end

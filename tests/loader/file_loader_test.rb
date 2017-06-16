@@ -6,7 +6,7 @@ require_relative '../../lib/loader/file_loader'
 
 class FileLoaderTest < Minitest::Test
   def test_load_jedi
-    filepath = 'tests/input/jedi.haml'
+    filepath = 'tests/input/starwars/jedi.haml'
     project = Project.instance
     project.reset
     project.set(:verbose, false)
@@ -29,9 +29,9 @@ class FileLoaderTest < Minitest::Test
     project = Project.instance
     project.reset
     project.set(:verbose, false)
-    ProjectLoader.load('tests/input/jedi.haml')
+    ProjectLoader.load('tests/input/starwars/jedi.haml')
 
-    data = FileLoader.load 'tests/input/sith.haml'
+    data = FileLoader.load 'tests/input/starwars/sith.haml'
 
     assert_equal 2, data[:concepts].size
     assert_equal 'sidious', data[:concepts][0].name
