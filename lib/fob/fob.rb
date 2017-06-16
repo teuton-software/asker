@@ -15,6 +15,10 @@ class FOB
     @object_ai = FOBAIFactory.get(self)
   end
 
+  def process?
+    @process
+  end
+
   def make_questions
     @questions += @object_ai.make_questions
   end
@@ -29,7 +33,7 @@ class FOB
 
   def debug
     p = Project.instance
-    p.verbose "[INFO] Params:"
+    p.verbose '[INFO] Params:'
     p.verbose "  * filename : #{@filename}"
     p.verbose "  * type     : #{@type}"
     p.verbose "  * lines    : #{@lines.size}"

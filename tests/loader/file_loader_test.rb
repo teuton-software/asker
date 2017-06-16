@@ -63,6 +63,14 @@ class FileLoaderTest < Minitest::Test
     assert_equal 'tests/input/files/array.rb', data[:fobs][1].filename
     assert_equal 'tests/input/files/iterador.rb', data[:fobs][2].filename
 
+    assert_equal true, data[:fobs][0].process?
+    assert_equal true, data[:fobs][1].process?
+    assert_equal true, data[:fobs][2].process?
+
+    assert_equal 5, data[:fobs][0].lines.size
+    assert_equal 8, data[:fobs][1].lines.size
+    assert_equal 13, data[:fobs][2].lines.size
+
     project.reset
   end
 end
