@@ -1,4 +1,5 @@
 require_relative 'ai/fob_ai_factory'
+require_relative '../project'
 
 class FOB
   attr_reader :filename, :type
@@ -27,15 +28,16 @@ class FOB
   end
 
   def debug
-    puts "[INFO] Params:"
-    puts "  * filename : #{@filename}"
-    puts "  * type     : #{@type}"
-    puts "  * lines    : #{@lines.size}"
-    puts "\n"
-    puts "[INFO] Source code:"
-    puts lines_to_s(@lines)
-    puts "[INFO] Questions:"
-    puts @questions.size
+    p = Project.instance
+    p.verbose "[INFO] Params:"
+    p.verbose "  * filename : #{@filename}"
+    p.verbose "  * type     : #{@type}"
+    p.verbose "  * lines    : #{@lines.size}"
+    p.verbose "\n"
+    p.verbose "[INFO] Source code:"
+    p.verbose lines_to_s(@lines)
+    p.verbose "[INFO] Questions:"
+    p.verbose @questions.size
   end
 
   private
