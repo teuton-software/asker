@@ -43,4 +43,26 @@ class FileLoaderTest < Minitest::Test
 
     project.reset
   end
+
+  def test_load_test_input_ruby
+    filepath = 'tests/input/ruby/ruby1.haml'
+    project = Project.instance
+    project.reset
+    project.set(:verbose, false)
+    ProjectLoader.load(filepath)
+
+    data = FileLoader.load filepath
+
+    assert_equal 0, data[:concepts].size
+    assert_equal 3, data[:fobs].size
+    assert_equal :ruby, data[:fobs][0].type
+    assert_equal :ruby, data[:fobs][1].type
+    assert_equal :ruby, data[:fobs][2].type
+
+    assert_equal 'tests/input/files/string.rb', data[:fobs][0].filename
+    assert_equal 'tests/input/files/array.rb', data[:fobs][1].filename
+    assert_equal 'tests/input/files/iterador.rb', data[:fobs][2].filename
+
+    project.reset
+  end
 end
