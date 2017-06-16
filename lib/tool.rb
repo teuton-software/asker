@@ -40,7 +40,7 @@ class Tool
     @fobs = data[:fobs]
     print "\n[INFO] Loading data from Internet"
     @world = World.new(@concepts)
-    ConceptScreenExporter.new(@concepts).export
+    ConceptScreenExporter.export(@concepts)
   end
 
   def create_output_files
