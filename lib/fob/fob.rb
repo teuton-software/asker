@@ -1,10 +1,11 @@
 require_relative 'ai/fob_ai_factory'
 require_relative '../project'
+require_relative '../formatter/fob_string_formatter'
 
 class FOB
   attr_reader :filename, :type
   attr_accessor :description, :process
-  attr_reader :lines
+  attr_reader :lines, :questions
 
   def initialize(filename,type)
     @filename = filename
@@ -32,16 +33,9 @@ class FOB
   end
 
   def debug
+    out = FOBStringFormatter.to_s(self)
     p = Project.instance
-    p.verbose '[INFO] Params:'
-    p.verbose "  * filename : #{@filename}"
-    p.verbose "  * type     : #{@type}"
-    p.verbose "  * lines    : #{@lines.size}"
-    p.verbose "\n"
-    p.verbose "[INFO] Source code:"
-    p.verbose lines_to_s(@lines)
-    p.verbose "[INFO] Questions:"
-    p.verbose @questions.size
+    p.verbose out
   end
 
   private
