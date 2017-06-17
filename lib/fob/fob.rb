@@ -13,7 +13,7 @@ class FOB
     @process = true
     @lines = load(@filename)
     @questions = []
-    @object_ai = FOBAIFactory.get(self)
+    @fob_ai = FOBAIFactory.get(self)
   end
 
   def process?
@@ -21,7 +21,7 @@ class FOB
   end
 
   def make_questions
-    @questions += @object_ai.make_questions
+    @questions += @fob_ai.make_questions
   end
 
   def lines_to_s(lines)

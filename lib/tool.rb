@@ -64,6 +64,7 @@ class Tool
       ConceptAIGiftExporter.new(concept_ai).export
       @concepts_ai << concept_ai
     end
+    @fobs.each { |fob| fob.make_questions }
   end
 
   def debug
