@@ -30,7 +30,7 @@ class Tool
     load_input_data(args)
     create_output_files
     ConceptAIScreenExporter.new(@concepts_ai).export
-    FOBScreenExporter.new(@fobs).export
+    FOBScreenExporter.export(@fobs)
     Project.instance.close
   end
 

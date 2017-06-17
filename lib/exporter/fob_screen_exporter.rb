@@ -1,14 +1,10 @@
 
 require 'terminal-table'
 
-class FOBScreenExporter
-  def initialize(fobs)
-    @fobs = fobs
-  end
-
-  def export
+module FOBScreenExporter
+  def self.export(fobs)
 	  project = Project.instance
-    return if project.show_mode == :none || @fobs.nil? || @fobs.size == 0
+    return if project.show_mode == :none || fobs.nil? || fobs.size == 0
 
     total_f = total_q = total_e = 0
 
@@ -17,7 +13,7 @@ class FOBScreenExporter
       st << :separator
     end
 
-    @fobs.each do |fob|
+    fobs.each do |fob|
       if fob.process?
         e = fob.lines.size
         q = fob.questions.size
