@@ -3,43 +3,43 @@
 require 'rainbow'
 require 'terminal-table'
 
-require_relative '../project'
-
-class ConceptStringFormatter
-
-  def initialize(concept)
-    @concept = concept
-  end
-
-  def to_s
-    out=""
+# Define methods to trasnforme Concept into String
+module ConceptStringFormatter
+  def self.to_s(concept)
+    out = ''
 
     t = Terminal::Table.new
-    t.add_row [Rainbow(@concept.id.to_s).bright, Rainbow(@concept.name(:screen)).color(:white).bg(:blue).bright+" (lang=#{@concept.lang.lang}) " ]
-    t.add_row [Rainbow("Filename").color(:blue), @concept.filename ]
-    t.add_row [Rainbow("Context").color(:blue), @concept.context.join(", ").to_s ]
-    t.add_row [Rainbow("Tags").color(:blue), @concept.tags.join(", ").to_s]
-    t.add_row [Rainbow("Reference to").color(:blue), (@concept.reference_to.join(", "))[0...70].to_s ]
-    t.add_row [Rainbow("Referenced by").color(:blue), (@concept.referenced_by.join(", "))[0...70].to_s ]
+    msg = Rainbow(concept.name(:screen)).white.bg(:blue).bright
+    msg += " (lang=#{concept.lang.lang}) "
+    t.add_row [Rainbow(concept.id.to_s).bright, msg]
+    t.add_row [Rainbow('Filename').blue, concept.filename]
+    t.add_row [Rainbow('Context').blue, concept.context.join(', ').to_s]
+    t.add_row [Rainbow('Tags').blue, concept.tags.join(', ').to_s]
+    msg = concept.reference_to.join(', ')[0...70].to_s
+    t.add_row [Rainbow('Reference to').blue, msg]
+    msg = concept.referenced_by.join(', ')[0...70].to_s
+    t.add_row [Rainbow('Referenced by').blue, msg]
 
-    lText=[]
-    @concept.texts.each do |i|
-      if i.size<60 then
-	    lText << i.to_s
-	  else
-	    lText << i[0...70].to_s+"..."
-	  end
-	end
-    t.add_row [Rainbow(".def(text)").color(:blue), lText.join("\n") ]
-    t.add_row [Rainbow(".def(images)").color(:blue), @concept.images.size.to_s ]
-	  if @concept.tables.count > 0
-	    lText = []
-	    @concept.tables.each { |i| lText << i.to_s }
-	    t.add_row [ Rainbow(".tables").color(:blue), lText.join("\n")]
-	  end
-    lText = []
-	  @concept.neighbors[0..5].each { |i| lText << i[:concept].name(:screen,)+"("+i[:value].to_s[0..4]+")" }
-    t.add_row [Rainbow('.neighbors').blue, lText.join("\n")]
+    ltext = []
+    concept.texts.each do |i|
+      if i.size < 60
+        lText << i.to_s
+      else
+        ltext << i[0...70].to_s + '...'
+      end
+    end
+    t.add_row [Rainbow('.def(text)').blue, ltext.join("\n")]
+    t.add_row [Rainbow('.def(images)').blue, concept.images.size.to_s]
+    if concept.tables.count > 0
+      ltext = []
+      concept.tables.each { |i| ltext << i.to_s }
+      t.add_row [Rainbow('.tables').color(:blue), ltext.join("\n")]
+    end
+    ltext = []
+    concept.neighbors[0..5].each do |i|
+      ltext << i[:concept].name(:screen) + '(' + i[:value].to_s[0..4] + ')'
+    end
+    t.add_row [Rainbow('.neighbors').blue, ltext.join("\n")]
 
     out << t.to_s + "\n"
     out

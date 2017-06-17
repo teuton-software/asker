@@ -18,7 +18,7 @@ module ConceptScreenExporter
     when :default
       # Only show Concepts with process attr true
       concepts.each do |c|
-        project.verbose ConceptStringFormatter.new(c).to_s if c.process?
+        project.verbose ConceptStringFormatter.to_s(c) if c.process?
       end
     end
   end
