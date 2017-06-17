@@ -29,9 +29,7 @@ class Tool
   def start(args = {})
     load_input_data(args)
     create_output_files
-    ConceptAIScreenExporter.new(@concepts_ai).export
-    FOBScreenExporter.export(@fobs)
-    Project.instance.close
+    show_final_results
   end
 
   def load_input_data(args)
@@ -55,6 +53,12 @@ class Tool
 
     create_questions
     ConceptDocExporter.new(@concepts).export
+  end
+
+  def show_final_results
+    ConceptAIScreenExporter.new(@concepts_ai).export
+    FOBScreenExporter.export(@fobs)
+    Project.instance.close
   end
 
   private
