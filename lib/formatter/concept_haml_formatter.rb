@@ -3,7 +3,6 @@
 require_relative 'table_haml_formatter'
 
 class ConceptHAMLFormatter
-
   def initialize(concept)
     @concept = concept
   end
@@ -16,7 +15,6 @@ class ConceptHAMLFormatter
     @concept.texts.each  { |text| out << "    %def #{text}\n" }
     @concept.images.each { |url|  out << "    %def{ :type => \'image_url\' } #{url}\n" }
     @concept.tables.each { |table| out << TableHAMLFormatter.new(table).to_s }
-	  return out
+	  out
   end
-
 end
