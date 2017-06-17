@@ -21,6 +21,7 @@ class FOB
   end
 
   def make_questions
+    return unless process?
     @questions += @fob_ai.make_questions
   end
 

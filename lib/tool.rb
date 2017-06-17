@@ -13,6 +13,7 @@ require_relative 'exporter/concept_ai_gift_exporter'
 require_relative 'exporter/concept_ai_screen_exporter'
 require_relative 'exporter/concept_doc_exporter'
 require_relative 'exporter/concept_screen_exporter'
+require_relative 'exporter/fob_screen_exporter'
 require_relative 'loader/project_loader'
 require_relative 'loader/input_loader'
 
@@ -29,6 +30,7 @@ class Tool
     load_input_data(args)
     create_output_files
     ConceptAIScreenExporter.new(@concepts_ai).export
+    FOBScreenExporter.new(@fobs).export
     Project.instance.close
   end
 
