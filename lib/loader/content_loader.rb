@@ -35,7 +35,6 @@ class ContentLoader
           cond2 = project.process_file == File.basename(@filename)
           if cond1 || cond2
             f = FOBLoader.new(xmldata, @filename).fob
-            f.debug
             @fobs << f
           end
         else

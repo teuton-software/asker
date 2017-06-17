@@ -20,8 +20,8 @@ require_relative 'loader/input_loader'
 # Organize the hole job, sending orders to others classes
 class Tool
   def initialize
-    @concepts = []
     @concepts_ai = []
+    @concepts = []
     @fobs =[]
   end
 
@@ -60,7 +60,7 @@ class Tool
   def create_questions
     @concepts.each do |concept|
       concept_ai = ConceptAI.new(concept, @world)
-      concept_ai.make_questions_from_ai
+      concept_ai.make_questions
       ConceptAIGiftExporter.new(concept_ai).export
       @concepts_ai << concept_ai
     end

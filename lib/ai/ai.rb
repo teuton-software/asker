@@ -12,7 +12,7 @@ require_relative 'ai_calculate'
 module AI
   include AI_calculate
 
-  def make_questions_from_ai
+  def make_questions
     return unless process?
 
     @questions[:d] = StageD.new(self).run  #Process every def{type=text}

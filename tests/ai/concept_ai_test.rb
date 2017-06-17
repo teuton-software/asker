@@ -44,7 +44,7 @@ class ConceptAITest < Minitest::Test
     i=0
     assert_equal( {}, @concepts_ai[i].questions)
     @concepts_ai[i].process = true
-    @concepts_ai[i].make_questions_from_ai
+    @concepts_ai[i].make_questions
     assert_equal 9, @concepts_ai[i].questions[:d].size
     assert_equal 0,  @concepts_ai[i].questions[:b].size
     assert_equal 0,  @concepts_ai[i].questions[:f].size
@@ -57,7 +57,7 @@ class ConceptAITest < Minitest::Test
     i=1
     assert_equal( {}, @concepts_ai[i].questions)
     @concepts_ai[i].process = true
-    @concepts_ai[i].make_questions_from_ai
+    @concepts_ai[i].make_questions
     assert_equal 25, @concepts_ai[i].questions[:d].size
     assert_equal 2,  @concepts_ai[i].questions[:b].size
     assert_equal 0,  @concepts_ai[i].questions[:f].size
@@ -70,7 +70,7 @@ class ConceptAITest < Minitest::Test
     i=2
     assert_equal( {}, @concepts_ai[i].questions)
     @concepts_ai[i].process = true
-    @concepts_ai[i].make_questions_from_ai
+    @concepts_ai[i].make_questions
     assert_equal 0,  @concepts_ai[i].questions[:d].size
     assert_equal 0,  @concepts_ai[i].questions[:b].size
     assert_equal 0,  @concepts_ai[i].questions[:f].size
@@ -83,7 +83,7 @@ class ConceptAITest < Minitest::Test
     i=3
     assert_equal( {}, @concepts_ai[i].questions)
     @concepts_ai[i].process = true
-    @concepts_ai[i].make_questions_from_ai
+    @concepts_ai[i].make_questions
     assert_equal 0,  @concepts_ai[i].questions[:d].size
     assert_equal 0,  @concepts_ai[i].questions[:b].size
     assert_equal 20, @concepts_ai[i].questions[:f].size
