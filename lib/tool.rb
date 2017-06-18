@@ -13,6 +13,7 @@ require_relative 'exporter/concept_ai_gift_exporter'
 require_relative 'exporter/concept_ai_screen_exporter'
 require_relative 'exporter/concept_doc_exporter'
 require_relative 'exporter/concept_screen_exporter'
+require_relative 'exporter/fob_gift_exporter'
 require_relative 'exporter/fob_screen_exporter'
 require_relative 'loader/project_loader'
 require_relative 'loader/input_loader'
@@ -70,7 +71,10 @@ class Tool
       ConceptAIGiftExporter.new(concept_ai).export
       @concepts_ai << concept_ai
     end
-    @fobs.each { |fob| fob.make_questions }
+    @fobs.each do |fob|
+      fob.make_questions
+      FOBGiftExporter.export(fob)
+    end
   end
 
   def debug
