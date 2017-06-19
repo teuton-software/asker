@@ -12,7 +12,7 @@ class RubyCodeAI
   end
 
   def name
-    @data_object.filename
+    File.basename(@data_object.filename)
   end
 
   def num
@@ -44,7 +44,7 @@ class RubyCodeAI
   def make_questions
     @questions += make_comment_error
     @questions += make_no_error_changes
-    @questions += make_keyword_error
+    @questions += make_syntax_error
     @questions
   end
 
@@ -92,18 +92,30 @@ class RubyCodeAI
     used_lines.each do |index|
       lines = clone_array(@lines)
       lines.insert(index, ' ')
-      q = Question.new(:short)
-      q.name = "#{name}-#{num}-ok"
-      q.text = @lang.text_for(:code1,lines_to_html(lines))
-      q.shorts << (index+1)
-      q.feedback = 'Code is OK'
-      questions << q
+      if @lines.size < 4 || rand(2) == 0
+        q = Question.new(:short)
+        q.name = "#{name}-#{num}-codeok"
+        q.text = @lang.text_for(:code1,lines_to_html(lines))
+        q.shorts << '0'
+        q.feedback = 'Code is OK'
+        questions << q
+      else
+        q = Question.new(:choice)
+        q.name = "#{name}-#{num}-codeok"
+        q.text = @lang.text_for(:code2,lines_to_html(lines))
+        others = (1..@lines.size).to_a.shuffle!
+        q.good = '0'
+        q.bads << others[0].to_s
+        q.bads << others[1].to_s
+        q.bads << others[2].to_s
+        q.feedback = 'Code is OK'
+      end
     end
 
     questions
   end
 
-  def make_keyword_error
+  def make_syntax_error
     questions = []
 
     @lang.mistakes.each_pair do |key,values|
@@ -117,11 +129,24 @@ class RubyCodeAI
         error_lines.each do |index|
           lines = clone_array(@lines)
           lines[index].sub!(key.to_s, value)
-          q = Question.new(:short)
-          q.name = "#{name}-#{num}-keyword"
-          q.text = @lang.text_for(:code1,lines_to_html(lines))
-          q.shorts << (index+1)
-          q.feedback = "Keyword error: '#{value}' must be '#{key}'"
+          if @lines.size < 4 || rand(2) == 0
+            q = Question.new(:short)
+            q.name = "#{name}-#{num}-syntaxerror"
+            q.text = @lang.text_for(:code1,lines_to_html(lines))
+            q.shorts << (index+1)
+            q.feedback = "Syntax error: '#{value}' must be '#{key}'"
+          else
+            q = Question.new(:choice)
+            q.name = "#{name}-#{num}-syntaxerror"
+            q.text = @lang.text_for(:code2,lines_to_html(lines))
+            others = (1..@lines.size).to_a.shuffle!
+            others.delete(index+1)
+            q.good = (index + 1).to_s
+            q.bads << others[0].to_s
+            q.bads << others[1].to_s
+            q.bads << others[2].to_s
+            q.feedback = "Syntax error: '#{value}' must be '#{key}'"
+          end
           questions << q
         end
       end
