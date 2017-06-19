@@ -1,7 +1,7 @@
 ---
-:' do ': ' { , ( '
+:' do ': ' \{ , ( '
 :elsif: 'elif,else if,elseif'
-:end: 'edn,begin,},), '
+:end: 'edn,begin,\},), '
 :if: 'fi'
 :' puts ': ' put , prints, echo '
 :system(: 'sistem(,execute('
