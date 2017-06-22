@@ -22,7 +22,7 @@ class Project
     @default[:category] = :none
     @default[:formula_weights] = [1, 1, 1]
     @default[:lang] = 'en'
-    @default[:locales] = ['en', 'es', 'maths', 'ruby', 'sql']
+    @default[:locales] = ['en', 'es', 'maths', 'python', 'ruby', 'sql']
     @default[:show_mode] = :default
     @default[:verbose] = true
     @default[:stages] = { d: true, b: true, f: true, i: true, s: true, t: true }
