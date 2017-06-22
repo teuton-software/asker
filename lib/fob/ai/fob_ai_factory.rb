@@ -1,4 +1,5 @@
 
+require_relative 'python_code_ai'
 require_relative 'ruby_code_ai'
 require_relative 'sql_code_ai'
 
@@ -6,6 +7,8 @@ module FOBAIFactory
   def self.get(data_fob)
     type = data_fob.type
     case type
+    when :python
+      return PythonCodeAI.new(data_fob)
     when :ruby
       return RubyCodeAI.new(data_fob)
     when :sqlcode
