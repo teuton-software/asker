@@ -1,8 +1,9 @@
 ---
 :' do ': ' \{ , ( '
 :elsif: 'elif,else if,elseif'
+:else: 'if,els,elseif'
 :end: 'edn,begin,\},), '
-:if: 'fi'
+:if: 'fi,else'
 :' puts ': ' put , prints, echo '
 :system(: 'sistem(,execute('
 :'.each ': '.split '
