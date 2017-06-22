@@ -12,36 +12,6 @@ class SQLCodeAI < BaseCodeAI
     @questions = []
   end
 
-  def name
-    @data_object.filename
-  end
-
-  def num
-    @num+=1
-  end
-
-  def clone_array(array)
-    out = []
-    array.each { |item| out << item.dup }
-    out
-  end
-
-  def lines_to_s(lines)
-    out = ''
-    lines.each_with_index do |line,index|
-      out << "%2d: #{line}\n"%(index+1)
-    end
-    out
-  end
-
-  def lines_to_html(lines)
-    out = ''
-    lines.each_with_index do |line,index|
-      out << "%2d: #{line}</br>"%(index+1)
-    end
-    out
-  end
-
   def make_questions
     @questions += make_comment_error
     @questions += make_keyword_error
