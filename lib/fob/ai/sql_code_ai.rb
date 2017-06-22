@@ -1,8 +1,9 @@
 
 require_relative '../../lang/lang_factory'
 require_relative '../../ai/question'
+require_relative 'base_code_ai'
 
-class SQLCodeAI
+class SQLCodeAI < BaseCodeAI
   def initialize(data_object)
     @data_object = data_object
     @lines = data_object.lines

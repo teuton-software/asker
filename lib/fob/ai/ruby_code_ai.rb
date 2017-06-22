@@ -1,45 +1,15 @@
 
 require_relative '../../lang/lang_factory'
 require_relative '../../ai/question'
-require 'pry-byebug'
+require_relative 'base_code_ai'
 
-class RubyCodeAI
+class RubyCodeAI < BaseCodeAI
   def initialize(data_object)
     @data_object = data_object
     @lines = data_object.lines
     @lang = LangFactory.instance.get('ruby')
     @num = 0
     @questions = []
-  end
-
-  def name
-    File.basename(@data_object.filename)
-  end
-
-  def num
-    @num += 1
-  end
-
-  def clone_array(array)
-    out = []
-    array.each { |item| out << item.dup }
-    out
-  end
-
-  def lines_to_s(lines)
-    out = ''
-    lines.each_with_index do |line,index|
-      out << "%2d: #{line}\n"%(index+1)
-    end
-    out
-  end
-
-  def lines_to_html(lines)
-    out = ''
-    lines.each_with_index do |line,index|
-      out << "%2d: #{line}</br>"%(index+1)
-    end
-    out
   end
 
   def make_questions
@@ -156,7 +126,6 @@ class RubyCodeAI
     questions
   end
 
-
   def make_variable_error
     questions = []
     error_lines = []
@@ -166,6 +135,7 @@ class RubyCodeAI
       i = []
       unless m.nil?
         varname = (m.values_at 1)[0]
+        # Search used Variable
         @lines.each_with_index do |line2, index2|
           next if index >= index2
           i << index2 if line2.include?(varname)
