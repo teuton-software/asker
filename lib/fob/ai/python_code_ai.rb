@@ -12,14 +12,6 @@ class PythonCodeAI < BaseCodeAI
     @questions = []
   end
 
-  def make_questions
-    @questions += make_comment_error
-    @questions += make_no_error_changes
-    @questions += make_syntax_error
-    @questions += make_variable_error
-    @questions
-  end
-
   def make_comment_error
     questions = []
     error_lines = []

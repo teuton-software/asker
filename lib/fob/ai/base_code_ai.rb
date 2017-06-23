@@ -32,4 +32,18 @@ class BaseCodeAI
     end
     out
   end
+
+  def find_make_methods
+    list = self.public_methods.sort
+    list.select! { |name| name.to_s.start_with? 'make_'}
+    list.delete(:make_questions)
+    list
+  end
+
+  def make_questions
+    list = find_make_methods
+    list.each { |m| @questions += self.send m }
+    @questions
+  end
+
 end

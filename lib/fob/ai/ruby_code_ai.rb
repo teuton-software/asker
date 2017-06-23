@@ -13,10 +13,14 @@ class RubyCodeAI < BaseCodeAI
   end
 
   def make_questions
-    @questions += make_comment_error
-    @questions += make_no_error_changes
-    @questions += make_syntax_error
-    @questions += make_variable_error
+    list = find_make_methods
+    list.each do |m|
+      @questions += self.send m
+    end
+    #@questions += make_comment_error
+    #@questions += make_no_error_changes
+    #@questions += make_syntax_error
+    #@questions += make_variable_error
     @questions
   end
 

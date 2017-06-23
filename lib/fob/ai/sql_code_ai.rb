@@ -12,12 +12,6 @@ class SQLCodeAI < BaseCodeAI
     @questions = []
   end
 
-  def make_questions
-    @questions += make_comment_error
-    @questions += make_keyword_error
-    @questions
-  end
-
   def make_comment_error
     error_lines = []
     questions = []
