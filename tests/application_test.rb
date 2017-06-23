@@ -7,6 +7,6 @@ require_relative '../lib/application'
 class ApplicationTest < Minitest::Test
   def test_params
     assert_equal 'darts-of-teacher', Application.name
-    assert_equal '0.13.0',           Application.version
+    assert_equal '0.14.0',           Application.version
   end
 end
