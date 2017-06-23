@@ -1,0 +1,83 @@
+%map{ :lang => 'es', :context => 'latin,ejemplo,', :version => '1'}
+
+  %concept
+    %names vocabulario del tema1
+    %tags latín, idioma
+    %table{ :fields => 'palabra latin, palabra español' }
+      %row
+        %col tabula
+        %col mesa
+      %row
+        %col ager
+        %col campo
+      %row
+        %col malum
+        %col manzana
+      %row
+        %col albus
+        %col blanco
+
+  %concept
+    %names tabula
+    %tags latín, mesa
+    %def Palabra latín para definir una mesa
+
+  %concept
+    %names puella-puellae
+    %tags niña,latín, declinación1
+    %table{ :fields => 'función, traducción' }
+      %row
+        %col sujeto
+        %col La niña
+      %row
+        %col apelación
+        %col Oh niña
+      %row
+        %col complemento directo
+        %col La niña
+      %row
+        %col complemento del nombre
+        %col De la niña
+      %row
+        %col complemento indirecto
+        %col A la niña
+      %row
+        %col complemento circunstancial
+        %col Para/con la niña
+    %table{ :fields => 'caso, palabra en latín' }
+      %row
+        %col nominativo singular
+        %col puella
+      %row
+        %col nominativo plural
+        %col puellae
+      %row
+        %col vocativo singular
+        %col puella
+      %row
+        %col vocativo plural
+        %col puellae
+      %row
+        %col acusativo singular
+        %col puellam
+      %row
+        %col acusativo plural
+        %col puellas
+      %row
+        %col genitivo singular
+        %col puellae
+      %row
+        %col genitivo plural
+        %col puellarum
+      %row
+        %col dativo singular
+        %col puellae
+      %row
+        %col dativo plural
+        %col puellis
+      %row
+        %col ablativo singular
+        %col puella
+      %row
+        %col ablativo plural
+        %col puellis
