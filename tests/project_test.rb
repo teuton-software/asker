@@ -7,6 +7,7 @@ require_relative '../lib/project'
 class ProjectTest < Minitest::Test
   def setup
     @project = Project.instance
+    @project.reset
   end
 
   def test_defaults_parms

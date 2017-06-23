@@ -23,7 +23,7 @@ module ConceptStringFormatter
     ltext = []
     concept.texts.each do |i|
       if i.size < 60
-        lText << i.to_s
+        ltext << i.to_s
       else
         ltext << i[0...70].to_s + '...'
       end
