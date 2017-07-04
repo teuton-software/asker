@@ -28,10 +28,14 @@ task :check do
   else
     puts '[FAIL] Installed gems!: ' + fails.join(',')
   end
-  testfile = './tests/all.rb'
-  a = `cat #{testfile}|grep "_test"|wc -l`
+  testfile = File.join('.', 'tests', 'all.rb')
+  #a = `cat #{testfile}|grep "_test"|wc -l`
+  a = File.read(testfile).split("\n")
+  b = a.select { |i| i.include? '_test' }
+  c = b.size
+
   b = `vdir -R tests/ |grep "_test.rb"|wc -l`
-  if a.to_i == b.to_i
+  if c == b.to_i
     puts "[ OK ] All ruby tests into #{testfile}"
   else
     puts "[FAIL] some ruby tests are not into #{testfile}"
