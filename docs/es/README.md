@@ -12,7 +12,7 @@ de una especie de mapa conceptual.
 # Documentación
 
 * [Historia](./historia.md)
-* [Instalación](./instalacion.md)
+* [Instalación](./instalacion/README.md)
 * Mi primera [Demo](./demo/README.md)
 * Aprender con [ejemplos](./ejemplos/README.md)
 * [Directorios de proyecto](./directorios.md)

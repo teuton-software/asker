@@ -1,0 +1,48 @@
+
+# Instalación en Windows
+
+## Instalar ruby y rake
+
+* Ir a https://rubinstaler.org/downloads
+* Descargar ruby versión 2.2.X. Esta versión es la recomendada por todas las gemas actualizadas.
+* Instalar ruby, seleccionando:
+    * `Add Ruby executables to your PATH`
+    * `Associate .rb and .rbw files with this Ruby installation`
+* Comprobamos:
+    * Abrimos una consulta
+    * Ejecutamos `ruby --version` y nos debe mostrar la versión instalada.
+    * Comprobamos que `rake` también está instalado con `rake --version`.
+
+## Instalar git
+
+* Ir a https://git-scm.com/download/Windows
+* Descargar la versión que nos ofrecen (2.13.2).
+    * `Use Git from Windows Command Prompt`
+    * `Use the OpenSSL library`
+    * `Chekout Windows-style, commit Unix-style line endings`
+    * `Use MinTTY`
+    * `Enable File system caching`
+* Comprobamos:
+    * Abrimos una consola.
+    * Ejecutamos `git --version`
+
+## Descargar el proyecto
+
+* Abrir una consola.
+* `git clone https://github.com/dvarrui/darts-of-teacher.git`
+
+## Instalar las librerías
+
+* `cd darts-of-teacher`, para situarnos en el directorio del proyecto.
+* `rake gems`, para instalar las librerías (gemas) que nos hacen falta.
+
+## Comprobaciones finales
+
+* `rake check`, para comprobar que está todo correctamente instalado.
+* `./darts -v`, nos muestra la versión del proyecto.
+
+¡Ya estamos listos para empezar a usar *darts*!
+
+---
+
+# Windows
