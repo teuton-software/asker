@@ -35,3 +35,29 @@ $ git clone git@github.com:dvarrui/darts-of-teacher.git
 * `$ ./darts -v`, nos muestra la versión del proyecto.
 
 ¡Ya estamos listos para empezar a usar *darts*!
+
+---
+
+# Windows
+
+Instalación de Ruby:
+* Ir a https://rubinstaler.org/downloads
+* Descargar ruby versión 2.2.X. Esta versión es la recomendada por todas las gemas actualizadas.
+* Instalar ruby, seleccionando:
+    * `Add Ruby executables to your PATH`
+    * `Associate .rb and .rbw files with this Ruby installation`
+* Comprobamos:
+    * Abrimos una consulta
+    * Ejecutamos `ruby -v` y nos debe mostrar la versión instalada.
+
+Instalación de git:
+* Ir a https://git-scm.com/download/Windows
+* Descargar la versión que nos ofrecen (2.13.2).
+    * `Use Git from Windows Command Prompt`
+    * `Use the OpenSSL library`
+    * `Chekout Windows-style, commit Unix-style line endings`
+    * `Use MinTTY`
+    * `Enable File system caching`
+* Comprobamos:
+    * Abrimos una consola.
+    * Ejecutamos `git --version`
