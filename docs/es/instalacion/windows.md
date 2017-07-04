@@ -34,13 +34,20 @@
 * Abrir una consola.
 * `git clone https://github.com/dvarrui/darts-of-teacher.git`
 
-## Instalar las librerías
+## Instalar DevKit
+
+DevKit es un software que incluye las herramientas necesarias para la
+construcción de las gemas ruby. Algunas gemas lo requieren (rainbow) y otras no.
+
+> Enlace de interés: http://jekyll-windows.juthilo.com/1-ruby-and-devkit/
 
 * Descargar el `Development Kit` correspondiente de `https://rubyinstaller/downloads`.
+* Descomprimir el fichero en `C:\RubyDevKit`.
+* `cd C:\RubyDevKit`
+* `ruby dk.rb init`, busca donde se encuentra la instalación de Ruby.
+* `ruby dk.rb install`, instala DevKit, enlazándola con nuestra instalación actual de Ruby.
 
-> El DevKit es requerido por algunas gemas de ruby. Rainbow en nuestro caso.
-> Este Kit incluye las herramientas necesarias para la construcción de la gema para
-adaptarse al SO Windows.
+## Instalar las librerías
 
 * `cd darts-of-teacher`, para situarnos en el directorio del proyecto.
 * `rake gems`, para instalar las librerías (gemas) que nos hacen falta.
