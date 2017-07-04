@@ -4,12 +4,15 @@
 ## Instalar ruby y rake
 
 * Ir a https://rubinstaler.org/downloads
-* Descargar ruby versión 2.2.X. Esta versión es la recomendada por todas las gemas actualizadas.
+* Descargar ruby versión 2.2.X.
+
+> Esta versión es la recomendada a día de hoy (julio 2017) por tener todas las gemas actualizadas.
+
 * Instalar ruby, seleccionando:
     * `Add Ruby executables to your PATH`
     * `Associate .rb and .rbw files with this Ruby installation`
 * Comprobamos:
-    * Abrimos una consulta
+    * Abrimos un terminal.
     * Ejecutamos `ruby --version` y nos debe mostrar la versión instalada.
     * Comprobamos que `rake` también está instalado con `rake --version`.
 
@@ -23,7 +26,7 @@
     * `Use MinTTY`
     * `Enable File system caching`
 * Comprobamos:
-    * Abrimos una consola.
+    * Abrimos un terminal.
     * Ejecutamos `git --version`
 
 ## Descargar el proyecto
