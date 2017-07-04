@@ -7,7 +7,8 @@ module Sinatra
         app.get '/concept/list/*.*' do |path,ext|
           @filename = path+"."+ext
           filepath = File.join(Project.instance.inputbasedir, @filename)
-          @concepts = FileLoader.new( filepath ).load
+          data = FileLoader.load(filepath)
+          @concepts = data[:concepts]
           @lang = @concepts[0].lang
           @context = @concepts[0].context
 
