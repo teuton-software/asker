@@ -55,10 +55,7 @@ construcción de las gemas ruby. Algunas gemas lo requieren (rainbow) y otras no
 ## Comprobaciones finales
 
 * `rake check`, para comprobar que está todo correctamente instalado.
-* `./darts -v`, nos muestra la versión del proyecto.
+* `copy darts darts.rb`.
+* `darts -v`, nos muestra la versión del proyecto.
 
 ¡Ya estamos listos para empezar a usar *darts*!
-
----
-
-# Windows
