@@ -36,6 +36,12 @@
 
 ## Instalar las librerías
 
+* Descargar el `Development Kit` correspondiente de `https://rubyinstaller/downloads`.
+
+> El DevKit es requerido por algunas gemas de ruby. Rainbow en nuestro caso.
+> Este Kit incluye las herramientas necesarias para la construcción de la gema para
+adaptarse al SO Windows.
+
 * `cd darts-of-teacher`, para situarnos en el directorio del proyecto.
 * `rake gems`, para instalar las librerías (gemas) que nos hacen falta.
 
