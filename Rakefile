@@ -8,7 +8,7 @@ task default: :check do
 end
 
 list = ['haml', 'sinatra', 'rainbow', 'terminal-table', 'thor']
-list << %w(base64_compatible coderay)
+list << %w(base64_compatible coderay pry)
 list.flatten!
 
 desc 'Install gems'
