@@ -10,30 +10,30 @@ require_relative "../../lib/ai/concept_ai"
 class ConceptAITest < Minitest::Test
   def setup
     string_data = get_xml_data
-    concepts   = []
-    world       = World.new(concepts, false)
+    concepts = []
+    world = World.new(concepts, false)
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
-      if xml_data.name="concept" then
-        concepts << Concept.new(xml_data, "input.haml", "en", [])
+      if xml_data.name == 'concept'
+        concepts << Concept.new(xml_data, 'input.haml', 'en', [])
       end
     end
 
     @concepts = concepts
-    @concepts_ai=[]
+    @concepts_ai = []
     concepts.each { |concept| @concepts_ai << ConceptAI.new(concept,world) }
   end
 
   def test_concept_ai_delegating
     (0..3).each do |index|
       concept = @concepts_ai[index].concept
-      assert_equal "text"             , @concepts_ai[index].type
+      assert_equal 'text'             , @concepts_ai[index].type
       assert_equal concept.type       , @concepts_ai[index].type
-      assert_equal "en"               , @concepts_ai[index].lang.code
+      assert_equal 'en'               , @concepts_ai[index].lang.code
       assert_equal concept.lang.code  , @concepts_ai[index].lang.code
       assert_equal concept.name       , @concepts_ai[index].name
       assert_equal concept.names      , @concepts_ai[index].names
-      assert_equal concept.neighbours , @concepts_ai[index].neighbours
+      assert_nil @concepts_ai[index].neighbours
       assert_equal concept.process    , @concepts_ai[index].process
       assert_equal concept.process?   , @concepts_ai[index].process?
       assert_equal concept.tables     , @concepts_ai[index].tables
@@ -102,14 +102,14 @@ class ConceptAITest < Minitest::Test
   end
 
   def verbose(list1,list2)
-    puts "list1"
+    puts 'list1'
     puts list1
-    puts "list2"
+    puts 'list2'
     puts list2
   end
 
   def get_xml_data
-    string_data= %q{
+    %q{
     <map lang='en' context='character, starwars' version='1'>
 
       <concept>
