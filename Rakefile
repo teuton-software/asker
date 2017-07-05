@@ -23,7 +23,7 @@ end
 desc 'Check installation'
 task :check do
   puts "[INFO] Version #{Application.version}"
-  fails = remove_installed_gems(list)
+  fails = filter_uninstalled_gems(list)
 
   if fails.size.zero?
     puts '[ OK ] Gems installed OK!'
@@ -61,11 +61,11 @@ end
 
 def install_gems(list)
   system('gem install sinatra -v 1.4.6')
-  fails = filter_installed_gems(list)
+  fails = filter_uninstalled_gems(list)
   fails.each { |name| system("gem install #{name}") }
 end
 
-def remove_installed_gems(list)
+def filter_uninstalled_gems(list)
   cmd = `gem list`.split("\n")
   names = cmd.map { |i| i.split(' ')[0] }
   fails = []
