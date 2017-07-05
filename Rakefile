@@ -12,7 +12,7 @@ task default: :check do
 end
 
 list = ['haml', 'sinatra', 'rainbow', 'terminal-table', 'thor']
-list << %w(base64_compatible coderay minitest pry pry-byebug)
+list << %w(base64_compatible coderay minitest pry pry-byebug rake)
 list.flatten!
 
 desc 'Install gems'
@@ -63,5 +63,7 @@ task :clean do
 end
 
 def install_gems(list)
+  system('gem install sinatra -v 1.4.6')
+  list.delete('sinatra')
   list.each { |name| system("gem install #{name}") }
 end
