@@ -1,6 +1,10 @@
 # File: Rakefile
 # Usage: rake
 
+require 'fileutils'
+require_relative 'lib/application'
+require_relative 'lib/project'
+
 # Define tasks
 
 desc 'Default'
@@ -8,25 +12,26 @@ task default: :check do
 end
 
 list = ['haml', 'sinatra', 'rainbow', 'terminal-table', 'thor']
-list << %w(base64_compatible coderay pry pry-byebug)
+list << %w(base64_compatible coderay minitest pry pry-byebug)
 list.flatten!
 
 desc 'Install gems'
 task :gems do
-  list.each { |name| system("gem install #{name}") }
+  install_gems list
 end
 
 desc 'Check installation'
 task :check do
+  puts "[INFO] Version #{Application.version}"
   cmd = `gem list`.split("\n")
   names = cmd.map { |i| i.split(' ')[0] }
   fails = []
   list.each { |i| fails << i unless names.include?(i) }
 
   if fails.size.zero?
-    puts '[ OK ] Installed gems!'
+    puts '[ OK ] Gems installed OK!'
   else
-    puts '[FAIL] Installed gems!: ' + fails.join(',')
+    puts '[FAIL] Gems not installed!: ' + fails.join(',')
   end
 
   testfile = File.join('.', 'tests', 'all.rb')
@@ -37,9 +42,9 @@ task :check do
   e = Dir.glob(d)
 
   if b.size == e.size
-    puts "[ OK ] All ruby tests into #{testfile}"
+    puts "[ OK ] All ruby tests executed by #{testfile}"
   else
-    puts "[FAIL] Some ruby tests are not into #{testfile}"
+    puts "[FAIL] Some ruby tests are not executed by #{testfile}"
   end
 
   puts "[INFO] Running #{testfile}"
@@ -53,5 +58,9 @@ end
 
 desc 'Clean output dir'
 task :clean do
-  system('rm output/*')
+  FileUtils.rm_rf(Dir.glob(File.join('.', Project.instance.get(:outputdir), '*')))
+end
+
+def install_gems(list)
+  list.each { |name| system("gem install #{name}") }
 end
