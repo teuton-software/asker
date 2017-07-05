@@ -30,7 +30,7 @@ class ContentLoader
           cond2 = project.process_file == File.basename(@filename)
           c.process = true if cond1 || cond2
           @concepts << c
-        elsif xmldata.name == 'file'
+        elsif xmldata.name == 'code'
           cond1 = project.process_file == :default
           cond2 = project.process_file == File.basename(@filename)
           if cond1 || cond2
