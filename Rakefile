@@ -54,6 +54,7 @@ end
 desc 'Update this project'
 task :update do
   system('git pull')
+  install_gems list
 end
 
 desc 'Clean output dir'
