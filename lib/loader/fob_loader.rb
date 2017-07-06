@@ -4,7 +4,7 @@ require 'rainbow'
 require 'rexml/document'
 
 require_relative '../project'
-require_relative '../fob/fob'
+require_relative '../code/fob'
 
 # Read XML info about data FOB
 class FOBLoader
