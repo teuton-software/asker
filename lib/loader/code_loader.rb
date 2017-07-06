@@ -4,11 +4,11 @@ require 'rainbow'
 require 'rexml/document'
 
 require_relative '../project'
-require_relative '../code/fob'
+require_relative '../code/code'
 
 # Read XML info about data FOB
-class FOBLoader
-  attr_reader :fob
+class CodeLoader
+  attr_reader :code
 
   def initialize(xml_data, filename)
     @filename = filename
@@ -17,7 +17,7 @@ class FOBLoader
     @type = :none
 
 	  read_data_from_xml(xml_data)
-    @fob = FOB.new(@path, @type)
+    @code = Code.new(@path, @type)
   end
 
   private

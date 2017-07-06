@@ -3,7 +3,7 @@
 require 'rainbow'
 require 'rexml/document'
 require_relative '../data/concept'
-require_relative '../loader/fob_loader'
+require_relative '../loader/code_loader'
 
 # Define methods that load data from XML contents
 class ContentLoader
@@ -11,7 +11,7 @@ class ContentLoader
     @filename = filename
     @content = xml_content
     @concepts = []
-    @fobs = []
+    @codes = []
     @data = {}
   end
 
@@ -34,8 +34,8 @@ class ContentLoader
           cond1 = project.process_file == :default
           cond2 = project.process_file == File.basename(@filename)
           if cond1 || cond2
-            f = FOBLoader.new(xmldata, @filename).fob
-            @fobs << f
+            f = CodeLoader.new(xmldata, @filename).code
+            @codes << f
           end
         else
           puts Rainbow("[ERROR] Tag error <#{xmldata.name}>").red
@@ -50,7 +50,7 @@ class ContentLoader
     end
 
     @data[:concepts] = @concepts
-    @data[:fobs] = @fobs
+    @data[:codes] = @codes
     @data
   end
 

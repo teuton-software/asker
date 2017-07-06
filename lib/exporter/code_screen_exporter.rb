@@ -1,7 +1,7 @@
 
 require 'terminal-table'
 
-module FOBScreenExporter
+module CodeScreenExporter
   def self.export(fobs)
 	  project = Project.instance
     return if project.show_mode == :none || fobs.nil? || fobs.size == 0
@@ -9,7 +9,7 @@ module FOBScreenExporter
     total_f = total_q = total_e = 0
 
     my_screen_table = Terminal::Table.new do |st|
-      st << ['FOB Filename','Type','Questions','Lines','xFactor']
+      st << ['Filename','Type','Questions','Lines','xFactor']
       st << :separator
     end
 

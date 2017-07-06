@@ -2,7 +2,7 @@ require_relative 'ai/fob_ai_factory'
 require_relative '../project'
 require_relative '../formatter/fob_string_formatter'
 
-class FOB
+class Code
   attr_reader :filename, :type
   attr_accessor :description, :process
   attr_reader :lines, :questions

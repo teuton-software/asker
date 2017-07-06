@@ -25,7 +25,7 @@ module DirectoryLoader
 
   def self.load_files(accepted, dirname)
     project = Project.instance
-    output = { concepts: [], fobs: [] }
+    output = { concepts: [], codes: [] }
     accepted.each do |f|
       filename = File.join(dirname, f)
       if f == accepted.last
@@ -35,7 +35,7 @@ module DirectoryLoader
       end
       data = FileLoader.load(filename)
       output[:concepts] += data[:concepts]
-      output[:fobs] += data[:fobs]
+      output[:codes] += data[:codes]
     end
     output
   end

@@ -20,7 +20,7 @@ class FileLoaderTest < Minitest::Test
 
     assert_equal true, data[:concepts][0].process?
     assert_equal true, data[:concepts][1].process?
-    assert_equal 0, data[:fobs].size
+    assert_equal 0, data[:codes].size
 
     project.reset
   end
@@ -39,7 +39,7 @@ class FileLoaderTest < Minitest::Test
 
     assert_equal false, data[:concepts][0].process?
     assert_equal false, data[:concepts][1].process?
-    assert_equal 0, data[:fobs].size
+    assert_equal 0, data[:codes].size
 
     project.reset
   end
@@ -54,22 +54,22 @@ class FileLoaderTest < Minitest::Test
     data = FileLoader.load filepath
 
     assert_equal 0, data[:concepts].size
-    assert_equal 3, data[:fobs].size
-    assert_equal :ruby, data[:fobs][0].type
-    assert_equal :ruby, data[:fobs][1].type
-    assert_equal :ruby, data[:fobs][2].type
+    assert_equal 3, data[:codes].size
+    assert_equal :ruby, data[:codes][0].type
+    assert_equal :ruby, data[:codes][1].type
+    assert_equal :ruby, data[:codes][2].type
 
-    assert_equal 'tests/input/files/string.rb', data[:fobs][0].filename
-    assert_equal 'tests/input/files/array.rb', data[:fobs][1].filename
-    assert_equal 'tests/input/files/iterador.rb', data[:fobs][2].filename
+    assert_equal 'tests/input/files/string.rb', data[:codes][0].filename
+    assert_equal 'tests/input/files/array.rb', data[:codes][1].filename
+    assert_equal 'tests/input/files/iterador.rb', data[:codes][2].filename
 
-    assert_equal true, data[:fobs][0].process?
-    assert_equal true, data[:fobs][1].process?
-    assert_equal true, data[:fobs][2].process?
+    assert_equal true, data[:codes][0].process?
+    assert_equal true, data[:codes][1].process?
+    assert_equal true, data[:codes][2].process?
 
-    assert_equal 5, data[:fobs][0].lines.size
-    assert_equal 8, data[:fobs][1].lines.size
-    assert_equal 13, data[:fobs][2].lines.size
+    assert_equal 5, data[:codes][0].lines.size
+    assert_equal 8, data[:codes][1].lines.size
+    assert_equal 13, data[:codes][2].lines.size
 
     project.reset
   end

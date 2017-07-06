@@ -1,5 +1,5 @@
 
-require_relative 'fob'
+require_relative 'code'
 require_relative '../formatter/question_gift_formatter'
 
 class DemoLoader
@@ -13,7 +13,7 @@ class DemoLoader
   def load
     @files.each do |filename|
       filepath = File.join(@dirbase, filename)
-      data = FOB.new(filepath, @type)
+      data = Code.new(filepath, @type)
       @questions[filename] = data.make_questions
     end
   end

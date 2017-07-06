@@ -24,7 +24,7 @@ class DirectoryLoaderTest < Minitest::Test
     assert_equal true, data[:concepts][1].process?
     assert_equal false, data[:concepts][2].process?
     assert_equal false, data[:concepts][3].process?
-    assert_equal 0, data[:fobs].size
+    assert_equal 0, data[:codes].size
 
     project.reset
   end
@@ -39,14 +39,14 @@ class DirectoryLoaderTest < Minitest::Test
     data = DirectoryLoader.load 'tests/input/ruby'
 
     assert_equal 0, data[:concepts].size
-    assert_equal 3, data[:fobs].size
-    assert_equal :ruby, data[:fobs][0].type
-    assert_equal :ruby, data[:fobs][1].type
-    assert_equal :ruby, data[:fobs][2].type
+    assert_equal 3, data[:codes].size
+    assert_equal :ruby, data[:codes][0].type
+    assert_equal :ruby, data[:codes][1].type
+    assert_equal :ruby, data[:codes][2].type
 
-    assert_equal 'tests/input/files/string.rb', data[:fobs][0].filename
-    assert_equal 'tests/input/files/array.rb', data[:fobs][1].filename
-    assert_equal 'tests/input/files/iterador.rb', data[:fobs][2].filename
+    assert_equal 'tests/input/files/string.rb', data[:codes][0].filename
+    assert_equal 'tests/input/files/array.rb', data[:codes][1].filename
+    assert_equal 'tests/input/files/iterador.rb', data[:codes][2].filename
 
     project.reset
   end

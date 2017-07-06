@@ -23,7 +23,7 @@ class InputLoaderTest < Minitest::Test
     assert_equal true, data[:concepts][1].process?
     assert_equal false, data[:concepts][2].process?
     assert_equal false, data[:concepts][3].process?
-    assert_equal 0, data[:fobs].size
+    assert_equal 0, data[:codes].size
 
     project.reset
   end

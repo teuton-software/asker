@@ -13,8 +13,8 @@ require_relative 'exporter/concept_ai_gift_exporter'
 require_relative 'exporter/concept_ai_screen_exporter'
 require_relative 'exporter/concept_doc_exporter'
 require_relative 'exporter/concept_screen_exporter'
-require_relative 'exporter/fob_gift_exporter'
-require_relative 'exporter/fob_screen_exporter'
+require_relative 'exporter/code_gift_exporter'
+require_relative 'exporter/code_screen_exporter'
 require_relative 'loader/project_loader'
 require_relative 'loader/input_loader'
 
@@ -24,7 +24,7 @@ class Tool
   def initialize
     @concepts_ai = []
     @concepts = []
-    @fobs =[]
+    @codes =[]
   end
 
   def start(args = {})
@@ -38,7 +38,7 @@ class Tool
     Project.instance.open
     data = InputLoader.load
     @concepts = data[:concepts]
-    @fobs = data[:fobs]
+    @codes = data[:codes]
     print "\n[INFO] Loading data from Internet"
     @world = World.new(@concepts)
     ConceptScreenExporter.export(@concepts)
@@ -58,7 +58,7 @@ class Tool
 
   def show_final_results
     ConceptAIScreenExporter.new(@concepts_ai).export
-    FOBScreenExporter.export(@fobs)
+    CodeScreenExporter.export(@codes)
     Project.instance.close
   end
 
@@ -71,9 +71,9 @@ class Tool
       ConceptAIGiftExporter.new(concept_ai).export
       @concepts_ai << concept_ai
     end
-    @fobs.each do |fob|
-      fob.make_questions
-      FOBGiftExporter.export(fob)
+    @codes.each do |code|
+      code.make_questions
+      CodeGiftExporter.export(code)
     end
   end
 
