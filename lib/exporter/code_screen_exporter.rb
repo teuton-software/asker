@@ -31,6 +31,7 @@ module CodeScreenExporter
 
     my_screen_table.add_separator
     my_screen_table.add_row [Rainbow("TOTAL = #{total_f.to_s}").bright, ' ', Rainbow(total_q.to_s).bright, Rainbow(total_e.to_s).bright,Rainbow((total_q.to_f/total_e.to_f).round(2)).bright]
+    project.verbose "\n[INFO] Showing CODE statistics\n"
     project.verbose my_screen_table.to_s + "\n"
   end
 end
