@@ -1,6 +1,6 @@
 require_relative 'ai/code_ai_factory'
 require_relative '../project'
-require_relative '../formatter/fob_string_formatter'
+require_relative '../formatter/code_string_formatter'
 
 class Code
   attr_reader :filename, :type
@@ -34,7 +34,7 @@ class Code
   end
 
   def debug
-    out = FOBStringFormatter.to_s(self)
+    out = CodeStringFormatter.to_s(self)
     p = Project.instance
     p.verbose out
   end

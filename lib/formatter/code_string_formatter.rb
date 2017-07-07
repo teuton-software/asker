@@ -4,7 +4,7 @@ require 'rainbow'
 require 'terminal-table'
 
 # Define methods to trasnforme FOB into String
-module FOBStringFormatter
+module CodeStringFormatter
   def self.to_s(fob)
     out = ''
 
