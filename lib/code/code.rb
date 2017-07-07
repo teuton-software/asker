@@ -1,4 +1,4 @@
-require_relative 'ai/fob_ai_factory'
+require_relative 'ai/code_ai_factory'
 require_relative '../project'
 require_relative '../formatter/fob_string_formatter'
 
@@ -13,7 +13,7 @@ class Code
     @process = true
     @lines = load(@filename)
     @questions = []
-    @fob_ai = FOBAIFactory.get(self)
+    @fob_ai = CodeAIFactory.get(self)
   end
 
   def process?
