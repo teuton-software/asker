@@ -57,7 +57,7 @@ class Tool
   end
 
   def show_final_results
-    ConceptAIScreenExporter.new(@concepts_ai).export
+    ConceptAIScreenExporter.export(@concepts_ai)
     CodeScreenExporter.export(@codes)
     Project.instance.close
   end
