@@ -13,7 +13,7 @@ class Code
     @process = true
     @lines = load(@filename)
     @questions = []
-    @fob_ai = CodeAIFactory.get(self)
+    @code_ai = CodeAIFactory.get(self)
   end
 
   def process?
@@ -22,7 +22,7 @@ class Code
 
   def make_questions
     return unless process?
-    @questions += @fob_ai.make_questions
+    @questions += @code_ai.make_questions
   end
 
   def lines_to_s(lines)
