@@ -10,7 +10,7 @@ class Code
 
   def initialize(dirname, filename, type)
     @dirname = dirname
-    @filename = filename # path to code file
+    @filename = filename
     @type = type
     @filepath = File.join(@dirname, @filename)
     @process = false

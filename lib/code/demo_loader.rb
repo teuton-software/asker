@@ -3,18 +3,19 @@ require_relative 'code'
 require_relative '../formatter/question_gift_formatter'
 
 class DemoLoader
-  def initialize(dirbase, files, type)
+  def initialize(dirname, files, type)
+    @dirname = dirname
     @files = files
-    @dirbase = dirbase
     @type = type
     @questions = {}
   end
 
   def load
     @files.each do |filename|
-      filepath = File.join(@dirbase, filename)
-      data = Code.new(filepath, @type)
-      @questions[filename] = data.make_questions
+      filepath = File.join(@dirname, filename)
+      data = Code.new(@dirname, filename, @type)
+      data.process = true
+      @questions[filepath] = data.make_questions
     end
   end
 
