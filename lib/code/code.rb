@@ -2,6 +2,7 @@ require_relative 'ai/code_ai_factory'
 require_relative '../project'
 require_relative '../formatter/code_string_formatter'
 
+# Contains code data input
 class Code
   attr_reader :dirname, :filename, :type
   attr_accessor :description, :process
@@ -29,8 +30,8 @@ class Code
 
   def lines_to_s(lines)
     out = ''
-    lines.each_with_index do |line,index|
-        out << format("%2d| #{line}\n", (index + 1))
+    lines.each_with_index do |line, index|
+      out << format("%2d| #{line}\n", (index + 1))
     end
     out
   end
