@@ -4,17 +4,17 @@ require_relative 'ruby_code_ai'
 require_relative 'sql_code_ai'
 
 module CodeAIFactory
-  def self.get(data_fob)
-    type = data_fob.type
+  def self.get(code)
+    type = code.type
     case type
     when :python
-      return PythonCodeAI.new(data_fob)
+      return PythonCodeAI.new(code)
     when :ruby
-      return RubyCodeAI.new(data_fob)
+      return RubyCodeAI.new(code)
     when :sqlcode
-      return SQLCodeAI.new(data_fob)
+      return SQLCodeAI.new(code)
     when :vagrantfile
-      return RubyCodeAI.new(data_fob)
+      return RubyCodeAI.new(code)
     else
       puts "[ERROR] <#{type}> is not valid type"
     end

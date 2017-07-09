@@ -44,9 +44,13 @@ class DirectoryLoaderTest < Minitest::Test
     assert_equal :ruby, data[:codes][1].type
     assert_equal :ruby, data[:codes][2].type
 
-    assert_equal 'tests/input/files/string.rb', data[:codes][0].filename
-    assert_equal 'tests/input/files/array.rb', data[:codes][1].filename
-    assert_equal 'tests/input/files/iterador.rb', data[:codes][2].filename
+    assert_equal 'files/string.rb', data[:codes][0].filename
+    assert_equal 'files/array.rb', data[:codes][1].filename
+    assert_equal 'files/iterador.rb', data[:codes][2].filename
+
+    assert_equal 'tests/input/ruby', data[:codes][0].dirname
+    assert_equal 'tests/input/ruby', data[:codes][1].dirname
+    assert_equal 'tests/input/ruby', data[:codes][2].dirname
 
     project.reset
   end

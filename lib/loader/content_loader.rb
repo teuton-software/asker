@@ -7,8 +7,8 @@ require_relative '../loader/code_loader'
 
 # Define methods that load data from XML contents
 class ContentLoader
-  def initialize(filename, xml_content)
-    @filename = filename
+  def initialize(filepath, xml_content)
+    @filepath = filepath
     @content = xml_content
     @concepts = []
     @codes = []
@@ -25,16 +25,16 @@ class ContentLoader
 
       lxmldata.root.elements.each do |xmldata|
         if xmldata.name == 'concept'
-          c = Concept.new(xmldata, @filename, lang, context)
+          c = Concept.new(xmldata, @filepath, lang, context)
           cond1 = project.process_file == :default
-          cond2 = project.process_file == File.basename(@filename)
+          cond2 = project.process_file == File.basename(@filepath)
           c.process = true if cond1 || cond2
           @concepts << c
         elsif xmldata.name == 'code'
           cond1 = project.process_file == :default
-          cond2 = project.process_file == File.basename(@filename)
+          cond2 = project.process_file == File.basename(@filepath)
           if cond1 || cond2
-            f = CodeLoader.new(xmldata, @filename).code
+            f = CodeLoader.new(xmldata, @filepath).code
             @codes << f
           end
         else
@@ -43,7 +43,7 @@ class ContentLoader
       end
     rescue REXML::ParseException
       msg = Rainbow('[ERROR] ConceptLoader: Format error in file ').red
-      msg += Rainbow(@filename).red.bright
+      msg += Rainbow(@filepath).red.bright
       project.verbose msg
       system("echo '#{@content}' > output/error.xml")
       raise msg

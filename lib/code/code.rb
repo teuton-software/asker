@@ -3,15 +3,17 @@ require_relative '../project'
 require_relative '../formatter/code_string_formatter'
 
 class Code
-  attr_reader :filename, :type
+  attr_reader :dirname, :filename, :type
   attr_accessor :description, :process
   attr_reader :lines, :questions
 
-  def initialize(filename,type)
+  def initialize(dirname, filename, type)
+    @dirname = dirname
     @filename = filename # path to code file
     @type = type
+    @filepath = File.join(@dirname, @filename)
     @process = true
-    @lines = load(@filename)
+    @lines = load(@filepath)
     @questions = []
     @code_ai = CodeAIFactory.get(self)
   end
@@ -41,9 +43,9 @@ class Code
 
   private
 
-  def load(filename)
-    return if filename.nil?
-    content = File.read(filename)
+  def load(filepath)
+    return if filepath.nil?
+    content = File.read(filepath)
     content.split("\n")
   end
 end
