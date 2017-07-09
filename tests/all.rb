@@ -17,6 +17,8 @@ require_relative 'loader/directory_loader_test'
 require_relative 'loader/input_loader_test'
 require_relative 'loader/project_loader_test'
 
+require_relative 'code/code_test'
+
 require_relative 'data/world_test'
 require_relative 'data/concept_test'
 require_relative 'data/column_test'

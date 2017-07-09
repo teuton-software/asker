@@ -13,7 +13,7 @@ class Code
     @filename = filename # path to code file
     @type = type
     @filepath = File.join(@dirname, @filename)
-    @process = true
+    @process = false
     @lines = load(@filepath)
     @questions = []
     @code_ai = CodeAIFactory.get(self)

@@ -31,12 +31,11 @@ class ContentLoader
           c.process = true if cond1 || cond2
           @concepts << c
         elsif xmldata.name == 'code'
+          f = CodeLoader.new(xmldata, @filepath).code
           cond1 = project.process_file == :default
           cond2 = project.process_file == File.basename(@filepath)
-          if cond1 || cond2
-            f = CodeLoader.new(xmldata, @filepath).code
-            @codes << f
-          end
+          f.process = true if cond1 || cond2
+          @codes << f
         else
           puts Rainbow("[ERROR] Unkown input tag <#{xmldata.name}>").red
         end
