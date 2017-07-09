@@ -8,7 +8,7 @@ class Code
   attr_reader :lines, :questions
 
   def initialize(filename,type)
-    @filename = filename
+    @filename = filename # path to code file
     @type = type
     @process = true
     @lines = load(@filename)

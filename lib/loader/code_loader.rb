@@ -6,7 +6,7 @@ require 'rexml/document'
 require_relative '../project'
 require_relative '../code/code'
 
-# Read XML info about data FOB
+# Read XML info about data Code
 class CodeLoader
   attr_reader :code
 

@@ -38,7 +38,7 @@ class ContentLoader
             @codes << f
           end
         else
-          puts Rainbow("[ERROR] Tag error <#{xmldata.name}>").red
+          puts Rainbow("[ERROR] Unkown input tag <#{xmldata.name}>").red
         end
       end
     rescue REXML::ParseException
