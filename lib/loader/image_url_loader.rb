@@ -38,10 +38,10 @@ module ImageUrlLoader
         end
       end
     rescue
-      Project.instance.verbose '[ERROR] ImageUrlLoader'
-      Project.instance.verbose " => #{search_url}"
-      Project.instance.verbose ' => Check Internet connections'
-      Project.instance.verbose ' => Ensure URL is well formed'
+      Project.instance.verboseln '[ERROR] ImageUrlLoader'
+      Project.instance.verboseln " => #{search_url}"
+      Project.instance.verboseln ' => Check Internet connections'
+      Project.instance.verboseln ' => Ensure URL is well formed'
     end
     image_urls
   end
