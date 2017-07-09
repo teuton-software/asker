@@ -7,7 +7,7 @@ class CodeTest < Minitest::Test
   def setup
     @examples = []
     @examples << { filename: 'files/string.rb', lines: 5, questions: 7 }
-    @examples << { filename: 'files/array.rb', lines: 8, questions: 32 }
+    @examples << { filename: 'files/array.rb', lines: 8, questions: 30 }
     @examples << { filename: 'files/iterador.rb', lines: 13, questions: 90 }
   end
 
