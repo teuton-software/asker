@@ -1,6 +1,0 @@
-cargo=alumno 
-
-  monedas = 23.45
-
-
-usuario =    javier 

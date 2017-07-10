@@ -1,3 +1,0 @@
-usuario =     david
-cargo=profesor
-monedas = 45

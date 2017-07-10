@@ -1,9 +1,0 @@
----
-:title: Este es el título
-:sections:
- - :name: Nombre de la sección 1
-   :start: 1
-   :end: 2
- - :name: Nombre de la secció 2
-   :start: 2
-   :end: 3
