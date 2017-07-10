@@ -11,7 +11,7 @@ module CodeAIFactory
       return PythonCodeAI.new(code)
     when :ruby
       return RubyCodeAI.new(code)
-    when :sqlcode
+    when :sql
       return SQLCodeAI.new(code)
     when :vagrantfile
       return RubyCodeAI.new(code)
