@@ -8,7 +8,7 @@ class QuestionGiftFormatter
 
   def to_s
     # Return question using gift format
-    s="// #{@question.comment}\n" if not ( @question.comment.nil? and @question.comment.empty? )
+    s = "// #{@question.comment}\n" unless ( @question.comment.nil? and @question.comment.empty? )
     s << "::#{@question.name}::[html]#{sanitize(@question.text)}\n"
 
     case @question.type
@@ -27,16 +27,16 @@ class QuestionGiftFormatter
         end
         s << text
       end
-      s=s+"  #####{@question.feedback.to_s}\n" if @question.feedback
-      s=s+"}\n\n"
+      s += "  #####{sanitize(@question.feedback.to_s)}\n" if @question.feedback
+      s += "}\n\n"
 	  when :boolean
-      s << "{#{@question.good}#####{@question.feedback.to_s}}\n\n"
+      s << "{#{@question.good}#####{sanitize(@question.feedback.to_s)}}\n\n"
     when :match
       s << "{\n"
-      a=[]
+      a = []
       @question.matching.each do |i,j|
-        i=i[0,220]+"...(ERROR: text too long)" if i.size>255
-        j=j[0,220]+"...(ERROR: text too long)" if j.size>255
+        i = i[0,220] + '...(ERROR: text too long)' if i.size>255
+        j = j[0,220] + '...(ERROR: text too long)' if j.size>255
         a << "  =#{sanitize(i)} -> #{sanitize(j)}\n"
       end
       a.shuffle! if @question.shuffle?
@@ -46,11 +46,11 @@ class QuestionGiftFormatter
       s << "{\n"
       @question.shorts.uniq!
       @question.shorts.each do |i|
-        text=i
-        text=i[0,220]+"...(ERROR: too long)" if text.size>255
+        text = i
+        text = i[0,220] + '...(ERROR: too long)' if text.size>255
         s << "  =%100%#{text}#\n"
       end
-      s << "  #####{@question.feedback.to_s}\n" if @question.feedback
+      s << "  #####{sanitize(@question.feedback.to_s)}\n" if @question.feedback
       s << "}\n\n"
     end
     return s
@@ -62,8 +62,9 @@ private
     lsText = psText.dup
     lsText.gsub!("\n", " ")
     lsText.gsub!(":","\:")
-    lsText.gsub!("=","\\=")
-    return lsText
+    lsText.gsub!('=',"\\=")
+    #lsText.gsub!('{',"\\{")
+    #lsText.gsub!('}',"\\}")
+    lsText
   end
-
 end

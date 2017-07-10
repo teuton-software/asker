@@ -11,7 +11,7 @@ module CodeGiftExporter
     file = Project.instance.outputfile
     file.write "\n"
     file.write '// ' + '=' * 50 + "\n"
-    file.write "// FOB #{code.type}: #{code.filename} (#{code.questions.size})\n"
+    file.write "// Code #{code.type}: #{code.filename} (#{code.questions.size})\n"
     file.write '// ' + '=' * 50 + "\n"
 
     code.questions.each do |question|
