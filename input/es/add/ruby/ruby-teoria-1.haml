@@ -22,4 +22,13 @@
         %col Define un array con tres elementos
       %row
         %col a=`ls`; b=a.split("\n")
-        %col La variable b contiene un array con los nombres de ficheros y carpetas del directorio actual
+        %col La variable b contiene un array con los nombres de ficheros y carpetas del directorio actual.
+      %row
+        %col a=`ls`; b=a.split('\n')
+        %col La variable b contiene un array un string que son todos los nombres de ficheros y carpetas del directorio actual concatenados.
+      %row
+        %col a='ls'; b=a.split("\n")
+        %col La variable b contiene un array con el string "ls".
+      %row
+        %col a=`ls`; a=b.split("\n")
+        %col Tenemos un error, porque la variable b no está definida.
