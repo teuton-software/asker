@@ -5,26 +5,29 @@ require_relative '../formatter/question_gift_formatter'
 
 # Use to export data from ConceptIA to gift format
 class ConceptAIGiftExporter
-
   def initialize(concept_ai)
     @concept_ai = concept_ai
   end
 
   def export
-    return if @concept_ai.process==false
+    return unless @concept_ai.process?
 
     file = Project.instance.outputfile
-    file.write "\n"
-    file.write "// "+"="*50+"\n"
-    file.write "// Concept name: #{@concept_ai.name}\n"
-    file.write "// "+"="*50+"\n"
+    file.write head(@concept_ai)
 
     stages = Project.instance.stages
     stages.each_key do |stage|
       @concept_ai.questions[stage].each do |question|
         file.write(QuestionGiftFormatter.to_s(question))
       end
-   end
+    end
   end
 
+  def head(concept_ai)
+    s = "\n"
+    s += '// ' + '=' * 50 + "\n"
+    s += "// Concept name: #{concept_ai.name}\n"
+    s += '// ' + '=' * 50 + "\n"
+    s
+  end
 end
