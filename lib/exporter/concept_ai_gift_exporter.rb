@@ -13,7 +13,7 @@ class ConceptAIGiftExporter
     return unless @concept_ai.process?
 
     file = Project.instance.outputfile
-    file.write head(@concept_ai)
+    file.write head(concept_ai)
 
     stages = Project.instance.stages
     stages.each_key do |stage|
