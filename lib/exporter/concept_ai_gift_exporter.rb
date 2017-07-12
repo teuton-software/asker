@@ -3,7 +3,7 @@
 require_relative '../project'
 require_relative '../formatter/question_gift_formatter'
 
-# Use to export data from ConceptIA to gift format 
+# Use to export data from ConceptIA to gift format
 class ConceptAIGiftExporter
 
   def initialize(concept_ai)
@@ -22,7 +22,7 @@ class ConceptAIGiftExporter
     stages = Project.instance.stages
     stages.each_key do |stage|
       @concept_ai.questions[stage].each do |question|
-        file.write(QuestionGiftFormatter.new(question).to_s)
+        file.write(QuestionGiftFormatter.to_s(question))
       end
    end
   end

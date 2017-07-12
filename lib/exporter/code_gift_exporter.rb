@@ -15,7 +15,7 @@ module CodeGiftExporter
     file.write '// ' + '=' * 50 + "\n"
 
     code.questions.each do |question|
-      file.write QuestionGiftFormatter.new(question).to_s
+      file.write QuestionGiftFormatter.to_s(question)
     end
     true
   end

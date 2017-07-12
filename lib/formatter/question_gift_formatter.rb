@@ -1,42 +1,38 @@
 # encoding: utf-8
 
-class QuestionGiftFormatter
-
-  def initialize(question)
+# Transform Questions into Gift format
+module QuestionGiftFormatter
+  def self.to_s(question)
     @question = question
-  end
-
-  def to_s
     # Return question using gift format
-    s = "// #{@question.comment}\n" unless ( @question.comment.nil? and @question.comment.empty? )
+    cond = @question.comment.nil? && @question.comment.empty?
+    s = "// #{@question.comment}\n" unless cond
     s << "::#{@question.name}::[html]#{sanitize(@question.text)}\n"
 
     case @question.type
     when :choice
-      s=s+"{\n"
-      a=["  =#{sanitize(@question.good)}\n"]
-      penalties = [ '', '%-50%','%-33.33333%','%-25%','%-20%']
+      s += "{\n"
+      a = ["  =#{sanitize(@question.good)}\n"]
+      penalties = ['', '%-50%', '%-33.33333%', '%-25%', '%-20%']
       penalty = penalties[@question.bads.size]
 
-      @question.bads.each { |i| a << ("  ~#{penalty}" + sanitize(i)+"\n") }
+      @question.bads.each { |i| a << ("  ~#{penalty}" + sanitize(i) + "\n") }
       a.shuffle! if @question.shuffle?
       a.each do |i|
-        text=i
-        if text.size>255
-          text=i[0,220]+"...(ERROR: text too long)"
-        end
+        text = i
+        text = i[0, 220] + '...(ERROR: text too long)' if text.size > 255
         s << text
       end
       s += "  #####{sanitize(@question.feedback.to_s)}\n" if @question.feedback
       s += "}\n\n"
-	  when :boolean
+    when :boolean
       s << "{#{@question.good}#####{sanitize(@question.feedback.to_s)}}\n\n"
     when :match
       s << "{\n"
       a = []
-      @question.matching.each do |i,j|
-        i = i[0,220] + '...(ERROR: text too long)' if i.size>255
-        j = j[0,220] + '...(ERROR: text too long)' if j.size>255
+      @question.matching.each do |i, j|
+        i = i[0, 220] + '...(ERROR: text too long)' if i.size > 255
+        j = j[0, 220] + '...(ERROR: text too long)' if j.size > 255
         a << "  =#{sanitize(i)} -> #{sanitize(j)}\n"
       end
       a.shuffle! if @question.shuffle?
@@ -47,24 +43,22 @@ class QuestionGiftFormatter
       @question.shorts.uniq!
       @question.shorts.each do |i|
         text = i
-        text = i[0,220] + '...(ERROR: too long)' if text.size>255
+        text = i[0, 220] + '...(ERROR: too long)' if text.size > 255
         s << "  =%100%#{text}#\n"
       end
       s << "  #####{sanitize(@question.feedback.to_s)}\n" if @question.feedback
       s << "}\n\n"
     end
-    return s
+    s
   end
 
-private
-
-  def sanitize(psText='')
-    lsText = psText.dup
-    lsText.gsub!("\n", " ")
-    lsText.gsub!(":","\:")
-    lsText.gsub!('=',"\\=")
-    #lsText.gsub!('{',"\\{")
-    #lsText.gsub!('}',"\\}")
-    lsText
+  def self.sanitize(input = '')
+    output = input.dup
+    output.tr!("\n", ' ')
+    output.tr!(':', "\:")
+    output.tr!('=', "\\=")
+    # output.gsub!('{', "\\{")
+    # output.gsub!('}', "\\}")
+    output
   end
 end
