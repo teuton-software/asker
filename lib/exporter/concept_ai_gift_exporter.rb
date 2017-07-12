@@ -4,12 +4,9 @@ require_relative '../project'
 require_relative '../formatter/question_gift_formatter'
 
 # Use to export data from ConceptIA to gift format
-class ConceptAIGiftExporter
-  def initialize(concept_ai)
+module ConceptAIGiftExporter
+  def self.export(concept_ai)
     @concept_ai = concept_ai
-  end
-
-  def export
     return unless @concept_ai.process?
 
     file = Project.instance.outputfile
@@ -23,7 +20,7 @@ class ConceptAIGiftExporter
     end
   end
 
-  def head(concept_ai)
+  def self.head(concept_ai)
     s = "\n"
     s += '// ' + '=' * 50 + "\n"
     s += "// Concept name: #{concept_ai.name}\n"

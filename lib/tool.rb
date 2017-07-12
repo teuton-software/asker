@@ -68,7 +68,7 @@ class Tool
     @concepts.each do |concept|
       concept_ai = ConceptAI.new(concept, @world)
       concept_ai.make_questions
-      ConceptAIGiftExporter.new(concept_ai).export
+      ConceptAIGiftExporter.export(concept_ai)
       @concepts_ai << concept_ai
     end
     @codes.each do |code|
