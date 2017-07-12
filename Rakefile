@@ -56,7 +56,8 @@ end
 
 desc 'Clean output dir'
 task :clean do
-  FileUtils.rm_rf(Dir.glob(File.join('.', Project.instance.get(:outputdir), '*')))
+  dir = Project.instance.get(:outputdir)
+  FileUtils.rm_rf(Dir.glob(File.join('.', dir, '*')))
 end
 
 def install_gems(list)
