@@ -5,7 +5,7 @@ require_relative '../formatter/code_string_formatter'
 # Contains code data input
 class Code
   attr_reader :dirname, :filename, :type
-  attr_accessor :description, :process
+  attr_accessor :process, :features
   attr_reader :lines, :questions
 
   def initialize(dirname, filename, type)
@@ -14,6 +14,7 @@ class Code
     @type = type
     @filepath = File.join(@dirname, @filename)
     @process = false
+    @features = []
     @lines = load(@filepath)
     @questions = []
     @code_ai = CodeAIFactory.get(self)

@@ -16,8 +16,10 @@ class CodeLoader
     @process = false
     @type = :none
 
+    @features = []
 	  read_data_from_xml(xml_data)
     @code = Code.new(@dirname, @filename, @type)
+    @code.features << @features
   end
 
   private
@@ -29,8 +31,23 @@ class CodeLoader
         @filename = i.text
       when 'type'
         @type = i.text.to_sym
+      when 'features'
+        read_features(i)
       else
         text = "   [ERROR] <#{i.name}> unkown XML attribute for Code #{@filename}"
+        msg = Rainbow(text).color(:red)
+        Project.instance.verbose msg
+      end
+    end
+  end
+
+  def read_features(xml_data)
+    xml_data.elements.each do |i|
+      case i.name
+      when 'row'
+        @features << i.text
+      else
+        text = "   [ERROR] <features/#{i.name}> unkown XML attribute for Code #{@filename}"
         msg = Rainbow(text).color(:red)
         Project.instance.verbose msg
       end
