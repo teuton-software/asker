@@ -3,5 +3,5 @@
 nombres = ['obi-wan', 'yoda', 'darth Vader']
 
 nombres.each do |i|
-    puts "Hello #{i.capitalize}!"
+    puts "Hello " + i.capitalize + "!"
 end
