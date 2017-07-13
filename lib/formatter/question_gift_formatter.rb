@@ -54,6 +54,7 @@ module QuestionGiftFormatter
 
   def self.sanitize(input = '')
     output = input.dup
+    # output.tr!("#", "\#")
     output.tr!("\n", " ")
     output.tr!(":", "\:")
     output.tr!("=", "\\=")
