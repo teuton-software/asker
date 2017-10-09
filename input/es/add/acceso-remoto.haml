@@ -15,6 +15,13 @@
     %tags programa,acceso,remoto,entorno,gráfico,abierto
     %def [*] permite acceder a un ordenador remoto. Usa por defecto los puertos 5900 en adelante.
     %def El servicio [*] usa por defecto el puerto 5900
+    %table{ :fields => 'comando, descripción'}
+      %row
+        %col vncserver
+        %col Inicia un escritorio VNC
+      %row
+        %col vncviewer 172.18.42.31:590X
+        %col Programa abre una conexión VNC al escritorio X de un equipo remoto
 
   %concept
     %names RDP
