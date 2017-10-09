@@ -60,12 +60,9 @@
         %row
           %col ssh usuario2@HOSTNAME
           %col Se intenta abrir una conexión SSH con la máquina HOSTNAME usando la cuenta del usuario2
-      %row
-        %col ssh usuario@host2:/home/usuario
-        %col Error ssh: "Could not resolve hostname"
-      %row
-        %col ssh host2
-        %col Nos conectamos vía ssh a la máquina host2 usando nuestra cuenta local actual
+        %row
+          %col ssh HOSTNAME
+          %col Nos conectamos vía ssh a la máquina HOSTNAME usando nuestra cuenta local actual
       %row
         %col ssh USERNAME@HOSTIP COMMAND
         %col Ejecuta el comando COMMAND en la máquina remota HOSTIP
