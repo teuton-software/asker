@@ -26,7 +26,7 @@
   %concept
     %names RDP
     %tags programa,acceso,remoto,entorno,gráfico,privativo
-    %def [*] permite tomar acceder a un ordenador remoto. Usa por defecto el puerto 3389.
+    %def [*] permite acceder a un ordenador remoto. Usa por defecto el puerto 3389.
     %def El servicio [*] usa por defecto el puerto 3389
 
   %concept
@@ -42,7 +42,7 @@
         %col Comando para generar par de claves pública/privada para el usuario actual
       %template{:TIPOCLAVE => 'rsa,dsa,ecdsa,ed25519'}
         %row
-          %col ssh-keygen -t TIPOCLAVE -f /etc/ssh/ssh_host_rsa_key
+          %col ssh-keygen -t TIPOCLAVE -f /etc/ssh/ssh_host_key
           %col Comando para generar par de claves TIPOCLAVE pública/privada para el servidor SSH
       %template{:FILENAME => 'knoppix.iso,debian.md5,jhony.zip'}
         %row
@@ -54,7 +54,7 @@
           %col Copia el fichero FILENAME en la máquina remota host2
       %template{:USERNAME => 'obiwan,yoda,vader,emperador'}
         %row
-          %col ssh USERNAME@start
+          %col ssh USERNAME@star
           %col Se intenta abrir una conexión SSH con la máquina star usando la cuenta del USERNAME
       %template{:HOSTNAME => 'localhost,leela,fry,bender,brannigan'}
         %row
