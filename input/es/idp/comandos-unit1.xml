@@ -216,15 +216,15 @@
 			</row>
 			<row>
 				<col>rm foo</col>
-				<col>Elimina un fichero (No directorio)</col>
+				<col>Elimina un fichero foo (No directorio)</col>
 			</row>
 			<row>
 				<col>rm -r foo</col>
-				<col>Elimina el fichero. Y si es directorio, lo elimina junto con sus contenidos de forma recursiva.</col>
+				<col>Elimina el fichero foo. Y si es directorio, lo elimina junto con sus contenidos de forma recursiva.</col>
 			</row>
 			<row>
 				<col>rm ./-foo</col>
-				<col>Elimina un fichero cuando su nombre empieza por el símbolo '-'.</col>
+				<col>Elimina un fichero -foo cuando</col>
 			</row>
 		</table>
 	</concept>
