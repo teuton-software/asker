@@ -62,13 +62,13 @@
   <concept>
     <names>file</names>
     <tags>mostrar, tipo, fichero, archivo, directorio</tags>
-    <def>Comandos que muestra el tipo de un fichero, archivo o directorio.</def>
+    <def>Comando que muestra el tipo de un fichero, archivo o directorio.</def>
   </concept>
 
   <concept>
     <names>free</names>
     <tags>mostrar, memoria, libre, ocupada</tags>
-    <def>Comando que sirve únicamente para mostrar la memoria libre y ocupada del sistema.</def>
+    <def>Comando que muestra la memoria del sistema (memoria libre, ocupada, etc.).</def>
   </concept>
 
   <concept>
