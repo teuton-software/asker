@@ -66,8 +66,8 @@
 				<col>Usando notación de letras, establece únicamente permisos de lectura y escritura todos los usuarios excepto al propietario.</col>
 			</row>
 			<row>
-				<col>u+x,go=rx</col>
-				<col>Usando notación de letras, añade permisos de ejecución para el propietario. Y establece únicamente permisos de lectura y escritura todos los usuarios excepto al propietario. Las especificaciones se separan por comas.</col>
+				<col>u+x,go=rw</col>
+				<col>Usando notación de letras, añade permisos de ejecución al propietario. Y establece únicamente permisos de lectura y escritura al resto de usuarios.</col>
 			</row>
 		</table>
 	</concept>
