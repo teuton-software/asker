@@ -158,11 +158,11 @@
 		<table fields='acción,resultado'>
 			<row>
 				<col>id</col>
-				<col>Muestra la información UID y grupos asigandos del usuario actual.</col>
+				<col>Muestra la información UID y grupos asignados del usuario actual.</col>
 			</row>
 			<row>
 				<col>id USERNAME</col>
-				<col>Muestra la informacion de identificación, del usuario especificado.</col>
+				<col>Muestra la información de identificación, del usuario especificado.</col>
 			</row>
 			<row>
 				<col>id -u</col>
