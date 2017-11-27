@@ -88,7 +88,7 @@
 			</row>
       <row>
 				<col>Campo 5</col>
-				<col>Días máximos de validez de la cuenta</col>
+				<col>Maximo número de días que se puede usar la misma contraseña</col>
 			</row>
       <row>
 				<col>Campo 6</col>
