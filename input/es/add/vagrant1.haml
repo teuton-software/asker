@@ -17,7 +17,7 @@
         %col zypper install vagrant
         %col Instala Vagrant en OpenSUSE
       %row
-        %col vagrant -v
+        %col vagrant version
         %col Muestra la versión de vagrant instalada
       %row
         %col vagrant init
@@ -59,13 +59,13 @@
         %col nmap -p 4500-4600 localhost
         %col Escanear un rango de puertos de la propia máquina
       %row
-        %col netstat
+        %col netstat -ntap
         %col Muestra las conexiones de red de la máquina así como los servicios que están en escucha
       %row
         %col vagrant package --base MVNAME
         %col Crea un caja/box vagrant de la MV con el nombre MVNAME
       %row
-        %col vagrant add box BOXNAME package.box
+        %col vagrant box add BOXNAME package.box
         %col Añade la caja/box vagrant BOXNAME, a partir del fichero package.box
     %table{:fields => 'configuración Vagranfile,descripción'}
       %row
