@@ -68,7 +68,7 @@
   <concept>
     <names>wget</names>
     <tags>descargar, ficheros, red, no, interactivo</tags>
-    <def>Comando para descargar ficheros a través de la red de forma no interativa.</def>
+    <def>Comando para descargar ficheros a través de la red de forma no interactiva.</def>
   </concept>
 
   <concept>
