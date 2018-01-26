@@ -116,7 +116,7 @@
   <concept>
     <names>scp</names>
     <tags>copiar, ficheros, maquina, red, segura</tags>
-    <def>Comando para copiart ficheros entre hosts de la red. Usa el protocolo SSH para transferir datos de forma segura y autenticada.</def>
+    <def>Comando para copiar ficheros entre hosts de la red. Usa el protocolo SSH para transferir datos de forma segura y autenticada.</def>
     <table fields='acción,resultado'>
       <row>
         <col>scp USERNAME@HOSTIP:document.txt .</col>
