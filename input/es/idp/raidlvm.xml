@@ -13,14 +13,7 @@
       </row>
       <row>
         <col>RAID 1</col>
-        <col>Crea una copia exacta (o espejo) de un conjunto de datos en
-				dos o más discos. Esto resulta útil cuando el rendimiento en
-				lectura es más importante que la capacidad. El conjunto sólo puede
-				ser tan grande como el más pequeño de sus discos. Incrementa
-				exponencialmente la fiabilidad respecto a un solo disco; es decir,
-				la probabilidad de fallo del conjunto es igual al producto de las
-				probabilidades de fallo de cada uno de los discos (pues para que el
-				conjunto falle es necesario que lo hagan todos sus discos).</col>
+        <col>Crea una copia exacta (o espejo) de un conjunto de datos en dos o más discos.</col>
       </row>
       <row>
         <col>RAID 5</col>
