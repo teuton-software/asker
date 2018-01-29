@@ -78,6 +78,10 @@
         <col>pvmove /dev/sdb1 /dev/sdc3</col>
         <col>Mueve la información de un volumen físico a otro.</col>
       </row>
+      <row>
+        <col>pvcreate /dev/sdc3</col>
+        <col>Crear un volumen físico.</col>
+      </row>
     </table>
   </concept>
 
@@ -92,15 +96,15 @@
       </row>
       <row>
         <col>vgdisplay</col>
-        <col>Muestra información de todos los grupos de volúmen.</col>
+        <col>Muestra información de todos los grupos de volumen.</col>
       </row>
       <row>
         <col>vgextend vg-extra /dev/sdc3</col>
-        <col>Amplia el tamaño de un grupo de volumen.</col>
+        <col>Amplíar el tamaño de un grupo de volumen.</col>
       </row>
       <row>
         <col>vgreduce vg-extra /dev/sdc3</col>
-        <col>Reducir el tamaño de un grupo de volumen.</col>
+        <col>Quitar un volumen físico de un grupo de volumen.</col>
       </row>
     </table>
   </concept>
