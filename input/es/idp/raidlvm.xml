@@ -112,7 +112,7 @@
   <concept>
     <names>volumen lógico</names>
     <tags>particion, lvm, volumen, logico</tags>
-    <def>En LVM, es el equivalente a una partición en un sistema tradicional.Es visible como un dispositivo estándar de bloques, por lo que puede contener un sistema de archivos (por ejemplo /home)</def>
+    <def>En LVM, es el equivalente a una partición en un sistema tradicional. Es visible como un dispositivo estándar de bloques, por lo que puede contener un sistema de archivos (por ejemplo /home)</def>
     <table fields='acción,resultado'>
       <row>
         <col>lvextend -L 400 /dev/vg-debian/lv-datos</col>
