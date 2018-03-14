@@ -76,28 +76,28 @@
         %col /etc/nagios/nrpe.cfg
     %table{ :fields => 'objeto Nagios, definición' }
       %row
-        %col commands
-        %col definen qué programas ejecutar
+        %col command
+        %col define qué programas ejecutar
       %row
-        %col services
+        %col service
         %col son los recursos a testear (CPU, disco, protocolos de red, etc)
       %row
-        %col hosts
-        %col definen los equipos que se van a monitorizar
+        %col host
+        %col define el equipo que se van a monitorizar
       %row
-        %col contacts
-        %col son las personas a las que se va a notificar cuando ocurre una alerta
+        %col contact
+        %col persona a la que se va a notificar cuando ocurre una alerta
       %row
-        %col timeperiods
-        %col definen en qué horarios se puede chequear un host y en qué horarios se puede notificar a un contacto
+        %col timeperiod
+        %col define horario para chequear un host y en qué horarios se puede notificar a un contacto
       %row
-        %col hostgroups
-        %col permiten agrupar hosts
+        %col hostgroup
+        %col permite agrupar hosts
       %row
-        %col servicegroups
+        %col servicegroup
         %col agrupar servicios
       %row
-        %col contactgroups
+        %col contactgroup
         %col agrupar contactos
     %table{ :fields => 'Parámetro del objeto service, descripción' }
       %row
