@@ -20,22 +20,22 @@
         %col apt-get --no-install-recommends install nagios-nrpe-server nagios-plugins-basic
         %col Instalar el agente Nagios en Debian y los plugins
       %row
-        %col service nagios-nrpe-server stop
+        %col systemctl stop nagios-nrpe-server
         %col Parar el servicio del Agente Nagios en Debian
       %row
-        %col service nagios-nrpe-server start
+        %col systemctl start nagios-nrpe-server
         %col Iniciar el servicio del Agente Nagios en Debian
       %row
-        %col service nagios-nrpe-server restart
+        %col systemctl restart nagios-nrpe-server
         %col Reiniciar el servicio del Agente Nagios en Debian
       %row
-        %col service nagios3 stop
+        %col systemctl stop nagios3
         %col Parar el servidor Nagios en Debian
       %row
-        %col service nagios3 start
+        %col systemctl start nagios3
         %col Iniciar el servidor Nagios en Debian
       %row
-        %col service nagios3 restart
+        %col systemctl restart nagios3
         %col Reiniciar el servidor Nagios en Debian
       %row
         %col /usr/lib/nagios/plugins/check_tcp -H $HOSTADDRESS$ -p '$ARG1$' -4
@@ -127,7 +127,7 @@
         %col el nombre del hostgroup que estamos definiendo
       %row
         %col alias
-        %col una breve descripción de la funcionalidad del hostgroup
+        %col una breve descripción de la funcionalidad
       %row
         %col members
         %col listado de los hosts, separados por coma, que pertenecen a este hostgroup
