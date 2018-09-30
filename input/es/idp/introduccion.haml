@@ -13,6 +13,33 @@
     %def Con este software se pueden crear máquinas virtuales dentro de la máquina real con diferentes sistemas operativos.
 
   %concept
+    %names sector
+    %tags disco, formateo
+    %def Es el nombre de la cantidad mínima que una unidad de almacenamiento puede leer/escribir. Equivale a 512 bytes.
+
+  %concept
+    %names clúster, bloque
+    %tags disco, formateo
+    %def Es el nombre de la cantidad mínima de almacenamiento en disco que el sistema operativo asigna a cada fichero. Normalmente equivale a 8 sectores.
+
+  %concept
     %names Máquina virtual
     %tags computadora,simulada
     %def Es una computadora simulada (no real) que puede ejecutar programas como si fuese una computadora real.
+
+  %concept
+    %names desfragmentar, desfragmentación
+    %tags fragmentar, disco
+    %def [*] es el proceso conveniente mediante el cual se acomodan los archivos en un disco para que no se aprecien fragmentos de cada uno de ellos, de tal manera que quede contiguo el archivo y sin espacios dentro del mismo.
+
+  %concept
+    %names fragmentación interna
+    %tags fragmentar, disco, cluster, bloque
+    %def [*] es la pérdida de espacio en disco debido al hecho de que el tamaño de un determinado archivo sea inferior al tamaño del clúster/bloque.
+    %def Si tenemos una tamaño de clúster/bloque de 4KB. Un archivo de 1KB ocupará en disco lo mismo que otro de 2KB. Este se debe a [*].
+
+  %concept
+    %names fragmentación externa
+    %tags fragmentar, disco, formateo
+    %def  En el sistema de ficheros, la sucesiva creación y eliminación de ficheros de distintos tamaños puede conducir al aislamiento de los bloques libres de un disco y, dependiendo de la política de ajuste, su no elección para futuros ficheros.
+    %def  En sistemas de ficheros la desfragmentación trata de resolver el problema de [*], alineando los bloques de datos contiguos y juntando los bloques libres, produciendo así fragmentos mayores que sí serán elegidos para futuros ficheros.
