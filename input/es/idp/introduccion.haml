@@ -43,3 +43,62 @@
     %tags fragmentar, disco, formateo
     %def  En el sistema de ficheros, la sucesiva creación y eliminación de ficheros de distintos tamaños puede conducir al aislamiento de los bloques libres de un disco y, dependiendo de la política de ajuste, su no elección para futuros ficheros.
     %def  En sistemas de ficheros la desfragmentación trata de resolver el problema de [*], alineando los bloques de datos contiguos y juntando los bloques libres, produciendo así fragmentos mayores que sí serán elegidos para futuros ficheros.
+
+  %concept
+    %names mbr, master boot record
+    %tags disco, sector, cero, 0
+    %table{ :fields => 'característica' }
+      %row Se guarda en el primer sector de un dispositivo de almacenamiento de datos, como un disco duro.
+      %row En las máquinas con BIOS se emplea para el arranque del sistema operativo.
+      %row Se usa para almacenar la tabla de particiones.
+      %row Sólo puede almacenar información para 4 particiones.
+
+  %concept
+    %names partición, partición de disco
+    %tags partición, disco
+    %def [*] es el nombre genérico que recibe cada división presente en una sola unidad física de almacenamiento de datos.
+    %def Una [*] es una división lógica en una unidad de almacenamiento (por ejemplo, un disco duro o unidad flash), en la cual se alojan y organizan los archivos mediante un sistema de archivos.
+    %table{ :fields => 'característica' }
+      %row Toda [*] tiene su propio sistema de archivos (formato).
+      %row En MBR sólo se pueden crear 4 [*].
+      %row En GPT se pueden crear hasta 128 [*].
+    %table{ :fields => 'tipo,descripción' }
+      %row
+        %col primaria
+        %col Son las divisiones crudas o primarias del disco, solo puede haber 4 de éstas o 3 primarias y una extendida en una tabla de particiones MBR.
+      %row
+        %col extendida
+        %col Actúa como una partición primaria MBR pero ésta sólo sirve para contener particiones lógicas.
+      %row
+        %col lógica
+        %col Ocupa una porción de la partición extendida o la totalidad de la misma.
+    %table{ :fields => 'tipo,cantidad máxima' }
+      %row
+        %col primaria MBR
+        %col 4
+      %row
+        %col extendida
+        %col 1
+      %row
+        %col lógica
+        %col 32
+
+  %concept
+    %names formatear, formato, formato lógico
+    %tags formato, disco, almacenar
+    %table{ :fields => 'sistema operativo, sistema de archivos más habituales' }
+      %row
+        %col Windows
+        %col ExFAT, FAT, FAT16, FAT32, NTFS, EFS.
+      %row
+        %col GNU/Linux
+        %col ext2, ext3, ext4, JFS, ReiserFS, Reiser4, XFS.
+      %row
+        %col Solaris
+        %col UFS, ZFS.
+      %row
+        %col Mac OS
+        %col HFS, HFS+.
+      %row
+        %col IBM
+        %col JFS, GPFS.
