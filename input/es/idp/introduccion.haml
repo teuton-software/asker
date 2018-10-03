@@ -102,3 +102,29 @@
       %row
         %col IBM
         %col JFS, GPFS.
+
+  %concept
+    %names ABA
+    %tags formato, disco, almacenar
+    %def Sistema de formato basado en la asignación de bloques adyacentes.
+    %table{ :fields => 'característica' }
+      %row La tabla de información tiene los campos name, start y size. Consume 1 sector del disco.
+      %row El sistema deja de funcionar con alta fragmentación externa
+
+  %concept
+    %names ABLL
+    %tags formato, disco, almacenar
+    %def Sistema de formato basado en la asignación de bloques con lista ligada.
+    %table{ :fields => 'característica' }
+      %row La tabla de información tiene los campos name y start. Consume 1 sector del disco.
+      %row Dentro de cada sector sólo se pueden usar 510 bytes para datos
+      %row Se usan los 2 últimos bytes del sector para guardar la información de los enlaces/ligaduras
+      %row Es lento para calcular el tamaño de los archivos
+
+  %concept
+    %names miniFAT
+    %tags formato, disco, almacenar
+    %def Sistema de formato basado en la asignación de bloques y almacenar los ligamientos en tabla.
+    %table{ :fields => 'característica' }
+      %row Usa 2 tablas para guardar la información. Consume 2 sectores del disco.
+      %row Las tablas de información tienen los campos name, start e id, next
