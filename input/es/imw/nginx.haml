@@ -6,9 +6,6 @@
     %def [*] pronunciado en inglés “engine X”
     %def Es un servidor web/proxy inverso ligero de alto rendimiento y un proxy para protocolos de correo electrónico (IMAP/POP3).
     %table{ :fields => 'características' }
-      %row Es software libre y de código abierto, licenciado bajo la Licencia BSD simplificada; también existe una versión comercial.
-      %row Es multiplataforma, por lo que corre en sistemas tipo Unix (GNU/Linux, BSD, Solaris, Mac OS X, etc.) y Windows.6
-      %row El sistema es usado por una larga lista de sitios web conocidos,​ como: WordPress, Netflix, Hulu, GitHub, Ohloh, SourceForge, etc.
       %row Es ofrecido en la configuración del paquete phpmyadmin
       %row Para un determinado virtual host de Nginx, puede configurar varios location
       %row No "entiende" peticiones PHP de forma nativa.
@@ -20,33 +17,33 @@
     %table{ :fields => 'objeto, descripción'}
       %row
         %col index.html
-        %col Ficheros índice por defecto en Nginx
+        %col Fichero índice por defecto en Nginx
       %row
-        %col Puerto para conexiones seguras https
         %col 443
+        %col Puerto para conexiones seguras https
       %row
-        %col Puerto para conexiones http
         %col 80
+        %col Puerto para conexiones http
       %row
-        %col Puerto para conexiones seguras SSH
         %col 22
+        %col Puerto para conexiones seguras SSH
       %row
         %col Socket /run/php/php7.x-fpm.sock
         %col Permite comunicar a Nginx con PHP
       %row
-        %col root por defecto de PhpMyAdmin
         %col /usr/share/phpmyadmin
+        %col root por defecto de PhpMyAdmin
       %row
-        %col Ruta por defecto del "root" de Nginx
         %col /var/www/html
+        %col Ruta por defecto del "root" de Nginx
       %row
-        %col Fichero cuya estructura es username:encrypted-password:comment
         %col .htpasswd
+        %col Fichero cuya estructura es username:encrypted-password:comment
       %row
-        %col Ruta completa del fichero de log de errores de Nginx
         %col /var/log/nginx/error.log
+        %col Ruta completa del fichero de log de errores de Nginx
       %row
-        %col La directiva autoindex
+        %col Directiva autoindex
         %col No sólo se puede poner dentro del ámbito location
 
   %concept
@@ -82,7 +79,7 @@
     %table{ :fields => 'comando, descripción'}
       %row
         %col uwsgi --socket \:8080 --protocol http --home $(pipenv --venv) -w entry\:app
-        %col Estamos deplegando el fichero entry.py
+        %col Deplegando el fichero entry.py
     %table{ :fields => 'características'}
       %row supervisor (servidor) no requiere que se tenga que ejecutar como root
 
