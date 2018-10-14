@@ -1,0 +1,92 @@
+%map{ :version => '1', :lang => 'es', :context=>'sistemas operativos, clientes ligeros, acceso remoto' }
+
+  %concept
+    %names ltsp
+    %tags clientes,ligeros,linux,terminal,server,project
+    %def [*] son un conjunto de aplicaciones servidores que proporcionan la capacidad de ejecutar Linux en computadores de pocas prestaciones de velocidad o de bajo costo, permitiendo reutilizar equipos que actualmente resultan obsoletos debido a los altos requisitos que piden los sistemas operativos.
+    %table{ :fields => 'características' }
+      %row
+        Se requieren dos interfaces de red
+      %row
+        Los clientes arrancan por la tarjeta de red
+
+  %concept
+    %names vnc
+    %tags programa,acceso,remoto,entorno,gráfico,abierto
+    %def [*] permite acceder a un ordenador remoto. Usa por defecto los puertos 5900 en adelante.
+    %def El servicio [*] usa por defecto el puerto 5900
+    %table{ :fields => 'comando, descripción'}
+      %row
+        %col vncserver
+        %col Inicia un escritorio VNC
+      %row
+        %col vncviewer 172.18.42.31:590X
+        %col Programa abre una conexión VNC al escritorio X de un equipo remoto
+
+  %concept
+    %names RDP
+    %tags programa,acceso,remoto,entorno,gráfico,privativo
+    %def [*] permite acceder a un ordenador remoto. Usa por defecto el puerto 3389.
+    %def El servicio [*] usa por defecto el puerto 3389
+
+  %concept
+    %names SSH, Secure Shell, sshd
+    %tags protocolo, acceso, remoto, shell, segura
+    %def Nombre de un protocolo y del programa que implementa intérprete de órdenes seguro.
+    %def Protocolo/herramienta que sirve para acceder a máquinas remotas a través de una red de forma segura, mediante un intérprete de comandos.
+    %def [*] permite acceder a un ordenador remoto. Usa por defecto el puerto 22.
+    %def El servicio [*] usa por defecto el puerto 22.
+    %table{ :fields => 'comando,descripción' }
+      %row
+        %col ssh-keygen
+        %col Comando para generar par de claves pública/privada para el usuario actual
+      %template{:TIPOCLAVE => 'rsa,dsa,ecdsa,ed25519'}
+        %row
+          %col ssh-keygen -t TIPOCLAVE -f /etc/ssh/ssh_host_key
+          %col Comando para generar par de claves TIPOCLAVE pública/privada para el servidor SSH
+      %template{:FILENAME => 'knoppix.iso,debian.md5,jhony.zip'}
+        %row
+          %col scp FILENAME usuario@host2
+          %col Copia el fichero FILENAME en la máquina local, pero con otro nombre
+      %template{:FILENAME => 'knoppix.iso,debian.md5,jhony.zip'}
+        %row
+          %col scp FILENAME usuario@host2:/home/usuario
+          %col Copia el fichero FILENAME en la máquina remota host2
+      %template{:USERNAME => 'obiwan,yoda,vader,emperador'}
+        %row
+          %col ssh USERNAME@star
+          %col Se intenta abrir una conexión SSH con la máquina star usando la cuenta del USERNAME
+      %template{:HOSTNAME => 'localhost,leela,fry,bender,brannigan'}
+        %row
+          %col ssh usuario2@HOSTNAME
+          %col Se intenta abrir una conexión SSH con la máquina HOSTNAME usando la cuenta del usuario2
+        %row
+          %col ssh HOSTNAME
+          %col Nos conectamos vía ssh a la máquina HOSTNAME usando nuestra cuenta local actual
+      %row
+        %col ssh USERNAME@HOSTIP COMMAND
+        %col Ejecuta el comando COMMAND en la máquina remota HOSTIP
+      %row
+        %col ssh USERNAME@HOSTIP COMMAND > 'informe.txt'
+        %col Ejecuta el comando COMMAND en la máquina remota HOSTIP, y guarda la salida en el fichero informe.txt.
+      %row
+        %col zypper install openssh
+        %col Instala el software cliente y el servidor SSH en una máquina GNU/Linux OpenSUSE.
+      %row
+        %col apt-get install openssh-server
+        %col Instala el software servidor SSH en una máquina GNU/Linux Debian.
+      %row
+        %col apt-get install openssh-client
+        %col Instala el software cliente SSH en una máquina GNU/Linux Debian.
+
+  %concept
+    %names scp, Security Copy
+    %tags copiar, ficheros, maquina, red, segura
+    %def Comando para copiar ficheros entre hosts de la red. Usa el protocolo SSH para transferir datos de forma segura y autenticada.
+    %table{ :fields => 'acción,resultado' }
+      %row
+        %col scp USERNAME@HOSTIP:/home/USERNAME/document.txt .
+        %col Copia el documento remoto /home/USERNAME/document.txt, en el directorio local actual.
+      %row
+        %col scp document.txt USERNAME@HOSTIP:/home/USERNAME
+        %col Copia el documento local document.txt, en el directorio HOME del usuario remoto USERNAME.

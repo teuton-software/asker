@@ -1,0 +1,136 @@
+// question: 0  name: Switch category to $course$/IMW/Servidor web Nginx
+$CATEGORY: $course$/IMW/Servidor web Nginx
+
+
+// question: 176  name: Nginx10
+::Nginx10::[html]<p>Indica cuáles de los siguientes ficheros son ficheros índice&nbsp;<strong>por defecto</strong>&nbsp;en Nginx<br></p>{
+	~%50%<p>index.html</p>
+	~%50%<p>index.nginx-debian.html<br></p>
+	~%-50%<p>index.php<br></p>
+	~%-50%<p>index.py<br></p>
+	~%-50%<p>index.htmlx<br></p>
+}
+
+
+// question: 172  name: Nginx7
+::Nginx7::[html]<p>Indica el puerto que se utiliza para conexiones seguras<br></p>{
+	=<p>443</p>
+	~%-50%<p>8080</p>
+	~%-50%<p>442</p>
+	~%-50%<p>9000</p>
+	~%-50%<p>22</p>
+}
+
+
+// question: 184  name: Nginx8
+::Nginx8::[html]<p>¿Cuál es el <b>comando completo</b> que hemos visto de Let's Encrypt para generar los certificados de seguridad?</p>{
+	=<p>sudo certbot --nginx<br></p>
+	~%-50%<p>ssl-keygen</p>
+	~%-50%<p>sslopen</p>
+	~%-50%<p>certbot --nginx</p>
+	~%-50%<p>sudo certbot</p>
+}
+
+
+// question: 186  name: PhpConf2
+::PhpConf2::[html]<p></p><p>El siguiente socket\:</p><pre>/run/php/php7.x-fpm.sock</pre>permite comunicar a\:<p></p>{
+	=<p>Nginx con PHP</p>
+	~%-50%<p>Nginx con Chrome</p>
+	~%-50%<p>Nginx con el usuario</p>
+	~%-50%<p>PHP con Python</p>
+	~%-50%<p>Nginx con el certificado SSL</p>
+}
+
+
+// question: 177  name: PhpMyAdmin1
+::PhpMyAdmin1::[html]<p>Indica cuáles de los siguientes servidores web son ofrecidos en la configuración del paquete phpmyadmin<br></p>{
+	~%50%<p>apache2</p>
+	~%50%<p>lighthttpd<br></p>
+	~%-50%<p>nginx</p>
+	~%-50%<p>cherokee</p>
+	~%-50%<p>tomcat</p>
+}
+
+
+// question: 187  name: PhpMyAdmin2
+::PhpMyAdmin2::[html]<p>¿Cuál es el root por defecto de PhpMyAdmin?</p>{
+	=<p>/usr/share/phpmyadmin<br></p>
+	~%-50%<p>/usr/share/nginx/phpmyadmin</p>#<p></p><p><br></p><br><p></p>
+	~%-50%<p>/var/www/html/phpmyadmin</p>
+	~%-50%<p>/var/lib/phpmyadmin</p>
+	~%-50%<p>/usr/share/www/phpmyadmin</p>
+}
+
+
+// question: 168  name: Nginx1
+::Nginx1::[html]<p>¿Cuál es la ruta por defecto del "root" de Nginx?<br></p>{
+	=%100%/var/www/html#
+	=%100%/var/www/html/#
+}
+
+
+// question: 170  name: Nginx3
+::Nginx3::[html]<p><p>Indica el nombre del fichero cuya estructura es la siguiente\:</p><pre><code>username\:encrypted-password\:comment</code></pre><br></p>{
+	=%100%.htpasswd#
+	=%100%htpasswd#
+}
+
+
+// question: 171  name: Nginx4
+::Nginx4::[html]<p>¿Cuál es la ruta completa del fichero de log de errores de Nginx?<br></p>{
+	=%100%/var/log/nginx/error.log#
+}
+
+
+// question: 173  name: Nginx9
+::Nginx9::[html]<p><p>Dada la siguiente configuración de Nginx\:</p><pre>server \{  \n    listen 80;\n    server_name www.test1.com;\n    return 301 $scheme\://redirect.me$request_uri;\n\}</pre><p>Y suponiendo que accedo a http\://www.test1.com/app1/hello.html</p><p>¿A qué url seré redirigido?</p><br></p>{
+	=%100%http\://redirect.me/app1/hello.html#
+}
+
+
+// question: 178  name: PythonConf1
+::PythonConf1::[html]<p>¿Cuál es el nombre del paquete Python que nos permite gestionar entornos virtuales?<br></p>{
+	=%100%pipenv#
+}
+
+
+// question: 185  name: PythonConf2
+::PythonConf2::[html]<p>¿Cuál es el equivalente en Python a lo que es php-fpm en PHP?</p>{
+	=%100%uwsgi#
+}
+
+
+// question: 179  name: PythonConf3
+::PythonConf3::[html]<p></p><p>Dado el siguiente comando\:</p><p><pre>$ uwsgi --socket \:8080 --protocol http --home $(pipenv --venv) -w entry\:app</pre></p><p>¿Cuál es el fichero Python que estamos deplegando?</p><p></p>{
+	=%100%entry.py#
+}
+
+
+// question: 174  name: MySQL1
+::MySQL1::[html]<p>En su instalación por defecto, MySql crea un usuario anónimo, permitiendo el acceso a cualquiera sin tener creada una cuenta de usuario.<br></p>{TRUE}
+
+
+// question: 169  name: Nginx2
+::Nginx2::[html]<p>Para un determinado virtual host de Nginx, sólo se puede configurar un location.<br></p>{FALSE}
+
+
+// question: 182  name: Nginx5
+::Nginx5::[html]<p>Nginx no atiende por defecto peticiones cuando se accede a la máquina por su dirección IP pública</p>{FALSE}
+
+
+// question: 183  name: Nginx6
+::Nginx6::[html]<p>La directiva <b>autoindex</b> sólo se puede poner dentro del ámbito <b>location</b>.</p>{FALSE}
+
+
+// question: 175  name: PhpConf1
+::PhpConf1::[html]<p>Nginx "entiende" peticiones PHP de forma nativa<br></p>{FALSE}
+
+
+// question: 180  name: PythonConf4
+::PythonConf4::[html]<p><p>Dado el siguiente fragmento de configuración de supervisord.conf, supervisorctl podrá ser usado sin ningún problema por un usuario que esté en el grupo supervisor.</p><pre>...\nchmod\=<span data-mce-mark\="1">0700</span>    \nchown\=<span data-mce-mark\="1">root</span>\:supervisor\n...</pre><br></p>{FALSE}
+
+
+// question: 181  name: PythonConf5
+::PythonConf5::[html]<p><b>supervisor</b> (servidor) sólo se puede ejecutar como root.<br></p>{TRUE}
+
+

@@ -1,0 +1,56 @@
+%map{:version => '1', :lang => 'es', :context => 'sistemas operativos, comando'}
+
+  %concept
+    %names netstat
+    %tags comando, muestra, informaciónm conexiones, red, activa, entrada, salida, enrutamiento, protocolo
+    %def [*] es una herramienta de línea de comandos que muestra un listado de las conexiones activas de una computadora, tanto entrantes como salientes.
+    %def La información que resulta del uso de este comando incluye el protocolo en uso, las tablas de ruteo, las estadísticas de las interfaces y el estado de la conexión.
+    %table{:fields => 'acción, resultado'}
+      %row
+        %col netstat -h
+        %col Muestra la ayuda del comando
+      %row
+        %col netstat -r
+        %col Muestra información de enrutamiento
+      %row
+        %col netstat -t
+        %col Muestra información de las conexiones con protocolo TCP. Aparecen los nombres de equipos en lugar de la IP.
+      %row
+        %col netstat -nt
+        %col Muestra información de las conexiones con protocolo TCP. Aparecen las IP's de los equipos en lugar de los nombres.
+      %row
+        %col netstat -i
+        %col Muestra la tabla de interfaces de red
+      %row
+        %col netstat -pt
+        %col Muestra información de las conexiones TCP con el nombre programa asociado al socket.
+      %row
+        %col netstat -ct
+        %col Muestra información de las conexiones TCP de forma contínua hasta que se interrumpa el comando.
+      %row
+        %col netstat -l
+        %col Muestra información de las conexiones TCP que están en modo escucha.
+      %row
+        %col netstat -a
+        %col Muestra información de todos los sockets (tcp/udp, conectados o no)
+
+  %concept
+    %names systemctl
+    %tags control, systemd, sistema, gestor, servicio
+    %def Comando para controlar los servicios gestionados por systemd
+    %table{:fields => 'acción, resultado'}
+      %row
+        %col systemctl status NAME
+        %col Muestra información del estado del servicio NAME
+      %row
+        %col systemctl stop NAME
+        %col Para el servicio NAME
+      %row
+        %col systemctl start NAME
+        %col Inicia el servicio NAME
+      %row
+        %col systemctl enable NAME
+        %col Activa el inicio automático del servicio NAME
+      %row
+        %col systemctl disable NAME
+        %col Desactiva el inicio automático del servicio NAME
