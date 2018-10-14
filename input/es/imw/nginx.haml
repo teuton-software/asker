@@ -3,7 +3,6 @@
   %concept
     %names nginx
     %tags servidor, web, proxy, inverso, alto, rendimiento
-    %def [*] pronunciado en inglés “engine X”
     %def Es un servidor web/proxy inverso ligero de alto rendimiento y un proxy para protocolos de correo electrónico (IMAP/POP3).
     %table{ :fields => 'características' }
       %row Es ofrecido en la configuración del paquete phpmyadmin
@@ -28,8 +27,8 @@
         %col 22
         %col Puerto para conexiones seguras SSH
       %row
-        %col Socket /run/php/php7.x-fpm.sock
-        %col Permite comunicar a Nginx con PHP
+        %col /run/php/php7.x-fpm.sock
+        %col Socket que permite comunicar a Nginx con PHP
       %row
         %col /usr/share/phpmyadmin
         %col root por defecto de PhpMyAdmin
@@ -65,10 +64,12 @@
   %concept
     %names PHP
     %tags lenguaje, programacion, lado, servidor, desarrollo, web, contenido, dinamico
+    %def Es un lenguaje de programación de propósito general de código del lado del servidor originalmente diseñado para el desarrollo web de contenido dinámico.
 
   %concept
     %names Python
     %tags lenguaje, programacion, sintaxis, codigo, legible
+    %def Es un lenguaje de programación interpretado cuya filosofía hace hincapié en una sintaxis que favorezca un código legible.
     %table{ :fields => 'objeto, descripción'}
       %row
         %col pipenv
