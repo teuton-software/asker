@@ -69,9 +69,9 @@ module TextActions
 
     lines.each do |line|
       line.each do |value|
-        if value.class==String
+        if value.class == String
           lText+=" "+value
-        elsif value.class==Fixnum
+        elsif value.class == Integer
           if lIndexes.include? value then
             lText   += " [#{counter.to_s}]"
             counter += 1
