@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'set'
 
 # Define Question class
 class Question
@@ -6,7 +7,8 @@ class Question
   attr_accessor :good, :bads, :matching, :shorts
   attr_accessor :feedback
   attr_reader   :type
-
+  attr_accessor  :tags
+  
   def initialize(type = :choice)
     reset(type)
   end
@@ -22,6 +24,7 @@ class Question
     @shorts = []
     @feedback = nil
     shuffle_on
+    @tags = Set.new
   end
 
   def set_choice
