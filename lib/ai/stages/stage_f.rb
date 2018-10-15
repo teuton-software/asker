@@ -85,13 +85,13 @@ private
       save = e[0]
       e[0] = lang.do_mistake_to(e[0])
       q = Question.new(:choice)
-      q.name = "#{name(:id)}-#{num}-f1namemispelled#{e.size}-#{table.name}"
+      q.name = "#{name(:id)}-#{num}-f1namemisspelled#{e.size}-#{table.name}"
       q.text = random_image_for(name(:raw))
       q.text += lang.text_for(:f1, lang.do_mistake_to(name(:decorated)), table.fields[0].capitalize, e.join('</li><li>'))
       q.good =  lang.text_for(:misspelling)
       q.bads << lang.text_for(:true)
       q.bads << lang.text_for(:false)
-      q.feedback = "Concept name #{name(:raw)} mispelled!"
+      q.feedback = "Concept name #{name(:raw)} misspelled!"
       e[0] = save
       questions << q
     end
@@ -100,7 +100,7 @@ private
     save = e[0]
     e[0] = lang.do_mistake_to(e[0])
     q = Question.new(:choice)
-    q.name = "#{name(:id)}-#{num}-f1truemispelled#{e.size}-#{table.name}"
+    q.name = "#{name(:id)}-#{num}-f1truemisspelled#{e.size}-#{table.name}"
     q.text = random_image_for(name(:raw))
     q.text += lang.text_for(:f1, name(:decorated), table.fields[0].capitalize, e.join('</li><li>'))
     q.good =  lang.text_for(:misspelling)

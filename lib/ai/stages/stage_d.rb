@@ -40,7 +40,7 @@ class StageD < BaseStage
         q.bads << lang.do_mistake_to(name(:raw))
         q.bads << a[2]
         q.bads << a[3]
-        q.feedback="Option mispelled!: #{name(:raw)}"
+        q.feedback="Option misspelled!: #{name(:raw)}"
         questions << q
       end
 

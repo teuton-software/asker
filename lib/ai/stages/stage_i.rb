@@ -23,7 +23,7 @@ class StageI < BaseStage
       # Question type <f1>: choose between 4 options
       if s.count>3 then
         q=Question.new(:choice)
-        q.name="#{name}-#{num}-i1choose"
+        q.name="#{name}-#{num}-i1choice"
         q.text=lang.text_for(:i1, url )
         q.good=name
         q.bads << lang.text_for(:none)
