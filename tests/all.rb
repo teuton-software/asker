@@ -3,6 +3,7 @@
 require 'minitest/autorun'
 
 require_relative 'application_test'
+require_relative 'config_test'
 
 require_relative 'project_test'
 require_relative 'lang/lang_test'
