@@ -5,7 +5,7 @@
     <tags>enviar, paquete, ICMP, equipo, host, red</tags>
     <def>Envia un paquete ECHO_REQUEST (Protocolo ICMP) a un equipo de la red, solicitando una respuesta ECHO_RESPONSE.</def>
     <def>Permite comprobar la conectividad entre dos máquinas, usando el protocolo de red ICMP.</def>
-    <table fields='acción,resultado'>
+    <table fields='comando,resultado'>
       <row>
         <col>ping -c 1 192.168.1.1</col>
         <col>En SO GNU/Linux, prueba la conexión con la IP 192.168.1.1, enviando únicamente un paquete ICMP.</col>
@@ -18,6 +18,10 @@
         <col>ping 192.168.1.3</col>
         <col>En SO Windows, prueba la conexión con la IP 192.168.1.3, enviando 4 paquetes ICMP.</col>
       </row>
+      <row>
+        <col>ping -i 2 192.168.1.4</col>
+        <col>En SO GNU/Linux, prueba la conexión con la IP 192.168.1.4, enviando paquetes a intervalos de 2 segundos.</col>
+      </row>
     </table>
   </concept>
 
@@ -25,7 +29,7 @@
     <names>traceroute</names>
     <tags>ruta, red, equipo, host</tags>
     <def>Muestra la ruta de red, que toman los paquetes para llegar a un host destino.</def>
-		<table fields='acción,resultado'>
+		<table fields='comando,descripción'>
       <row>
         <col>traceroute 192.168.1.1</col>
         <col>En SO GNU/Linux, muestra la ruta de red que toman los paquetes para llegar a la IP 192.168.1.1.</col>
