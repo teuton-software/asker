@@ -224,7 +224,7 @@
 			</row>
 			<row>
 				<col>rm ./-foo</col>
-				<col>Elimina un fichero -foo cuando</col>
+				<col>Elimina un fichero -foo.</col>
 			</row>
 		</table>
 	</concept>
