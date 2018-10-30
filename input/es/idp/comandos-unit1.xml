@@ -93,20 +93,24 @@
     <def>Comando para crear enlaces duros o simbólicos.</def>
     <table fields='acción, resultado'>
       <row>
-        <col>ln FILE LINK</col>
-        <col>Crea un enlace duro al fichero FILE (No directorios)</col>
+        <col>ln FILENAME LINK</col>
+        <col>Crea un enlace duro llamado LINK al fichero FILENAME (No directorios)</col>
       </row>
       <row>
-        <col>ln -d FILE LINK</col>
-        <col>Crea un enlace duro al directorio FILE</col>
+        <col>ln DIRNAME LINK</col>
+        <col>Crea un enlace duro llamado LINK al directorio DIRNAME</col>
       </row>
       <row>
-        <col>ln -s FILE LINK</col>
-        <col>Crea un enlace simbólico para el fichero FILE</col>
+        <col>ln -d FILENAME LINK</col>
+        <col>Crea un enlace duro llamado LINK al directorio FILENAME</col>
+      </row>
+      <row>
+        <col>ln -s FILENAME LINK</col>
+        <col>Crea un enlace simbólico LLAMADO LINK para el fichero FILENAME</col>
       </row>
       <row>
         <col>ln -s DIRNAME LINK</col>
-        <col>Crea un enlace simbólico para el directorio DIRNAME</col>
+        <col>Crea un enlace simbólico llamado LINK para el directorio DIRNAME</col>
       </row>
     </table>
   </concept>
@@ -165,8 +169,16 @@
 				<col>Crear los directorios, así como sus directorios padres. Cada directorio dentro de su padre.</col>
 			</row>
 			<row>
-				<col>mkdir --mode=MODE DIRNAME</col>
-				<col>A los directorios creados, se les establecen los permisos especificados por MODE.</col>
+				<col>mkdir --mode=755 DIRNAME</col>
+				<col>Crea directorio DIRNAME con los permisos rwxr-xr-x.</col>
+			</row>
+      <row>
+				<col>mkdir --mode=750 DIRNAME</col>
+				<col>Crea directorio DIRNAME con los permisos rwxr-x---.</col>
+			</row>
+      <row>
+				<col>mkdir -m 700 DIRNAME</col>
+				<col>Crea directorio DIRNAME con los permisos rwx------.</col>
 			</row>
 		</table>
 	</concept>
@@ -296,12 +308,12 @@
 		<def>Es un comando del sistema operativo GNU/Linux, que muestra el programa que se ejecutará al invocar un comando concreto.</def>
 		<table fields='accion, resultado'>
 			<row>
-				<col>which cd</col>
-				<col>(Vacío)</col>
+				<col>which ip</col>
+				<col>/bin/ip</col>
 			</row>
 			<row>
-				<col>which cp</col>
-				<col>/bin/cp o /usr/bin/cp</col>
+				<col>which hostname</col>
+				<col>/bin/hostname</col>
 			</row>
 		</table>
 	</concept>
