@@ -19,8 +19,8 @@
         <col>No hace nada</col>
       </row>
       <row>
-        <col>cd DIRNAME</col>
-        <col>Nos movemos al directorio DIRNAME que está en nuestro directorio actual</col>
+        <col>cd Desktop</col>
+        <col>Nos movemos al directorio Desktop que está en nuestro directorio actual</col>
       </row>
       <row>
         <col>cd /RUTA/AL/DIRECTORIO</col>
