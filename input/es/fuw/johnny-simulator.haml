@@ -1,7 +1,7 @@
 %map{ :version => '1', :lang => 'es', :context=>'hardware, von neumann, arquitectura' }
 
   %concept
-    %names conjunto-de-instrucciones
+    %names conjunto de instrucciones, conjunto-de-instrucciones
     %tags arquitectura, von neumman, conjunto, instrucciones, cpu, procesador
     %def Es una especificación que detalla las instrucciones que una unidad central de procesamiento puede entender y ejecutar.
     %def El conjunto de todos los comandos implementados por un diseño particular de una CPU.
@@ -38,7 +38,7 @@
   %concept
     %names UC, CU
     %tags hardware, componente, arquitectura, von neumman, señales, control
-    %def La [*] es uno de los tres bloques funcionales principales en los que se divide una unidad central de procesamiento. Los otros dos bloques son la unidad de proceso y el bus. Su función es buscar las instrucciones en la memoria principal, decodificarlas (interpretación) y ejecutarlas, empleando para ello la unidad de proceso.
+    %def [*] es uno de los tres bloques funcionales principales en los que se divide una unidad central de procesamiento. Los otros dos bloques son la unidad de proceso y el bus. Su función es buscar las instrucciones en la memoria principal, decodificarlas (interpretación) y ejecutarlas, empleando para ello la unidad de proceso.
     %table{ :fields => 'tipo,descripción' }
       %row
         %col Unidad de control cableada
@@ -48,10 +48,10 @@
         %col  propias de máquinas más complejas. Se encuentra almacenada en una micromemoria, a la cual se accede de manera secuencial para posteriormente ir ejecutando cada una de las microinstrucciones.
 
   %concept
-    %names johnny-simulator
+    %names johnny simulator, johnny-simulator
     %tags programa, simular, arquitectura, von neumann
     %def Es un programa OpenSource que permite simular una máquina con la arquitectura de Von Neumann.
-    %table{ :fields => 'instrucción,descripción' }
+    %table{ :fields => 'macro-instrucción,descripción' }
       %row
         %col TAKE dir
         %col Copia en el acumulador el contenido de la celda dir de la memoria.
@@ -82,3 +82,53 @@
       %row
         %col HLT
         %col El programa termina y se muestra un mensaje.
+
+  %concept
+    %names TAKE
+    %tags macroinstruccion, copiar, contenido, direccion, acumulador
+    %def Macroinstrucción de Johnny Simulator que copia el valor de la dirección de memoria en el acumulador.
+      
+  %concept
+    %names SAVE
+    %tags macroinstruccion, copiar, contenido, acumulador, direccion
+    %def Macroinstrucción de Johnny Simulator que copia el valor del acumulador en la dirección indicada.
+
+  %concept
+    %names ADD
+    %tags macroinstruccion, sumar, acumulador, contenido, direccion
+    %def Macroinstrucción de Johnny Simulator que suma al acumulator el contenido de la dirección de memoria indicada.
+
+  %concept
+    %names SUB
+    %tags macroinstruccion, restar, acumulador, contenido, direccion
+    %def Macroinstrucción de Johnny Simulator que resta al acumulator el contenido de la dirección de memoria indicada.
+
+  %concept
+    %names INC
+    %tags macroinstruccion, sumar, uno, contenido, direccion
+    %def Macroinstrucción de Johnny Simulator que suma 1 al contenido de la dirección de memoria indicada.
+
+  %concept
+    %names DEC
+    %tags macroinstruccion, restar, uno, contenido, direccion
+    %def Macroinstrucción de Johnny Simulator que resta 1 al contenido de la dirección de memoria indicada.
+
+  %concept
+    %names NULL
+    %tags macroinstruccion, poner, cero, contenido, direccion
+    %def Macroinstrucción de Johnny Simulator que pone a cero el contenido de la dirección de memoria indicada.
+
+  %concept
+    %names TST
+    %tags macroinstruccion, comprueba, cero, saltar, siguiente, direccion
+    %def Macroinstrucción de Johnny Simulator que si el contenido de la dirección de memoria indicada es cero se salta la siguiente macro instrucción.
+
+  %concept
+    %names JMP
+    %tags macroinstruccion, saltar, direccion
+    %def Macroinstrucción de Johnny Simulator que provoca que el programa salte su ejecución a otra dirección de memoria.
+
+  %concept
+    %names HLT
+    %tags macroinstruccion, parar, programa
+    %def Macroinstrucción de Johnny Simulator que termina el programa y muestra un mensaje.
