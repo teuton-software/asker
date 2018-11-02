@@ -16,7 +16,7 @@
 :i2: '<img src="<%=text1%>" alt\="image" width="400" height="300"><br/>La imagen anterior corresponde a <b><%=text2%></b>.'
 :i3: '<img src="<%=text1%>" alt\="image" width="400" height="300"><br/>Escribe la opción <%=text2%>, que mejor corresponda con la imagen anterior.<br/>'
 :i4: '<img src="<%=text1%>" alt\="image" width="400" height="300"><br/>Definición\: <i><%=text2%></i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)'
-:s1: 'En relación al concepto <b><%=text1%></b>, ordena cada "<%=text2%>" de modo que se cumpla el criterio "<%=text3%>".<br/>'
+:s1: 'En relación al concepto <b><%=text1%></b>, ordena cada/las/los "<%=text2%>" de modo que se cumpla el criterio "<%=text3%>".<br/>'
 :t1table: 'Concepto <b><%=text1%></b><br/><%=text2%>\: [*]<br/><%=text3%>\: "<%=text4%>"<br/>Elige la opción correcta.<br/>'
 :t2table: 'Concepto <b><%=text1%></b><br/><%=text2%>\: [*]<br/><%=text3%>\: "<%=text4%>"<br/>Elige la opción correcta.<br/>'
 :t3table: 'Concepto <b><%=text1%></b><br/><%=text2%>\: "<%=text3%>"<br/><%=text4%>: [*]<br/>Elige la opción correcta.<br/>'
