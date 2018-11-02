@@ -84,14 +84,32 @@
         %col El programa termina y se muestra un mensaje.
 
   %concept
+    %names fetch
+    %tags macrointruccion, buscar, siguiente, instruccion, ejecutar
+    %table{ :fields => 'microinstrucciones', :sequence => 'Secuencia temporal de microinstrucciones para completar la macroinstrucción' }
+      %row pc -> ab
+      %row ram -> db
+      %row db -> ins
+      %row ins -> mc
+
+  %concept
     %names TAKE
     %tags macroinstruccion, copiar, contenido, direccion, acumulador
     %def Macroinstrucción de Johnny Simulator que copia el valor de la dirección de memoria en el acumulador.
-      
+    %table{ :fields => 'microinstrucciones', :sequence => 'Secuencia temporal de microinstrucciones para completar la macroinstrucción' }
+      %row ram -> db
+      %row db -> ins
+      %row ins -> mc
+
   %concept
     %names SAVE
     %tags macroinstruccion, copiar, contenido, acumulador, direccion
     %def Macroinstrucción de Johnny Simulator que copia el valor del acumulador en la dirección indicada.
+    %table{ :fields => 'microinstrucciones', :sequence => 'Secuencia temporal de microinstrucciones para completar la macroinstrucción' }
+      %row ins-> ab
+      %row ram -> db
+      %row plus
+      %row mc := 0
 
   %concept
     %names ADD
