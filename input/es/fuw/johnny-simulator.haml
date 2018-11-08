@@ -97,9 +97,12 @@
     %tags macroinstruccion, copiar, contenido, direccion, acumulador
     %def Macroinstrucción de Johnny Simulator que copia el valor de la dirección de memoria en el acumulador.
     %table{ :fields => 'microinstrucciones', :sequence => 'Secuencia temporal de microinstrucciones para completar la macroinstrucción' }
+      %row acc = 0
+      %row ins > ab
       %row ram > db
-      %row db > ins
-      %row ins > mc
+      %row plus
+      %row pc ++
+      %row mc = 0
 
   %concept
     %names SAVE
@@ -107,24 +110,47 @@
     %def Macroinstrucción de Johnny Simulator que copia el valor del acumulador en la dirección indicada.
     %table{ :fields => 'microinstrucciones', :sequence => 'Secuencia temporal de microinstrucciones para completar la macroinstrucción' }
       %row ins > ab
-      %row ram > db
-      %row plus
+      %row acc > db
+      %row db > ram
+      %row pc ++
       %row mc = 0
 
   %concept
     %names ADD
     %tags macroinstruccion, sumar, acumulador, contenido, direccion
     %def Macroinstrucción de Johnny Simulator que suma al acumulator el contenido de la dirección de memoria indicada.
+    %table{ :fields => 'microinstrucciones', :sequence => 'Secuencia temporal de microinstrucciones para completar la macroinstrucción' }
+      %row ins > ab
+      %row ram > db
+      %row plus
+      %row pc ++
+      %row mc = 0
 
   %concept
     %names SUB
     %tags macroinstruccion, restar, acumulador, contenido, direccion
     %def Macroinstrucción de Johnny Simulator que resta al acumulator el contenido de la dirección de memoria indicada.
+    %table{ :fields => 'microinstrucciones', :sequence => 'Secuencia temporal de microinstrucciones para completar la macroinstrucción' }
+      %row ins > ab
+      %row ram > db
+      %row minus
+      %row pc ++
+      %row mc = 0
 
   %concept
     %names INC
     %tags macroinstruccion, sumar, uno, contenido, direccion
     %def Macroinstrucción de Johnny Simulator que suma 1 al contenido de la dirección de memoria indicada.
+    %table{ :fields => 'microinstrucciones', :sequence => 'Secuencia temporal de microinstrucciones para completar la macroinstrucción' }
+      %row acc = 0
+      %row ins > ab
+      %row ram > db
+      %row plus
+      %row acc ++
+      %row acc > db
+      %row db > ram
+      %row pc ++
+      %row mc = 0
 
   %concept
     %names DEC
@@ -140,11 +166,21 @@
     %names TST
     %tags macroinstruccion, comprueba, cero, saltar, siguiente, direccion
     %def Macroinstrucción de Johnny Simulator que si el contenido de la dirección de memoria indicada es cero se salta la siguiente macro instrucción.
+    %table{ :fields => 'microinstrucciones', :sequence => 'Secuencia temporal de microinstrucciones para completar la macroinstrucción' }
+      %row ins > ab
+      %row ram > db
+      %row db > acc
+      %row =0; pc ++
+      %row pc ++
+      %row mc = 0
 
   %concept
     %names JMP
     %tags macroinstruccion, saltar, direccion
     %def Macroinstrucción de Johnny Simulator que provoca que el programa salte su ejecución a otra dirección de memoria.
+    %table{ :fields => 'microinstrucciones', :sequence => 'Secuencia temporal de microinstrucciones para completar la macroinstrucción' }
+      %row ins > pc
+      %row mc = 0
 
   %concept
     %names HLT
