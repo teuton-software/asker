@@ -4,10 +4,10 @@
     <names>nfs</names>
     <tags>sistema, ficheros, almacenamiento, red, integración</tags>
     <def>Sistema de archivos de red, es un protocolo de nivel de aplicación, según el Modelo OSI. Es utilizado para sistemas de archivos distribuido en un entorno de red de computadoras de área local. Posibilita que distintos sistemas conectados a una misma red accedan a ficheros remotos como si se tratara de locales.</def>
-    <table fields='acción,resultado'>
+    <table fields='comando,descripción'>
       <row>
-        <col>showmount -e NFS-SERVER</col>
-        <col>Muestra los recursos NFS exportados por el equipo NFS-SERVER.</col>
+        <col>more /etc/exports</col>
+        <col>Consultar el fichero de configuración del servidor NFS</col>
       </row>
       <row>
         <col>nfsadmin client start</col>
@@ -17,25 +17,29 @@
         <col>mount –o anon,nolock,r,casesensitive \SERVERNAME\private *</col>
         <col>Desde un equipo con SO Windows, montar un recurso NFS remoto (private).</col>
       </row>
-      <row>
-        <col>umount z:</col>
-        <col>Desde un equipo con SO Windows, desmontar un recurso NFS.</col>
-      </row>
-      <row>
-        <col>mount.nfs 172.16.108.227:/c/export/public /mnt/remoto</col>
-        <col>Desde un cliente SO GNU/Linux, montar un recurso NFS remoto (public) alojado en un servidor Windows.</col>
-      </row>
+      <template LETTER='R,S,Z'>
+        <row>
+          <col>umount LETTER:</col>
+          <col>Desde un equipo con SO Windows, desmontar un recurso LETTER:.</col>
+        </row>
+      </template>
+      <template IP='172.16.18.27, 172.18.16.27, 172.18.27.16'>
+        <row>
+          <col>showmount -e IP</col>
+          <col>Muestra los recursos NFS exportados por el equipo IP.</col>
+        </row>
+        <row>
+          <col>mount.nfs IP:/c/export/public /mnt/remoto</col>
+          <col>Desde un cliente SO GNU/Linux, montar un recurso NFS remoto (public) alojado en Windows con IP.</col>
+        </row>
+        <row>
+          <col>mount IP:/var/export/public /mnt/remoto/public</col>
+          <col>Desde un equipo GNU/Linux, montar un recurso NFS remoto (public) alojado en GNU/Linux con IP.</col>
+        </row>
+      </template>
       <row>
         <col>apt-get install nfs-common nfs-kernel-server</col>
         <col>Instalar el servidor NFS, en SO GNU/Linux Debian/Ubuntu.</col>
-      </row>
-      <row>
-        <col>/var/export/public *(rw,sync,subtree_check)</col>
-        <col>Configuración del fichero /etc/exports, que define un recurso en modo de acceso lectura/escritura para todo el mundo.</col>
-      </row>
-      <row>
-        <col>/var/export/private 172.16.108.150/32(ro,sync,subtree_check)</col>
-        <col>Configuración del fichero /etc/exports, que define un recurso en modo de acceso sólo lectura para una IP concreta.</col>
       </row>
       <row>
         <col>service nfs-kernel-server status</col>
@@ -61,10 +65,34 @@
         <col>systemctl start nfsserver</col>
         <col>Iniciar el servicio NFS en SO OpenSUSE.</col>
       </row>
-      <row>
-        <col>mount ip-del-servidor:/var/export/public /mnt/remoto/public</col>
-        <col>Desde un equipo GNU/Linux, montar un recurso NFS remoto (public).</col>
-      </row>
+    </table>
+    <table fields='configuración,descripción'>
+      <template SHARE='public,private,group'>
+        <row>
+          <col>/var/export/SHARE *(rw,sync,subtree_check)</col>
+          <col>Configuración que define un recurso SHARE en modo de acceso lectura/escritura para todo el mundo.</col>
+        </row>
+        <row>
+          <col>/var/export/SHARE *(ro,sync,subtree_check)</col>
+          <col>Configuración que define un recurso SHARE en modo de acceso lectura para todo el mundo.</col>
+        </row>
+        <row>
+          <col>/var/export/SHARE 172.16.108.150/32(rw,sync,subtree_check)</col>
+          <col>Configuración NFS que define un recurso SHARE en modo de acceso sólo lectura/escritura para una IP concreta.</col>
+        </row>
+        <row>
+          <col>/var/export/SHARE 172.16.108.150/32(ro,sync,subtree_check)</col>
+          <col>Configuración NFS que define un recurso SHARE en modo de acceso sólo lectura para una IP concreta.</col>
+        </row>
+        <row>
+          <col>/var/export/SHARE 172.16.108.150/16(rw,sync,subtree_check)</col>
+          <col>Configuración NFS que define un recurso SHARE en modo de acceso sólo lectura/escritura para toda la red.</col>
+        </row>
+        <row>
+          <col>/var/export/SHARE 172.16.108.150/16(ro,sync,subtree_check)</col>
+          <col>Configuración NFS que define un recurso SHARE en modo de acceso sólo lectura para toda la red.</col>
+        </row>
+      </template>
     </table>
   </concept>
 </map>

@@ -8,10 +8,10 @@
     %def [*] permite validar usuarios haciendo de Controlador Principal de Dominio (PDC), en equipos GNU/Linux, como miembro de dominio e incluso como un dominio Active Directory para redes basadas en Windows.
     %def Es un software para GNU/Linux capaz de servir colas de impresión, directorios compartidos SMB/CIFS y autentificar con su propio archivo de usuarios.
     %def El servicio [*], por defecto, hace uso de los puertos 139 y 445.
-    %table{:fields => 'acción,resultado'}
+    %table{:fields => 'comando,descripción'}
       %row
         %col more /etc/samba/smb.conf
-        %col Muestra en pantalla el contenido del fichero de configuración de Samba
+        %col Muestra en pantalla el contenido del fichero de configuración del servidor Samba
       %row
         %col cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
         %col Hacer copia de seguridad del fichero de configuración de Samba
@@ -27,11 +27,23 @@
           %col smbpasswd -a USERNAME
           %col Crear clave de Samba para el usuario USERNAME
         %row
+          %col smbpasswd -x USERNAME
+          %col Borrar el usuario USERNAME del servicio Samba
+        %row
           %col smbpasswd -d USERNAME
           %col Desabilita al usuario USERNAME en Samba
         %row
           %col smbpasswd -e USERNAME
           %col Habilita al usuario USERNAME en Samba.
+        %row
+          %col useradd -m USERNAME
+          %col Crear el usuario USERNAME en el sistema
+        %row
+          %col userdel -r USERNAME
+          %col Borra el usuario USERNAME del sistema junto con sus ficheros
+        %row
+          %col userdel -f USERNAME
+          %col Borra el usuario USERNAME del sistema aunque tenga una sesión abierta
       %row
         %col pdbedit -L
         %col Muestra la lista de usuarios/claves definidos en Samba.
@@ -42,6 +54,12 @@
         %row
           %col systemctl start SERVICENAME
           %col Inicia el servicio SERVICENAME (Sistema de servicios systemd)
+        %row
+          %col systemctl restart SERVICENAME
+          %col Hace un stop y start del servicio SERVICENAME (Sistema de servicios systemd)
+        %row
+          %col systemctl reload SERVICENAME
+          %col Vuelve a leer los ficheros de configuración del servicio SERVICENAME (Sistema de servicios systemd)
         %row
           %col systemctl status SERVICENAME
           %col Muestra el estado del servicio SERVICENAME (Sistema de servicios systemd)
@@ -69,6 +87,9 @@
         %col mount
         %col Comando GNU/Linux para consultar los recursos montados
       %row
+        %col df -hT
+        %col Muestra los recursos montados y además indica el formato de cada uno.
+      %row
         %col more /etc/fstab
         %col Muestra en pantalla el contenido del fichero de configuración para el montaje automático de recursos
 
@@ -76,7 +97,7 @@
     %names net
     %tags comando,herramienta,administrar,Samab,servidor,CFIS,SMB
     %def Herramienta/comando para administrar servidores Samba locales o servidores CIFS remotos.
-    %table{:fields => 'acción,resultado'}
+    %table{:fields => 'comando,descripción'}
       %row
         %col net use
         %col En Windows muestra las conexiones establecidas a recursos SMB/CIFS. Muestra las letras asignadas a las unidades montadas.
