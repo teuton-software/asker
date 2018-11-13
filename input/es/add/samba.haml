@@ -47,7 +47,7 @@
       %row
         %col pdbedit -L
         %col Muestra la lista de usuarios/claves definidos en Samba.
-      %template{:SERVICENAME => 'smb,nmb,ssh'}
+      %template{:SERVICENAME => 'smb,nmb,ssh,firewalld'}
         %row
           %col systemctl stop SERVICENAME
           %col Para el servicio SERVICENAME (Sistema de servicios systemd)

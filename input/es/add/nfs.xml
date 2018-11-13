@@ -7,7 +7,7 @@
     <table fields='comando,descripción'>
       <row>
         <col>more /etc/exports</col>
-        <col>Consultar el fichero de configuración del servidor NFS</col>
+        <col>Consultar el fichero de configuración del servidor NFS GNU/Linux</col>
       </row>
       <row>
         <col>nfsadmin client start</col>
