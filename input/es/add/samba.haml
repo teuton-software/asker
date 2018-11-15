@@ -1,116 +1,29 @@
-%map{ :version => '1',  :lang => 'es',  :context => 'sistemas operativos, servicio, red, compartir, recursos, integración, sistemas'}
+%map{ :version => '1',  :lang => 'es',  :context => 'charla, trim, 1, empresa'}
 
   %concept
-    %names samba
-    %tags servicio, ficheros, compartir, almacenamiento, red, integración, sistemas, smb, cifs
-    %def Es una implementación libre del protocolo de archivos compartidos de Microsoft Windows (antiguamente llamado SMB, renombrado recientemente a CIFS) para sistemas de tipo UNIX.
-    %def Con [*] es posible que computadoras con GNU/Linux, Mac OS X o Unix en general se vean como servidores o actúen como clientes en redes de Windows.
-    %def [*] permite validar usuarios haciendo de Controlador Principal de Dominio (PDC), en equipos GNU/Linux, como miembro de dominio e incluso como un dominio Active Directory para redes basadas en Windows.
-    %def Es un software para GNU/Linux capaz de servir colas de impresión, directorios compartidos SMB/CIFS y autentificar con su propio archivo de usuarios.
-    %def El servicio [*], por defecto, hace uso de los puertos 139 y 445.
-    %table{:fields => 'comando,descripción'}
+    %names unreal
+    %tags game, engine, motor, videojuegos, epic
+    %def [*] es el motor de videojuegos que nos mostraron en la charla.
+    %table{:fields => 'atributo,valor'}
       %row
-        %col more /etc/samba/smb.conf
-        %col Muestra en pantalla el contenido del fichero de configuración del servidor Samba
+        %col Número de personas que vinieron de la empresa
+        %col 4
       %row
-        %col cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
-        %col Hacer copia de seguridad del fichero de configuración de Samba
+        %col Empresa que desarrolló el motor
+        %col Epic
       %row
-        %col testparm
-        %col Comprueba que la sintaxis del fichero de configuración de Samba es correcta y muestra todas las secciones en pantalla
-      %template{:SECTIONNAME => 'barco,castillo,aldea'}
-        %row
-          %col testparm --section-name SECTIONNAME
-          %col Comprueba que la sintaxis del fichero de configuración de Samba es correcta y muestra sólo la sección SECTIONNAME
-      %template{:USERNAME => 'pirata1,soldado1,aldeano1'}
-        %row
-          %col smbpasswd -a USERNAME
-          %col Crear clave de Samba para el usuario USERNAME
-        %row
-          %col smbpasswd -x USERNAME
-          %col Borrar el usuario USERNAME del servicio Samba
-        %row
-          %col smbpasswd -d USERNAME
-          %col Desabilita al usuario USERNAME en Samba
-        %row
-          %col smbpasswd -e USERNAME
-          %col Habilita al usuario USERNAME en Samba.
-        %row
-          %col useradd -m USERNAME
-          %col Crear el usuario USERNAME en el sistema
-        %row
-          %col userdel -r USERNAME
-          %col Borra el usuario USERNAME del sistema junto con sus ficheros
-        %row
-          %col userdel -f USERNAME
-          %col Borra el usuario USERNAME del sistema aunque tenga una sesión abierta
-      %row
-        %col pdbedit -L
-        %col Muestra la lista de usuarios/claves definidos en Samba.
-      %template{:SERVICENAME => 'smb,nmb,ssh,firewalld'}
-        %row
-          %col systemctl stop SERVICENAME
-          %col Para el servicio SERVICENAME (Sistema de servicios systemd)
-        %row
-          %col systemctl start SERVICENAME
-          %col Inicia el servicio SERVICENAME (Sistema de servicios systemd)
-        %row
-          %col systemctl restart SERVICENAME
-          %col Hace un stop y start del servicio SERVICENAME (Sistema de servicios systemd)
-        %row
-          %col systemctl reload SERVICENAME
-          %col Vuelve a leer los ficheros de configuración del servicio SERVICENAME (Sistema de servicios systemd)
-        %row
-          %col systemctl status SERVICENAME
-          %col Muestra el estado del servicio SERVICENAME (Sistema de servicios systemd)
-        %row
-          %col systemctl enable SERVICENAME
-          %col Activa el servicio SERVICENAME (Sistema de servicios systemd)
-        %row
-          %col systemctl disable SERVICENAME
-          %col Desactiva el servicio SERVICENAME (Sistema de servicios systemd)
-      %row
-        %col smbstatus
-        %col Comando de GNU/Linux que muestra información de las conexiones SMB/CIFS.
-      %row
-        %col smbtree
-        %col Comando de GNU/Linux que muestra las máquinas y recursos SMB/CIFS accesibles por la red.
-      %template{:HOST => 'smb-server16,172.18.16.31,192.168.1.1'}
-        %row
-          %col smbclient --list HOST
-          %col Comando de GNU/Linux que muestra los recursos SMB/CIFS del equipo HOST
-      %template{:SHARE => 'barco,castillo,aldea'}
-        %row
-          %col mount -t cifs //SMB-SERVER/SHARE DIRPATH -o username=USERNAME
-          %col Comando GNU/Linux para montar el recurso "SHARE" del equipo SMB-SERVER en la carpeta DIRPATH.
-      %row
-        %col mount
-        %col Comando GNU/Linux para consultar los recursos montados
-      %row
-        %col df -hT
-        %col Muestra los recursos montados y además indica el formato de cada uno.
-      %row
-        %col more /etc/fstab
-        %col Muestra en pantalla el contenido del fichero de configuración para el montaje automático de recursos
+        %col En qué está inspirado la simulación que hicieron
+        %col La batalla de la Victoria
 
   %concept
-    %names net
-    %tags comando,herramienta,administrar,Samab,servidor,CFIS,SMB
-    %def Herramienta/comando para administrar servidores Samba locales o servidores CIFS remotos.
-    %table{:fields => 'comando,descripción'}
-      %row
-        %col net use
-        %col En Windows muestra las conexiones establecidas a recursos SMB/CIFS. Muestra las letras asignadas a las unidades montadas.
-      %template{:SHARE => 'barco,castillo,aldea'}
-        %row
-          %col net use S: \\SMB-SERVER\SHARE /USER:PASSWORD
-          %col Comando de Windows que establece una conexión CIFS con el recurso "SHARE" del equipo SMB-SERVER, y lo monta en la unidad S.
-      %row
-        %col net use * /d /y
-        %col Comando de Windows para cerrar las conexiones SMB/CIFS que hayan.
-      %row
-        %col net view
-        %col Comando de Windows que muestra las máquinas y recursos SMB/CIFS accesibles por la red.
-      %row
-        %col net status shares
-        %col Comando net en GNU/Linux muestra las conexiones establecidas a recursos SMB/CIFS.
+    %names unity
+    %tags game, engine, motor, videojuegos
+
+  %concept
+    %names godot
+    %tags game, engine, motor, videojuegos, software, libre
+    %def [*] motor de videojuegos de software libre.
+
+  %concept
+    %names panda
+    %tags game, engine, motor, videojuegos, disney
