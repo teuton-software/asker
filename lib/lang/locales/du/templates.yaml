@@ -1,0 +1,50 @@
+---
+:none:	keine Antwort ist richtig
+:error: Fehler
+:misspelling: Rechtschreibfehler
+:true: richtig
+:false: falsch
+:d1: 'Bedeutung \: <i><%=text1%></i><br/> Wählen Sie die dazu passende Option aus, die am besten zu der vorstehenden Bedeutung passt.<br/>'
+:d2: 'Bedeutung des Begriffs <b><%=text1%></b>\:<br/> <i><%=text2%></i><br/>'
+:d3: 'Bedeutung des Begriffs <b><%=text1%></b>\:<br/> <i><%=text2%></i><br/></br><p> Bemerkung: Ein Fragezeichnen stellt einen Buchstaben dar, und ein Sternchen steht für ein Wort oder mehrere Wörter.</p>'
+:d4: 'Bedeutung des Begriffs <b><%=text1%></b>\:<br/> <i><%=text2%></i><br/><br/>(Setzen Sie die Wörter in die Lücken ein)'
+
+:b1: 'En relación al concepto <b><%=text1%></b>, asocia cada "<%=text2%>" con su "<%=text3%>".<br/>'
+:f1: 'Los siguientes elementos son "<%=text2%>" del concepto <b><%=text1%></b>\:<ul><li><%=text3%></li></ul>'
+:f2: 'Los siguientes elementos son "<%=text2%>".<br/>Selecciona la opción que no pertenezca al concepto <b><%=text1%></b>.'
+:f3: 'Los siguientes elementos son "<%=text2%>" del concepto <b><%=text1%></b>\:<br><p><%=text3%></p>(Coloca cada palabra en su posición correcta dentro del texto)'
+:i1: '<img src="<%=text1%>" alt\="image" width="400" height="300"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>'
+:i2: '<img src="<%=text1%>" alt\="image" width="400" height="300"><br/>La imagen anterior corresponde a <b><%=text2%></b>.'
+:i3: '<img src="<%=text1%>" alt\="image" width="400" height="300"><br/>Escribe la opción <%=text2%>, que mejor corresponda con la imagen anterior.<br/>'
+:i4: '<img src="<%=text1%>" alt\="image" width="400" height="300"><br/>Definición\: <i><%=text2%></i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)'
+:s1: 'En relación al concepto <b><%=text1%></b>, ordena cada "<%=text2%>" de modo que se cumpla el criterio "<%=text3%>".<br/>'
+:t1table: 'Concepto <b><%=text1%></b><br/><%=text2%>\: [*]<br/><%=text3%>\: "<%=text4%>"<br/>Elige la opción correcta.<br/>'
+:t2table: 'Concepto <b><%=text1%></b><br/><%=text2%>\: [*]<br/><%=text3%>\: "<%=text4%>"<br/>Elige la opción correcta.<br/>'
+:t3table: 'Concepto <b><%=text1%></b><br/><%=text2%>\: "<%=text3%>"<br/><%=text4%>: [*]<br/>Elige la opción correcta.<br/>'
+:t4table: 'Concepto <b><%=text1%></b><br/><%=text2%>\: "<%=text3%>"<br/><%=text4%>: [*]<br/>Elige la opción correcta.<br/>'
+:t5table: 'Concepto <b><%=text1%></b><br/>La asociación siguiente es correcta\:<br/><ul><li><%=text2%>\: "<%=text3%>"</li><li><%=text4%>\: "<%=text5%>"</li></ul>'
+:t6table: 'Concepto <b><%=text1%></b><br/>La asociación siguiente es correcta\:<br/><ul><li><%=text2%>\: "<%=text3%>"</li><li><%=text4%>\: "<%=text5%>"</li></ul>'
+:t7table: 'Concepto <b><%=text1%></b><br/>La asociación siguiente es correcta\:<br/><ul><li><%=text2%>\: "<%=text3%>"</li><li><%=text4%>\: "<%=text5%>"</li></ul>'
+:t8table: 'Concepto <b><%=text1%></b><br/>Completa la siguiente asociación\:<br/><ul><li><%=text2%>\: "<%=text3%>"</li><li><%=text4%>\: [*]</li></ul>Escribir una palabra.<br/>'
+:t9table: 'Concepto <b><%=text1%></b><br/>Completa la siguiente asociación\:<br/><ul><li><%=text2%>\: "<%=text3%>"</li><li><%=text4%>\: <%=text5%></li></ul>Escribir <%=text6%> palabras.<br/>'
+:code1: '<pre><%=text1%></pre><br/><p>Escribir el número de línea donde está el primer error. Escribir 0 si no hay ningún error.</p>'
+
+B1: In Bezug auf den Begriff (+++++), verbinden Sie die passenden Begriffe.
+F1: Die folgenden Elemente sind (+++++) des Begriffs (++++)
+F2: Die folgenden Elemente sind (+++++)  Wählen Sie die Antwortmöglichkeit aus, die nicht zum Begriff  (++++) passt
+F3: Die folgenden Elemente sind  (+++++) des Begriffs (++++) (Setzen Sie die Wörter in die Lücken ein)
+I1: Wählen Sie die Antwortmöglichkeit, die am besten zu dem gezeigten Bild passt.
+I2: Das gezeigte Bild gehört zu (++++)
+I3: Setzen Sie die Antwort ein (+++), die am besten zu dem gezeigten Bild passt.
+I4: Bedeutung (Setzen Sie die Wörter in die Lücken ein)
+S1: Beziehen Sie sich auf den Begriff (+++++) und ordnen Sie die richtigen Lösungen zu.
+T1: Begriff / Wählen Sie die richtige Lösung aus.
+T2: Begriff / Wählen Sie die richtige Lösung aus.
+T3: Begriff / Wählen Sie die richtige Lösung aus.
+T4: Begriff / Wählen Sie die richtige Lösung aus.
+T5: Begriff / Die Lösung ist richtig
+T6: Begriff / Die Lösung ist richtig
+T7: Begriff / Die Lösung ist richtig
+T8: Begriff / Vervollständigen Sie / Schreiben Sie einen Begriff
+T9: Begriff / Verbinden Sie / Schreiben Sie fogende Begriffe
+Code1: Nennen Sie die Nummer der Zeile, in der sich der erste Fehler befindet / Wenn es keinen Fehler gibt, setzen Sie 0 ein.
