@@ -10,6 +10,8 @@ require_relative 'lib/application'
 require_relative 'lib/builder/builder'
 require_relative 'lib/sinatra/sinatra_front_end'
 
+#Rainbow.enabled = false
+
 # Command Line User Interface
 class DartsCLI < Thor
   map ['h', '-h', '--help'] => 'help'
