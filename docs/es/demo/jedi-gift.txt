@@ -1,7 +1,7 @@
 // ==================================================
 // Created by : darts-of-teacher (version 0.17.0)
 // File       : jedi-gift.txt
-// Time       : 2018-11-19 20:07:21 +0000
+// Time       : 2018-11-19 20:10:36 +0000
 // Author     : David Vargas
 // ==================================================
 
@@ -12,42 +12,42 @@
 // 
 ::obiwan-1-d1choose::[html]Definición \: <i>Jedi, maestro de Anakin Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
+  =obiwan
   ~%-25%yoda
   ~%-25%Ninguna es correcta
   ~%-25%sidious
-  =obiwan
 }
 
 // 
-::obiwan-2-d1none::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcS1FlFrRBaWOaHYBTIl2XL2aHOS9R83yFpc6iE-mBu4R-2hOgdbpFi0Ag" alt\="image"><br/>Definición \: <i>Jedi, maestro de Anakin Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+::obiwan-2-d1none::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcRQaRbyjmMet4JLAvfr1_0YNPIkgOFQ0r5I5fbc8oAUQRk1EKp4qDtz49Y" alt\="image"><br/>Definición \: <i>Jedi, maestro de Anakin Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
+  ~%-25%yoda
   ~%-25%sidious
   =Ninguna es correcta
-  ~%-25%oviwan
-  ~%-25%yoda
+  ~%-25%obiwen
   ####Option misspelled!: obiwan
 }
 
 // 
 ::obiwan-3-d1none::[html]Definición \: <i>Jedi, maestro de Anakin Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  ~%-25%sidious
   =Ninguna es correcta
   ~%-25%yoda
   ~%-25%maul
+  ~%-25%sidious
 }
 
 // 
-::obiwan-4-d2def-mispelled::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, meestro de Anakin Skywalker</i><br/>
+::obiwan-4-d2def-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcRtVEOVaJzBBE9hQh2ccIAw5ibX8ie9KGoGUlwJLuxlyeT1nvef2pLBOEpm" alt\="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Jedi, naestro de Anakin Skywalker</i><br/>
 {
-  ~%-33.33333%Falso
   =Error ortográfico
+  ~%-33.33333%Falso
   ~%-33.33333%Verdadero
   ####Definition text mispelled!: Jedi, maestro de Anakin Skywalker
 }
 
 // 
-::obiwan-5-d2name-mispelled::[html]Definición de <b>óbiwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
+::obiwan-5-d2name-mispelled::[html]Definición de <b>ebiwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
 {
   ~%-33.33333%Falso
   ~%-33.33333%Verdadero
@@ -56,30 +56,30 @@
 }
 
 // 
-::obiwan-6-d2true::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
+::obiwan-6-d2true::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcRu7Jp00oLHEx74omjQr1bDbggqAWqgoJSxXVeD_i2Tm0ljhknKSwDlUH4" alt\="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
 {
   ~%-33.33333%Error ortográfico
-  =Verdadero
   ~%-33.33333%Falso
+  =Verdadero
 }
 
 // 
-::obiwan-7-d2false::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcQZGk6OSGdxXY9KZx1LGvTFx9PakhOzP0LSyhfbfyY50FkWEsBEnEVTKYY" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
+::obiwan-7-d2false::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcRSVmv_Mj3YKUiuDwZhB3cVxhkcSWg-vKjJp2N6zKPIgqw3nnwqEhjfEco" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/>
 {
-  =Falso
   ~%-33.33333%Error ortográfico
   ~%-33.33333%Verdadero
+  =Falso
 }
 
 // 
-::obiwan-8-d3hidden::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcRyQaZTdakGxi3QVFWZ9T_i0MYIwoo3GD8sCvITHcvKZJI7BoTK-YMq9w" alt\="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+::obiwan-8-d3hidden::[html]Definición de <b>[*]</b>\:<br/> <i>Jedi, maestro de Anakin Skywalker</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
 {
   =%100%obiwan#
   =%100%obi-wan#
 }
 
 // 
-::obiwan-9-d4filtered::[html]Definición de <b>obiwan</b>\:<br/> <i>[1] [2] de [3] [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+::obiwan-9-d4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcT1Jqqy33T9pCdAzMZgXkG9SA7d2k1K2wUEkNIgVcq_YUgU-qRR93HbZqYM" alt\="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>[1] [2] de [3] [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
   =1 -> jedi,
   =2 -> maestro
@@ -90,33 +90,33 @@
 // 
 ::obiwan-10-d1choose::[html]Definición \: <i>Jedi, alumno de Quigon-Jinn</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  ~%-25%Ninguna es correcta
   ~%-25%yoda
   =obiwan
   ~%-25%sidious
+  ~%-25%Ninguna es correcta
 }
 
 // 
 ::obiwan-11-d1none::[html]Definición \: <i>Jedi, alumno de Quigon-Jinn</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
   ~%-25%yoda
+  ~%-25%óbiwan
   =Ninguna es correcta
   ~%-25%sidious
-  ~%-25%oviwan
   ####Option misspelled!: obiwan
 }
 
 // 
-::obiwan-12-d1none::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcQRF7G-47kAXlEL6SJ9GFeEDU-UrPOD8NCu-y1sNefv_X2D5LJ6TP04sKXZIw" alt\="image"><br/>Definición \: <i>Jedi, alumno de Quigon-Jinn</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+::obiwan-12-d1none::[html]Definición \: <i>Jedi, alumno de Quigon-Jinn</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
+  ~%-25%sidious
   ~%-25%yoda
   =Ninguna es correcta
   ~%-25%maul
-  ~%-25%sidious
 }
 
 // 
-::obiwan-13-d2def-mispelled::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, arumno de Quigon-Jinn</i><br/>
+::obiwan-13-d2def-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcQGuCUqrJAEK3Q61ibDlKVEEcwZr0OPj-nK4579qsQuEbFUwSB8xoIXaGs" alt\="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Jedi, alumnó de Quigon-Jinn</i><br/>
 {
   ~%-33.33333%Verdadero
   ~%-33.33333%Falso
@@ -125,93 +125,93 @@
 }
 
 // 
-::obiwan-14-d2name-mispelled::[html]Definición de <b>obiwam</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/>
+::obiwan-14-d2name-mispelled::[html]Definición de <b>obywan</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/>
 {
+  =Error ortográfico
   ~%-33.33333%Falso
   ~%-33.33333%Verdadero
-  =Error ortográfico
   ####Concept name mispelled!: obiwan
 }
 
 // 
 ::obiwan-15-d2true::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/>
 {
-  =Verdadero
-  ~%-33.33333%Falso
   ~%-33.33333%Error ortográfico
+  ~%-33.33333%Falso
+  =Verdadero
 }
 
 // 
 ::obiwan-16-d2false::[html]Definición de <b>yoda</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/>
 {
+  =Falso
   ~%-33.33333%Verdadero
   ~%-33.33333%Error ortográfico
-  =Falso
 }
 
 // 
-::obiwan-17-d3hidden::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcT-mk4v8HUOe0mEQ5E4yyb1MSmXyTESJzj9kdnqTJhNM2dhEljFzqe3z66D4Q" alt\="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+::obiwan-17-d3hidden::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcQx6MvG9K80O_YeMp0xQNbrPt_bYgxK2LsYmJw-sKFt1TMigkJ1Isojup6Z" alt\="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Jedi, alumno de Quigon-Jinn</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
 {
   =%100%obiwan#
   =%100%obi-wan#
 }
 
 // 
-::obiwan-18-d1choose::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcRSVmv_Mj3YKUiuDwZhB3cVxhkcSWg-vKjJp2N6zKPIgqw3nnwqEhjfEco" alt\="image"><br/>Definición \: <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+::obiwan-18-d1choose::[html]Definición \: <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
+  ~%-25%yoda
+  ~%-25%sidious
   ~%-25%Ninguna es correcta
   =obiwan
-  ~%-25%sidious
-  ~%-25%yoda
 }
 
 // 
 ::obiwan-19-d1none::[html]Definición \: <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  =Ninguna es correcta
   ~%-25%yoda
-  ~%-25%óbiwan
+  ~%-25%obiwam
+  =Ninguna es correcta
   ~%-25%sidious
   ####Option misspelled!: obiwan
 }
 
 // 
-::obiwan-20-d1none::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcQU88KAdmkZtVhmq-wsZTP1U107_k9IJPmefK8xKz3e1YP6p9qWpG1cD3WN" alt\="image"><br/>Definición \: <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+::obiwan-20-d1none::[html]Definición \: <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  ~%-25%yoda
   =Ninguna es correcta
-  ~%-25%sidious
+  ~%-25%yoda
   ~%-25%maul
+  ~%-25%sidious
 }
 
 // 
-::obiwan-21-d2def-mispelled::[html]Definición de <b>obiwan</b>\:<br/> <i>Vive en Tapooine, cerca de la casa de Luke Skywalker</i><br/>
+::obiwan-21-d2def-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcR120TTTUz6261zGUc7X6-qwdD_5iRRrm00A2Gsvi2sKhS806vO-Z4wLt89" alt\="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luqe Skywalker</i><br/>
 {
-  =Error ortográfico
   ~%-33.33333%Falso
+  =Error ortográfico
   ~%-33.33333%Verdadero
   ####Definition text mispelled!: Vive en Tatooine, cerca de la casa de Luke Skywalker
 }
 
 // 
-::obiwan-22-d2name-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcSVVw1irzu_KTtvLAvKZ9S1Oqe4EdRqrU4yOvxFH1lbr2Vve2rjDmltbqc" alt\="image"><br/>Definición de <b>obiwen</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>
+::obiwan-22-d2name-mispelled::[html]Definición de <b>obíwan</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>
 {
-  =Error ortográfico
-  ~%-33.33333%Falso
   ~%-33.33333%Verdadero
+  ~%-33.33333%Falso
+  =Error ortográfico
   ####Concept name mispelled!: obiwan
 }
 
 // 
 ::obiwan-23-d2true::[html]Definición de <b>obiwan</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>
 {
-  ~%-33.33333%Error ortográfico
   ~%-33.33333%Falso
+  ~%-33.33333%Error ortográfico
   =Verdadero
 }
 
 // 
-::obiwan-24-d2false::[html]Definición de <b>yoda</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>
+::obiwan-24-d2false::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcSsRIRMYozfp3bv24-FOwQH0UnPXAGqp48MTebfW_ORhjcorgk8J4oHMXI" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Vive en Tatooine, cerca de la casa de Luke Skywalker</i><br/>
 {
   =Falso
   ~%-33.33333%Verdadero
@@ -226,37 +226,37 @@
 }
 
 // 
-::obiwan-26-d4filtered::[html]Definición de <b>obiwan</b>\:<br/> <i>[1] en Tatooine, cerca de la [2] de [3] [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+::obiwan-26-d4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcTC3Oar4wgGg8h3nYnT29ZSm99jjqDLi_UOV0psOA0fWQwl_JTHAYW3_r5R" alt\="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>[1] en Tatooine, [2] de la [3] de Luke [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
   =1 -> vive
-  =2 -> casa
-  =3 -> luke
+  =2 -> cerca
+  =3 -> casa
   =4 -> skywalker
 }
 
 // 
 ::obiwan-27-i1choice::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q\=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\\="image" width\="400" height\="300"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
 {
-  ~%-25%Ninguna es correcta
-  =obiwan
-  ~%-25%sidious
   ~%-25%yoda
+  ~%-25%Ninguna es correcta
+  ~%-25%sidious
+  =obiwan
 }
 
 // 
 ::obiwan-28-i1misspelling::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q\=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\\="image" width\="400" height\="300"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
 {
+  =Ninguna es correcta
+  ~%-25%oviwan
   ~%-25%sidious
   ~%-25%yoda
-  ~%-25%obiguan
-  =Ninguna es correcta
 }
 
 // 
 ::obiwan-29-i1none::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q\=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\\="image" width\="400" height\="300"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
 {
-  ~%-25%sidious
   ~%-25%yoda
+  ~%-25%sidious
   =Ninguna es correcta
   ~%-25%maul
 }
@@ -285,11 +285,11 @@
 }
 
 // 
-::obiwan-34-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q\=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\\="image" width\="400" height\="300"><br/>Definición\: <i>[1] en Tatooine, cerca de la [2] de [3] [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+::obiwan-34-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q\=tbn:ANd9GcQgYLLr0mmBtdMoqqzxWT6OGWKeBBeTqGAQPgEkmVGIIKNKb8Yv" alt\\="image" width\="400" height\="300"><br/>Definición\: <i>Vive en [1] [2] de la [3] de Luke [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
-  =1 -> vive
-  =2 -> casa
-  =3 -> luke
+  =1 -> tatooine,
+  =2 -> cerca
+  =3 -> casa
   =4 -> skywalker
 }
 
@@ -297,34 +297,34 @@
 ::obiwan-35-t1table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: [*]<br/>Valor\: "humano"<br/>Elige la opción correcta.<br/>
 {
   ~%-25%Ninguna es correcta
-  ~%-25%color de piel
   ~%-25%altura
   =raza
+  ~%-25%color de piel
 }
 
 // 
 ::obiwan-36-t2table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: [*]<br/>Valor\: "humano"<br/>Elige la opción correcta.<br/>
 {
-  ~%-25%color del pelo
+  ~%-25%altura
   =Ninguna es correcta
   ~%-25%color de piel
-  ~%-25%altura
+  ~%-25%color del pelo
 }
 
 // 
 ::obiwan-37-t3table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: "raza"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
 {
-  ~%-25%Ninguna es correcta
-  ~%-25%65 centímetros
-  ~%-25%verde
   =humano
+  ~%-25%verde
+  ~%-25%65 centímetros
+  ~%-25%Ninguna es correcta
 }
 
 // 
 ::obiwan-38-t4table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: "raza"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
 {
-  =Ninguna es correcta
   ~%-25%65 centímetros
+  =Ninguna es correcta
   ~%-25%verde
   ~%-25%blanco
 }
@@ -356,37 +356,37 @@
 // 
 ::obiwan-44-t1table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: [*]<br/>Valor\: "verde"<br/>Elige la opción correcta.<br/>
 {
-  ~%-25%color del pelo
-  =color sable laser
   ~%-25%Ninguna es correcta
+  ~%-25%color del pelo
   ~%-25%color de piel
+  =color sable laser
 }
 
 // 
 ::obiwan-45-t2table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: [*]<br/>Valor\: "verde"<br/>Elige la opción correcta.<br/>
 {
-  ~%-25%color de piel
   =Ninguna es correcta
-  ~%-25%raza
   ~%-25%color del pelo
+  ~%-25%color de piel
+  ~%-25%raza
 }
 
 // 
 ::obiwan-46-t3table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: "color sable laser"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
 {
-  =verde
   ~%-25%blanco
-  ~%-25%pelirojo
+  =verde
   ~%-25%Ninguna es correcta
+  ~%-25%pelirojo
 }
 
 // 
 ::obiwan-47-t4table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: "color sable laser"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
 {
-  ~%-25%blanco
-  ~%-25%pelirojo
-  =Ninguna es correcta
   ~%-25%humano
+  ~%-25%blanco
+  =Ninguna es correcta
+  ~%-25%pelirojo
 }
 
 // 
@@ -410,9 +410,9 @@
 // 
 ::obiwan-52-t1table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: [*]<br/>Valor\: "pelirojo"<br/>Elige la opción correcta.<br/>
 {
+  ~%-25%color de piel
   ~%-25%color sable laser
   =color del pelo
-  ~%-25%color de piel
   ~%-25%Ninguna es correcta
 }
 
@@ -421,26 +421,26 @@
 {
   ~%-25%altura
   ~%-25%color sable laser
-  ~%-25%color de piel
   =Ninguna es correcta
+  ~%-25%color de piel
 }
 
 // 
 ::obiwan-54-t3table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: "color del pelo"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
 {
+  ~%-25%verde
   ~%-25%Ninguna es correcta
   ~%-25%blanco
   =pelirojo
-  ~%-25%verde
 }
 
 // 
 ::obiwan-55-t4table-$atributo$valor::[html]Concepto <b>obiwan</b><br/>Atributo\: "color del pelo"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
 {
-  =Ninguna es correcta
   ~%-25%65 centímetros
-  ~%-25%blanco
   ~%-25%verde
+  ~%-25%blanco
+  =Ninguna es correcta
 }
 
 // 
@@ -466,53 +466,53 @@
 // Concept name: yoda
 // ==================================================
 // 
-::yoda-1-d1choose::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcT1Jqqy33T9pCdAzMZgXkG9SA7d2k1K2wUEkNIgVcq_YUgU-qRR93HbZqYM" alt\="image"><br/>Definición \: <i>Jedi, maestro de todos los jedis</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+::yoda-1-d1choose::[html]Definición \: <i>Jedi, maestro de todos los jedis</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
   ~%-25%obiwan
-  ~%-25%sidious
   =yoda
+  ~%-25%sidious
   ~%-25%Ninguna es correcta
 }
 
 // 
-::yoda-2-d1none::[html]Definición \: <i>Jedi, maestro de todos los jedis</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+::yoda-2-d1none::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcQanPzo-fRrlP0QMGXGtrqPMC65wQccEyFf8nd15HhiwK6kJzcIgITJsMw" alt\="image"><br/>Definición \: <i>Jedi, maestro de todos los jedis</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  ~%-25%yóda
+  ~%-25%sidious
   =Ninguna es correcta
   ~%-25%obiwan
-  ~%-25%sidious
+  ~%-25%ioda
   ####Option misspelled!: yoda
 }
 
 // 
-::yoda-3-d1none::[html]Definición \: <i>Jedi, maestro de todos los jedis</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+::yoda-3-d1none::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcSqsGHjOO92T1-gv4rYeH_ptzKXVrypNpJdrTC2FlRtfXyv3gX031NyMPN2" alt\="image"><br/>Definición \: <i>Jedi, maestro de todos los jedis</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
   =Ninguna es correcta
-  ~%-25%sidious
   ~%-25%maul
+  ~%-25%sidious
   ~%-25%obiwan
 }
 
 // 
-::yoda-4-d2def-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcRkFbZq7_A0GNm777VtFXhOUIYzqCY2T1GqEySYVUpxqjTftMUB1oI5cJA" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Jedi, maesfro de todos los jedis</i><br/>
+::yoda-4-d2def-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcTZnm-tLW7ntZb2TN23_7wbEDC5V5Hi1VV1S6Mv6DhLQFZPbPwO8l5Nbdk" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Jedi, maestro de todos los gedis</i><br/>
 {
   ~%-33.33333%Falso
-  ~%-33.33333%Verdadero
   =Error ortográfico
+  ~%-33.33333%Verdadero
   ####Definition text mispelled!: Jedi, maestro de todos los jedis
 }
 
 // 
 ::yoda-5-d2name-mispelled::[html]Definición de <b>yóda</b>\:<br/> <i>Jedi, maestro de todos los jedis</i><br/>
 {
-  ~%-33.33333%Falso
   ~%-33.33333%Verdadero
   =Error ortográfico
+  ~%-33.33333%Falso
   ####Concept name mispelled!: yoda
 }
 
 // 
-::yoda-6-d2true::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcSlZ9tY6yU0qaWLnLveRB3RntZohtyj2D7Zeo6lDUSiCl-kef_VytvrcHg" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Jedi, maestro de todos los jedis</i><br/>
+::yoda-6-d2true::[html]Definición de <b>yoda</b>\:<br/> <i>Jedi, maestro de todos los jedis</i><br/>
 {
   ~%-33.33333%Falso
   =Verdadero
@@ -520,7 +520,7 @@
 }
 
 // 
-::yoda-7-d2false::[html]Definición de <b>obiwan</b>\:<br/> <i>Jedi, maestro de todos los jedis</i><br/>
+::yoda-7-d2false::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcS8Q92ZuS2P9qcQD2PyiB7KboKLnS4FVHEzkof9y-FPwphPBX047h3N26VM" alt\="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Jedi, maestro de todos los jedis</i><br/>
 {
   =Falso
   ~%-33.33333%Verdadero
@@ -528,41 +528,41 @@
 }
 
 // 
-::yoda-8-d3hidden::[html]Definición de <b>[*]</b>\:<br/> <i>Jedi, maestro de todos los jedis</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+::yoda-8-d3hidden::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcTC3Oar4wgGg8h3nYnT29ZSm99jjqDLi_UOV0psOA0fWQwl_JTHAYW3_r5R" alt\="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Jedi, maestro de todos los jedis</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
 {
   =%100%yoda#
 }
 
 // 
-::yoda-9-d1choose::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcQ4KK4O92ZW4XgQozeqJ7V1wDkzw9wBK-RM6ug2LlhLl1zuVWLgD_E5_0kf" alt\="image"><br/>Definición \: <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+::yoda-9-d1choose::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcT4ld3aVnIX8d642-kmIQsAucgL8df9L9skh1y6KUZocPOAa-VeM4BIRzQFvQ" alt\="image"><br/>Definición \: <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  ~%-25%obiwan
-  =yoda
   ~%-25%sidious
+  =yoda
   ~%-25%Ninguna es correcta
+  ~%-25%obiwan
 }
 
 // 
-::yoda-10-d1none::[html]Definición \: <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+::yoda-10-d1none::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcRPOvKolvZ0w6pou9BP8wNG-bu-njWfQu_boHlKxwcEa4i9k8ZwPypndoI" alt\="image"><br/>Definición \: <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  =Ninguna es correcta
-  ~%-25%sidious
-  ~%-25%yeda
   ~%-25%obiwan
+  ~%-25%sidious
+  =Ninguna es correcta
+  ~%-25%lloda
   ####Option misspelled!: yoda
 }
 
 // 
 ::yoda-11-d1none::[html]Definición \: <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  =Ninguna es correcta
-  ~%-25%maul
   ~%-25%sidious
   ~%-25%obiwan
+  ~%-25%maul
+  =Ninguna es correcta
 }
 
 // 
-::yoda-12-d2def-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcTPAnqvm6QMunB3z-WMBIg4NR2Rc8m9p4w5xrFwSAbweIbywigCMJuSpCmu" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más impoltantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>
+::yoda-12-d2def-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcT1Jqqy33T9pCdAzMZgXkG9SA7d2k1K2wUEkNIgVcq_YUgU-qRR93HbZqYM" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la Repúblika Galáctica.</i><br/>
 {
   =Error ortográfico
   ~%-33.33333%Verdadero
@@ -571,20 +571,20 @@
 }
 
 // 
-::yoda-13-d2name-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcTC3Oar4wgGg8h3nYnT29ZSm99jjqDLi_UOV0psOA0fWQwl_JTHAYW3_r5R" alt\="image"><br/>Definición de <b>yóda</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>
+::yoda-13-d2name-mispelled::[html]Definición de <b>yodá</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>
 {
+  ~%-33.33333%Verdadero
   ~%-33.33333%Falso
   =Error ortográfico
-  ~%-33.33333%Verdadero
   ####Concept name mispelled!: yoda
 }
 
 // 
-::yoda-14-d2true::[html]Definición de <b>yoda</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>
+::yoda-14-d2true::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcRSVmv_Mj3YKUiuDwZhB3cVxhkcSWg-vKjJp2N6zKPIgqw3nnwqEhjfEco" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/>
 {
+  =Verdadero
   ~%-33.33333%Error ortográfico
   ~%-33.33333%Falso
-  =Verdadero
 }
 
 // 
@@ -596,94 +596,94 @@
 }
 
 // 
-::yoda-16-d3hidden::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcQcqx3l9UbRk5oPnWnK02egqJMgEL4gxQscBYeysnfOmUvs9KM9SsesSCC3" alt\="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+::yoda-16-d3hidden::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcTC3Oar4wgGg8h3nYnT29ZSm99jjqDLi_UOV0psOA0fWQwl_JTHAYW3_r5R" alt\="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
 {
   =%100%yoda#
 }
 
 // 
-::yoda-17-d4filtered::[html]Definición de <b>yoda</b>\:<br/> <i>Fue el Gran [1] de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los [2] [3] de la [4] Galáctica.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+::yoda-17-d4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcSFbNv1uOthCvVegglkyZHmS94GajRRqeoUvWVXoUlwxhMDfKeFpBXs1GU" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Fue el Gran Maestro de la Orden Jedi y uno de los [1] más [2] del Alto Consejo [3] en los últimos días de la República [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> miembros
+  =2 -> importantes
+  =3 -> jedi
+  =4 -> galáctica
+}
+
+// 
+::yoda-18-d4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcQcDACVv5doE6pvfzqgkV_O2DaMIF9882n_OGB8VEqeJSVYwSXX_PB2vtGD" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Fue el Gran [1] de la [2] Jedi y uno de los miembros más [3] del [4] Consejo Jedi en los últimos días de la República Galáctica.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
   =1 -> maestro
-  =2 -> últimos
-  =3 -> días
-  =4 -> república
-}
-
-// 
-::yoda-18-d4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcQEvGGSkPOBLoZa6Yz3pXN2RPSeI0xGKq2dWM_H53prJG91vUMnoGQJZ4E" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>[1] el Gran Maestro de la [2] Jedi y uno de los [3] más importantes del Alto [4] Jedi en los últimos días de la República Galáctica.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
-{
-  =1 -> fue
   =2 -> orden
-  =3 -> miembros
-  =4 -> consejo
-}
-
-// 
-::yoda-19-d4filtered::[html]Definición de <b>yoda</b>\:<br/> <i>[1] el [2] Maestro de la Orden Jedi y uno de los miembros más [3] del [4] Consejo Jedi en los últimos días de la República Galáctica.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
-{
-  =1 -> fue
-  =2 -> gran
   =3 -> importantes
   =4 -> alto
 }
 
 // 
-::yoda-20-d1choose::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcTd8evVdvcJnNDHGhXN3a9vR6l62mK8hJ0WK47ii5lqOyuKpH13LVsh9VXd" alt\="image"><br/>Definición \: <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+::yoda-19-d4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcRcGUGAVEL7BGYGfypY982lUFRgqaw1Nqq921WDeBYU1QToFtoHAJIB5DB9" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Fue el Gran Maestro de la [1] Jedi y uno de los [2] más importantes del Alto Consejo [3] en los [4] días de la República Galáctica.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
-  =yoda
+  =1 -> orden
+  =2 -> miembros
+  =3 -> jedi
+  =4 -> últimos
+}
+
+// 
+::yoda-20-d1choose::[html]Definición \: <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+{
   ~%-25%obiwan
   ~%-25%sidious
   ~%-25%Ninguna es correcta
+  =yoda
 }
 
 // 
 ::yoda-21-d1none::[html]Definición \: <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
   ~%-25%obiwan
-  =Ninguna es correcta
-  ~%-25%lloda
   ~%-25%sidious
+  =Ninguna es correcta
+  ~%-25%ioda
   ####Option misspelled!: yoda
 }
 
 // 
-::yoda-22-d1none::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcS2BYiboZHyuj7YhMsONS__lO78AOpQ8KzjiHEG25SIJgZ-YHrsYZeJRfK3" alt\="image"><br/>Definición \: <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+::yoda-22-d1none::[html]Definición \: <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  =Ninguna es correcta
-  ~%-25%obiwan
   ~%-25%sidious
+  ~%-25%obiwan
+  =Ninguna es correcta
   ~%-25%maul
 }
 
 // 
-::yoda-23-d2def-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcT4ld3aVnIX8d642-kmIQsAucgL8df9L9skh1y6KUZocPOAa-VeM4BIRzQFvQ" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Tenía habilidades excepcionales en er combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>
+::yoda-23-d2def-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcR2MWya2UMnWgXYFxxPj6MPWXRWsdTUxlNz2YeEbI1-9cbJPjHODNiXuxI" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Tenía habilidades excepciónales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>
 {
-  ~%-33.33333%Falso
-  ~%-33.33333%Verdadero
   =Error ortográfico
+  ~%-33.33333%Verdadero
+  ~%-33.33333%Falso
   ####Definition text mispelled!: Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.
 }
 
 // 
-::yoda-24-d2name-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcT-R9TiBJm1cUTHPvJ4G1JwTBQDtg1eJH-cksg8KinbZwDz6evtcU9K4FKL" alt\="image"><br/>Definición de <b>yóda</b>\:<br/> <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>
+::yoda-24-d2name-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcTppFOWY_BIy9B4zbDgluqb-kCJN_XOJ1n9AyaU6WSWz0kXaGkUq-UT9g7_" alt\="image"><br/>Definición de <b>yeda</b>\:<br/> <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>
 {
+  ~%-33.33333%Falso
   ~%-33.33333%Verdadero
   =Error ortográfico
-  ~%-33.33333%Falso
   ####Concept name mispelled!: yoda
 }
 
 // 
-::yoda-25-d2true::[html]Definición de <b>yoda</b>\:<br/> <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>
+::yoda-25-d2true::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcQ4KK4O92ZW4XgQozeqJ7V1wDkzw9wBK-RM6ug2LlhLl1zuVWLgD_E5_0kf" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>
 {
   ~%-33.33333%Error ortográfico
-  =Verdadero
   ~%-33.33333%Falso
+  =Verdadero
 }
 
 // 
-::yoda-26-d2false::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcT4ld3aVnIX8d642-kmIQsAucgL8df9L9skh1y6KUZocPOAa-VeM4BIRzQFvQ" alt\="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>
+::yoda-26-d2false::[html]Definición de <b>obiwan</b>\:<br/> <i>Tenía habilidades excepcionales en el combate con sables de luz, empleando técnicas acrobáticas del Ataru.</i><br/>
 {
   =Falso
   ~%-33.33333%Error ortográfico
@@ -697,53 +697,53 @@
 }
 
 // 
-::yoda-28-d4filtered::[html]Definición de <b>yoda</b>\:<br/> <i>Tenía habilidades [1] en el [2] con [3] de luz, [4] técnicas acrobáticas del Ataru.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+::yoda-28-d4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcSwE2nGiO7-OIlQHkxSPyxV1Bm3i6ob-JJZFyQZXXmqZNvS22_syVKPn5kktg" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Tenía habilidades excepcionales en el [1] con [2] de luz, [3] técnicas acrobáticas del [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
-  =1 -> excepcionales
-  =2 -> combate
-  =3 -> sables
-  =4 -> empleando
+  =1 -> combate
+  =2 -> sables
+  =3 -> empleando
+  =4 -> ataru
 }
 
 // 
-::yoda-29-d4filtered::[html]Definición de <b>yoda</b>\:<br/> <i>[1] [2] [3] en el combate con sables de luz, empleando [4] acrobáticas del Ataru.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+::yoda-29-d4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcS60rnMXQne5weJw-Y68kWVj50MzFsJfuOJk6nPEGtJlTaQ7KKzPawgvkai" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Tenía habilidades excepcionales en el combate con [1] de [2] [3] técnicas [4] del Ataru.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
-  =1 -> tenía
-  =2 -> habilidades
-  =3 -> excepcionales
-  =4 -> técnicas
+  =1 -> sables
+  =2 -> luz,
+  =3 -> empleando
+  =4 -> acrobáticas
 }
 
 // 
-::yoda-30-d1choose::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcQwfFAjBHZTx1ab24lBBzH-rHV6rIAobvUAwUl3XYzEUJf9gouu7PHTeHtc" alt\="image"><br/>Definición \: <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
+::yoda-30-d1choose::[html]Definición \: <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  ~%-25%sidious
-  =yoda
   ~%-25%obiwan
   ~%-25%Ninguna es correcta
+  ~%-25%sidious
+  =yoda
 }
 
 // 
 ::yoda-31-d1none::[html]Definición \: <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
+  =Ninguna es correcta
   ~%-25%obiwan
   ~%-25%sidious
-  ~%-25%voda
-  =Ninguna es correcta
+  ~%-25%yodá
   ####Option misspelled!: yoda
 }
 
 // 
 ::yoda-32-d1none::[html]Definición \: <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>Elige la opción que mejor se corresponda con la definición anterior.<br/>
 {
-  =Ninguna es correcta
-  ~%-25%obiwan
   ~%-25%sidious
   ~%-25%maul
+  ~%-25%obiwan
+  =Ninguna es correcta
 }
 
 // 
-::yoda-33-d2def-mispelled::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcSwE2nGiO7-OIlQHkxSPyxV1Bm3i6ob-JJZFyQZXXmqZNvS22_syVKPn5kktg" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Era ún maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>
+::yoda-33-d2def-mispelled::[html]Definición de <b>yoda</b>\:<br/> <i>Eras un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>
 {
   ~%-33.33333%Verdadero
   =Error ortográfico
@@ -752,16 +752,16 @@
 }
 
 // 
-::yoda-34-d2name-mispelled::[html]Definición de <b>yeda</b>\:<br/> <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>
+::yoda-34-d2name-mispelled::[html]Definición de <b>voda</b>\:<br/> <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>
 {
-  =Error ortográfico
-  ~%-33.33333%Falso
   ~%-33.33333%Verdadero
+  ~%-33.33333%Falso
+  =Error ortográfico
   ####Concept name mispelled!: yoda
 }
 
 // 
-::yoda-35-d2true::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcTxAx3EvpTnTLXN7Q6tE9RiW9c90_ocVofNdu2V5pctpndPCElZ7OqYbTk" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>
+::yoda-35-d2true::[html]Definición de <b>yoda</b>\:<br/> <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>
 {
   =Verdadero
   ~%-33.33333%Falso
@@ -769,69 +769,69 @@
 }
 
 // 
-::yoda-36-d2false::[html]Definición de <b>obiwan</b>\:<br/> <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>
+::yoda-36-d2false::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcQanPzo-fRrlP0QMGXGtrqPMC65wQccEyFf8nd15HhiwK6kJzcIgITJsMw" alt\="image"><br/>Definición de <b>obiwan</b>\:<br/> <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/>
 {
-  ~%-33.33333%Verdadero
-  ~%-33.33333%Error ortográfico
   =Falso
+  ~%-33.33333%Error ortográfico
+  ~%-33.33333%Verdadero
 }
 
 // 
-::yoda-37-d3hidden::[html]Definición de <b>[*]</b>\:<br/> <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
+::yoda-37-d3hidden::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcS8Q92ZuS2P9qcQD2PyiB7KboKLnS4FVHEzkof9y-FPwphPBX047h3N26VM" alt\="image"><br/>Definición de <b>[*]</b>\:<br/> <i>Era un maestro en todas las formas del combate con sables de luz y era considerado por muchos como un Maestro de Espadas.</i><br/></br><p>Nota: Cada símbolo ? representa una letra, y * a una o varias palabras.</p>
 {
   =%100%yoda#
 }
 
 // 
-::yoda-38-d4filtered::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcR5b8vYXJ2_FzndYJSMz7-ZJKxMMchjlZI2HFRWgPOpcYA6lfvEQsxoD_c" alt\="image"><br/>Definición de <b>yoda</b>\:<br/> <i>Era un maestro en todas las formas del combate con [1] de [2] y [3] considerado por muchos como un [4] de Espadas.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
-{
-  =1 -> sables
-  =2 -> luz
-  =3 -> era
-  =4 -> maestro
-}
-
-// 
-::yoda-39-d4filtered::[html]Definición de <b>yoda</b>\:<br/> <i>Era un [1] en todas las [2] del combate con sables de luz y era considerado por muchos como un [3] de [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+::yoda-38-d4filtered::[html]Definición de <b>yoda</b>\:<br/> <i>Era un [1] en todas las formas del combate con sables de luz y [2] considerado por muchos como un [3] de [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
   =1 -> maestro
-  =2 -> formas
+  =2 -> era
   =3 -> maestro
   =4 -> espadas
 }
 
 // 
-::yoda-53-b1match4x4-$atributo$valor::[html]En relación al concepto <b>yoda</b>, asocia cada "Atributo" con su "Valor".<br/>
+::yoda-39-d4filtered::[html]Definición de <b>yoda</b>\:<br/> <i>Era un maestro en todas las formas del combate con [1] de [2] y [3] [4] por muchos como un Maestro de Espadas.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
+  =1 -> sables
+  =2 -> luz
+  =3 -> era
+  =4 -> considerado
+}
+
+// 
+::yoda-53-b1match4x4-$atributo$valor::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcSsRIRMYozfp3bv24-FOwQH0UnPXAGqp48MTebfW_ORhjcorgk8J4oHMXI" alt\="image"><br/>En relación al concepto <b>yoda</b>, asocia cada "Atributo" con su "Valor".<br/>
+{
+  =color del pelo -> blanco
+  =altura -> 65 centímetros
+  =color sable laser -> verde
   =color de piel -> verde
-  =altura -> 65 centímetros
-  =color sable laser -> verde
-  =color del pelo -> blanco
 }
 
 // 
-::yoda-54-b1match3x1misspelling-$atributo$valor::[html]En relación al concepto <b>yoda</b>, asocia cada "Atributo" con su "Valor".<br/>
+::yoda-54-b1match3x1misspelling-$atributo$valor::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcRtVEOVaJzBBE9hQh2ccIAw5ibX8ie9KGoGUlwJLuxlyeT1nvef2pLBOEpm" alt\="image"><br/>En relación al concepto <b>yoda</b>, asocia cada "Atributo" con su "Valor".<br/>
 {
-  =color de qiel -> Error ortográfico
-  =altura -> 65 centímetros
   =color sable laser -> verde
+  =alpura -> Error ortográfico
   =color del pelo -> blanco
+  =color de piel -> verde
 }
 
 // 
-::yoda-55-b1match-$atributo$valor::[html]En relación al concepto <b>yoda</b>, asocia cada "Atributo" con su "Valor".<br/>
+::yoda-55-b1match-$atributo$valor::[html]<img src\="https://encrypted-tbn0.gstatic.com/images?q\=tbn:ANd9GcRPOvKolvZ0w6pou9BP8wNG-bu-njWfQu_boHlKxwcEa4i9k8ZwPypndoI" alt\="image"><br/>En relación al concepto <b>yoda</b>, asocia cada "Atributo" con su "Valor".<br/>
 {
-  =color sable laser -> verde
   =color del pelo -> blanco
+  =color de piel -> verde
+  =color sable laser -> verde
   =raza -> Error
-  =color de piel -> verde
 }
 
 // 
 ::yoda-40-i1choice::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q\=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\\="image" width\="400" height\="300"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
 {
-  =yoda
   ~%-25%obiwan
+  =yoda
   ~%-25%Ninguna es correcta
   ~%-25%sidious
 }
@@ -840,18 +840,18 @@
 ::yoda-41-i1misspelling::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q\=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\\="image" width\="400" height\="300"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
 {
   ~%-25%obiwan
-  ~%-25%lloda
   ~%-25%sidious
   =Ninguna es correcta
+  ~%-25%lloda
 }
 
 // 
 ::yoda-42-i1none::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q\=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\\="image" width\="400" height\="300"><br/>Elige la opción que mejor se corresponda con la imagen anterior.<br/>
 {
-  ~%-25%obiwan
   ~%-25%maul
-  ~%-25%sidious
   =Ninguna es correcta
+  ~%-25%sidious
+  ~%-25%obiwan
 }
 
 // 
@@ -869,48 +869,48 @@
 }
 
 // 
-::yoda-48-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q\=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\\="image" width\="400" height\="300"><br/>Definición\: <i>Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto [1] Jedi en los [2] [3] de la República [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
-{
-  =1 -> consejo
-  =2 -> últimos
-  =3 -> días
-  =4 -> galáctica
-}
-
-// 
-::yoda-50-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q\=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\\="image" width\="400" height\="300"><br/>Definición\: <i>[1] habilidades [2] en el combate con [3] de luz, empleando técnicas [4] del Ataru.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
-{
-  =1 -> tenía
-  =2 -> excepcionales
-  =3 -> sables
-  =4 -> acrobáticas
-}
-
-// 
-::yoda-52-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q\=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\\="image" width\="400" height\="300"><br/>Definición\: <i>Era un [1] en todas las [2] del combate con [3] de luz y [4] considerado por muchos como un Maestro de Espadas.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+::yoda-48-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q\=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\\="image" width\="400" height\="300"><br/>Definición\: <i>Fue el Gran [1] de la [2] Jedi y uno de los miembros más importantes del [3] Consejo [4] en los últimos días de la República Galáctica.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
 {
   =1 -> maestro
-  =2 -> formas
+  =2 -> orden
+  =3 -> alto
+  =4 -> jedi
+}
+
+// 
+::yoda-50-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q\=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\\="image" width\="400" height\="300"><br/>Definición\: <i>Tenía habilidades [1] en el [2] con [3] de luz, [4] técnicas acrobáticas del Ataru.</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> excepcionales
+  =2 -> combate
   =3 -> sables
-  =4 -> era
+  =4 -> empleando
+}
+
+// 
+::yoda-52-i4filtered::[html]<img src\="https://encrypted-tbn1.gstatic.com/images?q\=tbn:ANd9GcR3UZKfQH3kY7HUgPJyV5B2h4YgCfg338QXJbvPtAkQ4JdTxWFUlQ" alt\\="image" width\="400" height\="300"><br/>Definición\: <i>[1] un [2] en todas las formas del combate con [3] de luz y era considerado por muchos como un Maestro de [4].</i><br/><br/>(Coloca cada palabra en su posición correcta dentro del texto)
+{
+  =1 -> era
+  =2 -> maestro
+  =3 -> sables
+  =4 -> espadas
 }
 
 // 
 ::yoda-56-t1table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: [*]<br/>Valor\: "verde"<br/>Elige la opción correcta.<br/>
 {
-  ~%-25%color del pelo
-  ~%-25%color de piel
-  =color sable laser
   ~%-25%Ninguna es correcta
+  ~%-25%color del pelo
+  =color sable laser
+  ~%-25%color de piel
 }
 
 // 
 ::yoda-57-t2table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: [*]<br/>Valor\: "verde"<br/>Elige la opción correcta.<br/>
 {
+  ~%-25%raza
+  ~%-25%color de piel
   ~%-25%color del pelo
   =Ninguna es correcta
-  ~%-25%color de piel
-  ~%-25%raza
 }
 
 // 
@@ -918,17 +918,17 @@
 {
   ~%-25%Ninguna es correcta
   =verde
-  ~%-25%blanco
   ~%-25%pelirojo
+  ~%-25%blanco
 }
 
 // 
 ::yoda-59-t4table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: "color sable laser"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
 {
-  ~%-25%pelirojo
-  ~%-25%humano
-  ~%-25%blanco
   =Ninguna es correcta
+  ~%-25%pelirojo
+  ~%-25%blanco
+  ~%-25%humano
 }
 
 // 
@@ -953,36 +953,36 @@
 ::yoda-64-t1table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: [*]<br/>Valor\: "blanco"<br/>Elige la opción correcta.<br/>
 {
   ~%-25%color sable laser
-  =color del pelo
   ~%-25%color de piel
+  =color del pelo
   ~%-25%Ninguna es correcta
 }
 
 // 
 ::yoda-65-t2table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: [*]<br/>Valor\: "blanco"<br/>Elige la opción correcta.<br/>
 {
-  ~%-25%color sable laser
   ~%-25%color de piel
   =Ninguna es correcta
+  ~%-25%color sable laser
   ~%-25%altura
 }
 
 // 
 ::yoda-66-t3table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: "color del pelo"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
 {
-  ~%-25%pelirojo
+  ~%-25%verde
   =blanco
   ~%-25%Ninguna es correcta
-  ~%-25%verde
+  ~%-25%pelirojo
 }
 
 // 
 ::yoda-67-t4table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: "color del pelo"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
 {
-  =Ninguna es correcta
-  ~%-25%65 centímetros
-  ~%-25%verde
   ~%-25%pelirojo
+  ~%-25%65 centímetros
+  =Ninguna es correcta
+  ~%-25%verde
 }
 
 // 
@@ -1006,36 +1006,36 @@
 // 
 ::yoda-72-t1table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: [*]<br/>Valor\: "verde"<br/>Elige la opción correcta.<br/>
 {
-  ~%-25%color del pelo
   ~%-25%Ninguna es correcta
-  ~%-25%color sable laser
   =color de piel
+  ~%-25%color sable laser
+  ~%-25%color del pelo
 }
 
 // 
 ::yoda-73-t2table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: [*]<br/>Valor\: "verde"<br/>Elige la opción correcta.<br/>
 {
   =Ninguna es correcta
+  ~%-25%raza
   ~%-25%color del pelo
   ~%-25%color sable laser
-  ~%-25%raza
 }
 
 // 
 ::yoda-74-t3table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: "color de piel"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
 {
-  ~%-25%blanco
   ~%-25%Ninguna es correcta
-  ~%-25%pelirojo
   =verde
+  ~%-25%blanco
+  ~%-25%pelirojo
 }
 
 // 
 ::yoda-75-t4table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: "color de piel"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
 {
-  ~%-25%humano
-  ~%-25%pelirojo
   =Ninguna es correcta
+  ~%-25%pelirojo
+  ~%-25%humano
   ~%-25%blanco
 }
 
@@ -1061,35 +1061,35 @@
 ::yoda-80-t1table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: [*]<br/>Valor\: "65 centímetros"<br/>Elige la opción correcta.<br/>
 {
   =altura
-  ~%-25%raza
   ~%-25%color de piel
   ~%-25%Ninguna es correcta
+  ~%-25%raza
 }
 
 // 
 ::yoda-81-t2table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: [*]<br/>Valor\: "65 centímetros"<br/>Elige la opción correcta.<br/>
 {
+  =Ninguna es correcta
   ~%-25%color del pelo
   ~%-25%raza
-  =Ninguna es correcta
   ~%-25%color de piel
 }
 
 // 
 ::yoda-82-t3table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: "altura"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
 {
+  ~%-25%verde
   =65 centímetros
   ~%-25%humano
   ~%-25%Ninguna es correcta
-  ~%-25%verde
 }
 
 // 
 ::yoda-83-t4table-$atributo$valor::[html]Concepto <b>yoda</b><br/>Atributo\: "altura"<br/>Valor: [*]<br/>Elige la opción correcta.<br/>
 {
-  =Ninguna es correcta
-  ~%-25%pelirojo
   ~%-25%verde
+  ~%-25%pelirojo
+  =Ninguna es correcta
   ~%-25%humano
 }
 

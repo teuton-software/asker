@@ -1,11 +1,11 @@
 ==================================================
 Created by : darts-of-teacher (version 0.17.0)
 File       : jedi-doc.txt
-Time       : 2018-11-19 20:07:21 +0000
+Time       : 2018-11-19 20:10:36 +0000
 Author     : David Vargas
 ==================================================
 
-[44m[1mobiwan[0m
+obiwan
 
 * Jedi, maestro de Anakin Skywalker
 * Jedi, alumno de Quigon-Jinn
@@ -19,7 +19,7 @@ Author     : David Vargas
 | color del pelo    | pelirojo |
 +-------------------+----------+
 
-[44m[1myoda[0m
+yoda
 
 * Jedi, maestro de todos los jedis
 * Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importantes del Alto Consejo Jedi en los últimos días de la República Galáctica.

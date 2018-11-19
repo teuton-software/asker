@@ -1,51 +1,51 @@
 ==================================================
 Created by : darts-of-teacher (version 0.17.0)
 File       : jedi-log.txt
-Time       : 2018-11-19 20:07:21 +0000
+Time       : 2018-11-19 20:10:36 +0000
 Author     : David Vargas
 ==================================================
 
 [INFO] Project open
-   ├── inputdirs    = [1minput/es/demo[0m
-   └── process_file = [1mjedi.haml[0m
+   ├── inputdirs    = input/es/demo
+   └── process_file = jedi.haml
 
 [INFO] Loading input data
- * Input directory  = [1minput/es/demo[0m
-   ├── Input file   = [1minput/es/demo/jedi.haml[0m
-   └── Input file   = [1minput/es/demo/sith.haml[0m
+ * Input directory  = input/es/demo
+   ├── Input file   = input/es/demo/jedi.haml
+   └── Input file   = input/es/demo/sith.haml
 
-[INFO] Showing concept data <[1mdefault[0m>
+[INFO] Showing concept data <default>
 +---------------+-----------------------------------------------------------------+
-| [1m1[0m             | [37m[44m[1mobiwan[0m (lang=es)                                                |
-| [34mFilename[0m      | input/es/demo/jedi.haml                                         |
-| [34mContext[0m       | personaje, starwars                                             |
-| [34mTags[0m          | maestro, jedi, profesor, anakin, skywalker, alumno, quigon-jinn |
-| [34mReference to[0m  |                                                                 |
-| [34mReferenced by[0m |                                                                 |
-| [34m.def(text)[0m    | Jedi, maestro de Anakin Skywalker                               |
+| 1             | obiwan (lang=es)                                                |
+| Filename      | input/es/demo/jedi.haml                                         |
+| Context       | personaje, starwars                                             |
+| Tags          | maestro, jedi, profesor, anakin, skywalker, alumno, quigon-jinn |
+| Reference to  |                                                                 |
+| Referenced by |                                                                 |
+| .def(text)    | Jedi, maestro de Anakin Skywalker                               |
 |               | Jedi, alumno de Quigon-Jinn                                     |
 |               | Vive en Tatooine, cerca de la casa de Luke Skywalker            |
-| [34m.def(images)[0m  | 1                                                               |
-| [34m.tables[0m       | $atributo$valor                                                 |
-| [34m.neighbors[0m    | yoda(40.0)                                                      |
+| .def(images)  | 1                                                               |
+| .tables       | $atributo$valor                                                 |
+| .neighbors    | yoda(40.0)                                                      |
 |               | sidious(40.0)                                                   |
 |               | maul(30.0)                                                      |
 +---------------+-----------------------------------------------------------------+
 
 +---------------+---------------------------------------------------------------------------+
-| [1m2[0m             | [37m[44m[1myoda[0m (lang=es)                                                            |
-| [34mFilename[0m      | input/es/demo/jedi.haml                                                   |
-| [34mContext[0m       | personaje, starwars                                                       |
-| [34mTags[0m          | maestro, jedi                                                             |
-| [34mReference to[0m  |                                                                           |
-| [34mReferenced by[0m |                                                                           |
-| [34m.def(text)[0m    | Jedi, maestro de todos los jedis                                          |
+| 2             | yoda (lang=es)                                                            |
+| Filename      | input/es/demo/jedi.haml                                                   |
+| Context       | personaje, starwars                                                       |
+| Tags          | maestro, jedi                                                             |
+| Reference to  |                                                                           |
+| Referenced by |                                                                           |
+| .def(text)    | Jedi, maestro de todos los jedis                                          |
 |               | Fue el Gran Maestro de la Orden Jedi y uno de los miembros más importa... |
 |               | Tenía habilidades excepcionales en el combate con sables de luz, emple... |
 |               | Era un maestro en todas las formas del combate con sables de luz y era... |
-| [34m.def(images)[0m  | 1                                                                         |
-| [34m.tables[0m       | $atributo$valor                                                           |
-| [34m.neighbors[0m    | obiwan(80.0)                                                              |
+| .def(images)  | 1                                                                         |
+| .tables       | $atributo$valor                                                           |
+| .neighbors    | obiwan(80.0)                                                              |
 |               | sidious(60.0)                                                             |
 |               | maul(40.0)                                                                |
 +---------------+---------------------------------------------------------------------------+
@@ -53,8 +53,8 @@ Author     : David Vargas
 
 
 [INFO] Creating output files
-   ├── Gift questions file = [1moutput/jedi-gift.txt[0m
-   └── Lesson file         = [1moutput/jedi-doc.txt[0m
+   ├── Gift questions file = output/jedi-gift.txt
+   └── Lesson file         = output/jedi-doc.txt
 
 [INFO] Showing CONCEPT statistics
 
@@ -70,9 +70,9 @@ Author     : David Vargas
 +-----------+-----------+---------+---------+----+---+---+----+---+----+
 | Concept   | Questions | Entries | xFactor | d  | b | f | i  | s | t  |
 +-----------+-----------+---------+---------+----+---+---+----+---+----+
-| [32mobiwan[0m    | 59        | 9       | 6.56    | 26 | 0 | 0 | 8  | 0 | 25 |
-| [32myoda[0m      | 84        | 12      | 7.0     | 39 | 3 | 0 | 9  | 0 | 33 |
+| obiwan    | 59        | 9       | 6.56    | 26 | 0 | 0 | 8  | 0 | 25 |
+| yoda      | 84        | 12      | 7.0     | 39 | 3 | 0 | 9  | 0 | 33 |
 +-----------+-----------+---------+---------+----+---+---+----+---+----+
-| [1mTOTAL = 2[0m | [1m143[0m       | [1m21[0m      | [1m6.81[0m    | 65 | 3 | 0 | 17 | 0 | 58 |
+| TOTAL = 2 | 143       | 21      | 6.81    | 65 | 3 | 0 | 17 | 0 | 58 |
 +-----------+-----------+---------+---------+----+---+---+----+---+----+
 
