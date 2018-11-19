@@ -19,7 +19,7 @@ Para ejecutar el programa *darts* con este fichero de entrada hacemos:
 $ ./darts input/es/demo/jedi.yaml
 ```
 
-Veremos en pantalla la siguiente [información](./demo-log.txt).
+Veremos en pantalla la siguiente [información](./jedi-log.txt).
 
 Este informe muestra qué tal ha ido el proceso de generación, mostrando
 estadísticas al final.
@@ -30,6 +30,6 @@ estadísticas al final.
 
 En el directorio `output` se guardan los ficheros de salida.
 
-* [Fichero con las preguntas](./demo-gift.txt) en formato GIFT.
-* [Fichero con log del proceso](./demo-log.txt).
-* [Fichero con los contenidos](./demo-doc.txt) en formato TXT más legible.
+* [Fichero con las preguntas](./jedi-gift.txt) en formato GIFT.
+* [Fichero con log del proceso](./jedi-log.txt).
+* [Fichero con los contenidos](./jedi-doc.txt) en formato TXT más legible.
