@@ -10,8 +10,6 @@ require_relative 'lib/application'
 require_relative 'lib/builder/builder'
 require_relative 'lib/sinatra/sinatra_front_end'
 
-#Rainbow.enabled = false
-
 # Command Line User Interface
 class DartsCLI < Thor
   map ['h', '-h', '--help'] => 'help'
@@ -31,6 +29,7 @@ class DartsCLI < Thor
 
   map ['f', '-f', '--file'] => 'file'
   desc 'file NAME', 'Build output files, from HAML/XML input file.'
+  option :nocolor, :type => :boolean
   long_desc <<-LONGDESC
   Build output files, from input file (HAML/XML format).
 
@@ -44,6 +43,7 @@ class DartsCLI < Thor
 
 LONGDESC
   def file(name)
+    Rainbow.enabled = false if options[:nocolor]
     Tool.new.start(name)
   end
 
