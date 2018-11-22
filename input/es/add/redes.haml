@@ -1,0 +1,36 @@
+%map{ :version => '1',  :lang => 'es',  :context => 'redes, ordenadores, teoría, configuración'}
+
+  %concept
+    %names redes de ordenadores
+    %tags redes, ordenadores, configuracion
+    %table{:fields => 'Valor TCPv4, descripción'}
+      %template{:LAIP => '10.0.0.16, 172.16.42.0, 192.168.1.16'}
+        %row
+          %col LAIP/8
+          %col Representa a los equipos de una red de clase A
+        %row
+          %col LAIP/16
+          %col Representa a los equipos de una red de clase B
+        %row
+          %col LAIP/24
+          %col Representa a los equipos de una red de clase C
+        %row
+          %col LAIP/32
+          %col Representa a un PC concreto
+        %row
+          %col LAIP/64
+          %col Máscara TCPv4 incorrecta
+    %table{:fields => 'Valor TCPv4, Número de equipos'}
+      %template{:LAIP => '10.0.0.16, 172.16.42.0, 192.168.1.16'}
+        %row
+          %col LAIP/8
+          %col 16.581.375
+        %row
+          %col LAIP/16
+          %col 65.025
+        %row
+          %col LAIP/24
+          %col 255
+        %row
+          %col LAIP/32
+          %col 1
