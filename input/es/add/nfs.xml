@@ -1,7 +1,7 @@
 <map version='1' lang='es' context='sistemas operativos, almacenamiento, red, integración, sistemas'>
 
   <concept>
-    <names>nfs</names>
+    <names>nfs, network file system</names>
     <tags>sistema, ficheros, almacenamiento, red, integración</tags>
     <def>Sistema de archivos de red, es un protocolo de nivel de aplicación, según el Modelo OSI. Es utilizado para sistemas de archivos distribuido en un entorno de red de computadoras de área local. Posibilita que distintos sistemas conectados a una misma red accedan a ficheros remotos como si se tratara de locales.</def>
     <table fields='comando,descripción'>
