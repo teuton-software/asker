@@ -1,69 +1,10 @@
 #!/usr/bin/ruby
 # encoding: utf-8
 
-require 'thor'
-
-require 'rainbow'
-require 'pry'
-require_relative 'lib/tool'
-require_relative 'lib/application'
-require_relative 'lib/builder/builder'
-require_relative 'lib/sinatra/sinatra_front_end'
-
-# Command Line User Interface
-class DartsCLI < Thor
-  map ['h', '-h', '--help'] => 'help'
-
-  map ['v', '-v', '--version'] => 'version'
-  desc 'version', 'show the program version'
-  def version
-    print Rainbow(Application.name).bright.blue
-    puts  ' (version ' + Rainbow(Application.version).green + ')'
-  end
-
-  map ['e', '-e', '--editor'] => 'editor'
-  desc 'editor', 'Run web platform editor'
-  def editor
-    SinatraFrontEnd.run!
-  end
-
-  map ['f', '-f', '--file'] => 'file'
-  desc 'file NAME', 'Build output files, from HAML/XML input file.'
-  option :nocolor, :type => :boolean
-  long_desc <<-LONGDESC
-  Build output files, from input file (HAML/XML format).
-
-  It builds questions about contents into input file specified.
-  This is the most usefull function.
-  These are 3 ways of use it:
-
-  #{Rainbow($PROGRAM_NAME + ' file input/foo/foo.haml').yellow}, Build questions from HAML file\n
-  #{Rainbow($PROGRAM_NAME + ' file input/foo/foo.xml').yellow}, Build questions from XML file\n
-  #{Rainbow($PROGRAM_NAME + ' file projects/foo/foo.yaml').yellow}, Build questions from YAML project file\n
-
-LONGDESC
-  def file(name)
-    Rainbow.enabled = false if options[:nocolor]
-    Tool.new.start(name)
-  end
-
-  map ['c', '-c', '--create'] => 'create'
-  desc 'create PROJECTNAME', 'Create files for a new project'
-  long_desc <<-LONGDESC
-  ADVANCED FUNCTION
-
-  Create new FOO project. Example:
-
-  > #{$PROGRAM_NAME} create foo
-
-LONGDESC
-  def create(projectname)
-    Builder.create_project(projectname)
-  end
-
-  def method_missing(m, *_args, &_block)
-    file(m.to_s)
-  end
-end
-
-DartsCLI.start(ARGV)
+puts "\n"
+puts "I'm sorry! This executable has been DEPRECATED.\n"
+puts "Please, from now on do this way...\n\n"
+puts "\t./asker " + ARGV.join(' ').to_s
+puts "\n"
+puts "Thank you!"
+puts "<ASKER team>\n\n"
