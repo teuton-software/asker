@@ -232,35 +232,35 @@
 		<table fields='Tipo y permisos (10 letras), significado'>
 			<row>
 				<col>-rwx------</col>
-				<col>10 caractéres que representen los permisos de un fichero regular que puede ser leido, modificado y ejecutado por el propietario. Nadie más tiene acceso.</col>
+				<col>10 caracteres que representen los permisos de un fichero regular que puede ser leido, modificado y ejecutado por el propietario. Nadie más tiene acceso.</col>
 			</row>
 			<row>
 				<col>-rw-------</col>
-				<col>10 caractéres que representen un fichero regular que sólo puede ser leido y modificado por el propietario. Nadie más tiene acceso.</col>
+				<col>10 caracteres que representen un fichero regular que sólo puede ser leido y modificado por el propietario. Nadie más tiene acceso.</col>
 			</row>
 			<row>
 				<col>-rw-r--r--</col>
-				<col>10 caractéres que representen un fichero regular que puede ser leído y modificado por el propietario. Todos los usuarios pueden leerlo.</col>
+				<col>10 caracteres que representen un fichero regular que puede ser leído y modificado por el propietario. Todos los usuarios pueden leerlo.</col>
 			</row>
 			<row>
 				<col>-rwxr-xr-x</col>
-				<col>10 caractéres que representen un fichero regular con todos los permisos para el propietario. Todos los usuarios pueden leerlo y ejecutarlo.</col>
+				<col>10 caracteres que representen un fichero regular con todos los permisos para el propietario. Todos los usuarios pueden leerlo y ejecutarlo.</col>
 			</row>
 			<row>
 				<col>-rw-rw----</col>
-				<col>10 caractéres que representen un fichero regular que sólo puede ser leído y modificado por el usuario propietario y los miembros del grupo propietario.</col>
+				<col>10 caracteres que representen un fichero regular que sólo puede ser leído y modificado por el usuario propietario y los miembros del grupo propietario.</col>
 			</row>
 			<row>
 				<col>lrwxrwxrwx</col>
-				<col>10 caractéres que representen un enlace simbólico. Los permisos reales son los que posea el objeto al cual apunta el enlace simbólico.</col>
+				<col>10 caracteres que representen un enlace simbólico. Los permisos reales son los que posea el objeto al cual apunta el enlace simbólico.</col>
 			</row>
 			<row>
 				<col>drwxrwx---</col>
-				<col>10 caractéres que representen un directorio donde el usuario propietario y los miembros del grupo propietario tiene permisos para entrar, crear, renombrar, eliminar.</col>
+				<col>10 caracteres que representen un directorio donde el usuario propietario y los miembros del grupo propietario tiene permisos para entrar, crear, renombrar, eliminar.</col>
 			</row>
 			<row>
 				<col>drwxr-x---</col>
-				<col>10 caractéres que representan un directorio donde el usuario propietario tiene todos los permisos.	Los mmiembros del grupo propietario tienen permisos para entrar, pero no pueden modificar ni crear.</col>
+				<col>10 caracteres que representan un directorio donde el usuario propietario tiene todos los permisos.	Los mmiembros del grupo propietario tienen permisos para entrar, pero no pueden modificar ni crear.</col>
 			</row>
 		</table>
 	</concept>
