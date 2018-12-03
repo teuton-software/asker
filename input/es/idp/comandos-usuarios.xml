@@ -260,7 +260,7 @@
 			</row>
 			<row>
 				<col>drwxr-x---</col>
-				<col>10 caractéres que representen un directorio donde el usuario propietario tiene permisos	para entrar, crear, renombrar, eliminar ficheros y directorios.	Los miembros del grupo propietario tiene permisos para entrar, pero no pueden crear, renombrar, eliminar.</col>
+				<col>10 caractéres que representan un directorio donde el usuario propietario tiene todos los permisos.	Los mmiembros del grupo propietario tienen permisos para entrar, pero no pueden modificar ni crear.</col>
 			</row>
 		</table>
 	</concept>
