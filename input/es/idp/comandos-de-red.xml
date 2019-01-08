@@ -1,0 +1,57 @@
+<map version='1' lang='es' context='sistemas operativos, comando, redes'>
+
+  <concept>
+    <names>ping</names>
+    <tags>enviar, paquete, ICMP, equipo, host, red</tags>
+    <def>Envia un paquete ECHO_REQUEST (Protocolo ICMP) a un equipo de la red, solicitando una respuesta ECHO_RESPONSE.</def>
+    <def>Permite comprobar la conectividad entre dos máquinas, usando el protocolo de red ICMP.</def>
+    <table fields='comando,resultado'>
+      <row>
+        <col>ping -c 1 192.168.1.1</col>
+        <col>En SO GNU/Linux, prueba la conexión con la IP 192.168.1.1, enviando únicamente un paquete ICMP.</col>
+      </row>
+      <row>
+        <col>ping 192.168.1.2</col>
+        <col>En SO GNU/Linux, prueba la conexión con la IP 192.168.1.2, enviando paquetes ICMP indefinidamente.</col>
+      </row>
+      <row>
+        <col>ping 192.168.1.3</col>
+        <col>En SO Windows, prueba la conexión con la IP 192.168.1.3, enviando 4 paquetes ICMP.</col>
+      </row>
+      <row>
+        <col>ping -i 2 192.168.1.4</col>
+        <col>En SO GNU/Linux, prueba la conexión con la IP 192.168.1.4, enviando paquetes a intervalos de 2 segundos.</col>
+      </row>
+    </table>
+  </concept>
+
+  <concept>
+    <names>traceroute</names>
+    <tags>ruta, red, equipo, host</tags>
+    <def>Muestra la ruta de red, que toman los paquetes para llegar a un host destino.</def>
+		<table fields='comando,descripción'>
+      <template IP="192.168.1.2,192.168.2.1,198.162.1.2,198.162.2.1,sagitario, aries">
+        <row>
+          <col>traceroute IP</col>
+          <col>En SO GNU/Linux, muestra la ruta de red que toman los paquetes para llegar al host IP.</col>
+        </row>
+			  <row>
+          <col>tracert IP</col>
+          <col>En SO Windows, muestra la ruta de red que toman los paquetes para llegar al host IP.</col>
+        </row>
+      </template>
+		</table>
+  </concept>
+
+  <concept>
+    <names>wget</names>
+    <tags>descargar, ficheros, red, no, interactivo</tags>
+    <def>Comando para descargar ficheros a través de la red de forma no interactiva.</def>
+  </concept>
+
+  <concept>
+    <names>TCP</names>
+    <tags>protocolo, control, transmisión, transmission, protocol</tags>
+  </concept>
+
+</map>
