@@ -1,4 +1,4 @@
-<map version='1' lang='es' context='sistemas operativos, comando' >
+<map version='1' lang='es' context='sistemas operativos, ficheros, configuracion' >
 
   <concept>
 		<names>/etc/passwd</names>

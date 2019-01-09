@@ -12,6 +12,10 @@
           <col>En SO GNU/Linux, prueba la conexión con IP, enviando únicamente un paquete ICMP.</col>
         </row>
         <row>
+          <col>ping -c 2 IP</col>
+          <col>En SO GNU/Linux, prueba la conexión con IP, enviando únicamente dos paquetes ICMP.</col>
+        </row>
+        <row>
           <col>ping IP</col>
           <col>En SO GNU/Linux, prueba la conexión con IP, enviando paquetes ICMP indefinidamente.</col>
         </row>
