@@ -1,47 +1,11 @@
 <map version='1' lang='es' context='sistemas operativos, comando, redes'>
 
   <concept>
-    <names>ping</names>
-    <tags>enviar, paquete, ICMP, equipo, host, red</tags>
-    <def>Envia un paquete ECHO_REQUEST (Protocolo ICMP) a un equipo de la red, solicitando una respuesta ECHO_RESPONSE.</def>
-    <def>Permite comprobar la conectividad entre dos máquinas, usando el protocolo de red ICMP.</def>
-    <table fields='acción,resultado'>
-      <row>
-        <col>ping -c 1 192.168.1.1</col>
-        <col>En SO GNU/Linux, prueba la conexión con la IP 192.168.1.1, enviando únicamente un paquete ICMP.</col>
-      </row>
-      <row>
-        <col>ping 192.168.1.2</col>
-        <col>En SO GNU/Linux, prueba la conexión con la IP 192.168.1.2, enviando paquetes ICMP indefinidamente.</col>
-      </row>
-      <row>
-        <col>ping 192.168.1.3</col>
-        <col>En SO Windows, prueba la conexión con la IP 192.168.1.3, enviando 4 paquetes ICMP.</col>
-      </row>
-    </table>
-  </concept>
-
-  <concept>
-    <names>traceroute</names>
-    <tags>ruta, red, equipo, host</tags>
-    <def>Muestra la ruta de red, que toman los paquetes para llegar a un host destino.</def>
-		<table fields='acción,resultado'>
-      <row>
-        <col>traceroute 192.168.1.1</col>
-        <col>En SO GNU/Linux, muestra la ruta de red que toman los paquetes para llegar a la IP 192.168.1.1.</col>
-      </row>
-			<row>
-        <col>tracert 192.168.1.2</col>
-        <col>En SO Windows, muestra la ruta de red que toman los paquetes para llegar a la IP 192.168.1.2.</col>
-      </row>
-		</table>
-  </concept>
-
-  <concept>
     <names>netstat</names>
     <tags>mostrar, informacion, red, conexiones, interfaces</tags>
-    <def>Comando que sirve para mostrar las conexiones de red, las tablas de enrutamiento, estado de las interfaces de red, etc.</def>
-    <table fields='acción,resultado'>
+    <def>Comando de Windows que sirve para mostrar las conexiones de red, las tablas de enrutamiento, estado de las interfaces de red, etc.</def>
+    <def>Comando de GNU/Linux (obsoleto) que sirve para mostrar las conexiones de red, las tablas de enrutamiento, estado de las interfaces de red, etc.</def>
+    <table fields='comando,descripción'>
       <row>
         <col>netstat -ie</col>
         <col>Muestra información de las interfaces de red de nuestro sistema. Similar al comando ifconfig.</col>
@@ -66,82 +30,26 @@
   </concept>
 
   <concept>
-    <names>wget</names>
-    <tags>descargar, ficheros, red, no, interactivo</tags>
-    <def>Comando para descargar ficheros a través de la red de forma no interactiva.</def>
-  </concept>
-
-  <concept>
-    <names>TCP</names>
-    <tags>protocolo, control, transmisión, transmission, protocol</tags>
-  </concept>
-
-  <concept>
-    <names>ssh</names>
-    <tags>acceder, entrar, maquina, remota, red, comunicacion, segura, encriptada</tags>
-    <def>Es un programa para acceder y ejecutar comandos en una máquina remota.</def>
-    <def>Proporciona comunicación encriptada segura entre dos máquinas, sobre una red insegura</def>
-    <table fields='acción,resultado'>
-      <row>
-        <col>ssh USERNAME@HOSTIP</col>
-        <col>Nos conectamos vía ssh a la máquina HOSTIP con el usuario USERNAME.</col>
-      </row>
-      <row>
-        <col>ssh HOSTIP</col>
-        <col>Nos conectamos vía ssh a la máquina HOSTIP usando nuestro usuario local.</col>
-      </row>
-      <row>
-        <col>ssh USERNAME@HOSTIP COMMAND</col>
-        <col>Ejecuta el comando COMMAND en la máquina remota HOSTIP.</col>
-      </row>
-      <row>
-        <col>ssh USERNAME@HOSTIP COMMAND > 'informe.txt'</col>
-        <col>Ejecuta el comando COMMAND en la máquina remota HOSTIP, y guarda la salida en el fichero informe.txt.</col>
-      </row>
-      <row>
-        <col>zypper install openssh</col>
-        <col>Instala el cliente y el servidor SSH en una máquina GNU/Linux OpenSUSE.</col>
-      </row>
-      <row>
-        <col>apt-get install openssh-server</col>
-        <col>Instala el servidor SSH en una máquina GNU/Linux Debian.</col>
-      </row>
-      <row>
-        <col>apt-get install openssh-client</col>
-        <col>Instala el cliente SSH en una máquina GNU/Linux Debian.</col>
-      </row>
-    </table>
-  </concept>
-
-  <concept>
-    <names>scp</names>
-    <tags>copiar, ficheros, maquina, red, segura</tags>
-    <def>Comando para copiar ficheros entre hosts de la red. Usa el protocolo SSH para transferir datos de forma segura y autenticada.</def>
-    <table fields='acción,resultado'>
-      <row>
-        <col>scp USERNAME@HOSTIP:document.txt .</col>
-        <col>Copia el documento remoto /home/USERNAME/document.txt, en el directorio local actual.</col>
-      </row>
-      <row>
-        <col>scp document.txt USERNAME@HOSTIP:.</col>
-        <col>Copia el documento local document.txt, en el directorio HOME del usuario remoto USERNAME.</col>
-      </row>
-    </table>
-  </concept>
-
-  <concept>
     <names>locate</names>
     <tags>buscar, ficheros, base, datos, maquina, local</tags>
     <def>Comando que ejecuta una búsqueda rápida en la base de datos de nombres y muestra salida en pantalla con las coincidencias encontradas.</def>
-    <table fields='acción,resultado'>
+    <table fields='comando,descripción'>
       <row>
         <col>locate bin/zip</col>
         <col>Localiza todos los ficheros/carpetas que contengan en su nombre la cadena bin/zip.</col>
       </row>
-      <row>
-        <col>locate zip |grep bin</col>
-        <col>Localiza todos los ficheros/carpetas que contengan en su nombre la cadena zip, y filtra los que además incluyen la cadena bin.</col>
-      </row>
+      <template FILTRO="bin,exe,png,txt">
+        <row>
+          <col>locate zip |grep FILTRO</col>
+          <col>Localiza todos los ficheros/carpetas que contengan en su nombre la cadena zip, y filtra los que además incluyen la cadena FILTRO.</col>
+        </row>
+      </template>
+      <template FILENAME="txt,png.html">
+        <row>
+          <col>locate FILENAME |grep bin</col>
+          <col>Localiza todos los ficheros/carpetas que contengan en su nombre la cadena FILENAME, y filtra los que además incluyen la cadena bin.</col>
+        </row>
+      </template>
     </table>
   </concept>
 
@@ -149,23 +57,25 @@
     <names>find</names>
     <tags>buscar, ficheros, maquina, local</tags>
     <def>Comando que hace una búsqueda en el sistema de ficheros de la máquina local, y muestra las coincidencias encontradas en pantalla.</def>
-    <table fields='acción,resultado'>
-      <row>
-        <col>find / -name ruby</col>
-        <col>Busca en todo el sistema de ficheros archivos/carpetas con el nombre ruby.</col>
-      </row>
-			<row>
-        <col>find / -name ruby -type d</col>
-        <col>Busca en todo el sistema de ficheros directorios con el nombre ruby.</col>
-      </row>
-      <row>
-        <col>find . -name *.zip</col>
-        <col>Busca en la ruta actual, archivos/carpetas con el nombre acabado en ".zip".</col>
-      </row>
-			<row>
-        <col>find /var/www -name *.html</col>
-        <col>Busca en /var/www, archivos/carpetas con el nombre acabado en ".html".</col>
-      </row>
+    <table fields='comando,descripción'>
+      <template FILENAME="txt,html,png">
+        <row>
+          <col>find / -name FILENAME</col>
+          <col>Busca en todo el sistema, archivos/carpetas con el nombre FILENAME.</col>
+        </row>
+        <row>
+          <col>find / -name FILENAME -type d</col>
+          <col>Busca en todo el sistema, sólo los directorios con el nombre FILENAME.</col>
+        </row>
+        <row>
+          <col>find . -name *.FILENAME</col>
+          <col>Busca en la ruta actual, archivos/carpetas con el nombre acabado en ".FILENAME".</col>
+        </row>
+			  <row>
+          <col>find /var/www -name *.FILENAME</col>
+          <col>Busca en /var/www, archivos/carpetas con el nombre acabado en ".FILENAME".</col>
+        </row>
+      </template>
     </table>
   </concept>
 

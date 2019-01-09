@@ -78,4 +78,57 @@
     <tags>protocolo, control, transmisión, transmission, protocol</tags>
   </concept>
 
+  <concept>
+    <names>ssh</names>
+    <tags>acceder, entrar, maquina, remota, red, comunicacion, segura, encriptada</tags>
+    <def>Es un programa para acceder y ejecutar comandos en una máquina remota.</def>
+    <def>Proporciona comunicación encriptada segura entre dos máquinas, sobre una red insegura</def>
+    <table fields='comando,descripción'>
+      <row>
+        <col>ssh USERNAME@HOSTIP</col>
+        <col>Nos conectamos vía ssh a la máquina HOSTIP con el usuario USERNAME.</col>
+      </row>
+      <row>
+        <col>ssh HOSTIP</col>
+        <col>Nos conectamos vía ssh a la máquina HOSTIP usando nuestro usuario local.</col>
+      </row>
+      <row>
+        <col>ssh USERNAME@HOSTIP COMMAND</col>
+        <col>Ejecuta el comando COMMAND en la máquina remota HOSTIP.</col>
+      </row>
+      <row>
+        <col>ssh USERNAME@HOSTIP COMMAND > 'informe.txt'</col>
+        <col>Ejecuta el comando COMMAND en la máquina remota HOSTIP, y guarda la salida en el fichero informe.txt.</col>
+      </row>
+      <row>
+        <col>zypper install openssh</col>
+        <col>Instala el cliente y el servidor SSH en una máquina GNU/Linux OpenSUSE.</col>
+      </row>
+      <row>
+        <col>apt-get install openssh-server</col>
+        <col>Instala el servidor SSH en una máquina GNU/Linux Debian.</col>
+      </row>
+      <row>
+        <col>apt-get install openssh-client</col>
+        <col>Instala el cliente SSH en una máquina GNU/Linux Debian.</col>
+      </row>
+    </table>
+  </concept>
+
+  <concept>
+    <names>scp</names>
+    <tags>copiar, ficheros, maquina, red, segura</tags>
+    <def>Comando para copiar ficheros entre hosts de la red. Usa el protocolo SSH para transferir datos de forma segura y autenticada.</def>
+    <table fields='comando,descripción'>
+      <row>
+        <col>scp USERNAME@HOSTIP:document.txt .</col>
+        <col>Copia el documento remoto /home/USERNAME/document.txt, en el directorio local actual.</col>
+      </row>
+      <row>
+        <col>scp document.txt USERNAME@HOSTIP:.</col>
+        <col>Copia el documento local document.txt, en el directorio HOME del usuario remoto USERNAME.</col>
+      </row>
+    </table>
+  </concept>
+
 </map>
