@@ -54,7 +54,7 @@
   <concept>
     <names>ip</names>
     <tags>comando, red, configuracion, ruta, equipo, host</tags>
-    <def>Manipula la indormación de enrutamientos, dispositivos de red, interfaces y túneles.</def>
+    <def>Manipula la información de enrutamiento, dispositivos de red, interfaces y túneles en GNU/Linux.</def>
 		<table fields='comando,descripción'>
       <row>
         <col>ip address</col>
