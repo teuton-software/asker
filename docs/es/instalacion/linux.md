@@ -1,6 +1,18 @@
 
 # Instalación en GNU/Linux
 
+Resumen del proceso de Instalación
+
+| ID | Paso                  |
+| -- | --------------------- |
+|  1 | Instalar git          |
+|  2 | Instalar ruby         |
+|  3 | sudo gem install rake |
+|  4 | git clone https://github.com/dvarrui/asker.git |
+|  5 | cd asker              |
+|  6 | sudo rake gems        |
+|  7 | rake check            |
+
 ## Software requerido
 
 Software requerido:
@@ -21,7 +33,7 @@ Vamos a descargar el proyecto `darts-of-teacher` desde los repositorios de GitHu
 ```
 $ git --version
 git version 2.1.4
-$ git clone https://github.com/dvarrui/darts-of-teacher.git
+$ git clone https://github.com/dvarrui/asker.git
 ```
 
 ## Instalación de las librerías
