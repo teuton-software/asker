@@ -26,12 +26,12 @@ $ git clone https://github.com/dvarrui/darts-of-teacher.git
 
 ## Instalación de las librerías
 
-* `$ cd darts-of-teacher`, para situarnos en el directorio del proyecto.
+* `$ cd asker`, para situarnos en el directorio del proyecto.
 * `$ sudo rake gems`, para instalar las librerías (gemas) que nos hacen falta.
 
 ## Comprobaciones finales
 
 * `$ rake check`, para comprobar que está todo correctamente instalado.
-* `$ ./darts -v`, nos muestra la versión del proyecto.
+* `$ ./asker version`, nos muestra la versión del proyecto.
 
-¡Ya estamos listos para empezar a usar *darts*!
+¡Ya estamos listos para empezar a usar *asker*!

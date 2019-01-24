@@ -7,7 +7,7 @@ require_relative 'lib/project'
 
 # Define tasks
 
-desc 'Default'
+desc 'Default: check'
 task default: :check do
 end
 
