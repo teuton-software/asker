@@ -15,7 +15,7 @@ Los pasos son:
 # Documentación
 
 * [Historia](./historia.md)
-* [Instalación](./instalacion/README.md)
+* [Instalación](./instalar/README.md)
 * Mi primera [Demo](./demo/README.md)
 * Aprender con [ejemplos](./ejemplos/README.md)
 * [Directorios de proyecto](./directorios.md)

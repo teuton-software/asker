@@ -13,37 +13,41 @@ Resumen del proceso de Instalación
 |  6 | sudo rake gems        |
 |  7 | rake check            |
 
-## Software requerido
+---
+
+# Software requerido
 
 Software requerido:
+* git (versión >=2.1.4)
 * ruby (version >= 2.1.3)
 * rake (version >= 10.4.2)
 
 Para comprobar las versiones
 ```
+$ git --version
+git version 2.1.4
 $ ruby -v
 ruby 2.1.3p242 (2014-09-19 revision 47630) [x86_64-linux-gnu]
 $ rake --version
 rake, version 10.4.2
 ```
 
-## Descarga del proyecto
+---
 
-Vamos a descargar el proyecto `darts-of-teacher` desde los repositorios de GitHub.
+# Descarga del proyecto
+
+Vamos a descargar el proyecto desde los repositorios de GitHub.
 ```
-$ git --version
-git version 2.1.4
 $ git clone https://github.com/dvarrui/asker.git
 ```
 
-## Instalación de las librerías
+# Instalación de las librerías (gemas)
 
 * `$ cd asker`, para situarnos en el directorio del proyecto.
 * `$ sudo rake gems`, para instalar las librerías (gemas) que nos hacen falta.
 
-## Comprobaciones finales
+# Comprobación final
 
-* `$ rake check`, para comprobar que está todo correctamente instalado.
-* `$ ./asker version`, nos muestra la versión del proyecto.
+* `$ rake`, para comprobar que está todo correctamente instalado.
 
 ¡Ya estamos listos para empezar a usar *asker*!
