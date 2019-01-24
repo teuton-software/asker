@@ -1,6 +1,18 @@
 
 # Instalación en Windows
 
+Resumen del proceso de Instalación
+
+| ID | Paso                  |
+| -- | --------------------- |
+|  1 | Instalar git          |
+|  2 | Instalar ruby         |
+|  3 | sudo gem install rake |
+|  4 | git clone https://github.com/dvarrui/asker.git |
+|  5 | cd asker              |
+|  6 | sudo rake gems        |
+|  7 | rake check            |
+
 ## Instalar ruby y rake
 
 * Ir a https://rubinstaler.org/downloads
@@ -32,7 +44,7 @@
 ## Descargar el proyecto
 
 * Abrir una consola.
-* `git clone https://github.com/dvarrui/darts-of-teacher.git`
+* `git clone https://github.com/dvarrui/asker.git`
 
 ## Instalar DevKit
 
@@ -49,13 +61,12 @@ construcción de las gemas ruby. Algunas gemas lo requieren (rainbow) y otras no
 
 ## Instalar las librerías
 
-* `cd darts-of-teacher`, para situarnos en el directorio del proyecto.
+* `cd asker`, para situarnos en el directorio del proyecto.
 * `rake gems`, para instalar las librerías (gemas) que nos hacen falta.
 
 ## Comprobaciones finales
 
+* `copy asker asker.rb`.
 * `rake check`, para comprobar que está todo correctamente instalado.
-* `copy darts darts.rb`.
-* `darts -v`, nos muestra la versión del proyecto.
 
-¡Ya estamos listos para empezar a usar *darts*!
+¡Ya estamos listos para empezar a usar *asker*!

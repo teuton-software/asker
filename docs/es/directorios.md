@@ -5,7 +5,7 @@
 
 ```
 .
-├── darts
+├── asker
 ├── docs
 │   ├── en
 │   ├── es
@@ -28,7 +28,7 @@
 
 * *README.md*: Es el documento en Inglés, principal del proyecto.
 El correspondiente en español es `docs/es/README.md`.
-* *darts*: Este es el script/comando que usamos para dar la orden de
+* *asker*: Este es el script/comando que usamos para dar la orden de
 construir/generar las preguntas. Le pasamos como argumento el fichero con el
 mapa conceptual que queremos procesar.
 * *lib*: Contiene las clases y módulos Ruby de la aplicación.

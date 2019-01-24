@@ -1,16 +1,14 @@
 
-# Inputs o mapas conceptuales
+# Inputs o las definiciones de conceptos
 
-En el directorio *input* podemos ir guardando los ficheros de entrada con
-nuestros propios mapas conceptuales. Podemos usar subdirectorios para tenerlo
-todo más organizado.
+En el directorio *asker* podemos ir guardando los ficheros de entrada con
+nuestros propios mapas conceptuales. Podemos usar subdirectorios para tenerlo todo más organizado.
 
 A modo de ejemplo podemos consultar el ficheros `input/es/demo/jedi.haml`,
 que contiene varios conceptos de personajes de Starwars, definidos
 dentro de un fichero con formato HAML.
 
-> El formato HAML es XML pero escrito de forma que no hacen falta las etiquetas
-de cierre.
+> El formato HAML es XML pero escrito de forma que no hacen falta las etiquetas de cierre.
 
 Echemos un vistazo a este ejemplo:
 
@@ -58,9 +56,7 @@ Echemos un vistazo a este ejemplo:
         %col 65 centímetros
 ```
 
-Podemos ver que tenemos definidos 2 conceptos sobre personajes Jedi. Estos son
-"obiwan" y "yoda". Se usan unos tags (etiquetas) especiales para definir los
-conceptos. Esto se explicará más adelante.
+Podemos ver que tenemos definidos 2 conceptos sobre personajes Jedi. Estos son "obiwan" y "yoda". Se usan unos tags (etiquetas) especiales para definir los conceptos. Esto se explicará más adelante.
 
 
 At now we have a this list of tags to define our own sintax for build conceptual maps:
@@ -68,7 +64,7 @@ At now we have a this list of tags to define our own sintax for build conceptual
 * **context**: List of comma separated words, that identify the context where this concept "lives" or "exists".
 * **tags**: List of comma separated words, that briefly describe the concept. I mean, a short list of words
 that came in mind when we think in it, and are useful for their identification.
-* **text**: We use this tags as many times we need. In it, we write using natural language descriptions
+* **def**: We use this tags as many times we need. In it, we write using natural language descriptions
 asssociated to the concept. Descriptions that are uniques for this concept, but don't write the name of
 the concept into the text.
 * **table**: Other way to build more sofisticated definitions/schemas is using "tables". It's similar
