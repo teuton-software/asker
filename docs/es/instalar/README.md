@@ -6,8 +6,8 @@ operativo.
 
 * [Instalación en Debian](debian.md)
 * [Instalación en OpenSUSE](opensuse.md)
-* [Instalación en GNU/Linux](linux.md)
 * [Instalación en Windows](windows.md)
+* [Instalación manual](manual.md)
 
 Pero en rasgos generales los pasos son los siguientes:
 

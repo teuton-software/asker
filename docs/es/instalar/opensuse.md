@@ -1,7 +1,9 @@
 
 # Instalación en OpenSUSE
 
-* `curl https://raw.githubusercontent.com/dvarrui/asker/master/bin/asker_opensuse_installer.sh | sh`, para descargar y ejecutar el instalador.
+Para descargar y ejecutar el instalador, hacemos lo siguiente:
+
+`curl https://raw.githubusercontent.com/dvarrui/asker/master/bin/asker_opensuse_installer.sh | sh`
 
 > **Recuerda**
 >
