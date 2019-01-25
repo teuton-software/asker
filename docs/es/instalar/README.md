@@ -2,7 +2,14 @@
 # Instalación
 
 Los detalle del proceso de instalación son distintos dependiendo del sistema
-operativo. Pero en rasgos generales los pasos son:
+operativo.
+
+* [Instalación en Debian](debian.md)
+* [Instalación en OpenSUSE](opensuse.md)
+* [Instalación en GNU/Linux](linux.md)
+* [Instalación en Windows](windows.md)
+
+Pero en rasgos generales los pasos son los siguientes:
 
 | ID | Paso                  | extra                |
 | -- | --------------------- | -------------------- |
@@ -13,9 +20,3 @@ operativo. Pero en rasgos generales los pasos son:
 |  5 | cd asker              | |
 |  6 | Instalar las gemas    | rake gems |
 |  7 | Comprobación          | rake check |
-
-Para información más detallada consultar:
-* [Instalación en Debian](debian.md)
-* [Instalación en OpenSUSE](opensuse.md)
-* [Instalación en GNU/Linux](linux.md)
-* [Instalación en Windows](windows.md)

@@ -27,17 +27,15 @@ Features:
 
 To execute ASKER, we use `asker` command, with a path to map file (HAML/XML) as argument.
 
-For example:
+For example, run jedi example:
 
 ```
-./asker input/en/starwars/jedi.haml # to run jedi example
+./asker input/en/starwars/jedi.haml
 ```
 
-Then, program saves your output files into the `output` directory.
-
-In this example, we use a demo input definition file (`input/en/starwars/jedi.haml`), that contains our concept definitions about Jedi's context.
-
-There are more input HAML/XML files into `input/en` and `input/es` directories.
+* The program saves your output files into the `output` directory.
+* In this example, we use a demo input definition file (`input/en/starwars/jedi.haml`), that contains our concept definitions about Jedi's context.
+* There are more input HAML/XML files into `input/en` and `input/es` directories.
 
 ---
 

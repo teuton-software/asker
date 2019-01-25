@@ -5,7 +5,7 @@ echo "[INFO] ASKER Debian installation"
 echo "[INFO] Installing PACKAGES..."
 apt update
 apt install -y git
-apt install -y ruby irb
+apt install -y ruby
 gem install rake
 
 echo "[INFO] Cloning git REPO..."
