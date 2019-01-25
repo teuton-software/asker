@@ -1,13 +1,13 @@
 # ASKER (Darts of teacher)
 
-This program use some AI, to construct a lot of questions from conceptual map input file.
+This program use some AI, to construct a lot of questions from HAML input (concept definitions file).
 
 ---
 
 # Description
 
 This application is a Free Source multiplatform program, that helps teachers
-to create a huge amount of questions, from a conceptual map (simple definitions input file).
+to create a huge amount of questions, from a HAML input (concept definitions input file).
 
 Steps:
 
@@ -21,21 +21,21 @@ Features:
 * Multiplatform.
 * Free Software [LICENSE](LICENSE).
 
---
+---
 
 # Usage
 
-To execute ASKER, we use `asker` command (`darts` is DEPRECATED), with a path to map file (HAML/XML) as argument.
+To execute ASKER, we use `asker` command, with a path to map file (HAML/XML) as argument.
+
 For example:
 
-* `./asker input/en/starwars/jedi.haml` to run this example, or
-* `./asker file input/en/starwars/jedi.haml` do the same or
-* `ruby asker file input/en/starwars/jedi.haml`, to run on Windows.
+```
+./asker input/en/starwars/jedi.haml # to run jedi example
+```
 
 Then, program saves your output files into the `output` directory.
 
-In this example, we use a demo input definition file (`input/en/starwars/jedi.haml`),
-that contains our conceptual map (definitions) about Jedi's theme map.
+In this example, we use a demo input definition file (`input/en/starwars/jedi.haml`), that contains our concept definitions about Jedi's context.
 
 There are more input HAML/XML files into `input/en` and `input/es` directories.
 
