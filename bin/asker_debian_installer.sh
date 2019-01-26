@@ -1,20 +1,23 @@
 #!/bin/bash
-# version: 20190124
+# version: 20190126
 
 echo "[INFO] ASKER Debian installation"
-echo "[INFO] Installing PACKAGES..."
+[ $(whoami) != root ] && echo "[ERROR] Please, run as root" && exit 1
+
+echo "[INFO] Installing OS PACKAGES..."
 apt update
 apt install -y git
 apt install -y ruby
-gem install rake
 
 echo "[INFO] Cloning git REPO..."
 git clone https://github.com/dvarrui/asker.git
 
-echo "[INFO] Checking..."
+echo "[INFO] Installing Ruby gems..."
+gem install rake
 cd asker
-rake gems
+rake gnulinux
+echo "[INFO] Checking..."
 rake
 
 echo "[INFO] Finish!"
-./asker version
+ruby asker version

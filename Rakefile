@@ -6,14 +6,23 @@ require_relative 'lib/application'
 require_relative 'lib/project'
 
 # Define tasks
+desc 'Default action => check'
+task :default => :check do
+end
 
-desc 'Default: check'
-task default: :check do
+desc 'Show Asker Rake help'
+task :help do
+  system("rake -T")
 end
 
 list = ['haml', 'sinatra', 'rainbow', 'terminal-table', 'thor']
 list << %w(base64_compatible coderay minitest pry pry-byebug inifile)
 list.flatten!
+
+desc 'Configure GNU/Linux (as root)'
+task :gnulinux => :gems do
+  create_symbolic_link
+end
 
 desc 'Install gems'
 task :gems do
@@ -49,19 +58,22 @@ task :check do
   system("ruby asker version")
 end
 
-desc 'Update this project'
+desc 'Update Asker'
 task :update do
+  puts "[INFO] Updating Asker..."
   system('git pull')
   install_gems list
 end
 
-desc 'Clean output dir'
+desc 'Clean output directory'
 task :clean do
+  puts "[INFO] Cleaing output directory..."
   dir = Project.instance.get(:outputdir)
   FileUtils.rm_rf(Dir.glob(File.join('.', dir, '*')))
 end
 
 def install_gems(list)
+  puts "[INFO] Installing Ruby gems..."
   system('gem install sinatra -v 1.4.6')
   fails = filter_uninstalled_gems(list)
   fails.each { |name| system("gem install #{name}") }
@@ -73,4 +85,10 @@ def filter_uninstalled_gems(list)
   fails = []
   list.each { |i| fails << i unless names.include?(i) }
   fails
+end
+
+def create_symbolic_link
+  puts "[INFO] Creating symbolic link into /usr/local/bin"
+  basedir = File.dirname(__FILE__)
+  system("ln -s #{basedir}/asker /usr/local/bin/asker")
 end
