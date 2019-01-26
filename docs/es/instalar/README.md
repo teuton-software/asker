@@ -2,21 +2,37 @@
 # Instalación
 
 Los detalle del proceso de instalación son distintos dependiendo del sistema
-operativo.
+operativo:
+* OpenSUSE
+* Debian
+* [Windows](./windows.md)
+* [Manualmente](./manual.md)
 
-* [Instalación en Debian](debian.md)
-* [Instalación en OpenSUSE](opensuse.md)
-* [Instalación en Windows](windows.md)
-* [Instalación manual](manual.md)
+---
 
-Pero en rasgos generales los pasos son los siguientes:
+# OpenSUSE: Proceso de Instalación
 
-| ID | Paso                  | extra                |
-| -- | --------------------- | -------------------- |
-|  1 | Instalar git          | Versión >=2.1.4      |
-|  2 | Instalar ruby         | Versión >=2.1.3      |
-|  3 | Instalar rake         | Versión >=10.4.2     |
-|  4 | Descargar repositorio | github/dvarrui/asker |
-|  5 | cd asker              | |
-|  6 | Instalar las gemas    | rake gems |
-|  7 | Comprobación          | rake check |
+* Iniciar sesión como usuario `root`.
+* `curl https://raw.githubusercontent.com/dvarrui/asker/master/bin/asker_opensuse_installer.sh | sh`, para descargar y ejecutar el instalador.
+
+> **Recuerda**
+>
+> Para ejecutar una prueba de ASKER (Por ejemplo con el fichero input/es/demo/jedi.haml, hacemos lo siguiente:
+> * `asker input/es/demo/jedi.haml`
+>
+> Los resultados guardan en el directorio local `output`.
+
+---
+
+# Debian: Proceso de Instalación
+
+* Iniciar sesión como usuario `root`.
+* `apt install curl`, instalar _curl_.
+* `curl https://raw.githubusercontent.com/dvarrui/asker/master/bin/asker_debian_installer.sh | sh`, para descargar y ejecutar el instalador.
+
+> **Recuerda**
+>
+> Para ejecutar una prueba de ASKER (Por ejemplo con el fichero input/es/demo/sith.haml, hacemos lo siguiente:
+> * `asker input/es/demo/sith.haml`
+>
+> Los resultados guardan en el directorio local `output`.

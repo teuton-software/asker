@@ -1,23 +1,23 @@
 # ASKER (Darts of teacher)
 
-This program use some AI, to construct a lot of questions from HAML input (concept definitions file).
+This program use some _"kind of AI"_, to generate a lot of questions from
+_input file with conceptual entities_.
 
 ---
 
 # Description
 
-This application is a Free Source multiplatform program, that helps teachers
-to create a huge amount of questions, from a HAML input (concept definitions input file).
+This is a _Free Software multiplatform program_, that helps trainers
+to create a huge amount of questions, from a _conceptual entities input file_ (HAML or XML file).
 
 Steps:
 
-1. Create an input file (HAML/XML) with your conceptual map (definitions).
-1. Run this tool with input file
-1. Now we have created an output file with the questions.
+1. Create an input file (Usign HAML or XML format) with your _conceptual entities_ and relations.
+1. Run _asker_ and get the results. Now we have an output file with the questions.
 
 Features:
-* Read HAML/XML input files.
-* Export format GIFT questions.
+* Read HAML/XML input files (It may be other input formats).
+* Export format GIFT questions (It may be other output format).
 * Multiplatform.
 * Free Software [LICENSE](LICENSE).
 
@@ -25,17 +25,17 @@ Features:
 
 # Usage
 
-To execute ASKER, we use `asker` command, with a path to map file (HAML/XML) as argument.
+To execute ASKER, we use `asker` command, with a path to a input file (HAML/XML) as argument.
 
-For example, run jedi example:
+For example, to run "jedi" example:
 
 ```
-./asker input/en/starwars/jedi.haml
+asker input/en/starwars/jedi.haml
 ```
 
-* The program saves your output files into the `output` directory.
-* In this example, we use a demo input definition file (`input/en/starwars/jedi.haml`), that contains our concept definitions about Jedi's context.
-* There are more input HAML/XML files into `input/en` and `input/es` directories.
+* The program saves your output files into the `output` directory by default.
+* In this example, we use a demo input definition file called `input/en/starwars/jedi.haml`, that contains our conceptual entities about _"Jedi's context"_.
+* There are more input HAML/XML files into `input/en` and `input/es` directories. Asker generates output on diferents languages, so it's good idea separate them (Now works with English, Spanish and soon with French and German)
 
 ---
 
@@ -46,18 +46,8 @@ For example, run jedi example:
 * [Installation](./docs/en/installation.md)
 * [Directories description](./docs/en/dirtree.md)
 * [Input definitions](./docs/en/inputs.md)
-* [Spanish documentation](./docs/es/README.md)
-
----
-
-# Contributions
-
-* Talk about this tool with your colleagues.
-* Use this tool.
-* Report bugs.
-* Report us, your ideas for new features.
-* Share with us, your own contents files (HAML/XML). Let's see input directory.
-* If you like `ruby`, you also could help us with the [TO-DO list](./docs/TODO.md) or work with our issues.
+* [Contribute](./docs/en/contribute.md)
+* ES - [Spanish documentation](./docs/es/README.md)
 
 ---
 

@@ -1,17 +1,17 @@
 
 # Instalación en GNU/Linux
 
-Resumen del proceso de Instalación
+En rasgos generales los pasos son los siguientes:
 
-| ID | Paso                  |
-| -- | --------------------- |
-|  1 | Instalar git          |
-|  2 | Instalar ruby         |
-|  3 | sudo gem install rake |
-|  4 | git clone https://github.com/dvarrui/asker.git |
-|  5 | cd asker              |
-|  6 | sudo rake gems        |
-|  7 | rake check            |
+| ID | Paso                  | extra                |
+| -- | --------------------- | -------------------- |
+|  1 | Instalar git          | Versión >=2.1.4      |
+|  2 | Instalar ruby         | Versión >=2.1.3      |
+|  3 | Instalar rake         | Versión >=10.4.2     |
+|  4 | Descargar repositorio | github/dvarrui/asker |
+|  5 | cd asker              | |
+|  6 | Instalar las gemas    | rake gems |
+|  7 | Comprobación          | rake |
 
 ---
 
