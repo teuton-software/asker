@@ -15,10 +15,9 @@ task :help do
   system("rake -T")
 end
 
-list = ['haml', 'sinatra', 'rainbow', 'terminal-table', 'thor']
-list << %w(base64_compatible coderay minitest inifile)
-#list << %w(base64_compatible coderay minitest pry pry-byebug inifile)
-list.flatten!
+packages = ['haml', 'sinatra', 'rainbow', 'terminal-table', 'thor']
+packages += ['base64_compatible', 'coderay', 'minitest', 'inifile']
+# pry pry-byebug
 
 desc 'OpenSUSE installation'
 task :opensuse => :gems do
@@ -37,7 +36,7 @@ end
 
 desc 'Install gems'
 task :gems do
-  install_gems list
+  install_gems packages
 end
 
 desc 'Check installation'
@@ -73,7 +72,7 @@ desc 'Update Asker'
 task :update do
   puts "[INFO] Updating Asker..."
   system('git pull')
-  install_gems list
+  install_gems packages
 end
 
 desc 'Clean output directory'
