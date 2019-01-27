@@ -22,9 +22,9 @@ packages += ['pry', 'pry-byebug', 'sinatra' ]
 desc 'OpenSUSE installation'
 task :opensuse => :gems do
   install_gems packages
-  chown_asker_files
   create_symbolic_link
-  show_info_about_input
+  chown_asker_files
+#  show_info_about_input
 end
 
 desc 'Debian installation'
@@ -33,9 +33,9 @@ task :debian do
   names.each { |name| system("apt install -y #{name}") }
 
   install_gems packages
-  chown_asker_files
   create_symbolic_link
-  show_info_about_input
+  chown_asker_files
+#  show_info_about_input
 end
 
 desc 'Install gems'
@@ -103,6 +103,12 @@ end
 def chown_asker_files
   user = `who`.split(' ')[0]
   system("chown -R #{user} ../asker")
+
+  puts "[INFO] Downloading ASKER-INPUTS repo..."
+  system("cd /home/#{user}")
+  system("git clone https://github.com/dvarrui/asker-inputs.git")
+  system("chown -R #{user} /home/#{user}/asker-inputs")
+  puts "[INFO] Examples into /home/#{user}/asker-inputs"
 end
 
 def create_symbolic_link
@@ -110,6 +116,7 @@ def create_symbolic_link
   basedir = File.dirname(__FILE__)
   system("ln -s #{basedir}/asker /usr/local/bin/asker")
 end
+
 
 def show_info_about_input
   puts "[INFO] You can download examples of input files"
