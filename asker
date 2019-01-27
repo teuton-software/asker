@@ -1,10 +1,10 @@
 #!/usr/bin/ruby
 # encoding: utf-8
 
-require 'thor'
-
-require 'rainbow'
+require 'fileutils'
 require 'pry'
+require 'rainbow'
+require 'thor'
 require_relative 'lib/tool'
 require_relative 'lib/application'
 require_relative 'lib/builder/builder'
@@ -19,6 +19,14 @@ class DartsCLI < Thor
   def version
     print Rainbow(Application.name).bright.blue
     puts  ' (version ' + Rainbow(Application.version).green + ')'
+  end
+
+  map ['d', '-d', '--delete'] => 'delete'
+  desc 'delete', 'Delete files from output directory'
+  def delete
+    puts "[INFO] Cleaing output directory..."
+    dir = Project.instance.get(:outputdir)
+    FileUtils.rm_rf(Dir.glob(File.join('.', dir, '*')))
   end
 
   map ['e', '-e', '--editor'] => 'editor'
