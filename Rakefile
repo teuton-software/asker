@@ -15,9 +15,10 @@ task :help do
   system("rake -T")
 end
 
-packages = ['haml', 'sinatra', 'rainbow', 'terminal-table', 'thor']
+packages = ['haml', 'rainbow', 'terminal-table', 'thor']
 packages += ['base64_compatible', 'coderay', 'minitest', 'inifile']
 packages += ['pry', 'pry-byebug']
+#packages = [ 'sinatra', 'rainbow', 'terminal-table', 'thor']
 
 desc 'OpenSUSE installation'
 task :opensuse => :gems do
@@ -84,7 +85,7 @@ end
 
 def install_gems(list)
   puts "[INFO] Installing Ruby gems..."
-  system('gem install sinatra -v 1.4.6')
+#  system('gem install sinatra -v 1.4.6')
   fails = filter_uninstalled_gems(list)
   fails.each { |name| system("gem install #{name}") }
 end
