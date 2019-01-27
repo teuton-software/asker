@@ -19,8 +19,18 @@ list = ['haml', 'sinatra', 'rainbow', 'terminal-table', 'thor']
 list << %w(base64_compatible coderay minitest pry pry-byebug inifile)
 list.flatten!
 
-desc 'Configure GNU/Linux (as root)'
-task :gnulinux => :gems do
+desc 'OpenSUSE installation'
+task :opensuse => :gems do
+  install_gems packages
+  create_symbolic_link
+end
+
+desc 'Debian installation'
+task :debian do
+  names = ['make', 'gcc', 'ruby-dev']
+  names.each { |name| system("apt -y #{name}") }
+
+  install_gems packages
   create_symbolic_link
 end
 

@@ -1,14 +1,13 @@
 
 # ASKER
 
-**asker** es un programa informático de licencia Open Source,
+**asker** es un programa con licencia Free Software,
 que ayuda al profesor a crear una gran cantidad de preguntas
-de forma sencilla, a partir de una mapa conceptual.
+de forma sencilla, a partir de un fichero con entidades conceptuales.
 
 Los pasos son:
-1. El profesor crea un fichero con el mapa conceptual que quiere trabajar.
-2. Ejecutamos el programa *asker*.
-3. La aplicación lee el fichero de entrada y crea un fichero de salida con las preguntas del tema o unidad didáctica.
+1. El profesor crea un fichero con las _entidades conceptuales_ que quiere trabajar.
+2. Ejecutamos el programa *asker*. La aplicación lee el fichero de entrada y crea un ficheros de salida con las preguntas del tema o unidad didáctica.
 
 ---
 
@@ -21,3 +20,4 @@ Los pasos son:
 * Aprender con [ejemplos](./ejemplos/README.md)
 * [Directorios de proyecto](./directorios.md)
 * [Inputs o mapas conceptuales](./input.md)
+* [Contribuir](./contribute.md)

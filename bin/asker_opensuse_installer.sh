@@ -14,7 +14,7 @@ git clone https://github.com/dvarrui/asker.git
 echo "[INFO] Installing Ruby gems..."
 gem install rake
 cd asker
-rake gnulinux
+rake opensuse
 echo "[INFO] Checking..."
 rake
 
