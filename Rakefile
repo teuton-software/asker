@@ -24,6 +24,7 @@ task :opensuse => :gems do
   install_gems packages
   chown_asker_files
   create_symbolic_link
+  show_info_about_input
 end
 
 desc 'Debian installation'
@@ -34,6 +35,7 @@ task :debian do
   install_gems packages
   chown_asker_files
   create_symbolic_link
+  show_info_about_input
 end
 
 desc 'Install gems'
@@ -108,4 +110,10 @@ def create_symbolic_link
   puts "[INFO] Creating symbolic link into /usr/local/bin"
   basedir = File.dirname(__FILE__)
   system("ln -s #{basedir}/asker /usr/local/bin/asker")
+end
+
+def show_info_about_input
+  puts "[INFO] You can download examples of input files"
+  puts "       cd PATH/TO/YOUR/HOME/"
+  puts "       git clone https://github.com/dvarrui/asker-inputs.git"
 end
