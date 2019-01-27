@@ -69,7 +69,6 @@ task :check do
 
   puts "[INFO] Running #{testfile}"
   system(testfile)
-  system("ruby asker version")
 end
 
 desc 'Update Asker'
