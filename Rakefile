@@ -16,7 +16,8 @@ task :help do
 end
 
 list = ['haml', 'sinatra', 'rainbow', 'terminal-table', 'thor']
-list << %w(base64_compatible coderay minitest pry pry-byebug inifile)
+list << %w(base64_compatible coderay minitest inifile)
+#list << %w(base64_compatible coderay minitest pry pry-byebug inifile)
 list.flatten!
 
 desc 'OpenSUSE installation'
