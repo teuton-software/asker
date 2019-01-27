@@ -105,8 +105,7 @@ def chown_asker_files
   system("chown -R #{user} ../asker")
 
   puts "[INFO] Downloading ASKER-INPUTS repo..."
-  system("cd /home/#{user}")
-  system("git clone https://github.com/dvarrui/asker-inputs.git")
+  system("cd /home/#{user} && git clone https://github.com/dvarrui/asker-inputs.git")
   system("chown -R #{user} /home/#{user}/asker-inputs")
   puts "[INFO] Examples into /home/#{user}/asker-inputs"
 end
