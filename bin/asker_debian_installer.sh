@@ -10,6 +10,7 @@ apt install -y git
 apt install -y ruby
 
 echo "[INFO] Cloning git REPO..."
+cd /opt
 git clone https://github.com/dvarrui/asker.git
 
 echo "[INFO] Installing Ruby gems..."
