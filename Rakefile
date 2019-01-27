@@ -28,7 +28,7 @@ end
 desc 'Debian installation'
 task :debian do
   names = ['make', 'gcc', 'ruby-dev']
-  names.each { |name| system("apt -y #{name}") }
+  names.each { |name| system("apt install -y #{name}") }
 
   install_gems packages
   create_symbolic_link
