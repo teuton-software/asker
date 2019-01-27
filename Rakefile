@@ -22,6 +22,7 @@ packages += ['pry', 'pry-byebug', 'sinatra' ]
 desc 'OpenSUSE installation'
 task :opensuse => :gems do
   install_gems packages
+  chown_asker_files
   create_symbolic_link
 end
 
@@ -31,6 +32,7 @@ task :debian do
   names.each { |name| system("apt install -y #{name}") }
 
   install_gems packages
+  chown_asker_files
   create_symbolic_link
 end
 
@@ -95,6 +97,11 @@ def filter_uninstalled_gems(list)
   fails = []
   list.each { |i| fails << i unless names.include?(i) }
   fails
+end
+
+def chown_asker_files
+  user = `who`.split(' ')[0]
+  system("chown -R #{user} ../asker")
 end
 
 def create_symbolic_link

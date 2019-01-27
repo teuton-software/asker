@@ -5,6 +5,6 @@ module Application
   end
 
   def self.version
-    '0.17.3'
+    '0.17.4'
   end
 end
