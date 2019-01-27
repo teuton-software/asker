@@ -17,8 +17,7 @@ end
 
 packages = ['haml', 'rainbow', 'terminal-table', 'thor']
 packages += ['base64_compatible', 'coderay', 'minitest', 'inifile']
-packages += ['pry', 'pry-byebug']
-#packages = [ 'sinatra', 'rainbow', 'terminal-table', 'thor']
+packages += ['pry', 'pry-byebug', 'sinatra' ]
 
 desc 'OpenSUSE installation'
 task :opensuse => :gems do
