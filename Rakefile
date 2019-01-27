@@ -17,7 +17,7 @@ end
 
 packages = ['haml', 'sinatra', 'rainbow', 'terminal-table', 'thor']
 packages += ['base64_compatible', 'coderay', 'minitest', 'inifile']
-# pry pry-byebug
+packages += ['pry', 'pry-byebug']
 
 desc 'OpenSUSE installation'
 task :opensuse => :gems do
@@ -42,7 +42,7 @@ end
 desc 'Check installation'
 task :check do
   puts "[INFO] Version #{Application.version}"
-  fails = filter_uninstalled_gems(list)
+  fails = filter_uninstalled_gems(packages)
 
   if fails.size.zero?
     puts '[ OK ] Gems installed OK!'
