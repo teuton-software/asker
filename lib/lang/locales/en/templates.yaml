@@ -16,7 +16,7 @@
 :i2: '<img src="<%=text1%>" alt\="image" width="400" height="300"><br/>The previous image corresponds to <b><%=text2%></b>.'
 :i3: '<img src="<%=text1%>" alt\="image" width="400" height="300"><br/>Write the best answer <%=text2%>, for the previous image.<br/>'
 :i4: '<img src="<%=text1%>" alt\="image" width="400" height="300"><br/>Definition\:<br/> <i><%=text2%></i><br/><br/>(Put every word in the right text position)'
-:s1: "About <b><%=text1%></b> concept, sort every \"<%=text2%>\", so It\'s true that \"<%=text3%>\".<br/>"
+:s1: "About <b><%=text1%></b> concept, sort every \"<%=text2%>\", so It is true that \"<%=text3%>\".<br/>"
 :t1table: '<b>Concept <%=text1%></b><br/><%=text2%>\: [*]<br/><%=text3%>: "<%=text4%>"<br/>Choose the right answer.<br/>'
 :t2table: '<b>Concept <%=text1%></b><br/><%=text2%>\: [*]<br/><%=text3%>: "<%=text4%>"<br/>Choose the right answer.<br/>'
 :t3table: '<b>Concept <%=text1%></b><br/><%=text2%>\: "<%=text3%>"<br/><%=text4%>\: [*]<br/>Choose the right answer.<br/>'

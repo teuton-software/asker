@@ -1,7 +1,5 @@
 # encoding: utf-8
 
-require 'pry'
-
 module TextActions
 
   def text_for(pOption, pText1="",pText2="",pText3="",pText4="",pText5="",pText6="",pText7="")

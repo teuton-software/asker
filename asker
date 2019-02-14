@@ -2,7 +2,6 @@
 # encoding: utf-8
 
 require 'fileutils'
-require 'pry'
 require 'rainbow'
 require 'thor'
 require_relative 'lib/tool'
