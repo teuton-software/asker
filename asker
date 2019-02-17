@@ -7,6 +7,7 @@ require 'thor'
 require_relative 'lib/tool'
 require_relative 'lib/application'
 #require_relative 'lib/command/create'
+#require_relative 'lib/command/delete'
 require_relative 'lib/command/editor'
 
 # Command Line User Interface
@@ -18,14 +19,6 @@ class Asker < Thor
   def version
     print Rainbow(Application.name).bright.blue
     puts  ' (version ' + Rainbow(Application.version).green + ')'
-  end
-
-  map ['d', '-d', '--delete'] => 'delete'
-  desc 'delete', 'Delete files from output directory'
-  def delete
-    puts "[INFO] Cleaing output directory..."
-    dir = Project.instance.get(:outputdir)
-    FileUtils.rm_rf(Dir.glob(File.join('.', dir, '*')))
   end
 
   map ['f', '-f', '--file'] => 'file'

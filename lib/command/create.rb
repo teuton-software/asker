@@ -18,5 +18,3 @@ LONGDESC
   end
 
 end
-
-Asker.start(ARGV)
