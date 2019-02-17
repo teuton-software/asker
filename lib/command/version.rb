@@ -1,5 +1,5 @@
-#!/usr/bin/ruby
 
+require 'rainbow'
 require_relative '../application'
 
 # Command Line User Interface

@@ -2,12 +2,12 @@
 require "sinatra/base"
 require 'coderay'
 
+require_relative '../project'
 require_relative 'helpers'
 require_relative 'route_concept'
 require_relative 'route_dir'
 require_relative 'route_file'
 require_relative '../loader/file_loader'
-require_relative '../project'
 require_relative '../formatter/concept_haml_formatter'
 
 class SinatraFrontEnd < Sinatra::Base
