@@ -6,11 +6,11 @@ require 'rainbow'
 require 'thor'
 require_relative 'lib/tool'
 require_relative 'lib/application'
-require_relative 'lib/builder/builder'
-require_relative 'lib/sinatra/sinatra_front_end'
+#require_relative 'lib/command/create'
+require_relative 'lib/command/editor'
 
 # Command Line User Interface
-class DartsCLI < Thor
+class Asker < Thor
   map ['h', '-h', '--help'] => 'help'
 
   map ['v', '-v', '--version'] => 'version'
@@ -26,12 +26,6 @@ class DartsCLI < Thor
     puts "[INFO] Cleaing output directory..."
     dir = Project.instance.get(:outputdir)
     FileUtils.rm_rf(Dir.glob(File.join('.', dir, '*')))
-  end
-
-  map ['e', '-e', '--editor'] => 'editor'
-  desc 'editor', 'Run web platform editor'
-  def editor
-    SinatraFrontEnd.run!
   end
 
   map ['f', '-f', '--file'] => 'file'
@@ -54,23 +48,9 @@ LONGDESC
     Tool.new.start(name)
   end
 
-  map ['c', '-c', '--create'] => 'create'
-  desc 'create PROJECTNAME', 'Create files for a new project'
-  long_desc <<-LONGDESC
-  ADVANCED FUNCTION
-
-  Create new FOO project. Example:
-
-  > #{$PROGRAM_NAME} create foo
-
-LONGDESC
-  def create(projectname)
-    Builder.create_project(projectname)
-  end
-
   def method_missing(m, *_args, &_block)
     file(m.to_s)
   end
 end
 
-DartsCLI.start(ARGV)
+Asker.start(ARGV)
