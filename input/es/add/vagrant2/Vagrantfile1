@@ -1,5 +1,0 @@
-# Se usa una caja con SO Ubuntu
-
-Vagrant.configure(2) do |config|
-  config.vm.box = "ubuntu_precise32"
-end
