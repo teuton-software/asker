@@ -1,15 +1,19 @@
 
+require 'pry'
+
 module Sinatra
   module SinatraFrontEnd
     module Helpers
 
-      BASEDIR=Project.instance.inputbasedir
+      BASEDIR = Project.instance.inputbasedir
 
       def route_for(path)
-        items=path.split(File::SEPARATOR)
-        items.delete(".")
-        items.delete(BASEDIR)
-        return items.join(File::SEPARATOR)
+        s = BASEDIR.size + 1
+        return path[s,100]
+#        items = path.split(File::SEPARATOR)
+#        items.delete(".")
+#        items.delete(BASEDIR)
+#        return items.join(File::SEPARATOR)
       end
 
       def remove_basedir(dir)
@@ -21,13 +25,19 @@ module Sinatra
       end
 
       def html_for_current( option={ :indexlast => false} )
-        items=@current.split(File::SEPARATOR)
-        items.delete(".")
-        items.delete("..")
-        items.delete(BASEDIR)
+#        items=@current.split(File::SEPARATOR)
+#        items.delete(".")
+#        items.delete("..")
+#        items.delete(BASEDIR)
+        output = "<a href=\"/dir/list\">Home</a>"
+        relative_path = route_for @current
+        return output if relative_path.nil?
 
-        output="<a href=\"/dir/list\">Home</a>"
-        before=""
+        items = relative_path.split(File::SEPARATOR)
+
+        #binding.pry if option[:indexlast] == true
+
+        before = ""
         items.each do |i|
           if i==items.last and option[:indexlast]==false then
             output += "/"+i
@@ -48,13 +58,13 @@ module Sinatra
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand"   href="/">Darts of teacher</a>
+          <a class="navbar-brand"   href="/">ASKER</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
-            <li><a href="https://github.com/dvarrui/darts-of-teacher">GitHub</a></li>
-            <li><a href="https://github.com/dvarrui/darts-of-teacher/blob/master/README.md">About</a></li>
+            <li><a href="https://github.com/dvarrui/asker">GitHub</a></li>
+            <li><a href="https://github.com/dvarrui/asker/blob/master/README.md">About</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       DIV

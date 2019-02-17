@@ -2,6 +2,7 @@
 
 require 'singleton'
 require 'rainbow'
+require 'fileutils'
 require_relative 'application'
 require_relative 'formatter/string_color_filter'
 
@@ -17,7 +18,7 @@ class Project
 
   def reset
     @default = {}
-    @default[:inputbasedir] = 'input'
+    @default[:inputbasedir] = FileUtils.pwd
     @default[:outputdir] = 'output'
     @default[:category] = :none
     @default[:formula_weights] = [1, 1, 1]

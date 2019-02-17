@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
-require 'pry'
 require 'minitest/autorun'
+require 'fileutils'
 require_relative '../lib/project'
 
 class ProjectTest < Minitest::Test
@@ -11,7 +11,7 @@ class ProjectTest < Minitest::Test
   end
 
   def test_defaults_parms
-    assert_equal 'input'  , @project.inputbasedir
+    assert_equal FileUtils.pwd, @project.inputbasedir
     assert_equal 'output' , @project.outputdir
     assert_equal :none    , @project.category
     assert_equal [1, 1, 1] , @project.formula_weights
@@ -46,8 +46,9 @@ class ProjectTest < Minitest::Test
     assert_equal "output", @project.get(:outputdir)
     assert_equal "output", @project.outputdir
 
-    assert_equal "input", @project.get(:inputbasedir)
-    assert_equal "input", @project.inputbasedir
+
+    assert_equal FileUtils.pwd, @project.get(:inputbasedir)
+    assert_equal FileUtils.pwd, @project.inputbasedir
 
     assert_equal projectname, @project.get(:projectname)
     assert_equal projectname, @project.projectname
