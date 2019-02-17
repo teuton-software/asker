@@ -5,21 +5,14 @@ require 'fileutils'
 require 'rainbow'
 require 'thor'
 require_relative 'lib/tool'
-require_relative 'lib/application'
 #require_relative 'lib/command/create'
 #require_relative 'lib/command/delete'
 require_relative 'lib/command/editor'
+require_relative 'lib/command/version'
 
 # Command Line User Interface
 class Asker < Thor
   map ['h', '-h', '--help'] => 'help'
-
-  map ['v', '-v', '--version'] => 'version'
-  desc 'version', 'show the program version'
-  def version
-    print Rainbow(Application.name).bright.blue
-    puts  ' (version ' + Rainbow(Application.version).green + ')'
-  end
 
   map ['f', '-f', '--file'] => 'file'
   desc 'file NAME', 'Build output files, from HAML/XML input file.'
