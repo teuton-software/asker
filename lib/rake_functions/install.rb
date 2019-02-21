@@ -6,7 +6,7 @@ task :opensuse => :gems do
   install_gems packages
   create_symbolic_link
   chown_asker_files
-#  show_info_about_input
+  puts "[INFO] Run 'asker download' to download sample input files from repo"
 end
 
 desc 'Debian installation'
@@ -17,7 +17,7 @@ task :debian do
   install_gems packages
   create_symbolic_link
   chown_asker_files
-#  show_info_about_input
+  puts "[INFO] Run 'asker download' to download sample input files from repo"
 end
 
 desc 'Install gems'

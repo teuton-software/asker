@@ -5,6 +5,7 @@ require 'thor'
 #require_relative 'lib/command/create'
 #require_relative 'lib/command/delete'
 require_relative 'lib/command/editor'
+require_relative 'lib/command/download'
 require_relative 'lib/command/file'
 require_relative 'lib/command/version'
 
