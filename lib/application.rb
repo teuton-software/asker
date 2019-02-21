@@ -5,6 +5,6 @@ module Application
   end
 
   def self.version
-    '19.02.2'
+    '19.02.3'
   end
 end
