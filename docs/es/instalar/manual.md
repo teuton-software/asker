@@ -51,3 +51,10 @@ $ git clone https://github.com/dvarrui/asker.git
 * `$ rake`, para comprobar que está todo correctamente instalado.
 
 ¡Ya estamos listos para empezar a usar *asker*!
+
+---
+
+# Para descargar los ejemplos
+* Inicar sesión como tu usuario normal.
+* Muévete a tu directorio de trabajo.
+* `asker download`

@@ -22,7 +22,3 @@ rake
 
 echo "[INFO] Finish!"
 ruby asker version
-
-echo "[INFO] You can download examples of input files"
-echo "       cd PATH/TO/YOUR/HOME/"
-echo "       git clone https://github.com/dvarrui/asker-inputs.git"
