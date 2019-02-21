@@ -5,8 +5,8 @@ echo "[INFO] ASKER OpenSUSE installation"
 [ $(whoami) != root ] && echo "[ERROR] Please, run as root" && exit 1
 
 echo "[INFO] Installing OS PACKAGES..."
-apt update
-apt install -y git
+zypper refresh
+zypper install -n git
 
 echo "[INFO] Cloning git REPO..."
 cd /opt
