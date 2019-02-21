@@ -1,7 +1,7 @@
 
 # Instalación
 
-Los detalle del proceso de instalación son distintos dependiendo del sistema
+El proceso de instalación es distinto, dependiendo del sistema
 operativo:
 * OpenSUSE
 * Debian
@@ -17,8 +17,8 @@ operativo:
 
 > **Recuerda**
 >
-> Para ejecutar una prueba de ASKER (Por ejemplo con el fichero input/es/demo/jedi.haml, hacemos lo siguiente:
-> * `asker input/es/demo/jedi.haml`
+> Para ejecutar una prueba de ASKER (Por ejemplo con el fichero es/starwars/jedi.haml, hacemos lo siguiente:
+> * `asker es/starwars/jedi.haml`
 >
 > Los resultados guardan en el directorio local `output`.
 
@@ -32,7 +32,7 @@ operativo:
 
 > **Recuerda**
 >
-> Para ejecutar una prueba de ASKER (Por ejemplo con el fichero input/es/demo/sith.haml, hacemos lo siguiente:
-> * `asker input/es/demo/sith.haml`
+> Para ejecutar una prueba de ASKER (Por ejemplo con el fichero es/starwars/sith.haml, hacemos lo siguiente:
+> * `asker es/starwars/sith.haml`
 >
 > Los resultados guardan en el directorio local `output`.

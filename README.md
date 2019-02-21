@@ -1,7 +1,9 @@
-# ASKER (Darts of teacher)
+# ASKER
+
+> Some time ago named as "Darts of teacher".
 
 This program use some _"kind of AI"_, to generate a lot of questions from
-_input file with conceptual entities_.
+an _input file with conceptual entities_.
 
 ---
 
@@ -28,12 +30,14 @@ Features:
 To execute ASKER, we use `asker` command, with a path to a input file (HAML/XML) as argument. For example, to run "jedi" example:
 
 ```
-asker input/en/starwars/jedi.haml
+asker en/starwars/jedi.haml
 ```
 
-* The program saves your output files into the `output` directory by default.
-* In this example, we use a demo input definition file called `input/en/starwars/jedi.haml`, that contains our conceptual entities about _"Jedi's context"_.
-* There are more input HAML/XML files into `input/en` and `input/es` directories. Asker generates output on diferents languages, so it's good idea separate them (Now works with English, Spanish and soon with French and German)
+* The program generates your output files into the `output` directory by default.
+* In this example, we use a demo input definition file called `en/starwars/jedi.haml`, that contains our conceptual entities about _"Jedi's context"_.
+* There are more input HAML/XML files into `github/dvarrui/asker-inputs`  repository.
+
+> Asker generates output on diferents languages, so it's good idea separate them (Now works with English, Spanish and soon with French and German)
 
 ---
 
