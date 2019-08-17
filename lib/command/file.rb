@@ -3,7 +3,6 @@ require 'rainbow'
 require_relative '../tool'
 
 class Asker < Thor
-
   map ['f', '-f', '--file'] => 'file'
   desc 'file NAME', 'Build output files, from HAML/XML input file.'
   option :nocolor, :type => :boolean
@@ -18,13 +17,13 @@ class Asker < Thor
   #{Rainbow($PROGRAM_NAME + ' file input/foo/foo.xml').yellow}, Build questions from XML file\n
   #{Rainbow($PROGRAM_NAME + ' file projects/foo/foo.yaml').yellow}, Build questions from YAML project file\n
 
-LONGDESC
+  LONGDESC
   def file(name)
     Rainbow.enabled = false if options[:nocolor]
     Tool.new.start(name)
   end
 
-  def method_missing(m, *_args, &_block)
-    file(m.to_s)
+  def method_missing(method, *_args, &_block)
+    file(method.to_s)
   end
 end

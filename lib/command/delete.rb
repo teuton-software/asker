@@ -4,7 +4,7 @@ require 'fileutils'
 
 # Command Line User Interface
 class Asker < Thor
-  map ['d', '-d', '--delete'] => 'delete'
+  map ['--delete'] => 'delete'
   desc 'delete', 'Delete files from output directory'
   def delete
     puts '[INFO] Cleaing output directory...'
