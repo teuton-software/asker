@@ -1,10 +1,10 @@
+# frozen_string_literal: true
 
 require 'rainbow'
 require_relative '../application'
 
 # Class method Asker#download
 class Asker < Thor
-
   map ['--download'] => 'download'
   desc 'download', 'Download Asker example inputs from git repo'
   long_desc <<-LONGDESC
@@ -12,10 +12,6 @@ class Asker < Thor
 
   - Same as:
     git clone https://github.com/dvarrui/asker-inputs.git
-
-  Example:
-
-  #{$PROGRAM_NAME} download
 
   LONGDESC
   def download
