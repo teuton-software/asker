@@ -1,7 +1,9 @@
+# frozen_string_literal: true
 
 require 'singleton'
 require 'inifile'
 
+# Config class
 class Config
   include Singleton
 

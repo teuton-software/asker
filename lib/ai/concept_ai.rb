@@ -17,8 +17,8 @@ class ConceptAI
   end
 
   def num
-    @num+=1
-    return @num.to_s
+    @num += 1
+    @num.to_s
   end
 
   # If a method we call is missing, pass the call onto
@@ -28,7 +28,7 @@ class ConceptAI
   end
 
   def random_image_for(conceptname)
-    return "" if rand<=Project.instance.get(:threshold)
+    return '' if rand<=Project.instance.get(:threshold)
 
     keys = @world.image_urls.keys
     keys.shuffle!

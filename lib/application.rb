@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Global parameters
 module Application
   def self.name

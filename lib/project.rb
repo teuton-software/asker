@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'singleton'
 require 'rainbow'
@@ -48,17 +48,26 @@ class Project
   def open
     # We need at least process_file and inputdirs params
     ext = '.haml'
-    @param[:process_file] = @param[:process_file] || get(:projectdir).split(File::SEPARATOR).last + ext
-    @param[:projectname] = @param[:projectname] || File.basename(@param[:process_file], ext)
-    @param[:inputdirs] = @param[:inputdirs] || File.join(get(:inputbasedir), @param[:projectdir])
+    @param[:process_file] = @param[:process_file] ||
+                            get(:projectdir).split(File::SEPARATOR).last + ext
+    @param[:projectname] = @param[:projectname] ||
+                           File.basename(@param[:process_file], ext)
+    @param[:inputdirs] = @param[:inputdirs] ||
+                         File.join(get(:inputbasedir), @param[:projectdir])
 
-    @param[:logname] = @param[:logname] || "#{@param[:projectname]}-log.txt"
-    @param[:outputname] = @param[:outputname] || "#{@param[:projectname]}-gift.txt"
-    @param[:lessonname] = @param[:lessonname] || "#{@param[:projectname]}-doc.txt"
+    @param[:logname] = @param[:logname] ||
+                       "#{@param[:projectname]}-log.txt"
+    @param[:outputname] = @param[:outputname] ||
+                          "#{@param[:projectname]}-gift.txt"
+    @param[:lessonname] = @param[:lessonname] ||
+                          "#{@param[:projectname]}-doc.txt"
 
-    @param[:logpath] = @param[:logpath] || File.join(get(:outputdir), @param[:logname])
-    @param[:outputpath] = @param[:outputpath] || File.join(get(:outputdir), @param[:outputname])
-    @param[:lessonpath] = @param[:lessonpath] || File.join(get(:outputdir), @param[:lessonname])
+    @param[:logpath] = @param[:logpath] ||
+                       File.join(get(:outputdir), @param[:logname])
+    @param[:outputpath] = @param[:outputpath] ||
+                          File.join(get(:outputdir), @param[:outputname])
+    @param[:lessonpath] = @param[:lessonpath] ||
+                          File.join(get(:outputdir), @param[:lessonname])
 
     create_log_file
     create_output_file
