@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 # Contain data information for every field
 # Params:
@@ -31,6 +32,7 @@ class DataField
 
   def get_text(option)
     return to_screen(@data) if option == :screen
+
     @data
   end
 
@@ -79,6 +81,7 @@ class DataField
 
   def to_screen(text)
     return text[0, 7] + '...' + text[-15, 15] if text.size > 25
+
     text
   end
 end

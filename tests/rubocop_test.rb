@@ -14,10 +14,22 @@ class RubocopTest < Minitest::Test
     @files[:command] << 'lib/command/editor.rb'
 #    @files[:command] << 'lib/command/file.rb'
     @files[:command] << 'lib/command/version.rb'
+
+    @files[:data] = []
+#    @files[:data] << 'lib/command/column.rb'
+#    @files[:data] << 'lib/command/concept.rb'
   end
 
   def test_rubocop_command
     @files[:command].each do |file|
+      output = `rubocop #{file}`
+      lines = output.split("\n")
+      assert_equal true, lines.any?(/file inspected, no offenses detected/)
+    end
+  end
+
+  def test_rubocop_data
+    @files[:data].each do |file|
       output = `rubocop #{file}`
       lines = output.split("\n")
       assert_equal true, lines.any?(/file inspected, no offenses detected/)

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # encoding: utf-8
 
 # Contain data information for every column
@@ -15,17 +16,17 @@ class Column
     @raw    = ''
     @lang   = @row.langs[@index]
     @type   = @row.types[@index]
-    @simple = {:lang => true, :type => true}
+    @simple = { lang: true, type: true }
     read_data_from_xml(xml_data)
   end
 
   def to_html
     case @type
-    when "text"
+    when 'text'
       return @raw
-    when "image_url"
+    when 'image_url'
       return "<img src=\"#{raw}\" alt\=\"image\">"
-    when "textfile_path"
+    when 'textfile_path'
       return "<pre>#{raw}</pre>"
     else
       return "ERROR type #{@type}"
@@ -35,7 +36,7 @@ class Column
   private
 
   def read_data_from_xml(xml_data)
-    raise '[ERROR] Column XML data with elements!' if xml_data.elements.count > 0
+    raise '[ERROR] Column XML data with elements!' if xml_data.elements.count.positive?
 
     @raw = xml_data.text.strip.to_s
 

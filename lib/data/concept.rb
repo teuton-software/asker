@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'rainbow'
 require 'rexml/document'
@@ -33,7 +33,7 @@ class Concept
       @context = context.split(',')
       @context.collect!(&:strip)
     end
-    @names = ['concept.' + @id.to_s ]
+    @names = ['concept.' + @id.to_s]
     @type  = 'text'
 
     @data = {}
@@ -49,12 +49,12 @@ class Concept
 	  read_data_from_xml(xml_data)
   end
 
-  def name(option=:raw)
+  def name(option = :raw)
     DataField.new(@names[0], @id, @type).get(option)
   end
 
   def text
-    return @data[:texts][0] || '...'
+    @data[:texts][0] || '...'
   end
 
   def process?
@@ -64,9 +64,10 @@ class Concept
   def try_adding_neighbor(other)
     p = calculate_nearness_to_concept(other)
     return if p.zero?
-    @data[:neighbors] << { :concept => other , :value => p }
+
+    @data[:neighbors] << { concept: other, value: p }
     # Sort neighbors list
-    @data[:neighbors].sort! { |a,b| a[:value] <=> b[:value] }
+    @data[:neighbors].sort! { |a, b| a[:value] <=> b[:value] }
     @data[:neighbors].reverse!
   end
 
@@ -98,14 +99,14 @@ class Concept
         reference_to += 1 unless other.names.index(word.downcase).nil?
       end
     end
-    if reference_to > 0
+    if reference_to.positive?
       @data[:reference_to] << other.name
       other.data[:referenced_by] << name
     end
   end
 
-  def method_missing(m)
-    @data[m]
+  def method_missing(method)
+    @data[method]
   end
 
   private
@@ -136,47 +137,47 @@ class Concept
     end
   end
 
-  def process_names(i)
+  def process_names(value)
     @names = []
-    j = i.text.split(',')
+    j = value.text.split(',')
     j.each { |k| @names << k.strip }
-    @type = i.attributes['type'].strip if i.attributes['type']
+    @type = value.attributes['type'].strip if value.attributes['type']
   end
 
-  def process_tags(i)
-    raise '[Error] tags label empty!' if i.text.nil? || i.text.size.zero?
-    @data[:tags] = i.text.split(',')
+  def process_tags(value)
+    raise '[Error] tags label empty!' if value.text.nil? || value.text.size.zero?
+    @data[:tags] = value.text.split(',')
     @data[:tags].collect!(&:strip)
   end
 
-  def process_context(i)
+  def process_context(value)
     msg = '   │  ' + Rainbow(' [DEPRECATED] Concept ').yellow
     msg += Rainbow(name).yellow.bright
     msg += Rainbow(' move <context> tag info to <map>.').yellow
     Project.instance.verbose msg
-    @context = i.text.split(',')
+    @context = value.text.split(',')
     @context.collect!(&:strip)
   end
 
-  def process_text(i)
+  def process_text(value)
     msg = '   │  ' + Rainbow(' [DEPRECATED] Concept ').yellow
     msg += Rainbow(name).yellow.bright
     msg += Rainbow(' replace <text> tag by <def>.').yellow
     Project.instance.verbose msg
-    @data[:texts] << i.text.strip
+    @data[:texts] << value.text.strip
   end
 
-  def process_def(i)
-    case i.attributes['type']
+  def process_def(value)
+    case value.attributes['type']
     when 'image'
-      msg = "[DEBUG] Concept#read_xml: image #{Rainbow(i.text).bright}"
+      msg = "[DEBUG] Concept#read_xml: image #{Rainbow(value.text).bright}"
       Project.instance.verbose Rainbow(msg).yellow
     when 'image_url'
-      @data[:images] << i.text.strip
+      @data[:images] << value.text.strip
     when 'textfile_path'
-      @data[:textfile_paths] << i.text.strip
+      @data[:textfile_paths] << value.text.strip
     else
-      @data[:texts] << i.text.strip
+      @data[:texts] << value.text.strip
     end
   end
 end
