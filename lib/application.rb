@@ -10,9 +10,7 @@ class Application
   attr_reader :config
 
   def initialize
-    @config = Config.new('config.ini')
-    exclude = @config['questions']['exclude']
-    @config['questions']['exclude'] = [] if exclude.nil?
+    load_config
   end
 
   def name
@@ -21,5 +19,24 @@ class Application
 
   def version
     '2.0.0'
+  end
+
+  def load_config
+    @config = {}
+    unless File.exist? 'config.ini'
+      @config = {}
+      @config['global'] = {}
+      @config['global']['load_data_from_internet'] = true
+      @config['questions'] = {} 
+      @config['questions']['exclude'] = []
+      return
+    end
+    @config = Config.new('config.ini')
+    exclude = @config['questions']['exclude']
+    if exclude.nil?
+      @config['questions']['exclude'] = []
+    else
+      @config['questions']['exclude'] = exclude.split(',')
+    end
   end
 end
