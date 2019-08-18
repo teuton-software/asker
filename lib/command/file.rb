@@ -1,25 +1,28 @@
+# frozen_string_literal: true
 
 require 'rainbow'
 require_relative '../tool'
 
+# Asker#file
 class Asker < Thor
   map ['f', '-f', '--file'] => 'file'
   desc 'file NAME', 'Build output files, from HAML/XML input file.'
-  option :nocolor, :type => :boolean
+  option :color, :type => :boolean
   long_desc <<-LONGDESC
-  Build output files, from input file (HAML/XML format).
+  Create output files, from input file (HAML/XML format).
 
-  It builds questions about contents into input file specified.
-  This is the most usefull function.
-  These are 3 ways of use it:
+  Build questions about contents defined into input file specified.
 
-  #{Rainbow($PROGRAM_NAME + ' file input/foo/foo.haml').yellow}, Build questions from HAML file\n
-  #{Rainbow($PROGRAM_NAME + ' file input/foo/foo.xml').yellow}, Build questions from XML file\n
-  #{Rainbow($PROGRAM_NAME + ' file projects/foo/foo.yaml').yellow}, Build questions from YAML project file\n
+  Examples:
+
+  1) #{Rainbow('asker input/foo/foo.haml').yellow}, Build questions from HAML file.\n
+  2) #{Rainbow('asker input/foo/foo.xml').yellow}, Build questions from XML file.\n
+  3) #{Rainbow('asker file --no-color input/foo/foo.haml').yellow}, Same as (1) but without colors.\n
+  4) #{Rainbow('asker projects/foo/foo.yaml').yellow}, Build questions from YAML project file.\n
 
   LONGDESC
   def file(name)
-    Rainbow.enabled = false if options[:nocolor]
+    Rainbow.enabled = false unless options['color']
     Tool.new.start(name)
   end
 
