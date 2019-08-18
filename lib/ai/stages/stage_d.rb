@@ -6,21 +6,21 @@ require_relative 'base_stage'
 require_relative '../question'
 
 class StageD < BaseStage
-  #range d1-d4
+  # range d1-d4
 
   def run
-    #Stage D: process every definition, I mean every <def> tag
-    questions=[]
-    return questions unless type=="text"
+    # Stage D: process every definition, I mean every <def> tag
+    questions = []
+    return questions unless type == 'text'
 
-    #for every <text> do this
+    # for every <text> do this
     texts.each do |t|
       s=Set.new [name(:raw), lang.text_for(:none)]
       neighbors.each { |n| s.add n[:concept].name(:decorated) }
       a=s.to_a
 
-      #Question choose between 4 options
-      if s.count>3 then
+      # Question choose between 4 options
+      if s.count > 3
         q=Question.new(:choice)
         q.name="#{name(:id)}-#{num}-d1choose"
         q.text=random_image_for(name(:raw)) + lang.text_for(:d1,t)
@@ -34,7 +34,7 @@ class StageD < BaseStage
       #Question choose between 4 options, good none (Syntax error)
       if s.count>3 and type=="text" then
         q=Question.new(:choice)
-        q.name="#{name(:id)}-#{num}-d1none"
+        q.name="#{name(:id)}-#{num}-d1none-misspelled"
         q.text=random_image_for(name(:raw)) + lang.text_for(:d1,t)
         q.good = lang.text_for(:none)
         q.bads << lang.do_mistake_to(name(:raw))
@@ -96,7 +96,7 @@ class StageD < BaseStage
 
       if a.size>1 then
         q = Question.new(:choice)
-        q.name="#{name(:id)}-#{num}-d2false"
+        q.name="#{name(:id)}-#{num}-d2false-misspelled"
         q.text=random_image_for(name(:raw)) + lang.text_for(:d2, a[1], t)
         q.good =  lang.text_for(:false)
         q.bads << lang.text_for(:misspelling)

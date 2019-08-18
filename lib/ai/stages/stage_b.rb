@@ -9,10 +9,11 @@ class StageB < BaseStage
   #range b1
 
   def run(pTable, pList1, pList2)
-    #process table match
+    # process table match
     questions = []
-    return questions if pTable.fields.count<2
-    return questions unless type=="text"
+    return questions if pTable.fields.count < 2
+
+    return questions unless type == 'text'
 
     if pTable.fields.count>1 then
       questions += process_table_match2fields(pTable, pList1, pList2, 0, 1)
@@ -25,13 +26,13 @@ class StageB < BaseStage
       questions += process_table_match2fields(pTable, pList1, pList2, 2, 3)
     end
 
-    return questions
+    questions
   end
 
   def process_table_match2fields(pTable, pList1, pList2, pIndex1, pIndex2)
     questions = []
 
-    if pList1.count>3 then
+    if pList1.count>3
       pList1.each_cons(4) do |e1,e2,e3,e4|
         e = [ e1, e2, e3, e4 ]
 
@@ -46,7 +47,7 @@ class StageB < BaseStage
         q.matching << [ e[3][:data][pIndex1], e[3][:data][pIndex2] ]
         questions << q
 
-        #Question type <b1match>: match 3 items from table-A and 1 item with error
+        # Question type <b1match>: match 3 items from table-A and 1 item with error
         e.shuffle!
         q=Question.new(:match)
         q.name="#{name}-#{num.to_s}-b1match3x1misspelling-#{pTable.name}"
@@ -59,7 +60,7 @@ class StageB < BaseStage
       end
     end
 
-    if pList1.count>2 and pList2.count>0 then
+    if pList1.count>2 and pList2.count>0
       s=Set.new
       pList1.each do |i|
         s.add( i[:data][pIndex1]+"<=>"+i[:data][pIndex2] )
@@ -67,10 +68,10 @@ class StageB < BaseStage
       s.add( pList2[0][:data][pIndex1]+"<=>"+pList2[0][:data][pIndex2] )
       a=s.to_a
 
-      #Question 3 items from table-A, and 1 item from table-B
-      if s.count>3 then
+      # Question 3 items from table-A, and 1 item from table-B
+      if s.count > 3
         q=Question.new(:match)
-        q.name="#{name}-#{num.to_s}-b1match-#{pTable.name}"
+        q.name="#{name}-#{num.to_s}-b1match3x1-#{pTable.name}"
         q.text= random_image_for(name) + lang.text_for(:b1, name , pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize)
         q.matching << [ pList1[0][:data][pIndex1], pList1[0][:data][pIndex2] ]
         q.matching << [ pList1[1][:data][pIndex1], pList1[1][:data][pIndex2] ]
