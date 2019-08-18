@@ -7,7 +7,7 @@ require_relative '../tool'
 class Asker < Thor
   map ['f', '-f', '--file'] => 'file'
   desc 'file NAME', 'Build output files, from HAML/XML input file.'
-  option :color, :type => :boolean
+  option :color, type: :boolean
   long_desc <<-LONGDESC
   Create output files, from input file (HAML/XML format).
 
@@ -22,7 +22,7 @@ class Asker < Thor
 
   LONGDESC
   def file(name)
-    Rainbow.enabled = false unless options['color']
+    Rainbow.enabled = false if options['color'] == false
     Tool.new.start(name)
   end
 

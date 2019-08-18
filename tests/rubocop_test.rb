@@ -12,6 +12,8 @@ class RubocopTest < Minitest::Test
     @files[:command] << 'lib/command/delete.rb'
     @files[:command] << 'lib/command/download.rb'
     @files[:command] << 'lib/command/editor.rb'
+#    @files[:command] << 'lib/command/file.rb'
+    @files[:command] << 'lib/command/version.rb'
   end
 
   def test_rubocop_command
