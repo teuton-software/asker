@@ -6,8 +6,8 @@ require_relative '../lib/config'
 # Test Application module
 class ConfigTest < Minitest::Test
   def test_params
-    c = Config.instance
+    c = Config.new('config.ini')
     assert_equal true, c['global']['load_data_from_internet']
-    assert_nil c['questionsl']['exclude']
+    assert_nil c['questions']['exclude']
   end
 end

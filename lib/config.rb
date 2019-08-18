@@ -1,17 +1,18 @@
 # frozen_string_literal: true
 
-require 'singleton'
 require 'inifile'
 
 # Config class
 class Config
-  include Singleton
-
-  def initialize
-    @sections = IniFile.load('config.ini')
+  def initialize(filename)
+    @sections = IniFile.load(filename)
   end
 
   def [](key)
     @sections[key]
+  end
+
+  def to_s
+    @sections.to_s
   end
 end
