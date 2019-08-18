@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 # Methods that calculate something
 module AI_calculate
@@ -25,31 +25,31 @@ module AI_calculate
     return list1, list2
   end
 
-  def calculate_nearness_between_texts(ptext1, ptext2)
-    return 0.0 if ptext2.nil? || ptext2.empty?
+  def calculate_nearness_between_texts(text1, text2)
+    return 0.0 if text2.nil? || text2.empty?
 
-    words = ptext1.split(' ')
+    words = text1.split(' ')
     count = 0
-    words.each { |w| count += 1 if ptext2.include?(w) }
+    words.each { |w| count += 1 if text2.include?(w) }
     (count * 100 / words.count)
   end
 
-  def reorder_list_with_row(p_list, p_row)
+  def reorder_list_with_row(list, row)
     # evaluate every row of the list2
-    p_list.each do |l_row|
-      if l_row[:id] == p_row[:id]
-        l_row[:weight] = -300
+    list.each do |r|
+      if r[:id] == row[:id]
+        r[:weight] = -300
       else
         val = 0
-        s = p_row[:data].count
+        s = row[:data].count
         s.times do |i|
-          val += calculate_nearness_between_texts(p_row[:data][i], l_row[:data][i])
+          val += calculate_nearness_between_texts(row[:data][i], r[:data][i])
         end
         val /= s
-        l_row[:weight] = val
+        r[:weight] = val
       end
     end
-    p_list.sort! { |a, b| a[:weight] <=> b[:weight] }
-    p_list.reverse!
+    list.sort! { |a, b| a[:weight] <=> b[:weight] }
+    list.reverse!
   end
 end

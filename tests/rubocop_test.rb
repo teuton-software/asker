@@ -12,6 +12,9 @@ class RubocopTest < Minitest::Test
 #    @files[:lib] << 'lib/project.rb'
 #    @files[:lib] << 'lib/tool.rb'
 
+   @files[:ai] = []
+#   @files[:ai] << 'lib/ai/concept_ai.rb'
+
     @files[:command] = []
     @files[:command] << 'lib/command/main.rb'
     @files[:command] << 'lib/command/create.rb'
