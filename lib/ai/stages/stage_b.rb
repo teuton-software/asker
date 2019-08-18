@@ -6,7 +6,7 @@ require_relative 'base_stage'
 require_relative '../question'
 
 class StageB < BaseStage
-  #range b1
+  # range b1
 
   def run(pTable, pList1, pList2)
     # process table match

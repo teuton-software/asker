@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'stages/stage_d'
-require_relative 'stages/stage_b'
-require_relative 'stages/stage_f'
-require_relative 'stages/stage_i'
-require_relative 'stages/stage_s'
-require_relative 'stages/stage_t'
-
+require_relative 'stages/main'
 require_relative 'ai_calculate'
 
 # Description: Method to be included into every ConceptAI instance.

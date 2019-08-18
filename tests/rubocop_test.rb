@@ -12,8 +12,9 @@ class RubocopTest < Minitest::Test
 #    @files[:lib] << 'lib/project.rb'
 #    @files[:lib] << 'lib/tool.rb'
 
-   @files[:ai] = []
+    @files[:ai] = []
 #   @files[:ai] << 'lib/ai/concept_ai.rb'
+    @files[:ai] << 'lib/ai/stages/main.rb'
 
     @files[:command] = []
     @files[:command] << 'lib/command/main.rb'
@@ -34,6 +35,14 @@ class RubocopTest < Minitest::Test
 
   def test_rubocop_lib
     @files[:lib].each do |file|
+      output = `rubocop #{file}`
+      lines = output.split("\n")
+      assert_equal true, lines.any?(/file inspected, no offenses detected/)
+    end
+  end
+
+  def test_rubocop_ai
+    @files[:ai].each do |file|
       output = `rubocop #{file}`
       lines = output.split("\n")
       assert_equal true, lines.any?(/file inspected, no offenses detected/)
