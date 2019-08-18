@@ -1,12 +1,16 @@
 # frozen_string_literal: true
 
+require 'singleton'
+
 # Global parameters
-module Application
-  def self.name
+class Application
+  include Singleton
+
+  def name
     'asker'
   end
 
-  def self.version
+  def version
     '2.0.0'
   end
 end

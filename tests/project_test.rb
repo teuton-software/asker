@@ -26,7 +26,7 @@ class ProjectTest < Minitest::Test
   def test_open_project
     dirname     = "test/input/"
     projectname = "test"
-    filename    = projectname+".haml"
+    filename    = projectname + '.haml'
 
     @project.set(:inputdirs   , [ dirname ] )
     @project.set(:process_file, filename )
@@ -43,8 +43,8 @@ class ProjectTest < Minitest::Test
     assert_equal filename, @project.get(:process_file)
     assert_equal filename, @project.process_file
 
-    assert_equal "output", @project.get(:outputdir)
-    assert_equal "output", @project.outputdir
+    assert_equal 'output', @project.get(:outputdir)
+    assert_equal 'output', @project.outputdir
 
 
     assert_equal FileUtils.pwd, @project.get(:inputbasedir)
