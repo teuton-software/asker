@@ -10,6 +10,8 @@ class RubocopTest < Minitest::Test
     @files[:lib] = []
     @files[:lib] << 'lib/application.rb'
     @files[:lib] << 'lib/config.rb'
+#    @files[:lib] << 'lib/project.rb'
+#    @files[:lib] << 'lib/tool.rb'
 
     @files[:command] = []
     @files[:command] << 'lib/command/main.rb'
@@ -23,6 +25,9 @@ class RubocopTest < Minitest::Test
     @files[:data] = []
 #    @files[:data] << 'lib/command/column.rb'
 #    @files[:data] << 'lib/command/concept.rb'
+
+    @files[:loader] = []
+#    @files[:data] << 'lib/loader/project_loader.rb'
   end
 
   def test_rubocop_lib
@@ -43,6 +48,14 @@ class RubocopTest < Minitest::Test
 
   def test_rubocop_data
     @files[:data].each do |file|
+      output = `rubocop #{file}`
+      lines = output.split("\n")
+      assert_equal true, lines.any?(/file inspected, no offenses detected/)
+    end
+  end
+
+  def test_rubocop_loader
+    @files[:loader].each do |file|
       output = `rubocop #{file}`
       lines = output.split("\n")
       assert_equal true, lines.any?(/file inspected, no offenses detected/)

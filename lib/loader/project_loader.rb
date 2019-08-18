@@ -1,8 +1,14 @@
+# frozen_string_literal: true
 
 require 'yaml'
 require_relative '../project'
 
 # Load params into Project class using arg input
+# * load
+# * load_from_string
+# * load_from_yaml
+# * load_from_directory
+# * load_error
 module ProjectLoader
   def self.load(args = {})
     project = Project.instance
@@ -15,7 +21,7 @@ module ProjectLoader
       return true
     end
 
-    msg = '[ERR ] ProjectLoader:'
+    msg = '[ERROR] ProjectLoader:'
     msg += "Configuration params format is <#{pArgs.class}>!"
     project.verbose Rainbow(msg).red
     raise msg
@@ -34,20 +40,33 @@ module ProjectLoader
       project.set(:inputdirs, File.dirname(arg))
       project.set(:process_file, File.basename(arg))
     elsif File.extname(arg) == '.yaml'
-      project.param.merge!(YAML.load(File.open(arg)))
-      project.set(:configfilename, arg)
-      project.set(:projectdir, File.dirname(arg))
+      load_from_yaml(arg)
     elsif File.directory?(arg)
-      msg = Rainbow('[WARN] ProjectLoader.load: Directory input ').yellow
-      msg += Rainbow(arg).bright.yellow
-      msg += Rainbow(' not implemented yet').yellow
-      project.verbose msg
-      exit 1
+      load_from_directory(arg)
     else
-      msg = Rainbow('[ERR ] ProjectLoader: Input ').red
-      msg += Rainbow(arg).red.bright + Rainbow(' unkown').red
-      project.verbose msg
-      raise msg
+      load_error(arg)
     end
+  end
+
+  def self.load_from_yaml(arg)
+    project = Project.instance
+    project.param.merge!(YAML.load(File.open(arg)))
+    project.set(:configfilename, arg)
+    project.set(:projectdir, File.dirname(arg))
+  end
+
+  def self.load_from_directory(dirpath)
+    msg = Rainbow('[WARN] ProjectLoader.load: Directory input ').yellow
+    msg += Rainbow(dirpath).bright.yellow
+    msg += Rainbow(' not implemented!').yellow
+    Project.instance.verbose msg
+    exit 1
+  end
+
+  def self.load_error(arg)
+    msg = Rainbow('[ERR ] ProjectLoader: Input ').red
+    msg += Rainbow(arg).red.bright + Rainbow(' unkown').red
+    Project.instance.verbose msg
+    raise msg
   end
 end

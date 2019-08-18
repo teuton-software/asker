@@ -21,9 +21,9 @@ class Asker < Thor
   4) #{Rainbow('asker projects/foo/foo.yaml').yellow}, Build questions from YAML project file.\n
 
   LONGDESC
-  def file(name)
+  def file(filename)
     Rainbow.enabled = false if options['color'] == false
-    Tool.new.start(name)
+    Tool.new.start(filename)
   end
 
   def method_missing(method, *_args, &_block)

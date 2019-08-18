@@ -1,8 +1,8 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'yaml'
 require 'rainbow'
-#require 'pry-byebug'
+# require 'pry-byebug'
 
 require_relative 'project'
 require_relative 'data/concept'
@@ -24,7 +24,7 @@ class Tool
   def initialize
     @concepts_ai = []
     @concepts = []
-    @codes =[]
+    @codes = []
   end
 
   def start(args = {})
@@ -79,7 +79,7 @@ class Tool
 
   def debug
     @concepts.each do |c|
-      binding.pry if c.process
+      puts 'binding.pry' if c.process
     end
   end
 end
