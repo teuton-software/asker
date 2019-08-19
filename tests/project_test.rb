@@ -17,6 +17,8 @@ class ProjectTest < Minitest::Test
     assert_equal [1, 1, 1] , @project.formula_weights
     assert_equal 'en'     , @project.lang
     assert_equal 6        , @project.locales.size
+    a = ["en", "es", "maths", "python", "ruby", "sql"]
+    assert_equal a        , @project.locales
     assert_equal :default , @project.show_mode
     assert_equal true     , @project.get(:verbose)
     stages = {d: true, b: true, f: true, i: true, s: true, t: true}

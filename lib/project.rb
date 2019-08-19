@@ -23,7 +23,7 @@ class Project
     @default[:category] = :none
     @default[:formula_weights] = [1, 1, 1]
     @default[:lang] = 'en'
-    @default[:locales] = ['en', 'es', 'maths', 'python', 'ruby', 'sql']
+    @default[:locales] = %w[en es maths python ruby sql]
     @default[:show_mode] = :default
     @default[:verbose] = true
     @default[:stages] = { d: true, b: true, f: true, i: true, s: true, t: true }
@@ -32,12 +32,13 @@ class Project
     @param = {}
   end
 
-  def method_missing(m, *_args, &_block)
-    get(m)
+  def method_missing(method, *_args, &_block)
+    get(method)
   end
 
   def get(key)
     return @param[key] unless @param[key].nil?
+
     @default[key]
   end
 
