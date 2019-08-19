@@ -40,5 +40,7 @@ module AI
         @questions[:t] += StageT.new(self).run(tab, row, list3)
       end
     end
+
+    # IDEA: Apply here "filter_questions" ???
   end
 end
