@@ -40,7 +40,8 @@ module AI
         @questions[:t] += StageT.new(self).run(tab, row, list3)
       end
     end
-
-    # IDEA: Apply here "filter_questions" ???
+    # ---------------------------------------------------
+    # IDEA: Exclude questions as define config.ini params
+    #       Apply here "filter_questions" ???
   end
 end
