@@ -15,6 +15,11 @@ require_relative 'loader/input_loader'
 
 # This class does all the job
 # Organize the hole job, sending orders to others classes
+# * start
+# * load_input_data
+# * create_output_files, show_create_output_files
+# * create_questions
+# * show_final_results
 class Tool
   def initialize
     @concepts_ai = []
@@ -67,7 +72,7 @@ class Tool
       ConceptAIGiftExporter.export(concept_ai)
       @concepts_ai << concept_ai
     end
-    @codes.each do |code|
+    @codes.each do |code| # UNDER DEVELOPMENT
       code.make_questions
       CodeGiftExporter.export(code)
     end
