@@ -34,21 +34,22 @@ class Tool
     data = InputLoader.load
     @concepts = data[:concepts]
     @codes = data[:codes]
-    print "\n[INFO] Loading data from Internet"
+    Project.instance.verbose "\n[INFO] Loading data from Internet"
     @world = World.new(@concepts)
     ConceptScreenExporter.export(@concepts)
   end
 
   def create_output_files
-    Project.instance.verbose "\n"
-    Project.instance.verbose '[INFO] Creating output files'
-    text = Rainbow(Project.instance.outputpath).bright
-    Project.instance.verbose '   ├── Gift questions file = ' + text
-    text = Rainbow(Project.instance.lessonpath).bright
-    Project.instance.verbose '   └── Lesson file         = ' + text
-
+    show_create_output_files
     create_questions
     ConceptDocExporter.new(@concepts).export
+  end
+
+  def show_create_output_files
+    p = Project.instance
+    p.verbose "\n[INFO] Creating output files"
+    p.verbose '   ├── Gift questions file = ' + Rainbow(p.outputpath).bright
+    p.verbose '   └── Lesson file         = ' + Rainbow(p.lessonpath).bright
   end
 
   def show_final_results
@@ -69,12 +70,6 @@ class Tool
     @codes.each do |code|
       code.make_questions
       CodeGiftExporter.export(code)
-    end
-  end
-
-  def debug
-    @concepts.each do |c|
-      puts 'binding.pry' if c.process
     end
   end
 end
