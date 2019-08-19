@@ -4,7 +4,7 @@
 def packages
   p = ['haml', 'rainbow', 'terminal-table', 'thor']
   p += ['base64_compatible', 'coderay', 'minitest', 'inifile']
-  p += ['pry', 'pry-byebug', 'sinatra' ]
+  p += ['pry', 'sinatra' ]
 end
 
 require_relative 'lib/rake_functions/check'
