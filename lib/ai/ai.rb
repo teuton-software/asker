@@ -40,8 +40,31 @@ module AI
         @questions[:t] += StageT.new(self).run(tab, row, list3)
       end
     end
-    # ---------------------------------------------------
-    # IDEA: Exclude questions as define config.ini params
-    #       Apply here "filter_questions" ???
+    # -------------------------------------------------------
+    # Exclude questions as is defined into config.ini params
+    exclude_questions
+  end
+
+  def exclude_questions
+    param = Application.instance.config['questions']['exclude']
+#    param = 'table, -t1, -t2, -t3, -t4, -t5, -t6, -t7, -t8, -t9'
+    return if param.nil?
+
+    excludes = param.split(',')
+    excludes.each(&:strip!)
+    questions = @questions
+    @excluded_questions = {}
+    questions.each_pair do |key, list|
+      @excluded_questions[key] = @excluded_questions[key] || []
+      list.each do |q|
+        flag = false
+        excludes.each { |e| flag = true if q.name.include? e }
+        if flag
+          puts q.name
+          @excluded_questions[key] << q
+          @questions[key].delete q
+        end
+      end
+    end
   end
 end
