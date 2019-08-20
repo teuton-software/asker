@@ -7,8 +7,8 @@ class Question
   attr_accessor :good, :bads, :matching, :shorts
   attr_accessor :feedback
   attr_reader   :type
-  attr_accessor  :tags
-  
+  attr_accessor :tags
+
   def initialize(type = :choice)
     reset(type)
   end

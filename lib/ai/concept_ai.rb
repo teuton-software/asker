@@ -13,7 +13,9 @@ require_relative 'question'
 class ConceptAI
   include AI
 
-  attr_reader :concept, :questions
+  attr_reader :concept
+  attr_reader :questions
+  attr_reader :excluded_questions
 
   def initialize(concept, world)
     @concept   = concept

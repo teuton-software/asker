@@ -71,5 +71,6 @@ module AI
       end
     end
     @questions = input
+    @excluded_questions = output
   end
 end
