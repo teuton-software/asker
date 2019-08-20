@@ -9,7 +9,7 @@ from an _input file_ with your own _definitions_.
 
 # Description
 
-_Free Software multiplatform program_, that helps trainers to create
+_Free Software program_, that helps trainers to create
 a huge amount of questions, from a definitions (_conceptual entities_) input file.
 
 Steps:
