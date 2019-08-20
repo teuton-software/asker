@@ -1,33 +1,34 @@
 # ASKER
 
-> Some time ago named as "Darts of teacher".
+This application use some _"kind of AI"_, to generate a lot of questions
+from an _input file_ with your own _definitions_.
 
-This program use some _"kind of AI"_, to generate a lot of questions from
-an _input file with conceptual entities_.
+> Some time ago, this project was named as "Darts of teacher". But now, it's only ASKER.
 
 ---
 
 # Description
 
-This is a _Free Software multiplatform program_, that helps trainers
-to create a huge amount of questions, from a _conceptual entities input file_ (HAML or XML file).
+_Free Software multiplatform program_, that helps trainers to create
+a huge amount of questions, from a definitions (_conceptual entities_) input file.
 
 Steps:
 
-1. Create an input file (Usign HAML or XML format) with your _conceptual entities_ and relations.
-1. Run _asker_ and get the results. Now we have an output file with the questions.
+1. Create an input file with your definitons (_conceptual entities_).
+1. Run _asker_ and get the results at `output` directory.
 
 Features:
-* Read HAML/XML input files (It may be other input formats).
-* Export format GIFT questions (It may be other output format).
-* Multiplatform.
+
 * Free Software [LICENSE](LICENSE).
+* Multiplatform.
+* Read HAML/XML input files.
+* Export questions into GIFT format. Useful to load into Moodle.
 
 ---
 
 # Usage
 
-To execute ASKER, we use `asker` command, with a path to a input file (HAML/XML) as argument. For example, to run "jedi" example:
+To execute ASKER, we use `asker` command, with a path to a input file as argument. For example, to run "jedi" input file example, we do:
 
 ```
 asker en/starwars/jedi.haml
@@ -37,7 +38,7 @@ asker en/starwars/jedi.haml
 * In this example, we use a demo input definition file called `en/starwars/jedi.haml`, that contains our conceptual entities about _"Jedi's context"_.
 * There are more input HAML/XML files into `github/dvarrui/asker-inputs`  repository.
 
-> Asker generates output on diferents languages, so it's good idea separate them (Now works with English, Spanish and soon with French and German)
+> Asker generates output on diferents languages, so it's good idea separate input files on diferent directories. Now works with English, Spanish.
 
 ---
 
