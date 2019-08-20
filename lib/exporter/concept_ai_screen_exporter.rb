@@ -9,14 +9,18 @@ class ConceptAIScreenExporter
 	  project = Project.instance
     return if project.show_mode == :none
 
-    total_q = total_e = total_c = 0
-    total_sd = total_sb = total_sf = total_si = total_ss = total_st = 0
-
-    my_screen_table = Terminal::Table.new do |st|
+    # Create table HEAD
+    screen_table = Terminal::Table.new do |st|
       st << ['Concept','Questions','Entries','xFactor',
              'd','b','f','i','s','t']
       st << :separator
     end
+
+    # Create table BODY
+    total = {}
+    total[:q] = total[:e] = total[:c] = 0
+    total[:sd] = total[:sb] = total[:sf] = 0
+    total[:si] = total[:ss] = total[:st] = 0
 
     @concepts_ai.each do |concept_ai|
       if concept_ai.process?
@@ -36,39 +40,74 @@ class ConceptAIScreenExporter
         else
           factor = (t.to_f/e.to_f).round(2).to_s
         end
-        my_screen_table.add_row [Rainbow(concept_ai.name(:screen)).color(:green), t, e, factor, sd, sb, sf, si, ss, st]
+        screen_table.add_row [Rainbow(concept_ai.name(:screen)).green.bright,
+          t, e, factor, sd, sb, sf, si, ss, st]
 
-        total_q +=t ; total_e += e; total_c += 1
-        total_sd += sd; total_sb += sb; total_sf += sf
-        total_si += si; total_ss += ss; total_st += st
+        total[:q] += t ; total[:e] += e; total[:c] += 1
+        total[:sd] += sd; total[:sb] += sb; total[:sf] += sf
+        total[:si] += si; total[:ss] += ss; total[:st] += st
       end
     end
-    return if total_c == 0
+    return if total[:c] == 0 # No concepts to be process?
 
-    my_screen_table.add_separator
-    my_screen_table.add_row [Rainbow("TOTAL = #{total_c.to_s}").bright,
-      Rainbow(total_q.to_s).bright,
-      Rainbow(total_e.to_s).bright,
-      Rainbow((total_q.to_f/total_e.to_f).round(2)).bright,
-      total_sd, total_sb, total_sf, total_si, total_ss, total_st]
+    # Add row with excluded questions
+    export_excluded_questions(screen_table, @concepts_ai)
+
+    # Create table TAIL
+    screen_table.add_separator
+    screen_table.add_row [Rainbow("TOTAL = #{total[:c]}").bright,
+                          Rainbow(total[:q].to_s).bright,
+                          Rainbow(total[:e].to_s).bright,
+                          Rainbow((total[:q].to_f/total[:e].to_f).round(2)).bright,
+                          total[:sd], total[:sb], total[:sf],
+                          total[:si], total[:ss], total[:st]]
     export_notes
-    project.verbose my_screen_table.to_s + "\n"
+    project.verbose screen_table.to_s + "\n"
+  end
+
+  def self.export_excluded_questions(screen_table, concepts_ai)
+    # Create table BODY
+    total = {}
+    total[:q] = total[:c] = 0
+    total[:sd] = total[:sb] = total[:sf] = 0
+    total[:si] = total[:ss] = total[:st] = 0
+
+    concepts_ai.each do |concept_ai|
+      if concept_ai.process?
+        sd = concept_ai.excluded_questions[:d].size
+        sb = concept_ai.excluded_questions[:b].size
+        sf = concept_ai.excluded_questions[:f].size
+        si = concept_ai.excluded_questions[:i].size
+        ss = concept_ai.excluded_questions[:s].size
+        st = concept_ai.excluded_questions[:t].size
+        t = sd + sb + sf + si + ss + st
+
+        total[:q] += t ; total[:c] += 1
+        total[:sd] += sd; total[:sb] += sb; total[:sf] += sf
+        total[:si] += si; total[:ss] += ss; total[:st] += st
+      end
+    end
+    screen_table.add_row [Rainbow('Excluded questions').yellow.bright,
+                          total[:q], '-', '-',
+                          total[:sd], total[:sb],
+                          total[:sf], total[:si],
+                          total[:ss], total[:st]]
   end
 
   def self.export_notes
-    project = Project.instance
-    project.verbose "\n[INFO] Showing CONCEPT statistics\n"
-    project.verbose ' * Annotations:'
-    project.verbose '   ├── (d) Definitions     <= Concept.def'
-    project.verbose '   ├── (b) Table Matching  <= ' \
-                    'Concept.table.rows.columns'
-    project.verbose '   ├── (f) Tables 1 Field  <= Concept.table.fields.size==1'
-    project.verbose '   ├── (i) Images URL      <= ' \
-                    "Concept.def{:type => 'image_url'}"
-    project.verbose '   ├── (s) Sequences       <= ' \
-                    "Concept.table{:sequence => '...'}"
-    project.verbose '   └── (t) Table Rows&Cols <= ' \
-                    'Concept.table.rows.columns'
-    project.verbose "\n"
+    p = Project.instance
+    p.verbose "\n[INFO] Showing CONCEPT statistics\n"
+    p.verbose ' * Annotations:'
+    p.verbose '   ├── (d) Definitions     <= Concept.def'
+    p.verbose '   ├── (b) Table Matching  <= ' \
+              'Concept.table.rows.columns'
+    p.verbose '   ├── (f) Tables 1 Field  <= Concept.table.fields.size==1'
+    p.verbose '   ├── (i) Images URL      <= ' \
+              "Concept.def{:type => 'image_url'}"
+    p.verbose '   ├── (s) Sequences       <= ' \
+              "Concept.table{:sequence => '...'}"
+    p.verbose '   └── (t) Table Rows&Cols <= ' \
+              'Concept.table.rows.columns'
+    p.verbose "\n"
   end
 end

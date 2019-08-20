@@ -20,7 +20,8 @@ class ConceptAI
   def initialize(concept, world)
     @concept   = concept
     @world     = world
-    @questions = {}
+    @questions = { d: [], b: [], f: [], i: [], s: [], t: []}
+    @excluded_questions = { d: [], b: [], f: [], i: [], s: [], t: []}
     @num       = 0 # Used to add a unique number to every question
   end
 

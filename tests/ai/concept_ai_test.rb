@@ -22,6 +22,7 @@ class ConceptAITest < Minitest::Test
     @concepts = concepts
     @concepts_ai = []
     concepts.each { |concept| @concepts_ai << ConceptAI.new(concept,world) }
+    @initial = { d: [], b: [], f: [], i: [], s: [], t: []}
   end
 
   def test_concept_ai_delegating
@@ -42,7 +43,8 @@ class ConceptAITest < Minitest::Test
 
   def test_concept_0_make_questions
     i=0
-    assert_equal( {}, @concepts_ai[i].questions)
+    assert_equal( @initial, @concepts_ai[i].questions)
+    assert_equal( @initial, @concepts_ai[i].excluded_questions)
     @concepts_ai[i].process = true
     @concepts_ai[i].make_questions
     assert_equal 9, @concepts_ai[i].questions[:d].size
@@ -55,7 +57,8 @@ class ConceptAITest < Minitest::Test
 
   def test_concept_1_make_questions
     i=1
-    assert_equal( {}, @concepts_ai[i].questions)
+    assert_equal( @initial, @concepts_ai[i].questions)
+    assert_equal( @initial, @concepts_ai[i].excluded_questions)
     @concepts_ai[i].process = true
     @concepts_ai[i].make_questions
     assert_equal 25, @concepts_ai[i].questions[:d].size
@@ -68,7 +71,8 @@ class ConceptAITest < Minitest::Test
 
   def test_concept_2_make_questions
     i=2
-    assert_equal( {}, @concepts_ai[i].questions)
+    assert_equal( @initial, @concepts_ai[i].questions)
+    assert_equal( @initial, @concepts_ai[i].excluded_questions)
     @concepts_ai[i].process = true
     @concepts_ai[i].make_questions
     assert_equal 0,  @concepts_ai[i].questions[:d].size
@@ -81,7 +85,8 @@ class ConceptAITest < Minitest::Test
 
   def test_concept_3_make_questions
     i=3
-    assert_equal( {}, @concepts_ai[i].questions)
+    assert_equal( @initial, @concepts_ai[i].questions)
+    assert_equal( @initial, @concepts_ai[i].excluded_questions)
     @concepts_ai[i].process = true
     @concepts_ai[i].make_questions
     assert_equal 0,  @concepts_ai[i].questions[:d].size

@@ -47,12 +47,13 @@ module AI
 
   def exclude_questions
     param = Application.instance.config['questions']['exclude']
-#    param = '-b1match'
+#    param = 'misspelled'
     return if param.nil?
 
     tags = param.split(',')
     tags.each(&:strip!)
 
+    @excluded_questions = { d: [], b: [], f: [], i: [], s: [], t: []}
     input = {}
     output = {}
 

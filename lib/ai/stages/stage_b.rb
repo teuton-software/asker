@@ -50,7 +50,7 @@ class StageB < BaseStage
         # Question type <b1match>: match 3 items from table-A and 1 item with error
         e.shuffle!
         q=Question.new(:match)
-        q.name="#{name}-#{num.to_s}-b1match3x1misspelling-#{pTable.name}"
+        q.name="#{name}-#{num.to_s}-b1match3x1misspelled-#{pTable.name}"
         q.text= random_image_for(name) + lang.text_for(:b1, name, pTable.fields[pIndex1].capitalize, pTable.fields[pIndex2].capitalize )
         q.matching << [ e[0][:data][pIndex1], e[0][:data][pIndex2] ]
         q.matching << [ e[1][:data][pIndex1], e[1][:data][pIndex2] ]

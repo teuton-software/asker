@@ -9,7 +9,7 @@ require_relative "../../lib/data/world"
 class ConceptTest < Minitest::Test
   def setup
     string_data = get_xml_data
-    @concept=[]
+    @concept = []
     @context = [ 'character', 'starwars']
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
