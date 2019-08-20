@@ -11,67 +11,61 @@ module AI
   def make_questions
     return unless process?
 
-    @questions[:d] = StageD.new(self).run  # Process every def{type=text}
-    @questions[:i] = StageI.new(self).run  # Process every def{type=image_url}
-    @questions[:b] = []
-    @questions[:f] = []
-    @questions[:s] = []
-    @questions[:t] = []
-
-    #------------------------------------
+    make_questions_stages_di
     # Process every table of this concept
     tables.each do |tab|
       list1, list2 = get_list1_and_list2_from(tab)
-
-      #-----------------------------------------------
-      # Stage B: process table to make match questions
-      @questions[:b] += StageB.new(self).run(tab, list1, list2)
-      #---------------------------------------
-      # Stage S: process tables with sequences
-      @questions[:s] += StageS.new(self).run(tab, list1, list2)
-      #------------------------------------------
-      # Stage F: process tables with only 1 field
-      @questions[:f] += StageF.new(self).run(tab, list1, list2)
-      #------------------------------
-      # Stage T: process_tableXfields
-      list3 = list1 + list2
-      list1.each do |row|
-        reorder_list_with_row(list3, row)
-        @questions[:t] += StageT.new(self).run(tab, row, list3)
-      end
+      make_questions_stages_bsf(tab, list1, list2)
+      make_questions_stages_t(tab, list1, list2)
     end
     # -------------------------------------------------------
     # Exclude questions as is defined into config.ini params
     exclude_questions
   end
 
+  def make_questions_stages_di
+    @questions[:d] = StageD.new(self).run  # Process every def{type=text}
+    @questions[:i] = StageI.new(self).run  # Process every def{type=image_url}
+  end
+
+  def make_questions_stages_bsf(tab, list1, list2)
+    # Stage B: process table to make match questions
+    @questions[:b] += StageB.new(self).run(tab, list1, list2)
+    # Stage S: process tables with sequences
+    @questions[:s] += StageS.new(self).run(tab, list1, list2)
+    # Stage F: process tables with only 1 field
+    @questions[:f] += StageF.new(self).run(tab, list1, list2)
+  end
+
+  def make_questions_stages_t(tab, list1, list2)
+    # Stage T: process_tableXfields
+    list3 = list1 + list2
+    list1.each do |row|
+      reorder_list_with_row(list3, row)
+      @questions[:t] += StageT.new(self).run(tab, row, list3)
+    end
+  end
+
   def exclude_questions
     param = Application.instance.config['questions']['exclude']
-#    param = 'misspelled'
+    param = '-b, -x'
     return if param.nil?
 
-    tags = param.split(',')
-    tags.each(&:strip!)
+    tags = param.split(',').each(&:strip!)
+    input = { d: [], b: [], f: [], i: [], s: [], t: [] }
+    output = { d: [], b: [], f: [], i: [], s: [], t: [] }
 
-    @excluded_questions = { d: [], b: [], f: [], i: [], s: [], t: []}
-    input = {}
-    output = {}
-
-    @questions.each_pair do |key, listq|
-      input[key] = [] if input[key].nil?
-      output[key] = [] if output[key].nil?
-
-      listq.each do |q|
-        flag = false
-        tags.each { |e| flag = true if q.name.include? e }
-        if flag
-          output[key] << q
-        else
-          input[key] << q
-        end
-      end
+    @questions.each_pair do |key, qlist|
+      output[key] = qlist.select { |q| string_has_this_tags?(q.name, tags) }
+      input[key] = @questions[key] - output[key]
     end
     @questions = input
     @excluded_questions = output
+  end
+
+  def string_has_this_tags?(input, tags)
+    flag = false
+    tags.each { |e| flag = true if input.include? e }
+    flag
   end
 end
