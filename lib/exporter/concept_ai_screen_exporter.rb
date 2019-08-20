@@ -97,6 +97,8 @@ class ConceptAIScreenExporter
   def self.export_notes
     p = Project.instance
     p.verbose "\n[INFO] Showing CONCEPT statistics\n"
+    p.verbose ' * Exclude questions: ' +
+              Application.instance.config['questions']['exclude'].to_s
     p.verbose ' * Annotations:'
     p.verbose '   ├── (d) Definitions     <= Concept.def'
     p.verbose '   ├── (b) Table Matching  <= ' \

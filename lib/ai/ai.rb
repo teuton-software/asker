@@ -48,7 +48,6 @@ module AI
 
   def exclude_questions
     param = Application.instance.config['questions']['exclude']
-    param = '-b, -x'
     return if param.nil?
 
     tags = param.split(',').each(&:strip!)

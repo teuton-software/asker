@@ -53,8 +53,8 @@ class Tool
   def show_create_output_files
     p = Project.instance
     p.verbose "\n[INFO] Creating output files"
-    p.verbose '   ├── Gift questions file = ' + Rainbow(p.outputpath).bright
-    p.verbose '   └── Lesson file         = ' + Rainbow(p.lessonpath).bright
+    p.verbose '   ├── Gift questions file => ' + Rainbow(p.outputpath).bright
+    p.verbose '   └── Lesson file         => ' + Rainbow(p.lessonpath).bright
   end
 
   def show_final_results
