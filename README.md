@@ -35,7 +35,7 @@ asker en/starwars/jedi.haml
 
 * The program generates your output files into the `output` directory by default.
 * In this example, we use a demo input definition file called `en/starwars/jedi.haml`, that contains our conceptual entities about _"Jedi's context"_.
-* There are more input HAML/XML files into `github/dvarrui/asker-inputs`  repository.
+* There are more input files into `github/dvarrui/asker-inputs` repository.
 
 ---
 

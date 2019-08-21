@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+# encoding: utf-8
 
 nombres = ['obi-wan', 'yoda', 'darth Vader']
 
@@ -9,5 +9,5 @@ nombres.each do |i|
   else
     puts "Hello #{i.capitalize}!"
   end
-  
+
 end

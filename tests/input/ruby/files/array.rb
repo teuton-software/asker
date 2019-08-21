@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+# encoding: utf-8
 
 nombres = [ "David","Jesús","Bruno", "Daniel" ]
 
