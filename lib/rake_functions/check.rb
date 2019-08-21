@@ -1,11 +1,8 @@
 # File: Rakefile
 # Usage: rake
 
-require_relative '../application'
-
 desc 'Check installation'
 task :check do
-  puts "[INFO] Version #{Application.instance.version}"
   fails = filter_uninstalled_gems(packages)
 
   if fails.size.zero?
