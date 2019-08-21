@@ -1,17 +1,18 @@
 <#
-ASKER Windows installation
-version: 20190601
+Windows ASKER installation
+version: 20190821
+author: Francisco Vargas Ruiz
 #>
 
-If ([System.Security.Principal.WindowsIdentity]::GetCurrent().Groups -NotMatch "S-1-5-32-544") {
-    Write-Error -Category PermissionDenied "Must be run as administrator"
+If ([System.Security.Principal.WindowsIdentity]::GetCurrent().Groups -NotContains "S-1-5-32-544") {
+    $Host.UI.WriteErrorLine("Must be run as administrator")
     Exit 1
 }
 
 $AskerPath = $env:ProgramFiles + "\asker"
 $AskerUrl = "https://github.com/dvarrui/asker.git"
 
-Write-Host "[0/6.INFO] WINDOWS installation"
+Write-Host "[0/6.INFO] WINDOWS ASKER installation"
 
 Write-Host "[1/6.INFO] Installing PACKAGES..."
 If (!(Get-Command choco.exe -ErrorAction SilentlyContinue)) {
@@ -27,10 +28,10 @@ refreshenv
 Write-Host "[2/6.INFO] Rake gem installation"
 gem install rake -f
 
-Write-Host "[3/6.INFO] Installing teuton in $Path"
+Write-Host "[3/6.INFO] Installing asker in $AskerPath"
 git clone $AskerUrl $AskerPath -q
 
-Write-Host "[4/6.INFO] Adding teuton to system environment PATH variable"
+Write-Host "[4/6.INFO] Adding asker to system environment PATH variable"
 $CurrentPath = [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine)
 If (!$CurrentPath.Contains($AskerPath)) {
     [Environment]::SetEnvironmentVariable("Path", $CurrentPath + ";$AskerPath", [EnvironmentVariableTarget]::Machine)
