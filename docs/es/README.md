@@ -35,7 +35,6 @@ asker es/starwars/jedi.haml
 
 # Documentación
 
-* [Instalación](./instalar/README.md)
 * [Ontología](./ontologia.md) de las entradas de ASKER.
 * Mi primera [Demo](./demo/README.md)
 * Aprender con [ejemplos](./ejemplos/README.md)
