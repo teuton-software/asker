@@ -14,10 +14,8 @@ Several ways to install the software:
 
 If you want to download our repository with asker input files:
 
-```
-(Open sesión as your user. Not root)
-cd
-asker download
-```
+1. Open sesión as normal user. Not root.
+1. `cd`
+1. `asker download`
 
 > This action is the same as `git clone https://github.com/dvarrui/asker.git`

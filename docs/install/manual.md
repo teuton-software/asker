@@ -3,7 +3,9 @@
 
 # Manual installation
 
-| ID | Step             | Details              |
+As `root` user do the next:
+
+| Step | Acction        | Details              |
 | -- | ---------------- | -------------------- |
 |  1 | Install git      | Versión >=2.1.4      |
 |  2 | Install ruby     | Versión >=2.1.3      |
@@ -15,10 +17,9 @@
 
 ---
 
-As `root` user do the next:
+## Steps 1-2-3: git, ruby and rake
 
-## Steps 1-2-3: Checking software versions
-
+Checking software versions:
 ```
 $ git --version
 git version 2.1.4
@@ -29,17 +30,14 @@ rake, version 10.4.2
 ```
 
 For example, to install on OpenSUSE we do:
-```
-zypper install git     # Install git
-(Ruby is preinstalled)
-gem install rake       # Install rake
-```
+1. `zypper install git`, Install git.
+1. Ruby is preinstalled.
+1. `gem install rake`, Install rake.
+
 To install on Debian:
-```
-apt-get install git    # Install git
-apt-get install ruby   # Install ruby
-gem install rake       # Install rake
-```
+1. `apt-get install git`, Install git.
+1. `apt-get install ruby`, Install ruby.
+1. `gem install rake`, Install rake.
 
 ---
 
