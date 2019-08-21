@@ -32,6 +32,13 @@ zypper install git
 (Ruby is preinstalled)
 gem install rake
 ```
+To install on Debian:
+```
+apt-get install git
+apt-get install ruby
+gem install rake
+```
+
 ---
 
 ## Step 4: Download project
