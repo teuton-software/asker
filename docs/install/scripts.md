@@ -1,30 +1,14 @@
 
-# Instalación
+[<< back](README.md)
 
-El proceso de instalación es distinto, dependiendo del sistema
-operativo:
-* OpenSUSE
-* Debian
-* [Windows](./windows.md)
-* [Manualmente](./manual.md)
+# Using installation scripts
 
----
+## OpenSUSE script
 
-# OpenSUSE: Proceso de Instalación
+* Open sesion as `root` user.
+* `curl https://raw.githubusercontent.com/dvarrui/asker/master/bin/asker_opensuse_installer.sh | sh`, to download and execute installation script.
 
-* Iniciar sesión como usuario `root`.
-* `curl https://raw.githubusercontent.com/dvarrui/asker/master/bin/asker_opensuse_installer.sh | sh`, para descargar y ejecutar el instalador.
-* Para descargar los ejemplos:
-    * Inicar sesión como tu usuario normal.
-    * Muévete a tu directorio de trabajo.
-    * `asker download`
-
-> **Recuerda**
->
-> Para ejecutar una prueba de ASKER (Por ejemplo con el fichero es/starwars/jedi.haml, hacemos lo siguiente:
-> * `asker es/starwars/jedi.haml`
->
-> Los resultados guardan en el directorio local `output`.
+> Run `asker` to final check.
 
 ---
 

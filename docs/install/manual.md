@@ -1,5 +1,5 @@
 
-[<< Back](README.md)
+[<< back](README.md)
 
 # Manual installation
 

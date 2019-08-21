@@ -15,6 +15,7 @@ Several ways to install the software:
 If you want to download our repository with asker input files:
 
 ```
+(Open sesión as your user. Not root)
 cd
 asker download
 ```

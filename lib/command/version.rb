@@ -8,7 +8,8 @@ class Asker < Thor
   map ['v', '-v', '--version'] => 'version'
   desc 'version', 'show the program version'
   def version
-    print Rainbow(Application.name).bright.blue
-    puts  ' (version ' + Rainbow(Application.version).green + ')'
+    app = Application.instance
+    print Rainbow(app.name).bright.blue
+    puts  ' (version ' + Rainbow(app.version).green + ')'
   end
 end
