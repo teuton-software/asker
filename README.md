@@ -44,12 +44,12 @@ asker en/starwars/jedi.haml
 
 # Documentation
 
-* [History](./docs/en/history.md)
 * [Fundamentals](./doc/en/fundamentals.md)
 * [Installation](./docs/en/installation.md)
 * [Directories description](./docs/en/dirtree.md)
 * [Input definitions](./docs/en/inputs.md)
 * [Contribute](./docs/en/contribute.md)
+* [History](./docs/history.md)
 * ES - [Spanish documentation](./docs/es/README.md)
 
 ---

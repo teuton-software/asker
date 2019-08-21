@@ -45,3 +45,29 @@ It's usefull (for me at least), and hope It'll be for you too.
 ;-)
 
 David Vargas
+
+---
+
+# El problema de crear preguntas
+
+El gran problema con los cuestionarios tipo test, es que son útiles únicamente para evaluar características medibles o cuantificables. De modo que podemos estar limitados si queremos evaluar aspectos más abstractos o generales.
+Pero podemos enfocar este problema desde otro punto de vista. Veamos.
+
+Si tengo un problema abierto y abstracto, su solución tendrá un conjunto de
+pasos o hítos que pueden ser medibles. De modo que podemos transformar
+un problema abierto en un conjunto de muchos microproblemas cerrados.
+Y ahí es donde vamos a concentrar nuestra atención para medir esas
+características cuantificables.
+
+Además, si "bombardeamos" al estudiante con una gran cantidad de preguntas
+diferentes sobre el mismo concepto, probablemente podremos estar cerca de
+conocer/medir el grado de asimilación por parte del estudiante de dichos
+conceptos.
+
+El problema que teníamos de dedicar tiempo a corregir lo hemos eliminado
+pero ahora tenemos el problema de dedicar tiempo a crear las preguntas.
+
+Now, to resolve this problem, we had **asker**.
+This multiplatform and free software program takes care
+Este programa multiplataforma de licencia libre se encarga de crear
+cientos de preguntas por nosotros a partir de un mapa conceptual de la unidad o del tema que queramos trabajar.
