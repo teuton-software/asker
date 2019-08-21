@@ -5,10 +5,8 @@
 
 ## OpenSUSE script
 
-* Open sesion as `root` user.
-* `curl https://raw.githubusercontent.com/dvarrui/asker/master/bin/asker_opensuse_installer.sh | sh`, to download and execute installation script.
-
-> Run `asker` to final check.
+* As `root` user: `curl https://raw.githubusercontent.com/dvarrui/asker/master/bin/asker_opensuse_installer.sh | sh`.
+* As normal user: `asker version`.
 
 ---
 

@@ -15,6 +15,8 @@
 
 ---
 
+As `root` user do the next:
+
 ## Steps 1-2-3: Checking software versions
 
 ```
@@ -28,15 +30,15 @@ rake, version 10.4.2
 
 For example, to install on OpenSUSE we do:
 ```
-zypper install git
+zypper install git     # Install git
 (Ruby is preinstalled)
-gem install rake
+gem install rake       # Install rake
 ```
 To install on Debian:
 ```
-apt-get install git
-apt-get install ruby
-gem install rake
+apt-get install git    # Install git
+apt-get install ruby   # Install ruby
+gem install rake       # Install rake
 ```
 
 ---
