@@ -1,16 +1,15 @@
 # ASKER
 
-This application use some _"kind of AI"_, to generate a lot of questions
-from an _input file_ with your own _definitions_.
+This application generates a lot of questions from an _input file_
+with your own _definitions_.
 
-> Some time ago, this project was named as "Darts of teacher". But now, it's only ASKER.
+> Some time ago, this project was called "Darts of teacher". We renamed it because "darts" was used. Now, it's called ASKER.
 
 ---
 
 # Description
 
-_Free Software program_, that helps trainers to create
-a huge amount of questions, from a definitions (_conceptual entities_) input file.
+_Free Software program_, that helps trainers to create a huge amount of questions, from a definitions (_conceptual entities_) input file.
 
 Steps:
 
@@ -44,13 +43,11 @@ asker en/starwars/jedi.haml
 
 # Documentation
 
-* [Fundamentals](./doc/en/fundamentals.md)
-* [Installation](./docs/en/installation.md)
-* [Directories description](./docs/en/dirtree.md)
+* [Installation](./docs/install/README.md)
 * [Input definitions](./docs/en/inputs.md)
 * [Contribute](./docs/en/contribute.md)
 * [History](./docs/history.md)
-* ES - [Spanish documentation](./docs/es/README.md)
+* [Fundamentals](./doc/en/fundamentals.md)
 
 ---
 

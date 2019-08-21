@@ -16,3 +16,5 @@ If you want to download our repository with asker input files:
 cd
 asker download
 ```
+
+> This action is the same as `git clone https://github.com/dvarrui/asker.git`
