@@ -3,7 +3,9 @@
 
 # Using installation scripts
 
-## GNU/Linux installations
+## GNU/Linux installation
+
+> Tested on: OpenSUSE, Debian, Ubuntu.
 
 Run as `root` user:
 ```
@@ -12,7 +14,6 @@ wget -qO- https://raw.githubusercontent.com/dvarrui/asker/master/bin/linux_asker
 
 Run `asker version` as normal user.
 
-> Tested on: OpenSUSE, Debian, Ubuntu.
 
 ## Windows script
 
