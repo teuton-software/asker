@@ -1,14 +1,15 @@
 
----
+[<< back](../README.md)
 
-# Contribute
+# Contributions
 
+If you want to contribute:
 * Talk about this tool with your colleagues.
 * Use this tool.
 * Report bugs.
 * Report us, your ideas for new features.
-* Share with us, your own contents files (HAML/XML). Let's see input directory.
-* If you like `ruby`, you also could help us with the [TO-DO list](./docs/TODO.md) or work with our issues.
+* Share with us your own input files.
+* And if you love `ruby`, you can develop with us the [TO-DO list](./docs/TODO.md) or work on the issues.
 
 ---
 

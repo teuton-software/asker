@@ -37,17 +37,15 @@ asker en/starwars/jedi.haml
 * In this example, we use a demo input definition file called `en/starwars/jedi.haml`, that contains our conceptual entities about _"Jedi's context"_.
 * There are more input HAML/XML files into `github/dvarrui/asker-inputs`  repository.
 
-> Asker generates output on diferents languages, so it's good idea separate input files on diferent directories. Now works with English, Spanish.
-
 ---
 
 # Documentation
 
 * [Installation](./docs/install/README.md)
 * [Input definitions](./docs/en/inputs.md)
-* [Contribute](./docs/en/contribute.md)
-* [History](./docs/history.md)
+* [Contributions](./docs/contributions.md)
 * [Fundamentals](./doc/en/fundamentals.md)
+* [History](./docs/history.md)
 
 ---
 

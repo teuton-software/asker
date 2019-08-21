@@ -40,4 +40,3 @@ asker es/starwars/jedi.haml
 * Aprender con [ejemplos](./ejemplos/README.md)
 * [Directorios de proyecto](./directorios.md)
 * [Inputs o mapas conceptuales](./input.md)
-* [Contribuir](./contribute.md)
