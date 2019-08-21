@@ -1,4 +1,6 @@
 
+[<](../../README.md)
+
 # Software Installation
 
 Several ways to install the software:
