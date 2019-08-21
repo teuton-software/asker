@@ -1,4 +1,6 @@
 
+[<< Back](README.md)
+
 # Manual installation
 
 | ID | Step             | Details              |

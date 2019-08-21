@@ -1,5 +1,5 @@
 
-[<](../../README.md)
+[<< back](../../README.md)
 
 # Software Installation
 
