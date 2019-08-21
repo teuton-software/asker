@@ -41,7 +41,6 @@ Write-Host "[5/6.INFO] Configuring..."
 Push-Location
 cd $AskerPath
 rake gems
-rake
 Pop-Location
 
 refreshenv
