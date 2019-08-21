@@ -27,7 +27,7 @@ Features:
 
 # Usage
 
-To execute ASKER, we use `asker` command, with a path to a input file as argument. For example, to run "jedi" input file example, we do:
+To execute ASKER, we use `asker` command, with a path to an input file as argument. For example, to run "jedi" input file example, we do:
 
 ```
 asker en/starwars/jedi.haml
