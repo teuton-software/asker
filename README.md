@@ -3,8 +3,6 @@
 This application generates a lot of questions from an _input file_
 with your own _definitions_.
 
-> Some time ago, this project was called "Darts of teacher". We renamed it because "darts" was used. Now, it's called ASKER.
-
 ---
 
 # Description
@@ -42,7 +40,7 @@ asker en/starwars/jedi.haml
 # Documentation
 
 * [Installation](./docs/install/README.md)
-* [Input definitions](./docs/en/inputs.md)
+* [Inputs](./docs/inputs/README.md)
 * [Contributions](./docs/contributions.md)
 * [Basics](./docs/basics.md)
 * [History](./docs/history.md)

@@ -3,6 +3,8 @@
 
 # History
 
+> Some time ago, this project was called "Darts of teacher". We renamed it because "darts" was used. Now, it's called ASKER.
+
 ## The problem
 
 Working as a teacher, one of the most boring taks is check the same exercises

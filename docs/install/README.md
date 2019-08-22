@@ -6,7 +6,6 @@
 Several ways to install the software:
 * [Using installation scripts](scripts.md) **RECOMMENDED**
 * [Manual installation](manual.md)
-* Using Vagranfiles (UNDER CONSTRUCTION)
 
 ---
 
