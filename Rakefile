@@ -26,3 +26,9 @@ task :update do
   system('git pull')
   install_gems packages
 end
+
+def create_symbolic_link
+  puts "[INFO] Creating symbolic link into /usr/local/bin"
+  basedir = File.dirname(__FILE__)
+  system("ln -s #{basedir}/asker /usr/local/bin/asker")
+end

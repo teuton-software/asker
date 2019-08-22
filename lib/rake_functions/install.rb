@@ -31,9 +31,3 @@ def install_gems(list)
   fails = filter_uninstalled_gems(list)
   fails.each { |name| system("gem install #{name}") }
 end
-
-def create_symbolic_link
-  puts "[INFO] Creating symbolic link into /usr/local/bin"
-  basedir = File.dirname(__FILE__)
-  system("ln -s #{basedir}/asker /usr/local/bin/asker")
-end
