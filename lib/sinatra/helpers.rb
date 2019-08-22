@@ -1,6 +1,5 @@
 
-require 'pry'
-
+# Sintatra.SinatraFrontEnd.Helpers
 module Sinatra
   module SinatraFrontEnd
     module Helpers

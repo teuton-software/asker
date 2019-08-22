@@ -1,5 +1,5 @@
 
-require "sinatra/base"
+require 'sinatra/base'
 require 'coderay'
 
 require_relative '../project'
