@@ -44,7 +44,7 @@ asker en/starwars/jedi.haml
 * [Installation](./docs/install/README.md)
 * [Input definitions](./docs/en/inputs.md)
 * [Contributions](./docs/contributions.md)
-* [Fundamentals](./doc/en/fundamentals.md)
+* [Basics](./doc/basics.md)
 * [History](./docs/history.md)
 
 ---
