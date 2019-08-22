@@ -1,10 +1,10 @@
 
 [<< back](../../README.md)
 
-# Software Installation
+# Install Asker Software
 
 Several ways to install the software:
-* [Using installation scripts](scripts.md)
+* [Using installation scripts](scripts.md) **RECOMMENDED**
 * [Manual installation](manual.md)
 * Using Vagranfiles (UNDER CONSTRUCTION)
 
