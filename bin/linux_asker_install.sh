@@ -36,4 +36,3 @@ rake $distro
 # rake
 
 echo "[6/6.INFO] Finish!"
-asker version
