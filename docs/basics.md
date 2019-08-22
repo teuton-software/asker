@@ -26,7 +26,7 @@ The task of creating test questions to solve the previous problem, becames anoth
 
 And usually when I was making the question number 42, I realise that I forgot the content of the 41 previous. I'm loosing time and it's slow.
 
-## Work one
+## Work once
 
 Finally, I decide to write this tool that help me with the process of
 making test questions from input definition files.
