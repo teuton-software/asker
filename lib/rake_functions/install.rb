@@ -25,7 +25,6 @@ end
 
 def install_gems(list)
   puts "[INFO] Installing Ruby gems..."
-#  system('gem install sinatra -v 1.4.6')
   fails = filter_uninstalled_gems(list)
   fails.each { |name| system("gem install #{name}") }
 end

@@ -38,4 +38,3 @@ asker es/starwars/jedi.haml
 * [Ontología](./ontologia.md) de las entradas de ASKER.
 * Mi primera [Demo](./demo/README.md)
 * Aprender con [ejemplos](./ejemplos/README.md)
-* [Inputs o mapas conceptuales](./input.md)
