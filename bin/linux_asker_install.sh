@@ -36,4 +36,4 @@ rake $distro
 # rake
 
 echo "[6/6.INFO] Finish!"
-/usr/local/bin/asker version
+asker version
