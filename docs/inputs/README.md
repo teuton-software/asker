@@ -9,7 +9,9 @@
 
 How to build our asker input files?
 
-Run a plain text editor and [start learning](learn.md) keywords with an example.
+Run a plain text editor and start
+* [Learning basics](learn.md)
+* [Learning about tables](tables.md)
 
 ---
 
