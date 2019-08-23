@@ -10,97 +10,50 @@ Let's go.
 
 ---
 
-# Furniture
+# Def limitation
 
-* Create a text file, called for example: `demo/furniture.haml`.
-* **map**: Once, at first line, we write keyword `map`. Example:
+We have learn that:
+* **map** serves to identify an input file.
+* **concept**, **names** and **tags** serves to identify a concept.
+* **def** serves to add meaning to a concept.
 
-```ruby
-%map{ :lang => 'en', :context => 'furniture, home', :version => '1'}
-```
-
-| Attribute | Description                                    |
-| --------- | ---------------------------------------------- |
-| lang      | Output texts will be created in English        |
-| context   | Comma separated labels that define map content |
-| version   | Input file format version |
-
-This input file will contain concepts about furniture context.
-
-* **concept, names, tags**: So we define our first concept:
-
-```
-  %concept
-    %names chair
-    %tags single, seat, leg, backrest
-```
-
-| Param | Description                     |
-| ----- | ------------------------------- |
-| names | Comma separated concept's names |
-| tags  | Comma separated tags that help to identify this concept |
-
-* **def**: Use def keyword to add concept meaning. The `def` content must uniquely identifies our concept. You can use `def` more than once.
-
+But, it's not enough. **def** only contains meaning that could only be associated to one unique concept. For example:
 ```
   %concept
     %names chair
     %tags single, seat, leg, backrest
     %def Single seat with legs and backrest
-    %def Furniture that is placed around the table to sit
 ```
 
-At this time, we may generate questions with:
+**def** is good but we need other keyword to add meaning that isn't uniquely associated to one concept. That is **table** keyword.
 
-```bash
-asker demo/furniture.haml
-```
+# Tables
 
----
-
-# Formats
-
-HAML is a special format. It's necesary write exactly:
-* 0 spaces before map.
-* 2 spaces before concept.
-* 4 spaces before names, tags and def.
-
-It's posible write the same using XML format instead. Take a look:
-
-```xml
-<map lang='en' context='furniture, home' version='1'>
-  <concept>
-    <names>chair</names>
-    <tags>single, seat, leg, backrest</tags>
-    <def>Single seat with legs and backrest</def>
-    <def>Furniture that is placed around the table to sit</def>
-  </concept>
-</map>
-```
-
-Notice that `demo/furniture.haml` is HAML file and  `demo/furniture.xml` a XML file. Both are valid.
-
-> HAML format files are the same as XML format files.
-Internaly HAML files are translated automaticaly to an XML equivalent.
->
-> Why write into HAML instead of XML? HAML It's easier (for me).
-You don't have to close every tag, only be carefuly with indentation.
->
-> If you prefer, you could write your input files using XML.
-
----
-
-# Adding images
-
-Example:
-![](https://www.portobellostreet.es/imagenes_muebles/Muebles-Silla-colonial-Fusta-Bora-Bora.jpg)
-
-**def** can be used with image URL. So we have to find an image that uniquely identifies our concept and write this:
+Example, adding meaning to `chair` concept using 1 field table. Field called `features`:
 
 ```
-    %def{:type => 'image_url'}https://www.portobellostreet.es/imagenes_muebles/Muebles-Silla-colonial-Fusta-Bora-Bora.jpg
+%concept
+  %names chair
+  %tags single, seat, leg, backrest
+  %def Single seat with legs and backrest
+  %table{ :fields => 'features'}
+    %row Sigle person seat
+    %row Has legs
+    %row Has backrest
+    %row May have armrest or not
 ```
 
-| Attribute | Description  |
-| --------- | ------------ |
-| type      | Content type |
+Example, adding meaning using 2 fields table. Fields called `attribute` and `value`:
+
+```
+%concept
+  %names chair
+  %tags single, seat, leg, backrest
+  %def Single seat with legs and backrest
+  %table{ :fields => 'attribute,value'}
+    %row
+      %col Sigle person seat
+    %row Has legs
+    %row Has backrest
+    %row May have armrest or not
+```
