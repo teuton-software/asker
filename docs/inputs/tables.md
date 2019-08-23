@@ -1,18 +1,16 @@
 
 [<< back](README.md)
 
-# Learn basics
+# Learn tables
 
-To know how to build our asker input files, we need to learn
-theses keywords:
-* map, concept, names, tags, def
+Now, we are going to learn thas last keywords:
 * table, row and col
 
-Let's start.
+Let's go.
 
 ---
 
-# Text plain editor
+# Furniture
 
 * Create a text file, called for example: `demo/furniture.haml`.
 * **map**: Once, at first line, we write keyword `map`. Example:
@@ -106,5 +104,3 @@ Example:
 | Attribute | Description  |
 | --------- | ------------ |
 | type      | Content type |
-
-[>> Learn about tables](tables.md)

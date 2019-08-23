@@ -3,7 +3,8 @@
 
 # Install Asker Software
 
-Several ways to install the software:
+Ways to install:
+
 * [Using installation scripts](scripts.md) **RECOMMENDED**
 * [Manual installation](manual.md)
 
@@ -17,4 +18,4 @@ If you want to download our repository with asker input files:
 1. `cd`
 1. `asker download`
 
-> This action is the same as `git clone https://github.com/dvarrui/asker.git`
+> Like a `git clone https://github.com/dvarrui/asker.git`

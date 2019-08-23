@@ -3,7 +3,7 @@
 
 # Using installation scripts
 
-## GNU/Linux installation
+## GNU/Linux installation script
 
 > Tested on: OpenSUSE, Debian, Ubuntu.
 
@@ -14,8 +14,7 @@ wget -qO- https://raw.githubusercontent.com/dvarrui/asker/master/bin/linux_asker
 
 Run `asker version` as normal user.
 
-
-## Windows script
+## Windows installation script
 
 Requirements:
 * Windows 7+ / Windows Server 2003+

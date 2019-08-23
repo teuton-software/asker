@@ -6,14 +6,14 @@
 As `root` user do the next:
 
 | Step | Acction        | Details              |
-| -- | ---------------- | -------------------- |
-|  1 | Install git      | Versión >=2.1.4      |
-|  2 | Install ruby     | Versión >=2.1.3      |
-|  3 | Install rake     | Versión >=10.4.2     |
-|  4 | Download project | github/dvarrui/asker |
-|  5 | cd asker         | |
-|  6 | Install gems     | rake gems |
-|  7 | Final check      | rake |
+| ---- | ---------------- | -------------------- |
+|  1   | Install git      | Versión >=2.1.4      |
+|  2   | Install ruby     | Versión >=2.1.3      |
+|  3   | Install rake     | Versión >=10.4.2     |
+|  4   | Download project | github/dvarrui/asker |
+|  5   | cd asker         | |
+|  6   | Install gems     | rake gems |
+|  7   | Final check      | rake |
 
 ---
 

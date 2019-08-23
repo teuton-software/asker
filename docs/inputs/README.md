@@ -18,7 +18,7 @@ Run a plain text editor and start
 ## Web editor (On development)
 
 Asker has a web editor to help building our asker input files.
-By now it's only a reader, not writter. Sorry! Still is on development.
+By now only read, do not write. Sorry! Still is on development.
 
 Looks like this:
 
