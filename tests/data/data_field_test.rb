@@ -2,7 +2,6 @@
 
 require 'minitest/autorun'
 require 'rexml/document'
-require 'pry'
 
 require_relative '../../lib/data/data_field'
 

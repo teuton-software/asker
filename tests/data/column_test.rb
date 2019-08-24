@@ -1,10 +1,9 @@
 #!/usr/bin/ruby
 
-require "minitest/autorun"
+require 'minitest/autorun'
 require 'rexml/document'
-require 'pry'
 
-require_relative "../../lib/data/concept"
+require_relative '../../lib/data/concept'
 
 class ColumnTest < Minitest::Test
   def setup

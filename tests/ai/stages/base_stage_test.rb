@@ -7,7 +7,6 @@ require_relative "../../../lib/ai/stages/base_stage"
 require_relative "../../../lib/data/concept"
 require_relative "../../../lib/data/world"
 require_relative "../../../lib/ai/concept_ai"
-require 'pry'
 
 class BaseStageTest < Minitest::Test
   def setup
