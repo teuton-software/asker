@@ -29,7 +29,7 @@ But, it's not enough. **def** only contains meaning that could only be associate
 
 # Tables
 
-## 1 field
+## Table with 1 field
 
 Example, adding meaning using 1 field table. Field called `members`:
 
@@ -48,10 +48,11 @@ Example, adding meaning using 1 field table. Field called `members`:
 
 | Param  | Description |
 | ------ | ----------- |
+| table  | Group rows  |
 | fields | Comma separated values with field name |
 | row    | Field value |
 
-## 2 fields
+## Table with 2 fields
 
 Example, adding meaning using 2 fields table. Fields called `attribute` and `value`:
 
@@ -70,20 +71,36 @@ Example, adding meaning using 2 fields table. Fields called `attribute` and `val
       %row
         %col Origin
         %col Sydney
-      %row
-        %col Formed in
-        %col 1973
 ```
 
-| Param  | Description |
-| ------ | ----------- |
+| Param  | Description        |
+| ------ | ------------------ |
+| table  | Group rows         |
 | fields | Comma separated values with field names |
-| row    |             |
+| row    | Group cols         |
 | col    | Field column value |
 
-## Sequence
+## Table with Sequence
 
-Albums High Voltage, in 1975.
-in 1977 for the album Powerage.
-In February 1980, bringing in Brian Johnson.
-Back in Black 1980
+Sometimes we have a 1 field table where rows are sorted or form a sequence. In that cases we also could take advantage defining a `sequence`, like:
+
+```
+%concept
+  %names AC/DC, ACDC
+  %tags single, seat, leg, backrest
+  %tags rock, band, australia
+  %table{ :fields => 'Albums', :sequence => 'Albums sorted by date'}
+    %row Albums High Voltage
+    %row Powerage
+    %row Highway to Hell
+    %row Back in Black
+    %row Ballbreaker
+    %row Rock or Bust
+```
+
+| Param    | Description        |
+| -------- | ------------------ |
+| table    | Group rows         |
+| fields   | Field name         |
+| sequence | Label form ordered values |
+| row      | Field value        |

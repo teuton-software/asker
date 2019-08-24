@@ -1,0 +1,24 @@
+<map lang='en' context='furniture, home' version='1'>
+  <concept>
+    <names>chair</names>
+    <tags>single, seat, leg, backrest</tags>
+    <def>Single seat with legs and backrest</def>
+    <def>Furniture that is placed around the table to sit</def>
+    <def type='image_url'>https://www.portobellostreet.es/imagenes_muebles/Muebles-Silla-colonial-Fusta-Bora-Bora.jpg</def>
+  </concept>
+
+  <concept>
+    <names>couch</names>
+    <tags>furniture, seat, two, threee, people, bench, armrest</tags>
+  </concept>
+
+  <concept>
+    <names>table</names>
+    <tags>furniture, flat, top, leg, surface, work, eat</tags>
+  </concept>
+
+  <concept>
+    <names>bed</names>
+    <tags>furniture, place, sleep, relax</tags>
+  </concept>
+</map>
