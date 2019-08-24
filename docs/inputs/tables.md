@@ -10,7 +10,7 @@ Let's go.
 
 ---
 
-# Def limitation
+# Def limits
 
 We have learn that:
 * **map** serves to identify an input file.
@@ -20,40 +20,70 @@ We have learn that:
 But, it's not enough. **def** only contains meaning that could only be associated to one unique concept. For example:
 ```
   %concept
-    %names chair
-    %tags single, seat, leg, backrest
-    %def Single seat with legs and backrest
+    %names AC/DC, ACDC
+    %tags rock, band, australia
+    %def Australian rock band formed by Scottish-born brothers Malcolm and Angus Young
 ```
 
 **def** is good but we need other keyword to add meaning that isn't uniquely associated to one concept. That is **table** keyword.
 
 # Tables
 
-Example, adding meaning to `chair` concept using 1 field table. Field called `features`:
+## 1 field
+
+Example, adding meaning using 1 field table. Field called `members`:
 
 ```
 %concept
-  %names chair
+  %names AC/DC, ACDC
   %tags single, seat, leg, backrest
-  %def Single seat with legs and backrest
-  %table{ :fields => 'features'}
-    %row Sigle person seat
-    %row Has legs
-    %row Has backrest
-    %row May have armrest or not
+  %tags rock, band, australia
+  %table{ :fields => 'members'}
+    %row Bon Scott
+    %row Angus Young
+    %row Malcolm Young
+    %row Phil Rudd
+    %row Cliff Williams
 ```
+
+| Param  | Description |
+| ------ | ----------- |
+| fields | Comma separated values with field name |
+| row    | Field value |
+
+## 2 fields
 
 Example, adding meaning using 2 fields table. Fields called `attribute` and `value`:
 
 ```
-%concept
-  %names chair
-  %tags single, seat, leg, backrest
-  %def Single seat with legs and backrest
-  %table{ :fields => 'attribute,value'}
-    %row
-      %col Sigle person seat
-    %row Has legs
-    %row Has backrest
-    %row May have armrest or not
+  %concept
+    %names AC/DC, ACDC
+    %tags single, seat, leg, backrest
+    %tags rock, band, australia
+    %table{ :fields => 'attribute, value'}
+      %row
+        %col Genres
+        %col Hard rock blues rock rock and roll
+      %row
+        %col Years active
+        %col 1973–present
+      %row
+        %col Origin
+        %col Sydney
+      %row
+        %col Formed in
+        %col 1973
 ```
+
+| Param  | Description |
+| ------ | ----------- |
+| fields | Comma separated values with field names |
+| row    |             |
+| col    | Field column value |
+
+## Sequence
+
+Albums High Voltage, in 1975.
+in 1977 for the album Powerage.
+In February 1980, bringing in Brian Johnson.
+Back in Black 1980
