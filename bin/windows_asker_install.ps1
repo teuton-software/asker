@@ -46,4 +46,3 @@ Pop-Location
 refreshenv
 
 Write-Host "[6/6.INFO] Finish!"
-asker version

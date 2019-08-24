@@ -33,6 +33,5 @@ git clone $askerUrl $askerPath -q
 echo "[5/6.INFO] Configuring..."
 cd $askerPath
 rake $distro
-# rake
 
 echo "[6/6.INFO] Finish!"
