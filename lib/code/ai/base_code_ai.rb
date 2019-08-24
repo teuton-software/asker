@@ -45,5 +45,4 @@ class BaseCodeAI
     list.each { |m| @questions += self.send m }
     @questions
   end
-
 end
