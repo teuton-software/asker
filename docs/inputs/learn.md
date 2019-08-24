@@ -23,9 +23,9 @@ Let's start.
 
 | Attribute | Description                                    |
 | --------- | ---------------------------------------------- |
-| lang      | Output texts will be created in English        |
+| lang      | Output texts will be created in English. Valid values: en, es |
 | context   | Comma separated labels that define map content |
-| version   | Input file format version |
+| version   | Input file format version. Valid value: 1 |
 
 This input file will contain concepts about furniture context.
 
