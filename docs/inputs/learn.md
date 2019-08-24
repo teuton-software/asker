@@ -28,6 +28,11 @@ Let's start.
 | version   | Input file format version. Valid value: 1 |
 
 This input file will contain concepts about furniture context.
+Use diferents input files to define diferents contexts.
+
+> Use separated contexts is good idea. Sometimes, diferents concept from diferents contexts has the same `names` value. For example:
+> * free as free of charge, costless.
+> * free as in freedom.
 
 * **concept, names, tags**: So we define our first concept:
 
