@@ -104,3 +104,6 @@ Sometimes we have a 1 field table where rows are sorted or form a sequence. In t
 | fields   | Field name         |
 | sequence | Label form ordered values |
 | row      | Field value        |
+
+Example:
+* [acdc.haml](../examples/bands/acdc.haml)
