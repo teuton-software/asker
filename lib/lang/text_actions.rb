@@ -69,7 +69,8 @@ module TextActions
       line.each do |value|
         if value.class == String
           lText+=" "+value
-        elsif value.class == Integer
+        elsif [Integer, Fixnum].include? value.class
+          # INFO: ruby 2.4 unifies Fixnum and Bignum into Integer
           if lIndexes.include? value then
             lText   += " [#{counter.to_s}]"
             counter += 1
