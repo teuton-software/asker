@@ -5,7 +5,7 @@
 
 ## GNU/Linux installation script
 
-> Tested on: OpenSUSE Leap 15, Debian, Ubuntu.
+> Tested on: OpenSUSE Leap 15, Debian 9, Ubuntu.
 
 Run as `root` user:
 ```
