@@ -74,7 +74,7 @@ module TextActions
         elsif value == value.to_i
           # INFO: ruby 2.4 unifies Fixnum and Bignum into Integer
           #       Avoid using deprecated classes.
-          if lIndexes.include? value then
+          if lIndexes.include? value
             lText   += " [#{counter.to_s}]"
             counter += 1
           else
