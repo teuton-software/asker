@@ -18,32 +18,34 @@ module TextActions
   end
 
   def text_filter_connectors(pText, pFilter)
-    input_lines=pText.split(".")
-    output_lines=[]
-    output_words=[]
+    input_lines = pText.split(".")
+    output_lines = []
+    output_words = []
     input_lines.each_with_index do |line, rowindex|
 	    row=[]
-      line.split(" ").each_with_index do |word,colindex|
-        flag=@connectors.include? word.downcase
+      line.split(' ').each_with_index do |word, colindex|
+        flag = @connectors.include? word.downcase
 
 	      # if <word> is a conector and <pFilter>==true Then Choose this <word>
 	      # if <word> isn't a conector and <pFilter>==true and <word>.length>1 Then Choose this <word>
-        if (flag and pFilter) or (!flag and !pFilter and word.length>1) then
-		      output_words<< {:word => word, :row => rowindex, :col => colindex }
+        if (flag and pFilter) || (!flag and !pFilter and word.length>1)
+		      output_words << {:word => word,
+                           :row => rowindex,
+                           :col => colindex }
 		      row << (output_words.size-1)
 	      else
 		      row << word
 		    end
 	    end
-	    row << "."
+	    row << '.'
 	    output_lines << row
 	  end
 
     indexes = []
-    exclude = ["[", "]", "(", ")", "\"" ]
-    output_words.each_with_index do |item,index|
-      flag=true
-      exclude.each { |e| flag=false if (item[:word].include?(e)) }
+    exclude = ['[', ']', '(', ')', "\"" ]
+    output_words.each_with_index do |item, index|
+      flag = true
+      exclude.each { |e| flag = false if (item[:word].include?(e)) }
       indexes << index if flag
     end
 
@@ -51,44 +53,46 @@ module TextActions
 	  return result
   end
 
-  def text_with_connectors(pText)
-	  return text_filter_connectors(pText, false)
+  def text_with_connectors(text)
+	  text_filter_connectors(text, false)
   end
 
-  def text_without_connectors(pText)
-	  return text_filter_connectors(pText, true)
+  def text_without_connectors(text)
+	  text_filter_connectors(text, true)
   end
 
-  def build_text_from_filtered( pStruct, pIndexes)
+  def build_text_from_filtered(pStruct, pIndexes)
     lines    = pStruct[:lines]
     lIndexes = pIndexes.sort
     counter  = 1
-    lText    = ""
+    lText    = ''
 
     lines.each do |line|
       line.each do |value|
         if value.class == String
-          lText+=" "+value
-        elsif [Integer, Fixnum].include? value.class
+          lText += (' ' + value)
+        elsif value == value.to_i
           # INFO: ruby 2.4 unifies Fixnum and Bignum into Integer
+          #       Avoid using deprecated classes.
           if lIndexes.include? value then
             lText   += " [#{counter.to_s}]"
             counter += 1
           else
             lword = pStruct[:words][value][:word]
-            lText+=" "+lword
+            lText += (' ' + lword)
           end
         end
       end
     end
-    lText.gsub!(" .",".")
-    lText.gsub!(" ,",",")
-    lText = lText[1,lText.size] if lText[0]=" "
-    return lText
+    lText.gsub!(' .', '.')
+    lText.gsub!(' ,', ',')
+    lText = lText[1, lText.size] if lText[0] == ' '
+    lText
   end
 
   def count_words(pInputText)
     return 0 if pInputText.nil?
+
     t = pInputText.clone
     t.gsub!("\n"," ")
     t.gsub!("/"," ")
@@ -97,51 +101,50 @@ module TextActions
     t.gsub!(","," ")
     t.gsub!("   "," ")
     t.gsub!("  "," ")
-    return t.split(" ").count
+    t.split(" ").count
   end
 
-  def do_mistake_to(pText='')
-    lText=pText.dup
-    keys=@mistakes.keys
+  def do_mistake_to(pText = '')
+    lText = pText.dup
+    keys = @mistakes.keys
 
-    #Try to do mistake with one item from the key list
+    # Try to do mistake with one item from the key list
     keys.shuffle!
     keys.each do |key|
-      if lText.include? key.to_s then
-         values=@mistakes[key].split(",")
+      if lText.include? key.to_s
+         values = @mistakes[key].split(',')
          values.shuffle!
-         lText=lText.sub(key.to_s,values[0].to_s)
+         lText = lText.sub(key.to_s,values[0].to_s)
          return lText
       end
     end
 
     # Force mistake by swapping letters
-    if lText.size>1
-      i=rand(lText.size-2)
-      aux=lText[i]
-      # binding.pry
-      lText[i]=lText[i+1]
-      lText[i+1]=aux
+    if lText.size > 1
+      i = rand(lText.size - 2)
+      aux = lText[i]
+      lText[i] = lText[i + 1]
+      lText[i + 1] = aux
     end
-    return lText if lText!=pText
+    return lText if lText != pText
+
     lText + 's'
   end
 
-  def hide_text(pInputText)
-    input=pInputText.clone
-    if count_words(input)<2 and input.size<10
-      output="[*]"
+  def hide_text(input_text)
+    input = input_text.clone
+    if count_words(input) < 2 && input.size < 10
+      output = '[*]'
     else
-      output=""
+      output = ''
       input.each_char do |char|
-        if ' !|"@#$%&/()=?¿¡+*(){}[],.-_<>'.include? char then
-          output=output+char
+        if ' !|"@#$%&/()=?¿¡+*(){}[],.-_<>'.include? char
+          output += char
         else
-          output=output+'?'
+          output += '?'
         end
       end
     end
-    return output
+    output
   end
-
 end
