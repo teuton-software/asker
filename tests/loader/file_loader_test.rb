@@ -71,9 +71,9 @@ class FileLoaderTest < Minitest::Test
     assert_equal true, data[:codes][1].process?
     assert_equal true, data[:codes][2].process?
 
-    assert_equal 5, data[:codes][0].lines.size
-    assert_equal 8, data[:codes][1].lines.size
-    assert_equal 13, data[:codes][2].lines.size
+    assert_equal 4, data[:codes][0].lines.size
+    assert_equal 7, data[:codes][1].lines.size
+    assert_equal 10, data[:codes][2].lines.size
 
     project.reset
   end
