@@ -17,7 +17,6 @@ Run `asker version` as normal user.
 | OpenSUSE  | TW, Leap 15 | 2.6          |
 | Debian    | 9           | 2.3          |
 | Mint      | 19          | 2.5          |
-| Ubuntu    | 16          |              |
 
 ## Windows installation script
 
