@@ -5,14 +5,19 @@
 
 ## GNU/Linux installation script
 
-> Tested on: OpenSUSE Leap 15, Debian 9, Ubuntu.
-
 Run as `root` user:
 ```
 wget -qO- https://raw.githubusercontent.com/dvarrui/asker/master/bin/linux_asker_install.sh | bash
 ```
 
 Run `asker version` as normal user.
+
+| Tested on | OS version | Ruby version |
+| --------- | ---------- | ------------ |
+| OpenSUSE  | Leap 15    | 2.6          |
+| Debian    | 9          | 2.3          |
+| Mint      | 19         | 2.5          |
+| Ubuntu    |            |              |
 
 ## Windows installation script
 
