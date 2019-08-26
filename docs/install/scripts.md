@@ -12,12 +12,12 @@ wget -qO- https://raw.githubusercontent.com/dvarrui/asker/master/bin/linux_asker
 
 Run `asker version` as normal user.
 
-| Tested on | OS version | Ruby version |
-| --------- | ---------- | ------------ |
-| OpenSUSE  | Leap 15    | 2.6          |
-| Debian    | 9          | 2.3          |
-| Mint      | 19         | 2.5          |
-| Ubuntu    |            |              |
+| Tested on | OS version  | Ruby version |
+| --------- | ----------- | ------------ |
+| OpenSUSE  | TW, Leap 15 | 2.6          |
+| Debian    | 9           | 2.3          |
+| Mint      | 19          | 2.5          |
+| Ubuntu    | 18          |              |
 
 ## Windows installation script
 
