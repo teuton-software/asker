@@ -1,5 +1,5 @@
 # encoding: utf-8
 
-texto = "Hola Mundo!"
+text = "Hello world!"
 
-puts texto
+puts text

@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-nombres = [ "David","Jesús","Bruno", "Daniel" ]
+nombres = [ 'David', 'Fran', 'Sergio', 'Matz' ]
 
 puts "Hola " + nombres[0] + "!"
 puts "Hola " + nombres[1] + "!"
