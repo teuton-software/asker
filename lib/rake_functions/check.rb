@@ -1,5 +1,3 @@
-# File: Rakefile
-# Usage: rake
 
 desc 'Check installation'
 task :check do
