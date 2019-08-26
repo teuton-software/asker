@@ -1,13 +1,10 @@
-# encoding: utf-8
 
-nombres = ['obi-wan', 'yoda', 'darth Vader']
+names = ['obi-wan', 'yoda', 'darth vader']
 
-nombres.each do |i|
-
+names.each do |i|
   if i[0,5] == 'darth'
     puts "Bye #{i.upcase}!"
   else
     puts "Hello #{i.capitalize}!"
   end
-
 end
