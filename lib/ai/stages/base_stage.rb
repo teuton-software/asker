@@ -1,6 +1,5 @@
 
 class BaseStage
-
   def initialize(concept_ai)
     @concept_ai = concept_ai
   end
@@ -12,7 +11,6 @@ class BaseStage
   end
 
   def run
-    raise "Implement run method!"
+    raise 'Implement run method!'
   end
-
 end

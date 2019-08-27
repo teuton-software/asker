@@ -5,6 +5,7 @@ require 'rexml/document'
 
 require_relative "../../lib/data/world"
 require_relative "../../lib/data/concept"
+require_relative '../../lib/application'
 
 class WorldTest < Minitest::Test
 
@@ -52,7 +53,9 @@ class WorldTest < Minitest::Test
     keys.each { |key| assert_equal String, key.class }
     values.each do |value|
       assert_equal Array, value.class
-      assert_equal 20   , value.size
+      i = 20
+      i = 0 unless Application.instance.config['global']['internet'] == 'yes'
+      assert_equal i, value.size
     end
   end
 

@@ -6,9 +6,9 @@ require_relative '../../lib/code/code'
 class CodeTest < Minitest::Test
   def setup
     @examples = []
-    @examples << { filename: 'files/string.rb', lines: 4, questions: 6 }
+    @examples << { filename: 'files/string.rb', lines: 4, questions: 5 }
     @examples << { filename: 'files/array.rb', lines: 7, questions: 29 }
-    @examples << { filename: 'files/iterador.rb', lines: 10, questions: 87 }
+    @examples << { filename: 'files/iterador.rb', lines: 10, questions: 86 }
   end
 
   def test_load_ruby_files
@@ -27,7 +27,7 @@ class CodeTest < Minitest::Test
 
       code.process = true
       code.make_questions
-      # puts code.filename, code.questions.size, example[:questions]
+       puts code.filename, code.questions.size, example[:questions]
       assert_equal true, code.questions.size >= example[:questions]
     end
   end

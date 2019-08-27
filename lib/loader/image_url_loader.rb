@@ -2,6 +2,7 @@
 require 'net/http'
 require 'uri'
 require_relative '../project'
+require_relative '../application'
 
 # Search URL images on Internet
 # Methods:
@@ -9,7 +10,11 @@ require_relative '../project'
 # * +sanitize_string+ - Clean URL string
 # * +sanitize_array+ - Clean URL Array
 module ImageUrlLoader
+  # Search "input" imagens on Google and return URL
   def self.load(input = [])
+    param = Application.instance.config['global']['internet'] || 'yes'
+    return [] unless param == 'yes'
+
     filters = []
     if input.class == String
       filters += sanitize_string(input.clone)
@@ -28,7 +33,6 @@ module ImageUrlLoader
     image_urls = []
     begin
       uri = URI.parse(search_url)
-      # puts "\n[DEBUG] Loading...#{uri}\n"
       response = Net::HTTP.get_response(uri)
 
       r = response.body.split(' ')
