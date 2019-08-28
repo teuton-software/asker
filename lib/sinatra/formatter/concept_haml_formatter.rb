@@ -2,6 +2,7 @@
 
 require_relative 'table_haml_formatter'
 
+# Used by: sinatra_front_end < command/editor
 class ConceptHAMLFormatter
   def initialize(concept)
     @concept = concept

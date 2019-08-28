@@ -8,8 +8,13 @@ require_relative 'route_concept'
 require_relative 'route_dir'
 require_relative 'route_file'
 require_relative '../loader/file_loader'
-require_relative '../formatter/concept_haml_formatter'
+require_relative 'formatter/concept_haml_formatter'
 
+# Used by: command/editor
+# SinatraFrontEnd class:
+# * get
+# * load_dir
+# * load_file
 class SinatraFrontEnd < Sinatra::Base
   use Rack::Session::Pool
 

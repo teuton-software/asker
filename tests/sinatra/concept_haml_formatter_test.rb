@@ -1,18 +1,18 @@
 #!/usr/bin/ruby
 
-require "minitest/autorun"
+require 'minitest/autorun'
 require 'rexml/document'
 
-require_relative "../../lib/data/concept"
-require_relative "../../lib/formatter/concept_haml_formatter"
+require_relative '../../lib/data/concept'
+require_relative '../../lib/sinatra/formatter/concept_haml_formatter'
 
 class ConceptHAMLFormatterTest < Minitest::Test
   def setup
     string_datas = get_xml_data
-    @haml_concepts=[]
-    root_xml_data=REXML::Document.new(string_datas)
+    @haml_concepts = []
+    root_xml_data = REXML::Document.new(string_datas)
     root_xml_data.root.elements.each do |xml_data|
-      if xml_data.name=="concept" then
+      if xml_data.name == 'concept'
         @haml_concepts << ConceptHAMLFormatter.new( Concept.new(xml_data, "filename.haml") )
       end
     end

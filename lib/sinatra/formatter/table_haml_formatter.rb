@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 class TableHAMLFormatter
-
   def initialize(table)
     @table = table
   end
@@ -21,7 +20,6 @@ class TableHAMLFormatter
         row.each  { |text| out << "        %col #{text.to_s}\n" }
       end
     end
-	  return out
+	  out
   end
-
 end

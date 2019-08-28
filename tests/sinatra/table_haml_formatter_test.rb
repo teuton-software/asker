@@ -1,11 +1,11 @@
 #!/usr/bin/ruby
 
-require "minitest/autorun"
+require 'minitest/autorun'
 require 'rexml/document'
 
-require_relative "../../lib/data/concept"
-require_relative "../../lib/data/table"
-require_relative "../../lib/formatter/table_haml_formatter"
+require_relative '../../lib/data/concept'
+require_relative '../../lib/data/table'
+require_relative '../../lib/sinatra/formatter/table_haml_formatter'
 
 class TableHAMLFormatterTest < Minitest::Test
   def setup
