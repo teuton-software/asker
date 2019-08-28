@@ -36,6 +36,10 @@ class RubocopTest < Minitest::Test
 
     @files[:loader] = []
 #    @files[:data] << 'lib/loader/project_loader.rb'
+
+    @files[:sinatra] = []
+    @files[:sinatra] << 'lib/sinatra/formatter/concept_haml_formatter.rb'
+    @files[:sinatra] << 'lib/sinatra/formatter/table_haml_formatter.rb'
   end
 
   def test_rubocop_lib
@@ -80,6 +84,14 @@ class RubocopTest < Minitest::Test
 
   def test_rubocop_loader
     @files[:loader].each do |file|
+      output = `rubocop #{file}`
+      lines = output.split("\n")
+      assert_equal true, lines.any?(/file inspected, no offenses detected/)
+    end
+  end
+
+  def test_rubocop_sinatra
+    @files[:sinatra].each do |file|
       output = `rubocop #{file}`
       lines = output.split("\n")
       assert_equal true, lines.any?(/file inspected, no offenses detected/)
