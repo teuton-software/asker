@@ -53,9 +53,9 @@ class Tool
   def show_create_output_files
     p = Project.instance
     p.verbose "\n[INFO] Creating output files"
-    p.verbose '   ├── Gift questions file => ' + Rainbow(p.outputpath).bright
-    p.verbose '   ├── YAML questions file => ' + Rainbow(p.yamlpath).bright
-    p.verbose '   └── Lesson file         => ' + Rainbow(p.lessonpath).bright
+    p.verbose "   ├── Gift questions file => #{Rainbow(p.outputpath).bright}"
+    p.verbose "   ├── YAML questions file => #{Rainbow(p.yamlpath).bright}"
+    p.verbose "   └── Lesson file         => #{Rainbow(p.lessonpath).bright}"
   end
 
   def show_final_results
@@ -70,13 +70,10 @@ class Tool
     @concepts.each do |concept|
       concept_ai = ConceptAI.new(concept, @world)
       concept_ai.make_questions
-      ConceptAIGiftExporter.export(concept_ai)
       @concepts_ai << concept_ai
     end
-    ConceptAIYAMLExporter.export(@concepts_ai)
-    @codes.each do |code| # UNDER DEVELOPMENT
-      code.make_questions
-      CodeGiftExporter.export(code)
-    end
+    ConceptAIGiftExporter.export_all(@concepts_ai)
+    ConceptAIYAMLExporter.export_all(@concepts_ai)
+    CodeGiftExporter.export_all(@codes) # UNDER DEVELOPMENT
   end
 end

@@ -5,6 +5,10 @@ require_relative '../formatter/question_gift_formatter'
 
 # Use to export data from ConceptIA to gift format
 module ConceptAIGiftExporter
+  def self.export_all(concepts_ai)
+    concepts_ai.each { |concept_ai| export(concept_ai) }
+  end
+  
   def self.export(concept_ai)
     return unless concept_ai.process?
 

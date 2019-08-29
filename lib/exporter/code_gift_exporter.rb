@@ -3,8 +3,16 @@
 require_relative '../project'
 require_relative '../formatter/question_gift_formatter'
 
+# UNDER DEVELOPMENT
 # Use to export questions from Code to gift format
 module CodeGiftExporter
+  def self.export_all(codes)
+    codes.each do |code|
+      code.make_questions
+      export code
+    end
+  end
+
   def self.export(code)
     return false unless code.process?
 
