@@ -17,7 +17,7 @@ class ProjectTest < Minitest::Test
     assert_equal [1, 1, 1] , @project.formula_weights
     assert_equal 'en'     , @project.lang
     assert_equal 6        , @project.locales.size
-    a = ["en", "es", "maths", "python", "ruby", "sql"]
+    a = ['en', 'es', 'math', 'python', 'ruby', 'sql']
     assert_equal a        , @project.locales
     assert_equal :default , @project.show_mode
     assert_equal true     , @project.get(:verbose)
@@ -39,7 +39,7 @@ class ProjectTest < Minitest::Test
     @project.set(:verbose, false)
     @project.open
     @project.set(:verbose, true)
-    assert_equal 13, @project.param.size
+    assert_equal 16, @project.param.size
     assert_equal 11,  @project.default.size
 
     assert_equal filename, @project.get(:process_file)

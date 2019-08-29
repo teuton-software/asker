@@ -54,6 +54,7 @@ class Tool
     p = Project.instance
     p.verbose "\n[INFO] Creating output files"
     p.verbose '   ├── Gift questions file => ' + Rainbow(p.outputpath).bright
+    p.verbose '   ├── YAML questions file => ' + Rainbow(p.yamlpath).bright
     p.verbose '   └── Lesson file         => ' + Rainbow(p.lessonpath).bright
   end
 
@@ -72,6 +73,7 @@ class Tool
       ConceptAIGiftExporter.export(concept_ai)
       @concepts_ai << concept_ai
     end
+    ConceptAIYAMLExporter.export(@concepts_ai)
     @codes.each do |code| # UNDER DEVELOPMENT
       code.make_questions
       CodeGiftExporter.export(code)

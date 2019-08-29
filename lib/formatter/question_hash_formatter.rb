@@ -1,7 +1,7 @@
 
 # Transform Questions into YAML format
 module QuestionHashFormatter
-  def self.to_s(question)
+  def self.to_hash(question)
     @question = question
     # Return question using YAML format
     s = {}
@@ -24,7 +24,7 @@ module QuestionHashFormatter
       @question.shorts.uniq!
       s[:answer] = @question.shorts
     end
-    s.to_s
+    s
   end
 
   def self.sanitize(input = '')
