@@ -41,7 +41,7 @@ class Tool
     @codes = data[:codes]
     Project.instance.verbose "\n[INFO] Loading data from Internet"
     @world = World.new(@concepts)
-    ConceptScreenExporter.export(@concepts)
+    ConceptScreenExporter.export_all(@concepts)
   end
 
   def create_output_files
@@ -59,8 +59,8 @@ class Tool
   end
 
   def show_final_results
-    ConceptAIScreenExporter.export(@concepts_ai)
-    CodeScreenExporter.export(@codes)
+    ConceptAIScreenExporter.export_all(@concepts_ai)
+    CodeScreenExporter.export_all(@codes)
     Project.instance.close
   end
 

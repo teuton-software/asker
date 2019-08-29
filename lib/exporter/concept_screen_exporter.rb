@@ -3,7 +3,7 @@ require_relative '../formatter/concept_string_formatter'
 
 # Show Concept Data on screen
 module ConceptScreenExporter
-  def self.export(concepts)
+  def self.export_all(concepts)
     project = Project.instance
     return if project.show_mode == :none
     msg = "\n[INFO] Showing concept data <"

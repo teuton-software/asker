@@ -4,7 +4,7 @@ require 'terminal-table'
 
 # Show ConceptAI info on screen
 class ConceptAIScreenExporter
-  def self.export(concepts_ai)
+  def self.export_all(concepts_ai)
     @concepts_ai = concepts_ai
 	  project = Project.instance
     return if project.show_mode == :none
