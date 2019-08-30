@@ -18,8 +18,8 @@ Features:
 
 * Free Software [LICENSE](LICENSE).
 * Multiplatform.
-* Input files formats available: HAML, XML.
-* Export files format available: GIFT. Useful to load into Moodle cuestionairs.
+* Input files formats: HAML, XML.
+* Output file format: GIFT. Useful to load into Moodle cuestionairs.
 * Ruby program.
 
 ---
