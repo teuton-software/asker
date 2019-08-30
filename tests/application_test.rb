@@ -12,7 +12,7 @@ class ApplicationTest < Minitest::Test
 
   def test_config
     c = Application.instance.config
-    assert_equal 'no', c['global']['internet']
+    assert_equal 'yes', c['global']['internet']
     assert_nil c['questions']['exclude']
   end
 end
