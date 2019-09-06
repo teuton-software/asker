@@ -17,6 +17,6 @@ class Application
     filename = File.join(File.dirname(__FILE__), '..', 'config.ini')
     @config = IniFile.load(filename)
     @name = 'asker'
-    @version = '2.0.5'
+    @version = '2.1.0'
   end
 end
