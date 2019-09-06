@@ -5,4 +5,5 @@
 require_relative 'editor'
 require_relative 'download'
 require_relative 'file'
+require_relative 'update'
 require_relative 'version'
