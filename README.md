@@ -1,8 +1,8 @@
 # ASKER
 
-This application generates a lot of questions from an _input file_
-with your own _definitions_.
+This application generates a lot of questions from your own _input definitons file_.
 
+![](./docs/logo.png)
 ---
 
 # Description
