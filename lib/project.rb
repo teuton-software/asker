@@ -74,6 +74,7 @@ class Project
     @param[:yamlpath] = @param[:yamlpath] ||
                         File.join(get(:outputdir), @param[:yamlname])
 
+    Dir.mkdir(get(:outputdir)) unless Dir.exist?(get(:outputdir))
     create_log_file
     create_output_file
     create_lesson_file
@@ -101,8 +102,6 @@ class Project
 
   def create_log_file
     # create or reset logfile
-    Dir.mkdir(get(:outputdir)) unless Dir.exist?(get(:outputdir))
-
     @param[:logfile] = File.open(get(:logpath), 'w')
     f = get(:logfile)
     f.write('=' * 50 + "\n")
@@ -120,8 +119,6 @@ class Project
 
   def create_output_file
     # Create or reset output file
-    Dir.mkdir(get(:outputdir)) if !Dir.exist? get(:outputdir)
-
     @param[:outputfile] = File.open(get(:outputpath), 'w')
     f = get(:outputfile)
     f.write('// ' + ('=' * 50) + "\n")
@@ -150,7 +147,6 @@ class Project
 
   def create_yaml_file
     # Create or reset yaml file
-    Dir.mkdir(get(:outputdir)) if !Dir.exist? get(:outputdir)
     @param[:yamlfile] = File.open(get(:yamlpath), 'w')
   end
 end
