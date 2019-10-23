@@ -63,7 +63,7 @@ class Project
     @param[:lessonname] = @param[:lessonname] ||
                           "#{@param[:projectname]}-doc.txt"
     @param[:yamlname] = @param[:yamlname] ||
-                        "#{@param[:projectname]}-questions.yaml"
+                        "#{@param[:projectname]}.yaml"
 
     @param[:logpath] = @param[:logpath] ||
                        File.join(get(:outputdir), @param[:logname])

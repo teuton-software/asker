@@ -11,8 +11,11 @@ module ConceptAIYAMLExporter
     concepts_ai.each do |concept_ai|
       questions += get_questions_from concept_ai
     end
-    file = Project.instance.yamlfile
-    file.write(questions.to_yaml)
+    project = Project.instance
+    params = { lang: project.get(:lang) ,
+               projectname: project.get(:projectname) }
+    output = { params: params, questions: questions }
+    project.yamlfile.write(output.to_yaml)
   end
 
   def self.get_questions_from(concept_ai)
@@ -21,6 +24,7 @@ module ConceptAIYAMLExporter
     stages = Project.instance.stages
     stages.each_key do |stage|
       concept_ai.questions[stage].each do |question|
+        question.lang = concept_ai.lang
         data << QuestionHashFormatter.to_hash(question)
       end
     end
