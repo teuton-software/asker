@@ -16,8 +16,8 @@ class ProjectTest < Minitest::Test
     assert_equal :none    , @project.category
     assert_equal [1, 1, 1] , @project.formula_weights
     assert_equal 'en'     , @project.lang
-    assert_equal 6        , @project.locales.size
-    a = ['en', 'es', 'math', 'python', 'ruby', 'sql']
+    assert_equal 7        , @project.locales.size
+    a = %w[en es javascript math python ruby sql]
     assert_equal a        , @project.locales
     assert_equal :default , @project.show_mode
     assert_equal true     , @project.get(:verbose)
