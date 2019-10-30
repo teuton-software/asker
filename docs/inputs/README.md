@@ -9,9 +9,10 @@
 
 How to build our asker input files?
 
-Run a plain text editor and start
+Open a plain text editor and start writting definitions.
 * [Learning basics](learn.md)
 * [Learning about tables](tables.md)
+* [Learning about code](code.md)
 
 ---
 
@@ -34,4 +35,4 @@ To launch web editor:
 
 Download our git repository with a lot of examples:
 * `asker donwnload` or
-* `git clone https://github.com/dvarrui/asker.git`
+* `git clone https://github.com/dvarrui/asker-inputs.git`

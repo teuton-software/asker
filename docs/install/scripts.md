@@ -12,12 +12,6 @@ wget -qO- https://raw.githubusercontent.com/dvarrui/asker/master/bin/linux_asker
 
 Run `asker version` as normal user.
 
-| Tested on | OS version  | Ruby version |
-| --------- | ----------- | ------------ |
-| OpenSUSE  | TW, Leap 15 | 2.6          |
-| Debian    | 9           | 2.3          |
-| Mint      | 19          | 2.5          |
-
 ## Windows installation script
 
 Requirements:
@@ -30,3 +24,15 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 ```
 
 Run `asker version` as normal user.
+
+---
+
+## Tested on
+
+| Tested on | OS version  | Ruby version |
+| --------- | ----------- | ------------ |
+| OpenSUSE  | TW, Leap 15 | 2.6          |
+| Debian    | 9           | 2.3          |
+| Mint      | 19          | 2.5          |
+| Windows   | 7           | -            |
+| Windows   | 10          | -            |

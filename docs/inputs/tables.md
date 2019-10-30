@@ -27,6 +27,7 @@ But, it's not enough. **def** only contains meaning that could only be associate
 
 **def** is good but we need other keyword to add meaning that isn't uniquely associated to one concept. That is **table** keyword.
 
+---
 # Tables
 
 ## Table with 1 field

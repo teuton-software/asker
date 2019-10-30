@@ -3,7 +3,7 @@
 
 # Manual installation
 
-As `root` user do the next:
+**Resume**
 
 | Step | Acction        | Details              |
 | ---- | ---------------- | -------------------- |
@@ -30,11 +30,13 @@ rake, version 10.4.2
 ```
 
 For example, to install on OpenSUSE we do:
+1. Open sesion as `root` user.
 1. `zypper install git`, Install git.
 1. Ruby is preinstalled.
 1. `gem install rake`, Install rake.
 
 To install on Debian:
+1. Open sesion as `root` user.
 1. `apt-get install git`, Install git.
 1. `apt-get install ruby`, Install ruby.
 1. `gem install rake`, Install rake.
@@ -59,3 +61,5 @@ sudo rake gems # Install required gems
 ```
 rake           # Test files and show program version
 ```
+
+* Open sesion as `normal` user, and run `asker version`
