@@ -1,4 +1,5 @@
 
+require_relative 'javascript_code_ai'
 require_relative 'python_code_ai'
 require_relative 'ruby_code_ai'
 require_relative 'sql_code_ai'
@@ -7,6 +8,8 @@ module CodeAIFactory
   def self.get(code)
     type = code.type
     case type
+    when :javascript
+      return JavascriptCodeAI.new(code)
     when :python
       return PythonCodeAI.new(code)
     when :ruby

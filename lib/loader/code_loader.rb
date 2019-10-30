@@ -6,7 +6,7 @@ require 'rexml/document'
 require_relative '../project'
 require_relative '../code/code'
 
-# Read XML info about data Code
+# Read XML info about Code input data
 class CodeLoader
   attr_reader :code
 
@@ -31,6 +31,10 @@ class CodeLoader
         @filename = i.text
       when 'type'
         @type = i.text.to_sym
+      when 'tags'
+        puts "[DEVEL] Implement code.tags reader!"
+      when 'def'
+        puts "[DEVEL] Implement code.def reader!"
       when 'features'
         read_features(i)
       else

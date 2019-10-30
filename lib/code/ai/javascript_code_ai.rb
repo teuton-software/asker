@@ -16,9 +16,9 @@ class JavascriptCodeAI < BaseCodeAI
     questions = []
     error_lines = []
     @lines.each_with_index do |line,index|
-      if line.strip.start_with?('#')
+      if line.strip.start_with?('//')
         lines = clone_array @lines
-        lines[index].sub!('#','').strip!
+        lines[index].sub!('//','').strip!
 
         q = Question.new(:short)
         q.name = "#{name}-#{num}-uncomment"
@@ -28,7 +28,7 @@ class JavascriptCodeAI < BaseCodeAI
         questions << q
       elsif line.strip.size>0
         lines = clone_array @lines
-        lines[index]='# ' + lines[index]
+        lines[index]='// ' + lines[index]
 
         q = Question.new(:short)
         q.name = "#{name}-#{num}-comment"
@@ -123,7 +123,7 @@ class JavascriptCodeAI < BaseCodeAI
     error_lines = []
     @lines.each_with_index do |line, index|
       # Search Variable assignment
-      m = /\s*(\w*)\s*\=\w*/.match(line)
+      m = /var\s*(\w*);\s*\w*/.match(line)
       i = []
       unless m.nil?
         varname = (m.values_at 1)[0]
