@@ -32,9 +32,9 @@ class CodeLoader
       when 'type'
         @type = i.text.to_sym
       when 'tags'
-        puts "[DEVEL] Implement code.tags reader!"
+        puts "[CODE] Implement code.tags reader!"
       when 'def'
-        puts "[DEVEL] Implement code.def reader!"
+        puts "[CODE] Implement code.def reader!"
       when 'features'
         read_features(i)
       else
