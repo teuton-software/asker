@@ -4,11 +4,14 @@
 # Learn basics
 
 To know how to build our asker input files, we need to learn
-theses keywords:
-* map, concept, names, tags, def
-* table, row and col
+main keywords:
+* map
+* concept
+* names
+* tags
+* def
 
-Let's start.
+Let's start!.
 
 ---
 

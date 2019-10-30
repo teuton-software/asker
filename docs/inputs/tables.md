@@ -3,10 +3,12 @@
 
 # Learn tables
 
-Now, we are going to learn thas last keywords:
-* table, row and col
+Now, we are going to learn keywords:
+* table
+* row
+* col
 
-Let's go.
+Let's go!.
 
 ---
 
