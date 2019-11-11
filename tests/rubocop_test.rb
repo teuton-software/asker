@@ -9,40 +9,40 @@ class RubocopTest < Minitest::Test
 
     @files[:lib] = []
     @files[:lib] << 'Rakefile'
-    @files[:lib] << 'lib/application.rb'
-#    @files[:lib] << 'lib/project.rb'
-    @files[:lib] << 'lib/tool.rb'
+    @files[:lib] << 'lib/asker/application.rb'
+#    @files[:lib] << 'lib/asker/project.rb'
+    @files[:lib] << 'lib/asker/tool.rb'
 
     @files[:ai] = []
-#   @files[:ai] << 'lib/ai/concept_ai.rb'
-    @files[:ai] << 'lib/ai/stages/main.rb'
+#   @files[:ai] << 'lib/asker/ai/concept_ai.rb'
+    @files[:ai] << 'lib/asker/ai/stages/main.rb'
 
     @files[:command] = []
-    @files[:command] << 'lib/command/main.rb'
-    @files[:command] << 'lib/command/create.rb'
-    @files[:command] << 'lib/command/delete.rb'
-    @files[:command] << 'lib/command/download.rb'
-    @files[:command] << 'lib/command/editor.rb'
-#    @files[:command] << 'lib/command/file.rb'
-    @files[:command] << 'lib/command/version.rb'
+    @files[:command] << 'lib/asker/command/main.rb'
+    @files[:command] << 'lib/asker/command/create.rb'
+    @files[:command] << 'lib/asker/command/delete.rb'
+    @files[:command] << 'lib/asker/command/download.rb'
+    @files[:command] << 'lib/asker/command/editor.rb'
+#    @files[:command] << 'lib/asker/command/file.rb'
+    @files[:command] << 'lib/asker/command/version.rb'
 
     @files[:data] = []
-#    @files[:data] << 'lib/data/column.rb'
-#    @files[:data] << 'lib/data/concept.rb'
+#    @files[:data] << 'lib/asker/data/column.rb'
+#    @files[:data] << 'lib/asker/data/concept.rb'
 
     @files[:exporter] = []
-    @files[:exporter] << 'lib/exporter/code_gift_exporter.rb'
+    @files[:exporter] << 'lib/asker/exporter/code_gift_exporter.rb'
 
     @files[:lang] = []
-    @files[:lang] << 'lib/lang/lang_factory.rb'
-#    @files[:lang] << 'lib/lang/lang.rb'
+    @files[:lang] << 'lib/asker/lang/lang_factory.rb'
+#    @files[:lang] << 'lib/asker/lang/lang.rb'
 
     @files[:loader] = []
-#    @files[:data] << 'lib/loader/project_loader.rb'
+#    @files[:data] << 'lib/asker/loader/project_loader.rb'
 
     @files[:sinatra] = []
-    @files[:sinatra] << 'lib/sinatra/formatter/concept_haml_formatter.rb'
-    @files[:sinatra] << 'lib/sinatra/formatter/table_haml_formatter.rb'
+    @files[:sinatra] << 'lib/asker/sinatra/formatter/concept_haml_formatter.rb'
+    @files[:sinatra] << 'lib/asker/sinatra/formatter/table_haml_formatter.rb'
   end
 
   def test_rubocop_lib

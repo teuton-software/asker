@@ -3,7 +3,7 @@
 require 'minitest/autorun'
 require 'rexml/document'
 
-require_relative '../../lib/data/concept'
+require_relative '../../lib/asker/data/concept'
 
 class ColumnTest < Minitest::Test
   def setup

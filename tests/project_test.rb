@@ -2,7 +2,7 @@
 
 require 'minitest/autorun'
 require 'fileutils'
-require_relative '../lib/project'
+require_relative '../lib/asker/project'
 
 class ProjectTest < Minitest::Test
   def setup

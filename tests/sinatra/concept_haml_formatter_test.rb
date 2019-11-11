@@ -3,8 +3,8 @@
 require 'minitest/autorun'
 require 'rexml/document'
 
-require_relative '../../lib/data/concept'
-require_relative '../../lib/sinatra/formatter/concept_haml_formatter'
+require_relative '../../lib/asker/data/concept'
+require_relative '../../lib/asker/sinatra/formatter/concept_haml_formatter'
 
 class ConceptHAMLFormatterTest < Minitest::Test
   def setup

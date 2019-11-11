@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 require 'minitest/autorun'
-require_relative '../lib/application'
+require_relative '../lib/asker/application'
 
 # Test Application module
 class ApplicationTest < Minitest::Test
@@ -12,7 +12,10 @@ class ApplicationTest < Minitest::Test
 
   def test_config
     c = Application.instance.config
-    assert_equal 'yes', c['global']['internet']
+    assert_equal 'yes', c['global']['internet'] unless
+              Application.instance.config['global']['internet'] == 'no'
+    assert_equal 'no', c['global']['internet'] unless
+              Application.instance.config['global']['internet'] == 'yes'
     assert_nil c['questions']['exclude']
   end
 end

@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 
 require 'minitest/autorun'
-require_relative '../../lib/loader/project_loader'
-require_relative '../../lib/loader/file_loader'
+require_relative '../../lib/asker/loader/project_loader'
+require_relative '../../lib/asker/loader/file_loader'
 
 class FileLoaderTest < Minitest::Test
   def test_load_jedi

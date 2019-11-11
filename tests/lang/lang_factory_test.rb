@@ -1,9 +1,9 @@
 #!/usr/bin/ruby
 
-require "minitest/autorun"
+require 'minitest/autorun'
 
-require_relative "../../lib/lang/lang_factory"
-require_relative "../../lib/project"
+require_relative '../../lib/asker/lang/lang_factory'
+require_relative '../../lib/asker/project'
 
 class LangFactoryTest < Minitest::Test
   def setup

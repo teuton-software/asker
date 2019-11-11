@@ -3,8 +3,8 @@
 require "minitest/autorun"
 require 'rexml/document'
 
-require_relative '../../lib/data/concept'
-require_relative '../../lib/data/template'
+require_relative '../../lib/asker/data/concept'
+require_relative '../../lib/asker/data/template'
 
 class TemplateTest < Minitest::Test
   def setup

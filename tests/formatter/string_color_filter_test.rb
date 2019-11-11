@@ -3,8 +3,8 @@
 require 'minitest/autorun'
 require 'rexml/document'
 
-require_relative '../../lib/formatter/string_color_filter'
-require_relative '../../lib/project'
+require_relative '../../lib/asker/formatter/string_color_filter'
+require_relative '../../lib/asker/project'
 
 class StringColorFilterTest < Minitest::Test
   def test_color_on
