@@ -11,16 +11,16 @@ ASKER helps trainers to create a huge amount of questions, from a definitions in
 
 Steps:
 
-1. Create an input file with your definitons.
+1. Create an [input file](./docs/inputs/README.md) file with your definitons.
 1. Run [asker](docs/commands.md) and get the results at `output` directory.
 
-Main features:
+## Features
 
 * Free Software [LICENSE](LICENSE).
 * Multiplatform.
 * Input files formats: HAML, XML.
 * DSL to write your definitions ([concepts](docs/inputs/README.md)).
-* Output file format: GIFT. Useful to load into Moodle cuestionairs.
+* Output file format: GIFT (Moodle cuestionairs), YAML.
 * Programming language: Ruby.
 
 ---
@@ -42,7 +42,13 @@ asker en/starwars/jedi.haml
 # Documentation
 
 * [Installation](./docs/install/README.md)
+    * [Scripts](docs/inouts/scripts.md)
+    * [Manual](docs/inputs/manual.md)
 * [Inputs](./docs/inputs/README.md)
+    * [Concepts](docs/inputs/concepts.md)
+    * [Tables](docs/inputs/tables.md)
+    * [Templates](docs/inputs/templates.md)
+    * [Code](docs/inputs/code.md)
 * [Commands](./docs/commands.md)
 * [Contributions](./docs/contributions.md)
 * [Base idea](./docs/idea.md)
