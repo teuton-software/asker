@@ -1,7 +1,7 @@
 
 ![](./docs/logo.png)
 
-Generate a lot of questions from your own _input definitons file_.
+Generate a lot of questions from your own _input definitions file_.
 
 ---
 

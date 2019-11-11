@@ -7,6 +7,9 @@ require 'inifile'
 class Application
   include Singleton
 
+  VERSION = '2.1.0'
+  NAME = 'asker'
+  
   attr_reader :config, :name, :version
 
   def initialize
