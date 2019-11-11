@@ -21,6 +21,12 @@ task :help do
   system('rake -T')
 end
 
+desc 'Build gem'
+task :build do
+  puts '[INFO] Building gem...'
+  system('gem build asker.gemspec')
+end
+
 desc 'Update Asker'
 task :update do
   puts '[INFO] Updating Asker...'

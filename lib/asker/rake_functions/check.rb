@@ -24,6 +24,8 @@ task :check do
 
   puts "[INFO] Running #{testfile}"
   system(testfile)
+
+  Rake::Task['build'].invoke
 end
 
 def filter_uninstalled_gems(list)

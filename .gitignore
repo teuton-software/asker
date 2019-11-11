@@ -3,3 +3,4 @@ tmp/*
 REVISE/*
 TO-REVISE/*
 OLD/*
+*.gem

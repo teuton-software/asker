@@ -1,0 +1,4 @@
+#!/usr/bin/ruby
+require 'asker'
+
+Asker.start(ARGV)
