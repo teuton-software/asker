@@ -8,8 +8,8 @@ def packages
   p + %w[base64_compatible coderay minitest sinatra]
 end
 
-require_relative 'lib/rake_functions/check'
-require_relative 'lib/rake_functions/install'
+require_relative 'lib/asker/rake_functions/check'
+require_relative 'lib/asker/rake_functions/install'
 
 # Define tasks
 desc 'Default action => check'
