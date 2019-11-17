@@ -1,6 +1,4 @@
-temp/*
-tmp/*
-REVISE/*
-TO-REVISE/*
-OLD/*
+.yardoc
+html
 *.gem
+TO-REVISE/*
