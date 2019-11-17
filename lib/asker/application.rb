@@ -9,8 +9,8 @@ class Application
 
   VERSION = '2.1.0'
   NAME = 'asker'
-  
-  attr_reader :config, :name, :version
+
+  attr_reader :config
 
   def initialize
     reset
@@ -19,7 +19,5 @@ class Application
   def reset
     filename = File.join(File.dirname(__FILE__), '..', '..', 'config.ini')
     @config = IniFile.load(filename)
-    @name = 'asker'
-    @version = '2.1.0'
   end
 end

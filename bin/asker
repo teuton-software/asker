@@ -1,4 +1,3 @@
 #!/usr/bin/ruby
-require 'asker'
-
-Asker.start(ARGV)
+require 'asker/command'
+Asker::Command.start(ARGV)
