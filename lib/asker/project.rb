@@ -16,6 +16,8 @@ class Project
     reset
   end
 
+  ##
+  # Reset project params
   def reset
     @default = {}
     @default[:inputbasedir] = FileUtils.pwd
@@ -81,6 +83,8 @@ class Project
     create_yaml_file
   end
 
+  ##
+  # Close output files
   def close
     get(:logfile).close
     get(:outputfile).close
@@ -88,12 +92,16 @@ class Project
     get(:yamlfile).close
   end
 
+  ##
+  # Log and display text
   def verbose(p_text)
     text = StringColorFilter.filter(p_text)
     puts text if get(:verbose)
     get(:logfile).write(text.to_s + "\n") if get(:logfile)
   end
 
+  ##
+  # Log and display text line
   def verboseln(text)
     verbose(text + "\n")
   end
