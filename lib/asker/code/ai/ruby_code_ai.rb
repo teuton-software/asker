@@ -10,6 +10,8 @@ class RubyCodeAI < BaseCodeAI
     @lang = LangFactory.instance.get('ruby')
     @num = 0
     @questions = []
+    @reduce = 1
+    @reduce = 4 if @lines.size > 25
   end
 
   def make_comment_error
@@ -38,7 +40,7 @@ class RubyCodeAI < BaseCodeAI
         questions << q
       end
     end
-    questions.shuffle[0,@lines.size]
+    questions.shuffle[0,@lines.size/@reduce]
   end
 
   def make_no_error_changes
@@ -76,7 +78,7 @@ class RubyCodeAI < BaseCodeAI
       end
     end
 
-    questions.shuffle[0,@lines.size]
+    questions.shuffle[0,@lines.size/@reduce]
   end
 
   def make_syntax_error
@@ -115,7 +117,7 @@ class RubyCodeAI < BaseCodeAI
         end
       end
     end
-    questions.shuffle[0,@lines.size]
+    questions.shuffle[0,@lines.size/@reduce]
   end
 
   def make_variable_error
@@ -162,6 +164,6 @@ class RubyCodeAI < BaseCodeAI
         questions << q
       end
     end
-    questions.shuffle[0,@lines.size]
+    questions.shuffle[0,@lines.size/@reduce]
   end
 end
