@@ -56,9 +56,9 @@ task :build do
   puts '[INFO] Building gem...'
   system('rm asker-*.*.*.gem')
   system('gem build asker.gemspec')
-  puts "[ INFO ] Generating documentation..."
-  system('rm -r html/')
-  system('yardoc lib/* -o html')
+  #puts "[ INFO ] Generating documentation..."
+  #system('rm -r html/')
+  #system('yardoc lib/* -o html')
 end
 
 def filter_uninstalled_gems(list)

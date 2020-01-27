@@ -144,13 +144,13 @@ class RubyCodeAI < BaseCodeAI
         if rand(2) == 0
           q = Question.new(:short)
           q.name = "#{name}-#{num}-variable"
-          q.text = @lang.text_for(:code1,lines_to_html(lines))
+          q.text = @lang.text_for(:code1, lines_to_html(lines))
           q.shorts << (index + 1)
           q.feedback = "Variable error! Swapped lines #{(index+1)} with #{(k+1)}"
         else
           q = Question.new(:choice)
           q.name = "#{name}-#{num}-variable"
-          q.text = @lang.text_for(:code2,lines_to_html(lines))
+          q.text = @lang.text_for(:code2, lines_to_html(lines))
           others = (1..@lines.size).to_a.shuffle!
           others.delete(index+1)
           q.good = (index + 1).to_s
