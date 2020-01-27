@@ -38,7 +38,7 @@ class RubyCodeAI < BaseCodeAI
         questions << q
       end
     end
-    questions
+    questions.shuffle[0,@lines.size]
   end
 
   def make_no_error_changes
@@ -76,7 +76,7 @@ class RubyCodeAI < BaseCodeAI
       end
     end
 
-    questions
+    questions.shuffle[0,@lines.size]
   end
 
   def make_syntax_error
@@ -115,7 +115,7 @@ class RubyCodeAI < BaseCodeAI
         end
       end
     end
-    questions
+    questions.shuffle[0,@lines.size]
   end
 
   def make_variable_error
@@ -162,6 +162,6 @@ class RubyCodeAI < BaseCodeAI
         questions << q
       end
     end
-    questions
+    questions.shuffle[0,@lines.size]
   end
 end
