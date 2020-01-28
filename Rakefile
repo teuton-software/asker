@@ -5,7 +5,7 @@
 
 def packages
   p = %w[haml rainbow terminal-table thor inifile]
-  p + %w[base64_compatible coderay minitest sinatra]
+  p + %w[base64_compatible coderay minitest sinatra yard]
 end
 
 require_relative 'lib/asker/rake_functions/install'
