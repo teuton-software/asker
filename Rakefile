@@ -20,13 +20,6 @@ task :help do
   system('rake -T')
 end
 
-desc 'Update Asker'
-task :update do
-  puts '[INFO] Updating Asker...'
-  system('git pull')
-  install_gems packages
-end
-
 desc 'Check installation'
 task :check do
   fails = filter_uninstalled_gems(packages)
