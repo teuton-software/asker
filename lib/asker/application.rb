@@ -7,7 +7,7 @@ require 'inifile'
 class Application
   include Singleton
 
-  VERSION = '2.1.0'  # Application version
+  VERSION = '2.1.1'  # Application version
   NAME = 'asker'     # Application name
 
   attr_reader :config

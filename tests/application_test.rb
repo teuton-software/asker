@@ -7,7 +7,7 @@ require_relative '../lib/asker/application'
 class ApplicationTest < Minitest::Test
   def test_params
     assert_equal 'asker',  Application::NAME
-    assert_equal '2.1.0', Application::VERSION
+    assert_equal '2.1.1', Application::VERSION
   end
 
   def test_config

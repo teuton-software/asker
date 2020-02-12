@@ -56,6 +56,10 @@ task :build do
   puts '[INFO] Building gem...'
   system('rm asker-*.*.*.gem')
   system('gem build asker.gemspec')
+end
+
+desc 'Generate docs'
+task :docs do
   puts "[ INFO ] Generating documentation..."
   system('rm -r html/')
   system('yardoc lib/* -o html')

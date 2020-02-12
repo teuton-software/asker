@@ -1,7 +1,7 @@
 
 [<< back](../../README.md)
 
-# Install Asker Software
+# Installation
 
 Ways to install:
 
@@ -9,7 +9,6 @@ Ways to install:
 * [Manual installation](manual.md)
 
 ---
-
 # Configuring Asker software
 
 There exist `config.ini`file, into Asker base directory with some configurable options.
@@ -20,13 +19,8 @@ There exist `config.ini`file, into Asker base directory with some configurable o
 | [questions] | exclude  |         | Comma separated strings| Exclude questions with this texts into their names |
 
 ---
-
 # Download Asker input examples
 
 If you want to download our repository with asker input files:
 
-1. Open sesión as normal user. Not root.
-1. `cd`
-1. `asker download`
-
-> Like a `git clone https://github.com/dvarrui/asker-inputs.git`
+`git clone https://github.com/dvarrui/asker-inputs.git`
