@@ -3,3 +3,7 @@ tmp/*
 REVISE/*
 TO-REVISE/*
 OLD/*
+.yardoc/
+*.devel/
+*.gem
+html/
