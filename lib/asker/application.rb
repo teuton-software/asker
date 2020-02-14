@@ -12,6 +12,7 @@ class Application
 
   attr_reader :config
 
+  # Initialize Application singleton
   def initialize
     reset
   end
