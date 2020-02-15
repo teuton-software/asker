@@ -20,7 +20,8 @@ require_relative 'asker/loader/input_loader'
 # * create_output_files, show_create_output_files
 # * create_questions
 # * show_final_results
-class Tool
+class Asker
+  # Initialize atributes
   def initialize
     @concepts_ai = []
     @concepts = []
@@ -66,6 +67,13 @@ class Tool
 
   private
 
+  ##
+  # Create questions for every "concept"
+  # Export output to:
+  # * GIFT format file
+  # * YAML format file
+  # Create questions for every "code"
+  # Export output to GIFT format file
   def create_questions
     @concepts.each do |concept|
       concept_ai = ConceptAI.new(concept, @world)
