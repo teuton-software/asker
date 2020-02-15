@@ -61,7 +61,7 @@ class CLI < Thor
     end
   end
 
-  #def method_missing(method, *_args, &_block)
-  #  file(method.to_s)
-  #end
+  def method_missing(method, *_args, &_block)
+    file(method.to_s)
+  end
 end
