@@ -14,7 +14,6 @@ require_relative 'asker/loader/project_loader'
 require_relative 'asker/loader/input_loader'
 
 # This class does all the job
-# Organize the hole job, sending orders to others classes
 # * start
 # * load_input_data
 # * create_output_files, show_create_output_files
@@ -28,12 +27,18 @@ class Asker
     @codes = []
   end
 
+  ##
+  # Start working
+  # @param args (Hash)
   def start(args = {})
     load_input_data(args)
     create_output_files
     show_final_results
   end
 
+  ##
+  # Load input data
+  # @param args (Hash)
   def load_input_data(args)
     ProjectLoader.load(args)
     Project.instance.open
@@ -45,11 +50,18 @@ class Asker
     ConceptScreenExporter.export_all(@concepts)
   end
 
+  ##
+  # Create output files
+  # * Gift
+  # * YAML
+  # * TXT Doc
   def create_output_files
     show_create_output_files
     create_questions
     ConceptDocExporter.new(@concepts).export
   end
+
+  private
 
   def show_create_output_files
     p = Project.instance
@@ -64,8 +76,6 @@ class Asker
     CodeScreenExporter.export_all(@codes)
     Project.instance.close
   end
-
-  private
 
   ##
   # Create questions for every "concept"
