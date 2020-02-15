@@ -1,52 +1,79 @@
+# frozen_string_literal: true
 
+require 'yaml'
 require 'rainbow'
-require 'thor'
-require_relative 'asker/application'
-require_relative 'asker/tool'
+# require 'pry-byebug'
 
-module Asker
-  ##
-  # Command Line User Interface
-  class Command < Thor
-    map ['h', '-h', '--help'] => 'help'
+require_relative 'asker/project'
+require_relative 'asker/data/concept'
+require_relative 'asker/data/world'
+require_relative 'asker/ai/concept_ai'
+require_relative 'asker/formatter/concept_string_formatter'
+require_relative 'asker/exporter/main'
+require_relative 'asker/loader/project_loader'
+require_relative 'asker/loader/input_loader'
 
-    map ['f', '-f', '--file'] => 'file'
-    desc 'file NAME', 'Build output files, from HAML/XML input file.'
-    option :color, type: :boolean
-    long_desc <<-LONGDESC
-    Create output files, from input file (HAML/XML format).
+# This class does all the job
+# Organize the hole job, sending orders to others classes
+# * start
+# * load_input_data
+# * create_output_files, show_create_output_files
+# * create_questions
+# * show_final_results
+class Tool
+  def initialize
+    @concepts_ai = []
+    @concepts = []
+    @codes = []
+  end
 
-    Build questions about contents defined into input file specified.
+  def start(args = {})
+    load_input_data(args)
+    create_output_files
+    show_final_results
+  end
 
-    Examples:
+  def load_input_data(args)
+    ProjectLoader.load(args)
+    Project.instance.open
+    data = InputLoader.load
+    @concepts = data[:concepts]
+    @codes = data[:codes]
+    Project.instance.verbose "\n[INFO] Loading data from Internet"
+    @world = World.new(@concepts)
+    ConceptScreenExporter.export_all(@concepts)
+  end
 
-    (1) #{Rainbow('asker input/foo/foo.haml').yellow}, Build questions from HAML file.
+  def create_output_files
+    show_create_output_files
+    create_questions
+    ConceptDocExporter.new(@concepts).export
+  end
 
-    (2) #{Rainbow('asker input/foo/foo.xml').yellow}, Build questions from XML file.
+  def show_create_output_files
+    p = Project.instance
+    p.verbose "\n[INFO] Creating output files"
+    p.verbose "   ├── Gift questions file => #{Rainbow(p.outputpath).bright}"
+    p.verbose "   ├── YAML questions file => #{Rainbow(p.yamlpath).bright}"
+    p.verbose "   └── Lesson file         => #{Rainbow(p.lessonpath).bright}"
+  end
 
-    (3) #{Rainbow('asker file --no-color input/foo/foo.haml').yellow}, Same as (1) but without colors.
+  def show_final_results
+    ConceptAIScreenExporter.export_all(@concepts_ai)
+    CodeScreenExporter.export_all(@codes)
+    Project.instance.close
+  end
 
-    (4) #{Rainbow('asker projects/foo/foo.yaml').yellow}, Build questions from YAML project file.
+  private
 
-    LONGDESC
-    ##
-    # Create questions from input file
-    def file(filename)
-      Rainbow.enabled = false if options['color'] == false
-      Tool.new.start(filename)
+  def create_questions
+    @concepts.each do |concept|
+      concept_ai = ConceptAI.new(concept, @world)
+      concept_ai.make_questions
+      @concepts_ai << concept_ai
     end
-
-    def method_missing(method, *_args, &_block)
-      file(method.to_s)
-    end
-
-    map ['v', '-v', '--version'] => 'version'
-    desc 'version', 'Show the program version'
-    ##
-    # Show current version
-    def version
-      print Rainbow(Application::NAME).bright.blue
-      puts  " (version #{Rainbow(Application::VERSION).green})"
-    end
+    ConceptAIGiftExporter.export_all(@concepts_ai)
+    ConceptAIYAMLExporter.export_all(@concepts_ai)
+    CodeGiftExporter.export_all(@codes) # UNDER DEVELOPMENT
   end
 end
