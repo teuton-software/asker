@@ -71,12 +71,6 @@ class Asker
     p.verbose "   └── Lesson file         => #{Rainbow(p.lessonpath).bright}"
   end
 
-  def show_final_results
-    ConceptAIScreenExporter.export_all(@concepts_ai)
-    CodeScreenExporter.export_all(@codes)
-    Project.instance.close
-  end
-
   ##
   # Create questions for every "concept"
   # Export output to:
@@ -93,5 +87,11 @@ class Asker
     ConceptAIGiftExporter.export_all(@concepts_ai)
     ConceptAIYAMLExporter.export_all(@concepts_ai)
     CodeGiftExporter.export_all(@codes) # UNDER DEVELOPMENT
+  end
+
+  def show_final_results
+    ConceptAIScreenExporter.export_all(@concepts_ai)
+    CodeScreenExporter.export_all(@codes)
+    Project.instance.close
   end
 end
