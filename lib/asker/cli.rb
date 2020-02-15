@@ -35,10 +35,6 @@ class CLI < Thor
     Asker.new.start(filename)
   end
 
-  def method_missing(method, *_args, &_block)
-    file(method.to_s)
-  end
-
   map ['v', '-v', '--version'] => 'version'
   desc 'version', 'Show the program version'
   ##
@@ -47,4 +43,25 @@ class CLI < Thor
     print Rainbow(Application::NAME).bright.blue
     puts  " (version #{Rainbow(Application::VERSION).green})"
   end
+
+  map ['i', '-i', '--init'] => 'init'
+  desc 'init', 'Create default INI config fie'
+  ##
+  # Create default INI config file
+  def init
+    src_basedir = File.join(File.dirname(__FILE__), 'files')
+    dst_basedir = Dir.pwd
+    src = File.join(src_basedir, 'config.ini')
+    dst = File.join(dst_basedir, 'config.ini')
+    if File.exist? dst
+      puts "[WARN] Exists file! => #{Rainbow(File.basename(dst)).yellow.bright}"
+    else
+      FileUtils.cp(src, dst)
+      puts "[ OK ] Create file  => #{Rainbow(File.basename(dst)).green}"
+    end
+  end
+
+  #def method_missing(method, *_args, &_block)
+  #  file(method.to_s)
+  #end
 end
