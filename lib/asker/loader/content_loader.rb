@@ -15,6 +15,8 @@ class ContentLoader
     @data = {}
   end
 
+  ##
+  # Load XML content into Asker data objects
   def load
     project = Project.instance
 
@@ -55,18 +57,20 @@ class ContentLoader
 
   private
 
-  def read_lang_attribute(lxmldata)
+  # Read lang attr from input XML data
+  def read_lang_attribute(xmldata)
     begin
-      lang = lxmldata.root.attributes['lang']
+      lang = xmldata.root.attributes['lang']
     rescue
       lang = Project.instance.lang
     end
     lang
   end
 
-  def read_context_attribute(lxmldata)
+  # Read context attr from input XML data
+  def read_context_attribute(xmldata)
     begin
-      context = lxmldata.root.attributes['context']
+      context = xmldata.root.attributes['context']
     rescue
       context = 'unknown'
     end

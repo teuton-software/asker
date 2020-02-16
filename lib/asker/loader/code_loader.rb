@@ -10,22 +10,22 @@ require_relative '../code/code'
 class CodeLoader
   attr_reader :code
 
-  def initialize(xml_data, filepath)
+  def initialize(xmldata, filepath)
     @dirname = File.dirname(filepath)
     @filename = ''
     @process = false
     @type = :none
 
     @features = []
-	  read_data_from_xml(xml_data)
+	  read_data_from_xml(xmldata)
     @code = Code.new(@dirname, @filename, @type)
     @code.features << @features
   end
 
   private
 
-  def read_data_from_xml(xml_data)
-    xml_data.elements.each do |i|
+  def read_data_from_xml(xmldata)
+    xmldata.elements.each do |i|
       case i.name
       when 'path'
         @filename = i.text
@@ -45,8 +45,10 @@ class CodeLoader
     end
   end
 
-  def read_features(xml_data)
-    xml_data.elements.each do |i|
+  ##
+  # Read features data from XML input
+  def read_features(xmldata)
+    xmldata.elements.each do |i|
       case i.name
       when 'row'
         @features << i.text
