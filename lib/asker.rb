@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'yaml'
 require 'rainbow'
-# require 'pry-byebug'
 
 require_relative 'asker/project'
 require_relative 'asker/data/concept'

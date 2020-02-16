@@ -30,8 +30,11 @@ class CLI < Thor
   LONGDESC
   ##
   # Create questions from input file
+  # @param filename (String) Path to input file
   def file(filename)
+    # Enable/disable color output
     Rainbow.enabled = false if options['color'] == false
+    # Asker start processing input file
     Asker.new.start(filename)
   end
 
@@ -61,6 +64,10 @@ class CLI < Thor
     end
   end
 
+  ##
+  # This actions are equals:
+  # * asker demo/foo.haml
+  # * asker file demo/fool.haml
   def method_missing(method, *_args, &_block)
     file(method.to_s)
   end

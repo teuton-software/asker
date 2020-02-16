@@ -1,3 +1,4 @@
 #!/usr/bin/ruby
 require_relative 'lib/asker/cli'
+# Start Asker command line interface
 CLI.start(ARGV)
