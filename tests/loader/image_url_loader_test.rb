@@ -13,8 +13,8 @@ class ImageUrlLoaderTest < Minitest::Test
     @filters.each do |filter|
       urls = ImageUrlLoader::load(filter)
       assert_equal Array, urls.class
-      i = 20
-      i = 0 unless Application.instance.config['global']['internet'] == 'yes'
+      i = 0
+      i = 20 if Application.instance.config['global']['internet'] == 'yes'
       assert_equal i, urls.size
     end
   end
