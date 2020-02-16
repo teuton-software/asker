@@ -130,7 +130,7 @@ class Project
     f.write(" (version #{Application::VERSION})\n")
     f.write("File       : #{get(:logname)}\n")
     f.write("Time       : #{Time.new}\n")
-    f.write("Author     : David Vargas\n")
+    f.write("Author     : David Vargas Ruiz\n")
     f.write('=' * 50 + "\n\n")
 
     verbose '[INFO] Project open'
@@ -147,7 +147,7 @@ class Project
     f.write(" (version #{Application::VERSION})\n")
     f.write("// File       : #{get(:outputname)}\n")
     f.write("// Time       : #{Time.new}\n")
-    f.write("// Author     : David Vargas\n")
+    f.write("// Author     : David Vargas Ruiz\n")
     f.write('// ' + ('=' * 50) + "\n")
     f.write("\n")
     f.write("$CATEGORY: $course$/#{get(:category)}\n") if get(:category) != :none
@@ -162,7 +162,7 @@ class Project
     f.write(" (version #{Application::VERSION})\n")
     f.write("File       : #{get(:lessonname)}\n")
     f.write("Time       : #{Time.new}\n")
-    f.write("Author     : David Vargas\n")
+    f.write("Author     : David Vargas Ruiz\n")
     f.write('=' * 50 + "\n")
   end
 
