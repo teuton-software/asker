@@ -6,12 +6,14 @@ require 'fileutils'
 require_relative 'application'
 require_relative 'formatter/string_color_filter'
 
-# Contains Project info and methods
+# Contains Project data and methods
 class Project
   include Singleton
   attr_reader :default, :param
   attr_accessor :fobs
 
+  ##
+  # Initialize
   def initialize
     reset
   end
@@ -34,22 +36,31 @@ class Project
     @param = {}
   end
 
-  def method_missing(method, *_args, &_block)
-    get(method)
-  end
-
+  ##
+  # Get value param
+  # @param key (Symbol) key
   def get(key)
     return @param[key] unless @param[key].nil?
 
     @default[key]
   end
 
+  ##
+  # Set value param
+  # @param key (Symbol) key
+  # @param value (String) value
   def set(key, value)
     @param[key] = value
   end
 
+  ##
+  # Open new project
+  # * setting new params and
+  # * creating output files
+  # IMPORTANT: We need at least theses values
+  # * process_file
+  # * inputdirs
   def open
-    # We need at least process_file and inputdirs params
     ext = '.haml'
     @param[:process_file] = @param[:process_file] ||
                             get(:projectdir).split(File::SEPARATOR).last + ext
@@ -94,16 +105,20 @@ class Project
 
   ##
   # Log and display text
-  def verbose(p_text)
-    text = StringColorFilter.filter(p_text)
+  def verbose(msg)
+    text = StringColorFilter.filter(msg)
     puts text if get(:verbose)
     get(:logfile).write(text.to_s + "\n") if get(:logfile)
   end
 
   ##
   # Log and display text line
-  def verboseln(text)
-    verbose(text + "\n")
+  def verboseln(msg)
+    verbose(msg + "\n")
+  end
+
+  def method_missing(method, *_args, &_block)
+    get(method)
   end
 
   private
