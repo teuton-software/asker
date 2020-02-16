@@ -4,7 +4,6 @@ require 'singleton'
 require 'rainbow'
 require 'fileutils'
 require_relative 'application'
-require_relative 'formatter/string_color_filter'
 
 # Contains Project data and methods
 class Project
@@ -106,9 +105,8 @@ class Project
   ##
   # Log and display text
   def verbose(msg)
-    text = StringColorFilter.filter(msg)
-    puts text if get(:verbose)
-    get(:logfile).write(text.to_s + "\n") if get(:logfile)
+    puts msg if get(:verbose)
+    get(:logfile).write(msg.to_s + "\n") if get(:logfile)
   end
 
   ##
