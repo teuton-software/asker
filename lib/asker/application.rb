@@ -12,11 +12,14 @@ class Application
 
   attr_reader :config
 
+  ##
   # Initialize Application singleton
   def initialize
     reset
   end
 
+  ##
+  # Initialize config values from external "config.ini" file.
   def reset
     filename = File.join(Dir.pwd,'config.ini')
     unless File.exist? filename
