@@ -24,3 +24,10 @@ def install_gems(list, options = '')
   fails = filter_uninstalled_gems(list)
   fails.each { |name| system("gem install #{name} #{options}") }
 end
+
+desc 'Install developer gems'
+task :devel do
+  puts "[INFO] Installing developer Ruby gems..."
+  p = %w[rubocop minitest]
+  p.each { |name| system("gem install #{name}") }
+end

@@ -31,7 +31,4 @@ require_relative 'loader/directory_loader_test'
 require_relative 'loader/input_loader_test'
 require_relative 'loader/project_loader_test'
 
-require_relative 'sinatra/table_haml_formatter_test'
-require_relative 'sinatra/concept_haml_formatter_test'
-
 #require_relative 'rubocop_test'

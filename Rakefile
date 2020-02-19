@@ -15,7 +15,7 @@ desc 'Default action => check'
 task default: :check do
 end
 
-desc 'Show Asker Rake help'
+desc 'Show rake help'
 task :help do
   system('rake -T')
 end
@@ -53,7 +53,7 @@ end
 
 desc 'Generate docs'
 task :docs do
-  puts "[ INFO ] Generating documentation..."
+  puts '[ INFO ] Generating documentation...'
   system('rm -r html/')
   system('yardoc lib/* -o html')
 end
