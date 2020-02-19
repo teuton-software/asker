@@ -9,7 +9,7 @@ require_relative 'application'
 class Project
   include Singleton
   attr_reader :default, :param
-  attr_accessor :fobs
+#  attr_accessor :fobs
 
   ##
   # Initialize
@@ -120,8 +120,8 @@ class Project
 
   private
 
+  # create or reset logfile
   def create_log_file
-    # create or reset logfile
     @param[:logfile] = File.open(get(:logpath), 'w')
     f = get(:logfile)
     f.write('=' * 50 + "\n")
@@ -151,8 +151,8 @@ class Project
     f.write("$CATEGORY: $course$/#{get(:category)}\n") unless get(:category) == :none
   end
 
+  # Create or reset lesson file
   def create_lesson_file
-    # Create or reset lesson file
     @param[:lessonfile] = File.new(get(:lessonpath), 'w')
     f = get(:lessonfile)
     f.write('=' * 50 + "\n")
@@ -164,8 +164,8 @@ class Project
     f.write('=' * 50 + "\n")
   end
 
+  # Create or reset yaml file
   def create_yaml_file
-    # Create or reset yaml file
     @param[:yamlfile] = File.open(get(:yamlpath), 'w')
   end
 end
