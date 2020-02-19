@@ -1,36 +1,36 @@
 
-desc 'OpenSUSE installation'
-task :install_opensuse do
-  names = ['ruby-devel']
-  names.each { |name| system("zypper -y #{name}") }
+namespace :install do
+  desc 'OpenSUSE installation'
+  task :opensuse do
+    names = ['ruby-devel']
+    names.each { |name| system("zypper -y #{name}") }
+    install_gems packages, '--no-ri'
+    create_symbolic_link
+  end
 
-  install_gems packages, '--no-ri'
-  create_symbolic_link
-end
+  desc 'Debian installation'
+  task :debian do
+    names = ['make', 'gcc', 'build-essential', 'ruby-dev']
+    names.each { |name| system("apt install -y #{name}") }
+    install_gems packages,'--no-ri'
+    create_symbolic_link
+  end
 
-desc 'Debian installation'
-task :install_debian do
-  names = ['make', 'gcc', 'build-essential', 'ruby-dev']
-  names.each { |name| system("apt install -y #{name}") }
+  desc 'Install gems'
+  task :gems do
+    install_gems packages
+  end
 
-  install_gems packages,'--no-ri'
-  create_symbolic_link
-end
+  def install_gems(list, options = '')
+    puts "[INFO] Installing Ruby gems (options=#{options})..."
+    fails = filter_uninstalled_gems(list)
+    fails.each { |name| system("gem install #{name} #{options}") }
+  end
 
-desc 'Install gems'
-task :install_gems do
-  install_gems packages
-end
-
-def install_gems(list, options = '')
-  puts "[INFO] Installing Ruby gems (options=#{options})..."
-  fails = filter_uninstalled_gems(list)
-  fails.each { |name| system("gem install #{name} #{options}") }
-end
-
-desc 'Install developer gems'
-task :install_devel do
-  puts "[INFO] Installing developer Ruby gems..."
-  p = %w[rubocop minitest pry-byebug]
-  p.each { |name| system("gem install #{name}") }
+  desc 'Install developer gems'
+  task :devel do
+    puts "[INFO] Installing developer Ruby gems..."
+    p = %w[rubocop minitest pry-byebug]
+    p.each { |name| system("gem install #{name}") }
+  end
 end
