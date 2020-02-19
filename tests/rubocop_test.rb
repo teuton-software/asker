@@ -8,6 +8,7 @@ class RubocopTest < Minitest::Test
     @files = {}
 
     @files[:lib] = []
+#    @files[:lib] << 'asker'
     @files[:lib] << 'Rakefile'
     @files[:lib] << 'lib/asker.rb'
     @files[:lib] << 'lib/asker/application.rb'

@@ -53,10 +53,8 @@ class CLI < Thor
   ##
   # Create default INI config file
   def init
-    src_basedir = File.join(File.dirname(__FILE__), 'files')
-    dst_basedir = Dir.pwd
-    src = File.join(src_basedir, 'config.ini')
-    dst = File.join(dst_basedir, 'config.ini')
+    src = File.join(File.dirname(__FILE__), 'files', 'config.ini')
+    dst = File.join(Dir.pwd, 'config.ini')
     if File.exist? dst
       puts "[WARN] Exists file! => #{Rainbow(File.basename(dst)).yellow.bright}"
     else

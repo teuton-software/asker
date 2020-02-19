@@ -20,18 +20,17 @@ class Project
   ##
   # Reset project params
   def reset
-    @default = {}
-    @default[:inputbasedir] = FileUtils.pwd
-    @default[:outputdir] = 'output'
-    @default[:category] = :none
-    @default[:formula_weights] = [1, 1, 1]
-    @default[:lang] = 'en'
-    @default[:locales] = %w[en es javascript math python ruby sql]
-    @default[:show_mode] = :default
-    @default[:verbose] = true
-    @default[:stages] = { d: true, b: true, f: true, i: true, s: true, t: true }
-    @default[:threshold] = 0.5
-    @default[:color_output] = true
+    @default = { inputbasedir: FileUtils.pwd,
+                outputdir: 'output',
+                category: :none,
+                formula_weights: [1, 1, 1],
+                lang: 'en',
+                locales: %w[en es javascript math python ruby sql],
+                show_mode: :default,
+                verbose: true,
+                stages: { d: true, b: true, f: true, i: true, s: true, t: true },
+                threshold: 0.5,
+                color_output: true }
     @param = {}
   end
 
@@ -138,8 +137,8 @@ class Project
     verbose '   └── process_file = ' + Rainbow(get(:process_file)).bright
   end
 
+  # Create or reset output file
   def create_output_file
-    # Create or reset output file
     @param[:outputfile] = File.open(get(:outputpath), 'w')
     f = get(:outputfile)
     f.write('// ' + ('=' * 50) + "\n")
@@ -148,9 +147,8 @@ class Project
     f.write("// File       : #{get(:outputname)}\n")
     f.write("// Time       : #{Time.new}\n")
     f.write("// Author     : David Vargas Ruiz\n")
-    f.write('// ' + ('=' * 50) + "\n")
-    f.write("\n")
-    f.write("$CATEGORY: $course$/#{get(:category)}\n") if get(:category) != :none
+    f.write('// ' + ('=' * 50) + "\n\n")
+    f.write("$CATEGORY: $course$/#{get(:category)}\n") unless get(:category) == :none
   end
 
   def create_lesson_file
