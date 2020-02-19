@@ -43,7 +43,7 @@ class WorldTest < Minitest::Test
     assert_equal "input.haml", @world.filenames[0]
   end
 
-  def test_image_urls
+  def disable_test_image_urls
     keys   = @world.image_urls.keys
     values = @world.image_urls.values
 

@@ -102,14 +102,14 @@ class Project
   end
 
   ##
-  # Log and display text
+  # Display and log text
   def verbose(msg)
     puts msg if get(:verbose)
     get(:logfile).write(msg.to_s + "\n") if get(:logfile)
   end
 
   ##
-  # Log and display text line
+  # Display and log text line
   def verboseln(msg)
     verbose(msg + "\n")
   end

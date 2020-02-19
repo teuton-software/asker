@@ -10,7 +10,7 @@ require_relative '../application'
 # * +sanitize_string+ - Clean URL string
 # * +sanitize_array+ - Clean URL Array
 module ImageUrlLoader
-  # Search "input" imagens on Google and return URL
+  # Search "input" images on Google and return URL
   def self.load(input = [])
     param = Application.instance.config['global']['internet'] || 'yes'
     return [] unless param == 'yes'
@@ -18,18 +18,15 @@ module ImageUrlLoader
     filters = []
     if input.class == String
       filters += sanitize_string(input.clone)
-      filters.flatten!
     elsif input.class == Array
       filters = sanitize_array(input.clone)
-      filters.flatten!
     else
       raise "[ERROR] ImageUrlLoader: Unkown type #{input.class}"
     end
     # Search Image URLs from Google site, selected by <filters>
     search_url = 'https://www.google.es/search?q='
-    search_url << filters.join('+').to_s
-    search_url << '&source=lnms&tbm=isch&sa=X&ved=0ahUKEwie9ruF5KLOAhXCOBQKHY-QBTcQ_AUICCgB&biw=1366&bih=643'
-
+    search_url << filters.flatten.join('+').to_s
+    search_url << '&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj_g8Wfst7nAhWpzoUKHf_wDbsQ_AUoAnoECBMQBA&biw=1280&bih=591'
     image_urls = []
     begin
       uri = URI.parse(search_url)
