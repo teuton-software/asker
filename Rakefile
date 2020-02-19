@@ -28,7 +28,7 @@ task :check do
   else
     puts '[FAIL] Gems not installed!: ' + fails.join(',')
   end
-  testfile = File.join(Dir.pwd, 'tests', 'all.rb')
+  testfile = File.join('.', 'tests', 'all.rb')
   a = File.read(testfile).split("\n")
   b = a.select { |i| i.include? '_test' }
   d = File.join('.', 'tests', '**', '*_test.rb')
