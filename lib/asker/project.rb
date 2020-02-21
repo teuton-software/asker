@@ -9,7 +9,6 @@ require_relative 'application'
 class Project
   include Singleton
   attr_reader :default, :param
-#  attr_accessor :fobs
 
   ##
   # Initialize

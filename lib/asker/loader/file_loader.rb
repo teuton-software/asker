@@ -9,15 +9,13 @@ module FileLoader
     if File.extname(filename).casecmp('.haml').zero?
       file_content = load_haml filename
     elsif File.extname(filename).casecmp('.xml').zero?
-      file_content = open(filename, &:read)
+      file_content = File.read(filename)
     else
       msg = "[ERROR] FileLoader: Format error #{filename}"
       Project.instance.verbose msg
       raise msg
     end
-
-    data = ContentLoader.new(filename, file_content).load
-    data
+    ContentLoader.new(filename, file_content).load
   end
 
   def self.load_haml(filename)
