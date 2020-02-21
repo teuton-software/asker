@@ -1,4 +1,6 @@
 
+require_relative 'packages'
+
 namespace :install do
   desc 'OpenSUSE installation'
   task :opensuse do
@@ -30,7 +32,13 @@ namespace :install do
   desc 'Install developer gems'
   task :devel do
     puts "[INFO] Installing developer Ruby gems..."
-    p = %w[rubocop minitest pry-byebug]
+    p = %w[rubocop minitest pry-byebug yard]
     p.each { |name| system("gem install #{name}") }
+  end
+
+  def create_symbolic_link
+    puts '[INFO] Creating symbolic link into /usr/local/bin'
+    basedir = File.dirname(__FILE__)
+    system("ln -s #{basedir}/asker /usr/local/bin/asker")
   end
 end
