@@ -23,7 +23,7 @@ namespace :install do
     end
     puts "[INFO] Running #{testfile}"
     system(testfile)
-    Rake::Task['build'].invoke
+    Rake::Task['build:gem'].invoke
   end
 
   def filter_uninstalled_gems(list)
