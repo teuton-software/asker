@@ -1,42 +1,55 @@
 # frozen_string_literal: true
 
 require_relative 'file_loader'
+require_relative '../logger'
 
-# Define method used to load data from directory
+# Load input data from one directory
 module DirectoryLoader
+  ##
+  # Load input data from directory
+  # @param dirname (String) Directory name
   def self.load(dirname)
-    DirectoryLoader.dir_error(dirname) unless Dir.exist? dirname
+    DirectoryLoader.check_dir(dirname)
 
     files = (Dir.new(dirname).entries - ['.', '..']).sort
-    # accept only HAML or XML files
-    accepted = files.select { |f| f[-4..-1] == '.xml' || f[-5..-1] == '.haml' }
-    Project.instance.verbose ' * Input directory  = ' + Rainbow(dirname).bright
-
-    output = DirectoryLoader.load_files(accepted, dirname)
-    output
+    # Accept only HAML or XML files
+    accepted = files.select { |f| %w[.xml .haml].include? File.extname(f) }
+    Logger.verbose " * Input directory  = #{Rainbow(dirname).bright}"
+    DirectoryLoader.load_files(accepted, dirname)
   end
 
-  def self.dir_error(dirname)
-    msg = '[' + Rainbow(ERROR).color(:red)
-    msg += "] <#{Rainbow(dirname).color(:red)}> directory dosn't exist!"
-    Project.instance.verboseln msg
+  ##
+  # Check directory
+  # @param dirname (String) Directory name
+  def self.check_dir(dirname)
+    return if Dir.exist? dirname
+
+    msg = Rainbow("[ERROR] #{dirname} directory dosn't exist!").color(:red)
+    Logger.verboseln msg
     raise msg
   end
 
-  def self.load_files(accepted, dirname)
-    project = Project.instance
+  ##
+  # Load accepted files from dirname directory
+  # @param filenames (Array) File name list
+  # @param dirname (String) Base directory
+  def self.load_files(filenames, dirname)
     output = { concepts: [], codes: [] }
-    accepted.each do |f|
-      filename = File.join(dirname, f)
-      if f == accepted.last
-        project.verbose '   └── Input file   = ' + Rainbow(filename).bright
-      else
-        project.verbose '   ├── Input file   = ' + Rainbow(filename).bright
-      end
-      data = FileLoader.load(filename)
+    filenames.each do |filename|
+      filepath = File.join(dirname, filename)
+      data = DirectoryLoader.load_file(filepath, filename == filenames.last)
       output[:concepts] += data[:concepts]
       output[:codes] += data[:codes]
     end
     output
+  end
+
+  def self.load_file(filepath, last = false)
+    if last
+      Logger.verbose "   └── Input file   = #{Rainbow(filepath).bright}"
+    else
+      Logger.verbose "   ├── Input file   = #{Rainbow(filepath).bright}"
+    end
+    FileLoader.load(filepath)
   end
 end
