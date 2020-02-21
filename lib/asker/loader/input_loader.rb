@@ -9,6 +9,9 @@ require_relative '../logger'
 # FileLoader      => ContentLoader
 # ContentLoader   => Concept and CodeLoader
 module InputLoader
+  ##
+  # Load input data from every input directory
+  # @param inputdirs (Array)
   def self.load(inputdirs)
     output = { concepts: [], codes: [] }
     Logger.verbose "\n[INFO] Loading input data"
