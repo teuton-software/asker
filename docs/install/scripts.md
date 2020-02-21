@@ -7,7 +7,7 @@
 
 Run as `root` user:
 ```
-wget -qO- https://raw.githubusercontent.com/dvarrui/asker/master/bin/linux_asker_install.sh | bash
+wget -qO- https://raw.githubusercontent.com/dvarrui/asker/master/install/linux_asker_install.sh | bash
 ```
 
 Run `asker version` as normal user.
@@ -20,19 +20,7 @@ Requirements:
 
 Run this coomand as Administrator user on PowerShell (PS):
 ```
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/dvarrui/asker/master/bin/windows_asker_install.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/dvarrui/asker/master/install/windows_asker_install.ps1'))
 ```
 
 Run `asker version` as normal user.
-
----
-
-## Tested on
-
-| Tested on | OS version  | Ruby version |
-| --------- | ----------- | ------------ |
-| OpenSUSE  | TW, Leap 15 | 2.6          |
-| Debian    | 9           | 2.3          |
-| Mint      | 19          | 2.5          |
-| Windows   | 7           | -            |
-| Windows   | 10          | -            |
