@@ -1,15 +1,12 @@
 # frozen_string_literal: true
 
-require 'singleton'
 require_relative 'project'
 
 # Display and log project messages
-class Logger
-  include Singleton
-
+module Logger
   ##
   # Display and log text
-  def verbose(msg)
+  def self.verbose(msg)
     project = Project.instance
     puts msg if project.get(:verbose)
     project.get(:logfile).write("#{msg}\n") if project.get(:logfile)
@@ -18,7 +15,7 @@ class Logger
 
   ##
   # Display and log text line
-  def verboseln(msg)
+  def self.verboseln(msg)
     verbose(msg + "\n")
   end
 end

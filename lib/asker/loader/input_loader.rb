@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'directory_loader'
+require_relative '../logger'
 
 # Load DATA defined by Project
 # InputLoader     => DirectoryLoader
@@ -8,12 +9,11 @@ require_relative 'directory_loader'
 # FileLoader      => ContentLoader
 # ContentLoader   => Concept and CodeLoader
 module InputLoader
-  def self.load
+  def self.load(inputdirs)
     output = { concepts: [], codes: [] }
-    project = Project.instance
-    project.verbose "\n[INFO] Loading input data"
+    Logger.verbose "\n[INFO] Loading input data"
 
-    inputdirs = project.inputdirs.split(',')
+    # inputdirs = project.inputdirs.split(',')
     inputdirs.each do |dirname|
       data = DirectoryLoader.load(dirname)
       output[:concepts] += data[:concepts]

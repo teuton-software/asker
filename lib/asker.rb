@@ -40,7 +40,7 @@ class Asker
   def load_input_data(args)
     ProjectLoader.load(args)
     Project.instance.open
-    data = InputLoader.load
+    data = InputLoader.load(Project.instance.get(:inputdirs).split(','))
     @concepts = data[:concepts]
     @codes = data[:codes]
     Project.instance.verbose "\n[INFO] Loading data from Internet"

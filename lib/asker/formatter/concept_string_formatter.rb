@@ -3,7 +3,7 @@
 require 'rainbow'
 require 'terminal-table'
 
-# Define methods to trasnforme Concept into String
+# Define methods to transform Concept into String
 module ConceptStringFormatter
   def self.to_s(concept)
     out = ''

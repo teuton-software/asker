@@ -13,7 +13,7 @@ module FileLoader
       file_content = File.read(filename)
     else
       msg = "[ERROR] FileLoader: Format error #{filename}"
-      Logger.instance.verbose msg
+      Logger.verbose msg
       raise msg
     end
     ContentLoader.new(filename, file_content).load
