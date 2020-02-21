@@ -23,15 +23,15 @@ Features:
 ---
 # Usage
 
-To execute ASKER, we use `asker` command, with a path to an input file as argument. For example, to run "jedi.haml" input file example, we do:
+To execute ASKER, we use `asker` command, with a path to an input file as argument. For example, to run our `jedi.haml` input file example, we do:
 
 ```
-asker en/starwars/jedi.haml
+asker docs/examples/starwars/jedi.haml
 ```
 
 * The program generates your output files into the `output` directory by default.
-* In this example, we use a demo input definition file `en/starwars/jedi.haml`, that contains conceptual entities about _"Jedi's"_ context.
-* [Example input files](doc/examples).
+* In this example, we use a demo input definition file `docs/examples/starwars/jedi.haml`, that contains conceptual entities about _"Jedi's"_ context.
+* [Example input files](docs/examples).
 * You can find more examples at `github/dvarrui/asker-inputs` repository.
 
 ---
