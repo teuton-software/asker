@@ -2,6 +2,7 @@
 
 require 'haml'
 require_relative 'content_loader'
+require_relative '../logger'
 
 # Methods that load a filename and return list of concepts
 module FileLoader
@@ -12,7 +13,7 @@ module FileLoader
       file_content = File.read(filename)
     else
       msg = "[ERROR] FileLoader: Format error #{filename}"
-      Project.instance.verbose msg
+      Logger.instance.verbose msg
       raise msg
     end
     ContentLoader.new(filename, file_content).load

@@ -25,7 +25,7 @@ namespace :install do
     end
     puts "[INFO] Running #{testfile}"
     system(testfile)
-    Rake::Task['build:gem'].invoke
+    # Rake::Task['build:gem'].invoke
   end
 
   desc 'Install gems'

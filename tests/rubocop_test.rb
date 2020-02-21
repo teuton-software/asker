@@ -32,7 +32,8 @@ class RubocopTest < Minitest::Test
 
     @files[:loader] = []
 #    @files[:data] << 'lib/asker/loader/project_loader.rb'
-    @files[:data] << 'lib/asker/loader/file_loader.rb'
+    @files[:loader] << 'lib/asker/loader/file_loader.rb'
+    @files[:loader] << 'lib/asker/loader/input_loader.rb'
 
   end
 

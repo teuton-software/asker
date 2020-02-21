@@ -1,9 +1,11 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'rainbow'
 require 'rexml/document'
 require_relative '../data/concept'
 require_relative '../loader/code_loader'
+require_relative '../logger'
+require_relative '../project'
 
 # Define methods that load data from XML contents
 class ContentLoader
@@ -45,7 +47,7 @@ class ContentLoader
     rescue REXML::ParseException
       msg = Rainbow('[ERROR] ConceptLoader: Format error in file ').red
       msg += Rainbow(@filepath).red.bright
-      project.verbose msg
+      Logger.instance.verbose msg
       system("echo '#{@content}' > output/error.xml")
       raise msg
     end

@@ -1,11 +1,12 @@
+# frozen_string_literal: true
 
 require_relative 'directory_loader'
 
-# load DATA defined by Project
-# InputLoader use DirectoryLoader
-# DirectoryLoader use FileLoader
-# FileLoader use ContentLoader
-# ContentLoader use Concept and CodeLoader
+# Load DATA defined by Project
+# InputLoader     => DirectoryLoader
+# DirectoryLoader => FileLoader
+# FileLoader      => ContentLoader
+# ContentLoader   => Concept and CodeLoader
 module InputLoader
   def self.load
     output = { concepts: [], codes: [] }
