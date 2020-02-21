@@ -3,7 +3,6 @@
 # File: Rakefile
 # Usage: rake
 
-require_relative 'tasks/check'
 require_relative 'tasks/install'
 
 # Define tasks
