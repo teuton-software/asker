@@ -44,6 +44,10 @@ module DirectoryLoader
     output
   end
 
+  ##
+  # Load one input file
+  # @param filepath (String) Path to input file
+  # @param last (Boolean) True if it is the last filename
   def self.load_file(filepath, last = false)
     if last
       Logger.verbose "   └── Input file   = #{Rainbow(filepath).bright}"
