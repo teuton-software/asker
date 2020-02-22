@@ -83,7 +83,7 @@ module ContentLoader
   # @param filepath (String)
   def self.read_code(xmldata, filepath)
     project = Project.instance
-    f = CodeLoader.new(xmldata, filepath).code
+    f = CodeLoader.load(xmldata, filepath)
     cond1 = project.process_file == :default
     cond2 = project.process_file == File.basename(filepath)
     f.process = true if cond1 || cond2

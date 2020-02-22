@@ -3,11 +3,7 @@
 require_relative 'directory_loader'
 require_relative '../logger'
 
-# Load DATA defined by Project
-# InputLoader     => DirectoryLoader
-# DirectoryLoader => FileLoader
-# FileLoader      => ContentLoader
-# ContentLoader   => Concept and CodeLoader
+# Load DATA defined into our Project
 module InputLoader
   ##
   # Load input data from every input directory

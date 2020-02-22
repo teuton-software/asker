@@ -1,58 +1,58 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'rainbow'
 require 'rexml/document'
-
-require_relative '../project'
+require_relative '../logger'
 require_relative '../code/code'
 
+require 'pry-byebug'
 # Read XML info about Code input data
-class CodeLoader
-  attr_reader :code
-
-  def initialize(xmldata, filepath)
-    @dirname = File.dirname(filepath)
-    @filename = ''
-    @process = false
-    @type = :none
-
-    @features = []
-	  read_data_from_xml(xmldata)
-    @code = Code.new(@dirname, @filename, @type)
-    @code.features << @features
+module CodeLoader
+  ##
+  # Load XML data about Code object
+  # @param xmldata (XML Object)
+  # @param filepath (String)
+  # @return Code object
+  def self.load(xmldata, filepath)
+    data = read_data_from_xml(xmldata, File.dirname(filepath))
+    code = Code.new(File.dirname(filepath), data[:path], data[:type])
+    code.features << data[:features]
+    code
   end
 
-  private
-
-  def read_data_from_xml(xmldata)
+  def self.read_data_from_xml(xmldata, filename)
+    data = {}
     xmldata.elements.each do |i|
       case i.name
       when 'path'
-        @filename = i.text
+        data[:path] = i.text
       when 'type'
-        @type = i.text.to_sym
+        data[:type] = i.text.to_sym
       when 'features'
-        read_features(i)
+        # data[:features] << read_features(i)
       else
-        text = "   [ERROR] <#{i.name}> unkown XML attribute for Code #{@filename}"
+        text = "   [ERROR] Unkown attribute #{i.name} into file #{filename}"
         msg = Rainbow(text).color(:red)
-        Project.instance.verbose msg
+        Logger.verbose msg
       end
     end
+    data
   end
 
   ##
   # Read features data from XML input
-  def read_features(xmldata)
+  def self.read_features(xmldata)
+    features = []
     xmldata.elements.each do |i|
       case i.name
       when 'row'
-        @features << i.text
+        features << i.text
       else
         text = "   [ERROR] <features/#{i.name}> unkown XML attribute for Code #{@filename}"
         msg = Rainbow(text).color(:red)
-        Project.instance.verbose msg
+        Logger.verbose msg
       end
     end
+    features
   end
 end
