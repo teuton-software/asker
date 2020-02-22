@@ -63,7 +63,7 @@ class Asker
   # Checking input file syntax
   # @param filename (String)
   def self.check(filename)
-    puts "[DEBUG] Checking #{filename}"
+    puts "[TODO] Checking #{filename}"
   end
 
   private

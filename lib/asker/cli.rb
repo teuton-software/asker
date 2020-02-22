@@ -72,7 +72,7 @@ class CLI < Thor
     # Enable/disable color output
     Rainbow.enabled = false if options['color'] == false
     # Asker start processing input file
-    #Asker.check(filename)
+    Asker.check(filename)
   end
 
   ##
