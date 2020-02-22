@@ -59,6 +59,13 @@ class Asker
     ConceptDocExporter.new(@concepts).export
   end
 
+  ##
+  # Checking input file syntax
+  # @param filename (String)
+  def self.check(filename)
+    puts "[DEBUG] Checking #{filename}"
+  end
+
   private
 
   def show_create_output_files

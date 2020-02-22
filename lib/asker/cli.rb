@@ -10,6 +10,15 @@ require_relative '../asker'
 class CLI < Thor
   map ['h', '-h', '--help'] => 'help'
 
+  map ['v', '-v', '--version'] => 'version'
+  desc 'version', 'Show the program version'
+  ##
+  # Show current version
+  def version
+    print Rainbow(Application::NAME).bright.blue
+    puts  " (version #{Rainbow(Application::VERSION).green})"
+  end
+
   map ['f', '-f', '--file'] => 'file'
   desc 'file NAME', 'Build output files, from HAML/XML input file.'
   option :color, type: :boolean
@@ -39,15 +48,6 @@ class CLI < Thor
     Asker.new.start(filename)
   end
 
-  map ['v', '-v', '--version'] => 'version'
-  desc 'version', 'Show the program version'
-  ##
-  # Show current version
-  def version
-    print Rainbow(Application::NAME).bright.blue
-    puts  " (version #{Rainbow(Application::VERSION).green})"
-  end
-
   map ['i', '-i', '--init'] => 'init'
   desc 'init', 'Create default INI config fie'
   ##
@@ -61,6 +61,18 @@ class CLI < Thor
       FileUtils.cp(src, dst)
       puts "[ OK ] Create file  => #{Rainbow(File.basename(dst)).green}"
     end
+  end
+
+  map ['c', '-c', '--check'] => 'check'
+  desc 'check', 'Check input file syntax'
+  ##
+  # Check input file syntax
+  # @param filename (String) Path to input file
+  def check(filename)
+    # Enable/disable color output
+    Rainbow.enabled = false if options['color'] == false
+    # Asker start processing input file
+    #Asker.check(filename)
   end
 
   ##
