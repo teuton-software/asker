@@ -5,7 +5,6 @@ require 'rexml/document'
 require_relative '../logger'
 require_relative '../code/code'
 
-require 'pry-byebug'
 # Read XML info about Code input data
 module CodeLoader
   ##
@@ -14,42 +13,38 @@ module CodeLoader
   # @param filepath (String)
   # @return Code object
   def self.load(xmldata, filepath)
-    data = read_data_from_xml(xmldata, File.dirname(filepath))
+    data = read_codedata_from_xml(xmldata, File.basename(filepath))
     code = Code.new(File.dirname(filepath), data[:path], data[:type])
     code.features << data[:features]
     code
   end
 
-  def self.read_data_from_xml(xmldata, filename)
-    data = {}
+  ##
+  # Read Code data from XML content
+  # @param xmldata (XML Object)
+  # @param filename (String) File name that contains data
+  # @return Code object
+  def self.read_codedata_from_xml(xmldata, filename)
+    data = { path: '?', type: '?', features: [] }
     xmldata.elements.each do |i|
-      case i.name
-      when 'path'
-        data[:path] = i.text
-      when 'type'
-        data[:type] = i.text.to_sym
-      when 'features'
-        # data[:features] << read_features(i)
-      else
-        text = "   [ERROR] Unkown attribute #{i.name} into file #{filename}"
-        msg = Rainbow(text).color(:red)
-        Logger.verbose msg
-      end
+      data[:path] = i.text if i.name == 'path'
+      data[:type] = i.text.to_sym if i.name == 'type'
+      data[:features] << read_features(i, filename) if i.name == 'features'
     end
     data
   end
 
   ##
   # Read features data from XML input
-  def self.read_features(xmldata)
+  # @param xmldata (XML object)
+  # @return Array with features (Strings)
+  def self.read_features(xmldata, filename)
     features = []
     xmldata.elements.each do |i|
-      case i.name
-      when 'row'
+      if i.name == 'row'
         features << i.text
       else
-        text = "   [ERROR] <features/#{i.name}> unkown XML attribute for Code #{@filename}"
-        msg = Rainbow(text).color(:red)
+        msg = Rainbow("[ERROR] features/#{i.name} from #{filename}").color(:red)
         Logger.verbose msg
       end
     end
