@@ -35,6 +35,7 @@ class RubocopTest < Minitest::Test
 #    @files[:data] << 'lib/asker/loader/project_loader.rb'
     @files[:loader] << 'lib/asker/loader/directory_loader.rb'
     @files[:loader] << 'lib/asker/loader/file_loader.rb'
+#    @files[:loader] << 'lib/asker/loader/content_loader.rb'
 
   end
 
@@ -51,6 +52,7 @@ class RubocopTest < Minitest::Test
     @files[:ai].each do |file|
       output = `rubocop #{file}`
       lines = output.split("\n")
+      puts "[DEBUG] #{file}" if $?.exitstatus > 0
       assert_equal 0, $?.exitstatus
     end
   end
@@ -59,6 +61,7 @@ class RubocopTest < Minitest::Test
     @files[:data].each do |file|
       output = `rubocop #{file}`
       lines = output.split("\n")
+      puts "[DEBUG] #{file}" if $?.exitstatus > 0
       assert_equal 0, $?.exitstatus
     end
   end
@@ -67,6 +70,7 @@ class RubocopTest < Minitest::Test
     @files[:exporter].each do |file|
       output = `rubocop #{file}`
       lines = output.split("\n")
+      puts "[DEBUG] #{file}" if $?.exitstatus > 0
       assert_equal 0, $?.exitstatus
     end
   end
@@ -75,6 +79,7 @@ class RubocopTest < Minitest::Test
     @files[:lang].each do |file|
       output = `rubocop #{file}`
       lines = output.split("\n")
+      puts "[DEBUG] #{file}" if $?.exitstatus > 0
       assert_equal 0, $?.exitstatus
     end
   end
@@ -83,6 +88,7 @@ class RubocopTest < Minitest::Test
     @files[:loader].each do |file|
       output = `rubocop #{file}`
       lines = output.split("\n")
+      puts "[DEBUG] #{file}" if $?.exitstatus > 0
       assert_equal 0, $?.exitstatus
     end
   end

@@ -3,7 +3,7 @@
 require 'rainbow'
 require 'rexml/document'
 require_relative '../data/concept'
-require_relative '../loader/code_loader'
+require_relative 'code_loader'
 require_relative '../logger'
 require_relative '../project'
 
@@ -16,27 +16,23 @@ module ContentLoader
   def self.load(filepath, content)
     concepts = []
     codes = []
-
     begin
       xmlcontent = REXML::Document.new(content)
-      lang = read_lang_attribute(xmlcontent)
-      context = read_context_attribute(xmlcontent)
-
-      xmlcontent.root.elements.each do |xmldata|
-        if xmldata.name == 'concept'
-          concepts << read_concept(xmldata, filepath, lang, context)
-        elsif xmldata.name == 'code'
-          codes << read_code(xmldata, filepath)
-        else
-          Logger.verboseln Rainbow("[ERROR] Unkown input tag <#{xmldata.name}>").red
-        end
-      end
     rescue REXML::ParseException
-      msg = Rainbow('[ERROR] ConceptLoader: Format error in file ').red
-      msg += Rainbow(filepath).red.bright
-      Logger.verbose msg
-      system("echo '#{content}' > output/error.xml")
-      raise msg
+      raise_error_with(filepath, content)
+    end
+    lang = read_lang_attribute(xmlcontent)
+    context = read_context_attribute(xmlcontent)
+
+    xmlcontent.root.elements.each do |xmldata|
+      case xmldata.name
+      when 'concept'
+        concepts << read_concept(xmldata, filepath, lang, context)
+      when 'code'
+        codes << read_code(xmldata, filepath)
+      else
+        Logger.verboseln Rainbow("[ERROR] Unkown tag <#{xmldata.name}>").red
+      end
     end
 
     { concepts: concepts, codes: codes }
@@ -92,5 +88,15 @@ module ContentLoader
     cond2 = project.process_file == File.basename(filepath)
     f.process = true if cond1 || cond2
     f
+  end
+
+  def self.raise_error_with(filepath, content)
+    msg = Rainbow('[ERROR] ContentLoader: Format error in file ').red
+    msg += Rainbow(filepath).red.bright
+    Logger.verbose msg
+    f = File.open('output/error.xml', 'w')
+    f.write(content)
+    f.close
+    raise msg
   end
 end

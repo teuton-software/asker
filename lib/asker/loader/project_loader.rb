@@ -30,8 +30,7 @@ module ProjectLoader
   def self.load_from_string(arg)
     project = Project.instance
     unless File.exist?(arg)
-      msg = Rainbow('[WARN] ProjectLoader.load: ').yellow
-      msg += Rainbow(arg).yellow.bright + Rainbow(" dosn't exists!").yellow
+      msg = Rainbow("[WARN] ProjectLoader.load: #{arg} dosn't exists!").yellow.bright
       project.verbose msg
       raise msg
     end
