@@ -31,10 +31,6 @@ class CodeLoader
         @filename = i.text
       when 'type'
         @type = i.text.to_sym
-      when 'tags'
-        puts "   │   [TODO] Implement code.tags reader!"
-      when 'def'
-        puts "   │   [TODO] Implement code.def reader!"
       when 'features'
         read_features(i)
       else
