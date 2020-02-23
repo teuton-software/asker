@@ -10,6 +10,7 @@ require_relative 'asker/formatter/concept_string_formatter'
 require_relative 'asker/exporter/main'
 require_relative 'asker/loader/project_loader'
 require_relative 'asker/loader/input_loader'
+require_relative 'asker/checker'
 
 # This class does all the job
 # * start
@@ -61,9 +62,9 @@ class Asker
 
   ##
   # Checking input file syntax
-  # @param filename (String)
-  def self.check(filename)
-    puts "[TODO] Checking #{filename}"
+  # @param filepath (String)
+  def self.check(filepath)
+    Checker.check(filepath)
   end
 
   private
