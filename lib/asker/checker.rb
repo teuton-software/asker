@@ -50,7 +50,7 @@ module Checker
         unless i[:state] == :ok
           errors += 1
           if errors < 6
-            puts "#{i[:id]}: #{i[:state]} [#{i[:type]}] <#{i[:source][0,40]}>"
+            puts "#{i[:id]}: #{i[:type]} => #{i[:source][0,40]}"
             puts "    #{i[:msg]}" if i[:msg].size > 0
           end
           puts "..." if errors == 6
@@ -72,6 +72,10 @@ module Checker
         check_row(line, index)
         check_col(line, index)
         check_template(line, index)
+        check_code(line, index)
+        check_type(line, index)
+        check_path(line, index)
+        check_unknown(line, index)
       end
     end
 
@@ -242,6 +246,62 @@ module Checker
         @outputs[index][:state] = :err
         @outputs[index][:msg] = "Write 6 spaces before %template"
       end
+    end
+
+    def check_code(line, index)
+      return unless @outputs[index][:state] == :none
+      return unless line.include? '%code'
+
+      @outputs[index][:type] = :code
+      @outputs[index][:level] = 1
+      @outputs[index][:state] = :ok
+      if find_parent(index) != :map
+        @outputs[index][:state] = :err
+        @outputs[index][:msg] = 'Parent(map) not found!'
+      elsif line != '  %code'
+        @outputs[index][:state] = :err
+        @outputs[index][:msg] = 'Write 2 spaces before %code'
+      end
+    end
+
+    def check_type(line, index)
+      return unless @outputs[index][:state] == :none
+      return unless line.include? '%type'
+
+      @outputs[index][:type] = :type
+      @outputs[index][:level] = 2
+      @outputs[index][:state] = :ok
+      if find_parent(index) != :code
+        @outputs[index][:state] = :err
+        @outputs[index][:msg] = 'Parent(code) not found!'
+      elsif not line.start_with? '    %type'
+        @outputs[index][:state] = :err
+        @outputs[index][:msg] = "Write 4 spaces before %type"
+      end
+    end
+
+    def check_path(line, index)
+      return unless @outputs[index][:state] == :none
+      return unless line.include? '%path'
+
+      @outputs[index][:type] = :path
+      @outputs[index][:level] = 2
+      @outputs[index][:state] = :ok
+      if find_parent(index) != :code
+        @outputs[index][:state] = :err
+        @outputs[index][:msg] = 'Parent(code) not found!'
+      elsif not line.start_with? '    %path'
+        @outputs[index][:state] = :err
+        @outputs[index][:msg] = "Write 4 spaces before %type"
+      end
+    end
+
+    def check_unknown(line, index)
+      return unless @outputs[index][:state] == :none
+      @outputs[index][:type] = :unknown
+      @outputs[index][:level] = count_spaces(line)/2
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Unknown tag with parent(#{find_parent(index)})!"
     end
 
     def find_parent(index)
