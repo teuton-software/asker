@@ -64,7 +64,7 @@ class CLI < Thor
   end
 
   map ['c', '-c', '--check'] => 'check'
-  desc 'check', 'Check input file syntax'
+  desc 'check', 'Check input HAML file syntax'
   ##
   # Check input file syntax
   # @param filename (String) Path to input file
