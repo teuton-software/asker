@@ -13,7 +13,7 @@ class ConceptDocExporter
     file = Project.instance.lessonfile
     @concepts.each do |concept|
       if concept.process
-        file.write(ConceptDocFormatter.new(concept).to_s)
+        file.write(ConceptDocFormatter.to_s(concept))
       end
     end
   end

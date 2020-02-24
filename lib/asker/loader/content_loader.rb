@@ -71,9 +71,9 @@ module ContentLoader
   def self.read_concept(xmldata, filepath, lang, context)
     project = Project.instance
     c = Concept.new(xmldata, filepath, lang, context)
-    cond1 = project.process_file == :default
-    cond2 = project.process_file == File.basename(filepath)
-    c.process = true if cond1 || cond2
+    if [ File.basename(filepath), :default ].include? project.process_file
+      c.process = true
+    end
     c
   end
 
@@ -83,16 +83,15 @@ module ContentLoader
   # @param filepath (String)
   def self.read_code(xmldata, filepath)
     project = Project.instance
-    f = CodeLoader.load(xmldata, filepath)
-    cond1 = project.process_file == :default
-    cond2 = project.process_file == File.basename(filepath)
-    f.process = true if cond1 || cond2
-    f
+    c = CodeLoader.load(xmldata, filepath)
+    if [ File.basename(filepath), :default ].include? project.process_file
+      c.process = true
+    end
+    c
   end
 
   def self.raise_error_with(filepath, content)
-    msg = Rainbow('[ERROR] ContentLoader: Format error in file ').red
-    msg += Rainbow(filepath).red.bright
+    msg = Rainbow("[ERROR] ContentLoader: Format error in #{filepath}").red.bright
     Logger.verbose msg
     f = File.open('output/error.xml', 'w')
     f.write(content)

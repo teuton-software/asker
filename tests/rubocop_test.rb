@@ -26,6 +26,10 @@ class RubocopTest < Minitest::Test
     @files[:exporter] = []
     @files[:exporter] << 'lib/asker/exporter/code_gift_exporter.rb'
 
+    @files[:formatter] = []
+#    @files[:formatter] << 'lib/asker/formatter/code_string_formatter.rb'
+    @files[:formatter] << 'lib/asker/formatter/concept_doc_formatter.rb'
+
     @files[:lang] = []
     @files[:lang] << 'lib/asker/lang/lang_factory.rb'
 #    @files[:lang] << 'lib/asker/lang/lang.rb'
@@ -37,7 +41,6 @@ class RubocopTest < Minitest::Test
     @files[:loader] << 'lib/asker/loader/file_loader.rb'
 #    @files[:loader] << 'lib/asker/loader/content_loader.rb'
     @files[:loader] << 'lib/asker/loader/code_loader.rb'
-
   end
 
   def test_rubocop_lib
@@ -69,6 +72,15 @@ class RubocopTest < Minitest::Test
 
   def test_rubocop_exporter
     @files[:exporter].each do |file|
+      output = `rubocop #{file}`
+      lines = output.split("\n")
+      puts "[DEBUG] #{file}" if $?.exitstatus > 0
+      assert_equal 0, $?.exitstatus
+    end
+  end
+
+  def test_rubocop_formatter
+    @files[:formatter].each do |file|
       output = `rubocop #{file}`
       lines = output.split("\n")
       puts "[DEBUG] #{file}" if $?.exitstatus > 0
