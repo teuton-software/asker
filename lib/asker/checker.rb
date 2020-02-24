@@ -47,14 +47,10 @@ module Checker
     def show_errors
       errors = 0
       @outputs.each do |i|
-        unless i[:state] == :ok
-          errors += 1
-          if errors < 6
-            puts "#{i[:id]}: #{i[:type]} => #{i[:source][0,40]}"
-            puts "    #{i[:msg]}" if i[:msg].size > 0
-          end
-          puts "..." if errors == 6
-        end
+        next if i[:state] == :ok
+        errors += 1
+        puts "%02d" % i[:id] + ": %s." % i[:msg] + " => #{i[:source][0,40]}" if errors < 11
+        puts "..." if errors == 11
       end
       puts Rainbow("[ERROR] #{errors} errors from #{@inputs.size} lines!").red.bright if errors > 0
       puts Rainbow("Syntax OK!").green if errors == 0
@@ -75,6 +71,7 @@ module Checker
         check_code(line, index)
         check_type(line, index)
         check_path(line, index)
+        check_features(line, index)
         check_unknown(line, index)
       end
     end
@@ -192,9 +189,10 @@ module Checker
 
       if count_spaces(line) == 6
         @outputs[index][:level] = 3
-        if find_parent(index) != :table
+        parent = find_parent(index)
+        unless [:table, :features].include? parent
           @outputs[index][:state] = :err
-          @outputs[index][:msg] = 'Parent(table) not found!'
+          @outputs[index][:msg] = 'Parent(table/features) not found!'
         end
       elsif count_spaces(line) == 8
         @outputs[index][:level] = 4
@@ -293,6 +291,22 @@ module Checker
       elsif not line.start_with? '    %path'
         @outputs[index][:state] = :err
         @outputs[index][:msg] = "Write 4 spaces before %type"
+      end
+    end
+
+    def check_features(line, index)
+      return unless @outputs[index][:state] == :none
+      return unless line.include? '%features'
+
+      @outputs[index][:type] = :features
+      @outputs[index][:level] = 2
+      @outputs[index][:state] = :ok
+      if find_parent(index) != :code
+        @outputs[index][:state] = :err
+        @outputs[index][:msg] = 'Parent(code) not found!'
+      elsif not line.start_with? '    %features'
+        @outputs[index][:state] = :err
+        @outputs[index][:msg] = "Write 4 spaces before %features"
       end
     end
 
