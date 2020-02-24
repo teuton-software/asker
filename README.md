@@ -14,7 +14,7 @@ Steps:
 
 Features:
 
-* Free Software [LICENSE](LICENSE).
+* Free Software [LICENSE](https://github.com/dvarrui/asker/blob/devel/LICENSE).
 * Multiplatform.
 * Input file formats: HAML, XML.
 * Output file format: GIFT (Moodle cuestionairs).
@@ -31,18 +31,20 @@ asker docs/examples/starwars/jedi.haml
 
 * The program generates your output files into the `output` directory by default.
 * In this example, we use a demo input definition file `docs/examples/starwars/jedi.haml`, that contains conceptual entities about _"Jedi's"_ context.
-* [Example input files](docs/examples).
-* You can find more examples at `github/dvarrui/asker-inputs` repository.
+* [Example input files](https://github.com/dvarrui/asker/blob/devel/docs/examples).
+* More examples at `github/dvarrui/asker-inputs` repository.
 
 ---
 # Documentation
 
-* [Installation](./docs/install/README.md)
-* [Inputs](./docs/inputs/README.md)
-* [Commands](./docs/commands.md)
-* [Contributions](./docs/contributions.md)
-* [Base idea](./docs/idea.md)
-* [History](./docs/history.md)
+* [Installation](https://github.com/dvarrui/asker/blob/devel/docs/install/README.md)
+    1. Install Ruby on your system.
+    2. `gem install asker`
+* [Inputs](https://github.com/dvarrui/asker/blob/devel/docs/inputs/README.md)
+* [Commands](https://github.com/dvarrui/asker/blob/devel/docs/commands.md)
+* [Contributions](https://github.com/dvarrui/asker/blob/devel/docs/contributions.md)
+* [Base idea](https://github.com/dvarrui/asker/blob/devel/docs/idea.md)
+* [History](https://github.com/dvarrui/asker/blob/devel/docs/history.md)
 
 ---
 # Contact

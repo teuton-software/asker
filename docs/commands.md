@@ -11,5 +11,5 @@ By now, ASKER run as CLI command.
 | asker version           | Show current version            |
 | asker PATH/TO/INPUTFILE | Create questions for input file |
 | asker file PATH/TO/INPUTFILE | File keyword is optional   |
-| asker download          | Download input file examples    |
-| asker editor            | Open Web editor (UNDER DEVELOPMENT) |
+| asker check PATH/TO/INPUTFILE | Check HAML file syntax    |
+| asker init              | Create default config.ini file  |
