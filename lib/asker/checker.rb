@@ -3,14 +3,13 @@ require 'rainbow'
 
 module Checker
   def self.check(filepath)
-    puts "Checking #{Rainbow(filepath).bright}"
     unless File.exist? filepath
       puts Rainbow("File not found!").red.bright
-      return
+      return false
     end
     unless File.extname(filepath) == '.haml'
       puts Rainbow("Only check HAML files!").yellow.bright
-      return
+      return false
     end
     check_filepath(filepath)
   end
@@ -19,6 +18,7 @@ module Checker
     data = Data.new(filepath)
     data.check
     data.show_errors
+    data.is_ok?
   end
 
   class Data
@@ -36,6 +36,11 @@ module Checker
                    msg: '' }
         @outputs << output
       end
+      @ok = false
+    end
+
+    def is_ok?
+      @ok
     end
 
     def show
@@ -57,6 +62,7 @@ module Checker
     end
 
     def check
+      @ok = true
       @inputs.each_with_index do |line, index|
         check_empty_lines(line, index)
         check_map(line, index)
@@ -73,7 +79,10 @@ module Checker
         check_path(line, index)
         check_features(line, index)
         check_unknown(line, index)
+        @ok = false unless @outputs[index][:state] == :ok
+        @ok = false if @outputs[index][:type] == :unkown
       end
+      @ok
     end
 
     def check_empty_lines(line, index)
