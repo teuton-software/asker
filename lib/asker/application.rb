@@ -9,7 +9,7 @@ class Application
 
   VERSION = '2.1.2'    # Application version
   NAME = 'asker'       # Application name
-  GEM = 'theory-asker' # Gem name
+  GEM = 'asker-tool' # Gem name
   attr_reader :config
 
   ##

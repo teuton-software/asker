@@ -7,7 +7,7 @@ require_relative '../lib/asker/application'
 class ApplicationTest < Minitest::Test
   def test_params
     assert_equal 'asker',  Application::NAME
-    assert_equal 'theory-asker',  Application::GEM
+    assert_equal 'asker-tool',  Application::GEM
     assert_equal '2.1.2', Application::VERSION
   end
 

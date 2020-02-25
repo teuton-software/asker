@@ -39,7 +39,7 @@ asker docs/examples/starwars/jedi.haml
 
 * [Installation](https://github.com/dvarrui/asker/blob/devel/docs/install/README.md)
     1. Install Ruby on your system.
-    2. `gem install theory-asker`
+    2. `gem install asker-tool`
 * [Inputs](https://github.com/dvarrui/asker/blob/devel/docs/inputs/README.md)
 * [Commands](https://github.com/dvarrui/asker/blob/devel/docs/commands.md)
 * [Contributions](https://github.com/dvarrui/asker/blob/devel/docs/contributions.md)
