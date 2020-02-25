@@ -10,46 +10,57 @@ module ConceptStringFormatter
   # @param concept (Concept)
   # @return String
   def self.to_s(concept)
-    t = Terminal::Table.new
-    msg = Rainbow(concept.name(:screen)).white.bg(:blue).bright
-    msg += " (lang=#{concept.lang.lang}) "
-    t.add_row [Rainbow(concept.id.to_s).bright, msg]
-    t.add_row [Rainbow('Filename').blue, concept.filename]
-    t.add_row [Rainbow('Context').blue, concept.context.join(', ').to_s]
-    t.add_row [Rainbow('Tags').blue, concept.tags.join(', ').to_s]
-    t.add_row [Rainbow('Reference to').blue,
-               concept.reference_to.join(', ')[0...70].to_s]
-    t.add_row [Rainbow('Referenced by').blue,
-               concept.referenced_by.join(', ')[0...70].to_s]
-    t.add_row [Rainbow('.def(text)').blue, concept_texts_to_s(concept)]
-    t.add_row [Rainbow('.def(images)').blue, concept.images.size.to_s]
-    unless concept.tables.count.zero?
-      ltext = []
-      concept.tables.each { |i| ltext << i.to_s }
-      t.add_row [Rainbow('.tables').color(:blue), ltext.join("\n")]
-    end
-    t.add_row [Rainbow('.neighbors').blue, concept_neighbors_to_s(concept)]
-
-    "#{t}\n"
+    tt = Terminal::Table.new
+    rows = get_tt_rows(concept)
+    rows.each { |row| tt.add_row row }
+    "#{tt}\n"
   end
 
-  def self.concept_texts_to_s(concept)
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
+  def self.get_tt_rows(concept)
+    rows = []
+    rows << [Rainbow(concept.id.to_s).bright,
+             Rainbow(concept.name(:screen)).white.bg(:blue).bright +
+             " (lang=#{concept.lang.lang}) "]
+    rows << [Rainbow('Filename').blue, concept.filename]
+    rows << [Rainbow('Context').blue, concept.context.join(', ').to_s]
+    rows << [Rainbow('Tags').blue, concept.tags.join(', ').to_s]
+    rows << [Rainbow('Reference to').blue,
+             concept.reference_to.join(', ')[0...70].to_s]
+    rows << [Rainbow('Referenced by').blue,
+             concept.referenced_by.join(', ')[0...70].to_s]
+    rows << format_texts(concept)
+    rows << [Rainbow('.def(images)').blue, concept.images.size.to_s]
+    rows << format_tables(concept)
+    rows << format_neighbors(concept)
+  end
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
+
+  def self.format_texts(concept)
     list = []
     concept.texts.each do |i|
       if i.size < 60
         list << i.to_s
-      else
-        list << i[0...70].to_s + '...'
+        next
       end
+      list << i[0...70].to_s + '...'
     end
-    list.join("\n")
+    [Rainbow('.def(text)').blue, list.join("\n")]
   end
 
-  def self.concept_neighbors_to_s(concept)
-    list = []
-    concept.neighbors[0..5].each do |i|
-      list << i[:concept].name(:screen) + '(' + i[:value].to_s[0..4] + ')'
+  def self.format_tables(concept)
+    return [] if concept.tables.count.zero?
+
+    list = concept.tables.map(&:to_s)
+    [Rainbow('.tables').color(:blue), list.join("\n")]
+  end
+
+  def self.format_neighbors(concept)
+    list = concept.neighbors[0..4].map do |i|
+      i[:concept].name(:screen) + '(' + i[:value].to_s[0..4] + ')'
     end
-    list.join("\n")
+    [Rainbow('.neighbors').blue, list.join("\n")]
   end
 end

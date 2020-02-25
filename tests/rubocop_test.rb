@@ -29,6 +29,7 @@ class RubocopTest < Minitest::Test
     @files[:formatter] = []
 #    @files[:formatter] << 'lib/asker/formatter/code_string_formatter.rb'
     @files[:formatter] << 'lib/asker/formatter/concept_doc_formatter.rb'
+    @files[:formatter] << 'lib/asker/formatter/concept_string_formatter.rb'
 
     @files[:lang] = []
     @files[:lang] << 'lib/asker/lang/lang_factory.rb'
