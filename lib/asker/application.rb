@@ -7,9 +7,9 @@ require 'inifile'
 class Application
   include Singleton
 
-  VERSION = '2.1.1'  # Application version
-  NAME = 'asker'     # Application name
-
+  VERSION = '2.1.2'    # Application version
+  NAME = 'asker'       # Application name
+  GEM = 'theory-asker' # Gem name
   attr_reader :config
 
   ##

@@ -1,7 +1,7 @@
 require_relative 'lib/asker/application'
 
 Gem::Specification.new do |s|
-  s.name        = 'theory-asker'  #Application::NAME
+  s.name        = Application::GEM
   s.version     = Application::VERSION
   s.date        = '2020-02-25'
   s.summary     = "Asker generates questions from input definitions file."
@@ -21,12 +21,9 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.3.0'
 
-  s.add_runtime_dependency 'base64_compatible', '~> 0.0'
-  s.add_runtime_dependency 'coderay', '~> 1.1'
   s.add_runtime_dependency 'haml', '~> 5.1'
   s.add_runtime_dependency 'inifile', '~> 3.0'
   s.add_runtime_dependency 'rainbow', '~> 3.0'
-  s.add_runtime_dependency 'sinatra', '~> 2.0'
   s.add_runtime_dependency 'terminal-table', '~> 1.8'
   s.add_runtime_dependency 'thor', '~> 0.20'
 
