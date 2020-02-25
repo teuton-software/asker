@@ -26,8 +26,8 @@ namespace :build do
   desc 'Build gem'
   task :gem do
     puts '[INFO] Building gem...'
-    system('rm asker-*.*.*.gem')
-    system('gem build asker.gemspec')
+    system('rm theory-asker-*.*.*.gem')
+    system('gem build theory-asker.gemspec')
   end
 
   desc 'Build docs'

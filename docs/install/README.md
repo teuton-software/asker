@@ -5,7 +5,7 @@
 
 * Installation process:
     1. Install Ruby on your system.
-    2. `gem install asker`
+    2. `gem install theory-asker`
 * Run `asker version` to check that your installation is ok.
 
 > **PROBLEMS**: If you have problems to find `asker`command (OpenSUSE distro), try this:
