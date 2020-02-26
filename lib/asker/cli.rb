@@ -75,6 +75,16 @@ class CLI < Thor
     Asker.check(filename)
   end
 
+  map ['n', '-b', '--new', 'new'] => 'create_skeleton'
+  desc 'new', 'Create Asker demo input files'
+  ##
+  # Create Asker demo input files
+  # @param dirname (String) Path to folder
+  def create_skeleton(dirname)
+    # Asker start processing input file
+    Asker.create_skeleton(dirname)
+  end
+
   ##
   # This actions are equals:
   # * asker demo/foo.haml

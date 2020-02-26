@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.authors     = ['David Vargas Ruiz']
   s.email       = 'teuton.software@protonmail.com'
   #s.homepage    = 'https://github.com/dvarrui/asker'
-  s.homepage    = 'https://github.com/dvarrui/asker/tree/devel'
+  s.homepage    = 'https://github.com/dvarrui/asker/blob/devel'
 
   s.executables << 'asker'
   #s.executables << 'asker.bat'

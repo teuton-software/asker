@@ -11,6 +11,7 @@ require_relative 'asker/exporter/main'
 require_relative 'asker/loader/project_loader'
 require_relative 'asker/loader/input_loader'
 require_relative 'asker/checker'
+require_relative 'asker/skeleton'
 
 # This class does all the job
 # * start
@@ -65,6 +66,13 @@ class Asker
   # @param filepath (String)
   def self.check(filepath)
     Checker.check(filepath)
+  end
+
+  ##
+  # Create asker input demo files
+  # @param dirpath (String)
+  def self.create_skeleton(dirpath)
+    Skeleton.create(dirpath)
   end
 
   private

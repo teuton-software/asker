@@ -10,18 +10,17 @@ require 'rainbow'
 # * create_dirs
 # * copyfile
 module Skeleton
-  def self.create(project_dir)
-    project_name = File.basename(project_dir)
-    puts "\n[INFO] Creating #{Rainbow(project_name).bright} project skeleton"
-    create_dir project_dir
-    copy_files_into(project_dir)
+  def self.create(dirpath)
+    puts "\n[INFO] Creating #{Rainbow(dirpath).bright} project skeleton"
+    create_dir dirpath
+    copy_files_into(dirpath)
   end
 
   def self.copy_files_into(project_dir)
     # Directory and files: Ruby script, Configfile, gitignore
     items = [
-      { source: 'files/example-concept.haml', target: 'example-concept.yaml' },
-      { source: 'files/example-code.haml', target: 'example-code.haml.rb' },
+      { source: 'files/example-concept.haml', target: 'example-concept.haml' },
+      { source: 'files/example-code.haml', target: 'example-code.haml' },
     ]
     source_basedir = File.join(File.dirname(__FILE__))
     items.each do |item|
