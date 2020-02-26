@@ -1,11 +1,12 @@
 #!/bin/bash
 # GNU/Linux ASKER Uninstallation
-# version: 20190821
+# version: 20200226
 # author: Francisco Vargas Ruiz
+#         David Vargas Ruiz
 
 [ $(whoami) != root ] && echo "[ERROR] Please, run as root" && exit 1
 
-askerPath=/opt/asker
+FOLDER=/opt/asker
 
 function exists_binary() {
 	which $1 > /dev/null
@@ -14,17 +15,17 @@ function exists_binary() {
 echo "[0/4.INFO] GNU/Linux ASKER uninstallation"
 
 echo "[1/4.INFO] Checking distro..."
-[ "$distro" = "" ] && exists_binary zypper && distro=opensuse
-[ "$distro" = "" ] && exists_binary apt-get && distro=debian
-[ "$distro" = "" ] && echo "Unsupported distribution ... exiting!" && exit 1
-echo "- $distro distribution found"
+[ "$DISTRO" = "" ] && exists_binary zypper && DISTRO=opensuse
+[ "$DISTRO" = "" ] && exists_binary apt-get && DISTRO=debian
+[ "$DISTRO" = "" ] && echo "Unsupported distribution ... exiting!" && exit 1
+echo "- $DISTRO distribution found"
 
 echo "[2/4.INFO] Uninstalling PACKAGES..."
-[ $distro = "debian" ] && apt-get remove -y git ruby irb
-[ $distro = "opensuse" ] && zypper remove -y git
+[ $DISTRO = "debian" ] && apt-get remove -y git ruby irb
+[ $DISTRO = "opensuse" ] && zypper remove -y git
 
 echo "[3/4.INFO] Uninstalling asker..."
 rm -rf /usr/local/bin/asker
-rm -rf $askerPath
+rm -rf $FOLDER
 
 echo "[4/4.INFO] Finish!"
