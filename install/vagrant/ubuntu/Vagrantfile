@@ -1,0 +1,19 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "asker-ubuntu" do |i|
+    i.vm.box = "ubuntu/xenial64"
+    i.vm.hostname = "asker-ubuntu"
+#    i.vm.network "public_network", bridge: [ "eth0" ]
+    i.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+      apt-get install -y ruby
+      gem install asker-tool
+    SHELL
+    i.vm.provider "virtualbox" do |v|
+      v.name = 'asker-ubuntu'
+      v.memory = 2048
+    end
+  end
+end

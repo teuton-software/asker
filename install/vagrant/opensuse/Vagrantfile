@@ -1,0 +1,18 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "asker-opensuse" do |i|
+    i.vm.box = "opensuse/openSUSE-15.0-x86_64"
+    i.vm.hostname = "asker-opensuse"
+#    i.vm.network "public_network", bridge: [ "eth0" ]
+
+    i.vm.provision "shell", inline: <<-SHELL
+      gem install asker-tool
+    SHELL
+    i.vm.provider "virtualbox" do |v|
+      v.name = 'asker-opensuse'
+      v.memory = 2048
+    end
+  end
+end

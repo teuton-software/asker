@@ -1,0 +1,19 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "asker-windows10" do |i|
+    i.vm.box = "Microsoft/EdgeOnWindows10"
+    i.vm.box_version = "1.0"
+    i.vm.hostname = "asker-w10"
+    i.vm.network "public_network"
+#    i.vm.network :forwarded_port, guest: 80, host: 8081
+    i.vm.provision "shell", inline: <<-SHELL
+      Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/dvarrui/asker/blob/devel/install/windows/install_asker.ps1'))
+    SHELL
+    i.vm.provider "virtualbox" do |v|
+      v.name = "asker-windows10"
+      v.memory = 2048
+    end
+  end
+end
