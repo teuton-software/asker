@@ -2,8 +2,6 @@
 
 require 'rainbow'
 
-require_relative 'asker/project'
-require_relative 'asker/formatter/concept_string_formatter'
 require_relative 'asker/exporter/main'
 require_relative 'asker/loader/project_loader'
 require_relative 'asker/loader/input_loader'
@@ -30,9 +28,9 @@ class Asker
 
   ##
   # Start working
-  # @param args (String)  or Hash
-  def self.start(args)
-    project, data = load_input(args)
+  # @param filepath (String) HAML or XML filepath
+  def self.start(filepath)
+    project, data = load_input(filepath)
     ConceptScreenExporter.export_all(data[:concepts], project.get(:show_mode))
     create_output(project, data)
   end

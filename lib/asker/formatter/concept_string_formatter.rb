@@ -31,8 +31,8 @@ module ConceptStringFormatter
     rows << [Rainbow('Referenced by').blue,
              concept.referenced_by.join(', ')[0...70].to_s]
     rows << format_texts(concept)
-    rows << [Rainbow('.def(images)').blue, concept.images.size.to_s]
-    rows << format_tables(concept)
+    rows << [Rainbow('.def(images)').blue, concept.images.size.to_s] unless concept.images.size.zero?
+    rows << format_tables(concept) unless concept.tables.count.zero?
     rows << format_neighbors(concept)
   end
   # rubocop:enable Metrics/AbcSize
