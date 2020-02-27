@@ -10,26 +10,28 @@ require 'rainbow'
 # * create_dirs
 # * copyfile
 module Skeleton
+  ##
+  # Create skeleton for asker input files
+  # @param dirpath (String) Folder path to save example files
   def self.create(dirpath)
     puts "\n[INFO] Creating #{Rainbow(dirpath).bright} project skeleton"
     create_dir dirpath
     copy_files_into(dirpath)
   end
 
-  def self.copy_files_into(project_dir)
-    # Directory and files: Ruby script, Configfile, gitignore
-    items = [
-      { source: 'files/example-concept.haml', target: 'example-concept.haml' }
-#      { source: 'files/example-code.haml', target: 'example-code.haml' },
-    ]
-    source_basedir = File.join(File.dirname(__FILE__))
-    items.each do |item|
-      source = File.join(source_basedir, item[:source])
-      target = File.join(project_dir, item[:target])
-      copyfile(source, target)
-    end
+  ##
+  # Copy lib/asker/files into Folder
+  # @param dirpath (String)
+  def self.copy_files_into(dirpath)
+    # Directory and files: example-concept.haml
+    source = File.join(File.dirname(__FILE__), 'files/example-concept.haml')
+    target = File.join(dirpath, 'example-concept.haml')
+    copyfile(source, target)
   end
 
+  ##
+  # Create folder
+  # @param dirpath (String)
   def self.create_dir(dirpath)
     if Dir.exist? dirpath
       puts "* Exists dir!       => #{Rainbow(dirpath).yellow}"
@@ -43,21 +45,20 @@ module Skeleton
     end
   end
 
-  def self.create_dirs(*args)
-    args.each { |arg| create_dir arg }
-  end
-
+  ##
+  # Copy target file to dest
+  # @param target (String)
+  # @param dest (String)
   def self.copyfile(target, dest)
     if File.exist? dest
       puts "* Exists file!      => #{Rainbow(dest).yellow}"
-    else
-      puts "* File not found!   => #{Rainbow(target).yellow}" unless File.exist? target
-      begin
-        FileUtils.cp(target, dest)
-        puts "* Create file       => #{Rainbow(dest).green}"
-      rescue StandardError
-        puts "* Create file ERROR => #{Rainbow(dest).red}"
-      end
+      return true
+    end
+    begin
+      FileUtils.cp(target, dest)
+      puts "* Create file       => #{Rainbow(dest).green}"
+    rescue StandardError
+      puts "* Create file ERROR => #{Rainbow(dest).red}"
     end
   end
 end

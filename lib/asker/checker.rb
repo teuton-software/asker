@@ -1,7 +1,15 @@
 
 require 'rainbow'
 
+##
+# Check HAML file syntax
 module Checker
+  ##
+  # Check:
+  # * file exist
+  # * filename extension
+  # * and HAML syntax
+  # @param filepath (String)
   def self.check(filepath)
     unless File.exist? filepath
       puts Rainbow("File not found!").red.bright
@@ -14,6 +22,9 @@ module Checker
     check_filepath(filepath)
   end
 
+  ##
+  # Check HAML syntax
+  # @param filepath (String)
   def self.check_filepath(filepath)
     data = Data.new(filepath)
     data.check
@@ -85,6 +96,8 @@ module Checker
       @ok
     end
 
+    private
+
     def check_empty_lines(line, index)
       if line.strip.size.zero? or line.start_with? '#'
         @outputs[index][:type] = :empty
@@ -100,12 +113,12 @@ module Checker
           @outputs[index][:state] = :ok
         else
           @outputs[index][:state] = :err
-          @outputs[index][:msg] = "Start with '%map{'"
+          @outputs[index][:msg] = 'Start with %map{'
         end
       elsif index > 0 and line.include?('%map{')
         @outputs[index][:state] = :err
         @outputs[index][:type] = :map
-        @outputs[index][:msg] = "Write '%map' on line 0"
+        @outputs[index][:msg] = 'Write %map on line 0'
       end
     end
 
@@ -135,9 +148,9 @@ module Checker
       if find_parent(index) != :concept
         @outputs[index][:state] = :err
         @outputs[index][:msg] = 'Parent(concept) not found!'
-      elsif not line.start_with? '    %names'
+      elsif !line.start_with? '    %names'
         @outputs[index][:state] = :err
-        @outputs[index][:msg] = "Write 4 spaces before %names"
+        @outputs[index][:msg] = 'Write 4 spaces before %names'
       end
     end
 
@@ -151,9 +164,9 @@ module Checker
       if find_parent(index) != :concept
         @outputs[index][:state] = :err
         @outputs[index][:msg] = 'Parent(concept) not found!'
-      elsif not line.start_with? '    %tags'
+      elsif !line.start_with? '    %tags'
         @outputs[index][:state] = :err
-        @outputs[index][:msg] = "Write 4 spaces before %tags"
+        @outputs[index][:msg] = 'Write 4 spaces before %tags'
       end
     end
 
@@ -167,9 +180,9 @@ module Checker
       if find_parent(index) != :concept
         @outputs[index][:state] = :err
         @outputs[index][:msg] = 'Parent(concept) not found!'
-      elsif not line.start_with? '    %def'
+      elsif !line.start_with? '    %def'
         @outputs[index][:state] = :err
-        @outputs[index][:msg] = "Write 4 spaces before %def"
+        @outputs[index][:msg] = 'Write 4 spaces before %def'
       end
     end
 
@@ -183,9 +196,9 @@ module Checker
       if find_parent(index) != :concept
         @outputs[index][:state] = :err
         @outputs[index][:msg] = 'Parent(concept) not found!'
-      elsif not line.start_with? '    %table'
+      elsif !line.start_with? '    %table'
         @outputs[index][:state] = :err
-        @outputs[index][:msg] = "Write 4 spaces before %table"
+        @outputs[index][:msg] = 'Write 4 spaces before %table'
       end
     end
 
@@ -211,7 +224,7 @@ module Checker
         end
       else
         @outputs[index][:state] = :err
-        @outputs[index][:msg] = "Write 6 or 8 spaces before %row"
+        @outputs[index][:msg] = 'Write 6 or 8 spaces before %row'
       end
     end
 
@@ -235,7 +248,7 @@ module Checker
         end
       else
         @outputs[index][:state] = :err
-        @outputs[index][:msg] = "Write 8 or 10 spaces before %col"
+        @outputs[index][:msg] = 'Write 8 or 10 spaces before %col'
       end
     end
 
@@ -249,9 +262,9 @@ module Checker
       if find_parent(index) != :table
         @outputs[index][:state] = :err
         @outputs[index][:msg] = 'Parent(concept) not found!'
-      elsif not line.start_with? '      %template'
+      elsif !line.start_with? '      %template'
         @outputs[index][:state] = :err
-        @outputs[index][:msg] = "Write 6 spaces before %template"
+        @outputs[index][:msg] = 'Write 6 spaces before %template'
       end
     end
 
@@ -281,9 +294,9 @@ module Checker
       if find_parent(index) != :code
         @outputs[index][:state] = :err
         @outputs[index][:msg] = 'Parent(code) not found!'
-      elsif not line.start_with? '    %type'
+      elsif !line.start_with? '    %type'
         @outputs[index][:state] = :err
-        @outputs[index][:msg] = "Write 4 spaces before %type"
+        @outputs[index][:msg] = 'Write 4 spaces before %type'
       end
     end
 
@@ -297,9 +310,9 @@ module Checker
       if find_parent(index) != :code
         @outputs[index][:state] = :err
         @outputs[index][:msg] = 'Parent(code) not found!'
-      elsif not line.start_with? '    %path'
+      elsif !line.start_with? '    %path'
         @outputs[index][:state] = :err
-        @outputs[index][:msg] = "Write 4 spaces before %type"
+        @outputs[index][:msg] = 'Write 4 spaces before %type'
       end
     end
 
@@ -313,16 +326,17 @@ module Checker
       if find_parent(index) != :code
         @outputs[index][:state] = :err
         @outputs[index][:msg] = 'Parent(code) not found!'
-      elsif not line.start_with? '    %features'
+      elsif !line.start_with? '    %features'
         @outputs[index][:state] = :err
-        @outputs[index][:msg] = "Write 4 spaces before %features"
+        @outputs[index][:msg] = 'Write 4 spaces before %features'
       end
     end
 
     def check_unknown(line, index)
       return unless @outputs[index][:state] == :none
+
       @outputs[index][:type] = :unknown
-      @outputs[index][:level] = count_spaces(line)/2
+      @outputs[index][:level] = count_spaces(line) / 2
       @outputs[index][:state] = :err
       @outputs[index][:msg] = "Unknown tag with parent(#{find_parent(index)})!"
     end
@@ -330,12 +344,14 @@ module Checker
     def find_parent(index)
       current_level = @outputs[index][:level]
       return :noparent if current_level.zero?
+
       i = index - 1
-      while(i >= 0)
+      while i >= 0
         return @outputs[i][:type] if @outputs[i][:level] == current_level - 1
-        i = i - 1
+
+        i -= 1
       end
-      return :noparent
+      :noparent
     end
 
     def count_spaces(line)
@@ -350,7 +366,8 @@ module Checker
       return 8 if line.start_with? '        %'
       return 9 if line.start_with? '         %'
       return 10 if line.start_with? '          %'
-      return -1
+
+      -1
     end
   end
 end
