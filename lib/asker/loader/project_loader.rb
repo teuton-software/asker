@@ -18,10 +18,10 @@ module ProjectLoader
 
     if args.class == Hash
       project.param.merge!(args)
-      return true
+      return project
     elsif args.class == String
       ProjectLoader.load_from_string(args)
-      return true
+      return project
     end
 
     msg = '[ERROR] ProjectLoader:'
@@ -47,10 +47,9 @@ module ProjectLoader
     if File.extname(filepath) == '.haml' || File.extname(filepath) == '.xml'
       project.set(:inputdirs, File.dirname(filepath))
       project.set(:process_file, File.basename(filepath))
+      return project
     elsif File.extname(filepath) == '.yaml'
-      load_from_yaml(filepath)
-    elsif File.directory?(filepath)
-      load_from_directory(filepath)
+      return load_from_yaml(filepath)
     else
       load_error(filepath)
     end
@@ -61,19 +60,11 @@ module ProjectLoader
     project.param.merge!(YAML.load(File.open(arg)))
     project.set(:configfilename, arg)
     project.set(:projectdir, File.dirname(arg))
-  end
-
-  def self.load_from_directory(dirpath)
-    msg = Rainbow('[WARN] ProjectLoader.load: Directory input ').yellow
-    msg += Rainbow(dirpath).bright.yellow
-    msg += Rainbow(' not implemented!').yellow
-    Project.instance.verbose msg
-    exit 1
+    project
   end
 
   def self.load_error(arg)
-    msg = Rainbow('[ERR ] ProjectLoader: Input ').red
-    msg += Rainbow(arg).red.bright + Rainbow(' unkown').red
+    msg = Rainbow("[ERROR] ProjectLoader.Input unkown: #{arg}").red.bright
     Project.instance.verbose msg
     raise msg
   end

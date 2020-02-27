@@ -11,6 +11,7 @@ require_relative 'asker/exporter/main'
 require_relative 'asker/loader/project_loader'
 require_relative 'asker/loader/input_loader'
 require_relative 'asker/checker'
+require_relative 'asker/logger'
 require_relative 'asker/skeleton'
 
 # This class does all the job
@@ -31,8 +32,8 @@ class Asker
   # Start working
   # @param args (String)  or Hash
   def start(args)
-    load_input_data(args)
-    create_output_files
+    project = load_input_data(args)
+    create_output_files(project)
     show_final_results
   end
 
@@ -40,14 +41,15 @@ class Asker
   # Load input data
   # @param args (Hash)
   def load_input_data(args)
-    ProjectLoader.load(args)
-    Project.instance.open
-    data = InputLoader.load(Project.instance.get(:inputdirs).split(','))
+    project = ProjectLoader.load(args)
+    project.open
+    data = InputLoader.load(project.get(:inputdirs).split(','))
     @concepts = data[:concepts]
     @codes = data[:codes]
-    Project.instance.verbose "\n[INFO] Loading data from Internet"
+    Logger.verbose "\n[INFO] Loading data from Internet"
     @world = World.new(@concepts)
     ConceptScreenExporter.export_all(@concepts)
+    project
   end
 
   ##
@@ -55,8 +57,8 @@ class Asker
   # * Gift
   # * YAML
   # * TXT Doc
-  def create_output_files
-    show_create_output_files
+  def create_output_files(project)
+    show_create_output_files(project)
     create_questions
     ConceptDocExporter.new(@concepts).export
   end
@@ -77,13 +79,17 @@ class Asker
 
   private
 
-  def show_create_output_files
-    p = Project.instance
-    p.verbose "\n[INFO] Creating output files"
-    p.verbose "   ├── Gift questions file => #{Rainbow(p.outputpath).bright}"
-    p.verbose "   ├── YAML questions file => #{Rainbow(p.yamlpath).bright}"
-    p.verbose "   └── Lesson file         => #{Rainbow(p.lessonpath).bright}"
+  # rubocop:disable Metrics/AbcSize
+  def show_create_output_files(project)
+    Logger.verbose "\n[INFO] Creating output files"
+    Logger.verbose '   ├── Gift questions file => ' +
+                   Rainbow(project.get(:outputpath)).bright
+    Logger.verbose '   ├── YAML questions file => ' +
+                   Rainbow(project.get(:yamlpath)).bright
+    Logger.verbose '   └── Lesson file         => ' +
+                   Rainbow(project.get(:lessonpath)).bright
   end
+  # rubocop:enable Metrics/AbcSize
 
   ##
   # Create questions for every "concept"
