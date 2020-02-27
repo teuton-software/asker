@@ -10,6 +10,8 @@ class RubocopTest < Minitest::Test
     @files[:lib] = []
 #    @files[:lib] << 'asker'
     @files[:lib] << 'Rakefile'
+#    @files[:lib] << 'tasks/install.rb'
+    @files[:lib] << 'tasks/utils.rb'
     @files[:lib] << 'lib/asker.rb'
     @files[:lib] << 'lib/asker/application.rb'
 #    @files[:lib] << 'lib/asker/checker.rb'
