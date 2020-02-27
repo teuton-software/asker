@@ -9,8 +9,7 @@ module Logger
   def self.verbose(msg)
     project = Project.instance
     puts msg if project.get(:verbose)
-    project.get(:logfile).write("#{msg}\n") if project.get(:logfile)
-    # project.get(:logfile)&.project.get(:logfile).write("#{msg}\n")
+    project.get(:logfile)&.write("#{msg}\n")
   end
 
   ##
