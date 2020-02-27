@@ -33,7 +33,7 @@ Example, how to call Asker functions from Ruby program:
 require 'asker'
 
 # Create questions from input file
-Asker.new.start(filename)
+Asker.start(filename)
 ```
 
 > Read docs to know more about Asker class.

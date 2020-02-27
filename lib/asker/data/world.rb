@@ -1,6 +1,7 @@
 
 require_relative '../loader/image_url_loader'
 require_relative '../project'
+require_relative '../logger'
 
 class World
   attr_reader :concepts, :filenames, :contexts, :image_urls
@@ -23,6 +24,7 @@ class World
     @filenames.uniq!
     @contexts.uniq!
 
+    Logger.verbose "\n[INFO] Loading data from Internet" if show_progress
     threads = []
     concepts.each do |c|
       print('.') if show_progress
