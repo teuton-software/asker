@@ -35,9 +35,8 @@ class Asker
   # Start working
   # @param args (String)  or Hash
   def self.start(args)
-    project, data = load_input_data(args)
-    create_output_files(project, data)
-    show_final_results(project, data)
+    project, data = load_input(args)
+    create_output(project, data)
   end
 
   private
@@ -45,22 +44,25 @@ class Asker
   ##
   # Load input data
   # @param args (Hash)
-  def self.load_input_data(args)
+  def self.load_input(args)
     project = ProjectLoader.load(args)
     project.open
     data = InputLoader.load(project.get(:inputdirs).split(','))
     data[:world] = World.new(data[:concepts])
     ConceptScreenExporter.export_all(data[:concepts], project.get(:show_mode))
+    data[:concepts_ai] = []
+    data[:concepts].each do |concept|
+      concept_ai = ConceptAI.new(concept, data[:world])
+      concept_ai.make_questions
+      data[:concepts_ai] << concept_ai
+    end
     [project, data]
   end
 
   ##
-  # Create output files
-  # * Gift
-  # * YAML
-  # * TXT Doc
+  # Create output files: Gift, YAML, TXT Doc
   # rubocop:disable Metrics/AbcSize
-  def self.create_output_files(project, data)
+  def self.create_output(project, data)
     Logger.verbose "\n[INFO] Creating output files"
     Logger.verbose '   ├── Gift questions file => ' +
                    Rainbow(project.get(:outputpath)).bright
@@ -69,22 +71,15 @@ class Asker
     Logger.verbose '   └── Lesson file         => ' +
                    Rainbow(project.get(:lessonpath)).bright
 
-    data[:concepts_ai] = []
-    data[:concepts].each do |concept|
-      concept_ai = ConceptAI.new(concept, data[:world])
-      concept_ai.make_questions
-      data[:concepts_ai] << concept_ai
-    end
     ConceptAIGiftExporter.export_all(data[:concepts_ai])
     ConceptAIYAMLExporter.export_all(data[:concepts_ai])
     CodeGiftExporter.export_all(data[:codes]) # UNDER DEVELOPMENT
     ConceptDocExporter.new(data[:concepts]).export
-  end
-  # rubocop:enable Metrics/AbcSize
 
-  def self.show_final_results(project, data)
+    # show_final_results
     ConceptAIScreenExporter.export_all(data[:concepts_ai])
     CodeScreenExporter.export_all(data[:codes])
     project.close
   end
+  # rubocop:enable Metrics/AbcSize
 end
