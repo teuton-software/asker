@@ -19,8 +19,8 @@ module Skeleton
   def self.copy_files_into(project_dir)
     # Directory and files: Ruby script, Configfile, gitignore
     items = [
-      { source: 'files/example-concept.haml', target: 'example-concept.haml' },
-      { source: 'files/example-code.haml', target: 'example-code.haml' },
+      { source: 'files/example-concept.haml', target: 'example-concept.haml' }
+#      { source: 'files/example-code.haml', target: 'example-code.haml' },
     ]
     source_basedir = File.join(File.dirname(__FILE__))
     items.each do |item|
