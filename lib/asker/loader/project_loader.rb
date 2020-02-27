@@ -10,7 +10,10 @@ require_relative '../project'
 # * load_from_directory
 # * load_error
 module ProjectLoader
-  def self.load(args = {})
+  ##
+  # Load project from args
+  # @param args (String or Hash)
+  def self.load(args)
     project = Project.instance
 
     if args.class == Hash
@@ -27,23 +30,29 @@ module ProjectLoader
     raise msg
   end
 
-  def self.load_from_string(arg)
+  ##
+  # Load project from filepath. Options:
+  # * HAML filepath
+  # * XML filepath
+  # * YAML filepath
+  # @param filepath (String)
+  def self.load_from_string(filepath)
     project = Project.instance
-    unless File.exist?(arg)
+    unless File.exist?(filepath)
       msg = Rainbow("[WARN] ProjectLoader.load: #{arg} dosn't exists!").yellow.bright
       project.verbose msg
       raise msg
     end
 
-    if File.extname(arg) == '.haml' || File.extname(arg) == '.xml'
-      project.set(:inputdirs, File.dirname(arg))
-      project.set(:process_file, File.basename(arg))
-    elsif File.extname(arg) == '.yaml'
-      load_from_yaml(arg)
-    elsif File.directory?(arg)
-      load_from_directory(arg)
+    if File.extname(filepath) == '.haml' || File.extname(filepath) == '.xml'
+      project.set(:inputdirs, File.dirname(filepath))
+      project.set(:process_file, File.basename(filepath))
+    elsif File.extname(filepath) == '.yaml'
+      load_from_yaml(filepath)
+    elsif File.directory?(filepath)
+      load_from_directory(filepath)
     else
-      load_error(arg)
+      load_error(filepath)
     end
   end
 

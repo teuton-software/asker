@@ -29,8 +29,8 @@ class Asker
 
   ##
   # Start working
-  # @param args (Hash)
-  def start(args = {})
+  # @param args (String)  or Hash
+  def start(args)
     load_input_data(args)
     create_output_files
     show_final_results

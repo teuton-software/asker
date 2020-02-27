@@ -41,7 +41,7 @@ asker docs/examples/starwars/jedi.haml
     1. Install Ruby on your system.
     2. `gem install asker-tool`
 * [Inputs](https://github.com/dvarrui/asker/blob/devel/docs/inputs/README.md)
-* [Commands](https://github.com/dvarrui/asker/blob/devel/docs/commands.md)
+* [Usage](https://github.com/dvarrui/asker/blob/devel/docs/usage.md)
 * [Contributions](https://github.com/dvarrui/asker/blob/devel/docs/contributions.md)
 * [Base idea](https://github.com/dvarrui/asker/blob/devel/docs/idea.md)
 * [History](https://github.com/dvarrui/asker/blob/devel/docs/history.md)
