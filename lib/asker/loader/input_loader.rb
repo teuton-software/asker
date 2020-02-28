@@ -20,14 +20,18 @@ module InputLoader
       data[:concepts] += temp[:concepts]
       data[:codes] += temp[:codes]
     end
-    # World data
+    # Create World data
+    # * Calculate concept neighbours
+    # * TO-DO: Calculate code neighbours
     data[:world] = World.new(data[:concepts])
-    # ConceptAI data
+    # Create ConceptAI data and make concept questions
     data[:concepts].each do |concept|
       concept_ai = ConceptAI.new(concept, data[:world])
       concept_ai.make_questions
       data[:concepts_ai] << concept_ai
     end
+    # Make code questions
+    data[:codes].each { |code| code.make_questions }
     data
   end
 end
