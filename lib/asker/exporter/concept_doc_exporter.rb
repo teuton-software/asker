@@ -1,21 +1,17 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require_relative '../project'
 require_relative '../formatter/concept_doc_formatter'
 
-class ConceptDocExporter
-
-  def initialize(concepts)
-    @concepts = concepts
-  end
-
-  def export
+##
+# Export Concept to Doc file
+module ConceptDocExporter
+  ##
+  # Export arrya of concepts to doc
+  def self.export_all(concepts)
     file = Project.instance.lessonfile
-    @concepts.each do |concept|
-      if concept.process
-        file.write(ConceptDocFormatter.to_s(concept))
-      end
+    concepts.each do |concept|
+      file.write(ConceptDocFormatter.to_s(concept)) if concept.process
     end
   end
-
 end

@@ -35,12 +35,10 @@ class Asker
     create_output(project, data)
   end
 
-  private
-
   ##
   # Load input data
   # @param args (Hash)
-  def self.load_input(args)
+  private_class_method def self.load_input(args)
     project = ProjectLoader.load(args)
     project.open
     data = InputLoader.load(project.get(:inputdirs).split(','))
@@ -50,7 +48,8 @@ class Asker
   ##
   # Create output files: Gift, YAML, TXT Doc
   # rubocop:disable Metrics/AbcSize
-  def self.create_output(project, data)
+  # rubocop:disable Metrics/MethodLength
+  private_class_method def self.create_output(project, data)
     Logger.verbose "\n[INFO] Creating output files"
     Logger.verbose '   ├── Gift questions file => ' +
                    Rainbow(project.get(:outputpath)).bright
@@ -61,11 +60,12 @@ class Asker
     ConceptAIGiftExporter.export_all(data[:concepts_ai])
     CodeGiftExporter.export_all(data[:codes]) # UNDER DEVELOPMENT
     ConceptAIYAMLExporter.export_all(data[:concepts_ai])
-    ConceptDocExporter.new(data[:concepts]).export
+    ConceptDocExporter.export_all(data[:concepts])
     # show_final_results
     ConceptAIScreenExporter.export_all(data[:concepts_ai])
     CodeScreenExporter.export_all(data[:codes])
     project.close
   end
   # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 end

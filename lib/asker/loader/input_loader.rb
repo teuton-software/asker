@@ -20,6 +20,10 @@ module InputLoader
       data[:concepts] += temp[:concepts]
       data[:codes] += temp[:codes]
     end
+    create_questions(data)
+  end
+
+  private_class_method def self.create_questions(data)
     # Create World data
     # * Calculate concept neighbours
     # * TO-DO: Calculate code neighbours
@@ -31,7 +35,7 @@ module InputLoader
       data[:concepts_ai] << concept_ai
     end
     # Make code questions
-    data[:codes].each { |code| code.make_questions }
+    data[:codes].each(&:make_questions)
     data
   end
 end

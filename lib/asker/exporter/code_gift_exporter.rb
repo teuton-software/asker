@@ -18,7 +18,7 @@ module CodeGiftExporter
   def self.export(code)
     return false unless code.process?
 
-    file = Project.instance.outputfile
+    file = Project.instance.get(:outputfile)
     file.write head(code)
 
     code.questions.each do |question|

@@ -30,6 +30,7 @@ class RubocopTest < Minitest::Test
 
     @files[:exporter] = []
     @files[:exporter] << 'lib/asker/exporter/code_gift_exporter.rb'
+    @files[:exporter] << 'lib/asker/exporter/concept_doc_exporter.rb'
 
     @files[:formatter] = []
 #    @files[:formatter] << 'lib/asker/formatter/code_string_formatter.rb'

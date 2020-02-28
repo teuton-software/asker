@@ -11,14 +11,14 @@ module ConceptStringFormatter
   # @return String
   def self.to_s(concept)
     tt = Terminal::Table.new
-    rows = get_tt_rows(concept)
-    rows.each { |row| tt.add_row row }
+    get_tt_rows(concept).each { |row| tt.add_row row }
     "#{tt}\n"
   end
 
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
-  def self.get_tt_rows(concept)
+  # rubocop:disable Layout/LineLength
+  private_class_method def self.get_tt_rows(concept)
     rows = []
     rows << [Rainbow(concept.id.to_s).bright,
              Rainbow(concept.name(:screen)).white.bg(:blue).bright +
@@ -37,8 +37,9 @@ module ConceptStringFormatter
   end
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Layout/LineLength
 
-  def self.format_texts(concept)
+  private_class_method def self.format_texts(concept)
     list = []
     concept.texts.each do |i|
       if i.size < 60
@@ -50,14 +51,14 @@ module ConceptStringFormatter
     [Rainbow('.def(text)').blue, list.join("\n")]
   end
 
-  def self.format_tables(concept)
+  private_class_method def self.format_tables(concept)
     return [] if concept.tables.count.zero?
 
     list = concept.tables.map(&:to_s)
     [Rainbow('.tables').color(:blue), list.join("\n")]
   end
 
-  def self.format_neighbors(concept)
+  private_class_method def self.format_neighbors(concept)
     list = concept.neighbors[0..4].map do |i|
       i[:concept].name(:screen) + '(' + i[:value].to_s[0..4] + ')'
     end
