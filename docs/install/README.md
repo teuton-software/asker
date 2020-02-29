@@ -17,23 +17,17 @@ Run `asker version` to check that your installation is ok.
 
 **Uninstall** Asker with `gem uninstall asker-tool`
 
-> Others ways to install Asker:
-> * [Installation scripts](scripts.md)
->* [Manual installation](manual.md)
+---
+# Others ways to install Asker:
+
+* [Installation scripts](scripts.md)
+* [Vagrant](../../install/vagrant/README.md)
+* [Manual installation](manual.md)
 
 ---
 # Download input examples
 
-If you want to download our repository with asker input files:
-
-`git clone https://github.com/dvarrui/asker-inputs.git`
-
----
-# Configuring Asker
-
-There exist `config.ini`file, into Asker base directory with some configurable options.
-
-| Section     | Param    | Default | Values    | Description |
-| ----------- | -------- | ------- | --------- | ----------- |
-| [global]    | internet | no      | yes or no | Accept to connect Google and download find images URLs |
-| [questions] | exclude  |         | Comma separated strings| Exclude questions with this texts into their names |
+Download repository with asker input files:
+```
+git clone https://github.com/dvarrui/asker-inputs.git
+```
