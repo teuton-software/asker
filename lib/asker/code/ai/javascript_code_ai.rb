@@ -4,9 +4,9 @@ require_relative '../../ai/question'
 require_relative 'base_code_ai'
 
 class JavascriptCodeAI < BaseCodeAI
-  def initialize(data_object)
-    @data_object = data_object
-    @lines = data_object.lines
+  def initialize(code)
+    @code = code
+    @lines = code.lines
     @lang = LangFactory.instance.get('javascript')
     @num = 0
     @questions = []
