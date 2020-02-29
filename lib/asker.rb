@@ -2,7 +2,10 @@
 
 require 'rainbow'
 
-require_relative 'asker/exporter/main'
+require_relative 'asker/exporter/output_file_exporter'
+require_relative 'asker/exporter/concept_screen_exporter'
+require_relative 'asker/exporter/concept_ai_screen_exporter'
+require_relative 'asker/exporter/code_screen_exporter'
 require_relative 'asker/loader/project_loader'
 require_relative 'asker/loader/input_loader'
 require_relative 'asker/checker'
@@ -57,11 +60,7 @@ class Asker
                    Rainbow(project.get(:yamlpath)).bright
     Logger.verbose '   └── Lesson file         => ' +
                    Rainbow(project.get(:lessonpath)).bright
-    ConceptAIGiftExporter.export_all(data[:concepts_ai], project)
-    # UNDER DEVELOPMENT
-    CodeGiftExporter.export_all(data[:codes], project.get(:outputfile))
-    ConceptAIYAMLExporter.export_all(data[:concepts_ai], project)
-    ConceptDocExporter.export_all(data[:concepts], project.get(:lessonfile))
+    OutputFileExporter.export(data, project)
     # show_final_results
     ConceptAIScreenExporter.export_all(data[:concepts_ai], project.get(:show_mode))
     CodeScreenExporter.export_all(data[:codes], project.get(:show_mode))
