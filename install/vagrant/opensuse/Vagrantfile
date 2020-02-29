@@ -6,10 +6,12 @@ Vagrant.configure("2") do |config|
     i.vm.box = "opensuse/openSUSE-15.0-x86_64"
     i.vm.hostname = "asker-opensuse"
 #    i.vm.network "public_network", bridge: [ "eth1" ]
+    i.vm.synced_folder "./", "/vagrant"
     i.vm.provision "shell", inline: <<-SHELL
       gem install asker-tool
       zypper install -y git
       git clone https://github.com/dvarrui/asker-inputs
+      chown -R vagrant:vagrant asker-inputs/
     SHELL
     i.vm.provider "virtualbox" do |v|
       v.name = 'asker-opensuse'

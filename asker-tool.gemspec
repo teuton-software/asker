@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.files       = Dir.glob(File.join('lib','**','*.rb')) +
                   Dir.glob(File.join('lib','asker','files','*')) +
-                  Dir.glob(File.join('lib','asker','lang','locales','*'))
+                  Dir.glob(File.join('lib','asker','lang','locales','**','*.yaml'))
 
   s.required_ruby_version = '>= 2.3.0'
 
