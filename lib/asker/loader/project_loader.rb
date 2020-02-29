@@ -2,6 +2,7 @@
 
 require 'yaml'
 require_relative '../project'
+require_relative '../logger'
 
 # Load params into Project class using arg input
 # * load
@@ -26,7 +27,7 @@ module ProjectLoader
 
     msg = '[ERROR] ProjectLoader:'
     msg += "Configuration params format is <#{pArgs.class}>!"
-    project.verbose Rainbow(msg).red
+    Logger.verbose Rainbow(msg).red
     raise msg
   end
 

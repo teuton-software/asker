@@ -2,10 +2,9 @@
 
 require 'rainbow'
 
-require_relative 'asker/exporter/output_file_exporter'
 require_relative 'asker/exporter/concept_screen_exporter'
-require_relative 'asker/exporter/concept_ai_screen_exporter'
-require_relative 'asker/exporter/code_screen_exporter'
+require_relative 'asker/exporter/output_file_exporter'
+require_relative 'asker/exporter/stats_screen_exporter'
 require_relative 'asker/loader/project_loader'
 require_relative 'asker/loader/input_loader'
 require_relative 'asker/checker'
@@ -43,7 +42,7 @@ class Asker
   # @param args (Hash)
   private_class_method def self.load_input(args)
     project = ProjectLoader.load(args)
-    project.open
+    project.open # Open output files
     data = InputLoader.load(project.get(:inputdirs).split(','))
     [project, data]
   end
@@ -61,10 +60,8 @@ class Asker
     Logger.verbose '   └── Lesson file         => ' +
                    Rainbow(project.get(:lessonpath)).bright
     OutputFileExporter.export(data, project)
-    # show_final_results
-    ConceptAIScreenExporter.export_all(data[:concepts_ai], project.get(:show_mode))
-    CodeScreenExporter.export_all(data[:codes], project.get(:show_mode))
-    project.close
+    StatsScreenExporter.export(data, project.get(:show_mode))
+    project.close # Logger use Project.get(:logfile) until the end
   end
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
