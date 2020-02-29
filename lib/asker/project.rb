@@ -106,7 +106,7 @@ class Project
   def verbose(msg)
     puts msg if get(:verbose)
     get(:logfile).write(msg.to_s + "\n") if get(:logfile)
-    raise "verbose"
+    raise "DEPRECATED verbose"
   end
 
   ##
