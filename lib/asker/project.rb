@@ -58,7 +58,7 @@ class Project
   # * inputdirs
   def open
     config = Application.instance.config
-    ext = '.haml'
+    ext = File.extname(@param[:process_file]) || '.haml'
     #@param[:process_file] = @param[:process_file] ||
     #                        get(:projectdir).split(File::SEPARATOR).last + ext
     @param[:projectname] = @param[:projectname] ||

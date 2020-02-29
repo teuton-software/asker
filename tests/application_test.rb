@@ -18,6 +18,7 @@ class ApplicationTest < Minitest::Test
     assert_equal 'no', c['global']['internet'] unless
               Application.instance.config['global']['internet'] == 'yes'
     assert_equal 'output', c['global']['outputdir']
+    assert_nil c['questions']['category']
     assert_nil c['questions']['exclude']
   end
 end
