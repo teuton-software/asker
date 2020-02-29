@@ -3,12 +3,12 @@ require_relative '../formatter/concept_string_formatter'
 require_relative '../logger'
 
 # Show Concept Data on screen
-module ConceptScreenExporter
+module ConceptDisplayer
   ##
   # Show concepts on screen
   # @param concepts (Array)
   # @param show_mode (Symbol)
-  def self.export(concepts, show_mode = :default)
+  def self.show(concepts, show_mode = :default)
     return if show_mode == :none
     msg = "\n[INFO] Showing concept data (#{Rainbow(show_mode).bright})"
     Logger.verbose msg

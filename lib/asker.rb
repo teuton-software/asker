@@ -2,9 +2,9 @@
 
 require 'rainbow'
 
-require_relative 'asker/exporter/concept_screen_exporter'
+require_relative 'asker/displayer/concept_displayer'
+require_relative 'asker/displayer/stats_displayer'
 require_relative 'asker/exporter/output_file_exporter'
-require_relative 'asker/exporter/stats_screen_exporter'
 require_relative 'asker/loader/project_loader'
 require_relative 'asker/loader/input_loader'
 require_relative 'asker/checker'
@@ -33,7 +33,7 @@ class Asker
   # @param filepath (String) HAML or XML filepath
   def self.start(filepath)
     project, data = load_input(filepath)
-    ConceptScreenExporter.export(data[:concepts], project.get(:show_mode))
+    ConceptDisplayer.show(data[:concepts], project.get(:show_mode))
     create_output(project, data)
   end
 
@@ -60,7 +60,7 @@ class Asker
     Logger.verbose '   └── Lesson file         => ' +
                    Rainbow(project.get(:lessonpath)).bright
     OutputFileExporter.export(data, project)
-    StatsScreenExporter.export(data, project.get(:show_mode))
+    StatsDisplayer.show(data, project.get(:show_mode))
     project.close # Logger use Project.get(:logfile) until the end
   end
   # rubocop:enable Metrics/AbcSize

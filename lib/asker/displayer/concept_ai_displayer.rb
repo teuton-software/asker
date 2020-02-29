@@ -4,11 +4,11 @@ require 'terminal-table'
 require_relative '../logger'
 
 # Display ConceptAI stat on screen
-class ConceptAIScreenExporter
+class ConceptAIDisplayer
   ##
   # Display ConceptAI stat on screen
   # @param concepts_ai (Array)
-  def self.export(concepts_ai)
+  def self.show(concepts_ai)
     # Create table HEAD
     screen_table = Terminal::Table.new do |st|
       st << ['Concept','Questions','Entries','xFactor',

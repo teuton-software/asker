@@ -4,8 +4,8 @@ require 'terminal-table'
 require_relative '../logger'
 
 # Export Code into Screen
-module CodeScreenExporter
-  def self.export(codes)
+module CodeDisplayer
+  def self.show(codes)
     return if codes.nil? || codes.size.zero?
 
     total_c = total_q = total_e = 0
