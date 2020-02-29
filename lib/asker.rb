@@ -33,7 +33,7 @@ class Asker
   # @param filepath (String) HAML or XML filepath
   def self.start(filepath)
     project, data = load_input(filepath)
-    ConceptScreenExporter.export_all(data[:concepts], project.get(:show_mode))
+    ConceptScreenExporter.export(data[:concepts], project.get(:show_mode))
     create_output(project, data)
   end
 

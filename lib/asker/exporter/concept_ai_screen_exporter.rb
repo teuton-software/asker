@@ -8,9 +8,7 @@ class ConceptAIScreenExporter
   ##
   # Display ConceptAI stat on screen
   # @param concepts_ai (Array)
-  def self.export_all(concepts_ai, show_mode = :none)
-    return if show_mode == :none
-
+  def self.export(concepts_ai)
     # Create table HEAD
     screen_table = Terminal::Table.new do |st|
       st << ['Concept','Questions','Entries','xFactor',
