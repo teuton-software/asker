@@ -3,22 +3,25 @@
 
 # Learn code
 
-Now, we are going to learn experimental keywords:
+Now, we are going to learn **EXPERIMENTAL** keywords:
 * code
+
+> It's experimental, because it's not finish and we are changing it.
+We are not sure how it will looks in the future. We are experimenting but consider it's enought interesting and usefull to be used by now.
 
 ---
 
 # Concept limits
 
-We have learn about using: map, concept, names, tags, def, table and template keywords. All them are usefull to define concepts.
+We have learn about using: map, concept, names, tags, def, table and template keywords. All of them are usefull to define concepts.
 
 Commonly we use natural lenguages (en, es, fr, de, etc) to talk about them and Asker DSL is a simpler and structured language version. All languages are similar (verbs, subjects, adjective, etc.), but have their own rules.
-A poem, for example is writting using those rules.
+A poem, for example is writting using special rules.
 
 Exists others kind of human creations, that use other definition languages.
 For example, programming languages, file configurations, drawing language, math language, etc,
 
-So we had to create new DSL keyword called `code`.
+So we had to create new DSL keyword called `code` to represent this knowledge.
 
 Let's see.
 
@@ -27,7 +30,7 @@ Let's see.
 
 ## Example
 
-Example, using `code`keyword to define a python program from `files/string.py`file:
+Example, using `code` keyword to use `files/string.py` as python file:
 
 ```
 %map{ :version => '1', :lang => 'en', :context=>'python, programming, language' }
@@ -47,7 +50,7 @@ Example, using `code`keyword to define a python program from `files/string.py`fi
 
 ## Full map
 
-Example, using `code`keyword to define several python programs from `files/` folder:
+Example, using `code` keyword to define several python programs from `files/` folder:
 
 ```
 %map{ :version => '1', :lang => 'en', :context=>'python, programming, language' }

@@ -3,7 +3,7 @@
 
 # Learn tables
 
-Now, we are going to learn keywords:
+Now, we are going to learn theses keywords:
 * table
 * row
 * col
@@ -34,6 +34,16 @@ But, it's not enough. **def** only contains meaning that could only be associate
 
 ## Table with 1 field
 
+Supose we want to add this information to AC/DC concept:
+
+| AC/DC members  |
+| -------------- |
+| Bon Scott      |
+| Angus Young    |
+| Malcolm Young  |
+| Phil Rudd      |
+| Cliff Williams |
+
 Example, adding meaning using 1 field table. Field called `members`:
 
 ```
@@ -49,13 +59,21 @@ Example, adding meaning using 1 field table. Field called `members`:
     %row Cliff Williams
 ```
 
-| Param  | Description |
-| ------ | ----------- |
-| table  | Group rows  |
-| fields | Comma separated values with field name |
-| row    | Field value |
+Resume:
+
+* **table**: Group rows.
+* **fields**: Comma separated values with field name.
+* **row**: Field value.
 
 ## Table with 2 fields
+
+Now we want to add this general information about AC/DC concept:
+
+| Attribute    | Value |
+| ------------ | ----- |
+| Genres       | Hard rock blues rock rock and roll |
+| Years active | 1973–present |
+| Origin       | Sydney |
 
 Example, adding meaning using 2 fields table. Fields called `attribute` and `value`:
 
@@ -76,14 +94,25 @@ Example, adding meaning using 2 fields table. Fields called `attribute` and `val
         %col Sydney
 ```
 
-| Param  | Description        |
-| ------ | ------------------ |
-| table  | Group rows         |
-| fields | Comma separated values with field names |
-| row    | Group cols         |
-| col    | Field column value |
+Resume:
+
+* **table**: Group rows.
+* **fields**: Comma separated values with field names.
+* **row**: Group cols.
+* **col**: Field column value.
 
 ## Table with Sequence
+
+How to add "Albums sorted by date" to AC/DC concept:
+
+| Albums              |
+| ------------------- |
+| Albums High Voltage |
+| Powerage |
+| Highway to Hell |
+| Back in Black |
+| Ballbreaker |
+| Rock or Bust |
 
 Sometimes we have a 1 field table where rows are sorted or form a sequence. In that cases we also could take advantage defining a `sequence`, like:
 
@@ -101,12 +130,14 @@ Sometimes we have a 1 field table where rows are sorted or form a sequence. In t
     %row Rock or Bust
 ```
 
-| Param    | Description        |
-| -------- | ------------------ |
-| table    | Group rows         |
-| fields   | Field name         |
-| sequence | Label form ordered values |
-| row      | Field value        |
+Resume:
+
+* **table**: Group rows.
+* **fields**: Field name.
+* **sequence**: Label form ordered values.
+* **row**: Field value.
 
 Example:
 * [acdc.haml](../examples/bands/acdc.haml)
+
+[>> Learn about templates](templates.md)

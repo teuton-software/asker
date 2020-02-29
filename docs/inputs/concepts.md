@@ -4,7 +4,7 @@
 # Learn basics
 
 To know how to build our asker input files, we need to learn
-main keywords:
+these keywords:
 * map
 * concept
 * names
@@ -37,7 +37,7 @@ Use diferents input files to define diferents contexts.
 > * free as free of charge, costless.
 > * free as in freedom.
 
-* **concept, names, tags**: So we define our first concept:
+* **concept, names, tags**: So we identify our first concept:
 
 ```
   %concept
@@ -50,7 +50,7 @@ Use diferents input files to define diferents contexts.
 | names | Comma separated concept's names |
 | tags  | Comma separated tags that help to identify this concept |
 
-* **def**: Use def keyword to add concept meaning. The `def` content must uniquely identifies our concept. You can use `def` more than once.
+* **def**: Use def keyword to add concept meaning. The `def` content must be uniquely associated to our concept. You can use `def` more than once.
 
 ```
   %concept
