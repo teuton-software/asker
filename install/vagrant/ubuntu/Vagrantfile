@@ -10,6 +10,8 @@ Vagrant.configure("2") do |config|
       apt-get update
       apt-get install -y ruby
       gem install asker-tool
+      apt-get install -y git
+      git clone https://github.com/dvarrui/asker-inputs
     SHELL
     i.vm.provider "virtualbox" do |v|
       v.name = 'asker-ubuntu'

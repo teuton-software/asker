@@ -25,15 +25,15 @@ Steps:
 1. Create an input file with your definitions (_conceptual entities_).
 1. Run _asker_ and get the results into `output` directory.
 
-For example to run `asker` with our input file as argument (`jedi.haml`):
+Run `asker` with our example input file as argument (`jedi.haml`):
 
 ```
 asker docs/examples/starwars/jedi.haml
 ```
 
-* Output files are created into the `output` folder.
-* This example use a demo input definition file `docs/examples/starwars/jedi.haml`, with concepts about _"Jedi's"_ context.
-* More [example input files](https://github.com/dvarrui/asker/blob/devel/docs/examples).
+* Output files created into the `output` folder.
+* This example use an example input definition file `docs/examples/starwars/jedi.haml`, with concepts about _"Jedi's"_. ;-)
+* More [example input files](https://github.com/dvarrui/asker/tree/devel/docs/examples).
 * More asker input files at `github/dvarrui/asker-inputs` repository.
 
 ---
