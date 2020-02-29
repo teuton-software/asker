@@ -40,11 +40,10 @@ Example, using `code` keyword to use `files/string.py` as python file:
     %path files/string.py
 ```
 
-| Param | Description               |
-| ----- | ------------------------- |
-| code  | Define a new code concept |
-| type  | Content type              |
-| path  | Path to content file |
+Resume:
+* **code**: Define a new code concept.
+* **type**: Content type. Available values: `python`, `ruby`, and `javascript`.
+* **path**: Path to content file.
 
 > Experimental type values: python, ruby, javascript, sql
 
@@ -69,4 +68,5 @@ Example, using `code` keyword to define several python programs from `files/` fo
 ```
 
 Example:
-* [python](../examples/code)
+* [python.haml](../examples/code/python.haml)
+* [python files](../examples/code/files)
