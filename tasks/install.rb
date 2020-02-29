@@ -29,7 +29,7 @@ namespace :install do
 
   desc 'Install gems'
   task :gems do
-    Utils.install_gems packages
+    Utils.install_gems Utils.packages
   end
 
   desc 'OpenSUSE installation'
