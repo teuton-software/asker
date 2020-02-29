@@ -32,7 +32,7 @@ namespace :build do
 
   desc 'Build docs'
   task :docs do
-    puts '[ INFO ] Generating documentation...'
+    puts '[INFO] Generating documentation...'
     system('rm -r html/')
     system('yardoc lib/* -o html')
   end

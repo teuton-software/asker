@@ -6,14 +6,14 @@ require_relative '../formatter/question_gift_formatter'
 module CodeGiftExporter
   ##
   # Export an Array of codes to gift format file
-  # @params codes (Array)
+  # @param codes (Array)
   def self.export_all(codes, file)
     codes.each { |code| export(code, file) }
   end
 
   ##
   # Export 1 code to gift format file
-  # @params code (Code)
+  # @param code (Code)
   def self.export(code, file)
     return false unless code.process?
 
