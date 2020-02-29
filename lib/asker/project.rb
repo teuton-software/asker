@@ -59,12 +59,12 @@ class Project
   def open
     config = Application.instance.config
     ext = '.haml'
-    @param[:process_file] = @param[:process_file] ||
-                            get(:projectdir).split(File::SEPARATOR).last + ext
+    #@param[:process_file] = @param[:process_file] ||
+    #                        get(:projectdir).split(File::SEPARATOR).last + ext
     @param[:projectname] = @param[:projectname] ||
                            File.basename(@param[:process_file], ext)
-    @param[:inputdirs] = @param[:inputdirs] ||
-                         File.join(get(:inputbasedir), @param[:projectdir])
+    #@param[:inputdirs] = @param[:inputdirs] ||
+    #                     File.join(get(:inputbasedir), @param[:projectdir])
 
     @param[:logname] = "#{@param[:projectname]}-log.txt"
     @param[:outputname] = "#{@param[:projectname]}-gift.txt"

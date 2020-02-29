@@ -12,7 +12,6 @@ class ProjectTest < Minitest::Test
 
   def test_defaults_parms
     assert_equal FileUtils.pwd, @project.inputbasedir
-    assert_equal :none    , @project.category
     assert_equal [1, 1, 1] , @project.formula_weights
     assert_equal 'en'     , @project.lang
     assert_equal 7        , @project.locales.size
@@ -39,7 +38,7 @@ class ProjectTest < Minitest::Test
     @project.open
     @project.set(:verbose, true)
     assert_equal 16, @project.param.size
-    assert_equal 10,  @project.default.size
+    assert_equal 9,  @project.default.size
 
     assert_equal filename, @project.get(:process_file)
     assert_equal FileUtils.pwd, @project.get(:inputbasedir)
