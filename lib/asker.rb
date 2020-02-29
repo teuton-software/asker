@@ -58,9 +58,10 @@ class Asker
     Logger.verbose '   └── Lesson file         => ' +
                    Rainbow(project.get(:lessonpath)).bright
     ConceptAIGiftExporter.export_all(data[:concepts_ai])
-    CodeGiftExporter.export_all(data[:codes]) # UNDER DEVELOPMENT
-    ConceptAIYAMLExporter.export_all(data[:concepts_ai])
-    ConceptDocExporter.export_all(data[:concepts])
+    # UNDER DEVELOPMENT
+    CodeGiftExporter.export_all(data[:codes], project.get(:outputfile)) 
+    ConceptAIYAMLExporter.export_all(data[:concepts_ai], project)
+    ConceptDocExporter.export_all(data[:concepts], project.get(:lessonfile))
     # show_final_results
     ConceptAIScreenExporter.export_all(data[:concepts_ai])
     CodeScreenExporter.export_all(data[:codes])
