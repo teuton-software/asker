@@ -57,14 +57,14 @@ class Asker
                    Rainbow(project.get(:yamlpath)).bright
     Logger.verbose '   └── Lesson file         => ' +
                    Rainbow(project.get(:lessonpath)).bright
-    ConceptAIGiftExporter.export_all(data[:concepts_ai])
+    ConceptAIGiftExporter.export_all(data[:concepts_ai], project)
     # UNDER DEVELOPMENT
-    CodeGiftExporter.export_all(data[:codes], project.get(:outputfile)) 
+    CodeGiftExporter.export_all(data[:codes], project.get(:outputfile))
     ConceptAIYAMLExporter.export_all(data[:concepts_ai], project)
     ConceptDocExporter.export_all(data[:concepts], project.get(:lessonfile))
     # show_final_results
-    ConceptAIScreenExporter.export_all(data[:concepts_ai])
-    CodeScreenExporter.export_all(data[:codes])
+    ConceptAIScreenExporter.export_all(data[:concepts_ai], project.get(:show_mode))
+    CodeScreenExporter.export_all(data[:codes], project.get(:show_mode))
     project.close
   end
   # rubocop:enable Metrics/AbcSize

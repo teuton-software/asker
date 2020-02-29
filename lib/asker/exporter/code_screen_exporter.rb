@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 require 'terminal-table'
+require_relative '../logger'
 
 # Export Code into Screen
 module CodeScreenExporter
-  def self.export_all(codes)
-    project = Project.instance
-    return if project.show_mode == :none || codes.nil? || codes.size.zero?
+  def self.export_all(codes, show_mode = :none)
+    return if show_mode == :none || codes.nil? || codes.size.zero?
 
     total_c = total_q = total_e = 0
     my_screen_table = Terminal::Table.new do |st|
@@ -39,7 +39,7 @@ module CodeScreenExporter
                              Rainbow((total_q / total_e.to_f).round(2)).bright]
     return unless total_c.positive?
 
-    project.verboseln "\n[INFO] Showing CODE statistics"
-    project.verboseln my_screen_table.to_s
+    Logger.verboseln "\n[INFO] Showing CODE statistics"
+    Logger.verboseln my_screen_table.to_s
   end
 end

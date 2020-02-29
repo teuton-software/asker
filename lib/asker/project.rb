@@ -4,6 +4,7 @@ require 'singleton'
 require 'rainbow'
 require 'fileutils'
 require_relative 'application'
+require_relative 'logger'
 
 # Contains Project data and methods
 class Project
@@ -105,6 +106,7 @@ class Project
   def verbose(msg)
     puts msg if get(:verbose)
     get(:logfile).write(msg.to_s + "\n") if get(:logfile)
+    raise "verbose"
   end
 
   ##
@@ -131,9 +133,9 @@ class Project
     f.write("Author     : David Vargas Ruiz\n")
     f.write('=' * 50 + "\n\n")
 
-    verbose '[INFO] Project open'
-    verbose '   ├── inputdirs    = ' + Rainbow(get(:inputdirs)).bright
-    verbose '   └── process_file = ' + Rainbow(get(:process_file)).bright
+    Logger.verbose '[INFO] Project open'
+    Logger.verbose '   ├── inputdirs    = ' + Rainbow(get(:inputdirs)).bright
+    Logger.verbose '   └── process_file = ' + Rainbow(get(:process_file)).bright
   end
 
   # Create or reset output file

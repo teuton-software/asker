@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
 require 'terminal-table'
+require_relative '../logger'
 
-# Show ConceptAI info on screen
+# Display ConceptAI stat on screen
 class ConceptAIScreenExporter
-  def self.export_all(concepts_ai)
-    @concepts_ai = concepts_ai
-	  project = Project.instance
-    return if project.show_mode == :none
+  ##
+  # Display ConceptAI stat on screen
+  # @param concepts_ai (Array)
+  def self.export_all(concepts_ai, show_mode = :none)
+    return if show_mode == :none
 
     # Create table HEAD
     screen_table = Terminal::Table.new do |st|
@@ -15,14 +17,13 @@ class ConceptAIScreenExporter
              'd','b','f','i','s','t']
       st << :separator
     end
-
     # Create table BODY
     total = {}
     total[:q] = total[:e] = total[:c] = 0
     total[:sd] = total[:sb] = total[:sf] = 0
     total[:si] = total[:ss] = total[:st] = 0
 
-    @concepts_ai.each do |concept_ai|
+    concepts_ai.each do |concept_ai|
       if concept_ai.process?
         e = concept_ai.texts.size
         concept_ai.tables.each { |t| e += t.fields.size * t.rows.size }
@@ -51,7 +52,7 @@ class ConceptAIScreenExporter
     return if total[:c] == 0 # No concepts to be process?
 
     # Add row with excluded questions
-    export_excluded_questions(screen_table, @concepts_ai)
+    export_excluded_questions(screen_table, concepts_ai)
 
     # Create table TAIL
     screen_table.add_separator
@@ -62,10 +63,10 @@ class ConceptAIScreenExporter
                           total[:sd], total[:sb], total[:sf],
                           total[:si], total[:ss], total[:st]]
     export_notes
-    project.verbose screen_table.to_s + "\n"
+    Logger.verbose "#{screen_table}\n"
   end
 
-  def self.export_excluded_questions(screen_table, concepts_ai)
+  private_class_method def self.export_excluded_questions(screen_table, concepts_ai)
     # Create table BODY
     total = {}
     total[:q] = total[:c] = 0
@@ -94,22 +95,21 @@ class ConceptAIScreenExporter
                           total[:ss], total[:st]]
   end
 
-  def self.export_notes
-    p = Project.instance
-    p.verbose "\n[INFO] Showing CONCEPT statistics\n"
-    p.verbose ' * Exclude questions: ' +
-              Application.instance.config['questions']['exclude'].to_s
-    p.verbose ' * Annotations:'
-    p.verbose '   ├── (d) Definitions     <= Concept.def'
-    p.verbose '   ├── (b) Table Matching  <= ' \
-              'Concept.table.rows.columns'
-    p.verbose '   ├── (f) Tables 1 Field  <= Concept.table.fields.size==1'
-    p.verbose '   ├── (i) Images URL      <= ' \
-              "Concept.def{:type => 'image_url'}"
-    p.verbose '   ├── (s) Sequences       <= ' \
-              "Concept.table{:sequence => '...'}"
-    p.verbose '   └── (t) Table Rows&Cols <= ' \
-              'Concept.table.rows.columns'
-    p.verbose "\n"
+  private_class_method def self.export_notes
+    Logger.verbose "\n[INFO] Showing CONCEPT statistics\n"
+    Logger.verbose ' * Exclude questions: ' +
+                   Application.instance.config['questions']['exclude'].to_s
+    Logger.verbose ' * Annotations:'
+    Logger.verbose '   ├── (d) Definitions     <= Concept.def'
+    Logger.verbose '   ├── (b) Table Matching  <= ' \
+                   'Concept.table.rows.columns'
+    Logger.verbose '   ├── (f) Tables 1 Field  <= Concept.table.fields.size==1'
+    Logger.verbose '   ├── (i) Images URL      <= ' \
+                   "Concept.def{:type => 'image_url'}"
+    Logger.verbose '   ├── (s) Sequences       <= ' \
+                   "Concept.table{:sequence => '...'}"
+    Logger.verbose '   └── (t) Table Rows&Cols <= ' \
+                  'Concept.table.rows.columns'
+    Logger.verbose "\n"
   end
 end
