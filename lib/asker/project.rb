@@ -24,7 +24,6 @@ class Project
                 formula_weights: [1, 1, 1],
                 lang: 'en',
                 locales: %w[en es javascript math python ruby sql],
-                show_mode: :default,
                 verbose: true,
                 stages: { d: true, b: true, f: true, i: true, s: true, t: true },
                 threshold: 0.5,

@@ -33,7 +33,7 @@ class Asker
   # @param filepath (String) HAML or XML filepath
   def self.start(filepath)
     project, data = load_input(filepath)
-    ConceptDisplayer.show(data[:concepts], project.get(:show_mode))
+    ConceptDisplayer.show(data[:concepts])
     create_output(project, data)
   end
 
@@ -60,7 +60,7 @@ class Asker
     Logger.verbose '   └── Lesson file         => ' +
                    Rainbow(project.get(:lessonpath)).bright
     OutputFileExporter.export(data, project)
-    StatsDisplayer.show(data, project.get(:show_mode))
+    StatsDisplayer.show(data)
     project.close # Logger use Project.get(:logfile) until the end
   end
   # rubocop:enable Metrics/AbcSize
