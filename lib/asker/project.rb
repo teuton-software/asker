@@ -21,8 +21,6 @@ class Project
   # Reset project params
   def reset
     @default = { inputbasedir: FileUtils.pwd,
-                outputdir: 'output',
-                category: :none,
                 formula_weights: [1, 1, 1],
                 lang: 'en',
                 locales: %w[en es javascript math python ruby sql],
@@ -59,6 +57,7 @@ class Project
   # * process_file
   # * inputdirs
   def open
+    config = Application.instance.config
     ext = '.haml'
     @param[:process_file] = @param[:process_file] ||
                             get(:projectdir).split(File::SEPARATOR).last + ext
@@ -67,25 +66,18 @@ class Project
     @param[:inputdirs] = @param[:inputdirs] ||
                          File.join(get(:inputbasedir), @param[:projectdir])
 
-    @param[:logname] = @param[:logname] ||
-                       "#{@param[:projectname]}-log.txt"
-    @param[:outputname] = @param[:outputname] ||
-                          "#{@param[:projectname]}-gift.txt"
-    @param[:lessonname] = @param[:lessonname] ||
-                          "#{@param[:projectname]}-doc.txt"
-    @param[:yamlname] = @param[:yamlname] ||
-                        "#{@param[:projectname]}.yaml"
+    @param[:logname] = "#{@param[:projectname]}-log.txt"
+    @param[:outputname] = "#{@param[:projectname]}-gift.txt"
+    @param[:lessonname] = "#{@param[:projectname]}-doc.txt"
+    @param[:yamlname] = "#{@param[:projectname]}.yaml"
 
-    @param[:logpath] = @param[:logpath] ||
-                       File.join(get(:outputdir), @param[:logname])
-    @param[:outputpath] = @param[:outputpath] ||
-                          File.join(get(:outputdir), @param[:outputname])
-    @param[:lessonpath] = @param[:lessonpath] ||
-                          File.join(get(:outputdir), @param[:lessonname])
-    @param[:yamlpath] = @param[:yamlpath] ||
-                        File.join(get(:outputdir), @param[:yamlname])
+    outputdir = config['global']['outputdir']
+    @param[:logpath] = File.join(outputdir, get(:logname))
+    @param[:outputpath] = File.join(outputdir, get(:outputname))
+    @param[:lessonpath] = File.join(outputdir, get(:lessonname))
+    @param[:yamlpath] = File.join(outputdir, get(:yamlname))
 
-    Dir.mkdir(get(:outputdir)) unless Dir.exist?(get(:outputdir))
+    Dir.mkdir(outputdir) unless Dir.exist?(outputdir)
     create_log_file
     create_output_file
     create_lesson_file
@@ -140,6 +132,7 @@ class Project
 
   # Create or reset output file
   def create_output_file
+    config = Application.instance.config
     @param[:outputfile] = File.open(get(:outputpath), 'w')
     f = get(:outputfile)
     f.write('// ' + ('=' * 50) + "\n")
@@ -149,7 +142,7 @@ class Project
     f.write("// Time       : #{Time.new}\n")
     f.write("// Author     : David Vargas Ruiz\n")
     f.write('// ' + ('=' * 50) + "\n\n")
-    f.write("$CATEGORY: $course$/#{get(:category)}\n") unless get(:category) == :none
+    f.write("$CATEGORY: $course$/#{get(:category)}\n") unless config['questions']['category']
   end
 
   # Create or reset lesson file
