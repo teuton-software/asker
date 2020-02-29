@@ -1,5 +1,6 @@
 require_relative 'ai/code_ai_factory'
 require_relative '../project'
+require_relative '../logger'
 require_relative '../formatter/code_string_formatter'
 
 # Contains code data input
@@ -38,9 +39,7 @@ class Code
   end
 
   def debug
-    out = CodeStringFormatter.to_s(self)
-    p = Project.instance
-    p.verbose out
+    Logger.verbose CodeStringFormatter.to_s(self)
   end
 
   private
