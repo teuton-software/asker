@@ -3,6 +3,7 @@
 require 'erb'
 require 'yaml'
 require_relative 'text_actions'
+require_relative '../logger'
 
 # Lang#lang
 class Lang
@@ -27,9 +28,8 @@ class Lang
     begin
       @templates = YAML.load(File.new(filename))
     rescue StandardError => e
-      p = Project.instance
-      p.vervose "[ERROR] lang.initialize(): Reading YAML file <#{filename}>"
-      p.vervose "[ADVISE] Revise apostrophe into string without \\ char\n"
+      Logger.verboseln "[ERROR] lang.initialize(): Reading YAML file <#{filename}>"
+      Logger.verboseln "[ADVISE] Revise apostrophe into string without \\ char\n"
       raise e
     end
     filename = File.join(dirbase, 'locales', @code, 'connectors.yaml')
@@ -38,5 +38,4 @@ class Lang
     filename = File.join(dirbase, 'locales', @code, 'mistakes.yaml')
     @mistakes = YAML.load(File.new(filename))
   end
-
 end
