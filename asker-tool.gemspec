@@ -3,7 +3,7 @@ require_relative 'lib/asker/application'
 Gem::Specification.new do |s|
   s.name        = Application::GEM
   s.version     = Application::VERSION
-  s.date        = '2020-02-29'
+  s.date        = '2020-03-03'
   s.summary     = "Asker generates questions from input definitions file."
   s.description = "ASKER helps trainers to create a huge amount of questions, from a definitions input file."
   s.extra_rdoc_files = [ 'README.md', 'LICENSE' ]
@@ -18,8 +18,7 @@ Gem::Specification.new do |s|
   #s.executables << 'asker.bat'
 
   s.files       = Dir.glob(File.join('lib','**','*.rb')) +
-                  Dir.glob(File.join('lib','asker','files','*')) +
-                  Dir.glob(File.join('lib','asker','lang','locales','**','*.yaml'))
+                  Dir.glob(File.join('lib','asker','files','**', '*.*'))
 
   s.required_ruby_version = '>= 2.3.0'
 
