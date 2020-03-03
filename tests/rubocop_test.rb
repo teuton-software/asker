@@ -39,7 +39,7 @@ class RubocopTest < Minitest::Test
 
     @files[:lang] = []
     @files[:lang] << 'lib/asker/lang/lang_factory.rb'
-#    @files[:lang] << 'lib/asker/lang/lang.rb'
+    @files[:lang] << 'lib/asker/lang/lang.rb'
 
     @files[:loader] = []
     @files[:loader] << 'lib/asker/loader/input_loader.rb'

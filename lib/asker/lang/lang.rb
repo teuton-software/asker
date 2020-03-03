@@ -32,14 +32,17 @@ class Lang
     @mistakes = load_yaml_file(filepath)
   end
 
+  # rubocop:disable Security/YAMLLoad
   def load_yaml_file(filepath)
     begin
       content = YAML.load(File.new(filepath))
     rescue StandardError => e
-      Logger.verboseln "[ERROR] lang.initialize(): Reading YAML file <#{filepath}>"
-      Logger.verboseln "[ADVISE] Revise apostrophe into string without \\ char\n"
+      Logger.verboseln '[ERROR] Lang.initialize():' \
+                       " Reading YAML file <#{filepath}>"
+      Logger.verboseln '[ADVISE] Revise apostrophe into string without \ symbol'
       raise e
     end
     content
   end
+  # rubocop:enable Security/YAMLLoad
 end
