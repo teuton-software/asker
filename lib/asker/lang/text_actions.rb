@@ -2,14 +2,15 @@
 
 module TextActions
 
-  def text_for(pOption, pText1="",pText2="",pText3="",pText4="",pText5="",pText6="",pText7="")
-    text1=pText1
-    text2=pText2
-    text3=pText3
-    text4=pText4
-    text5=pText5
-    text6=pText6
-    text7=pText7
+  def text_for(pOption, input1 = '', input2 = '', input3 = '',
+               input4= '', input5 = '', input6 = '', input7 = '')
+    text1 = input1
+    text2 = input2
+    text3 = input3
+    text4 = input4
+    text5 = input5
+    text6 = input6
+    text7 = input7
 
 	  # TODO: check if exists pOption before use it
     renderer = ERB.new(@templates[pOption])
@@ -90,45 +91,49 @@ module TextActions
     lText
   end
 
-  def count_words(pInputText)
-    return 0 if pInputText.nil?
+  ##
+  # Count words
+  # @param input (String)
+  # @return Integer
+  def count_words(input)
+    return 0 if input.nil?
 
-    t = pInputText.clone
-    t.gsub!("\n"," ")
-    t.gsub!("/"," ")
-    #t.gsub!("-"," ")
-    t.gsub!("."," ")
-    t.gsub!(","," ")
-    t.gsub!("   "," ")
-    t.gsub!("  "," ")
-    t.split(" ").count
+    t = input.clone
+    t.gsub!("\n", ' ')
+    t.gsub!('/', ' ')
+    # t.gsub!("-"," ")
+    t.gsub!('.', ' ')
+    t.gsub!(',', ' ')
+    t.gsub!('   ', ' ')
+    t.gsub!('  ', ' ')
+    t.split(' ').count
   end
 
-  def do_mistake_to(pText = '')
-    lText = pText.dup
+  def do_mistake_to(input = '')
+    text = input.dup
     keys = @mistakes.keys
 
     # Try to do mistake with one item from the key list
     keys.shuffle!
     keys.each do |key|
-      if lText.include? key.to_s
-         values = @mistakes[key].split(',')
-         values.shuffle!
-         lText = lText.sub(key.to_s,values[0].to_s)
-         return lText
+      if text.include? key.to_s
+        values = @mistakes[key].split(',')
+        values.shuffle!
+        text = text.sub(key.to_s, values[0].to_s)
+        return text
       end
     end
 
     # Force mistake by swapping letters
-    if lText.size > 1
-      i = rand(lText.size - 2)
-      aux = lText[i]
-      lText[i] = lText[i + 1]
-      lText[i + 1] = aux
+    if text.size > 1
+      i = rand(text.size - 2)
+      aux = text[i]
+      text[i] = text[i + 1]
+      text[i + 1] = aux
     end
-    return lText if lText != pText
+    return text if text != input
 
-    lText + 's'
+    text + 's'
   end
 
   def hide_text(input_text)
