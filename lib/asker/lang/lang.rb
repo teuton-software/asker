@@ -23,8 +23,8 @@ class Lang
   private
 
   def load_files
-    dirbase = File.dirname(__FILE__)
-    filename = File.join(dirbase, 'locales', @code, 'templates.yaml')
+    dirbase = File.join(File.dirname(__FILE__), '..', 'files', 'locales')
+    filename = File.join(dirbase, @code, 'templates.yaml')
     begin
       @templates = YAML.load(File.new(filename))
     rescue StandardError => e
@@ -32,10 +32,10 @@ class Lang
       Logger.verboseln "[ADVISE] Revise apostrophe into string without \\ char\n"
       raise e
     end
-    filename = File.join(dirbase, 'locales', @code, 'connectors.yaml')
+    filename = File.join(dirbase, @code, 'connectors.yaml')
     @connectors = YAML.load(File.new(filename))
 
-    filename = File.join(dirbase, 'locales', @code, 'mistakes.yaml')
+    filename = File.join(dirbase, @code, 'mistakes.yaml')
     @mistakes = YAML.load(File.new(filename))
   end
 end
