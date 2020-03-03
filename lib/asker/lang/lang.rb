@@ -24,18 +24,22 @@ class Lang
 
   def load_files
     dirbase = File.join(File.dirname(__FILE__), '..', 'files', 'locales')
-    filename = File.join(dirbase, @code, 'templates.yaml')
+    filepath = File.join(dirbase, @code, 'templates.yaml')
+    @templates = load_yaml_file(filepath)
+    filepath = File.join(dirbase, @code, 'connectors.yaml')
+    @connectors = load_yaml_file(filepath)
+    filepath = File.join(dirbase, @code, 'mistakes.yaml')
+    @mistakes = load_yaml_file(filepath)
+  end
+
+  def load_yaml_file(filepath)
     begin
-      @templates = YAML.load(File.new(filename))
+      content = YAML.load(File.new(filepath))
     rescue StandardError => e
-      Logger.verboseln "[ERROR] lang.initialize(): Reading YAML file <#{filename}>"
+      Logger.verboseln "[ERROR] lang.initialize(): Reading YAML file <#{filepath}>"
       Logger.verboseln "[ADVISE] Revise apostrophe into string without \\ char\n"
       raise e
     end
-    filename = File.join(dirbase, @code, 'connectors.yaml')
-    @connectors = YAML.load(File.new(filename))
-
-    filename = File.join(dirbase, @code, 'mistakes.yaml')
-    @mistakes = YAML.load(File.new(filename))
+    content
   end
 end
