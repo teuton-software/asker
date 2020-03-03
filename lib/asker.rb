@@ -17,8 +17,14 @@ class Asker
   ##
   # Create asker input demo files
   # @param dirpath (String)
-  def self.create_skeleton(dirpath)
-    Skeleton.create(dirpath)
+  def self.create_input(dirpath)
+    Skeleton.create_input(dirpath)
+  end
+
+  ##
+  # Create asker configuration files
+  def self.create_configuration
+    Skeleton.create_configuration
   end
 
   ##
@@ -50,7 +56,6 @@ class Asker
   ##
   # Create output files: Gift, YAML, TXT Doc
   # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   private_class_method def self.create_output(project, data)
     Logger.verbose "\n[INFO] Creating output files"
     Logger.verbose '   ├── Gift questions file => ' +
@@ -64,5 +69,4 @@ class Asker
     project.close # Logger use Project.get(:logfile) until the end
   end
   # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 end

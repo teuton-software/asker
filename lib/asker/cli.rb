@@ -48,21 +48,6 @@ class CLI < Thor
     Asker.start(filename)
   end
 
-  map ['i', '-i', '--init'] => 'init'
-  desc 'init', 'Create default INI config fie'
-  ##
-  # Create default INI config file
-  def init
-    src = File.join(File.dirname(__FILE__), 'files', 'config.ini')
-    dst = File.join(Dir.pwd, 'config.ini')
-    if File.exist? dst
-      puts "[WARN] Exists file! => #{Rainbow(File.basename(dst)).yellow.bright}"
-    else
-      FileUtils.cp(src, dst)
-      puts "[ OK ] Create file  => #{Rainbow(File.basename(dst)).green}"
-    end
-  end
-
   map ['c', '-c', '--check'] => 'check'
   desc 'check', 'Check input HAML file syntax'
   ##
@@ -75,14 +60,21 @@ class CLI < Thor
     Asker.check(filename)
   end
 
-  map ['n', '-b', '--new', 'new'] => 'create_skeleton'
+  map ['i', '-i', '--init'] => 'init'
+  desc 'init', 'Create default INI config fie'
+  ##
+  # Create default INI config file
+  def init
+    Asker.create_configuration
+  end
+
+  map ['n', '-b', '--new', 'new'] => 'create_input'
   desc 'new', 'Create Asker demo input files'
   ##
   # Create Asker demo input files
   # @param dirname (String) Path to folder
-  def create_skeleton(dirname)
-    # Asker start processing input file
-    Asker.create_skeleton(dirname)
+  def create_input(dirname)
+    Asker.create_input(dirname)
   end
 
   ##

@@ -13,10 +13,20 @@ module Skeleton
   ##
   # Create skeleton for asker input files
   # @param dirpath (String) Folder path to save example files
-  def self.create(dirpath)
-    puts "\n[INFO] Creating #{Rainbow(dirpath).bright} project skeleton"
+  def self.create_input(dirpath)
+    puts "\n[INFO] Creating example input #{Rainbow(dirpath).bright}"
     create_dir dirpath
     copy_files_into(dirpath)
+  end
+
+  ##
+  # Create skeleton for asker input files
+  # @param dirpath (String) Folder path to save example files
+  def self.create_configuration
+    puts "\n[INFO] Creating configuration files"
+    src = File.join(File.dirname(__FILE__), 'files', 'config.ini')
+    dst = File.join('config.ini')
+    copyfile(src, dst)
   end
 
   ##
@@ -32,7 +42,7 @@ module Skeleton
   ##
   # Create folder
   # @param dirpath (String)
-  def self.create_dir(dirpath)
+  private_class_method def self.create_dir(dirpath)
     if Dir.exist? dirpath
       puts "* Exists dir!       => #{Rainbow(dirpath).yellow}"
     else
@@ -49,7 +59,7 @@ module Skeleton
   # Copy target file to dest
   # @param target (String)
   # @param dest (String)
-  def self.copyfile(target, dest)
+  private_class_method def self.copyfile(target, dest)
     if File.exist? dest
       puts "* Exists file!      => #{Rainbow(dest).yellow}"
       return true
