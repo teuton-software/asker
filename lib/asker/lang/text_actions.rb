@@ -1,94 +1,103 @@
 # encoding: utf-8
 
+##
+# Set of functions used by Lang class
 module TextActions
+  ##
+  # Return text indicated by lang code...
+  def text_for(option, *input)
+    text1 = input[0]
+    text2 = input[1]
+    text3 = input[2]
+    text4 = input[3]
+    text5 = input[4]
+    text6 = input[5]
+    text7 = input[6]
 
-  def text_for(pOption, input1 = '', input2 = '', input3 = '',
-               input4= '', input5 = '', input6 = '', input7 = '')
-    text1 = input1
-    text2 = input2
-    text3 = input3
-    text4 = input4
-    text5 = input5
-    text6 = input6
-    text7 = input7
+    # Check if exists option before use it
+    raise "[ERROR] Unkown template #{option}" if @templates[option].nil?
 
-	  # TODO: check if exists pOption before use it
-    renderer = ERB.new(@templates[pOption])
-    output = renderer.result(binding)
-    return output
+    renderer = ERB.new(@templates[option])
+    renderer.result(binding)
   end
 
-  def text_filter_connectors(pText, pFilter)
-    input_lines = pText.split(".")
+  ##
+  # Convert input text into output text struct
+  # @param input (String) Input text
+  # @param filter (Boolean) true => apply filter, false => dont filter
+  # @return Array
+  def text_filter_connectors(input, filter)
+    input_lines = input.split('.')
     output_lines = []
     output_words = []
     input_lines.each_with_index do |line, rowindex|
-	    row=[]
+	    row = []
       line.split(' ').each_with_index do |word, colindex|
         flag = @connectors.include? word.downcase
 
 	      # if <word> is a conector and <pFilter>==true Then Choose this <word>
 	      # if <word> isn't a conector and <pFilter>==true and <word>.length>1 Then Choose this <word>
-        if (flag and pFilter) || (!flag and !pFilter and word.length>1)
-		      output_words << {:word => word,
-                           :row => rowindex,
-                           :col => colindex }
+        if (flag and filter) || (!flag and !filter and word.length > 1)
+		      output_words << {:word => word, :row => rowindex, :col => colindex }
 		      row << (output_words.size-1)
 	      else
 		      row << word
-		    end
+        end
 	    end
 	    row << '.'
 	    output_lines << row
-	  end
+    end
 
     indexes = []
-    exclude = ['[', ']', '(', ')', "\"" ]
+    exclude = ['[', ']', '(', ')', '"']
     output_words.each_with_index do |item, index|
       flag = true
-      exclude.each { |e| flag = false if (item[:word].include?(e)) }
+      exclude.each { |e| flag = false if item[:word].include? e }
       indexes << index if flag
     end
 
-	  result={ :lines => output_lines, :words => output_words, :indexes => indexes }
-	  return result
+    { lines: output_lines, words: output_words, indexes: indexes }
   end
 
+  ##
+  # Return text with connectors
   def text_with_connectors(text)
 	  text_filter_connectors(text, false)
   end
 
+  ##
+  # Return text without connectors
   def text_without_connectors(text)
-	  text_filter_connectors(text, true)
+    text_filter_connectors(text, true)
   end
 
-  def build_text_from_filtered(pStruct, pIndexes)
-    lines    = pStruct[:lines]
-    lIndexes = pIndexes.sort
-    counter  = 1
-    lText    = ''
+  def build_text_from_filtered(input_struct, input_indexes)
+    lines = input_struct[:lines]
+    indexes = input_indexes.sort
+    counter = 1
+    text = ''
 
     lines.each do |line|
       line.each do |value|
         if value.class == String
-          lText += (' ' + value)
+          text += (' ' + value)
         elsif value == value.to_i
           # INFO: ruby 2.4 unifies Fixnum and Bignum into Integer
           #       Avoid using deprecated classes.
-          if lIndexes.include? value
-            lText   += " [#{counter.to_s}]"
+          if indexes.include? value
+            text += " [#{counter}]"
             counter += 1
           else
-            lword = pStruct[:words][value][:word]
-            lText += (' ' + lword)
+            word = input_struct[:words][value][:word]
+            text += (' ' + word)
           end
         end
       end
     end
-    lText.gsub!(' .', '.')
-    lText.gsub!(' ,', ',')
-    lText = lText[1, lText.size] if lText[0] == ' '
-    lText
+    text.gsub!(' .', '.')
+    text.gsub!(' ,', ',')
+    text = text[1, text.size] if text[0] == ' '
+    text
   end
 
   ##
@@ -109,6 +118,10 @@ module TextActions
     t.split(' ').count
   end
 
+  ##
+  # Do mistake to input
+  # @param input (String)
+  # @return String
   def do_mistake_to(input = '')
     text = input.dup
     keys = @mistakes.keys
@@ -116,12 +129,12 @@ module TextActions
     # Try to do mistake with one item from the key list
     keys.shuffle!
     keys.each do |key|
-      if text.include? key.to_s
-        values = @mistakes[key].split(',')
-        values.shuffle!
-        text = text.sub(key.to_s, values[0].to_s)
-        return text
-      end
+      next unless text.include? key.to_s
+
+      values = @mistakes[key].split(',')
+      values.shuffle!
+      text = text.sub(key.to_s, values[0].to_s)
+      return text
     end
 
     # Force mistake by swapping letters

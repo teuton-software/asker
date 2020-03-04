@@ -8,7 +8,6 @@ module ConceptDisplayer
   ##
   # Show concepts on screen
   # @param concepts (Array)
-  # @param show_mode (Symbol)
   def self.show(concepts)
     show_mode = Application.instance.config['global']['show_mode']
     return unless show_mode

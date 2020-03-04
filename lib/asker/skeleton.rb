@@ -20,8 +20,7 @@ module Skeleton
   end
 
   ##
-  # Create skeleton for asker input files
-  # @param dirpath (String) Folder path to save example files
+  # Create default configuration files
   def self.create_configuration
     puts "\n[INFO] Creating configuration files"
     src = File.join(File.dirname(__FILE__), 'files', 'config.ini')
