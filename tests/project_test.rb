@@ -3,6 +3,7 @@
 require 'minitest/autorun'
 require 'fileutils'
 require_relative '../lib/asker/project'
+require_relative '../lib/asker/application'
 
 class ProjectTest < Minitest::Test
   def setup
@@ -13,8 +14,6 @@ class ProjectTest < Minitest::Test
   def test_defaults_parms
     assert_equal FileUtils.pwd, @project.inputbasedir
     assert_equal [1, 1, 1] , @project.formula_weights
-    assert_equal 'en'     , @project.lang
-    assert_equal true     , @project.get(:verbose)
     stages = {d: true, b: true, f: true, i: true, s: true, t: true}
     assert_equal stages   , @project.stages
   end
@@ -29,12 +28,11 @@ class ProjectTest < Minitest::Test
     @project.set(:projectname , projectname )
 
     assert_equal 3, @project.param.size
-    assert_equal true, @project.get(:verbose)
-    @project.set(:verbose, false)
+    Application.instance.config['global']['verbose'] = 'no'
     @project.open
-    @project.set(:verbose, true)
-    assert_equal 16, @project.param.size
-    assert_equal 7,  @project.default.size
+    Application.instance.config['global']['verbose'] = 'yes'
+    assert_equal 15, @project.param.size
+    assert_equal 5,  @project.default.size
 
     assert_equal filename, @project.get(:process_file)
     assert_equal FileUtils.pwd, @project.get(:inputbasedir)

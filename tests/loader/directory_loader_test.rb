@@ -1,15 +1,15 @@
 #!/usr/bin/ruby
 
 require 'minitest/autorun'
+require_relative '../../lib/asker/application'
 require_relative '../../lib/asker/loader/project_loader'
 require_relative '../../lib/asker/loader/directory_loader'
 
 class DirectoryLoaderTest < Minitest::Test
   def test_load_test_input_starwars
     filepath = 'tests/input/starwars/jedi.haml'
-    project = Project.instance
-    project.reset
-    project.set(:verbose, false)
+    Project.instance.reset
+    Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
 
     data = DirectoryLoader.load 'tests/input/starwars'
@@ -26,14 +26,13 @@ class DirectoryLoaderTest < Minitest::Test
     assert_equal false, data[:concepts][3].process?
     assert_equal 0, data[:codes].size
 
-    project.reset
+    Project.instance.reset
   end
 
   def test_load_test_input_ruby
     filepath = 'tests/input/ruby/ruby1.haml'
-    project = Project.instance
-    project.reset
-    project.set(:verbose, false)
+    Project.instance.reset
+    Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
 
     data = DirectoryLoader.load 'tests/input/ruby'
@@ -52,6 +51,6 @@ class DirectoryLoaderTest < Minitest::Test
     assert_equal 'tests/input/ruby', data[:codes][1].dirname
     assert_equal 'tests/input/ruby', data[:codes][2].dirname
 
-    project.reset
+    Project.instance.reset
   end
 end

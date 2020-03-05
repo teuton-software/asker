@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative 'application'
 require_relative 'project'
 
 # Display and log project messages
@@ -7,9 +8,8 @@ module Logger
   ##
   # Display and log text
   def self.verbose(msg)
-    project = Project.instance
-    puts msg if project.get(:verbose)
-    project.get(:logfile)&.write("#{msg}\n")
+    puts msg if Application.instance.config['global']['verbose'] == 'yes'
+    Project.instance.get(:logfile)&.write("#{msg}\n")
   end
 
   ##

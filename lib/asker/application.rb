@@ -21,6 +21,7 @@ class Application
 
   ##
   # Initialize config values from external "config.ini" file.
+  # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
   def reset
     filename = File.join(Dir.pwd, 'config.ini')
@@ -37,4 +38,5 @@ class Application
     end
   end
   # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 end

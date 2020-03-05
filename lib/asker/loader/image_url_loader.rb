@@ -1,8 +1,9 @@
 
 require 'net/http'
 require 'uri'
-require_relative '../project'
 require_relative '../application'
+require_relative '../logger'
+require_relative '../project'
 
 # Search URL images on Internet
 # Methods:
@@ -39,10 +40,10 @@ module ImageUrlLoader
         end
       end
     rescue
-      Project.instance.verboseln '[ERROR] ImageUrlLoader'
-      Project.instance.verboseln " => #{search_url}"
-      Project.instance.verboseln ' => Check Internet connections'
-      Project.instance.verboseln ' => Ensure URL is well formed'
+      Logger.verboseln '[ERROR] ImageUrlLoader'
+      Logger.verboseln " => #{search_url}"
+      Logger.verboseln ' => Check Internet connections'
+      Logger.verboseln ' => Ensure URL is well formed'
     end
     image_urls
   end
