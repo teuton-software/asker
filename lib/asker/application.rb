@@ -2,6 +2,7 @@
 
 require 'singleton'
 require 'inifile'
+require 'rainbow'
 
 # Global parameters
 class Application
@@ -25,6 +26,12 @@ class Application
     unless File.exist? filename
       filename = File.join(File.dirname(__FILE__), 'files', 'config.ini')
     end
-    @config = IniFile.load(filename)
+    begin
+      @config = IniFile.load(filename)
+    rescue StandardError => e
+      puts Rainbow("[ERROR] Revise config.ini syntax!").red.bright
+      puts e.display
+      exit 1
+    end
   end
 end

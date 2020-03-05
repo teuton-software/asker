@@ -14,9 +14,6 @@ class ProjectTest < Minitest::Test
     assert_equal FileUtils.pwd, @project.inputbasedir
     assert_equal [1, 1, 1] , @project.formula_weights
     assert_equal 'en'     , @project.lang
-    assert_equal 7        , @project.locales.size
-    a = %w[en es javascript math python ruby sql]
-    assert_equal a        , @project.locales
     assert_equal true     , @project.get(:verbose)
     stages = {d: true, b: true, f: true, i: true, s: true, t: true}
     assert_equal stages   , @project.stages
@@ -37,7 +34,7 @@ class ProjectTest < Minitest::Test
     @project.open
     @project.set(:verbose, true)
     assert_equal 16, @project.param.size
-    assert_equal 8,  @project.default.size
+    assert_equal 7,  @project.default.size
 
     assert_equal filename, @project.get(:process_file)
     assert_equal FileUtils.pwd, @project.get(:inputbasedir)
