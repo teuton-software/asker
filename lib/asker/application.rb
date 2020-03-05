@@ -21,6 +21,7 @@ class Application
 
   ##
   # Initialize config values from external "config.ini" file.
+  # rubocop:disable Metrics/MethodLength
   def reset
     filename = File.join(Dir.pwd, 'config.ini')
     unless File.exist? filename
@@ -29,9 +30,11 @@ class Application
     begin
       @config = IniFile.load(filename)
     rescue StandardError => e
-      puts Rainbow("[ERROR] Revise config.ini syntax!").red.bright
       puts e.display
+      puts Rainbow('[ERROR] Revise configuration file:').red.bright
+      puts Rainbow("        #{filename}").red.bright
       exit 1
     end
   end
+  # rubocop:enable Metrics/MethodLength
 end
