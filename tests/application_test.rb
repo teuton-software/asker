@@ -8,7 +8,7 @@ class ApplicationTest < Minitest::Test
   def test_params
     assert_equal 'asker',  Application::NAME
     assert_equal 'asker-tool',  Application::GEM
-    assert_equal '2.1.5', Application::VERSION
+    assert_equal '2.1.6', Application::VERSION
   end
 
   def test_config

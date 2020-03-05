@@ -23,7 +23,7 @@ class Lang
   private
 
   def load_files
-    dirbase = File.join(File.dirname(__FILE__), '..', 'files', 'locales')
+    dirbase = File.join(File.dirname(__FILE__), '..', 'files', 'language')
     filepath = File.join(dirbase, @code, 'templates.yaml')
     @templates = load_yaml_file(filepath)
     filepath = File.join(dirbase, @code, 'connectors.yaml')

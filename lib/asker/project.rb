@@ -2,7 +2,7 @@
 
 require 'singleton'
 require 'rainbow'
-require 'fileutils'
+# require 'fileutils'
 require_relative 'application'
 require_relative 'logger'
 
