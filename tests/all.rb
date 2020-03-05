@@ -19,7 +19,7 @@ require_relative 'data/table_test'
 require_relative 'data/template_test'
 require_relative 'data/row_test'
 
-# require_relative 'formatter/concept_string_formatter_test'
+require_relative 'formatter/concept_string_formatter_test'
 require_relative 'formatter/question_gift_formatter_test'
 
 require_relative 'lang/lang_test'
