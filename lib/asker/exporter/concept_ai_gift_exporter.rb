@@ -6,7 +6,9 @@ require_relative '../formatter/question_gift_formatter'
 # Export ConceptIA data to gift to outputfile
 module ConceptAIGiftExporter
   ##
-  # Export list of ConceptAI into outpufile
+  # Export an array of ConceptAI objects from Project into GIFT outpufile
+  # @param concepts_ai (Array)
+  # @param project (Project)
   def self.export_all(concepts_ai, project)
     concepts_ai.each { |concept_ai| export(concept_ai, project) }
   end

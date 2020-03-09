@@ -13,7 +13,7 @@ class ConceptAIDisplayer
     stages = Application.instance.config['questions']['stages']
     # Create table HEAD
     screen_table = Terminal::Table.new do |st|
-      title = ['Concept','Questions','Entries','xFactor']
+      title = ['Concept', 'Questions', 'Entries', 'xFactor']
       %w[d b f i s t].each do |i|
         if stages.include? i.to_sym
           title << i
@@ -31,34 +31,37 @@ class ConceptAIDisplayer
     total[:si] = total[:ss] = total[:st] = 0
 
     concepts_ai.each do |concept_ai|
-      if concept_ai.process?
-        e = concept_ai.texts.size
-        concept_ai.tables.each { |t| e += t.fields.size * t.rows.size }
+      next unless concept_ai.process?
 
-        sd = sb = sf = 0
-        si = ss = st = 0
-        sd = concept_ai.questions[:d].size if stages.include? :d
-        sb = concept_ai.questions[:b].size if stages.include? :b
-        sf = concept_ai.questions[:f].size if stages.include? :f
-        si = concept_ai.questions[:i].size if stages.include? :i
-        ss = concept_ai.questions[:s].size if stages.include? :s
-        st = concept_ai.questions[:t].size if stages.include? :t
-        t = sd + sb + sf + si + ss + st
+      e = concept_ai.texts.size
+      concept_ai.tables.each { |t| e += t.fields.size * t.rows.size }
 
-        if e == 0
-          factor = 'Unkown'
-        else
-          factor = (t.to_f/e.to_f).round(2).to_s
-        end
-        screen_table.add_row [Rainbow(concept_ai.name(:screen)).green.bright,
-          t, e, factor, sd, sb, sf, si, ss, st]
+      sd = sb = sf = 0
+      si = ss = st = 0
+      sd = concept_ai.questions[:d].size if stages.include? :d
+      sb = concept_ai.questions[:b].size if stages.include? :b
+      sf = concept_ai.questions[:f].size if stages.include? :f
+      si = concept_ai.questions[:i].size if stages.include? :i
+      ss = concept_ai.questions[:s].size if stages.include? :s
+      st = concept_ai.questions[:t].size if stages.include? :t
+      t = sd + sb + sf + si + ss + st
 
-        total[:q] += t ; total[:e] += e; total[:c] += 1
-        total[:sd] += sd; total[:sb] += sb; total[:sf] += sf
-        total[:si] += si; total[:ss] += ss; total[:st] += st
-      end
+      factor = 'Unkown'
+      factor = (t.to_f / e).round(2).to_s unless e.zero?
+      screen_table.add_row [Rainbow(concept_ai.name(:screen)).green.bright,
+                            t, e, factor, sd, sb, sf, si, ss, st]
+
+      total[:q] += t
+      total[:e] += e
+      total[:c] += 1
+      total[:sd] += sd
+      total[:sb] += sb
+      total[:sf] += sf
+      total[:si] += si
+      total[:ss] += ss
+      total[:st] += st
     end
-    return if total[:c] == 0 # No concepts to be process?
+    return if total[:c].zero? # No concepts to be process?
 
     # Add row with excluded questions
     export_excluded_questions(screen_table, concepts_ai)
@@ -68,7 +71,7 @@ class ConceptAIDisplayer
     screen_table.add_row [Rainbow("TOTAL = #{total[:c]}").bright,
                           Rainbow(total[:q].to_s).bright,
                           Rainbow(total[:e].to_s).bright,
-                          Rainbow((total[:q].to_f/total[:e].to_f).round(2)).bright,
+                          Rainbow((total[:q].to_f / total[:e]).round(2)).bright,
                           total[:sd], total[:sb], total[:sf],
                           total[:si], total[:ss], total[:st]]
     export_notes
@@ -83,19 +86,24 @@ class ConceptAIDisplayer
     total[:si] = total[:ss] = total[:st] = 0
 
     concepts_ai.each do |concept_ai|
-      if concept_ai.process?
-        sd = concept_ai.excluded_questions[:d].size
-        sb = concept_ai.excluded_questions[:b].size
-        sf = concept_ai.excluded_questions[:f].size
-        si = concept_ai.excluded_questions[:i].size
-        ss = concept_ai.excluded_questions[:s].size
-        st = concept_ai.excluded_questions[:t].size
-        t = sd + sb + sf + si + ss + st
+      next unless concept_ai.process?
 
-        total[:q] += t ; total[:c] += 1
-        total[:sd] += sd; total[:sb] += sb; total[:sf] += sf
-        total[:si] += si; total[:ss] += ss; total[:st] += st
-      end
+      sd = concept_ai.excluded_questions[:d].size
+      sb = concept_ai.excluded_questions[:b].size
+      sf = concept_ai.excluded_questions[:f].size
+      si = concept_ai.excluded_questions[:i].size
+      ss = concept_ai.excluded_questions[:s].size
+      st = concept_ai.excluded_questions[:t].size
+      t = sd + sb + sf + si + ss + st
+
+      total[:q] += t
+      total[:c] += 1
+      total[:sd] += sd
+      total[:sb] += sb
+      total[:sf] += sf
+      total[:si] += si
+      total[:ss] += ss
+      total[:st] += st
     end
     screen_table.add_row [Rainbow('Excluded questions').yellow.bright,
                           total[:q], '-', '-',

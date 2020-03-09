@@ -5,6 +5,10 @@ require_relative '../formatter/question_hash_formatter'
 
 # Use to export data from ConceptIA to YAML format
 module ConceptAIYAMLExporter
+  ##
+  # Export array of ConceptAI objects from Project to YAML output file
+  # @param concepts_ai (Array)
+  # @param project (Project)
   def self.export_all(concepts_ai, project)
     questions = []
     concepts_ai.each do |concept_ai|
