@@ -46,6 +46,8 @@ module AI
     end
   end
 
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
   def exclude_questions
     param = Application.instance.config['questions']['exclude']
     return if param.nil?
@@ -61,6 +63,8 @@ module AI
     @questions = input
     @excluded_questions = output
   end
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 
   def string_has_this_tags?(input, tags)
     flag = false

@@ -36,6 +36,8 @@ class Application
       puts Rainbow("        #{filename}").red.bright
       exit 1
     end
+    stages = @config['questions']['stages'].split(',')
+    @config['questions']['stages'] = stages.map(&:to_sym)
     Rainbow.enabled = false
     Rainbow.enabled = true if @config['global']['color'].downcase == 'yes'
   end

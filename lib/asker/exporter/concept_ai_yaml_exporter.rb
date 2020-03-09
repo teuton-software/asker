@@ -16,11 +16,11 @@ module ConceptAIYAMLExporter
     project.get(:yamlfile).write(output.to_yaml)
   end
 
-  def self.get_questions_from(concept_ai)
+  private_class_method def self.get_questions_from(concept_ai)
     data = []
     return data unless concept_ai.process?
-    stages = Project.instance.stages
-    stages.each_key do |stage|
+
+    Application.instance.config['questions']['stages'].each do |stage|
       concept_ai.questions[stage].each do |question|
         question.lang = concept_ai.lang
         data << QuestionHashFormatter.to_hash(question)

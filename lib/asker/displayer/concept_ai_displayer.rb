@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'terminal-table'
+require_relative '../application'
 require_relative '../logger'
 
 # Display ConceptAI stat on screen
@@ -9,10 +10,18 @@ class ConceptAIDisplayer
   # Display ConceptAI stat on screen
   # @param concepts_ai (Array)
   def self.show(concepts_ai)
+    stages = Application.instance.config['questions']['stages']
     # Create table HEAD
     screen_table = Terminal::Table.new do |st|
-      st << ['Concept','Questions','Entries','xFactor',
-             'd','b','f','i','s','t']
+      title = ['Concept','Questions','Entries','xFactor']
+      %w[d b f i s t].each do |i|
+        if stages.include? i.to_sym
+          title << i
+          next
+        end
+        title << Rainbow(i).yellow.bright
+      end
+      st << title
       st << :separator
     end
     # Create table BODY
@@ -26,12 +35,14 @@ class ConceptAIDisplayer
         e = concept_ai.texts.size
         concept_ai.tables.each { |t| e += t.fields.size * t.rows.size }
 
-        sd = concept_ai.questions[:d].size
-        sb = concept_ai.questions[:b].size
-        sf = concept_ai.questions[:f].size
-        si = concept_ai.questions[:i].size
-        ss = concept_ai.questions[:s].size
-        st = concept_ai.questions[:t].size
+        sd = sb = sf = 0
+        si = ss = st = 0
+        sd = concept_ai.questions[:d].size if stages.include? :d
+        sb = concept_ai.questions[:b].size if stages.include? :b
+        sf = concept_ai.questions[:f].size if stages.include? :f
+        si = concept_ai.questions[:i].size if stages.include? :i
+        ss = concept_ai.questions[:s].size if stages.include? :s
+        st = concept_ai.questions[:t].size if stages.include? :t
         t = sd + sb + sf + si + ss + st
 
         if e == 0

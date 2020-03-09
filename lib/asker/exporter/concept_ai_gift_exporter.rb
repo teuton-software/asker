@@ -11,12 +11,12 @@ module ConceptAIGiftExporter
     concepts_ai.each { |concept_ai| export(concept_ai, project) }
   end
 
-  def self.export(concept_ai, project)
+  private_class_method def self.export(concept_ai, project)
     return unless concept_ai.process?
 
     file = project.get(:outputfile)
     file.write head(concept_ai.name)
-    project.stages.each_key do |stage|
+    Application.instance.config['questions']['stages'].each do |stage|
       concept_ai.questions[stage].each do |question|
         file.write(QuestionGiftFormatter.to_s(question))
       end
