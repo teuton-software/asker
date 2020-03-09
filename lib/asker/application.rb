@@ -36,6 +36,8 @@ class Application
       puts Rainbow("        #{filename}").red.bright
       exit 1
     end
+    Rainbow.enabled = false
+    Rainbow.enabled = true if @config['global']['color'].downcase == 'yes'
   end
   # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/AbcSize

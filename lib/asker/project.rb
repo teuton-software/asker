@@ -22,10 +22,8 @@ class Project
   def reset
     @default = { inputbasedir: FileUtils.pwd,
                 formula_weights: [1, 1, 1],
-#                verbose: true,
                 stages: { d: true, b: true, f: true, i: true, s: true, t: true },
-                threshold: 0.5,
-                color_output: true }
+                threshold: 0.5 }
     @param = {}
   end
 
@@ -139,7 +137,8 @@ class Project
     f.write("// Time       : #{Time.new}\n")
     f.write("// Author     : David Vargas Ruiz\n")
     f.write('// ' + ('=' * 50) + "\n\n")
-    f.write("$CATEGORY: $course$/#{get(:category)}\n") unless config['questions']['category']
+    category = config['questions']['category']
+    f.write("$CATEGORY: $course$/#{category}\n") unless category.nil?
   end
 
   # Create or reset lesson file

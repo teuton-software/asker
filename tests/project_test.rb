@@ -32,7 +32,7 @@ class ProjectTest < Minitest::Test
     @project.open
     Application.instance.config['global']['verbose'] = 'yes'
     assert_equal 15, @project.param.size
-    assert_equal 5,  @project.default.size
+    assert_equal 4,  @project.default.size
 
     assert_equal filename, @project.get(:process_file)
     assert_equal FileUtils.pwd, @project.get(:inputbasedir)

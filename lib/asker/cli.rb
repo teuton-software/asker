@@ -21,7 +21,6 @@ class CLI < Thor
 
   map ['f', '-f', '--file'] => 'file'
   desc 'file NAME', 'Build output files, from HAML/XML input file.'
-  option :color, type: :boolean
   long_desc <<-LONGDESC
   Create output files, from input file (HAML/XML format).
 
@@ -33,17 +32,13 @@ class CLI < Thor
 
   (2) #{Rainbow('asker input/foo/foo.xml').yellow}, Build questions from XML file.
 
-  (3) #{Rainbow('asker file --no-color input/foo/foo.haml').yellow}, Same as (1) but without colors.
-
-  (4) #{Rainbow('asker projects/foo/foo.yaml').yellow}, Build questions from YAML project file.
+  (3) #{Rainbow('asker projects/foo/foo.yaml').yellow}, Build questions from YAML project file.
 
   LONGDESC
   ##
   # Create questions from input file
   # @param filename (String) Path to input file
   def file(filename)
-    # Enable/disable color output
-    Rainbow.enabled = false if options['color'] == false
     # Asker start processing input file
     Asker.start(filename)
   end
