@@ -1,4 +1,4 @@
-require_relative 'ai/code_ai_factory'
+require_relative '../ai/code/code_ai_factory'
 require_relative '../project'
 require_relative '../logger'
 require_relative '../formatter/code_string_formatter'
