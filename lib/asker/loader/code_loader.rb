@@ -24,7 +24,7 @@ module CodeLoader
   # @param xmldata (XML Object)
   # @param filename (String) File name that contains data
   # @return Code object
-  def self.read_codedata_from_xml(xmldata, filename)
+  private_class_method def self.read_codedata_from_xml(xmldata, filename)
     data = { path: '?', type: '?', features: [] }
     xmldata.elements.each do |i|
       data[:path] = i.text if i.name == 'path'
@@ -38,7 +38,7 @@ module CodeLoader
   # Read features data from XML input
   # @param xmldata (XML object)
   # @return Array with features (Strings)
-  def self.read_features(xmldata, filename)
+  private_class_method def self.read_features(xmldata, filename)
     features = []
     xmldata.elements.each do |i|
       if i.name == 'row'
