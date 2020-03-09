@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 require 'minitest/autorun'
-require_relative '../../lib/asker/code/code'
+require_relative '../../lib/asker/data/code'
 
 class CodeTest < Minitest::Test
   def setup

@@ -9,8 +9,8 @@ require_relative 'ai/question_test'
 require_relative 'ai/concept_ai_test'
 require_relative 'ai/stages/base_stage_test'
 
-require_relative 'code/code_test'
 
+require_relative 'data/code_test'
 require_relative 'data/world_test'
 require_relative 'data/concept_test'
 require_relative 'data/column_test'

@@ -3,7 +3,7 @@
 require 'rainbow'
 require 'rexml/document'
 require_relative '../logger'
-require_relative '../code/code'
+require_relative '../data/code'
 
 # Read XML info about Code input data
 module CodeLoader
