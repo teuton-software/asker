@@ -21,6 +21,7 @@ class RubocopTest < Minitest::Test
     @files[:lib] << 'lib/asker/skeleton.rb'
 
     @files[:ai] = []
+    @files[:ai] << 'lib/asker/ai/code/base_code_ai.rb'
     @files[:ai] << 'lib/asker/ai/ai.rb'
 #   @files[:ai] << 'lib/asker/ai/concept_ai.rb'
     @files[:ai] << 'lib/asker/ai/stages/main.rb'

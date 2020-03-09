@@ -1,3 +1,4 @@
+# frozen_string_literal: false
 
 require_relative '../../lang/lang_factory'
 require_relative '../../ai/question'
@@ -12,6 +13,9 @@ class BaseCodeAI
     File.basename(@code.filename)
   end
 
+  ##
+  # Counter
+  # @return count
   def num
     @num += 1
   end
@@ -29,35 +33,42 @@ class BaseCodeAI
   ##
   # Convert an array of lines into one String
   # @param lines (Array)
+  # @return String
+  # rubocop:disable Style/FormatString
   def lines_to_s(lines)
     out = ''
-    lines.each_with_index do |line,index|
-      out << "%2d: #{line}\n"%(index+1)
-    end
-    out
-  end
-
-  def lines_to_html(lines)
-    out = ''
-    lines.each_with_index do |line,index|
-      out << "%2d: #{line}</br>"%(index+1)
+    lines.each_with_index do |line, index|
+      out << "%2d: #{line}\n" % (index + 1)
     end
     out
   end
 
   ##
+  # Convert an array of lines into one HTML String
+  # @param lines (Array)
+  # @return String
+  def lines_to_html(lines)
+    out = ''
+    lines.each_with_index do |line, index|
+      out << "%2d: #{line}</br>" % (index + 1)
+    end
+    out
+  end
+  # rubocop:enable Style/FormatString
+
+  ##
   # Make questions
   def make_questions
     list = find_make_methods
-    list.each { |m| @questions += self.send m }
+    list.each { |m| @questions += send m }
     @questions
   end
 
   private
 
   def find_make_methods
-    list = self.public_methods.sort
-    list.select! { |name| name.to_s.start_with? 'make_'}
+    list = public_methods.sort
+    list.select! { |name| name.to_s.start_with? 'make_' }
     list.delete(:make_questions)
     list
   end
