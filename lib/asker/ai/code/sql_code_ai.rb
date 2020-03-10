@@ -5,11 +5,8 @@ require_relative 'base_code_ai'
 
 class SQLCodeAI < BaseCodeAI
   def initialize(code)
-    @code = code
-    @lines = code.lines
     @lang = LangFactory.instance.get('sql')
-    @num = 0
-    @questions = []
+    super code
   end
 
   def make_comment_error

@@ -9,6 +9,6 @@ module StatsDisplayer
 
     # show_final_results
     ConceptAIDisplayer.show(data[:concepts_ai])
-    CodeDisplayer.show(data[:codes])
+    CodeDisplayer.show(data[:codes_ai])
   end
 end

@@ -23,6 +23,7 @@ class ConceptAI
     @questions = { d: [], b: [], f: [], i: [], s: [], t: [] }
     @excluded_questions = { d: [], b: [], f: [], i: [], s: [], t: [] }
     @num = 0 # Used to add a unique number to every question
+    make_questions
   end
 
   def num

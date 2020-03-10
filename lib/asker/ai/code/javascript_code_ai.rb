@@ -5,11 +5,8 @@ require_relative 'base_code_ai'
 
 class JavascriptCodeAI < BaseCodeAI
   def initialize(code)
-    @code = code
-    @lines = code.lines
     @lang = LangFactory.instance.get('javascript')
-    @num = 0
-    @questions = []
+    super code
   end
 
   def make_comment_error

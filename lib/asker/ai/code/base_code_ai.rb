@@ -6,11 +6,40 @@ require_relative '../../ai/question'
 ##
 # BaseCodeAI class
 class BaseCodeAI
+  attr_reader :questions
+
+  ##
+  # Create CodeAI object from Code data
+  # @param code (Code)
+  def initialize(code)
+    @code = code
+    @lines = code.lines
+    @num = 0
+    @questions = []
+    make_questions
+  end
+
   ##
   # Return the name of code
   # @return String
   def name
     File.basename(@code.filename)
+  end
+
+  def process?
+    @code.process?
+  end
+
+  def type
+    @code.type
+  end
+
+  def filename
+    @code.filename
+  end
+
+  def lines
+    @code.lines
   end
 
   ##

@@ -3,15 +3,14 @@ require_relative '../../lang/lang_factory'
 require_relative '../../ai/question'
 require_relative 'base_code_ai'
 
+##
+# Class for RubyCodeAI objects
 class RubyCodeAI < BaseCodeAI
   def initialize(code)
-    @code = code
-    @lines = code.lines
-    @lang = LangFactory.instance.get('ruby')
-    @num = 0
-    @questions = []
     @reduce = 1
-    @reduce = 4 if @lines.size > 25
+    @reduce = 4 if code.lines.size > 25
+    @lang = LangFactory.instance.get('ruby')
+    super code
   end
 
   def make_comment_error

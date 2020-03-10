@@ -11,7 +11,7 @@ module OutputFileExporter
   def self.export(data, project)
     ConceptAIGiftExporter.export_all(data[:concepts_ai], project)
     # UNDER DEVELOPMENT
-    CodeGiftExporter.export_all(data[:codes], project.get(:outputfile))
+    CodeGiftExporter.export_all(data[:codes_ai], project.get(:outputfile))
     ConceptAIYAMLExporter.export_all(data[:concepts_ai], project)
     ConceptDocExporter.export_all(data[:concepts], project.get(:lessonfile))
   end
