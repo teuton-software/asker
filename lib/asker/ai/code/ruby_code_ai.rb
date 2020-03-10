@@ -13,6 +13,8 @@ class RubyCodeAI < BaseCodeAI
     super code
   end
 
+  ##
+  # Make errors about comments
   def make_comment_error
     questions = []
     error_lines = []
@@ -42,6 +44,8 @@ class RubyCodeAI < BaseCodeAI
     questions.shuffle[0,@lines.size/@reduce]
   end
 
+  ##
+  # Make questions without errors
   def make_no_error_changes
     questions = []
     empty_lines = []
@@ -80,6 +84,8 @@ class RubyCodeAI < BaseCodeAI
     questions.shuffle[0,@lines.size/@reduce]
   end
 
+  ##
+  # Make questions with syntax errors
   def make_syntax_error
     questions = []
 
@@ -119,6 +125,8 @@ class RubyCodeAI < BaseCodeAI
     questions.shuffle[0,@lines.size/@reduce]
   end
 
+  ##
+  # Make questions with variable errors
   def make_variable_error
     questions = []
     error_lines = []
