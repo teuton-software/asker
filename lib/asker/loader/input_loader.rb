@@ -11,10 +11,9 @@ module InputLoader
   # Load input data from every input directory
   # @param inputdirs (Array)
   def self.load(inputdirs)
-    data = { concepts: [], codes: [], world: nil, concepts_ai: [] }
+    data = { concepts: [], codes: [], world: nil,
+             concepts_ai: [], codes_ai: [] }
     Logger.verbose "\n[INFO] Loading input data"
-
-    # inputdirs = project.inputdirs.split(',')
     inputdirs.each do |dirname|
       temp = DirectoryLoader.load(dirname)
       data[:concepts] += temp[:concepts]
@@ -33,7 +32,6 @@ module InputLoader
       data[:concepts_ai] << ConceptAI.new(concept, data[:world])
     end
     # Create CodeAI data (CodeAI = code + questions)
-    data[:codes_ai] = []
     data[:codes].each do |code|
       data[:codes_ai] << CodeAIFactory.get(code)
     end
