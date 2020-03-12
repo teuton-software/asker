@@ -28,18 +28,14 @@ module InputLoader
     # * Calculate concept neighbours
     # * TO-DO: Calculate code neighbours
     data[:world] = World.new(data[:concepts])
-    # Create ConceptAI data and make concept questions
+    # Create ConceptAI data (ConceptAI = concept + questions)
     data[:concepts].each do |concept|
       data[:concepts_ai] << ConceptAI.new(concept, data[:world])
     end
-    # Make code questions
-    #data[:codes].each(&:make_questions)
-    # Create CodeAI data and make questions
+    # Create CodeAI data (CodeAI = code + questions)
     data[:codes_ai] = []
     data[:codes].each do |code|
-      code_ai = CodeAIFactory.get(code)
-#      code_ai.make_questions
-      data[:codes_ai] << code_ai
+      data[:codes_ai] << CodeAIFactory.get(code)
     end
     data
   end
