@@ -8,12 +8,19 @@
 class DataField
   attr_reader :id, :type
 
+  ##
+  # initialize DataField
   def initialize(data, id, type)
     @data = data
     @id   = id.to_i # TODO: revise where it comes from? Is it unique value?
     @type = type.to_sym
   end
 
+  ##
+  # Return internal data
+  # @param option (Symbol)
+  # @return String
+  # rubocop:disable Metrics/MethodLength
   def get(option = :raw)
     case @type
     when :text
@@ -27,6 +34,7 @@ class DataField
     end
     raise ".get: data=#{@data}, type=#{@type}, option=#{option}"
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
 
@@ -36,6 +44,7 @@ class DataField
     @data
   end
 
+  # rubocop:disable Metrics/MethodLength
   def get_textfile_path(option)
     case option
     when :raw
@@ -50,7 +59,9 @@ class DataField
     end
     raise ".get_textfile_path: data=#{@data}, type=#{@type}, option=#{option}"
   end
+  # rubocop:enable Metrics/MethodLength
 
+  # rubocop:disable Metrics/MethodLength
   def get_textfile_url(option)
     case option
     when :raw
@@ -64,7 +75,9 @@ class DataField
     end
     raise ".get_textfile_url: data=#{@data}, type=#{@type}, option=#{option}"
   end
+  # rubocop:enable Metrics/MethodLength
 
+  # rubocop:disable Metrics/MethodLength
   def get_image_url(option)
     case option
     when :raw
@@ -78,6 +91,7 @@ class DataField
     end
     raise ".get_image_url: data=#{@data}, type=#{@type}, option=#{option}"
   end
+  # rubocop:enable Metrics/MethodLength
 
   def to_screen(text)
     return text[0, 7] + '...' + text[-15, 15] if text.size > 25
