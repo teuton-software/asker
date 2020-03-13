@@ -27,7 +27,7 @@ class RubocopTest < Minitest::Test
     @files[:ai] << 'lib/asker/ai/stages/main.rb'
 
     @files[:data] = []
-#    @files[:data] << 'lib/asker/data/column.rb'
+    @files[:data] << 'lib/asker/data/column.rb'
 #    @files[:data] << 'lib/asker/data/concept.rb'
     @files[:data] << 'lib/asker/data/data_field.rb'
 

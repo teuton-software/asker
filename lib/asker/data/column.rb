@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# encoding: utf-8
 
 # Contain data information for every column
 # Params:
@@ -9,6 +8,11 @@
 class Column
   attr_reader :row, :index, :id, :raw, :lang, :type, :simple
 
+  ##
+  # initialize Column
+  # @param row (Row)
+  # @param index (Integer)
+  # @param xml_data (XMLdata)
   def initialize(row, index, xml_data)
     @row    = row
     @index  = index
@@ -28,35 +32,42 @@ class Column
       return "<img src=\"#{raw}\" alt\=\"image\">"
     when 'textfile_path'
       return "<pre>#{raw}</pre>"
-    else
-      return "ERROR type #{@type}"
     end
+    "ERROR type #{@type}"
   end
 
   private
 
   def read_data_from_xml(xml_data)
-    raise '[ERROR] Column XML data with elements!' if xml_data.elements.count.positive?
+    raise '[ERROR] Column with elements!' if xml_data.elements.count.positive?
 
     @raw = xml_data.text.strip.to_s
 
     # read attributes from XML input data
-    if xml_data.attributes['lang']
-      code = xml_data.attributes['lang'].strip
-      if code != @lang.code
-        @lang = LangFactory.instance.get(code)
-        @simple[:lang] = false
-        @row.simple_off(:lang)
-      end
-    end
+    read_lang_from_xml(xml_data)
+    read_type_from_xml(xml_data)
+  end
 
-    if xml_data.attributes['type']
-      type = xml_data.attributes['type'].strip
-      if type != @type.to_s
-        @type = type
-        @simple[:type] = false
-        @row.simple_off(:type)
-      end
-    end
+  def read_lang_from_xml(xml_data)
+    return unless xml_data.attributes['lang']
+
+    code = xml_data.attributes['lang'].strip
+    return unless code == @lang.code
+
+    @lang = LangFactory.instance.get(code)
+    @simple[:lang] = false
+    @row.simple_off(:lang)
+  end
+
+  def read_type_from_xml(xml_data)
+    return unless xml_data.attributes['type']
+
+    type = xml_data.attributes['type'].strip
+
+    return unless type == @type.to_s
+
+    @type = type
+    @simple[:type] = false
+    @row.simple_off(:type)
   end
 end
