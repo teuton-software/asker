@@ -4,10 +4,12 @@ require 'rainbow'
 require 'rexml/document'
 
 require_relative '../project'
+require_relative '../logger'
 require_relative '../lang/lang_factory'
 require_relative 'table'
 require_relative 'data_field'
 
+##
 # Store Concept information
 class Concept
   attr_reader :id, :lang, :context
@@ -15,8 +17,14 @@ class Concept
   attr_reader :data
   attr_accessor :process
 
-  @@id = 0
+  @@id = 0    # Concept counter
 
+  ##
+  # Initilize Concept
+  # @param xml_data (XML)
+  # @param filename (String)
+  # @param lang_code (String)
+  # @param context (Array)
   def initialize(xml_data, filename, lang_code = 'en', context = [])
     @@id += 1
     @id = @@id
@@ -99,10 +107,10 @@ class Concept
         reference_to += 1 unless other.names.index(word.downcase).nil?
       end
     end
-    if reference_to.positive?
-      @data[:reference_to] << other.name
-      other.data[:referenced_by] << name
-    end
+    return unless reference_to.positive?
+
+    @data[:reference_to] << other.name
+    other.data[:referenced_by] << name
   end
 
   def method_missing(method)
@@ -111,6 +119,7 @@ class Concept
 
   private
 
+  # rubocop:disable Metrics/MethodLength
   def read_data_from_xml(xml_data)
     xml_data.elements.each do |i|
       case i.name
@@ -118,24 +127,17 @@ class Concept
         process_names(i)
       when 'tags'
         process_tags(i)
-      when 'context'
-        # DEPRECATED: Don't use xml tag <context>
-        # instead define it as attibute of root xml tag
-        process_context(i)
-      when 'text'
-        # DEPRECATED: Use xml tag <def> instead of <text>
-        process_text(i)
       when 'def'
         process_def(i)
       when 'table'
         @data[:tables] << Table.new(self, i)
       else
         text = "   [ERROR] <#{i.name}> unkown XML attribute for concept #{name}"
-        msg = Rainbow(text).color(:red)
-        Project.instance.verbose msg
+        Logger.verbose Rainbow(text).color(:red)
       end
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   def process_names(value)
     @names = []
@@ -145,28 +147,16 @@ class Concept
   end
 
   def process_tags(value)
-    raise '[Error] tags label empty!' if value.text.nil? || value.text.size.zero?
+    if value.text.nil? || value.text.size.zero?
+      raise '[Error] tags label empty!'
+    end
+
     @data[:tags] = value.text.split(',')
     @data[:tags].collect!(&:strip)
   end
 
-  def process_context(value)
-    msg = '   │  ' + Rainbow(' [DEPRECATED] Concept ').yellow
-    msg += Rainbow(name).yellow.bright
-    msg += Rainbow(' move <context> tag info to <map>.').yellow
-    Project.instance.verbose msg
-    @context = value.text.split(',')
-    @context.collect!(&:strip)
-  end
-
-  def process_text(value)
-    msg = '   │  ' + Rainbow(' [DEPRECATED] Concept ').yellow
-    msg += Rainbow(name).yellow.bright
-    msg += Rainbow(' replace <text> tag by <def>.').yellow
-    Project.instance.verbose msg
-    @data[:texts] << value.text.strip
-  end
-
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
   def process_def(value)
     case value.attributes['type']
     when 'image'
@@ -180,4 +170,6 @@ class Concept
       @data[:texts] << value.text.strip
     end
   end
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 end
