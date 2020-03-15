@@ -12,9 +12,9 @@ class ProjectTest < Minitest::Test
   end
 
   def test_defaults_parms
-    assert_equal FileUtils.pwd, @project.inputbasedir
+    assert_equal FileUtils.pwd, @project.get(:inputbasedir)
     stages = {d: true, b: true, f: true, i: true, s: true, t: true}
-    assert_equal stages   , @project.stages
+    assert_equal stages   , @project.get(:stages)
   end
 
   def test_open_project

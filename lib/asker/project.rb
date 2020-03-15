@@ -87,20 +87,6 @@ class Project
     get(:yamlfile).close
   end
 
-  ##
-  # Display and log text
-  def verbose(msg)
-    puts msg if get(:verbose)
-    get(:logfile).write(msg.to_s + "\n") if get(:logfile)
-    raise "DEPRECATED verbose"
-  end
-
-  ##
-  # Display and log text line
-  def verboseln(msg)
-    verbose(msg + "\n")
-  end
-
   def method_missing(method, *_args, &_block)
     get(method)
   end
