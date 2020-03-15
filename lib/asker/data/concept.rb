@@ -3,7 +3,7 @@
 require 'rainbow'
 require 'rexml/document'
 
-require_relative '../project'
+require_relative '../application'
 require_relative '../logger'
 require_relative '../lang/lang_factory'
 require_relative 'table'
@@ -80,27 +80,31 @@ class Concept
   end
 
   def calculate_nearness_to_concept(other)
-    weights = Project.instance.formula_weights
+    a = Application.instance.config['ai']['formula_weights']
+    weights = a.split(',').map(&:to_f)
 
-    li_max1 = @context.count
-    li_max2 = @data[:tags].count
-    li_max3 = @data[:tables].count
+    max1 = @context.count
+    max2 = @data[:tags].count
+    max3 = @data[:tables].count
 
-    lf_alike1 = lf_alike2 = lf_alike3 = 0.0
+    alike1 = alike2 = alike3 = 0.0
 
     # check if exists this items from concept1 into concept2
-    @context.each { |i| lf_alike1 += 1.0 unless other.context.index(i).nil? }
-    @data[:tags].each { |i| lf_alike2 += 1.0 unless other.tags.index(i).nil? }
-    @data[:tables].each { |i| lf_alike3 += 1.0 unless other.tables.index(i).nil? }
+    @context.each { |i| alike1 += 1.0 unless other.context.index(i).nil? }
+    @data[:tags].each { |i| alike2 += 1.0 unless other.tags.index(i).nil? }
+    @data[:tables].each { |i| alike3 += 1.0 unless other.tables.index(i).nil? }
 
-    lf_alike = (lf_alike1 * weights[0] + lf_alike2 * weights[1] + lf_alike3 * weights[2])
-    li_max = (li_max1 * weights[0] + li_max2 * weights[1] + li_max3 * weights[2])
-    (lf_alike * 100.0 / li_max)
+    alike = (alike1 * weights[0] + alike2 * weights[1] + alike3 * weights[2])
+    max = (max1 * weights[0] + max2 * weights[1] + max3 * weights[2])
+    (alike * 100.0 / max)
   end
 
+  # rubocop:disable Metrics/MethodLength
   def try_adding_references(other)
     reference_to = 0
-    @data[:tags].each { |i| reference_to += 1 unless other.names.index(i.downcase).nil? }
+    @data[:tags].each do |i|
+      reference_to += 1 unless other.names.index(i.downcase).nil?
+    end
     @data[:texts].each do |t|
       text = t.clone
       text.split(' ').each do |word|
@@ -112,6 +116,7 @@ class Concept
     @data[:reference_to] << other.name
     other.data[:referenced_by] << name
   end
+  # rubocop:enable Metrics/MethodLength
 
   def method_missing(method)
     @data[method]

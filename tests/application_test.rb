@@ -19,6 +19,7 @@ class ApplicationTest < Minitest::Test
               Application.instance.config['global']['internet'] == 'yes'
     assert_equal 'output', c['global']['outputdir']
     assert_equal 'default', c['global']['show_mode']
+    assert_equal [1, 1, 1], c['ai']['formula_weights'].split(',').map(&:to_i)
     assert_nil c['questions']['category']
     assert_nil c['questions']['exclude']
   end

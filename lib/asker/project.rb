@@ -21,7 +21,6 @@ class Project
   # Reset project params
   def reset
     @default = { inputbasedir: FileUtils.pwd,
-                formula_weights: [1, 1, 1],
                 stages: { d: true, b: true, f: true, i: true, s: true, t: true },
                 threshold: 0.5 }
     @param = {}

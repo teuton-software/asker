@@ -13,7 +13,6 @@ class ProjectTest < Minitest::Test
 
   def test_defaults_parms
     assert_equal FileUtils.pwd, @project.inputbasedir
-    assert_equal [1, 1, 1] , @project.formula_weights
     stages = {d: true, b: true, f: true, i: true, s: true, t: true}
     assert_equal stages   , @project.stages
   end
@@ -32,7 +31,7 @@ class ProjectTest < Minitest::Test
     @project.open
     Application.instance.config['global']['verbose'] = 'yes'
     assert_equal 15, @project.param.size
-    assert_equal 4,  @project.default.size
+    assert_equal 3,  @project.default.size
 
     assert_equal filename, @project.get(:process_file)
     assert_equal FileUtils.pwd, @project.get(:inputbasedir)
