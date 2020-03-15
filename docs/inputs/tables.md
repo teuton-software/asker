@@ -49,7 +49,6 @@ Example, adding meaning using 1 field table. Field called `members`:
 ```
 %concept
   %names AC/DC, ACDC
-  %tags single, seat, leg, backrest
   %tags rock, band, australia
   %table{ :fields => 'members'}
     %row Bon Scott
@@ -80,7 +79,6 @@ Example, adding meaning using 2 fields table. Fields called `attribute` and `val
 ```
   %concept
     %names AC/DC, ACDC
-    %tags single, seat, leg, backrest
     %tags rock, band, australia
     %table{ :fields => 'attribute, value'}
       %row
@@ -119,7 +117,6 @@ Sometimes we have a 1 field table where rows are sorted or form a sequence. In t
 ```
 %concept
   %names AC/DC, ACDC
-  %tags single, seat, leg, backrest
   %tags rock, band, australia
   %table{ :fields => 'Albums', :sequence => 'Albums sorted by date'}
     %row Albums High Voltage

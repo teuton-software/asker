@@ -10,20 +10,20 @@ class StageT < BaseStage
 
   def run(pTable, pRow, pList) # process_tableXfields
     questions = []
-    return questions unless type=="text"
+    return questions unless type == 'text'
 
-    if pTable.fields.count>1 then
+    if pTable.fields.count > 1
       questions = questions + process_table2fields(pTable, pRow, pList, 0, 1)
-    elsif pTable.fields.count>2 then
+    elsif pTable.fields.count > 2
       questions = questions + process_table2fields(pTable, pRow, pList, 0, 2)
-      questions = questions + process_table2fields(pTable, pRow, pList, 1, 2)
-    elsif pTable.fields.count>3 then
+      # questions = questions + process_table2fields(pTable, pRow, pList, 1, 2)
+    elsif pTable.fields.count > 3
       questions = questions + process_table2fields(pTable, pRow, pList, 0, 3)
-      questions = questions + process_table2fields(pTable, pRow, pList, 1, 3)
-      questions = questions + process_table2fields(pTable, pRow, pList, 2, 3)
+      # questions = questions + process_table2fields(pTable, pRow, pList, 1, 3)
+      # questions = questions + process_table2fields(pTable, pRow, pList, 2, 3)
     end
 
-    return questions
+    questions
   end
 
 private
