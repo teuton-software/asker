@@ -16,7 +16,7 @@ class Column
   def initialize(row, index, xml_data)
     @row    = row
     @index  = index
-    @id     = @row.id + '.' + @index.to_s
+    @id     = "#{@row.id}.#{@index}"
     @raw    = ''
     @lang   = @row.langs[@index]
     @type   = @row.types[@index]
