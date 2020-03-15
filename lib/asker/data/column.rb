@@ -52,7 +52,7 @@ class Column
     return unless xml_data.attributes['lang']
 
     code = xml_data.attributes['lang'].strip
-    return unless code == @lang.code
+    return if code == @lang.code
 
     @lang = LangFactory.instance.get(code)
     @simple[:lang] = false
@@ -63,8 +63,7 @@ class Column
     return unless xml_data.attributes['type']
 
     type = xml_data.attributes['type'].strip
-
-    return unless type == @type.to_s
+    return if type == @type.to_s
 
     @type = type
     @simple[:type] = false

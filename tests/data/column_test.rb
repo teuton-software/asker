@@ -52,10 +52,10 @@ class ColumnTest < Minitest::Test
     }
 
     @concepts = []
-    root_xml_data=REXML::Document.new(string_concept)
+    root_xml_data = REXML::Document.new(string_concept)
     root_xml_data.root.elements.each do |xml_data|
-      if xml_data.name=="concept" then
-        @concepts << Concept.new( xml_data, "input.haml", "en", ['starwars'])
+      if xml_data.name == 'concept'
+        @concepts << Concept.new(xml_data, 'input.haml', 'en', ['starwars'])
       end
     end
   end
