@@ -30,6 +30,7 @@ class RubocopTest < Minitest::Test
     @files[:data] << 'lib/asker/data/column.rb'
 #    @files[:data] << 'lib/asker/data/concept.rb'
     @files[:data] << 'lib/asker/data/data_field.rb'
+    @files[:data] << 'lib/asker/data/row.rb'
 
     @files[:exporter] = []
     @files[:exporter] << 'lib/asker/exporter/code_gift_exporter.rb'

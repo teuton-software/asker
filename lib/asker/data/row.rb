@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 require_relative 'column'
 
@@ -45,7 +46,7 @@ class Row
   def build_row_with_1_column(xml_data)
     # When row tag only has text, we add this text as one value array
     # This is usefull for tables with only one columns
-    @columns = [Column.new( self, @raws.size, xml_data)]
+    @columns = [Column.new(self, @raws.size, xml_data)]
     @raws    = [xml_data.text.strip.to_s]
 
     # read attributes from XML data
@@ -75,32 +76,41 @@ class Row
     @table.simple_off(:type)
   end
 
+  # rubocop:disable Metrics/MethodLength
   def build_row_with_n_columns(xml_data)
     xml_data.elements.each do |i|
       case i.name
       when 'lang'
-        j = i.text.split(',')
-        codes = @langs.map(&:code)
-
-        if j.join(',') != codes.join(',')
-          @langs = []
-          j.each { |k| @langs << LangFactory.instance.get(k.strip.to_s) }
-          @simple[:lang] = false
-          @table.simple_off(:lang)
-        end
+        read_langs_from_xml(i)
       when 'type'
-        j = i.text.split(',')
-        if j.join(',') != @types.join(',')
-          @types = []
-          j.each { |k| @types << k.strip.to_s }
-          @simple[:type] = false
-          @table.simple_off(:type)
-        end
+        read_types_from_xml(i)
       when 'col'
-        # When row tag has several columns, we add every value to the array
+        # When row has several columns, we add every value to the array
         @columns << Column.new(self, @raws.size, i) # Column Objects
         @raws << i.text.to_s
       end
     end
+  end
+  # rubocop:enable Metrics/MethodLength
+
+  def read_langs_from_xml(xml_data)
+    j = xml_data.text.split(',')
+    codes = @langs.map(&:code)
+    return if j.join(',') == codes.join(',')
+
+    @langs = []
+    j.each { |k| @langs << LangFactory.instance.get(k.strip.to_s) }
+    @simple[:lang] = false
+    @table.simple_off(:lang)
+  end
+
+  def read_types_from_xml(xml_data)
+    j = xml_data.text.split(',')
+    return if j.join(',') == @types.join(',')
+
+    @types = []
+    j.each { |k| @types << k.strip.to_s }
+    @simple[:type] = false
+    @table.simple_off(:type)
   end
 end
