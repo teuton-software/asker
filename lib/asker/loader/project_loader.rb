@@ -40,9 +40,9 @@ module ProjectLoader
   def self.load_from_string(filepath)
     project = Project.instance
     unless File.exist?(filepath)
-      msg = Rainbow("[WARN] ProjectLoader.load: #{arg} dosn't exists!").yellow.bright
-      project.verbose msg
-      raise msg
+      msg = Rainbow("[ERROR] #{filepath} not found!").red.bright
+      Logger.verbose msg
+      exit 1
     end
 
     if File.extname(filepath) == '.haml' || File.extname(filepath) == '.xml'
@@ -52,7 +52,7 @@ module ProjectLoader
     elsif File.extname(filepath) == '.yaml'
       return load_from_yaml(filepath)
     else
-      load_error(filepath)
+      error_loading(filepath)
     end
   end
 
@@ -64,9 +64,11 @@ module ProjectLoader
     project
   end
 
-  def self.load_error(arg)
-    msg = Rainbow("[ERROR] ProjectLoader.Input unkown: #{arg}").red.bright
-    Project.instance.verbose msg
-    raise msg
+  ##
+  # Error found and exit application.
+  def self.error_loading(arg)
+    msg = Rainbow("[ERROR] Loading... #{arg}").red.bright
+    Logger.verbose msg
+    exit 1
   end
 end

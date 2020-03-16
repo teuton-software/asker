@@ -14,21 +14,7 @@ class World
   # @param show_progress (Boolean)
   def initialize(concepts, show_progress=true)
     find_neighbors_for_every_concept(concepts)
-
-    @concepts   = {}
-    @filenames  = []
-    @contexts   = []
-
-    concepts.each do |c|
-      if c.process
-        @concepts[c.name] = c
-        @filenames << c.filename
-        @contexts  << c.context
-      end
-    end
-    @filenames.uniq!
-    @contexts.uniq!
-
+    @concepts, @filenames, @contexts = get_lists_from(concepts)
     @image_urls = find_url_images_from_internet(show_progress)
   end
 
@@ -44,6 +30,23 @@ class World
   end
 
   private
+
+  def get_lists_from(input)
+    concepts = {}
+    filenames = []
+    contexts = []
+
+    input.each do |c|
+      if c.process
+        concepts[c.name] = c
+        filenames << c.filename
+        contexts  << c.context
+      end
+    end
+    filenames.uniq!
+    contexts.uniq!
+    return [concepts, filenames, contexts]
+  end
 
   def find_url_images_from_internet(show_progress)
     param = Application.instance.config['global']['internet'] || 'yes'
