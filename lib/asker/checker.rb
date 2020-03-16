@@ -212,7 +212,7 @@ module Checker
       if count_spaces(line) == 6
         @outputs[index][:level] = 3
         parent = find_parent(index)
-        unless [:table, :features].include? parent
+        unless %i[table features].include? parent
           @outputs[index][:state] = :err
           @outputs[index][:msg] = 'Parent(table/features) not found!'
         end

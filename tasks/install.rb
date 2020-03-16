@@ -2,6 +2,7 @@
 
 require_relative 'utils'
 
+# rubocop:disable Metrics/BlockLength
 namespace :install do
   desc 'Check installation'
   task :check do
@@ -14,10 +15,9 @@ namespace :install do
     testfile = File.join('.', 'tests', 'all.rb')
     a = File.read(testfile).split("\n")
     b = a.select { |i| i.include? '_test' }
-    d = File.join('.', 'tests', '**', '*_test.rb')
-    e = Dir.glob(d)
+    c = Dir.glob(File.join('.', 'tests', '**', '*_test.rb'))
 
-    if b.size == e.size
+    if b.size == c.size
       puts "[ OK ] All ruby tests executed by #{testfile}"
     else
       puts "[FAIL] Some ruby tests are not executed by #{testfile}"
@@ -57,3 +57,4 @@ namespace :install do
     Utils.install_gems p, '--no-ri'
   end
 end
+# rubocop:enable Metrics/BlockLength

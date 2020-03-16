@@ -3,6 +3,7 @@
 # File: Rakefile
 # Usage: rake
 
+require_relative 'tasks/build'
 require_relative 'tasks/install'
 
 # Define tasks
@@ -14,26 +15,4 @@ end
 desc 'Show rake help'
 task :help do
   system('rake -T')
-end
-
-namespace :build do
-  desc 'Build all (gem and docs)'
-  task :all do
-    Rake::Task['build:gem'].invoke
-    Rake::Task['build:docs'].invoke
-  end
-
-  desc 'Build gem'
-  task :gem do
-    puts '[INFO] Building gem...'
-    system('rm asker-tool-*.*.*.gem')
-    system('gem build asker-tool.gemspec')
-  end
-
-  desc 'Build docs'
-  task :docs do
-    puts '[INFO] Generating documentation...'
-    system('rm -r html/')
-    system('yardoc lib/* -o html')
-  end
 end
