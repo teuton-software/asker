@@ -15,7 +15,7 @@ class RubocopTest < Minitest::Test
     @files[:lib] << 'tasks/utils.rb'
     @files[:lib] << 'lib/asker.rb'
     @files[:lib] << 'lib/asker/application.rb'
-#    @files[:lib] << 'lib/asker/checker.rb'
+    @files[:lib] << 'lib/asker/checker.rb'
 #    @files[:lib] << 'lib/asker/cli.rb'
     @files[:lib] << 'lib/asker/logger.rb'
 #    @files[:lib] << 'lib/asker/project.rb'

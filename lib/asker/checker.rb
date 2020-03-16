@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 require 'rainbow'
 
@@ -12,11 +13,11 @@ module Checker
   # @param filepath (String)
   def self.check(filepath)
     unless File.exist? filepath
-      puts Rainbow("File not found!").red.bright
+      puts Rainbow('File not found!').red.bright
       return false
     end
     unless File.extname(filepath) == '.haml'
-      puts Rainbow("Only check HAML files!").yellow.bright
+      puts Rainbow('Only check HAML files!').yellow.bright
       return false
     end
     check_filepath(filepath)
@@ -29,12 +30,17 @@ module Checker
     data = Data.new(filepath)
     data.check
     data.show_errors
-    data.is_ok?
+    data.ok?
   end
 
+  ##
+  # Internal class that revise syntax
+  # rubocop:disable Metrics/ClassLength
   class Data
     attr_reader :inputs
     attr_reader :outputs
+
+    # rubocop:disable Metrics/MethodLength
     def initialize(filepath)
       @inputs = File.read(filepath).split("\n")
       @outputs = []
@@ -49,8 +55,9 @@ module Checker
       end
       @ok = false
     end
+    # rubocop:enable Metrics/MethodLength
 
-    def is_ok?
+    def ok?
       @ok
     end
 
@@ -60,18 +67,31 @@ module Checker
       end
     end
 
+    # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/MethodLength
     def show_errors
       errors = 0
       @outputs.each do |i|
         next if i[:state] == :ok
-        errors += 1
-        puts "%02d" % i[:id] + ": %s." % i[:msg] + " => #{i[:source][0,40]}" if errors < 11
-        puts "..." if errors == 11
-      end
-      puts Rainbow("[ERROR] #{errors} errors from #{@inputs.size} lines!").red.bright if errors > 0
-      puts Rainbow("Syntax OK!").green if errors == 0
-    end
 
+        errors += 1
+        if errors < 11
+          data = { id: i[:id], msg: i[:msg], source: i[:source][0, 40] }
+          puts format('%<id>02d: %<msg>s. => %<source>s', data)
+        end
+        puts '...' if errors == 11
+      end
+      if errors.positive?
+        puts Rainbow("[ERROR] #{errors} errors " \
+                     "from #{@inputs.size} lines!").red.bright
+      end
+      puts Rainbow('Syntax OK!').green if errors.zero?
+    end
+    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/MethodLength
+
+    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize
     def check
       @ok = true
       @inputs.each_with_index do |line, index|
@@ -95,12 +115,14 @@ module Checker
       end
       @ok
     end
+    # rubocop:enable Metrics/MethodLength
+    # rubocop:enable Metrics/AbcSize
 
     private
 
     def check_empty_lines(line, index)
       return unless line.strip.size.zero? || line.start_with?('#')
-      
+
       @outputs[index][:type] = :empty
       @outputs[index][:level] = -1
       @outputs[index][:state] = :ok
@@ -413,4 +435,5 @@ module Checker
       a[0].count(' ')
     end
   end
+  # rubocop:enable Metrics/ClassLength
 end
