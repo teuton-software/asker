@@ -99,15 +99,16 @@ module Checker
     private
 
     def check_empty_lines(line, index)
-      if line.strip.size.zero? or line.start_with? '#'
-        @outputs[index][:type] = :empty
-        @outputs[index][:level] = -1
-        @outputs[index][:state] = :ok
-      end
+      return unless line.strip.size.zero? || line.start_with?('#')
+      
+      @outputs[index][:type] = :empty
+      @outputs[index][:level] = -1
+      @outputs[index][:state] = :ok
     end
 
+    # rubocop:disable Metrics/MethodLength
     def check_map(line, index)
-      if index == 0
+      if index.zero?
         @outputs[index][:type] = :map
         if line.start_with?('%map{')
           @outputs[index][:state] = :ok
@@ -115,13 +116,15 @@ module Checker
           @outputs[index][:state] = :err
           @outputs[index][:msg] = 'Start with %map{'
         end
-      elsif index > 0 and line.include?('%map{')
+      elsif index.positive? && line.include?('%map{')
         @outputs[index][:state] = :err
         @outputs[index][:type] = :map
         @outputs[index][:msg] = 'Write %map on line 0'
       end
     end
+    # rubocop:enable Metrics/MethodLength
 
+    # rubocop:disable Metrics/MethodLength
     def check_concept(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%concept'
@@ -137,7 +140,10 @@ module Checker
         @outputs[index][:msg] = 'Write 2 spaces before %concept'
       end
     end
+    # rubocop:enable Metrics/MethodLength
 
+    # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/MethodLength
     def check_names(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%names'
@@ -153,7 +159,11 @@ module Checker
         @outputs[index][:msg] = 'Write 4 spaces before %names'
       end
     end
+    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/MethodLength
 
+    # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/MethodLength
     def check_tags(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%tags'
@@ -169,7 +179,11 @@ module Checker
         @outputs[index][:msg] = 'Write 4 spaces before %tags'
       end
     end
+    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/MethodLength
 
+    # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/MethodLength
     def check_def(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%def'
@@ -185,7 +199,11 @@ module Checker
         @outputs[index][:msg] = 'Write 4 spaces before %def'
       end
     end
+    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/MethodLength
 
+    # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/MethodLength
     def check_table(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%table'
@@ -201,7 +219,13 @@ module Checker
         @outputs[index][:msg] = 'Write 4 spaces before %table'
       end
     end
+    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/MethodLength
 
+    # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/PerceivedComplexity
     def check_row(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%row'
@@ -227,7 +251,15 @@ module Checker
         @outputs[index][:msg] = 'Write 6 or 8 spaces before %row'
       end
     end
+    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/MethodLength
+    # rubocop:enable Metrics/PerceivedComplexity
 
+    # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/PerceivedComplexity
     def check_col(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%col'
@@ -251,7 +283,13 @@ module Checker
         @outputs[index][:msg] = 'Write 8 or 10 spaces before %col'
       end
     end
+    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/MethodLength
+    # rubocop:enable Metrics/PerceivedComplexity
 
+    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize
     def check_template(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%template'
@@ -267,7 +305,10 @@ module Checker
         @outputs[index][:msg] = 'Write 6 spaces before %template'
       end
     end
+    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/MethodLength
 
+    # rubocop:disable Metrics/MethodLength
     def check_code(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%code'
@@ -283,7 +324,10 @@ module Checker
         @outputs[index][:msg] = 'Write 2 spaces before %code'
       end
     end
+    # rubocop:enable Metrics/MethodLength
 
+    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize
     def check_type(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%type'
@@ -299,7 +343,11 @@ module Checker
         @outputs[index][:msg] = 'Write 4 spaces before %type'
       end
     end
+    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/MethodLength
 
+    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize
     def check_path(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%path'
@@ -315,7 +363,11 @@ module Checker
         @outputs[index][:msg] = 'Write 4 spaces before %type'
       end
     end
+    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/MethodLength
 
+    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize
     def check_features(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%features'
@@ -331,6 +383,8 @@ module Checker
         @outputs[index][:msg] = 'Write 4 spaces before %features'
       end
     end
+    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/MethodLength
 
     def check_unknown(line, index)
       return unless @outputs[index][:state] == :none
@@ -355,19 +409,8 @@ module Checker
     end
 
     def count_spaces(line)
-      return 0 if line.start_with? '%'
-      return 1 if line.start_with? ' %'
-      return 2 if line.start_with? '  %'
-      return 3 if line.start_with? '   %'
-      return 4 if line.start_with? '    %'
-      return 5 if line.start_with? '     %'
-      return 6 if line.start_with? '      %'
-      return 7 if line.start_with? '       %'
-      return 8 if line.start_with? '        %'
-      return 9 if line.start_with? '         %'
-      return 10 if line.start_with? '          %'
-
-      -1
+      a = line.split('%')
+      a[0].count(' ')
     end
   end
 end
