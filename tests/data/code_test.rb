@@ -23,12 +23,6 @@ class CodeTest < Minitest::Test
       assert_equal type, code.type
       assert_equal example[:lines], code.lines.size
       assert_equal false, code.process?
-      assert_equal 0, code.questions.size
-
-      code.process = true
-      code.make_questions
-      # puts code.filename, code.questions.size, example[:questions]
-      # assert_equal true, code.questions.size >= example[:questions]
     end
   end
 end
