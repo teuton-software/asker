@@ -12,12 +12,22 @@ require 'rainbow'
 module Skeleton
   ##
   # Create skeleton for asker input files
-  # @param dirpath (String) Folder path to save example files
-  def self.create_input(dirpath)
-    puts "\n[INFO] Creating example input #{Rainbow(dirpath).bright}"
+  # @param inputpath (String)
+  # rubocop:disable Metrics/MethodLength
+  def self.create_input(inputpath)
+    puts "\n[INFO] Creating example input #{Rainbow(inputpath).bright}"
+    if File.extname(inputpath) == '.haml'
+      dirpath = File.dirname(inputpath)
+      filename = File.basename(inputpath)
+    else
+      dirpath = inputpath
+      filename = 'example-concept.haml'
+    end
     create_dir dirpath
-    copy_files_into(dirpath)
+    source = File.join(File.dirname(__FILE__), 'files/example-concept.haml')
+    copyfile(source, File.join(dirpath, filename))
   end
+  # rubocop:enable Metrics/MethodLength
 
   ##
   # Create default configuration files
@@ -26,16 +36,6 @@ module Skeleton
     src = File.join(File.dirname(__FILE__), 'files', 'config.ini')
     dst = File.join('config.ini')
     copyfile(src, dst)
-  end
-
-  ##
-  # Copy lib/asker/files into Folder
-  # @param dirpath (String)
-  def self.copy_files_into(dirpath)
-    # Directory and files: example-concept.haml
-    source = File.join(File.dirname(__FILE__), 'files/example-concept.haml')
-    target = File.join(dirpath, 'example-concept.haml')
-    copyfile(source, target)
   end
 
   ##
