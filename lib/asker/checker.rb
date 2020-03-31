@@ -304,11 +304,25 @@ module Checker
         @outputs[index][:state] = :err
         @outputs[index][:msg] = 'Write 8 or 10 spaces before %col'
       end
+      check_text(line, index)
     end
     # rubocop:enable Metrics/AbcSize
     # rubocop:enable Metrics/CyclomaticComplexity
     # rubocop:enable Metrics/MethodLength
     # rubocop:enable Metrics/PerceivedComplexity
+
+    def check_text(line, index)
+      return unless @outputs[index][:state] == :ok
+
+      ok = ''
+      %w[< >].each do |char|
+        ok = char if line.include? char
+      end
+      return if ok == ''
+
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Char #{ok} not allow!"
+    end
 
     # rubocop:disable Metrics/MethodLength
     # rubocop:disable Metrics/AbcSize
