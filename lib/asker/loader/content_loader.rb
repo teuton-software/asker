@@ -41,7 +41,7 @@ module ContentLoader
   ##
   # Read lang attr from input XML data
   # @param xmldata (XML Object)
-  def self.read_lang_attribute(xmldata)
+  private_class_method def self.read_lang_attribute(xmldata)
     begin
       lang = xmldata.root.attributes['lang']
     rescue StandardError
@@ -53,7 +53,7 @@ module ContentLoader
   ##
   # Read context attr from input XML data
   # @param xmldata (XML Object)
-  def self.read_context_attribute(xmldata)
+  private_class_method def self.read_context_attribute(xmldata)
     begin
       context = xmldata.root.attributes['context']
     rescue StandardError
@@ -68,7 +68,7 @@ module ContentLoader
   # @param filepath (String)
   # @param lang
   # @param context
-  def self.read_concept(xmldata, filepath, lang, context)
+  private_class_method def self.read_concept(xmldata, filepath, lang, context)
     project = Project.instance
     c = Concept.new(xmldata, filepath, lang, context)
     if [ File.basename(filepath), :default ].include? project.process_file
@@ -81,7 +81,7 @@ module ContentLoader
   # Read code from input XML data
   # @param xmldata (XML Object)
   # @param filepath (String)
-  def self.read_code(xmldata, filepath)
+  private_class_method def self.read_code(xmldata, filepath)
     project = Project.instance
     c = CodeLoader.load(xmldata, filepath)
     if [ File.basename(filepath), :default ].include? project.process_file
@@ -90,7 +90,11 @@ module ContentLoader
     c
   end
 
-  def self.raise_error_with(filepath, content)
+  ##
+  # Raise error and save content into error.file
+  # @param filepath (String)
+  # @param content (String)
+  private_class_method def self.raise_error_with(filepath, content)
     msg = Rainbow("[ERROR] ContentLoader: Format error in #{filepath}").red.bright
     Logger.verbose msg
     f = File.open('output/error.xml', 'w')
