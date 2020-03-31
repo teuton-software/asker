@@ -71,16 +71,18 @@ module Checker
     # rubocop:disable Metrics/MethodLength
     def show_errors
       errors = 0
+      # puts "Line : Error description"
       @outputs.each do |i|
         next if i[:state] == :ok
 
         errors += 1
         if errors < 11
           data = { id: i[:id], msg: i[:msg], source: i[:source][0, 40] }
-          puts format('%<id>02d: %<msg>s. => %<source>s', data)
+          puts format(' %<id>03d : %<msg>s. => %<source>s', data)
         end
         puts '...' if errors == 11
       end
+
       if errors.positive?
         puts Rainbow("[ERROR] #{errors} errors " \
                      "from #{@inputs.size} lines!").red.bright
