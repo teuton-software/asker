@@ -3,7 +3,7 @@ require_relative 'lib/asker/application'
 Gem::Specification.new do |s|
   s.name        = Application::GEM
   s.version     = Application::VERSION
-  s.date        = '2020-03-12'
+  s.date        = '2020-04-01'
   s.summary     = "Asker generates questions from input definitions file."
   s.description = "ASKER helps trainers to create a huge amount of questions, from a definitions input file."
 
