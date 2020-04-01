@@ -6,7 +6,8 @@ Gem::Specification.new do |s|
   s.date        = '2020-03-12'
   s.summary     = "Asker generates questions from input definitions file."
   s.description = "ASKER helps trainers to create a huge amount of questions, from a definitions input file."
-  s.extra_rdoc_files = [ 'README.md', 'LICENSE' ]
+
+  s.extra_rdoc_files = [ 'README.md', 'LICENSE.txt' ]
 
   s.license     = 'GPL-3.0'
   s.authors     = ['David Vargas Ruiz']

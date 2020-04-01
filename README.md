@@ -7,7 +7,7 @@ Generate a lot of questions from an _input file_ base on your own _definitions_.
 
 ASKER helps trainers to create a huge amount of questions, from a definitions (_conceptual entities_) input file.
 
-* Free Software [LICENSE](https://github.com/dvarrui/asker/blob/devel/LICENSE).
+* Free Software [LICENSE](https://github.com/dvarrui/asker/blob/devel/LICENSE.txt).
 * Multiplatform.
 * Ruby program.
 
@@ -25,14 +25,13 @@ Steps:
 1. Create an input file with your definitions (_conceptual entities_).
 1. Run _asker_ and get the results into `output` directory.
 
-Run `asker` with our example input file as argument (`jedi.haml`):
+Example: Running `asker` with our example input file as argument (`jedi.haml`):
 
 ```
 asker docs/examples/starwars/jedi.haml
 ```
 
 * Output files created into the `output` folder.
-* This example use an example input definition file `docs/examples/starwars/jedi.haml`, with concepts about _"Jedi's"_. ;-)
 * More [example input files](https://github.com/dvarrui/asker/tree/devel/docs/examples).
 * More asker input files at `github/dvarrui/asker-inputs` repository.
 
