@@ -13,6 +13,10 @@ module ConceptAIGiftExporter
     concepts_ai.each { |concept_ai| export(concept_ai, project) }
   end
 
+  ##
+  # Export 1 concept_ai from project
+  # @param concept_ai (ConceptAI)
+  # @param project (Project)
   private_class_method def self.export(concept_ai, project)
     return unless concept_ai.process?
 
@@ -25,7 +29,11 @@ module ConceptAIGiftExporter
     end
   end
 
-  def self.head(name)
+  ##
+  # Convert Concept name into gift format head
+  # @param name (String)
+  # @return String
+  private_class_mmethod def self.head(name)
     s = "\n"
     s += '// ' + '=' * 50 + "\n"
     s += "// Concept name: #{name}\n"
