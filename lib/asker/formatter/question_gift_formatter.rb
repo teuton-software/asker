@@ -1,7 +1,11 @@
-# encoding: utf-8
+# frozen_string_literal: false
 
 # Transform Questions into Gift format
 module QuestionGiftFormatter
+  ##
+  # Convert question object into gift formatted string
+  # @param question (Question)
+  # @return String
   def self.to_s(question)
     @question = question
     # Return question using gift format
@@ -52,6 +56,10 @@ module QuestionGiftFormatter
     s
   end
 
+  ##
+  # Sanitize gift text
+  # @param input (String)
+  # @return String
   def self.sanitize(input = '')
     output = input.dup
     output.gsub!("#", "\\#")
