@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require_relative '../project'
 require_relative '../formatter/question_gift_formatter'
@@ -17,6 +17,7 @@ module ConceptAIGiftExporter
   # Export 1 concept_ai from project
   # @param concept_ai (ConceptAI)
   # @param project (Project)
+  # rubocop:disable Metrics/AbcSize
   private_class_method def self.export(concept_ai, project)
     return unless concept_ai.process?
 
@@ -28,6 +29,7 @@ module ConceptAIGiftExporter
       end
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   ##
   # Convert Concept name into gift format head
