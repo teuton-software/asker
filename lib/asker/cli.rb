@@ -22,17 +22,18 @@ class CLI < Thor
   map ['f', '-f', '--file'] => 'file'
   desc 'file NAME', 'Build output files, from HAML/XML input file.'
   long_desc <<-LONGDESC
-  Create output files, from input file (HAML/XML format).
 
   Build questions about contents defined into input file specified.
 
+  Create output files, from input file (HAML/XML format).
+
   Examples:
 
-  (1) #{Rainbow('asker input/foo/foo.haml').yellow}, Build questions from HAML file.
+  (1) #{Rainbow('asker input/foo/foo.haml').aqua}, Build questions from HAML file.
 
-  (2) #{Rainbow('asker input/foo/foo.xml').yellow}, Build questions from XML file.
+  (2) #{Rainbow('asker input/foo/foo.xml').aqua}, Build questions from XML file.
 
-  (3) #{Rainbow('asker projects/foo/foo.yaml').yellow}, Build questions from YAML project file.
+  (3) #{Rainbow('asker projects/foo/foo.yaml').aqua}, Build questions from YAML project file.
 
   LONGDESC
   ##
@@ -56,14 +57,14 @@ class CLI < Thor
   end
 
   map ['i', '-i', '--init'] => 'init'
-  desc 'init', 'Create default INI config fie'
+  desc 'init', 'Create default INI config file'
   ##
   # Create default INI config file
   def init
     Asker.create_configuration
   end
 
-  map ['n', '-b', '--new', 'new'] => 'create_input'
+  map ['n', '-n', '--new', 'new'] => 'create_input'
   desc 'new', 'Create Asker demo input files'
   ##
   # Create Asker demo input files
