@@ -8,8 +8,8 @@ require 'rainbow'
 class Application
   include Singleton
 
-  VERSION = '2.1.6'    # Application version
-  NAME = 'asker'       # Application name
+  VERSION = '2.1.7'  # Application version
+  NAME = 'asker'     # Application name
   GEM = 'asker-tool' # Gem name
   attr_reader :config
 

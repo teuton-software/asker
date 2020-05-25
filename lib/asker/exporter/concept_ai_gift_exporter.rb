@@ -35,7 +35,7 @@ module ConceptAIGiftExporter
   # Convert Concept name into gift format head
   # @param name (String)
   # @return String
-  private_class_mmethod def self.head(name)
+  private_class_method def self.head(name)
     s = "\n"
     s += '// ' + '=' * 50 + "\n"
     s += "// Concept name: #{name}\n"
