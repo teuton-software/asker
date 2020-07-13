@@ -54,7 +54,7 @@ namespace :install do
   task :devel do
     puts '[INFO] Installing developer Ruby gems...'
     p = %w[rubocop minitest pry-byebug yard]
-    Utils.install_gems p, '--no-ri'
+    Utils.install_gems p
   end
 end
 # rubocop:enable Metrics/BlockLength
