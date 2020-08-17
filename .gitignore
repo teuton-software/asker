@@ -7,3 +7,4 @@ OLD/*
 *.devel/
 *.gem
 html/
+output
