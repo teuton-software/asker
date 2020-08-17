@@ -2,3 +2,4 @@
 html
 *.gem
 *.devel
+output
