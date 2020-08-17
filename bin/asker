@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require 'asker/cli'
+
+# Start Asker command line interface
+CLI.start(ARGV)

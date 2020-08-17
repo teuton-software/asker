@@ -1,9 +1,0 @@
-
-<div class="page-header">
-<h2>File: <%= File.basename(@filename) %></h2>
-<p>Directory: <%= html_for_current(:indexlast => true) %>
-  | <a href="/concept/list/<%= route_for(@filename) %>">Concepts <span class="badge"><%= @concepts.size.to_s%></span></a>
-</p>
-</div>
-
-<%= @filecontent %>

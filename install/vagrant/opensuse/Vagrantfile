@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "asker-opensuse" do |i|
+    i.vm.box = "opensuse/openSUSE-15.0-x86_64"
+    i.vm.hostname = "asker-opensuse"
+#    i.vm.network "public_network", bridge: [ "eth1" ]
+    i.vm.synced_folder "./", "/vagrant"
+    i.vm.provision "shell", inline: <<-SHELL
+      gem install asker-tool
+      zypper install -y git
+      git clone https://github.com/dvarrui/asker-inputs
+      chown -R vagrant:vagrant asker-inputs/
+    SHELL
+    i.vm.provider "virtualbox" do |v|
+      v.name = 'asker-opensuse'
+      v.memory = 2048
+    end
+  end
+end

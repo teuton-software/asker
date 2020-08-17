@@ -1,20 +1,21 @@
 #!/usr/bin/ruby
 
-require "minitest/autorun"
+require 'minitest/autorun'
 
-require_relative "../../lib/lang/lang_factory"
-require_relative "../../lib/project"
+require_relative '../../lib/asker/lang/lang_factory'
+require_relative '../../lib/asker/application'
 
 class LangFactoryTest < Minitest::Test
   def setup
-    @codes = Project.instance.locales
   end
 
   def test_hide_text
-    @codes.each do |code|
-      lang = LangFactory.instance.get( code )
-      assert_equal code,  lang.lang
-      assert_equal code,  lang.code
+    languages = Application.instance.config['languages']
+    languages.each_pair do |key, value|
+      next if key.downcase == 'default' || value.downcase != 'yes'
+      lang = LangFactory.instance.get(key)
+      assert_equal key,  lang.lang
+      assert_equal key,  lang.code
     end
   end
 

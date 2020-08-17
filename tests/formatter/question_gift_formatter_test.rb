@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 
 require 'minitest/autorun'
-require_relative '../../lib/ai/question'
-require_relative '../../lib/formatter/question_gift_formatter'
+require_relative '../../lib/asker/ai/question'
+require_relative '../../lib/asker/formatter/question_gift_formatter'
 
 class QuestionGiftFormatterTest < Minitest::Test
   def setup

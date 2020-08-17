@@ -3,7 +3,7 @@
 require 'minitest/autorun'
 require 'rexml/document'
 
-require_relative '../../lib/data/data_field'
+require_relative '../../lib/asker/data/data_field'
 
 # Define class DataFieldTest to test DataField class
 class DataFieldTest < Minitest::Test

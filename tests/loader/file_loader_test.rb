@@ -1,15 +1,15 @@
 #!/usr/bin/ruby
 
 require 'minitest/autorun'
-require_relative '../../lib/loader/project_loader'
-require_relative '../../lib/loader/file_loader'
+require_relative '../../lib/asker/application'
+require_relative '../../lib/asker/loader/project_loader'
+require_relative '../../lib/asker/loader/file_loader'
 
 class FileLoaderTest < Minitest::Test
   def test_load_jedi
     filepath = 'tests/input/starwars/jedi.haml'
-    project = Project.instance
-    project.reset
-    project.set(:verbose, false)
+    Project.instance.reset
+    Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
 
     data = FileLoader.load filepath
@@ -22,13 +22,12 @@ class FileLoaderTest < Minitest::Test
     assert_equal true, data[:concepts][1].process?
     assert_equal 0, data[:codes].size
 
-    project.reset
+    Project.instance.reset
   end
 
   def test_load_sith
-    project = Project.instance
-    project.reset
-    project.set(:verbose, false)
+    Project.instance.reset
+    Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load('tests/input/starwars/jedi.haml')
 
     data = FileLoader.load 'tests/input/starwars/sith.haml'
@@ -41,14 +40,13 @@ class FileLoaderTest < Minitest::Test
     assert_equal false, data[:concepts][1].process?
     assert_equal 0, data[:codes].size
 
-    project.reset
+    Project.instance.reset
   end
 
   def test_load_test_input_ruby
     filepath = 'tests/input/ruby/ruby1.haml'
-    project = Project.instance
-    project.reset
-    project.set(:verbose, false)
+    Project.instance.reset
+    Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
 
     data = FileLoader.load filepath
@@ -75,6 +73,6 @@ class FileLoaderTest < Minitest::Test
     assert_equal 7, data[:codes][1].lines.size
     assert_equal 10, data[:codes][2].lines.size
 
-    project.reset
+    Project.instance.reset
   end
 end

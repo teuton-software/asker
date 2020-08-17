@@ -3,10 +3,10 @@
 require "minitest/autorun"
 require 'rexml/document'
 
-require_relative "../../../lib/ai/stages/base_stage"
-require_relative "../../../lib/data/concept"
-require_relative "../../../lib/data/world"
-require_relative "../../../lib/ai/concept_ai"
+require_relative "../../../lib/asker/ai/stages/base_stage"
+require_relative "../../../lib/asker/data/concept"
+require_relative "../../../lib/asker/data/world"
+require_relative "../../../lib/asker/ai/concept_ai"
 
 class BaseStageTest < Minitest::Test
   def setup

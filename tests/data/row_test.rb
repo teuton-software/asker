@@ -3,9 +3,9 @@
 require "minitest/autorun"
 require 'rexml/document'
 
-require_relative "../../lib/data/concept"
-require_relative "../../lib/data/table"
-require_relative "../../lib/data/row"
+require_relative "../../lib/asker/data/concept"
+require_relative "../../lib/asker/data/table"
+require_relative "../../lib/asker/data/row"
 
 class RowTest < Minitest::Test
   def setup

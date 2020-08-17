@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
-require "minitest/autorun"
-require_relative "../../lib/ai/question"
+require 'minitest/autorun'
+require_relative "../../lib/asker/ai/question"
 
 class QuestionTest < Minitest::Test
   def setup

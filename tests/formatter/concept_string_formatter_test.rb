@@ -1,38 +1,46 @@
 #!/usr/bin/ruby
 
 require 'minitest/autorun'
-require_relative '../../lib/loader/project_loader'
-require_relative '../../lib/loader/input_loader'
-require_relative '../../lib/formatter/string_color_filter'
-require_relative '../../lib/formatter/concept_string_formatter'
+require_relative '../../lib/asker/application'
+require_relative '../../lib/asker/loader/project_loader'
+require_relative '../../lib/asker/loader/input_loader'
+# require_relative '../../lib/asker/formatter/string_color_filter'
+require_relative '../../lib/asker/formatter/concept_string_formatter'
 
 class ConceptStringFormatterTest < Minitest::Test
   def test_load_jedi_haml
     filepath = 'tests/input/starwars/jedi.haml'
-    project = Project.instance
-    project.reset
+    Project.instance.reset
+    Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
-    project.set(:verbose, false)
-    project.set(:color_output, false)
 
-    data = InputLoader.load
+    Rainbow.enabled = false
+    data = InputLoader.load(['tests/input/starwars'])
 
-    t =  "+---------------+-------------------------------------------------------+\n"
-    t += "| 1             | obiwan (lang=en)                                      |\n"
-    t += "| Filename      | tests/input/starwars/jedi.haml                        |\n"
+#    t =  "+---------------+-------------------------------------------------------+\n"
+#    t += "| 1             | obiwan (lang=en)                                      |\n"
+    t = "| Filename      | tests/input/starwars/jedi.haml                        |\n"
     t += "| Context       | character, starwars                                   |\n"
     t += "| Tags          | jedi, teacher, annakin, skywalker, pupil, quigon-jinn |\n"
     t += "| Reference to  |                                                       |\n"
     t += "| Referenced by |                                                       |\n"
     t += "| .def(text)    | Jedi, teacher of Annakin  Skywalker                   |\n"
     t += "|               | Jedi, pupil of Quigon-Jinn                            |\n"
-    t += "| .def(images)  | 0                                                     |\n"
     t += "| .tables       | $attribute$value                                      |\n"
-    t += "| .neighbors    |                                                       |\n"
+    t += "| .neighbors    | yoda(44.44)                                           |\n"
+    t += "|               | sidious(44.44)                                        |\n"
+    t += "|               | maul(22.22)                                           |\n"
     t += "+---------------+-------------------------------------------------------+\n"
 
-    f = StringColorFilter.filter(ConceptStringFormatter.to_s(data[:concepts][0]))
-    assert_equal t, f
-    project.reset
+    t2 = t.split("\n")
+
+    b2 = ConceptStringFormatter.to_s(data[:concepts][0]).split("\n")
+    b2.delete_at(0)
+    b2.delete_at(0)
+    t2.each_with_index do |line, index|
+      assert_equal line, b2[index]
+    end
+    Project.instance.reset
+    Rainbow.enabled = true
   end
 end

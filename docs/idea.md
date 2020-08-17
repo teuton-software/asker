@@ -39,6 +39,6 @@ science. I have a lot of functions to be improved and features to be added.
 But for now, It's usefull (for me at least), and hope it will be for you too.
 ;-)
 
-Thanks!
+_Thanks!_
 
-_David Vargas_
+David Vargas

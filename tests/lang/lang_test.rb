@@ -1,11 +1,11 @@
 #!/usr/bin/ruby
 
-require "minitest/autorun"
-require_relative "../../lib/lang/lang"
+require 'minitest/autorun'
+require_relative '../../lib/asker/lang/lang'
 
 class LangTest < Minitest::Test
   def setup
-    @lang = { :en => Lang.new("en"), :es => Lang.new("es") }
+    @lang = { :en => Lang.new('en'), :es => Lang.new('es') }
     @texts = [ 'hello', 'hello world!', 'bye,bye' ]
     @hides = [ '[*]', '????? ?????!', '???,???' ]
   end
