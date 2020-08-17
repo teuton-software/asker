@@ -15,8 +15,7 @@ class CLI < Thor
   ##
   # Show current version
   def version
-    print Rainbow(Application::NAME).bright.blue
-    puts  " (version #{Rainbow(Application::VERSION).green})"
+    puts "#{Application::NAME} version #{Application::VERSION}"
   end
 
   map ['f', '-f', '--file'] => 'file'
