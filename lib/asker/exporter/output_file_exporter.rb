@@ -11,12 +11,11 @@ module OutputFileExporter
   def self.export(data, project)
     config = Application.instance.config
     DataGiftExporter.export_all(data, project) if config['output']['gift'] == 'yes'
-    #ConceptAIGiftExporter.export_all(data[:concepts_ai], project) if config['output']['gift'] == 'yes'
-    #CodeGiftExporter.export_all(data[:codes_ai], project.get(:outputfile)) if config['output']['gift'] == 'yes'
-    # >>> UNDER DEVELOPMENT
-    ConceptAIMoodleExporter.export_all(data[:concepts_ai], project) if config['output']['moodle'] == 'yes'
-    # <<< UNDER DEVELOPMENT
     ConceptAIYAMLExporter.export_all(data[:concepts_ai], project) if config['output']['yaml'] == 'yes'
     ConceptDocExporter.export_all(data[:concepts], project) if config['output']['doc'] == 'yes'
+    # ConceptAIGiftExporter.export_all(data[:concepts_ai], project) if config['output']['gift'] == 'yes'
+    # CodeGiftExporter.export_all(data[:codes_ai], project.get(:outputfile)) if config['output']['gift'] == 'yes'
+    # UNDER DEVELOPMENT
+    ConceptAIMoodleExporter.export_all(data[:concepts_ai], project) if config['output']['moodle'] == 'yes'
   end
 end

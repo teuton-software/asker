@@ -3,10 +3,10 @@
 require_relative 'concept_ai_gift_exporter'
 require_relative 'code_gift_exporter'
 
-# Export ConceptIA and Code data to gift to outputfile
+# Export Data (ConceptIA and Code) to gift to outputfile
 module DataGiftExporter
   ##
-  # Export an array of ConceptAI and Code objects into GIFT outpufile
+  # Export an array of Data (ConceptAI and Code objects) into GIFT outpufile
   # @param data (Hash)
   # @param project (Project)
   def self.export_all(data, project)
