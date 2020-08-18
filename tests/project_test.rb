@@ -30,7 +30,7 @@ class ProjectTest < Minitest::Test
     Application.instance.config['global']['verbose'] = 'no'
     @project.open
     Application.instance.config['global']['verbose'] = 'yes'
-    assert_equal 17, @project.param.size
+    assert_equal 15, @project.param.size
     assert_equal 3,  @project.default.size
 
     assert_equal filename, @project.get(:process_file)
@@ -41,12 +41,12 @@ class ProjectTest < Minitest::Test
     assert_equal "#{projectname}-log.txt" , @project.get(:logname)
     assert_equal "#{projectname}-doc.txt" , @project.get(:lessonname)
     assert_equal "#{projectname}.yaml" , @project.get(:yamlname)
-    assert_equal "#{projectname}.xml" , @project.get(:moodlename)
+    assert_equal "#{projectname}-moodle.xml" , @project.get(:moodlename)
 
     assert_equal File.join("output", "#{projectname}-gift.txt"), @project.get(:outputpath)
     assert_equal File.join("output", "#{projectname}-log.txt" ), @project.get(:logpath)
     assert_equal File.join("output", "#{projectname}-doc.txt" ), @project.get(:lessonpath)
     assert_equal File.join("output", "#{projectname}.yaml" ), @project.get(:yamlpath)
-    assert_equal File.join("output", "#{projectname}.xml" ), @project.get(:moodlepath)
+    assert_equal File.join("output", "#{projectname}-moodle.xml" ), @project.get(:moodlepath)
   end
 end

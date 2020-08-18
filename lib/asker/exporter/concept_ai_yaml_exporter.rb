@@ -17,7 +17,10 @@ module ConceptAIYAMLExporter
     params = { lang: project.get(:lang) ,
                projectname: project.get(:projectname) }
     output = { params: params, questions: questions }
-    project.get(:yamlfile).write(output.to_yaml)
+
+    yamlfile = File.open(project.get(:yamlpath), 'w')
+    yamlfile.write(output.to_yaml)
+    yamlfile.close
   end
 
   private_class_method def self.get_questions_from(concept_ai)

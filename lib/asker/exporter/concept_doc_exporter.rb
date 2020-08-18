@@ -7,9 +7,18 @@ require_relative '../formatter/concept_doc_formatter'
 module ConceptDocExporter
   ##
   # Export arrya of concepts to doc
-  def self.export_all(concepts, file)
+  def self.export_all(concepts, project)
+    file = File.new(project.get(:lessonpath), 'w')
+    file.write('=' * 50 + "\n")
+    file.write("Created by : #{Application::NAME} (version #{Application::VERSION})\n")
+    file.write("File       : #{project.get(:lessonname)}\n")
+    file.write("Time       : #{Time.new}\n")
+    file.write("Author     : David Vargas Ruiz\n")
+    file.write('=' * 50 + "\n")
+
     concepts.each do |concept|
       file.write(ConceptDocFormatter.to_s(concept)) if concept.process
     end
+    file.close
   end
 end

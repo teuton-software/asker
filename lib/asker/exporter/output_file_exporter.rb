@@ -13,6 +13,6 @@ module OutputFileExporter
     # UNDER DEVELOPMENT
     CodeGiftExporter.export_all(data[:codes_ai], project.get(:outputfile))
     ConceptAIYAMLExporter.export_all(data[:concepts_ai], project)
-    ConceptDocExporter.export_all(data[:concepts], project.get(:lessonfile))
+    ConceptDocExporter.export_all(data[:concepts], project)
   end
 end

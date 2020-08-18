@@ -60,7 +60,7 @@ class Project
     @param[:outputname] = "#{@param[:projectname]}-gift.txt"
     @param[:lessonname] = "#{@param[:projectname]}-doc.txt"
     @param[:yamlname] = "#{@param[:projectname]}.yaml"
-    @param[:moodlename] = "#{@param[:projectname]}.xml"
+    @param[:moodlename] = "#{@param[:projectname]}-moodle.xml"
 
     outputdir = config['global']['outputdir']
     @param[:logpath] = File.join(outputdir, get(:logname))
@@ -72,8 +72,6 @@ class Project
     Dir.mkdir(outputdir) unless Dir.exist?(outputdir)
     create_log_file
     create_output_file
-    create_lesson_file
-    create_yaml_file
   end
 
   ##
@@ -81,8 +79,6 @@ class Project
   def close
     get(:logfile).close
     get(:outputfile).close
-    get(:lessonfile).close
-    get(:yamlfile).close
   end
 
   def method_missing(method, *_args, &_block)
@@ -122,23 +118,5 @@ class Project
     f.write('// ' + ('=' * 50) + "\n\n")
     category = config['questions']['category']
     f.write("$CATEGORY: $course$/#{category}\n") unless category.nil?
-  end
-
-  # Create or reset lesson file
-  def create_lesson_file
-    @param[:lessonfile] = File.new(get(:lessonpath), 'w')
-    f = get(:lessonfile)
-    f.write('=' * 50 + "\n")
-    f.write("Created by : #{Application::NAME}")
-    f.write(" (version #{Application::VERSION})\n")
-    f.write("File       : #{get(:lessonname)}\n")
-    f.write("Time       : #{Time.new}\n")
-    f.write("Author     : David Vargas Ruiz\n")
-    f.write('=' * 50 + "\n")
-  end
-
-  # Create or reset yaml file
-  def create_yaml_file
-    @param[:yamlfile] = File.open(get(:yamlpath), 'w')
   end
 end
