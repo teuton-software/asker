@@ -8,7 +8,10 @@ module ConceptAIMoodleExporter
   # @param file (File)
   def self.export_all(concepts_ai, project)
     file = File.open(project.get(:moodlepath), 'w')
-    file.write('Moodle XML file')
+    file.write('Moodle XML file\n')
+
+    concepts_ai.each { |concept_ai| export(concept_ai, file) }
+
     file.close
   end
 
@@ -20,10 +23,9 @@ module ConceptAIMoodleExporter
   private_class_method def self.export(concept_ai, file)
     return unless concept_ai.process?
 
-    file.write head(concept_ai.name)
     Application.instance.config['questions']['stages'].each do |stage|
       concept_ai.questions[stage].each do |question|
-        file.write("QuestionMoodleFormatter.to_s(#{question.name})")
+        file.write("QuestionMoodleFormatter.to_s(#{question.name})\n")
       end
     end
   end
