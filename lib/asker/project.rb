@@ -61,7 +61,7 @@ class Project
     @param[:yamlname] = "#{@param[:projectname]}.yaml"
     @param[:moodlename] = "#{@param[:projectname]}-moodle.xml"
 
-    outputdir = config['global']['outputdir']
+    outputdir = config['output']['folder']
     @param[:logpath] = File.join(outputdir, get(:logname))
     @param[:outputpath] = File.join(outputdir, get(:outputname))
     @param[:lessonpath] = File.join(outputdir, get(:lessonname))
