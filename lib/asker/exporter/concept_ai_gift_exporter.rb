@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../project'
 require_relative '../formatter/question_gift_formatter'
 
 # Export ConceptIA data to gift to outputfile
