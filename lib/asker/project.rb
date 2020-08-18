@@ -53,23 +53,21 @@ class Project
   def open
     config = Application.instance.config
     ext = File.extname(@param[:process_file]) || '.haml'
-    #@param[:process_file] = @param[:process_file] ||
-    #                        get(:projectdir).split(File::SEPARATOR).last + ext
     @param[:projectname] = @param[:projectname] ||
                            File.basename(@param[:process_file], ext)
-    #@param[:inputdirs] = @param[:inputdirs] ||
-    #                     File.join(get(:inputbasedir), @param[:projectdir])
 
     @param[:logname] = "#{@param[:projectname]}-log.txt"
     @param[:outputname] = "#{@param[:projectname]}-gift.txt"
     @param[:lessonname] = "#{@param[:projectname]}-doc.txt"
     @param[:yamlname] = "#{@param[:projectname]}.yaml"
+    @param[:moodlename] = "#{@param[:projectname]}.xml"
 
     outputdir = config['global']['outputdir']
     @param[:logpath] = File.join(outputdir, get(:logname))
     @param[:outputpath] = File.join(outputdir, get(:outputname))
     @param[:lessonpath] = File.join(outputdir, get(:lessonname))
     @param[:yamlpath] = File.join(outputdir, get(:yamlname))
+    @param[:moodlepath] = File.join(outputdir, get(:moodlename))
 
     Dir.mkdir(outputdir) unless Dir.exist?(outputdir)
     create_log_file
