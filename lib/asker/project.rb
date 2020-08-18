@@ -2,7 +2,6 @@
 
 require 'singleton'
 require 'rainbow'
-# require 'fileutils'
 require_relative 'application'
 require_relative 'logger'
 
@@ -70,36 +69,10 @@ class Project
     @param[:moodlepath] = File.join(outputdir, get(:moodlename))
 
     Dir.mkdir(outputdir) unless Dir.exist?(outputdir)
-    create_log_file # We will write logger messages into this file during the process
-  end
-
-  ##
-  # Close log file
-  def close_logfile
-    get(:logfile).close
+    Logger.create(self) # Create log file where to save log messages
   end
 
   def method_missing(method, *_args, &_block)
     get(method)
   end
-
-  private
-
-  # create or reset logfile
-  def create_log_file
-    @param[:logfile] = File.open(get(:logpath), 'w')
-    f = get(:logfile)
-    f.write('=' * 50 + "\n")
-    f.write("Created by : #{Application::NAME}")
-    f.write(" (version #{Application::VERSION})\n")
-    f.write("File       : #{get(:logname)}\n")
-    f.write("Time       : #{Time.new}\n")
-    f.write("Author     : David Vargas Ruiz\n")
-    f.write('=' * 50 + "\n\n")
-
-    Logger.verbose '[INFO] Project open'
-    Logger.verbose '   ├── inputdirs    = ' + Rainbow(get(:inputdirs)).bright
-    Logger.verbose '   └── process_file = ' + Rainbow(get(:process_file)).bright
-  end
-
 end
