@@ -29,7 +29,10 @@ class LangFactory
   # Return Lang object associated to code
   # @param code (String)
   def get(code)
-    @langs[code]
+    return @langs[code] unless @langs[code].nil?
+    puts Rainbow("[ERROR] Unkown Lang code: #{code}").bright
+    puts Rainbow("        Change input file code lang, revise configuration from config.ini and template files.").bright
+    exit 1
   end
 
   ##
