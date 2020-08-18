@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative '../formatter/question_moodle_formatter'
+
 # Export ConceptIA data to gift to moodlefile
 module ConceptAIMoodleExporter
   ##
@@ -8,7 +10,7 @@ module ConceptAIMoodleExporter
   # @param file (File)
   def self.export_all(concepts_ai, project)
     file = File.open(project.get(:moodlepath), 'w')
-    file.write('Moodle XML file\n')
+    file.write("Moodle XML file\n")
 
     concepts_ai.each { |concept_ai| export(concept_ai, file) }
 
@@ -25,7 +27,7 @@ module ConceptAIMoodleExporter
 
     Application.instance.config['questions']['stages'].each do |stage|
       concept_ai.questions[stage].each do |question|
-        file.write("QuestionMoodleFormatter.to_s(#{question.name})\n")
+        file.write(QuestionMoodleFormatter.to_s(question))
       end
     end
   end
