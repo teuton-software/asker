@@ -66,7 +66,7 @@ class Asker
                    Rainbow(project.get(:lessonpath)).bright
     OutputFileExporter.export(data, project)
     StatsDisplayer.show(data)
-    project.close # Logger use Project.get(:logfile) until the end
+    project.close_logfile
   end
   # rubocop:enable Metrics/AbcSize
 end

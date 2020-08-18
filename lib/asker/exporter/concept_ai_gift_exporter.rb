@@ -9,8 +9,21 @@ module ConceptAIGiftExporter
   # Export an array of ConceptAI objects from Project into GIFT outpufile
   # @param concepts_ai (Array)
   # @param file (File)
-  def self.export_all(concepts_ai, file)
+  def self.export_all(concepts_ai, project)
+    file = File.open(project.get(:outputpath), 'w')
+    file.write('// ' + ('=' * 50) + "\n")
+    file.write("// Created by : #{Application::NAME}")
+    file.write(" (version #{Application::VERSION})\n")
+    file.write("// File       : #{project.get(:outputname)}\n")
+    file.write("// Time       : #{Time.new}\n")
+    file.write("// Author     : David Vargas Ruiz\n")
+    file.write('// ' + ('=' * 50) + "\n\n")
+    category = Application.instance.config['questions']['category']
+    file.write("$CATEGORY: $course$/#{category}\n") unless category.nil?
+
     concepts_ai.each { |concept_ai| export(concept_ai, file) }
+
+    file.close
   end
 
   ##

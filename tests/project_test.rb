@@ -30,7 +30,7 @@ class ProjectTest < Minitest::Test
     Application.instance.config['global']['verbose'] = 'no'
     @project.open
     Application.instance.config['global']['verbose'] = 'yes'
-    assert_equal 15, @project.param.size
+    assert_equal 14, @project.param.size
     assert_equal 3,  @project.default.size
 
     assert_equal filename, @project.get(:process_file)

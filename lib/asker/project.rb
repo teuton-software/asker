@@ -70,15 +70,13 @@ class Project
     @param[:moodlepath] = File.join(outputdir, get(:moodlename))
 
     Dir.mkdir(outputdir) unless Dir.exist?(outputdir)
-    create_log_file
-    create_output_file
+    create_log_file # We will write logger messages into this file during the process
   end
 
   ##
-  # Close output files
-  def close
+  # Close log file
+  def close_logfile
     get(:logfile).close
-    get(:outputfile).close
   end
 
   def method_missing(method, *_args, &_block)
@@ -104,19 +102,4 @@ class Project
     Logger.verbose '   └── process_file = ' + Rainbow(get(:process_file)).bright
   end
 
-  # Create or reset output file
-  def create_output_file
-    config = Application.instance.config
-    @param[:outputfile] = File.open(get(:outputpath), 'w')
-    f = get(:outputfile)
-    f.write('// ' + ('=' * 50) + "\n")
-    f.write("// Created by : #{Application::NAME}")
-    f.write(" (version #{Application::VERSION})\n")
-    f.write("// File       : #{get(:outputname)}\n")
-    f.write("// Time       : #{Time.new}\n")
-    f.write("// Author     : David Vargas Ruiz\n")
-    f.write('// ' + ('=' * 50) + "\n\n")
-    category = config['questions']['category']
-    f.write("$CATEGORY: $course$/#{category}\n") unless category.nil?
-  end
 end
