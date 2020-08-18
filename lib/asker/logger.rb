@@ -2,7 +2,6 @@
 
 require 'singleton'
 require_relative 'application'
-require_relative 'project'
 
 # Display and log project messages
 class Logger
