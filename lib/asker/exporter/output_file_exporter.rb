@@ -9,7 +9,7 @@ require_relative 'concept_doc_exporter'
 # * Doc (txt)
 module OutputFileExporter
   def self.export(data, project)
-    ConceptAIGiftExporter.export_all(data[:concepts_ai], project)
+    ConceptAIGiftExporter.export_all(data[:concepts_ai], project.get(:outputfile))
     # UNDER DEVELOPMENT
     CodeGiftExporter.export_all(data[:codes_ai], project.get(:outputfile))
     ConceptAIYAMLExporter.export_all(data[:concepts_ai], project)

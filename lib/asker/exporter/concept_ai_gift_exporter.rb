@@ -8,20 +8,19 @@ module ConceptAIGiftExporter
   ##
   # Export an array of ConceptAI objects from Project into GIFT outpufile
   # @param concepts_ai (Array)
-  # @param project (Project)
-  def self.export_all(concepts_ai, project)
-    concepts_ai.each { |concept_ai| export(concept_ai, project) }
+  # @param file (File)
+  def self.export_all(concepts_ai, file)
+    concepts_ai.each { |concept_ai| export(concept_ai, file) }
   end
 
   ##
   # Export 1 concept_ai from project
   # @param concept_ai (ConceptAI)
-  # @param project (Project)
+  # @param file (File)
   # rubocop:disable Metrics/AbcSize
-  private_class_method def self.export(concept_ai, project)
+  private_class_method def self.export(concept_ai, file)
     return unless concept_ai.process?
 
-    file = project.get(:outputfile)
     file.write head(concept_ai.name)
     Application.instance.config['questions']['stages'].each do |stage|
       concept_ai.questions[stage].each do |question|
