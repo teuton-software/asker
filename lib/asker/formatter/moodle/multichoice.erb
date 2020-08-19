@@ -9,7 +9,7 @@
       <text><![CDATA[<%= question.text %>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><%= question.feedback.to_s %></text>
+      <text><![CDATA[<%= question.feedback.to_s %>]]</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -37,7 +37,7 @@
       question.bads.each do |i|
     %>
     <answer fraction="<%= penalty %>" format="html">
-      <text><%= i %></text>
+      <text><![CDATA[<%= i %>]]</text>
       <feedback format="html">
         <text></text>
       </feedback>
