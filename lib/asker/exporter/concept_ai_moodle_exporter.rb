@@ -10,6 +10,8 @@ module ConceptAIMoodleExporter
   # @param project (Project)
   def self.export_all(concepts_ai, project)
     file = File.open(project.get(:moodlepath), 'w')
+    file.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
+    file.write("<quiz>\n")
     file.write("<!--\n#{('=' * 50)}\n")
     file.write(" Created by : #{Application::NAME}")
     file.write(" (version #{Application::VERSION})\n")
@@ -17,8 +19,6 @@ module ConceptAIMoodleExporter
     file.write(" Time       : #{Time.new}\n")
     file.write(" Author     : David Vargas Ruiz\n")
     file.write("#{('=' * 50)}\n-->\n\n")
-    file.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
-    file.write("<quiz>\n")
 
     concepts_ai.each { |concept_ai| export(concept_ai, file) }
 

@@ -62,10 +62,10 @@ module QuestionGiftFormatter
   # @return String
   def self.sanitize(input = '')
     output = input.dup
-    output.gsub!("#", "\\#")
+    output.gsub!('#', '\#')
     output.gsub!("\n", " ")
-    #output.gsub!(":", "\\:")
-    output.gsub!("=", "\\=")
+    output.gsub!(':', '\:')
+    output.gsub!('=', '\=')
     output.gsub!("\{", "\\{")
     output.gsub!("\}", "\\}")
     output
