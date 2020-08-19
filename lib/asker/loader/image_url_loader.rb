@@ -45,11 +45,12 @@ module ImageUrlLoader
   end
 
   def self.sanitize_string(input)
+    text = input.dup
     r = [ ['á', 'a'], ['é', 'e'], ['í', 'i'], ['ó', 'o'], ['ú', 'u'], ['ñ', 'n'], ['Á', 'A'], ['É', 'E'], ['Í', 'I'], ['Ó', 'O'], ['Ú', 'U'], ['Ñ', 'N']]
-    r.each { |item| input.gsub!(item[0], item[1]) }
+    r.each { |item| text.gsub!(item[0], item[1]) }
     r = ['-', '_', ',', '"']
-    r.each { |item| input.gsub!(item, ' ') }
-    input.split(' ')
+    r.each { |item| text.gsub!(item, ' ') }
+    text.split(' ')
   end
 
   def self.sanitize_array(input)
