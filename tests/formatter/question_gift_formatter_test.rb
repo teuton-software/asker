@@ -46,7 +46,7 @@ class QuestionGiftFormatterTest < Minitest::Test
   def test_sanitize
     assert_equal '', QuestionGiftFormatter.sanitize()
     assert_equal 'Hello!', QuestionGiftFormatter.sanitize('Hello!')
-    #assert_equal "Hello! How are you?", QuestionGiftFormatter.sanitize("Hello!\nHow are You?")
+    assert_equal "Hello! How are you?", QuestionGiftFormatter.sanitize("Hello!\nHow are you?")
     assert_equal 'this \#value', QuestionGiftFormatter.sanitize('this #value')
     assert_equal 'say\: Hello!', QuestionGiftFormatter.sanitize('say: Hello!')
     assert_equal '1+1\=2', QuestionGiftFormatter.sanitize('1+1=2')
