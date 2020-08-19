@@ -45,10 +45,10 @@ class StageB < BaseStage
         q.matching << [ e[1][:data][pIndex1], e[1][:data][pIndex2] ]
         q.matching << [ e[2][:data][pIndex1], e[2][:data][pIndex2] ]
         q.matching << [ e[3][:data][pIndex1], e[3][:data][pIndex2] ]
-#        if pList2.count > 0
+        if pList2.count > 0
           # Add an extra line from Table-B
-#          q.matching << [ "", pList2[0][:data][pIndex2] ]
-#        end
+          q.matching << [ '', pList2[0][:data][pIndex2] ]
+        end
         questions << q
 
         # Question type <b1match>: match 3 items from table-A and 1 item with error
