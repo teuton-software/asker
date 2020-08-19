@@ -83,7 +83,7 @@ Example, adding meaning using 2 fields table. Fields called `attribute` and `val
     %table{ :fields => 'attribute, value'}
       %row
         %col Genres
-        %col Hard rock blues rock rock and roll
+        %col Hard rock, blues rock, rock and roll
       %row
         %col Years active
         %col 1973–present

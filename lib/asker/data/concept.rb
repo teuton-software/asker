@@ -46,8 +46,8 @@ class Concept
 
     @data = {}
     @data[:tags] = []
-    @data[:texts] = []
-    @data[:images] = []         # TODO: By now, We'll treat images separated from texts
+    @data[:texts] = []          # Used by standard def inputs
+    @data[:images] = []         # Used by [type = image_url] def inputs
     @data[:textfile_paths] = [] # TODO: By now, We'll treat this separated from texts
     @data[:tables] = []
     @data[:neighbors] = []
