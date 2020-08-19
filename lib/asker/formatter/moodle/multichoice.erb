@@ -1,43 +1,43 @@
-<question type="multichoice">
-  <name>
-    <text><%= question.name %></text>
-  </name>
-  <questiontext format="html">
-    <text><![CDATA[<%= question.text %>]]></text>
-  </questiontext>
-  <generalfeedback format="html">
-    <text><%= question.feedback.to_s %></text>
-  </generalfeedback>
-  <defaultgrade>1.0000000</defaultgrade>
-  <penalty>0.3333333</penalty>
-  <hidden>0</hidden>
-  <single>true</single>
-  <shuffleanswers>true</shuffleanswers>
-  <answernumbering>abc</answernumbering>
-  <correctfeedback format="html">
-    <text></text>
-  </correctfeedback>
-  <partiallycorrectfeedback format="html">
-    <text></text>
-  </partiallycorrectfeedback>
-  <incorrectfeedback format="html">
-    <text></text>
-  </incorrectfeedback>
-  <answer fraction="100" format="html">
-    <text><%= question.good %></text>
-    <feedback format="html">
+  <question type="multichoice">
+    <name>
+      <text><%= question.name %></text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<%= question.text %>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><%= question.feedback.to_s %></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
       <text></text>
-    </feedback>
-  </answer>
-  <%
-    question.bads.shuffle! if question.shuffle?
-    question.bads.each do |i|
-  %>
-  <answer fraction="<%= penalty %>" format="html">
-    <text><%= i %></text>
-    <feedback format="html">
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
       <text></text>
-    </feedback>
-  </answer>
-  <% end %>
-</question>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><%= question.good %></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <%
+      question.bads.shuffle! if question.shuffle?
+      question.bads.each do |i|
+    %>
+    <answer fraction="<%= penalty %>" format="html">
+      <text><%= i %></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <% end %>
+  </question>

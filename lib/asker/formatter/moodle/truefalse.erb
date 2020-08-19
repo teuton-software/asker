@@ -1,41 +1,41 @@
-<question type="truefalse">
-  <name>
-    <text><%= question.name %></text>
-  </name>
-  <questiontext format="html">
-    <text><![CDATA[<%= question.text %>]]></text>
-  </questiontext>
-  <generalfeedback format="html">
-    <text></text>
-  </generalfeedback>
-  <defaultgrade>1.0000000</defaultgrade>
-  <penalty>1.0000000</penalty>
-  <hidden>0</hidden>
-  <% if question.good == 'TRUE' %>
-  <answer fraction="100" format="moodle_auto_format">
-    <text>true</text>
-    <feedback format="html">
+  <question type="truefalse">
+    <name>
+      <text><%= question.name %></text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<%= question.text %>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
       <text></text>
-    </feedback>
-  </answer>
-  <answer fraction="0" format="moodle_auto_format">
-    <text>false</text>
-    <feedback format="html">
-      <text><%= question.feedback.to_s %></text>
-    </feedback>
-  </answer>
-  <% else %>
-  <answer fraction="0" format="moodle_auto_format">
-    <text>true</text>
-    <feedback format="html">
-      <text><%= question.feedback.to_s %></text>
-    </feedback>
-  </answer>
-  <answer fraction="100" format="moodle_auto_format">
-    <text>false</text>
-    <feedback format="html">
-      <text></text>
-    </feedback>
-  </answer>
-  <% end %>
-</question>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <% if question.good == 'TRUE' %>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text><%= question.feedback.to_s %></text>
+      </feedback>
+    </answer>
+    <% else %>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><%= question.feedback.to_s %></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <% end %>
+  </question>
