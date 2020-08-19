@@ -58,12 +58,39 @@ class Asker
   # rubocop:disable Metrics/AbcSize
   private_class_method def self.create_output(project, data)
     Logger.verbose "\n[INFO] Creating output files"
-    Logger.verbose '   ├── Gift questions file => ' +
-                   Rainbow(project.get(:outputpath)).bright
-    Logger.verbose '   ├── YAML questions file => ' +
-                   Rainbow(project.get(:yamlpath)).bright
-    Logger.verbose '   └── Lesson file         => ' +
-                   Rainbow(project.get(:lessonpath)).bright
+    m = '   ├── Gift questions file => '
+    if Application.instance.config['output']['gift']  == 'yes'
+      m += Rainbow(project.get(:outputpath)).bright
+    else
+      m += "#{project.get(:outputpath)} (No)"
+    end
+    Logger.verbose m
+
+    m = '   ├── Lesson file         => '
+    if Application.instance.config['output']['doc']  == 'yes'
+      m +=  Rainbow(project.get(:lessonpath)).bright
+    else
+      m += "#{project.get(:lessonpath)} (No)"
+    end
+    Logger.verbose m
+
+    m = '   ├── YAML questions file => '
+    if Application.instance.config['output']['yaml']  == 'yes'
+      m += Rainbow(project.get(:yamlpath)).bright
+    else
+      m += "#{project.get(:yamlpath)} (No)"
+    end
+    Logger.verbose m
+
+    m = '   └── Moodle XML file     => '
+    if Application.instance.config['output']['moodle']  == 'yes'
+      m += Rainbow(project.get(:moodlepath)).bright
+    else
+      m += "#{project.get(:moodlepath)} (No)"
+    end
+    Logger.verbose m
+
+
     OutputFileExporter.export(data, project)
     StatsDisplayer.show(data)
     Logger.close
