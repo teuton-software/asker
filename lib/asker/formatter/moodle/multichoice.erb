@@ -1,3 +1,6 @@
+<% unless question.comment.nil? || question.comment.empty? %>
+<!-- question: <%= question.comment %>  -->
+<% end %>
   <question type="multichoice">
     <name>
       <text><%= question.name %></text>
