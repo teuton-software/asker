@@ -1,5 +1,7 @@
 # frozen_string_literal: false
 
+require 'erb'
+
 # Transform Questions into Gift format
 module QuestionMoodleFormatter
   ##
@@ -21,17 +23,9 @@ module QuestionMoodleFormatter
       renderer = ERB.new(template)
       s = renderer.result(binding)
     when :match
-      s = question.name + "\n"
-      #s << "{\n"
-      #a = []
-      #@question.matching.each do |i, j|
-      #  i = i[0, 220] + '...(ERROR: text too long)' if i.size > 255
-      #  j = j[0, 220] + '...(ERROR: text too long)' if j.size > 255
-      #  a << "  =#{sanitize(i)} -> #{sanitize(j)}\n"
-      #end
-      #a.shuffle! if @question.shuffle?
-      #a.each { |i| s << i }
-      #s << "}\n\n"
+      template = File.read(File.join(File.dirname(__FILE__), 'moodle', 'matching.erb'))
+      renderer = ERB.new(template)
+      s = renderer.result(binding)
     when :short
       template = File.read(File.join(File.dirname(__FILE__), 'moodle', 'shortanswer.erb'))
       renderer = ERB.new(template)

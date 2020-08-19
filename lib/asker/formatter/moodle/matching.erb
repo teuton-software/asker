@@ -21,28 +21,12 @@
     <incorrectfeedback format="html">
       <text></text>
     </incorrectfeedback>
+    <% question.matching.each do |i, j| %>
     <subquestion format="html">
-      <text>1</text>
+      <text><%= i %></text>
       <answer>
-        <text>rock</text>
+        <text><%= j %></text>
       </answer>
     </subquestion>
-    <subquestion format="html">
-      <text>2</text>
-      <answer>
-        <text>formed</text>
-      </answer>
-    </subquestion>
-    <subquestion format="html">
-      <text>3</text>
-      <answer>
-        <text>brothers</text>
-      </answer>
-    </subquestion>
-    <subquestion format="html">
-      <text>4</text>
-      <answer>
-        <text>young</text>
-      </answer>
-    </subquestion>
+    <% end %>
   </question>
