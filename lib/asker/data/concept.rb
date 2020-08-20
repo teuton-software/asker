@@ -164,11 +164,10 @@ class Concept
   # rubocop:disable Metrics/MethodLength
   def process_def(value)
     case value.attributes['type']
-    when 'image'
     when 'image_url'
       @data[:images] << value.text.strip
     when 'file'
-      @data[:file] << value.text.strip
+      @data[:files] << value.text.strip
     when nil
       @data[:texts] << value.text.strip
     else
