@@ -17,15 +17,21 @@ class ConceptAI
   attr_reader :questions
   attr_reader :excluded_questions
 
+  ##
+  # Initialize ConcepAI
+  # @param concept (Concept)
+  # @param world (World)
   def initialize(concept, world)
     @concept = concept
     @world = world
     @questions = { d: [], b: [], f: [], i: [], s: [], t: [] }
     @excluded_questions = { d: [], b: [], f: [], i: [], s: [], t: [] }
-    @num = 0 # Used to add a unique number to every question
+    @num = 0 # Add a unique number to every question
     make_questions
   end
 
+  ##
+  # Generates and return new "num" value
   def num
     @num += 1
     @num.to_s
@@ -36,6 +42,8 @@ class ConceptAI
     @concept.send(method, *args, &block)
   end
 
+  ##
+  # Generates random image URL
   def random_image_for(_conceptname)
     return '' if rand <= Project.instance.get(:threshold)
 
@@ -45,6 +53,6 @@ class ConceptAI
     return '' if values.nil?
 
     values.shuffle!
-    "<img src=\"#{values[0]}\" alt\=\"image\"><br/>"
+    "<img src=\"#{values[0]}\" alt=\"image\"><br/>"
   end
 end

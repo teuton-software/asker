@@ -48,7 +48,7 @@ class Concept
     @data[:tags] = []
     @data[:texts] = []          # Used by standard def inputs
     @data[:images] = []         # Used by [type = image_url] def inputs
-    @data[:textfile_paths] = [] # TODO: By now, We'll treat this separated from texts
+    @data[:files] = []          # TODO: Paths to embedded files
     @data[:tables] = []
     @data[:neighbors] = []
     @data[:reference_to] = []
@@ -165,14 +165,16 @@ class Concept
   def process_def(value)
     case value.attributes['type']
     when 'image'
-      msg = "[DEBUG] Concept#read_xml: image #{Rainbow(value.text).bright}"
-      Project.instance.verbose Rainbow(msg).yellow
     when 'image_url'
       @data[:images] << value.text.strip
-    when 'textfile_path'
-      @data[:textfile_paths] << value.text.strip
-    else
+    when 'file'
+      @data[:file] << value.text.strip
+    when nil
       @data[:texts] << value.text.strip
+    else
+      msg = "[ERROR] Unknown type: #{value.attributes['type']}"
+      Logger.verbose Rainbow(msg).red.bright
+      exit 1
     end
   end
   # rubocop:enable Metrics/AbcSize
