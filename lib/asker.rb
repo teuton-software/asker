@@ -56,44 +56,46 @@ class Asker
   ##
   # Create output files: Gift, YAML, TXT Doc
   # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/PerceivedComplexity
   private_class_method def self.create_output(project, data)
     Logger.verbose "\n[INFO] Creating output files"
     m = '   ├── Gift questions file => '
-    if Application.instance.config['output']['gift']  == 'yes'
-      m += Rainbow(project.get(:outputpath)).bright
-    else
-      m += "#{project.get(:outputpath)} (No)"
-    end
+    m += if Application.instance.config['output']['gift'] == 'yes'
+           Rainbow(project.get(:outputpath)).bright
+         else
+           "#{project.get(:outputpath)} (No)"
+         end
     Logger.verbose m
 
     m = '   ├── Lesson file         => '
-    if Application.instance.config['output']['doc']  == 'yes'
-      m +=  Rainbow(project.get(:lessonpath)).bright
-    else
-      m += "#{project.get(:lessonpath)} (No)"
-    end
+    m += if Application.instance.config['output']['doc'] == 'yes'
+           Rainbow(project.get(:lessonpath)).bright
+         else
+           "#{project.get(:lessonpath)} (No)"
+         end
     Logger.verbose m
 
     m = '   ├── YAML questions file => '
-    if Application.instance.config['output']['yaml']  == 'yes'
-      m += Rainbow(project.get(:yamlpath)).bright
-    else
-      m += "#{project.get(:yamlpath)} (No)"
-    end
+    m += if Application.instance.config['output']['yaml'] == 'yes'
+           Rainbow(project.get(:yamlpath)).bright
+         else
+           "#{project.get(:yamlpath)} (No)"
+         end
     Logger.verbose m
 
     m = '   └── Moodle XML file     => '
-    if Application.instance.config['output']['moodle']  == 'yes'
-      m += Rainbow(project.get(:moodlepath)).bright
-    else
-      m += "#{project.get(:moodlepath)} (No)"
-    end
+    m += if Application.instance.config['output']['moodle'] == 'yes'
+           Rainbow(project.get(:moodlepath)).bright
+         else
+           "#{project.get(:moodlepath)} (No)"
+         end
     Logger.verbose m
-
-
     OutputFileExporter.export(data, project)
     StatsDisplayer.show(data)
     Logger.close
   end
   # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/PerceivedComplexity
 end
