@@ -165,16 +165,12 @@ class Concept
   def process_def(value)
     case value.attributes['type']
     when 'image_url'
-      # <img src="<%=text1%>" alt="image" width="400" height="300">
-      @data[:images] << value.text.strip
+      @data[:images] << "<img src=\"#{value.text.strip}\" alt=\"image\" width=\"400\" height=\"300\">"
     when 'file'
-      # <pre><%=text1%></pre>
-      # @data[:files] << value.text.strip
+      # Load content from TXT file
       filename = File.join(File.dirname(@filename), value.text.strip)
       if File.exist? filename
-      puts "[DEBUG] " + filename
-        content = File.read(filename)
-        puts content
+        @data[:images] << "<pre>#{File.read(filename)}</pre>"
       else
         Logger.verbose Rainbow("[ERROR] Unknown file! #{filename}").red.bright
       end
