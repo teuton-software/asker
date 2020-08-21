@@ -75,7 +75,7 @@ class ConceptAIDisplayer
                           total[:sd], total[:sb], total[:sf],
                           total[:si], total[:ss], total[:st]]
     export_notes
-    Logger.verbose "#{screen_table}\n"
+    Logger.verboseln "#{screen_table}\n"
   end
 
   private_class_method def self.export_excluded_questions(screen_table, concepts_ai)
@@ -113,20 +113,20 @@ class ConceptAIDisplayer
   end
 
   private_class_method def self.export_notes
-    Logger.verbose "\n[INFO] Showing CONCEPT statistics\n"
-    Logger.verbose ' * Exclude questions: ' +
+    Logger.verboseln "\n[INFO] Showing CONCEPT statistics"
+    Logger.verboseln ' * Exclude questions: ' +
                    Application.instance.config['questions']['exclude'].to_s
-    Logger.verbose ' * Annotations:'
-    Logger.verbose '   ├── (d) Definitions     <= Concept.def'
-    Logger.verbose '   ├── (b) Table Matching  <= ' \
+    Logger.verboseln ' * Annotations:'
+    Logger.verboseln '   ├── (d) Definitions     <= Concept.def'
+    Logger.verboseln '   ├── (b) Table Matching  <= ' \
                    'Concept.table.rows.columns'
-    Logger.verbose '   ├── (f) Tables 1 Field  <= Concept.table.fields.size==1'
-    Logger.verbose '   ├── (i) Images URL      <= ' \
+    Logger.verboseln '   ├── (f) Tables 1 Field  <= Concept.table.fields.size==1'
+    Logger.verboseln '   ├── (i) Images URL      <= ' \
                    "Concept.def{:type => 'image_url'}"
-    Logger.verbose '   ├── (s) Sequences       <= ' \
+    Logger.verboseln '   ├── (s) Sequences       <= ' \
                    "Concept.table{:sequence => '...'}"
-    Logger.verbose '   └── (t) Table Rows&Cols <= ' \
+    Logger.verboseln '   └── (t) Table Rows&Cols <= ' \
                   'Concept.table.rows.columns'
-    Logger.verbose "\n"
+    Logger.verboseln ''
   end
 end

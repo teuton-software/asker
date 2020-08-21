@@ -13,16 +13,16 @@ module ConceptDisplayer
     return unless show_mode
 
     msg = "\n[INFO] Showing concept data (#{Rainbow(show_mode).bright})"
-    Logger.verbose msg
+    Logger.verboseln msg
     case show_mode
     when 'resume'
       s = "* Concepts (#{concepts.count}): "
       concepts.each { |c| s += c.name + ', ' }
-      Logger.verbose s
+      Logger.verboseln s
     when 'default'
       # Only show Concepts with process attr true
       concepts.each do |c|
-        Logger.verbose ConceptStringFormatter.to_s(c) if c.process?
+        Logger.verboseln ConceptStringFormatter.to_s(c) if c.process?
       end
     end
   end

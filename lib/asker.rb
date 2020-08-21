@@ -48,7 +48,6 @@ class Asker
   # @param args (Hash)
   private_class_method def self.load_input(args)
     project = ProjectLoader.load(args)
-    project.open # Open output files
     data = InputLoader.load(project.get(:inputdirs).split(','))
     [project, data]
   end
@@ -59,14 +58,14 @@ class Asker
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/PerceivedComplexity
   private_class_method def self.create_output(project, data)
-    Logger.verbose "\n[INFO] Creating output files"
+    Logger.verboseln "\n[INFO] Creating output files"
     m = '   ├── Gift questions file => '
     m += if Application.instance.config['output']['gift'] == 'yes'
            Rainbow(project.get(:outputpath)).bright
          else
            "#{project.get(:outputpath)} (No)"
          end
-    Logger.verbose m
+    Logger.verboseln m
 
     m = '   ├── Lesson file         => '
     m += if Application.instance.config['output']['doc'] == 'yes'
@@ -74,7 +73,7 @@ class Asker
          else
            "#{project.get(:lessonpath)} (No)"
          end
-    Logger.verbose m
+    Logger.verboseln m
 
     m = '   ├── YAML questions file => '
     m += if Application.instance.config['output']['yaml'] == 'yes'
@@ -82,7 +81,7 @@ class Asker
          else
            "#{project.get(:yamlpath)} (No)"
          end
-    Logger.verbose m
+    Logger.verboseln m
 
     m = '   └── Moodle XML file     => '
     m += if Application.instance.config['output']['moodle'] == 'yes'
@@ -90,7 +89,7 @@ class Asker
          else
            "#{project.get(:moodlepath)} (No)"
          end
-    Logger.verbose m
+    Logger.verboseln m
     OutputFileExporter.export(data, project)
     StatsDisplayer.show(data)
     Logger.close

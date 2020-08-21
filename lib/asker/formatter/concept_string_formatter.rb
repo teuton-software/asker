@@ -17,7 +17,6 @@ module ConceptStringFormatter
 
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Layout/LineLength
   private_class_method def self.get_tt_rows(concept)
     rows = []
     rows << [Rainbow(concept.id.to_s).bright,
@@ -37,7 +36,6 @@ module ConceptStringFormatter
   end
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Layout/LineLength
 
   private_class_method def self.format_texts(concept)
     list = []

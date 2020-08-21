@@ -13,7 +13,7 @@ module InputLoader
   def self.load(inputdirs)
     data = { concepts: [], codes: [], world: nil,
              concepts_ai: [], codes_ai: [] }
-    Logger.verbose "\n[INFO] Loading input data"
+    Logger.verboseln "\n[INFO] Loading input data"
     inputdirs.each do |dirname|
       temp = DirectoryLoader.load(dirname)
       data[:concepts] += temp[:concepts]

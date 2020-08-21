@@ -45,7 +45,7 @@ module CodeLoader
         features << i.text
       else
         msg = Rainbow("[ERROR] features/#{i.name} from #{filename}").color(:red)
-        Logger.verbose msg
+        Logger.verboseln msg
       end
     end
     features

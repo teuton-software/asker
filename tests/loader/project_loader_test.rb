@@ -11,7 +11,7 @@ class ProjectLoaderTest < Minitest::Test
     project.reset
     assert_equal 0, project.param.size
     ProjectLoader.load(filepath)
-    assert_equal 2, project.param.size
+    assert_equal 13, project.param.size
     assert_equal 'tests/input/starwars', project.param[:inputdirs]
     assert_equal 'jedi.haml', project.param[:process_file]
     project.reset
@@ -39,7 +39,7 @@ class ProjectLoaderTest < Minitest::Test
     project.reset
     assert_equal 0, project.param.size
     ProjectLoader.load(filepath)
-    assert_equal 2, project.param.size
+    assert_equal 13, project.param.size
     assert_equal 'tests/input/starwars', project.param[:inputdirs]
     assert_equal 'sith.haml', project.param[:process_file]
     project.reset
@@ -67,7 +67,7 @@ class ProjectLoaderTest < Minitest::Test
     project.reset
     assert_equal 0, project.param.size
     ProjectLoader.load(filepath)
-    assert_equal 4, project.param.size
+    assert_equal 15, project.param.size
     assert_equal 'input/es/add,input/es/idp', project.param[:inputdirs]
     assert_equal 'acceso-remoto.haml', project.param[:process_file]
     assert_equal 'tests/input/projects/project1.yaml', project.param[:configfilename]

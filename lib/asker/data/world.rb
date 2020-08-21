@@ -56,8 +56,7 @@ class World
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
   def find_url_images_from_internet(show_progress)
-    param = Application.instance.config['global']['internet'] || 'yes'
-    return {} unless param == 'yes'
+    return {} unless Application.instance.config['global']['internet'] == 'yes'
 
     Logger.verbose "\n[INFO] Loading data from Internet" if show_progress
     threads = []
@@ -67,11 +66,11 @@ class World
     @concepts&.each_key { |key| searchs << key }
     @contexts.each { |filter| searchs << filter.join(' ').to_s }
     searchs.each do |search|
-      print('.') if show_progress
+      Logger.verbose('.') if show_progress
       threads << Thread.new { urls[search] = ImageUrlLoader.load(search) }
     end
     threads.each(&:join) # wait for all threads to finish
-    print("\n") if show_progress
+    Logger.verbose("\n") if show_progress
     urls
   end
   # rubocop:enable Metrics/MethodLength

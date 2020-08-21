@@ -13,7 +13,7 @@ module DirectoryLoader
     files = (Dir.new(dirname).entries - ['.', '..']).sort
     # Accept only HAML or XML files
     accepted = files.select { |f| %w[.xml .haml].include? File.extname(f) }
-    Logger.verbose " * Input directory  = #{Rainbow(dirname).bright}"
+    Logger.verboseln " * Input directory  = #{Rainbow(dirname).bright}"
     DirectoryLoader.load_files(accepted, dirname)
   end
 
@@ -49,9 +49,9 @@ module DirectoryLoader
   # @param last (Boolean) True if it is the last filename
   def self.load_file(filepath, last = false)
     if last
-      Logger.verbose "   └── Input file   = #{Rainbow(filepath).bright}"
+      Logger.verboseln "   └── Input file   = #{Rainbow(filepath).bright}"
     else
-      Logger.verbose "   ├── Input file   = #{Rainbow(filepath).bright}"
+      Logger.verboseln "   ├── Input file   = #{Rainbow(filepath).bright}"
     end
     FileLoader.load(filepath)
   end

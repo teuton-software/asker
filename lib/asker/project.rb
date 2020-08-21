@@ -70,6 +70,9 @@ class Project
 
     Dir.mkdir(outputdir) unless Dir.exist?(outputdir)
     Logger.create(self) # Create log file where to save log messages
+    Logger.verboseln '[INFO] Project open'
+    Logger.verboseln '   ├── inputdirs    = ' + Rainbow(get(:inputdirs)).bright
+    Logger.verboseln '   └── process_file = ' + Rainbow(get(:process_file)).bright
   end
 
   def method_missing(method, *_args, &_block)

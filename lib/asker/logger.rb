@@ -14,8 +14,8 @@ class Logger
   ##
   # Display and log text
   def self.verbose(msg)
-    puts msg if Application.instance.config['global']['verbose'] == 'yes'
-    @logfile&.write("#{msg}\n")
+    print msg if Application.instance.config['global']['verbose'] == 'yes'
+    @logfile&.write(msg)
   end
 
   ##
@@ -35,10 +35,6 @@ class Logger
     @logfile.write("Time       : #{Time.new}\n")
     @logfile.write("Author     : David Vargas Ruiz\n")
     @logfile.write('=' * 50 + "\n\n")
-
-    verbose '[INFO] Project open'
-    verbose '   ├── inputdirs    = ' + Rainbow(project.get(:inputdirs)).bright
-    verbose '   └── process_file = ' + Rainbow(project.get(:process_file)).bright
   end
 
   ##

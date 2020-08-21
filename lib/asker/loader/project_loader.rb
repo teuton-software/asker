@@ -19,15 +19,17 @@ module ProjectLoader
 
     if args.class == Hash
       project.param.merge!(args)
+      project.open
       return project
     elsif args.class == String
       ProjectLoader.load_from_string(args)
+      project.open
       return project
     end
 
     msg = '[ERROR] ProjectLoader:'
     msg += "Configuration params format is <#{pArgs.class}>!"
-    Logger.verbose Rainbow(msg).red
+    Logger.verboseln Rainbow(msg).red
     raise msg
   end
 
@@ -41,7 +43,7 @@ module ProjectLoader
     project = Project.instance
     unless File.exist?(filepath)
       msg = Rainbow("[ERROR] #{filepath} not found!").red.bright
-      Logger.verbose msg
+      Logger.verboseln msg
       exit 1
     end
 
@@ -68,7 +70,7 @@ module ProjectLoader
   # Error found and exit application.
   def self.error_loading(arg)
     msg = Rainbow("[ERROR] Loading... #{arg}").red.bright
-    Logger.verbose msg
+    Logger.verboseln msg
     exit 1
   end
 end

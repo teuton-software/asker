@@ -96,7 +96,7 @@ module ContentLoader
   # @param content (String)
   private_class_method def self.raise_error_with(filepath, content)
     msg = Rainbow("[ERROR] ContentLoader: Format error in #{filepath}").red.bright
-    Logger.verbose msg
+    Logger.verboseln msg
     f = File.open('output/error.xml', 'w')
     f.write(content)
     f.close
