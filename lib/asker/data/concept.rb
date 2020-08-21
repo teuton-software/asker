@@ -165,8 +165,12 @@ class Concept
   def process_def(value)
     case value.attributes['type']
     when 'image_url'
+      # <img src="<%=text1%>" alt="image" width="400" height="300">
       @data[:images] << value.text.strip
     when 'file'
+      # <pre><%=text1%></pre>
+      puts "[DEBUG] " + Project.instance.get(:inputdirs)
+      puts "[DEBUG] " + @filename
       @data[:files] << value.text.strip
     when nil
       @data[:texts] << value.text.strip

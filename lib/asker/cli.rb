@@ -64,7 +64,7 @@ class CLI < Thor
   end
 
   map ['n', '-n', '--new', 'new'] => 'create_input'
-  desc 'new', 'Create Asker demo input files'
+  desc 'new [FOLDER]', 'Create Asker demo input files'
   ##
   # Create Asker demo input files
   # @param dirname (String) Path to folder
@@ -78,5 +78,11 @@ class CLI < Thor
   # * asker file demo/fool.haml
   def method_missing(method, *_args, &_block)
     file(method.to_s)
+  end
+
+  ##
+  # Config Thor gem with exit on failuer true
+  def self.exit_on_failure?
+    true
   end
 end
