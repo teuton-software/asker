@@ -81,7 +81,7 @@ class CLI < Thor
   end
 
   ##
-  # Config Thor gem with exit on failuer true
+  # Thor stop and show messages on screen on failure
   def self.exit_on_failure?
     true
   end

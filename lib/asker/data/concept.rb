@@ -169,9 +169,15 @@ class Concept
       @data[:images] << value.text.strip
     when 'file'
       # <pre><%=text1%></pre>
-      puts "[DEBUG] " + Project.instance.get(:inputdirs)
-      puts "[DEBUG] " + @filename
-      @data[:files] << value.text.strip
+      # @data[:files] << value.text.strip
+      filename = File.join(File.dirname(@filename), value.text.strip)
+      if File.exist? filename
+      puts "[DEBUG] " + filename
+        content = File.read(filename)
+        puts content
+      else
+        Logger.verbose Rainbow("[ERROR] Unknown file! #{filename}").red.bright
+      end
     when nil
       @data[:texts] << value.text.strip
     else
