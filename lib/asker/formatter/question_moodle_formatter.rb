@@ -11,7 +11,7 @@ module QuestionMoodleFormatter
   def self.to_s(question)
     case question.type
     when :choice
-      penalties = ['', '%-50%', '%-33.33333%', '%-25%', '%-20%']
+      penalties = ['', '-50', '-33.33333', '-25', '-20']
       penalty = penalties[question.bads.size]
       template = File.read(File.join(File.dirname(__FILE__), 'moodle', 'multichoice.erb'))
     when :boolean
