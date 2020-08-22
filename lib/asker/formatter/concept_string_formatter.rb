@@ -32,7 +32,7 @@ module ConceptStringFormatter
     rows << format_texts(concept)
     unless concept.images.size.zero?
       counter1 = 0
-      concept.images.each { |image|  counter1 +=1 if image[:file] == :none }
+      concept.images.each { |image|  counter1 += 1 if image[:file] == :none }
       counter2 = concept.images.size - counter1
       rows << [Rainbow('.def(images)').blue, "#{counter1} text / #{counter2} file"]
     end
