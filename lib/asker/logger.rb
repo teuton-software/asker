@@ -39,7 +39,7 @@ class Logger
 
   ##
   # Close Log file
-  def self.close()
+  def self.close
     @logfile.close
   end
 end

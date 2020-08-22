@@ -7,6 +7,8 @@ require_relative '../formatter/concept_doc_formatter'
 module ConceptDocExporter
   ##
   # Export arrya of concepts to doc
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
   def self.export_all(concepts, project)
     file = File.new(project.get(:lessonpath), 'w')
     file.write('=' * 50 + "\n")
@@ -21,4 +23,6 @@ module ConceptDocExporter
     end
     file.close
   end
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 end

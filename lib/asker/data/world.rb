@@ -55,6 +55,8 @@ class World
 
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/PerceivedComplexity
   def find_url_images_from_internet(show_progress)
     return {} unless Application.instance.config['global']['internet'] == 'yes'
 
@@ -75,4 +77,6 @@ class World
   end
   # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/PerceivedComplexity
 end

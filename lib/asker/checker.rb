@@ -131,6 +131,7 @@ module Checker
     end
 
     # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize
     def check_map(line, index)
       if index.zero?
         @outputs[index][:type] = :map
@@ -147,8 +148,10 @@ module Checker
       end
     end
     # rubocop:enable Metrics/MethodLength
+    # rubocop:enable Metrics/AbcSize
 
     # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize
     def check_concept(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%concept'
@@ -165,6 +168,7 @@ module Checker
       end
     end
     # rubocop:enable Metrics/MethodLength
+    # rubocop:enable Metrics/AbcSize
 
     # rubocop:disable Metrics/AbcSize
     # rubocop:disable Metrics/MethodLength
@@ -247,9 +251,7 @@ module Checker
     # rubocop:enable Metrics/MethodLength
 
     # rubocop:disable Metrics/AbcSize
-    # rubocop:disable Metrics/CyclomaticComplexity
     # rubocop:disable Metrics/MethodLength
-    # rubocop:disable Metrics/PerceivedComplexity
     def check_row(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%row'
@@ -276,14 +278,10 @@ module Checker
       end
     end
     # rubocop:enable Metrics/AbcSize
-    # rubocop:enable Metrics/CyclomaticComplexity
     # rubocop:enable Metrics/MethodLength
-    # rubocop:enable Metrics/PerceivedComplexity
 
     # rubocop:disable Metrics/AbcSize
-    # rubocop:disable Metrics/CyclomaticComplexity
     # rubocop:disable Metrics/MethodLength
-    # rubocop:disable Metrics/PerceivedComplexity
     def check_col(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%col'
@@ -309,9 +307,7 @@ module Checker
       check_text(line, index)
     end
     # rubocop:enable Metrics/AbcSize
-    # rubocop:enable Metrics/CyclomaticComplexity
     # rubocop:enable Metrics/MethodLength
-    # rubocop:enable Metrics/PerceivedComplexity
 
     def check_text(line, index)
       return unless @outputs[index][:state] == :ok
@@ -347,6 +343,7 @@ module Checker
     # rubocop:enable Metrics/MethodLength
 
     # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize
     def check_code(line, index)
       return unless @outputs[index][:state] == :none
       return unless line.include? '%code'
@@ -363,6 +360,7 @@ module Checker
       end
     end
     # rubocop:enable Metrics/MethodLength
+    # rubocop:enable Metrics/AbcSize
 
     # rubocop:disable Metrics/MethodLength
     # rubocop:disable Metrics/AbcSize
