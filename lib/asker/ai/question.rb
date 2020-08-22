@@ -8,6 +8,7 @@ class Question
   attr_accessor :feedback
   attr_reader   :type
   attr_accessor :tags, :lang
+  attr_accessor :encode
 
   def initialize(type = :choice)
     reset(type)
@@ -26,6 +27,7 @@ class Question
     shuffle_on
     @tags = Set.new
     @lang = nil
+    @encode = :none
   end
 
   def set_choice

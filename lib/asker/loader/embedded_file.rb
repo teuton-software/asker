@@ -15,7 +15,7 @@ module EmbeddedFile
   def self.load(value, localdir)
     # When filename is an URL
     if value.start_with?('https://') || value.start_with?('http://')
-      return { url: "<img src=\"#{value}\" alt=\"image\" width=\"400\" height=\"300\">", encode: :none }
+      return { text: "<img src=\"#{value}\" alt=\"image\" width=\"400\" height=\"300\">", file: :none }
     end
 
     filepath = File.join(localdir, value)
@@ -27,11 +27,13 @@ module EmbeddedFile
     # When filename is PNG, JPG o JPEG
     if ['.png', '.jpg', '.jpeg'].include? File.extname(filepath)
       # converts image into base64 strings
-      data = Base64.strict_encode64(File.open(filepath, 'rb').read)
-      return { url: "<pre>Loading image #{filepath}</pre>", encode: data }
+      text = '<img src="@@PLUGINFILE@@/' + File.basename(filepath) + '" alt="imagen" class="img-responsive atto_image_button_text-bottom">'
+      data = '<file name="' + File.basename(filepath) + '" path="/" encoding="base64">' + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
+
+      return { text: text, file: data }
     end
     # Suposse that filename is TXT file
-    return { url: "<pre>#{File.read(filepath)}</pre>", encode: :none } if File.exist?(filepath)
+    return { text: "<pre>#{File.read(filepath)}</pre>", file: :none } if File.exist?(filepath)
   end
   # rubocop:enable Metrics/MethodLength
 end

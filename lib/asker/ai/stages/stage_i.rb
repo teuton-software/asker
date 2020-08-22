@@ -15,7 +15,7 @@ class StageI < BaseStage
 
     # for every <image> do this
     images.each do |image|
-      url = image[:url]
+      url = image[:text]
       s = Set.new [name, lang.text_for(:none)]
       neighbors.each { |n| s.add n[:concept].name }
       a = s.to_a
@@ -25,6 +25,7 @@ class StageI < BaseStage
         q = Question.new(:choice)
         q.name = "#{name}-#{num}-i1choice"
         q.text = lang.text_for(:i1, url )
+        q.encode = image[:file]
         q.good = name
         q.bads << lang.text_for(:none)
         q.bads << a[2]
@@ -37,6 +38,7 @@ class StageI < BaseStage
         q = Question.new(:choice)
         q.name = "#{name}-#{num}-i1misspelling"
         q.text = lang.text_for(:i1, url )
+        q.encode = image[:file]
         q.good = lang.text_for(:none)
         q.bads << lang.do_mistake_to(name)
         q.bads << a[2]
@@ -52,6 +54,7 @@ class StageI < BaseStage
         q = Question.new(:choice)
         q.name="#{name}-#{num}-i1none"
         q.text=lang.text_for(:i1, url )
+        q.encode = image[:file]
         q.good=lang.text_for(:none)
         q.bads << a[1]
         q.bads << a[2]
@@ -63,6 +66,7 @@ class StageI < BaseStage
       q = Question.new(:boolean)
       q.name = "#{name}-#{num}-i2true"
       q.text = lang.text_for(:i2, url, name )
+      q.encode = image[:file]
       q.good = 'TRUE'
       questions << q
 
@@ -71,6 +75,7 @@ class StageI < BaseStage
         q = Question.new(:boolean)
         q.name = "#{name}-#{num}-i2false"
         q.text = lang.text_for(:i2, url, neighbors[0][:concept].name )
+        q.encode = image[:file]
         q.good = 'FALSE'
         questions << q
       end
@@ -79,6 +84,7 @@ class StageI < BaseStage
       q = Question.new(:short)
       q.name = "#{name}-#{num}-i3short"
       q.text = lang.text_for(:i3, url, lang.hide_text(name) )
+      q.encode = image[:file]
       q.shorts << name
       q.shorts << name.gsub('-', ' ').gsub('_', ' ')
       questions << q
@@ -95,6 +101,7 @@ class StageI < BaseStage
             q = Question.new(:match)
             q.shuffle_off
             q.name = "#{name}-#{num}-i4filtered"
+            q.encode = image[:file]
             e.sort!
             s = lang.build_text_from_filtered( filtered, e )
             q.text = lang.text_for(:i4, url , s)

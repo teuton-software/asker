@@ -7,7 +7,9 @@ module QuestionGiftFormatter
   # @param question (Question)
   # @return String
   def self.to_s(question)
-    s = ""
+    s = ''
+    return s unless question.encode == :none
+
     # Return question using gift format
     cond = question.comment.nil? || question.comment.empty?
     s = "// #{question.comment}\n" unless cond
