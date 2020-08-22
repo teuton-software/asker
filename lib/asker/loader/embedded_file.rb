@@ -4,15 +4,19 @@
 # %def{:type => :image_url} https://...
 # %def{:type => :file} file/host.txt
 module EmbeddedFile
-  def self.load(filename, localdir)
-    if filename.start_with?('https://') || filename.start_with?('http://')
-      return "<img src=\"#{filename}\" alt=\"image\" width=\"400\" height=\"300\">"
+  def self.load(value, localdir)
+    # When filename is an URL
+    if value.start_with?('https://') || value.start_with?('http://')
+      return "<img src=\"#{value}\" alt=\"image\" width=\"400\" height=\"300\">"
     end
-    # Load content from TXT file
-    filename = File.join(localdir, value.text.strip)
-    if File.exist? filename
-      return "<pre>#{File.read(filename)}</pre>"
+    filepath = File.join(localdir, value)
+    # When filename is PNG, JPG o JPEG
+    if [ '.png', '.jpg', '.jpeg'].include? File.extname(filepath)
+      return "<pre>Loading image #{filepath}</pre>"
     end
-    Logger.verbose Rainbow("[ERROR] Unknown file! #{filename}").red.bright
+    # Suposse that filename is TXT file
+    return "<pre>#{File.read(filepath)}</pre>" if File.exist?(filepath)
+    # When filename is unkown!
+    Logger.verbose Rainbow("[ERROR] Unknown file! #{value}").red.bright
   end
 end
