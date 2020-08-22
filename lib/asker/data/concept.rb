@@ -6,6 +6,7 @@ require 'rexml/document'
 require_relative '../application'
 require_relative '../logger'
 require_relative '../lang/lang_factory'
+require_relative '../loader/embedded_file'
 require_relative 'table'
 require_relative 'data_field'
 
@@ -165,15 +166,9 @@ class Concept
   def process_def(value)
     case value.attributes['type']
     when 'image_url'
-      @data[:images] << "<img src=\"#{value.text.strip}\" alt=\"image\" width=\"400\" height=\"300\">"
+      @data[:images] << EmbeddedFile.load(value.text.strip, File.dirname(@filename))
     when 'file'
-      # Load content from TXT file
-      filename = File.join(File.dirname(@filename), value.text.strip)
-      if File.exist? filename
-        @data[:images] << "<pre>#{File.read(filename)}</pre>"
-      else
-        Logger.verbose Rainbow("[ERROR] Unknown file! #{filename}").red.bright
-      end
+      @data[:images] << EmbeddedFile.load(value.text.strip, File.dirname(@filename))
     when nil
       @data[:texts] << value.text.strip
     else
