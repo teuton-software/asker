@@ -30,7 +30,12 @@ module ConceptStringFormatter
     rows << [Rainbow('Referenced by').blue,
              concept.referenced_by.join(', ')[0...70].to_s]
     rows << format_texts(concept)
-    rows << [Rainbow('.def(images)').blue, concept.images.size.to_s] unless concept.images.size.zero?
+    unless concept.images.size.zero?
+      counter1 = 0
+      concept.images.each { |image|  counter1 +=1 if image[:file] == :none }
+      counter2 = concept.images.size - counter1
+      rows << [Rainbow('.def(images)').blue, "#{counter1} text / #{counter2} file"]
+    end
     rows << format_tables(concept) unless concept.tables.count.zero?
     rows << format_neighbors(concept)
   end
