@@ -12,7 +12,7 @@ module ConceptStringFormatter
   def self.to_s(concept)
     tt = Terminal::Table.new
     get_tt_rows(concept).each { |row| tt.add_row row }
-    "#{tt}\n"
+    tt.to_s
   end
 
   # rubocop:disable Metrics/AbcSize
