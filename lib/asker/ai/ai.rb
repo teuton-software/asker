@@ -23,11 +23,13 @@ module AI
     exclude_questions
   end
 
+  # Make questions for states D and I
   def make_questions_stages_di
     @questions[:d] = StageD.new(self).run  # Process every def{type=text}
     @questions[:i] = StageI.new(self).run  # Process every def{type=image_url}
   end
 
+  # Make questions for stages B, S and F
   def make_questions_stages_bsf(tab, list1, list2)
     # Stage B: process table to make match questions
     @questions[:b] += StageB.new(self).run(tab, list1, list2)
@@ -37,6 +39,7 @@ module AI
     @questions[:f] += StageF.new(self).run(tab, list1, list2)
   end
 
+  # Make questions for stage T
   def make_questions_stages_t(tab, list1, list2)
     # Stage T: process_tableXfields
     list3 = list1 + list2

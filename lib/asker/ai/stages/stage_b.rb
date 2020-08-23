@@ -8,22 +8,26 @@ require_relative '../question'
 class StageB < BaseStage
   # range b1
 
+  ##
+  # Process table data to generate match questions
+  # @param table (Table)
+  # @param list1 (Array) Rows that belong to this table
+  # @param list2 (Array) List with similar rows (same table name) from the neighbours tables
   def run(table, list1, list2)
-    # process table match
     questions = []
     return questions if table.fields.count < 2
 
     return questions unless type == 'text'
 
-    if table.fields.count>1 then
+    if table.fields.count == 2
       questions += process_table_match2fields(table, list1, list2, 0, 1)
-    elsif table.fields.count>2 then
+    elsif table.fields.count == 3
+      questions += process_table_match2fields(table, list1, list2, 0, 1)
       questions += process_table_match2fields(table, list1, list2, 0, 2)
-      questions += process_table_match2fields(table, list1, list2, 1, 2)
-    elsif table.fields.count>3 then
+    elsif table.fields.count == 4
+      questions += process_table_match2fields(table, list1, list2, 0, 1)
+      questions += process_table_match2fields(table, list1, list2, 0, 2)
       questions += process_table_match2fields(table, list1, list2, 0, 3)
-      questions += process_table_match2fields(table, list1, list2, 1, 3)
-      questions += process_table_match2fields(table, list1, list2, 2, 3)
     end
 
     questions
@@ -32,7 +36,7 @@ class StageB < BaseStage
   def process_table_match2fields(pTable, pList1, pList2, pIndex1, pIndex2)
     questions = []
 
-    if pList1.count>3
+    if pList1.count > 3
       pList1.each_cons(4) do |e1,e2,e3,e4|
         e = [ e1, e2, e3, e4 ]
 

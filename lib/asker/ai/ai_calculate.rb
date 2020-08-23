@@ -2,11 +2,16 @@
 
 # Methods that calculate something
 module AI_calculate
-  def get_list1_and_list2_from(ltable)
+
+  ##
+  # Calculate and return list1 and list2
+  # @return list1 (Array) List with all the rows from the table
+  # @return list2 (Array) List with similar rows (same table name) from the neighbours tables
+  def get_list1_and_list2_from(p_table)
     # create <list1> with all the rows from the table
     list1 = []
     count = 1
-    ltable.rows.each do |i|
+    p_table.rows.each do |i|
       list1 << { id: count, weight: 0, data: i }
       count += 1
     end
@@ -15,7 +20,7 @@ module AI_calculate
     list2 = []
     neighbors.each do |n|
       n[:concept].tables.each do |t2|
-        next if t2.name != ltable.name
+        next if t2.name != p_table.name
         t2.rows.each do |i|
           list2 << { id: count, weight: 0, data: i }
           count += 1
