@@ -18,7 +18,7 @@ namespace :install do
     c = Dir.glob(File.join('.', 'tests', '**', '*_test.rb'))
 
     if b.size == c.size
-      puts "[ OK ] All ruby tests executed by #{testfile}"
+      puts "[ OK ] All test files included into #{testfile}"
     else
       puts "[FAIL] Some ruby tests are not executed by #{testfile}"
     end
