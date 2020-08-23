@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 require 'set'
 require_relative 'base_stage'
@@ -5,22 +6,22 @@ require_relative '../question'
 
 ##
 # StageT create questions based con Table data
+# range t1-t9
 class StageT < BaseStage
-  # range t1-t9
 
-  def run(pTable, pRow, pList) # process_tableXfields
+  def run(table, row, list) # process_tableXfields
     questions = []
     return questions unless type == 'text'
 
-    if pTable.fields.count > 1
-      questions = questions + process_table2fields(pTable, pRow, pList, 0, 1)
-    elsif pTable.fields.count > 2
-      questions = questions + process_table2fields(pTable, pRow, pList, 0, 2)
-      # questions = questions + process_table2fields(pTable, pRow, pList, 1, 2)
-    elsif pTable.fields.count > 3
-      questions = questions + process_table2fields(pTable, pRow, pList, 0, 3)
-      # questions = questions + process_table2fields(pTable, pRow, pList, 1, 3)
-      # questions = questions + process_table2fields(pTable, pRow, pList, 2, 3)
+    if table.fields.count == 2
+      questions = questions + process_table2fields(table, row, list, 0, 1)
+    elsif table.fields.count == 3
+      questions = questions + process_table2fields(table, row, list, 0, 1)
+      questions = questions + process_table2fields(table, row, list, 0, 2)
+    elsif table.fields.count == 4
+      questions = questions + process_table2fields(table, row, list, 0, 1)
+      questions = questions + process_table2fields(table, row, list, 0, 2)
+      questions = questions + process_table2fields(table, row, list, 0, 3)
     end
 
     questions
