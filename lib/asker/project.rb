@@ -20,8 +20,8 @@ class Project
   # Reset project params
   def reset
     @default = { inputbasedir: FileUtils.pwd,
-                stages: { d: true, b: true, f: true, i: true, s: true, t: true },
-                threshold: 0.5 }
+                 stages: { d: true, b: true, f: true, i: true, s: true, t: true },
+                 threshold: 0.5 }
     @param = {}
   end
 
@@ -46,9 +46,11 @@ class Project
   # Open new project
   # * setting new params and
   # * creating output files
-  # IMPORTANT: We need at least theses values
+  # IMPORTANT: We need at least these values
   # * process_file
   # * inputdirs
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   def open
     config = Application.instance.config
     ext = File.extname(@param[:process_file]) || '.haml'
@@ -74,8 +76,6 @@ class Project
     Logger.verboseln '   ├── inputdirs    = ' + Rainbow(get(:inputdirs)).bright
     Logger.verboseln '   └── process_file = ' + Rainbow(get(:process_file)).bright
   end
-
-  def method_missing(method, *_args, &_block)
-    get(method)
-  end
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 end

@@ -71,7 +71,7 @@ module ContentLoader
   private_class_method def self.read_concept(xmldata, filepath, lang, context)
     project = Project.instance
     c = Concept.new(xmldata, filepath, lang, context)
-    if [ File.basename(filepath), :default ].include? project.process_file
+    if [ File.basename(filepath), :default ].include? project.get(:process_file)
       c.process = true
     end
     c
@@ -84,7 +84,7 @@ module ContentLoader
   private_class_method def self.read_code(xmldata, filepath)
     project = Project.instance
     c = CodeLoader.load(xmldata, filepath)
-    if [ File.basename(filepath), :default ].include? project.process_file
+    if [ File.basename(filepath), :default ].include? project.get(:process_file)
       c.process = true
     end
     c
