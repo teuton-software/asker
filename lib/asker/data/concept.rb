@@ -13,12 +13,16 @@ require_relative 'data_field'
 ##
 # Store Concept information
 class Concept
-  attr_reader :id, :lang, :context
-  attr_reader :names, :type, :filename
-  attr_reader :data
-  attr_accessor :process
+  attr_reader :id        # Unique identifer (Integer)
+  attr_reader :lang      # Lang code (By default is the same as map lang)
+  attr_reader :context   # Context inherits from map
+  attr_reader :names     # Names used to identify or name this concept
+  attr_reader :type      # type = text -> Name values are only text
+  attr_reader :filename  # Filename where this concept is defined
+  attr_reader :data      # Data about this concept
+  attr_accessor :process # (Boolean) if it is necesary generate questions
 
-  @@id = 0    # Concept counter
+  @@id = 0               # Global Concept counter
 
   ##
   # Initilize Concept
@@ -48,8 +52,7 @@ class Concept
     @data = {}
     @data[:tags] = []
     @data[:texts] = []          # Used by standard def inputs
-    @data[:images] = []         # Used by [type = image_url] def inputs
-    @data[:files] = []          # TODO: Paths to embedded files
+    @data[:images] = []         # Used by [type => file and type => image_url] def inputs
     @data[:tables] = []
     @data[:neighbors] = []
     @data[:reference_to] = []
@@ -154,7 +157,8 @@ class Concept
 
   def process_tags(value)
     if value.text.nil? || value.text.size.zero?
-      raise '[Error] tags label empty!'
+      Logger.verboseln Rainbow("[ERROR] Concept #{name} has tags empty!").red.briht
+      exit 1
     end
 
     @data[:tags] = value.text.split(',')
@@ -173,7 +177,7 @@ class Concept
       @data[:texts] << value.text.strip
     else
       msg = "[ERROR] Unknown type: #{value.attributes['type']}"
-      Logger.verbose Rainbow(msg).red.bright
+      Logger.verboseln Rainbow(msg).red.bright
       exit 1
     end
   end
