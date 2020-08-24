@@ -10,9 +10,12 @@ Vagrant.configure("2") do |config|
     i.ssh.username = "vagrant"
     i.ssh.password = "vagrant"
 #    i.vm.network :forwarded_port, guest: 80, host: 8081
-#    i.vm.provision "shell", inline: <<-SHELL
+    i.vm.provision "shell", inline: <<-SHELL
+      net user vagrant vagrant /add
+      net localgroup Administrators vagrant /add
+      net localgroup Users vagrant /add
 #      Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/dvarrui/asker/blob/devel/install/windows/install_asker.ps1'))
-#    SHELL
+    SHELL
     i.vm.provider "virtualbox" do |v|
       v.name = "asker-windows10"
       v.memory = 2048
