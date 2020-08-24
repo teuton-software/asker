@@ -13,6 +13,8 @@ module ContentLoader
   # Load XML content into Asker data objects
   # @param filepath (String) File path
   # @param content (String) XML plane text content
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   def self.load(filepath, content)
     concepts = []
     codes = []
@@ -37,6 +39,8 @@ module ContentLoader
 
     { concepts: concepts, codes: codes }
   end
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 
   ##
   # Read lang attr from input XML data
@@ -71,9 +75,7 @@ module ContentLoader
   private_class_method def self.read_concept(xmldata, filepath, lang, context)
     project = Project.instance
     c = Concept.new(xmldata, filepath, lang, context)
-    if [ File.basename(filepath), :default ].include? project.get(:process_file)
-      c.process = true
-    end
+    c.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
     c
   end
 
@@ -84,9 +86,7 @@ module ContentLoader
   private_class_method def self.read_code(xmldata, filepath)
     project = Project.instance
     c = CodeLoader.load(xmldata, filepath)
-    if [ File.basename(filepath), :default ].include? project.get(:process_file)
-      c.process = true
-    end
+    c.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
     c
   end
 

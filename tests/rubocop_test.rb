@@ -57,14 +57,14 @@ class RubocopTest < Minitest::Test
     @files[:lang] << 'lib/asker/lang/lang.rb'
 
     @files[:loader] = []
-    @files[:loader] << 'lib/asker/loader/haml_loader.rb'
-    @files[:loader] << 'lib/asker/loader/input_loader.rb'
-#    @files[:data] << 'lib/asker/loader/project_loader.rb'
+    @files[:loader] << 'lib/asker/loader/code_loader.rb'
+    @files[:loader] << 'lib/asker/loader/content_loader.rb'
     @files[:loader] << 'lib/asker/loader/directory_loader.rb'
     @files[:loader] << 'lib/asker/loader/embedded_file.rb'
     @files[:loader] << 'lib/asker/loader/file_loader.rb'
-#    @files[:loader] << 'lib/asker/loader/content_loader.rb'
-    @files[:loader] << 'lib/asker/loader/code_loader.rb'
+    @files[:loader] << 'lib/asker/loader/haml_loader.rb'
+    @files[:loader] << 'lib/asker/loader/input_loader.rb'
+    @files[:loader] << 'lib/asker/loader/project_loader.rb'
   end
 
   def test_rubocop_lib

@@ -14,6 +14,7 @@ module ProjectLoader
   ##
   # Load project from args
   # @param args (String or Hash)
+  # rubocop:disable Metrics/MethodLength
   def self.load(args)
     project = Project.instance
 
@@ -32,6 +33,7 @@ module ProjectLoader
     Logger.verboseln Rainbow(msg).red
     raise msg
   end
+  # rubocop:enable Metrics/MethodLength
 
   ##
   # Load project from filepath. Options:
@@ -39,6 +41,8 @@ module ProjectLoader
   # * XML filepath
   # * YAML filepath
   # @param filepath (String)
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   def self.load_from_string(filepath)
     project = Project.instance
     unless File.exist?(filepath)
@@ -53,11 +57,13 @@ module ProjectLoader
       return project
     elsif File.extname(filepath) == '.yaml'
       return load_from_yaml(filepath)
-    else
-      error_loading(filepath)
     end
+    error_loading(filepath)
   end
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 
+  # rubocop:disable Security/YAMLLoad
   def self.load_from_yaml(arg)
     project = Project.instance
     project.param.merge!(YAML.load(File.open(arg)))
@@ -65,6 +71,7 @@ module ProjectLoader
     project.set(:projectdir, File.dirname(arg))
     project
   end
+  # rubocop:enable Security/YAMLLoad
 
   ##
   # Error found and exit application.
