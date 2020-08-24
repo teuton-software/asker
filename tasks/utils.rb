@@ -4,7 +4,7 @@
 # Module Utils with functions used by task/install.rb
 module Utils
   def self.packages
-    %w[haml rainbow terminal-table thor inifile base64_compatible]
+    %w[haml rainbow terminal-table thor inifile]
   end
 
   def self.filter_uninstalled_gems(list)
