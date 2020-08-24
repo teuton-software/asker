@@ -141,8 +141,8 @@ class Concept
       when 'table'
         @data[:tables] << Table.new(self, i)
       else
-        text = "   [ERROR] <#{i.name}> unkown XML attribute for concept #{name}"
-        Logger.verbose Rainbow(text).color(:red)
+        text = "   [ERROR] Concept #{name} with unkown attribute: #{i.name}"
+        Logger.verboseln Rainbow(text).color(:red)
       end
     end
   end
