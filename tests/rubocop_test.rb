@@ -39,6 +39,8 @@ class RubocopTest < Minitest::Test
     @files[:displayer] = []
     @files[:displayer] << 'lib/asker/displayer/code_displayer.rb'
     @files[:displayer] << 'lib/asker/displayer/concept_ai_displayer.rb'
+    @files[:displayer] << 'lib/asker/displayer/concept_displayer.rb'
+    @files[:displayer] << 'lib/asker/displayer/stats_displayer.rb'
 
     @files[:exporter] = []
     @files[:exporter] << 'lib/asker/exporter/code_gift_exporter.rb'
