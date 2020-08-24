@@ -36,6 +36,10 @@ class RubocopTest < Minitest::Test
     @files[:data] << 'lib/asker/data/row.rb'
     @files[:data] << 'lib/asker/data/world.rb'
 
+    @files[:displayer] = []
+    @files[:displayer] << 'lib/asker/displayer/code_displayer.rb'
+    @files[:displayer] << 'lib/asker/displayer/concept_ai_displayer.rb'
+
     @files[:exporter] = []
     @files[:exporter] << 'lib/asker/exporter/code_gift_exporter.rb'
     @files[:exporter] << 'lib/asker/exporter/concept_ai_gift_exporter.rb'
@@ -81,6 +85,15 @@ class RubocopTest < Minitest::Test
 
   def test_rubocop_data
     @files[:data].each do |file|
+      output = `rubocop #{file}`
+      lines = output.split("\n")
+      puts "[DEBUG] #{file}" if $?.exitstatus > 0
+      assert_equal 0, $?.exitstatus
+    end
+  end
+
+  def test_rubocop_displayer
+    @files[:displayer].each do |file|
       output = `rubocop #{file}`
       lines = output.split("\n")
       puts "[DEBUG] #{file}" if $?.exitstatus > 0

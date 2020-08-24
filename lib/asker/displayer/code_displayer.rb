@@ -5,6 +5,11 @@ require_relative '../logger'
 
 # Export Code into Screen
 module CodeDisplayer
+  ##
+  # Show all "code" data on screen
+  # @param codes (Array) List of "code" data
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
   def self.show(codes)
     return if codes.nil? || codes.size.zero?
 
@@ -42,4 +47,6 @@ module CodeDisplayer
     Logger.verboseln "\n[INFO] Showing CODE statistics"
     Logger.verboseln my_screen_table.to_s
   end
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 end

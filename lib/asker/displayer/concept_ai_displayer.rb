@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'erb'
 require 'terminal-table'
 require_relative '../application'
 require_relative '../logger'
@@ -9,11 +10,15 @@ class ConceptAIDisplayer
   ##
   # Display ConceptAI stat on screen
   # @param concepts_ai (Array)
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/PerceivedComplexity
   def self.show(concepts_ai)
     stages = Application.instance.config['questions']['stages']
     # Create table HEAD
     screen_table = Terminal::Table.new do |st|
-      title = ['Concept', 'Questions', 'Entries', 'xFactor']
+      title = %w[Concept Questions Entries xFactor]
       %w[d b f i s t].each do |i|
         if stages.include? i.to_sym
           title << i
@@ -77,7 +82,13 @@ class ConceptAIDisplayer
     export_notes
     Logger.verboseln "#{screen_table}\n"
   end
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/PerceivedComplexity
 
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   private_class_method def self.export_excluded_questions(screen_table, concepts_ai)
     # Create table BODY
     total = {}
@@ -111,22 +122,12 @@ class ConceptAIDisplayer
                           total[:sf], total[:si],
                           total[:ss], total[:st]]
   end
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 
   private_class_method def self.export_notes
-    Logger.verboseln "\n[INFO] Showing CONCEPT statistics"
-    Logger.verboseln ' * Exclude questions: ' +
-                   Application.instance.config['questions']['exclude'].to_s
-    Logger.verboseln ' * Annotations:'
-    Logger.verboseln '   ├── (d) Definitions     <= Concept.def'
-    Logger.verboseln '   ├── (b) Table Matching  <= ' \
-                   'Concept.table.rows.columns'
-    Logger.verboseln '   ├── (f) Tables 1 Field  <= Concept.table.fields.size==1'
-    Logger.verboseln '   ├── (i) Images URL      <= ' \
-                   "Concept.def{:type => 'image_url'}"
-    Logger.verboseln '   ├── (s) Sequences       <= ' \
-                   "Concept.table{:sequence => '...'}"
-    Logger.verboseln '   └── (t) Table Rows&Cols <= ' \
-                  'Concept.table.rows.columns'
-    Logger.verboseln ''
+    exclude_questions = Application.instance.config['questions']['exclude'].to_s
+    renderer = ERB.new(File.read(File.join(File.dirname(__FILE__), 'concept_ai_displayer.erb')))
+    Logger.verboseln renderer.result(binding)
   end
 end
