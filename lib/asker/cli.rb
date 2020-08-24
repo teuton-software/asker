@@ -80,6 +80,10 @@ class CLI < Thor
     file(method.to_s)
   end
 
+  def respond_to_missing?(_method_name)
+    true
+  end
+
   ##
   # Thor stop and show messages on screen on failure
   def self.exit_on_failure?
