@@ -37,7 +37,7 @@ class BaseStageTest < Minitest::Test
       assert_equal c.name(:raw)      , b.name(:raw)
       assert_equal c.name(:decorated), b.name(:decorated)
       assert_equal c.name(:id)       , b.name(:id)
-      assert_equal c.texts           , b.texts
+      assert_equal c.texts           , b.concept.texts
       assert_equal c.images          , b.images
       assert_equal c.neighbors       , b.neighbors
     end

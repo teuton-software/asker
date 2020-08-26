@@ -20,7 +20,7 @@ class StageD < BaseStage
     return questions unless type == 'text'
 
     # for every <text> do this
-    texts.each do |t|
+    concept.texts.each do |t|
       s = Set.new [name(:raw), lang.text_for(:none)]
       neighbors.each { |n| s.add n[:concept].name(:decorated) }
       a = s.to_a

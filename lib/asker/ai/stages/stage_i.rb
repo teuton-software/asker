@@ -90,7 +90,7 @@ class StageI < BaseStage
       questions << q
 
       # Question filtered text questions
-      texts.each do |t|
+      concept.texts.each do |t|
         filtered = lang.text_with_connectors(t)
 
         if filtered[:words].size >= 4

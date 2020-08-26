@@ -13,6 +13,10 @@ class BaseStage
     raise 'Implement run method!'
   end
 
+  def concept
+    @concept_ai
+  end
+
   def name(option = :raw)
     @concept_ai.name(option)
   end
@@ -34,6 +38,7 @@ class BaseStage
   end
 
   def texts
+    raise 'texts'
     @concept_ai.texts
   end
 
