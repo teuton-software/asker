@@ -31,6 +31,7 @@ class RubocopTest < Minitest::Test
     @files[:ai] << 'lib/asker/ai/stages/stage_d.rb'
     @files[:ai] << 'lib/asker/ai/stages/stage_f.rb'
     @files[:ai] << 'lib/asker/ai/stages/stage_i.rb'
+    @files[:ai] << 'lib/asker/ai/stages/stage_s.rb'
     @files[:ai] << 'lib/asker/ai/stages/stage_t.rb'
 
     @files[:data] = []

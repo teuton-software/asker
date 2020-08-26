@@ -1,53 +1,55 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require_relative 'base_stage'
 require_relative '../question'
 
+# process_sequence
 class StageS < BaseStage
-
   # process_sequence
-  def run(pTable, pList1, pList2)
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/PerceivedComplexity
+  def run(table, list1, _list2)
     questions = []
-    return questions unless (pTable.fields.count == 1 && pTable.sequence? && pTable.sequence[0] != '')
+    return questions unless table.fields.count == 1 && table.sequence? && table.sequence[0] != ''
 
     lang = concept.lang
-    #TODO
-    #items=[]
-    #pList1.each_with_index { |i,j| items<<[ i[:data][0], j] }
-    #puts Rainbow(items).blue.bright
-
-    #Question type <d3sequence>: items are part of a sequence
-    if pList1.count>3
-	    a=0..(pList1.count-4)
-	    a.each_entry do |i|
-        q=Question.new(:match)
-        q.name="#{name}-#{num.to_s}-s1sequence-#{pTable.name}"
-        q.text= random_image_for(name) + lang.text_for(:s1, name, pTable.fields[0].capitalize, pTable.sequence[0] )
-        q.matching << [ pList1[i+0][:data][0], '1º' ]
-        q.matching << [ pList1[i+1][:data][0], '2º' ]
-        q.matching << [ pList1[i+2][:data][0], '3º' ]
-        q.matching << [ pList1[i+3][:data][0], '4º' ]
+    # Question type <d3sequence>: items are part of a sequence
+    if list1.count > 3
+      a = 0..(list1.count - 4)
+      a.each_entry do |i|
+        q = Question.new(:match)
+        q.name = "#{name}-#{num}-s1sequence-#{table.name}"
+        q.text = random_image_for(name) + lang.text_for(:s1, name, table.fields[0].capitalize, table.sequence[0])
+        q.matching << [list1[i + 0][:data][0], '1º']
+        q.matching << [list1[i + 1][:data][0], '2º']
+        q.matching << [list1[i + 2][:data][0], '3º']
+        q.matching << [list1[i + 3][:data][0], '4º']
         questions << q
       end
     end
 
-    #Question type <d4sequence>: items are part of a reverse sequence
-    if pList1.count>3 and pTable.sequence.size>1
-	    a=0..(pList1.count-4)
-	    a.each_entry do |i|
-        q=Question.new
+    # Question type <d4sequence>: items are part of a reverse sequence
+    if list1.count > 3 && table.sequence.size > 1
+      a = 0..(list1.count - 4)
+      a.each_entry do |i|
+        q = Question.new
         q.set_match
-        q.name="#{name}-#{num.to_s}-s2sequence-#{pTable.name}"
-        q.text= random_image_for(name) + lang.text_for(:s1, name, pTable.fields[0].capitalize, pTable.sequence[1] )
-        q.matching << [ pList1[i+3][:data][0], '1º' ]
-        q.matching << [ pList1[i+2][:data][0], '2º' ]
-        q.matching << [ pList1[i+1][:data][0], '3º' ]
-        q.matching << [ pList1[i+0][:data][0], '4º' ]
+        q.name = "#{name}-#{num}-s2sequence-#{table.name}"
+        q.text = random_image_for(name) + lang.text_for(:s1, name, table.fields[0].capitalize, table.sequence[1])
+        q.matching << [list1[i + 3][:data][0], '1º']
+        q.matching << [list1[i + 2][:data][0], '2º']
+        q.matching << [list1[i + 1][:data][0], '3º']
+        q.matching << [list1[i + 0][:data][0], '4º']
         questions << q
       end
-	  end
+    end
 
-    return questions
+    questions
   end
-
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/PerceivedComplexity
 end
