@@ -1,14 +1,14 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'set'
 
 require_relative 'base_stage'
 require_relative '../question'
 
+# range d1-d4
 class StageD < BaseStage
-  # range d1-d4
-
   # rubocop:disable Lint/BooleanSymbol
+  # rubocop:disable Metrics/MethodLength
   def run
     # Stage D: process every definition, I mean every <def> tag
     questions = []
@@ -24,7 +24,7 @@ class StageD < BaseStage
       if s.count > 3
         q = Question.new(:choice)
         q.name = "#{name(:id)}-#{num}-d1choose"
-        q.text = random_image_for(name(:raw)) + lang.text_for(:d1,t)
+        q.text = random_image_for(name(:raw)) + lang.text_for(:d1, t)
         q.good = name(:raw)
         q.bads << lang.text_for(:none)
         q.bads << a[2]
@@ -34,14 +34,14 @@ class StageD < BaseStage
 
       # Question choose between 4 options, good none (Syntax error)
       if s.count > 3
-        q=Question.new(:choice)
+        q = Question.new(:choice)
         q.name = "#{name(:id)}-#{num}-d1none-misspelled"
-        q.text = random_image_for(name(:raw)) + lang.text_for(:d1,t)
+        q.text = random_image_for(name(:raw)) + lang.text_for(:d1, t)
         q.good = lang.text_for(:none)
         q.bads << lang.do_mistake_to(name(:raw))
         q.bads << a[2]
         q.bads << a[3]
-        q.feedback="Option misspelled!: #{name(:raw)}"
+        q.feedback = "Option misspelled!: #{name(:raw)}"
         questions << q
       end
 
@@ -52,7 +52,7 @@ class StageD < BaseStage
       if s.count > 3
         q = Question.new(:choice)
         q.name = "#{name(:id)}-#{num}-d1none"
-        q.text = random_image_for(name(:raw)) + lang.text_for(:d1,t)
+        q.text = random_image_for(name(:raw)) + lang.text_for(:d1, t)
         q.good = lang.text_for(:none)
         q.bads << a[1]
         q.bads << a[2]
@@ -63,7 +63,7 @@ class StageD < BaseStage
       # Question choice => mispelled
       q = Question.new(:choice)
       q.name = "#{name(:id)}-#{num}-d2def-mispelled"
-      q.text = random_image_for(name(:raw)) + lang.text_for(:d2,name(:decorated), lang.do_mistake_to(t) )
+      q.text = random_image_for(name(:raw)) + lang.text_for(:d2, name(:decorated), lang.do_mistake_to(t))
       q.good = lang.text_for(:misspelling)
       q.bads << lang.text_for(:true)
       q.bads << lang.text_for(:false)
@@ -134,4 +134,5 @@ class StageD < BaseStage
     questions
   end
   # rubocop:enable Lint/BooleanSymbol
+  # rubocop:enable Metrics/MethodLength
 end
