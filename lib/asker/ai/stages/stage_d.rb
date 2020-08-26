@@ -6,7 +6,6 @@ require_relative 'base_stage'
 require_relative '../question'
 
 # range d1-d4
-# rubocop:disable Metrics/ClassLength
 class StageD < BaseStage
   # rubocop:disable Lint/BooleanSymbol
   # rubocop:disable Metrics/MethodLength
@@ -144,4 +143,3 @@ class StageD < BaseStage
   # rubocop:enable Metrics/CyclomaticComplexity
   # rubocop:enable Metrics/PerceivedComplexity
 end
-# rubocop:enable Metrics/ClassLength

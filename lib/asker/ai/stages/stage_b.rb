@@ -50,7 +50,7 @@ class StageB < BaseStage
   def process_table_match2fields(p_table, list1, list2, index1, index2)
     questions = []
     lang = concept.lang
-    
+
     if list1.count > 3
       list1.each_cons(4) do |e1, e2, e3, e4|
         e = [e1, e2, e3, e4]

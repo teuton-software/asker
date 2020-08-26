@@ -23,7 +23,6 @@ class BaseStage
 
   def names
     raise 'Change names by concept.names'
-    # @concept_ai.names
   end
 
   def num
