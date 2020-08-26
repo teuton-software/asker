@@ -17,12 +17,13 @@ class StageD < BaseStage
   def run
     # Stage D: process every definition, I mean every <def> tag
     questions = []
-    return questions unless type == 'text'
+    return questions unless concept.type == 'text'
 
+    lang = concept.lang
     # for every <text> do this
     concept.texts.each do |t|
       s = Set.new [name(:raw), lang.text_for(:none)]
-      neighbors.each { |n| s.add n[:concept].name(:decorated) }
+      concept.neighbors.each { |n| s.add n[:concept].name(:decorated) }
       a = s.to_a
 
       # Question choose between 4 options
@@ -111,9 +112,7 @@ class StageD < BaseStage
       q.text = random_image_for(name(:raw)) + lang.text_for(:d3, lang.hide_text(name(:raw)), t)
       q.shorts << name(:raw)
       q.shorts << name(:raw).gsub('-', ' ').gsub('_', ' ')
-      names.each do |n|
-        q.shorts << n if n != name
-      end
+      concept.names.each { |n| q.shorts << n if n != name }
       questions << q
 
       # Question filtered text questions

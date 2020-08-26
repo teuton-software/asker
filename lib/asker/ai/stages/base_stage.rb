@@ -22,7 +22,8 @@ class BaseStage
   end
 
   def names
-    @concept_ai.names
+    raise 'Change names by concept.names'
+    # @concept_ai.names
   end
 
   def num
@@ -30,12 +31,13 @@ class BaseStage
   end
 
   def lang
-    @concept_ai.lang
+    raise 'Change lang by concept.lang'
+    # @concept_ai.lang
   end
 
   def type
-    @concept_ai.type
-  end
+    raise 'Change type by concept.type'
+end
 
   def texts
     raise 'Change texts by cocept.texts'
@@ -46,7 +48,8 @@ class BaseStage
   end
 
   def neighbors
-    @concept_ai.neighbors
+    raise 'Change neighbors by concept.neighbors'
+    # @concept_ai.neighbors
   end
 
   def random_image_for(option)

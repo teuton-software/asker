@@ -5,11 +5,12 @@ require_relative '../question'
 
 class StageS < BaseStage
 
+  # process_sequence
   def run(pTable, pList1, pList2)
-    #process_sequence
     questions = []
-    return questions unless ( pTable.fields.count==1 and pTable.sequence? and pTable.sequence[0]!="")
+    return questions unless (pTable.fields.count == 1 && pTable.sequence? && pTable.sequence[0] != '')
 
+    lang = concept.lang
     #TODO
     #items=[]
     #pList1.each_with_index { |i,j| items<<[ i[:data][0], j] }

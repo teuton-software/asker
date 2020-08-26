@@ -14,7 +14,7 @@ class StageT < BaseStage
   # rubocop:disable Metrics/AbcSize
   def run(table, row, list)
     questions = []
-    return questions unless type == 'text'
+    return questions unless concept.type == 'text'
 
     if table.fields.count == 2
       questions += process_table2fields(table, row, list, 0, 1)
@@ -40,6 +40,7 @@ class StageT < BaseStage
   # rubocop:disable Metrics/PerceivedComplexity
   def process_table2fields(table, row, list, col1, col2)
     questions = []
+    lang = concept.lang
     # create questions
 
     # Using the column #0

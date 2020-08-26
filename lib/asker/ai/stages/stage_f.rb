@@ -28,6 +28,7 @@ class StageF < BaseStage
   # rubocop:disable Metrics/MethodLength
   def run_only_this_concept(table, list1)
     questions = []
+    lang = concept.lang
     s1 = Set.new # Set of rows from this concept
     list1.each { |item| s1 << item[:data][0] }
     a1 = s1.to_a
@@ -75,6 +76,7 @@ class StageF < BaseStage
   # rubocop:disable Metrics/AbcSize
   def make_questions_with(values, table)
     questions = []
+    lang = concept.lang
 
     values.shuffle!
     q = Question.new(:choice)
@@ -85,7 +87,7 @@ class StageF < BaseStage
     q.bads << lang.text_for(:misspelling)
     q.bads << lang.text_for(:false)
 
-    if type == 'text'
+    if concept.type == 'text'
       values.shuffle!
       q = Question.new(:short)
       q.name = "#{name(:id)}-#{num}-f1short#{values.size}-#{table.name}"

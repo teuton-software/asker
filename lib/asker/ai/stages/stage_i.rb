@@ -11,13 +11,14 @@ class StageI < BaseStage
   def run
     # Stage I: process every image from <def> tag
     questions = []
-    return questions unless type == 'text'
+    return questions unless concept.type == 'text'
 
+    lang = concept.lang
     # for every <image> do this
     concept.images.each do |image|
       url = image[:text]
       s = Set.new [name, lang.text_for(:none)]
-      neighbors.each { |n| s.add n[:concept].name }
+      concept.neighbors.each { |n| s.add n[:concept].name }
       a = s.to_a
 
       # Question type <i1>: choose between 4 options
@@ -71,10 +72,10 @@ class StageI < BaseStage
       questions << q
 
       # Question type <i2>: boolean => FALSE
-      if neighbors.count>0 then
+      if concept.neighbors.count > 0
         q = Question.new(:boolean)
         q.name = "#{name}-#{num}-i2false"
-        q.text = lang.text_for(:i2, url, neighbors[0][:concept].name )
+        q.text = lang.text_for(:i2, url, concept.neighbors[0][:concept].name )
         q.encode = image[:file]
         q.good = 'FALSE'
         questions << q
