@@ -65,9 +65,11 @@ class StageB < BaseStage
         q.matching << [e[1][:data][index1], e[1][:data][index2]]
         q.matching << [e[2][:data][index1], e[2][:data][index2]]
         q.matching << [e[3][:data][index1], e[3][:data][index2]]
+        # Add an extra line
         if list2.count.positive?
-          # Add an extra line from others similar tables
           q.matching << ['', list2[0][:data][index2]]
+        else
+          q.matching << ['', lang.do_mistake_to(e[0][:data][index2])]
         end
         questions << q
 
@@ -81,6 +83,12 @@ class StageB < BaseStage
         q.matching << [e[1][:data][index1], e[1][:data][index2]]
         q.matching << [e[2][:data][index1], e[2][:data][index2]]
         q.matching << [lang.do_mistake_to(e[3][:data][index1]), lang.text_for(:misspelling)]
+        # Add an extra line
+        if list2.count.positive?
+          q.matching << ['', list2[0][:data][index2]]
+        else
+          q.matching << ['', lang.do_mistake_to(e[0][:data][index2])]
+        end
         questions << q
       end
     end
@@ -102,6 +110,7 @@ class StageB < BaseStage
         q.matching << [list1[1][:data][index1], list1[1][:data][index2]]
         q.matching << [list1[2][:data][index1], list1[2][:data][index2]]
         q.matching << [list2[0][:data][index1], lang.text_for(:error)]
+        q.matching << ['', lang.do_mistake_to(list1[0][:data][index2])]
         questions << q
       end
     end

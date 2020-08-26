@@ -26,6 +26,7 @@ class StageS < BaseStage
         q.matching << [list1[i + 1][:data][0], '2º']
         q.matching << [list1[i + 2][:data][0], '3º']
         q.matching << [list1[i + 3][:data][0], '4º']
+        q.matching << ['', lang.text_for(:error)]
         questions << q
       end
     end
@@ -42,6 +43,7 @@ class StageS < BaseStage
         q.matching << [list1[i + 2][:data][0], '2º']
         q.matching << [list1[i + 1][:data][0], '3º']
         q.matching << [list1[i + 0][:data][0], '4º']
+        q.matching << ['', lang.text_for(:error)]
         questions << q
       end
     end
