@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 require_relative 'base_stage'
 require_relative '../question'
@@ -30,19 +31,19 @@ private
     a1.shuffle!
 
     if a1.size > 3
-      a1.each_cons(4) do |e1,e2,e3,e4|
-        e = [ e1, e2, e3, e4 ]
+      a1.each_cons(4) do |e1, e2, e3, e4|
+        e = [e1, e2, e3, e4]
         questions += make_questions_with(e, table)
 
         # Question filtered text
-        e = [ e1, e2, e3, e4 ]
+        e = [e1, e2, e3, e4]
         e.shuffle!
         t = "(a) #{e[0]}, (b) #{e[1]}, (c) #{e[2]}, (d) #{e[3]}"
-        filtered=lang.text_with_connectors(t)
+        filtered = lang.text_with_connectors(t)
         indexes = filtered[:indexes]
 
-        groups = (indexes.combination(4).to_a).shuffle
-        max    = (indexes.size/4).to_i
+        groups = indexes.combination(4).to_a.shuffle
+        max    = (indexes.size / 4).to_i
         groups[0, max].each do |i|
           i.sort!
           q = Question.new(:match)
@@ -51,7 +52,7 @@ private
           s = lang.build_text_from_filtered(filtered, i)
           q.text = random_image_for(name(:raw))
           q.text += lang.text_for(:f3, name(:decorated), table.fields[0].capitalize, s)
-          i.each_with_index do |value,index|
+          i.each_with_index do |value, index|
             q.matching << [(index + 1).to_s, filtered[:words][value][:word].downcase]
           end
           questions << q
@@ -65,6 +66,8 @@ private
   end
 
   # rubocop:disable Lint/BooleanSymbol
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   def make_questions_with(values, table)
     questions = []
 
@@ -118,6 +121,8 @@ private
     questions << q
   end
   # rubocop:enable Lint/BooleanSymbol
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 
   # rubocop:disable Lint/BooleanSymbol
   # rubocop:disable Metrics/MethodLength
