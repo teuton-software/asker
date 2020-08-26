@@ -35,10 +35,13 @@ class RubocopTest < Minitest::Test
     @files[:ai] << 'lib/asker/ai/stages/stage_t.rb'
 
     @files[:data] = []
+    @files[:data] << 'lib/asker/data/code.rb'
     @files[:data] << 'lib/asker/data/column.rb'
-#    @files[:data] << 'lib/asker/data/concept.rb'
+    @files[:data] << 'lib/asker/data/concept.rb'
     @files[:data] << 'lib/asker/data/data_field.rb'
     @files[:data] << 'lib/asker/data/row.rb'
+    @files[:data] << 'lib/asker/data/table.rb'
+    @files[:data] << 'lib/asker/data/template.rb'
     @files[:data] << 'lib/asker/data/world.rb'
 
     @files[:displayer] = []

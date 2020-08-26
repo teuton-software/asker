@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../ai/code/code_ai_factory'
 require_relative '../project'
 require_relative '../logger'
@@ -46,6 +48,7 @@ class Code
 
   def load(filepath)
     return if filepath.nil?
+
     unless File.exist? filepath
       Logger.verboseln Rainbow("[ERROR] Unkown file #{filepath}").red.bright
       return
@@ -56,7 +59,7 @@ class Code
 
   def encode_and_split(text, encoding = :default)
     # Convert text to UTF-8 deleting unknown chars
-    text = text || '' # Ensure text is not nil
+    text ||= '' # Ensure text is not nil
     flag = [:default, 'UTF-8'].include? encoding
     return text.encode('UTF-8', invalid: :replace).split("\n") if flag
 

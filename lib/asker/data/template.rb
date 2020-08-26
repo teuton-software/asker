@@ -1,3 +1,4 @@
+# frozen_string_literal: false
 
 require 'rexml/document'
 require_relative 'row'
@@ -40,7 +41,8 @@ class Template
 
   def apply_vars_to_template(vars, template)
     output = ''
-    return if vars.size.zero?
+    return output if vars.size.zero?
+
     max = vars.first[1].size
     (1..max).each do |index|
       t = template.dup

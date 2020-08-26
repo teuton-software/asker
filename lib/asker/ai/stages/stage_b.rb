@@ -47,6 +47,9 @@ class StageB < BaseStage
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Style/ConditionalAssignment
+  # rubocop:disable Metrics/BlockLength
+  # rubocop:disable Metrics/PerceivedComplexity
   def process_table_match2fields(p_table, list1, list2, index1, index2)
     questions = []
     lang = concept.lang
@@ -120,4 +123,7 @@ class StageB < BaseStage
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/CyclomaticComplexity
+  # rubocop:enable Style/ConditionalAssignment
+  # rubocop:enable Metrics/BlockLength
+  # rubocop:enable Metrics/PerceivedComplexity
 end

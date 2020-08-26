@@ -114,6 +114,7 @@ class Table
 
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Style/ConditionalAssignment
   def read_lang_from_xml(xml_data)
     j = xml_data.text.split(',')
     codes = @langs.map(&:code)
@@ -131,6 +132,7 @@ class Table
   end
   # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Style/ConditionalAssignment
 
   def read_type_from_xml(xml_data)
     j = xml_data.text.split(',')

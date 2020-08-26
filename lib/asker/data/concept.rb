@@ -12,6 +12,8 @@ require_relative 'data_field'
 
 ##
 # Store Concept information
+# rubocop:disable Metrics/ClassLength
+# rubocop:disable Style/ClassVars
 class Concept
   attr_reader :id        # Unique identifer (Integer)
   attr_reader :lang      # Lang code (By default is the same as map lang)
@@ -22,7 +24,7 @@ class Concept
   attr_reader :data      # Data about this concept
   attr_accessor :process # (Boolean) if it is necesary generate questions
 
-  @@id = 0               # Global Concept counter
+  @@id = 0 # Global Concept counter
 
   ##
   # Initilize Concept
@@ -30,6 +32,8 @@ class Concept
   # @param filename (String)
   # @param lang_code (String)
   # @param context (Array)
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   def initialize(xml_data, filename, lang_code = 'en', context = [])
     @@id += 1
     @id = @@id
@@ -58,8 +62,10 @@ class Concept
     @data[:reference_to] = []
     @data[:referenced_by] = []
 
-	  read_data_from_xml(xml_data)
+    read_data_from_xml(xml_data)
   end
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 
   def name(option = :raw)
     DataField.new(@names[0], @id, @type).get(option)
@@ -83,6 +89,9 @@ class Concept
     @data[:neighbors].reverse!
   end
 
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/CyclomaticComplexity
   def calculate_nearness_to_concept(other)
     a = Application.instance.config['ai']['formula_weights']
     weights = a.split(',').map(&:to_f)
@@ -102,8 +111,12 @@ class Concept
     max = (max1 * weights[0] + max2 * weights[1] + max3 * weights[2])
     (alike * 100.0 / max)
   end
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   def try_adding_references(other)
     reference_to = 0
     @data[:tags].each do |i|
@@ -121,9 +134,34 @@ class Concept
     other.data[:referenced_by] << name
   end
   # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 
-  def method_missing(method)
-    @data[method]
+  def tags
+    @data[:tags]
+  end
+
+  def texts
+    @data[:texts]
+  end
+
+  def images
+    @data[:images]
+  end
+
+  def tables
+    @data[:tables]
+  end
+
+  def neighbors
+    @data[:neighbors]
+  end
+
+  def reference_to
+    @data[:reference_to]
+  end
+
+  def referenced_by
+    @data[:referenced_by]
   end
 
   private
@@ -184,3 +222,5 @@ class Concept
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
 end
+# rubocop:enable Metrics/ClassLength
+# rubocop:enable Style/ClassVars
