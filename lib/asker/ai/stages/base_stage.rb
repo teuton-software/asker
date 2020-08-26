@@ -32,12 +32,11 @@ class BaseStage
 
   def lang
     raise 'Change lang by concept.lang'
-    # @concept_ai.lang
   end
 
   def type
     raise 'Change type by concept.type'
-end
+  end
 
   def texts
     raise 'Change texts by cocept.texts'
@@ -49,7 +48,6 @@ end
 
   def neighbors
     raise 'Change neighbors by concept.neighbors'
-    # @concept_ai.neighbors
   end
 
   def random_image_for(option)
