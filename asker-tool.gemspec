@@ -3,11 +3,11 @@ require_relative 'lib/asker/application'
 Gem::Specification.new do |s|
   s.name        = Application::GEM
   s.version     = Application::VERSION
-  s.date        = '2020-08-24'
+  s.date        = Time.now.strftime("%Y-%m-%d")
   s.summary     = "Asker generates questions from input definitions file."
   s.description = "ASKER helps trainers to create a huge amount of questions, from a definitions input file."
 
-  s.extra_rdoc_files = [ 'README.md', 'LICENSE.txt' ]
+  s.extra_rdoc_files = [ 'README.md', 'LICENSE' ]
 
   s.license     = 'GPL-3.0'
   s.authors     = ['David Vargas Ruiz']

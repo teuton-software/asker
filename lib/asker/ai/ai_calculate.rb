@@ -5,8 +5,9 @@ module AI_calculate
 
   ##
   # Calculate and return list1 and list2
-  # @return list1 (Array) List with all the rows from the table
-  # @return list2 (Array) List with similar rows (same table name) from the neighbours tables
+  # * return list1 (Array) List with all the rows from the table
+  # * return list2 (Array) List with similar rows (same table name) from the neighbours tables
+  # @param p_table (Table)
   def get_list1_and_list2_from(p_table)
     # create <list1> with all the rows from the table
     list1 = []

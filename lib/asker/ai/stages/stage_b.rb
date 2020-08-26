@@ -39,7 +39,7 @@ class StageB < BaseStage
 
   ##
   # Process table data to generate match questions
-  # @param table (Table)
+  # @param p_table (Table)
   # @param list1 (Array) Rows that belong to this table
   # @param list2 (Array) List with similar rows (same table name) from the neighbours tables
   # @param index1 (Integer) Use this field number
