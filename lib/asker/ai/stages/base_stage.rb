@@ -14,11 +14,11 @@ class BaseStage
   end
 
   def concept
-    @concept_ai
+    @concept_ai.concept
   end
 
   def name(option = :raw)
-    @concept_ai.name(option)
+    @concept_ai.concept.name(option)
   end
 
   def names

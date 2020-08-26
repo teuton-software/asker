@@ -31,15 +31,15 @@ class BaseStageTest < Minitest::Test
       b = @base_stages[index]
       c = @concepts_ai[index]
 
-      assert_equal c.type            , b.concept.type
-      assert_equal c.lang.code       , b.concept.lang.code
-      assert_equal c.name            , b.name
-      assert_equal c.name(:raw)      , b.name(:raw)
-      assert_equal c.name(:decorated), b.name(:decorated)
-      assert_equal c.name(:id)       , b.name(:id)
-      assert_equal c.texts           , b.concept.texts
-      assert_equal c.images          , b.concept.images
-      assert_equal c.neighbors       , b.concept.neighbors
+      assert_equal c.concept.type            , b.concept.type
+      assert_equal c.concept.lang.code       , b.concept.lang.code
+      assert_equal c.concept.name            , b.name
+      assert_equal c.concept.name(:raw)      , b.name(:raw)
+      assert_equal c.concept.name(:decorated), b.name(:decorated)
+      assert_equal c.concept.name(:id)       , b.name(:id)
+      assert_equal c.concept.texts           , b.concept.texts
+      assert_equal c.concept.images          , b.concept.images
+      assert_equal c.concept.neighbors       , b.concept.neighbors
     end
   end
 

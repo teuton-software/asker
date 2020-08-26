@@ -25,11 +25,11 @@ module ConceptAIYAMLExporter
 
   private_class_method def self.get_questions_from(concept_ai)
     data = []
-    return data unless concept_ai.process?
+    return data unless concept_ai.concept.process?
 
     Application.instance.config['questions']['stages'].each do |stage|
       concept_ai.questions[stage].each do |question|
-        question.lang = concept_ai.lang
+        question.lang = concept_ai.concept.lang
         data << QuestionHashFormatter.to_hash(question)
       end
     end

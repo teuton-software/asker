@@ -9,11 +9,11 @@ module AI
   include AI_calculate
 
   def make_questions
-    return unless process?
+    return unless concept.process?
 
     make_questions_stages_di
     # Process every table of this concept
-    tables.each do |tab|
+    concept.tables.each do |tab|
       list1, list2 = get_list1_and_list2_from(tab)
       make_questions_stages_bsf(tab, list1, list2)
       make_questions_stages_t(tab, list1, list2)

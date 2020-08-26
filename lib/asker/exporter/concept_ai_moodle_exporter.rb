@@ -32,7 +32,7 @@ module ConceptAIMoodleExporter
   # @param file (File)
   # rubocop:disable Metrics/AbcSize
   private_class_method def self.export(concept_ai, file)
-    return unless concept_ai.process?
+    return unless concept_ai.concept.process?
 
     Application.instance.config['questions']['stages'].each do |stage|
       concept_ai.questions[stage].each do |question|

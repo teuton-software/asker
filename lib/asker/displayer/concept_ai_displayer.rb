@@ -36,10 +36,10 @@ class ConceptAIDisplayer
     total[:si] = total[:ss] = total[:st] = 0
 
     concepts_ai.each do |concept_ai|
-      next unless concept_ai.process?
+      next unless concept_ai.concept.process?
 
-      e = concept_ai.texts.size
-      concept_ai.tables.each { |t| e += t.fields.size * t.rows.size }
+      e = concept_ai.concept.texts.size
+      concept_ai.concept.tables.each { |t| e += t.fields.size * t.rows.size }
 
       sd = sb = sf = 0
       si = ss = st = 0
@@ -53,7 +53,7 @@ class ConceptAIDisplayer
 
       factor = 'Unkown'
       factor = (t.to_f / e).round(2).to_s unless e.zero?
-      screen_table.add_row [Rainbow(concept_ai.name(:screen)).green.bright,
+      screen_table.add_row [Rainbow(concept_ai.concept.name(:screen)).green.bright,
                             t, e, factor, sd, sb, sf, si, ss, st]
 
       total[:q] += t
@@ -97,7 +97,7 @@ class ConceptAIDisplayer
     total[:si] = total[:ss] = total[:st] = 0
 
     concepts_ai.each do |concept_ai|
-      next unless concept_ai.process?
+      next unless concept_ai.concept.process?
 
       sd = concept_ai.excluded_questions[:d].size
       sb = concept_ai.excluded_questions[:b].size

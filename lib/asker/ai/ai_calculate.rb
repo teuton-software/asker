@@ -19,7 +19,7 @@ module AI_calculate
 
     # create a <list2> with similar rows (same table name) from the neighbours tables
     list2 = []
-    neighbors.each do |n|
+    concept.neighbors.each do |n|
       n[:concept].tables.each do |t2|
         next if t2.name != p_table.name
         t2.rows.each do |i|

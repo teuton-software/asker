@@ -17,9 +17,9 @@ module ConceptAIGiftExporter
   # @param concept_ai (ConceptAI)
   # @param file (File)
   private_class_method def self.export(concept_ai, file)
-    return unless concept_ai.process?
+    return unless concept_ai.concept.process?
 
-    file.write head(concept_ai.name)
+    file.write head(concept_ai.concept.name)
     Application.instance.config['questions']['stages'].each do |stage|
       concept_ai.questions[stage].each do |question|
         file.write(QuestionGiftFormatter.to_s(question))

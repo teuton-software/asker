@@ -39,6 +39,7 @@ class ConceptAI
 
   # If a method call is missing, then delegate to concept parent.
   def method_missing(method, *args, &block)
+    raise "[DEBUG] ConceptAI.#{method}(#{args})"
     @concept.send(method, *args, &block)
   end
 

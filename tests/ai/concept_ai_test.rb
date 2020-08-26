@@ -25,27 +25,11 @@ class ConceptAITest < Minitest::Test
     @initial = { d: [], b: [], f: [], i: [], s: [], t: []}
   end
 
-  def test_concept_ai_delegating
-    (0..3).each do |index|
-      concept = @concepts_ai[index].concept
-      assert_equal 'text'             , @concepts_ai[index].type
-      assert_equal concept.type       , @concepts_ai[index].type
-      assert_equal 'en'               , @concepts_ai[index].lang.code
-      assert_equal concept.lang.code  , @concepts_ai[index].lang.code
-      assert_equal concept.name       , @concepts_ai[index].name
-      assert_equal concept.names      , @concepts_ai[index].names
-      assert_nil @concepts_ai[index].neighbours
-      assert_equal concept.process    , @concepts_ai[index].process
-      assert_equal concept.process?   , @concepts_ai[index].process?
-      assert_equal concept.tables     , @concepts_ai[index].tables
-    end
-  end
-
   def test_concept_0_make_questions
     i=0
     assert_equal( @initial, @concepts_ai[i].questions)
     assert_equal( @initial, @concepts_ai[i].excluded_questions)
-    @concepts_ai[i].process = true
+    @concepts_ai[i].concept.process = true
     @concepts_ai[i].make_questions
     assert_equal 9, @concepts_ai[i].questions[:d].size
     assert_equal 0,  @concepts_ai[i].questions[:b].size
@@ -56,10 +40,10 @@ class ConceptAITest < Minitest::Test
   end
 
   def test_concept_1_make_questions
-    i=1
+    i = 1
     assert_equal( @initial, @concepts_ai[i].questions)
     assert_equal( @initial, @concepts_ai[i].excluded_questions)
-    @concepts_ai[i].process = true
+    @concepts_ai[i].concept.process = true
     @concepts_ai[i].make_questions
     assert_equal 25, @concepts_ai[i].questions[:d].size
     assert_equal 2,  @concepts_ai[i].questions[:b].size
@@ -70,10 +54,10 @@ class ConceptAITest < Minitest::Test
   end
 
   def test_concept_2_make_questions
-    i=2
+    i = 2
     assert_equal( @initial, @concepts_ai[i].questions)
     assert_equal( @initial, @concepts_ai[i].excluded_questions)
-    @concepts_ai[i].process = true
+    @concepts_ai[i].concept.process = true
     @concepts_ai[i].make_questions
     assert_equal 0,  @concepts_ai[i].questions[:d].size
     assert_equal 0,  @concepts_ai[i].questions[:b].size
@@ -84,10 +68,10 @@ class ConceptAITest < Minitest::Test
   end
 
   def test_concept_3_make_questions
-    i=3
+    i = 3
     assert_equal( @initial, @concepts_ai[i].questions)
     assert_equal( @initial, @concepts_ai[i].excluded_questions)
-    @concepts_ai[i].process = true
+    @concepts_ai[i].concept.process = true
     @concepts_ai[i].make_questions
     assert_equal 0,  @concepts_ai[i].questions[:d].size
     assert_equal 0,  @concepts_ai[i].questions[:b].size
