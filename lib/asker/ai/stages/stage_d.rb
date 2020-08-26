@@ -6,10 +6,14 @@ require_relative 'base_stage'
 require_relative '../question'
 
 # range d1-d4
+# rubocop:disable Metrics/ClassLength
 class StageD < BaseStage
   # rubocop:disable Lint/BooleanSymbol
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/BlockLength
+  # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/PerceivedComplexity
   def run
     # Stage D: process every definition, I mean every <def> tag
     questions = []
@@ -136,5 +140,9 @@ class StageD < BaseStage
   end
   # rubocop:enable Lint/BooleanSymbol
   # rubocop:enable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/BlockLength
+  # rubocop:enable Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/PerceivedComplexity
 end
+# rubocop:enable Metrics/ClassLength
