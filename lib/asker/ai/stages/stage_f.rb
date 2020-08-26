@@ -4,6 +4,7 @@ require_relative 'base_stage'
 require_relative '../question'
 
 # StageF: process tables with 1 field
+# rubocop:disable Metrics/ClassLength
 class StageF < BaseStage
   ##
   # run stage_f: generate guqestion for tables with 1 field
@@ -21,8 +22,10 @@ class StageF < BaseStage
     questions
   end
 
-private
+  private
 
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
   def run_only_this_concept(table, list1)
     questions = []
     s1 = Set.new # Set of rows from this concept
@@ -64,6 +67,8 @@ private
     end
     questions
   end
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 
   # rubocop:disable Lint/BooleanSymbol
   # rubocop:disable Metrics/MethodLength
@@ -173,3 +178,4 @@ private
   # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/AbcSize
 end
+# rubocop:enable Metrics/ClassLength
