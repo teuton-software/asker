@@ -59,6 +59,7 @@ private
     questions
   end
 
+  # rubocop:disable Lint/BooleanSymbol
   def make_questions_with(e, table)
     questions = []
 
@@ -110,7 +111,10 @@ private
     e[0] = save
     questions << q
   end
+  # rubocop:enable Lint/BooleanSymbol
 
+  # rubocop:disable Lint/BooleanSymbol
+  # rubocop:disable Metrics/MethodLength
   def run_with_other_concepts(table, list1, list2)
     questions = []
 
@@ -153,4 +157,6 @@ private
 
     questions
   end
+  # rubocop:enable Lint/BooleanSymbol
+  # rubocop:enable Metrics/MethodLength
 end

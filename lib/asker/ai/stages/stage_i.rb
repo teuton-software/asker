@@ -14,7 +14,7 @@ class StageI < BaseStage
     return questions unless type == 'text'
 
     # for every <image> do this
-    images.each do |image|
+    concept.images.each do |image|
       url = image[:text]
       s = Set.new [name, lang.text_for(:none)]
       neighbors.each { |n| s.add n[:concept].name }

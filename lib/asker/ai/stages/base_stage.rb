@@ -38,11 +38,12 @@ class BaseStage
   end
 
   def texts
-    raise 'texts'
+    raise 'Change texts by cocept.texts'
     @concept_ai.texts
   end
 
   def images
+    raise 'Change images by cocept.images'
     @concept_ai.images
   end
 
