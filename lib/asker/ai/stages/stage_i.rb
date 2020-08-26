@@ -103,7 +103,7 @@ class StageI < BaseStage
             q.name = "#{name}-#{num}-i4filtered"
             q.encode = image[:file]
             e.sort!
-            s = lang.build_text_from_filtered( filtered, e )
+            s = lang.build_text_from_filtered(filtered, e)
             q.text = lang.text_for(:i4, url , s)
             e.each_with_index do |value,index|
               q.matching << [ (index+1).to_s, filtered[:words][value][:word].downcase ]
