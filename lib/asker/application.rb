@@ -8,9 +8,10 @@ require 'rainbow'
 class Application
   include Singleton
 
-  VERSION = '2.2.0'  # Application version
-  NAME = 'asker'     # Application name
-  GEM = 'asker-tool' # Gem name
+  VERSION = '2.2.0'        # Application version
+  NAME = 'asker'           # Application name
+  GEM = 'asker-tool'       # Gem name
+  CONFIGFILE = 'asker.ini' # Config filename
   attr_reader :config
 
   ##
@@ -24,8 +25,8 @@ class Application
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
   def reset
-    filename = File.join(Dir.pwd, 'config.ini')
-    filename = File.join(File.dirname(__FILE__), 'files', 'config.ini') unless File.exist? filename
+    filename = File.join(Dir.pwd, CONFIGFILE)
+    filename = File.join(File.dirname(__FILE__), 'files', CONFIGFILE) unless File.exist? filename
 
     begin
       @config = IniFile.load(filename)

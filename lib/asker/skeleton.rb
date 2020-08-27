@@ -2,6 +2,7 @@
 
 require 'fileutils'
 require 'rainbow'
+require_relative 'application'
 
 # Skeleton: create skeleton for asker input files
 # * create
@@ -33,8 +34,8 @@ module Skeleton
   # Create default configuration files
   def self.create_configuration
     puts "\n[INFO] Creating configuration files"
-    src = File.join(File.dirname(__FILE__), 'files', 'config.ini')
-    dst = File.join('config.ini')
+    src = File.join(File.dirname(__FILE__), 'files', Application::CONFIGFILE)
+    dst = File.join(Application::CONFIGFILE)
     copyfile(src, dst)
   end
 
