@@ -105,15 +105,17 @@ You don't have to close every tag, only be carefuly with indentation.
 Example:
 ![](https://www.portobellostreet.es/imagenes_muebles/Muebles-Silla-colonial-Fusta-Bora-Bora.jpg)
 
-**def** can be used with image URL. So we have to find an image that uniquely identifies our concept and write this:
+**def** can be used with local or remote images. So we have to find an image that uniquely identifies our concept and write this:
 
 ```
-    %def{:type => 'image_url'}https://www.portobellostreet.es/imagenes_muebles/Muebles-Silla-colonial-Fusta-Bora-Bora.jpg
+    %def{:type => 'file'}https://www.portobellostreet.es/imagenes_muebles/Muebles-Silla-colonial-Fusta-Bora-Bora.jpg
 ```
 
-| Attribute | Description  |
-| --------- | ------------ |
-| type      | Content type |
+| Attribute | Value | Description  |
+| --------- | ----- | ------------ |
+| type      | file  | Value is an URL or PATH to file |
+
+By now PNG, JPG, JPEG and TXT type files are accepted.
 
 ---
 

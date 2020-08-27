@@ -29,6 +29,4 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'minitest', '~> 5.11'
   s.add_development_dependency 'rubocop', '~> 0.74'
-
-  s.post_install_message = "Use asker command!"
 end
