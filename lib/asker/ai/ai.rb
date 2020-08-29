@@ -6,7 +6,7 @@ require_relative 'ai_calculate'
 # Description: Method to be included into every ConceptAI instance.
 # * make_questions: use AI to fill @questions Array
 module AI
-  include AI_calculate
+  include AICalculate
 
   def make_questions
     return unless concept.process?
