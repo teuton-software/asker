@@ -62,6 +62,8 @@ class StageB < BaseStage
         e.shuffle!
         q = Question.new(:match)
         q.name = "#{name}-#{num}-b1match4x4-#{p_table.name}"
+        q.tags << 'match'
+        q.tags << 'random'
         q.text = random_image_for(name) \
                  + lang.text_for(:b1, name, p_table.fields[index1].capitalize, p_table.fields[index2].capitalize)
         q.matching << [e[0][:data][index1], e[0][:data][index2]]
@@ -72,6 +74,7 @@ class StageB < BaseStage
         if list2.count.positive?
           q.matching << ['', list2[0][:data][index2]]
         else
+          q.tags << 'misspell'
           q.matching << ['', lang.do_mistake_to(e[0][:data][index2])]
         end
         questions << q
@@ -80,6 +83,8 @@ class StageB < BaseStage
         e.shuffle!
         q = Question.new(:match)
         q.name = "#{name}-#{num}-b1match3x1misspelled-#{p_table.name}"
+        q.tags << 'match'
+        q.tags << 'random'
         q.text = random_image_for(name) \
                  + lang.text_for(:b1, name, p_table.fields[index1].capitalize, p_table.fields[index2].capitalize)
         q.matching << [e[0][:data][index1], e[0][:data][index2]]
@@ -90,6 +95,7 @@ class StageB < BaseStage
         if list2.count.positive?
           q.matching << ['', list2[0][:data][index2]]
         else
+          q.tags << 'misspell'
           q.matching << ['', lang.do_mistake_to(e[0][:data][index2])]
         end
         questions << q
@@ -107,6 +113,8 @@ class StageB < BaseStage
       if s.count > 3
         q = Question.new(:match)
         q.name = "#{name}-#{num}-b1match3x1-#{p_table.name}"
+        q.tags << 'match'
+        q.tags << 'random'
         q.text = random_image_for(name) \
                  + lang.text_for(:b1, name, p_table.fields[index1].capitalize, p_table.fields[index2].capitalize)
         q.matching << [list1[0][:data][index1], list1[0][:data][index2]]
