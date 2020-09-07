@@ -157,17 +157,17 @@ class StageF < BaseStage
       q = Question.new(:choice)
       q.name = "#{name(:id)}-#{num}-f1false-#{table.name}"
       q.text = random_image_for(name(:raw))
-      q.text += lang.text_for(:f1, name(:decorated), table.fields[0].capitalize, e.join('</li><li>'))
-      q.good =  lang.text_for(:false)
-      q.bads << lang.text_for(:misspelling)
-      q.bads << lang.text_for(:true)
+      q.text += concept.lang.text_for(:f1, name(:decorated), table.fields[0].capitalize, e.join('</li><li>'))
+      q.good =  concept.lang.text_for(:false)
+      q.bads << concept.lang.text_for(:misspelling)
+      q.bads << concept.lang.text_for(:true)
       questions << q
 
       f4 = a2.shuffle![0]
       q = Question.new(:choice)
       q.name = "#{name(:id)}-#{num}-f2outsider-#{table.name}"
       q.text = random_image_for(name(:raw))
-      q.text += lang.text_for(:f2, name(:decorated), table.fields[0].capitalize)
+      q.text += concept.lang.text_for(:f2, name(:decorated), table.fields[0].capitalize)
       q.good =  f4
       q.bads << e1
       q.bads << e2
