@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.license     = 'GPL-3.0'
   s.authors     = ['David Vargas Ruiz']
   s.email       = 'teuton.software@protonmail.com'
-  s.homepage    = 'https://github.com/dvarrui/asker'
+  s.homepage    = Application::HOMEPAGE
 
   s.executables << 'asker'
   #s.executables << 'asker.bat'

@@ -55,6 +55,14 @@ class CLI < Thor
     Asker.check(filename)
   end
 
+  map ['h', '-h', '--homepage', 'homepage'] => 'show_homepage'
+  desc 'homepage', 'Documentation homepage'
+  ##
+  # Show documentation homepage
+  def show_homepage()
+    puts Application::HOMEPAGE
+  end
+
   map ['i', '-i', '--init'] => 'init'
   desc 'init', 'Create default INI config file'
   ##

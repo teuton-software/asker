@@ -10,6 +10,7 @@ class Application
 
   VERSION = '2.2.0'        # Application version
   NAME = 'asker'           # Application name
+  HOMEPAGE = "https://github.com/dvarrui/#{NAME}/tree/v2.2"
   GEM = 'asker-tool'       # Gem name
   CONFIGFILE = 'asker.ini' # Config filename
   attr_reader :config
