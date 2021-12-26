@@ -5,36 +5,32 @@ require 'rainbow'
 ##
 # Check HAML file syntax
 module InputChecker
-  ##
-  # Check:
-  # * file exist
-  # * filename extension
-  # * and HAML syntax
-  # @param filepath (String)
-  def self.check(filepath)
+
+  def self.check(filepath, verbose = true)
+    exist = check_file_exist(filepath, verbose)
+    return false unless exist
+    check_file_content(filepath, verbose)
+  end
+
+  def self.check_file_exist(filepath, verbose = true)
     unless File.exist? filepath
-      puts Rainbow('File not found!').red.bright
+      puts Rainbow('File not found!').red.bright if verbose
       return false
     end
     unless File.extname(filepath) == '.haml'
-      puts Rainbow('Only check HAML files!').yellow.bright
+      puts Rainbow('Only check HAML files!').yellow.bright if verbose
       return false
     end
-    check_filepath(filepath)
+    true
   end
 
-  ##
-  # Check HAML syntax
-  # @param filepath (String)
-  def self.check_filepath(filepath)
+  def self.check_file_content(filepath, verbose = true)
     data = Data.new(filepath)
     data.check
-    data.show_errors
+    data.show_errors if verbose
     data.ok?
   end
 
-  ##
-  # Internal class that revise syntax
   # rubocop:disable Metrics/ClassLength
   class Data
     attr_reader :inputs, :outputs
