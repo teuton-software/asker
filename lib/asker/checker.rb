@@ -37,8 +37,7 @@ module Checker
   # Internal class that revise syntax
   # rubocop:disable Metrics/ClassLength
   class Data
-    attr_reader :inputs
-    attr_reader :outputs
+    attr_reader :inputs, :outputs
 
     # rubocop:disable Metrics/MethodLength
     def initialize(filepath)
@@ -259,14 +258,15 @@ module Checker
       @outputs[index][:type] = :row
       @outputs[index][:state] = :ok
 
-      if count_spaces(line) == 6
+      case count_spaces(line)
+      when 6
         @outputs[index][:level] = 3
         parent = find_parent(index)
         unless %i[table features].include? parent
           @outputs[index][:state] = :err
           @outputs[index][:msg] = 'Parent(table/features) not found!'
         end
-      elsif count_spaces(line) == 8
+      when 8
         @outputs[index][:level] = 4
         if find_parent(index) != :template
           @outputs[index][:state] = :err
@@ -288,13 +288,14 @@ module Checker
 
       @outputs[index][:type] = :col
       @outputs[index][:state] = :ok
-      if count_spaces(line) == 8
+      case count_spaces(line)
+      when 8
         @outputs[index][:level] = 4
         if find_parent(index) != :row
           @outputs[index][:state] = :err
           @outputs[index][:msg] = 'Parent(row) not found!'
         end
-      elsif count_spaces(line) == 10
+      when 10
         @outputs[index][:level] = 5
         if find_parent(index) != :row
           @outputs[index][:state] = :err
