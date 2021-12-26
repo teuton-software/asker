@@ -2,14 +2,15 @@
 
 require 'rainbow'
 
+require_relative 'asker/skeleton'
+require_relative 'asker/checker'
+
 require_relative 'asker/displayer/concept_displayer'
 require_relative 'asker/displayer/stats_displayer'
 require_relative 'asker/exporter/output_file_exporter'
 require_relative 'asker/loader/project_loader'
 require_relative 'asker/loader/input_loader'
-require_relative 'asker/checker'
 require_relative 'asker/logger'
-require_relative 'asker/skeleton'
 
 ##
 # Asker main class
@@ -22,7 +23,7 @@ class Asker
   end
 
   ##
-  # Create asker configuration files
+  # Create default asker configuration files
   def self.create_configuration
     Skeleton.create_configuration
   end
@@ -43,17 +44,12 @@ class Asker
     create_output(project, data)
   end
 
-  ##
-  # Load input data
-  # @param args (Hash)
   private_class_method def self.load_input(args)
     project = ProjectLoader.load(args)
     data = InputLoader.load(project.get(:inputdirs).split(','))
     [project, data]
   end
 
-  ##
-  # Create output files: Gift, YAML, TXT Doc
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/PerceivedComplexity

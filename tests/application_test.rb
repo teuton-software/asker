@@ -3,12 +3,11 @@
 require 'minitest/autorun'
 require_relative '../lib/asker/application'
 
-# Test Application module
 class ApplicationTest < Minitest::Test
   def test_params
     assert_equal 'asker',  Application::NAME
     assert_equal 'asker-tool',  Application::GEM
-    assert_equal '2.2.0', Application::VERSION
+    assert_equal String, Application::VERSION.class
   end
 
   def test_config

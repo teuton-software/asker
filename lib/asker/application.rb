@@ -8,14 +8,12 @@ require 'rainbow'
 class Application
   include Singleton
 
-  VERSION = '2.3.0'        # Application version
-  NAME = 'asker'           # Application name
-  GEM = 'asker-tool'       # Gem name
-  CONFIGFILE = 'asker.ini' # Config filename
+  VERSION = '2.3.0'
+  NAME = 'asker'
+  GEM = 'asker-tool'
+  CONFIGFILE = 'asker.ini'
   attr_reader :config
 
-  ##
-  # Initialize Application singleton
   def initialize
     reset
   end
