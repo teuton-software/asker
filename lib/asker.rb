@@ -46,7 +46,8 @@ class Asker
 
   private_class_method def self.load_input(args)
     project = ProjectLoader.load(args)
-    data = InputLoader.load(project.get(:inputdirs).split(','))
+    inputdirs = project.get(:inputdirs).split(',')
+    data = InputLoader.load(inputdirs)
     [project, data]
   end
 
