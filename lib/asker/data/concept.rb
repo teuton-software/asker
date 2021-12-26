@@ -24,7 +24,7 @@ class Concept
   attr_reader :data      # Data about this concept
   attr_accessor :process # (Boolean) if it is necesary generate questions
 
-  @@id = 0 # Global Concept counter
+  @@id = 0 # Global Concept counter (concept identifier)
 
   ##
   # Initilize Concept
@@ -208,8 +208,10 @@ class Concept
   def process_def(value)
     case value.attributes['type']
     when 'image_url'
+      # Link with remote image
       @data[:images] << EmbeddedFile.load(value.text.strip, File.dirname(@filename))
     when 'file'
+      # Load local images and text files
       @data[:images] << EmbeddedFile.load(value.text.strip, File.dirname(@filename))
     when nil
       @data[:texts] << value.text.strip
