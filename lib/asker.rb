@@ -3,7 +3,7 @@
 require 'rainbow'
 
 require_relative 'asker/skeleton'
-require_relative 'asker/checker'
+require_relative 'asker/input_checker'
 
 require_relative 'asker/displayer/concept_displayer'
 require_relative 'asker/displayer/stats_displayer'
@@ -32,7 +32,7 @@ class Asker
   # Checking input file syntax
   # @param filepath (String)
   def self.check(filepath)
-    Checker.check(filepath)
+    InputChecker.check(filepath)
   end
 
   ##

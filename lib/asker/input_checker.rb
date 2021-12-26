@@ -4,7 +4,7 @@ require 'rainbow'
 
 ##
 # Check HAML file syntax
-module Checker
+module InputChecker
   ##
   # Check:
   # * file exist
