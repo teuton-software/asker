@@ -45,10 +45,10 @@ class Asker
   end
 
   private_class_method def self.load_input(args)
-    project = ProjectLoader.load(args)
-    inputdirs = project.get(:inputdirs).split(',')
+    project_data = ProjectLoader.load(args)
+    inputdirs = project_data.get(:inputdirs).split(',')
     data = InputLoader.load(inputdirs)
-    [project, data]
+    [project_data, data]
   end
 
   # rubocop:disable Metrics/AbcSize
