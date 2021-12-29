@@ -39,6 +39,7 @@ class ConceptAIDisplayer
       next unless concept_ai.concept.process?
 
       e = concept_ai.concept.texts.size
+      e += concept_ai.concept.images.size
       concept_ai.concept.tables.each { |t| e += t.fields.size * t.rows.size }
 
       sd = sb = sf = 0
