@@ -3,7 +3,6 @@
 require 'rainbow'
 require 'rexml/document'
 
-require_relative '../application'
 require_relative '../lang/lang_factory'
 require_relative '../loader/embedded_file'
 require_relative 'table'
@@ -92,7 +91,7 @@ class Concept
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/CyclomaticComplexity
   def calculate_nearness_to_concept(other)
-    a = ProjectData.instance.get(:weights) 
+    a = ProjectData.instance.get(:weights)
     #Application.instance.config['ai']['formula_weights']
     weights = a.split(',').map(&:to_f)
 

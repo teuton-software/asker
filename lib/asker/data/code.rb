@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative '../ai/code/code_ai_factory'
-require_relative '../formatter/code_string_formatter'
 
 class Code
   attr_reader :dirname, :filename, :type
@@ -29,10 +28,6 @@ class Code
       out << format("%2d| #{line}\n", (index + 1))
     end
     out
-  end
-
-  def debug
-    puts CodeStringFormatter.to_s(self)
   end
 
   private
