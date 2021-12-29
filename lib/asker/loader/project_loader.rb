@@ -2,7 +2,6 @@
 
 require 'yaml'
 require_relative '../data/project_data'
-require_relative '../logger'
 
 # Load params into Project class using arg input
 # * load
@@ -30,7 +29,7 @@ module ProjectLoader
 
     msg = '[ERROR] ProjectLoader:'
     msg += "Configuration params format is <#{pArgs.class}>!"
-    Logger.verboseln Rainbow(msg).red
+    puts Rainbow(msg).red
     raise msg
   end
   # rubocop:enable Metrics/MethodLength
@@ -47,7 +46,7 @@ module ProjectLoader
     project = ProjectData.instance
     unless File.exist?(filepath)
       msg = Rainbow("[ERROR] #{filepath} not found!").red.bright
-      Logger.verboseln msg
+      puts msg
       exit 1
     end
 
@@ -77,7 +76,7 @@ module ProjectLoader
   # Error found and exit application.
   def self.error_loading(arg)
     msg = Rainbow("[ERROR] Loading... #{arg}").red.bright
-    Logger.verboseln msg
+    puts msg
     exit 1
   end
 end

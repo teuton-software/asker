@@ -10,9 +10,7 @@ class ProjectLoaderTest < Minitest::Test
 
     project.reset
     assert_equal 0, project.param.size
-    Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
-    Application.instance.config['global']['verbose'] = 'yes'
     assert_equal 13, project.param.size
     assert_equal 'tests/input/starwars', project.param[:inputdirs]
     assert_equal 'jedi.haml', project.param[:process_file]
@@ -26,9 +24,7 @@ class ProjectLoaderTest < Minitest::Test
 
     project.reset
     assert_equal 0, project.param.size
-    Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load_from_string(filepath)
-    Application.instance.config['global']['verbose'] = 'yes'
     assert_equal 2, project.param.size
     assert_equal 'tests/input/starwars', project.param[:inputdirs]
     assert_equal 'jedi.haml', project.param[:process_file]
@@ -42,9 +38,7 @@ class ProjectLoaderTest < Minitest::Test
 
     project.reset
     assert_equal 0, project.param.size
-    Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
-    Application.instance.config['global']['verbose'] = 'yes'
     assert_equal 13, project.param.size
     assert_equal 'tests/input/starwars', project.param[:inputdirs]
     assert_equal 'sith.haml', project.param[:process_file]
@@ -58,9 +52,7 @@ class ProjectLoaderTest < Minitest::Test
 
     project.reset
     assert_equal 0, project.param.size
-    Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load_from_string(filepath)
-    Application.instance.config['global']['verbose'] = 'yes'
     assert_equal 2, project.param.size
     assert_equal 'tests/input/starwars', project.param[:inputdirs]
     assert_equal 'sith.haml', project.param[:process_file]
@@ -74,9 +66,7 @@ class ProjectLoaderTest < Minitest::Test
 
     project.reset
     assert_equal 0, project.param.size
-    Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
-    Application.instance.config['global']['verbose'] = 'yes'
     assert_equal 15, project.param.size
     assert_equal 'input/es/add,input/es/idp', project.param[:inputdirs]
     assert_equal 'acceso-remoto.haml', project.param[:process_file]

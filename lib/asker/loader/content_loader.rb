@@ -4,7 +4,6 @@ require 'rainbow'
 require 'rexml/document'
 require_relative '../data/concept'
 require_relative 'code_loader'
-require_relative '../logger'
 require_relative '../data/project_data'
 
 # Define methods that load data from XML contents
@@ -33,7 +32,7 @@ module ContentLoader
       when 'code'
         codes << read_code(xmldata, filepath)
       else
-        Logger.verboseln Rainbow("[ERROR] Unkown tag <#{xmldata.name}>").red
+        puts Rainbow("[ERROR] Unkown tag <#{xmldata.name}>").red
       end
     end
 
@@ -95,8 +94,7 @@ module ContentLoader
   # @param filepath (String)
   # @param content (String)
   private_class_method def self.raise_error_with(filepath, content)
-    msg = Rainbow("[ERROR] ContentLoader: Format error in #{filepath}").red.bright
-    Logger.verboseln msg
+    puts Rainbow("[ERROR] ContentLoader: Format error in #{filepath}").red.bright
     f = File.open('output/error.xml', 'w')
     f.write(content)
     f.close

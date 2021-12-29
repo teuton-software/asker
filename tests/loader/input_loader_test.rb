@@ -8,7 +8,6 @@ require_relative '../../lib/asker/loader/input_loader'
 class InputLoaderTest < Minitest::Test
   def test_load_jedi_haml
     filepath = 'tests/input/starwars/jedi.haml'
-    Application.instance.config['global']['verbose'] = 'no'
     ProjectData.instance.reset
     ProjectLoader.load(filepath)
 

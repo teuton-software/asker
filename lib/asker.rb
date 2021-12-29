@@ -44,7 +44,7 @@ class Asker
   end
 
   private_class_method def self.load_input(args)
-    init_project_data_with_application_configuration
+    init_project_data
     project_data = ProjectLoader.load(args)
     init_logger(project_data)
 
@@ -53,7 +53,7 @@ class Asker
     [project_data, data]
   end
 
-  private_class_method def self.init_project_data_with_application_configuration()
+  private_class_method def self.init_project_data()
     project_data = ProjectData.instance
     outputdir = Application.instance.config['output']['folder']
     project_data.set(:outputdir, outputdir)
@@ -63,6 +63,7 @@ class Asker
     # Create log file where to save log messages
     Logger.create(project_data.get(:logpath),
                   project_data.get(:logname))
+    Logger.instance.set_verbose(Application.instance.config['verbose'])
     Logger.verboseln '[INFO] Project open'
     Logger.verboseln '   ├── inputdirs    = ' + Rainbow(project_data.get(:inputdirs)).bright
     Logger.verboseln '   └── process_file = ' + Rainbow(project_data.get(:process_file)).bright

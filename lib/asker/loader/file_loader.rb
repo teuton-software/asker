@@ -2,7 +2,6 @@
 
 require_relative 'content_loader'
 require_relative 'haml_loader'
-require_relative '../logger'
 
 # Methods that load a filename and return list of concepts
 module FileLoader
@@ -15,8 +14,7 @@ module FileLoader
     elsif File.extname(filename).casecmp('.xml').zero?
       file_content = File.read(filename)
     else
-      msg = "[ERROR] FileLoader: Format error #{filename}"
-      Logger.verboseln msg
+      puts "[ERROR] FileLoader: Format error #{filename}"
       raise msg
     end
     ContentLoader.load(filename, file_content)

@@ -3,7 +3,6 @@
 require_relative 'directory_loader'
 require_relative '../ai/concept_ai'
 require_relative '../data/world'
-require_relative '../logger'
 
 # Load DATA defined into our Project
 module InputLoader
@@ -13,7 +12,7 @@ module InputLoader
   def self.load(inputdirs)
     data = { concepts: [], codes: [], world: nil,
              concepts_ai: [], codes_ai: [] }
-    Logger.verboseln "\n[INFO] Loading input data"
+    #Logger.verboseln "\n[INFO] Loading input data"
     inputdirs.each do |dirname|
       temp = DirectoryLoader.load(dirname)
       data[:concepts] += temp[:concepts]

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'file_loader'
-require_relative '../logger'
 
 # Load input data from one directory
 module DirectoryLoader
@@ -13,7 +12,6 @@ module DirectoryLoader
     files = (Dir.new(dirname).entries - ['.', '..']).sort
     # Accept only HAML or XML files
     accepted = files.select { |f| %w[.xml .haml].include? File.extname(f) }
-    Logger.verboseln " * Input directory  = #{Rainbow(dirname).bright}"
     DirectoryLoader.load_files(accepted, dirname)
   end
 
@@ -24,7 +22,7 @@ module DirectoryLoader
     return if Dir.exist? dirname
 
     msg = Rainbow("[ERROR] #{dirname} directory dosn't exist!").color(:red)
-    Logger.verboseln msg
+    puts msg
     raise msg
   end
 
@@ -48,11 +46,6 @@ module DirectoryLoader
   # @param filepath (String) Path to input file
   # @param last (Boolean) True if it is the last filename
   def self.load_file(filepath, last = false)
-    if last
-      Logger.verboseln "   └── Input file   = #{Rainbow(filepath).bright}"
-    else
-      Logger.verboseln "   ├── Input file   = #{Rainbow(filepath).bright}"
-    end
     FileLoader.load(filepath)
   end
 end

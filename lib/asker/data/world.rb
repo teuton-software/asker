@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
 require_relative '../loader/image_url_loader'
-require_relative '../logger'
 
 class World
   attr_reader :concepts, :filenames, :contexts, :image_urls
 
-  def initialize(concepts, show_progress = true)
+  def initialize(concepts)
     find_neighbors_for_every_concept(concepts)
     @concepts, @filenames, @contexts = get_lists_from(concepts)
-    @image_urls = find_url_images_from_internet(show_progress)
+    @image_urls = find_url_images_from_internet()
   end
 
   ##
@@ -50,10 +49,9 @@ class World
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/CyclomaticComplexity
   # rubocop:disable Metrics/PerceivedComplexity
-  def find_url_images_from_internet(show_progress)
+  def find_url_images_from_internet()
     return {} unless Application.instance.config['global']['internet'] == 'yes'
 
-    Logger.verbose "\n[INFO] Loading data from Internet" if show_progress
     threads = []
     searchs = []
     urls = {}
@@ -61,11 +59,9 @@ class World
     @concepts&.each_key { |key| searchs << key }
     @contexts.each { |filter| searchs << filter.join(' ').to_s }
     searchs.each do |search|
-      Logger.verbose('.') if show_progress
       threads << Thread.new { urls[search] = ImageUrlLoader.load(search) }
     end
     threads.each(&:join) # wait for all threads to finish
-    Logger.verbose("\n") if show_progress
     urls
   end
   # rubocop:enable Metrics/MethodLength
