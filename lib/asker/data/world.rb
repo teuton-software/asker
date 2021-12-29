@@ -1,18 +1,11 @@
 # frozen_string_literal: true
 
 require_relative '../loader/image_url_loader'
-require_relative '../project'
 require_relative '../logger'
 
-##
-# World data
 class World
   attr_reader :concepts, :filenames, :contexts, :image_urls
 
-  ##
-  # Initialize World object
-  # @param concepts (Array)
-  # @param show_progress (Boolean)
   def initialize(concepts, show_progress = true)
     find_neighbors_for_every_concept(concepts)
     @concepts, @filenames, @contexts = get_lists_from(concepts)

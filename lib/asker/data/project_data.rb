@@ -2,11 +2,11 @@
 
 require 'singleton'
 require 'rainbow'
-require_relative 'application'
-require_relative 'logger'
+require_relative '../application'
+require_relative '../logger'
 
 # Contains Project data and methods
-class Project
+class ProjectData
   include Singleton
   attr_reader :default, :param
 

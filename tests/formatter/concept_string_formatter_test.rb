@@ -4,14 +4,13 @@ require 'minitest/autorun'
 require_relative '../../lib/asker/application'
 require_relative '../../lib/asker/loader/project_loader'
 require_relative '../../lib/asker/loader/input_loader'
-# require_relative '../../lib/asker/formatter/string_color_filter'
 require_relative '../../lib/asker/formatter/concept_string_formatter'
 
 class ConceptStringFormatterTest < Minitest::Test
-  
+
   def test_load_jedi_haml
     filepath = 'tests/input/starwars/jedi.haml'
-    Project.instance.reset
+    ProjectData.instance.reset
     Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
 
@@ -41,7 +40,7 @@ class ConceptStringFormatterTest < Minitest::Test
     t2.each_with_index do |line, index|
       assert_equal line, b2[index]
     end
-    Project.instance.reset
+    ProjectData.instance.reset
     Rainbow.enabled = true
   end
 end

@@ -1,22 +1,14 @@
 # frozen_string_literal: true
 
 require_relative '../ai/code/code_ai_factory'
-require_relative '../project'
 require_relative '../logger'
 require_relative '../formatter/code_string_formatter'
 
-##
-# Code data object
 class Code
   attr_reader :dirname, :filename, :type
   attr_accessor :process, :features
   attr_reader :lines, :questions
 
-  ##
-  # Initialize Code object
-  # @param dirname (String)
-  # @param filename (String)
-  # @param type (String)
   def initialize(dirname, filename, type)
     @dirname = dirname
     @filename = filename

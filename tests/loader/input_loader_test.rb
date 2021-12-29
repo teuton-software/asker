@@ -9,10 +9,10 @@ class InputLoaderTest < Minitest::Test
   def test_load_jedi_haml
     filepath = 'tests/input/starwars/jedi.haml'
     Application.instance.config['global']['verbose'] = 'no'
-    Project.instance.reset
+    ProjectData.instance.reset
     ProjectLoader.load(filepath)
 
-    data = InputLoader.load(Project.instance.get(:inputdirs).split(','))
+    data = InputLoader.load(ProjectData.instance.get(:inputdirs).split(','))
     assert_equal 4, data[:concepts].size
     assert_equal 'obiwan', data[:concepts][0].name
     assert_equal 'yoda', data[:concepts][1].name
@@ -25,7 +25,7 @@ class InputLoaderTest < Minitest::Test
     assert_equal false, data[:concepts][3].process?
     assert_equal 0, data[:codes].size
 
-    Project.instance.reset
+    ProjectData.instance.reset
     Application.instance.config['global']['verbose'] = 'yes'
   end
 end

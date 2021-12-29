@@ -8,7 +8,7 @@ require_relative '../../lib/asker/loader/directory_loader'
 class DirectoryLoaderTest < Minitest::Test
   def test_load_test_input_starwars
     filepath = 'tests/input/starwars/jedi.haml'
-    Project.instance.reset
+    ProjectData.instance.reset
     Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
 
@@ -26,12 +26,12 @@ class DirectoryLoaderTest < Minitest::Test
     assert_equal false, data[:concepts][3].process?
     assert_equal 0, data[:codes].size
 
-    Project.instance.reset
+    ProjectData.instance.reset
   end
 
   def test_load_test_input_ruby
     filepath = 'tests/input/ruby/ruby1.haml'
-    Project.instance.reset
+    ProjectData.instance.reset
     Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
 
@@ -51,6 +51,6 @@ class DirectoryLoaderTest < Minitest::Test
     assert_equal 'tests/input/ruby', data[:codes][1].dirname
     assert_equal 'tests/input/ruby', data[:codes][2].dirname
 
-    Project.instance.reset
+    ProjectData.instance.reset
   end
 end

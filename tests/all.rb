@@ -4,7 +4,7 @@ require 'minitest/autorun'
 
 require_relative 'application_test'
 require_relative 'input_checker_test'
-require_relative 'project_test'
+require_relative 'project_data_test'
 
 require_relative 'ai/code/code_ai_factory_test'
 require_relative 'ai/question_test'

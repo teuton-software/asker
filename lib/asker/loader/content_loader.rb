@@ -5,7 +5,7 @@ require 'rexml/document'
 require_relative '../data/concept'
 require_relative 'code_loader'
 require_relative '../logger'
-require_relative '../project'
+require_relative '../data/project_data'
 
 # Define methods that load data from XML contents
 module ContentLoader
@@ -49,7 +49,7 @@ module ContentLoader
     begin
       lang = xmldata.root.attributes['lang']
     rescue StandardError
-      lang = Project.instance.lang
+      lang = ProjectData.instance.lang
     end
     lang
   end
@@ -73,7 +73,7 @@ module ContentLoader
   # @param lang
   # @param context
   private_class_method def self.read_concept(xmldata, filepath, lang, context)
-    project = Project.instance
+    project = ProjectData.instance
     c = Concept.new(xmldata, filepath, lang, context)
     c.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
     c
@@ -84,7 +84,7 @@ module ContentLoader
   # @param xmldata (XML Object)
   # @param filepath (String)
   private_class_method def self.read_code(xmldata, filepath)
-    project = Project.instance
+    project = ProjectData.instance
     c = CodeLoader.load(xmldata, filepath)
     c.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
     c

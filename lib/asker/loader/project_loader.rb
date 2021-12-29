@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'yaml'
-require_relative '../project'
+require_relative '../data/project_data'
 require_relative '../logger'
 
 # Load params into Project class using arg input
@@ -16,7 +16,7 @@ module ProjectLoader
   # @param args (String or Hash)
   # rubocop:disable Metrics/MethodLength
   def self.load(args)
-    project = Project.instance
+    project = ProjectData.instance
 
     if args.class == Hash
       project.param.merge!(args)
@@ -44,7 +44,7 @@ module ProjectLoader
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
   def self.load_from_string(filepath)
-    project = Project.instance
+    project = ProjectData.instance
     unless File.exist?(filepath)
       msg = Rainbow("[ERROR] #{filepath} not found!").red.bright
       Logger.verboseln msg
@@ -65,7 +65,7 @@ module ProjectLoader
 
   # rubocop:disable Security/YAMLLoad
   def self.load_from_yaml(arg)
-    project = Project.instance
+    project = ProjectData.instance
     project.param.merge!(YAML.load(File.open(arg)))
     project.set(:configfilename, arg)
     project.set(:projectdir, File.dirname(arg))

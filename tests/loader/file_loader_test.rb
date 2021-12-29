@@ -8,7 +8,7 @@ require_relative '../../lib/asker/loader/file_loader'
 class FileLoaderTest < Minitest::Test
   def test_load_jedi
     filepath = 'tests/input/starwars/jedi.haml'
-    Project.instance.reset
+    ProjectData.instance.reset
     Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
 
@@ -22,11 +22,11 @@ class FileLoaderTest < Minitest::Test
     assert_equal true, data[:concepts][1].process?
     assert_equal 0, data[:codes].size
 
-    Project.instance.reset
+    ProjectData.instance.reset
   end
 
   def test_load_sith
-    Project.instance.reset
+    ProjectData.instance.reset
     Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load('tests/input/starwars/jedi.haml')
 
@@ -40,12 +40,12 @@ class FileLoaderTest < Minitest::Test
     assert_equal false, data[:concepts][1].process?
     assert_equal 0, data[:codes].size
 
-    Project.instance.reset
+    ProjectData.instance.reset
   end
 
   def test_load_test_input_ruby
     filepath = 'tests/input/ruby/ruby1.haml'
-    Project.instance.reset
+    ProjectData.instance.reset
     Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
 
@@ -73,6 +73,6 @@ class FileLoaderTest < Minitest::Test
     assert_equal 7, data[:codes][1].lines.size
     assert_equal 10, data[:codes][2].lines.size
 
-    Project.instance.reset
+    ProjectData.instance.reset
   end
 end
