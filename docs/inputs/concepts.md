@@ -120,4 +120,4 @@ Examples:
 * [furniture.haml](../examples/home/furniture.haml)
 * [furniture.xml](../examples/home/xml/furniture.xml)
 
-[>> Learn about tables](files.md)
+[>> Learn about files](files.md)
