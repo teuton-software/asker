@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative '../ai/code/code_ai_factory'
-require_relative '../logger'
 require_relative '../formatter/code_string_formatter'
 
 class Code
@@ -33,7 +32,7 @@ class Code
   end
 
   def debug
-    Logger.verbose CodeStringFormatter.to_s(self)
+    puts CodeStringFormatter.to_s(self)
   end
 
   private
@@ -42,7 +41,7 @@ class Code
     return if filepath.nil?
 
     unless File.exist? filepath
-      Logger.verboseln Rainbow("[ERROR] Unkown file #{filepath}").red.bright
+      puts Rainbow("[ERROR] Unkown file #{filepath}").red.bright
       return
     end
     content = File.read(filepath)

@@ -49,7 +49,8 @@ class Asker
     init_logger(project_data)
 
     inputdirs = project_data.get(:inputdirs).split(',')
-    data = InputLoader.load(inputdirs)
+    internet = Application.instance.config['global']['internet'] == 'yes'
+    data = InputLoader.load(inputdirs, internet)
     [project_data, data]
   end
 

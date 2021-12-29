@@ -5,10 +5,10 @@ require_relative '../loader/image_url_loader'
 class World
   attr_reader :concepts, :filenames, :contexts, :image_urls
 
-  def initialize(concepts)
+  def initialize(concepts, internet = true)
     find_neighbors_for_every_concept(concepts)
     @concepts, @filenames, @contexts = get_lists_from(concepts)
-    @image_urls = find_url_images_from_internet()
+    @image_urls = find_url_images_from_internet(internet)
   end
 
   ##
@@ -49,8 +49,8 @@ class World
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/CyclomaticComplexity
   # rubocop:disable Metrics/PerceivedComplexity
-  def find_url_images_from_internet()
-    return {} unless Application.instance.config['global']['internet'] == 'yes'
+  def find_url_images_from_internet(internet)
+    return {} unless internet
 
     threads = []
     searchs = []
