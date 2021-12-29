@@ -49,16 +49,20 @@ class Asker
     project_data.set(:outputdir, outputdir)
 
     project_data = ProjectLoader.load(args)
+    create_logger(project_data)
+
+    inputdirs = project_data.get(:inputdirs).split(',')
+    data = InputLoader.load(inputdirs)
+    [project_data, data]
+  end
+
+  private_class_method def self.create_logger(project_data)
     # Create log file where to save log messages
     Logger.create(project_data.get(:logpath),
                   project_data.get(:logname))
     Logger.verboseln '[INFO] Project open'
     Logger.verboseln '   ├── inputdirs    = ' + Rainbow(project_data.get(:inputdirs)).bright
     Logger.verboseln '   └── process_file = ' + Rainbow(project_data.get(:process_file)).bright
-
-    inputdirs = project_data.get(:inputdirs).split(',')
-    data = InputLoader.load(inputdirs)
-    [project_data, data]
   end
 
   # rubocop:disable Metrics/AbcSize

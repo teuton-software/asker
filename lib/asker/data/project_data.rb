@@ -1,22 +1,15 @@
 # frozen_string_literal: true
 
 require 'singleton'
-require 'rainbow'
-require_relative '../logger'
 
-# Contains Project data and methods
 class ProjectData
   include Singleton
   attr_reader :default, :param
 
-  ##
-  # Initialize
   def initialize
     reset
   end
 
-  ##
-  # Reset project params
   def reset
     @default = { inputbasedir: FileUtils.pwd,
                  stages: { d: true, b: true, f: true, i: true, s: true, t: true },
@@ -25,19 +18,12 @@ class ProjectData
     @param = {}
   end
 
-  ##
-  # Get value param
-  # @param key (Symbol) key
   def get(key)
     return @param[key] unless @param[key].nil?
 
     @default[key]
   end
 
-  ##
-  # Set value param
-  # @param key (Symbol) key
-  # @param value (String) value
   def set(key, value)
     @param[key] = value
   end
