@@ -58,6 +58,9 @@ class Asker
     project_data = ProjectData.instance
     outputdir = Application.instance.config['output']['folder']
     project_data.set(:outputdir, outputdir)
+
+    formula_weights = Application.instance.config['ai']['formula_weights']
+    project_data.set(:weights, formula_weights)
   end
 
   private_class_method def self.init_logger(project_data)

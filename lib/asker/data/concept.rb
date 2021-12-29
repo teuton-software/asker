@@ -92,7 +92,8 @@ class Concept
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/CyclomaticComplexity
   def calculate_nearness_to_concept(other)
-    a = Application.instance.config['ai']['formula_weights']
+    a = ProjectData.instance.get(:weights) 
+    #Application.instance.config['ai']['formula_weights']
     weights = a.split(',').map(&:to_f)
 
     max1 = @context.count

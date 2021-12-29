@@ -14,7 +14,8 @@ class ProjectData
     @default = { inputbasedir: FileUtils.pwd,
                  stages: { d: true, b: true, f: true, i: true, s: true, t: true },
                  threshold: 0.5,
-                 outputdir: 'output' }
+                 outputdir: 'output',
+                 weights: '1, 1, 1' }
     @param = {}
   end
 
