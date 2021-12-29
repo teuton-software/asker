@@ -28,7 +28,7 @@ Steps:
 Example: Running `asker` with our example input file as argument (`acdc.haml`):
 
 ```
-asker docs/examples/starwars/acdc.haml
+asker docs/examples/bands/acdc.haml
 ```
 
 * Output files created into the `output` folder.
