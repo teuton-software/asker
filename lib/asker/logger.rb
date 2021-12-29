@@ -26,12 +26,12 @@ class Logger
 
   ##
   # Create or reset logfile
-  def self.create(project)
-    @logfile = File.open(project.get(:logpath), 'w')
+  def self.create(logpath, logname)
+    @logfile = File.open(logpath, 'w')
     @logfile.write('=' * 50 + "\n")
     @logfile.write("Created by : #{Application::NAME}")
     @logfile.write(" (version #{Application::VERSION})\n")
-    @logfile.write("File       : #{project.get(:logname)}\n")
+    @logfile.write("File       : #{logname}\n")
     @logfile.write("Time       : #{Time.new}\n")
     @logfile.write("Author     : David Vargas Ruiz\n")
     @logfile.write('=' * 50 + "\n\n")

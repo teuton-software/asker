@@ -8,12 +8,11 @@ require_relative 'asker/input_checker'
 require_relative 'asker/displayer/concept_displayer'
 require_relative 'asker/displayer/stats_displayer'
 require_relative 'asker/exporter/output_file_exporter'
-require_relative 'asker/loader/project_loader'
-require_relative 'asker/loader/input_loader'
 require_relative 'asker/logger'
 
-##
-# Asker main class
+require_relative 'asker/loader/project_loader'
+require_relative 'asker/loader/input_loader'
+
 class Asker
   ##
   # Create asker input demo files
@@ -39,13 +38,24 @@ class Asker
   # Start working
   # @param filepath (String) HAML or XML filepath
   def self.start(filepath)
-    project, data = load_input(filepath)
+    project_data, data = load_input(filepath)
     ConceptDisplayer.show(data[:concepts])
-    create_output(project, data)
+    create_output(project_data, data)
   end
 
   private_class_method def self.load_input(args)
+    project_data = ProjectData.instance
+    outputdir = Application.instance.config['output']['folder']
+    project_data.set(:outputdir, outputdir)
+
     project_data = ProjectLoader.load(args)
+    # Create log file where to save log messages
+    Logger.create(project_data.get(:logpath),
+                  project_data.get(:logname))
+    Logger.verboseln '[INFO] Project open'
+    Logger.verboseln '   ├── inputdirs    = ' + Rainbow(project_data.get(:inputdirs)).bright
+    Logger.verboseln '   └── process_file = ' + Rainbow(project_data.get(:process_file)).bright
+
     inputdirs = project_data.get(:inputdirs).split(',')
     data = InputLoader.load(inputdirs)
     [project_data, data]

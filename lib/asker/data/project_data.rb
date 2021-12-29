@@ -2,7 +2,6 @@
 
 require 'singleton'
 require 'rainbow'
-require_relative '../application'
 require_relative '../logger'
 
 # Contains Project data and methods
@@ -21,7 +20,8 @@ class ProjectData
   def reset
     @default = { inputbasedir: FileUtils.pwd,
                  stages: { d: true, b: true, f: true, i: true, s: true, t: true },
-                 threshold: 0.5 }
+                 threshold: 0.5,
+                 outputdir: 'output' }
     @param = {}
   end
 
@@ -52,7 +52,6 @@ class ProjectData
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
   def open
-    config = Application.instance.config
     ext = File.extname(@param[:process_file]) || '.haml'
     @param[:projectname] = @param[:projectname] ||
                            File.basename(@param[:process_file], ext)
@@ -63,7 +62,7 @@ class ProjectData
     @param[:yamlname] = "#{@param[:projectname]}.yaml"
     @param[:moodlename] = "#{@param[:projectname]}-moodle.xml"
 
-    outputdir = config['output']['folder']
+    outputdir = get(:outputdir)
     @param[:logpath] = File.join(outputdir, get(:logname))
     @param[:outputpath] = File.join(outputdir, get(:outputname))
     @param[:lessonpath] = File.join(outputdir, get(:lessonname))
@@ -71,10 +70,6 @@ class ProjectData
     @param[:moodlepath] = File.join(outputdir, get(:moodlename))
 
     Dir.mkdir(outputdir) unless Dir.exist?(outputdir)
-    Logger.create(self) # Create log file where to save log messages
-    Logger.verboseln '[INFO] Project open'
-    Logger.verboseln '   ├── inputdirs    = ' + Rainbow(get(:inputdirs)).bright
-    Logger.verboseln '   └── process_file = ' + Rainbow(get(:process_file)).bright
   end
   # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/AbcSize
