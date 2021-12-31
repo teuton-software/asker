@@ -65,7 +65,7 @@ This example will multiply by three the number of input lines.
     %names command
     %tags computing,directive,computer,perform,specific,task
     %def In computing, is a directive to a computer program to perform a specific task.
-    %table{:action, :description}
+    %table{:fields => 'action, description'}
       %template{:NAME => 'Endor,Naboo,Dagobah'}
         %row
           %col mkdir NAME
