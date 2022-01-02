@@ -60,7 +60,7 @@ class CLI < Thor
   ##
   # Create default INI config file
   def init
-    Asker.create_configuration
+    Asker.init
   end
 
   map ['n', '-n', '--new', 'new'] => 'create_input'

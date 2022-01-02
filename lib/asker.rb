@@ -21,9 +21,7 @@ class Asker
     Skeleton.create_input(dirpath)
   end
 
-  ##
-  # Create default asker configuration files
-  def self.create_configuration
+  def self.init
     Skeleton.create_configuration
   end
 
