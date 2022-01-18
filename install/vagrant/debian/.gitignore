@@ -1,2 +1,5 @@
 .vagrant
 *.txt
+private*
+*.box
+*.md5
