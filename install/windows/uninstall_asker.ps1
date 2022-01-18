@@ -9,7 +9,6 @@ If ([System.Security.Principal.WindowsIdentity]::GetCurrent().Groups -NotContain
 }
 
 Write-Host "[0/3.INFO] WINDOWS ASKER uninstallation"
-
 Write-Host "[1/3.INFO] Uninstalling PACKAGES..."
 If (Get-Command choco.exe -ErrorAction SilentlyContinue) {
     choco uninstall git ruby -y --remove-dependencies
@@ -17,5 +16,4 @@ If (Get-Command choco.exe -ErrorAction SilentlyContinue) {
 
 Write-Host "[2/3.INFO] Uninstalling asker"
 gem uninstall asker-tool
-
 Write-Host "[3/3.INFO] Finish!"

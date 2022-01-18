@@ -9,7 +9,6 @@ If ([System.Security.Principal.WindowsIdentity]::GetCurrent().Groups -NotContain
 }
 
 Write-Host "[0/3.INFO] WINDOWS ASKER installation"
-
 Write-Host "[1/3.INFO] Installing PACKAGES..."
 If (!(Get-Command choco.exe -ErrorAction SilentlyContinue)) {
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -24,5 +23,4 @@ refreshenv
 
 Write-Host "[2/3.INFO] gem installation"
 gem install asker-tool
-
 Write-Host "[3/3.INFO] Finish!"
