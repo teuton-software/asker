@@ -1,0 +1,62 @@
+
+====================================================
+https://meet.jit.si/asker-v2.2
+
+VIDEOCONFERENCIA
+
+
+* El miércoles 19 de enero de 2022.
+* A las 9:00 WET hora Canaria (+1 en la península).
+* En la sala Jitsi 
+
+=====================================================
+Protocolo
+
+1. Todos los micros apagados.
+2. Cuando el presentador haga una pregunta al grupo de SI/NO
+   Los que digan SI => Levantar la mano 1 segundo y la volvemos a bajar
+   Los que digan NO => No hacer nada
+3. Si tod@s están de acuerdo: la sesión se grabará en video y
+   se subirá a Internet a los pocos días.
+4. Si tienes alguna duda escríbela en el chat.
+   Ahí se irán leyendo y respondiendo poco a poco.
+5. Si prefieres intervenir "hablando", levanta la mano y
+   espera a que el presentador te dé paso. 
+   Haz tu intervención y luego recuerda cerrar el micro.
+
+=====================================================
+
+(1) Ver la documentación
+* https://github.com/dvarrui/asker
+
+(2) Instalar asker-tool
+=> Instalar ruby
+=> Instalar la gema: gem install asker-tool
+
+(3) Comprobamos:
+asker
+asker v
+
+(4) Necesitamos un "input"
+asker new demo 
+
+* Explicar el "input" junto con la documentación.
+
+(5) Generar las preguntas 
+asker demo/example-input.haml
+
+* Ver el log del proceso 
+
+(6) Ver las preguntas generadas:
+
+tree output 
+* Subirlas a Moodle 
+* Seguir viendo las preguntas generadas
+* Mostrar el repositorio de inputs 
+https://github.com/dvarrui/asker-inputs
+
+(7) Dudas/preguntas
+
+(8) Gracias y despedida 
+
+
