@@ -6,8 +6,6 @@ Generate a lot of questions from an _input_ text file with on your own _definiti
 
 ![logo](./docs/images/logo.png)
 
-## Features
-
 ASKER helps trainers to create a huge amount of questions, from a definitions (_conceptual entities_) input file.
 
 * Free Software [LICENSE](https://github.com/dvarrui/asker/blob/devel/LICENSE.txt).
