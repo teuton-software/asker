@@ -6,7 +6,7 @@ Generate a lot of questions from an _input_ text file with on your own _definiti
 
 ![logo](./docs/images/logo.png)
 
-# Description
+## Features
 
 ASKER helps trainers to create a huge amount of questions, from a definitions (_conceptual entities_) input file.
 
@@ -14,12 +14,12 @@ ASKER helps trainers to create a huge amount of questions, from a definitions (_
 * Multiplatform.
 * Ruby program.
 
-# Installation
+## Installation
 
 1. Install Ruby on your system.
 2. `gem install asker-tool`
 
-# Usage
+## Usage
 
 Steps:
 
@@ -36,7 +36,7 @@ asker docs/examples/bands/acdc.haml
 * More [example input files](./docs/examples).
 * More asker input files at `github/dvarrui/asker-inputs` repository.
 
-# Documentation
+## Documentation
 
 * [Installation](https://github.com/dvarrui/asker/blob/devel/docs/install/README.md)
 * [Inputs](https://github.com/dvarrui/asker/blob/devel/docs/inputs/README.md)
@@ -45,7 +45,7 @@ asker docs/examples/bands/acdc.haml
 * [Base idea](https://github.com/dvarrui/asker/blob/devel/docs/idea.md)
 * [History](https://github.com/dvarrui/asker/blob/devel/docs/history.md)
 
-# Contact
+## Contact
 
 * **Email**: `teuton.software@protonmail.com`
 * **Twitter**: `@SoftwareTeuton`
