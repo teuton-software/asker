@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/asker-tool.svg)](https://badge.fury.io/rb/asker-tool)
+
 # ASKER (devel 2.3)
 
 Generate a lot of questions from an _input file_ base on your own _definitions_.
