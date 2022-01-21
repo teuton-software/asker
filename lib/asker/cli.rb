@@ -8,18 +8,16 @@ require_relative '../asker'
 ##
 # Command Line User Interface
 class CLI < Thor
-  map ['h', '-h', '--help'] => 'help'
+  map ['--help'] => 'help'
 
-  map ['v', '-v', '--version'] => 'version'
+  map ['--version'] => 'version'
   desc 'version', 'Show the program version'
-  ##
-  # Show current version
   def version
     puts "#{Application::NAME} version #{Application::VERSION}"
   end
 
   map ['f', '-f', '--file'] => 'file'
-  desc 'file NAME', 'Build output files, from HAML/XML input file.'
+  desc 'file FILEPATH', 'Build output files, from HAML/XML input file.'
   long_desc <<-LONGDESC
 
   Build questions about contents defined into input file specified.
@@ -35,19 +33,13 @@ class CLI < Thor
   (3) #{Rainbow('asker projects/foo/foo.yaml').aqua}, Build questions from YAML project file.
 
   LONGDESC
-  ##
-  # Create questions from input file
-  # @param filename (String) Path to input file
   def file(filename)
     # Asker start processing input file
     Asker.start(filename)
   end
 
-  map ['c', '-c', '--check'] => 'check'
-  desc 'check', 'Check input HAML file syntax'
-  ##
-  # Check input file syntax
-  # @param filename (String) Path to input file
+  map ['--check'] => 'check'
+  desc 'check FILEPATH', 'Check input HAML file syntax'
   def check(filename)
     # Enable/disable color output
     Rainbow.enabled = false if options['color'] == false
@@ -55,21 +47,19 @@ class CLI < Thor
     Asker.check(filename)
   end
 
-  map ['i', '-i', '--init'] => 'init'
+  map ['--init'] => 'init'
   desc 'init', 'Create default INI config file'
-  ##
-  # Create default INI config file
   def init
     Asker.init
   end
 
-  map ['n', '-n', '--new', 'new'] => 'create_input'
-  desc 'new [FOLDER]', 'Create Asker demo input files'
+  map ['new','--new'] => 'new_input'
+  desc 'new DIRPATH', 'Create Asker demo input files'
   ##
   # Create Asker demo input files
   # @param dirname (String) Path to folder
-  def create_input(dirname)
-    Asker.create_input(dirname)
+  def new_input(dirname)
+    Asker.new_input(dirname)
   end
 
   ##

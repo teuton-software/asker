@@ -14,27 +14,18 @@ require_relative 'asker/loader/project_loader'
 require_relative 'asker/loader/input_loader'
 
 class Asker
-  ##
-  # Create asker input demo files
-  # @param dirpath (String)
-  def self.create_input(dirpath)
-    Skeleton.create_input(dirpath)
-  end
-
   def self.init
     Skeleton.create_configuration
   end
 
-  ##
-  # Checking input file syntax
-  # @param filepath (String)
+  def self.new_input(dirpath)
+    Skeleton.create_input(dirpath)
+  end
+
   def self.check(filepath)
     InputChecker.check(filepath)
   end
 
-  ##
-  # Start working
-  # @param filepath (String) HAML or XML filepath
   def self.start(filepath)
     project_data, data = load_input(filepath)
     ConceptDisplayer.show(data[:concepts])
@@ -71,9 +62,6 @@ class Asker
     Logger.verboseln '   └── process_file = ' + Rainbow(project_data.get(:process_file)).bright
   end
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/PerceivedComplexity
   private_class_method def self.create_output(project, data)
     Logger.verboseln "\n[INFO] Creating output files"
     m = '   ├── Gift questions file => '
@@ -111,7 +99,4 @@ class Asker
     StatsDisplayer.show(data)
     Logger.close
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/PerceivedComplexity
 end
