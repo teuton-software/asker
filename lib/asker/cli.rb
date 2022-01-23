@@ -17,7 +17,7 @@ class CLI < Thor
   end
 
   map ['f', '-f', '--file'] => 'file'
-  desc 'file FILEPATH', 'Build output files, from HAML/XML input file.'
+  desc '[file] FILEPATH', 'Build output files, from HAML/XML input file.'
   long_desc <<-LONGDESC
 
   Build questions about contents defined into input file specified.
