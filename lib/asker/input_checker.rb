@@ -62,8 +62,6 @@ module InputChecker
       end
     end
 
-    # rubocop:disable Metrics/AbcSize
-    # rubocop:disable Metrics/MethodLength
     def show_errors
       errors = 0
       # puts "Line : Error description"
@@ -73,7 +71,9 @@ module InputChecker
         errors += 1
         if errors < 11
           data = { id: i[:id], msg: i[:msg], source: i[:source][0, 40] }
-          puts format(' %<id>03d : %<msg>s. => %<source>s', data)
+          order = i[:id] + 1
+          data = { order: order, msg: i[:msg], source: i[:source][0, 40] }
+          puts format(' %<order>03d : %<msg>s. => %<source>s', data)
         end
         puts '...' if errors == 11
       end

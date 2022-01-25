@@ -12,14 +12,14 @@ Gem::Specification.new do |s|
   s.license     = 'GPL-3.0'
   s.authors     = ['David Vargas Ruiz']
   s.email       = 'teuton.software@protonmail.com'
-  s.homepage    = 'https://github.com/dvarrui/asker'
+  s.homepage    = 'https://github.com/teuton-software/asker/tree/v2.2'
 
   s.executables << 'asker'
   #s.executables << 'asker.bat'
 
   s.files       = Dir.glob(File.join('lib','**','*.*'))
 
-  s.required_ruby_version = '>= 2.5.0'
+  s.required_ruby_version = '>= 2.6.9'
 
   s.add_runtime_dependency 'haml', '~> 5.1'
   s.add_runtime_dependency 'inifile', '~> 3.0'

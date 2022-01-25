@@ -8,7 +8,7 @@ require 'rainbow'
 class Application
   include Singleton
 
-  VERSION = '2.3.0'
+  VERSION = '2.2.1'
   NAME = 'asker'
   GEM = 'asker-tool'
   CONFIGFILE = 'asker.ini'
@@ -18,10 +18,6 @@ class Application
     reset
   end
 
-  ##
-  # Initialize config values from external "config.ini" file.
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   def reset
     filename = File.join(Dir.pwd, CONFIGFILE)
     filename = File.join(File.dirname(__FILE__), 'files', CONFIGFILE) unless File.exist? filename
@@ -39,6 +35,4 @@ class Application
     Rainbow.enabled = false
     Rainbow.enabled = true if @config['global']['color'].downcase == 'yes'
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 end
