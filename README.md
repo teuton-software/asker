@@ -2,7 +2,7 @@
 ![GitHub](https://img.shields.io/github/license/dvarrui/asker)
 ![Gem](https://img.shields.io/gem/dv/asker-tool/2.2.1)
 
-# ASKER (version 2.2)
+# ASKER 
 
 Generate a lot of questions from an _input file_ base on your own _definitions_.
 
