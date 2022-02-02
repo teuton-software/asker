@@ -12,7 +12,6 @@ require_relative 'asker/logger'
 
 require_relative 'asker/loader/project_loader'
 require_relative 'asker/loader/input_loader'
-
 class Asker
   def self.init
     Skeleton.create_configuration
@@ -23,7 +22,7 @@ class Asker
   end
 
   def self.check(filepath)
-    CheckInput.check(filepath)
+    CheckInput.new.file(filepath).check
   end
 
   def self.start(filepath)

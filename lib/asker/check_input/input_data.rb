@@ -1,0 +1,358 @@
+# frozen_string_literal: true
+
+require 'rainbow'
+
+class InputData
+  attr_reader :inputs, :outputs
+
+  def initialize(filepath)
+    @inputs = File.read(filepath).split("\n")
+    @outputs = []
+    @inputs.each_with_index do |line, index|
+      output = { id: index,
+                 level: 0,
+                 state: :none,
+                 type: :none,
+                 source: line,
+                 msg: '' }
+      @outputs << output
+    end
+    @ok = false
+  end
+
+  def ok?
+   @ok
+  end
+
+  def show
+    @outputs.each do |i|
+      puts "#{i[:id]}: #{i[:state]} [#{i[:type]}] #{i[:msg]}"
+    end
+  end
+
+  def show_errors
+    errors = 0
+    # puts "Line : Error description"
+    @outputs.each do |i|
+      next if i[:state] == :ok
+
+      errors += 1
+      if errors < 11
+        data = { id: i[:id], msg: i[:msg], source: i[:source][0, 40] }
+        order = i[:id] + 1
+        data = { order: order, msg: i[:msg], source: i[:source][0, 40] }
+        puts format(' %<order>03d : %<msg>s. => %<source>s', data)
+      end
+      puts '...' if errors == 11
+    end
+
+    if errors.positive?
+      puts Rainbow("[ERROR] #{errors} errors " \
+                   "from #{@inputs.size} lines!").red.bright
+    end
+    puts Rainbow('Syntax OK!').green if errors.zero?
+  end
+
+  def check
+    @ok = true
+    @inputs.each_with_index do |line, index|
+      check_empty_lines(line, index)
+      check_map(line, index)
+      check_concept(line, index)
+      check_names(line, index)
+      check_tags(line, index)
+      check_def(line, index)
+      check_table(line, index)
+      check_row(line, index)
+      check_col(line, index)
+      check_template(line, index)
+      check_code(line, index)
+      check_type(line, index)
+      check_path(line, index)
+      check_features(line, index)
+      check_unknown(line, index)
+      @ok = false unless @outputs[index][:state] == :ok
+      @ok = false if @outputs[index][:type] == :unkown
+    end
+    @ok
+  end
+
+  private
+
+  def check_empty_lines(line, index)
+    return unless line.strip.size.zero? || line.start_with?('#')
+
+    @outputs[index][:type] = :empty
+    @outputs[index][:level] = -1
+    @outputs[index][:state] = :ok
+  end
+
+  def check_map(line, index)
+    if index.zero?
+      @outputs[index][:type] = :map
+      if line.start_with?('%map{')
+        @outputs[index][:state] = :ok
+      else
+        @outputs[index][:state] = :err
+        @outputs[index][:msg] = 'Start with %map{'
+      end
+    elsif index.positive? && line.include?('%map{')
+      @outputs[index][:state] = :err
+      @outputs[index][:type] = :map
+      @outputs[index][:msg] = 'Write %map on line 0'
+    end
+  end
+
+  def check_concept(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? '%concept'
+
+    @outputs[index][:type] = :concept
+    @outputs[index][:level] = 1
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :map
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Parent(map) not found!'
+    elsif line != '  %concept'
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Write 2 spaces before %concept'
+    end
+  end
+
+  def check_names(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? '%names'
+
+    @outputs[index][:type] = :names
+    @outputs[index][:level] = 2
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :concept
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Parent(concept) not found!'
+    elsif !line.start_with? '    %names'
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Write 4 spaces before %names'
+    end
+  end
+
+  def check_tags(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? '%tags'
+
+    @outputs[index][:type] = :tags
+    @outputs[index][:level] = 2
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :concept
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Parent(concept) not found!'
+    elsif !line.start_with? '    %tags'
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Write 4 spaces before %tags'
+    end
+  end
+
+  def check_def(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? '%def'
+
+    @outputs[index][:type] = :def
+    @outputs[index][:level] = 2
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :concept
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Parent(concept) not found!'
+    elsif !line.start_with? '    %def'
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Write 4 spaces before %def'
+    end
+  end
+
+  def check_table(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? '%table'
+
+    @outputs[index][:type] = :table
+    @outputs[index][:level] = 2
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :concept
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Parent(concept) not found!'
+    elsif !line.start_with? '    %table'
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Write 4 spaces before %table'
+    end
+  end
+
+  def check_row(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? '%row'
+
+    @outputs[index][:type] = :row
+    @outputs[index][:state] = :ok
+
+    case count_spaces(line)
+    when 6
+      @outputs[index][:level] = 3
+      parent = find_parent(index)
+      unless %i[table features].include? parent
+        @outputs[index][:state] = :err
+        @outputs[index][:msg] = 'Parent(table/features) not found!'
+      end
+    when 8
+      @outputs[index][:level] = 4
+      if find_parent(index) != :template
+        @outputs[index][:state] = :err
+        @outputs[index][:msg] = 'Parent(template) not found!'
+      end
+    else
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Write 6 or 8 spaces before %row'
+    end
+  end
+
+  def check_col(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? '%col'
+
+    @outputs[index][:type] = :col
+    @outputs[index][:state] = :ok
+    case count_spaces(line)
+    when 8
+      @outputs[index][:level] = 4
+      if find_parent(index) != :row
+        @outputs[index][:state] = :err
+        @outputs[index][:msg] = 'Parent(row) not found!'
+      end
+    when 10
+      @outputs[index][:level] = 5
+      if find_parent(index) != :row
+        @outputs[index][:state] = :err
+        @outputs[index][:msg] = 'Parent(row) not found!'
+      end
+    else
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Write 8 or 10 spaces before %col'
+    end
+    check_text(line, index)
+  end
+
+  def check_text(line, index)
+    return unless @outputs[index][:state] == :ok
+
+    ok = ''
+    %w[< >].each do |char|
+      ok = char if line.include? char
+    end
+    return if ok == ''
+
+    @outputs[index][:state] = :err
+    @outputs[index][:msg] = "Char #{ok} not allow!"
+  end
+
+  def check_template(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? '%template'
+
+    @outputs[index][:type] = :template
+    @outputs[index][:level] = 3
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :table
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Parent(concept) not found!'
+    elsif !line.start_with? '      %template'
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Write 6 spaces before %template'
+    end
+  end
+
+  def check_code(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? '%code'
+
+    @outputs[index][:type] = :code
+    @outputs[index][:level] = 1
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :map
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Parent(map) not found!'
+    elsif line != '  %code'
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Write 2 spaces before %code'
+    end
+  end
+
+  def check_type(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? '%type'
+
+    @outputs[index][:type] = :type
+    @outputs[index][:level] = 2
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :code
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Parent(code) not found!'
+    elsif !line.start_with? '    %type'
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Write 4 spaces before %type'
+    end
+  end
+
+  def check_path(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? '%path'
+
+    @outputs[index][:type] = :path
+    @outputs[index][:level] = 2
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :code
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Parent(code) not found!'
+    elsif !line.start_with? '    %path'
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Write 4 spaces before %type'
+    end
+  end
+
+  def check_features(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? '%features'
+
+    @outputs[index][:type] = :features
+    @outputs[index][:level] = 2
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :code
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Parent(code) not found!'
+    elsif !line.start_with? '    %features'
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Write 4 spaces before %features'
+    end
+  end
+
+  def check_unknown(line, index)
+    return unless @outputs[index][:state] == :none
+
+    @outputs[index][:type] = :unknown
+    @outputs[index][:level] = count_spaces(line) / 2
+    @outputs[index][:state] = :err
+    @outputs[index][:msg] = "Unknown tag with parent(#{find_parent(index)})!"
+  end
+
+  def find_parent(index)
+    current_level = @outputs[index][:level]
+    return :noparent if current_level.zero?
+
+    i = index - 1
+    while i >= 0
+      return @outputs[i][:type] if @outputs[i][:level] == current_level - 1
+
+      i -= 1
+    end
+    :noparent
+  end
+
+  def count_spaces(line)
+    a = line.split('%')
+    a[0].count(' ')
+  end
+end

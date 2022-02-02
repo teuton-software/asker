@@ -15,7 +15,6 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/teuton-software/asker/tree/v2.2'
 
   s.executables << 'asker'
-  #s.executables << 'asker.bat'
 
   s.files       = Dir.glob(File.join('lib','**','*.*'))
 
@@ -28,5 +27,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'thor', '~> 0.20'
 
   s.add_development_dependency 'minitest', '~> 5.11'
+  s.add_development_dependency 'pry-byebug', '~> 3.9'
   s.add_development_dependency 'rubocop', '~> 0.74'
 end
