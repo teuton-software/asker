@@ -7,12 +7,6 @@ require_relative '../question'
 
 # range d1-d4
 class StageD < BaseStage
-  # rubocop:disable Lint/BooleanSymbol
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/BlockLength
-  # rubocop:disable Metrics/CyclomaticComplexity
-  # rubocop:disable Metrics/PerceivedComplexity
   def run
     # Stage D: process every definition, I mean every <def> tag
     questions = []
@@ -67,22 +61,22 @@ class StageD < BaseStage
 
       # Question choice => mispelled
       q = Question.new(:choice)
-      q.name = "#{name(:id)}-#{num}-d2def-mispelled"
+      q.name = "#{name(:id)}-#{num}-d2def-misspelled"
       q.text = random_image_for(name(:raw)) + lang.text_for(:d2, name(:decorated), lang.do_mistake_to(t))
       q.good = lang.text_for(:misspelling)
       q.bads << lang.text_for(:true)
       q.bads << lang.text_for(:false)
-      q.feedback = "Definition text mispelled!: #{t}"
+      q.feedback = "Definition text misspelled!: #{t}"
       questions << q
 
       # Question choice => name mispelled
       q = Question.new(:choice)
-      q.name = "#{name(:id)}-#{num}-d2name-mispelled"
+      q.name = "#{name(:id)}-#{num}-d2name-misspelled"
       q.text = random_image_for(name(:raw)) + lang.text_for(:d2, lang.do_mistake_to(name(:raw)), t)
       q.good = lang.text_for(:misspelling)
       q.bads << lang.text_for(:true)
       q.bads << lang.text_for(:false)
-      q.feedback = "Concept name mispelled!: #{name(:raw)}"
+      q.feedback = "Concept name misspelled!: #{name(:raw)}"
       questions << q
 
       # Question choice => true
