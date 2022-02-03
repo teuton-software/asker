@@ -12,8 +12,6 @@ module ContentLoader
   # Load XML content into Asker data objects
   # @param filepath (String) File path
   # @param content (String) XML plane text content
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def self.load(filepath, content)
     concepts = []
     codes = []
@@ -94,7 +92,9 @@ module ContentLoader
   # @param filepath (String)
   # @param content (String)
   private_class_method def self.raise_error_with(filepath, content)
-    puts Rainbow("[ERROR] ContentLoader: Format error in #{filepath}").red.bright
+    msg =  "[ERROR] ContentLoader: Format error in #{filepath}\n"
+    msg += "        Take a look at ouput/error.xml"
+    puts Rainbow(msg).red.bright
     f = File.open('output/error.xml', 'w')
     f.write(content)
     f.close
