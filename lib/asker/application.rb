@@ -8,7 +8,7 @@ require 'rainbow'
 class Application
   include Singleton
 
-  VERSION = '2.2.1'
+  VERSION = '2.2.2'
   NAME = 'asker'
   GEM = 'asker-tool'
   CONFIGFILE = 'asker.ini'
