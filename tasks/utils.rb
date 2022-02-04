@@ -4,7 +4,7 @@
 # Module Utils with functions used by task/install.rb
 module Utils
   def self.packages
-    %w[haml rainbow terminal-table thor inifile pry-byebug]
+    %w[haml inifile pry-byebug rainbow rexml terminal-table thor]
   end
 
   def self.filter_uninstalled_gems(list)
