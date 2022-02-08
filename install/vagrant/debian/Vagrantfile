@@ -5,13 +5,16 @@ Vagrant.configure("2") do |config|
   config.vm.define "asker-debian" do |i|
     i.vm.box = "generic/debian10"
     i.vm.hostname = "asker-debian"
-#    i.vm.network "public_network", bridge: [ "eth1" ]
-#    i.vm.synced_folder "./", "/vagrant"
+    # i.vm.network "public_network", bridge: [ "eth0" ]
+    # i.vm.network "public_network", bridge: [ "wlan0" ]
+    i.vm.network :forwarded_port, guest: 22, host: 2241
+    i.vm.synced_folder "./", "/vagrant"
     i.vm.provision "shell", inline: <<-SHELL
-      apt-get update
-      apt-get install -y ruby
+      apt update
+      apt install -y vim tree nmap
+      apt install -y ruby irb
       gem install asker-tool
-      apt-get install -y git
+      apt install -y git
       git clone https://github.com/dvarrui/asker-inputs
       chown -R vagrant:vagrant asker-inputs/
     SHELL

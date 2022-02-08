@@ -46,7 +46,7 @@ class ConceptAI
   ##
   # Generates random image URL
   def random_image_for(_conceptname)
-    return '' if rand <= Project.instance.get(:threshold)
+    return '' if rand <= ProjectData.instance.get(:threshold)
 
     keys = @world.image_urls.keys
     keys.shuffle!

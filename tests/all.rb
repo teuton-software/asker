@@ -3,14 +3,14 @@
 require 'minitest/autorun'
 
 require_relative 'application_test'
-require_relative 'project_test'
+require_relative 'check_input_test'
 
 require_relative 'ai/code/code_ai_factory_test'
 require_relative 'ai/question_test'
 require_relative 'ai/concept_ai_test'
 require_relative 'ai/stages/base_stage_test'
 
-
+require_relative 'data/project_data_test'
 require_relative 'data/code_test'
 require_relative 'data/world_test'
 require_relative 'data/concept_test'

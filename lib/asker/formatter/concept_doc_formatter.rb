@@ -3,10 +3,6 @@
 require 'rainbow'
 require 'terminal-table'
 
-require_relative '../project'
-
-##
-# Formatter Concept to Doc
 module ConceptDocFormatter
   ##
   # Formatter Concept into Doc

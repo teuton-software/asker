@@ -22,7 +22,7 @@ class WorldTest < Minitest::Test
       end
     end
 
-    @world = World.new(@concepts, false) # show_progress = false
+    @world = World.new(@concepts)
   end
 
   def test_concepts

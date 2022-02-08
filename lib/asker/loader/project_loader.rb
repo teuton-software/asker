@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 require 'yaml'
-require_relative '../project'
-require_relative '../logger'
+require_relative '../data/project_data'
 
 # Load params into Project class using arg input
 # * load
@@ -16,7 +15,7 @@ module ProjectLoader
   # @param args (String or Hash)
   # rubocop:disable Metrics/MethodLength
   def self.load(args)
-    project = Project.instance
+    project = ProjectData.instance
 
     if args.class == Hash
       project.param.merge!(args)
@@ -30,7 +29,7 @@ module ProjectLoader
 
     msg = '[ERROR] ProjectLoader:'
     msg += "Configuration params format is <#{pArgs.class}>!"
-    Logger.verboseln Rainbow(msg).red
+    puts Rainbow(msg).red
     raise msg
   end
   # rubocop:enable Metrics/MethodLength
@@ -44,10 +43,10 @@ module ProjectLoader
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
   def self.load_from_string(filepath)
-    project = Project.instance
+    project = ProjectData.instance
     unless File.exist?(filepath)
       msg = Rainbow("[ERROR] #{filepath} not found!").red.bright
-      Logger.verboseln msg
+      puts msg
       exit 1
     end
 
@@ -65,7 +64,7 @@ module ProjectLoader
 
   # rubocop:disable Security/YAMLLoad
   def self.load_from_yaml(arg)
-    project = Project.instance
+    project = ProjectData.instance
     project.param.merge!(YAML.load(File.open(arg)))
     project.set(:configfilename, arg)
     project.set(:projectdir, File.dirname(arg))
@@ -77,7 +76,7 @@ module ProjectLoader
   # Error found and exit application.
   def self.error_loading(arg)
     msg = Rainbow("[ERROR] Loading... #{arg}").red.bright
-    Logger.verboseln msg
+    puts msg
     exit 1
   end
 end

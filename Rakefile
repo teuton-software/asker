@@ -16,3 +16,8 @@ desc 'Show rake help'
 task :help do
   system('rake -T')
 end
+
+desc 'Clean output folder'
+task :clean do
+  system('rm output/*')
+end

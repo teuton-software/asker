@@ -92,7 +92,7 @@ class ConceptTest < Minitest::Test
     assert_equal 0        , @concept[0].neighbors.size
     assert_equal 0        , @concept[1].neighbors.size
 
-    world = World.new(@concept, false)
+    world = World.new(@concept)
 
     assert_equal 1        , @concept[0].neighbors.size
     assert_equal "yoda"   , @concept[0].neighbors[0][:concept].name

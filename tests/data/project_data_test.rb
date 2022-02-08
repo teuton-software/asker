@@ -2,12 +2,12 @@
 
 require 'minitest/autorun'
 require 'fileutils'
-require_relative '../lib/asker/project'
-require_relative '../lib/asker/application'
+require_relative '../../lib/asker/data/project_data'
+require_relative '../../lib/asker/application'
 
-class ProjectTest < Minitest::Test
+class ProjectDataTest < Minitest::Test
   def setup
-    @project = Project.instance
+    @project = ProjectData.instance
     @project.reset
   end
 
@@ -31,7 +31,7 @@ class ProjectTest < Minitest::Test
     @project.open
     Application.instance.config['global']['verbose'] = 'yes'
     assert_equal 13, @project.param.size
-    assert_equal 3,  @project.default.size
+    assert_equal 5,  @project.default.size
 
     assert_equal filename, @project.get(:process_file)
     assert_equal FileUtils.pwd, @project.get(:inputbasedir)

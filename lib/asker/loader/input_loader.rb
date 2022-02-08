@@ -3,30 +3,29 @@
 require_relative 'directory_loader'
 require_relative '../ai/concept_ai'
 require_relative '../data/world'
-require_relative '../logger'
 
 # Load DATA defined into our Project
 module InputLoader
   ##
   # Load input data from every input directory
   # @param inputdirs (Array)
-  def self.load(inputdirs)
+  def self.load(inputdirs, internet = true)
     data = { concepts: [], codes: [], world: nil,
              concepts_ai: [], codes_ai: [] }
-    Logger.verboseln "\n[INFO] Loading input data"
+    #Logger.verboseln "\n[INFO] Loading input data"
     inputdirs.each do |dirname|
       temp = DirectoryLoader.load(dirname)
       data[:concepts] += temp[:concepts]
       data[:codes] += temp[:codes]
     end
-    create_questions(data)
+    create_questions(data, internet)
   end
 
-  private_class_method def self.create_questions(data)
+  private_class_method def self.create_questions(data, internet)
     # Create World data
     # * Calculate concept neighbours
     # * TO-DO: Calculate code neighbours
-    data[:world] = World.new(data[:concepts])
+    data[:world] = World.new(data[:concepts], internet)
     # Create ConceptAI data (ConceptAI = concept + questions)
     data[:concepts].each do |concept|
       data[:concepts_ai] << ConceptAI.new(concept, data[:world])

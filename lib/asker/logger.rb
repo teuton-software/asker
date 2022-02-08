@@ -6,39 +6,41 @@ require_relative 'application'
 # Display and log project messages
 class Logger
   include Singleton
+  @attr_verbose = 'yes'
 
-  def initialize
-    @logfile = null
+  def set_verbose(value)
+    @attr_verbose = value
   end
 
-  ##
-  # Display and log text
   def self.verbose(msg)
-    print msg if Application.instance.config['global']['verbose'] == 'yes'
+    print msg if @attr_verbose == 'yes'
     @logfile&.write(msg)
   end
 
-  ##
-  # Display and log text line
   def self.verboseln(msg)
     verbose(msg + "\n")
   end
 
+  def log(msg)
+    verbose(msg)
+  end
+
+  def logln(msg)
+    verboseln(msg)
+  end
   ##
   # Create or reset logfile
-  def self.create(project)
-    @logfile = File.open(project.get(:logpath), 'w')
+  def self.create(logpath, logname)
+    @logfile = File.open(logpath, 'w')
     @logfile.write('=' * 50 + "\n")
     @logfile.write("Created by : #{Application::NAME}")
     @logfile.write(" (version #{Application::VERSION})\n")
-    @logfile.write("File       : #{project.get(:logname)}\n")
+    @logfile.write("File       : #{logname}\n")
     @logfile.write("Time       : #{Time.new}\n")
     @logfile.write("Author     : David Vargas Ruiz\n")
     @logfile.write('=' * 50 + "\n\n")
   end
 
-  ##
-  # Close Log file
   def self.close
     @logfile.close
   end

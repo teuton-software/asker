@@ -5,16 +5,13 @@ require 'set'
 require_relative 'base_stage'
 require_relative '../question'
 
-##
-# range b1
 class StageB < BaseStage
   ##
+  # range b1
   # Process table data to generate match questions
   # @param table (Table)
   # @param list1 (Array) Rows that belong to this table
   # @param list2 (Array) List with similar rows (same table name) from the neighbours tables
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   def run(table, list1, list2)
     questions = []
     return questions if table.fields.count < 2
@@ -44,12 +41,6 @@ class StageB < BaseStage
   # @param list2 (Array) List with similar rows (same table name) from the neighbours tables
   # @param index1 (Integer) Use this field number
   # @param index2 (Integer) Use this field number
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/CyclomaticComplexity
-  # rubocop:disable Style/ConditionalAssignment
-  # rubocop:disable Metrics/BlockLength
-  # rubocop:disable Metrics/PerceivedComplexity
   def process_table_match2fields(p_table, list1, list2, index1, index2)
     questions = []
     lang = concept.lang

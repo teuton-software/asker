@@ -8,23 +8,17 @@ require 'rainbow'
 class Application
   include Singleton
 
-  VERSION = '2.2.0'        # Application version
-  NAME = 'asker'           # Application name
+  VERSION = '2.2.2'
+  NAME = 'asker'
   HOMEPAGE = "https://github.com/dvarrui/#{NAME}/tree/v2.2"
-  GEM = 'asker-tool'       # Gem name
-  CONFIGFILE = 'asker.ini' # Config filename
+  GEM = 'asker-tool'
+  CONFIGFILE = 'asker.ini'
   attr_reader :config
 
-  ##
-  # Initialize Application singleton
   def initialize
     reset
   end
 
-  ##
-  # Initialize config values from external "config.ini" file.
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   def reset
     filename = File.join(Dir.pwd, CONFIGFILE)
     filename = File.join(File.dirname(__FILE__), 'files', CONFIGFILE) unless File.exist? filename
@@ -42,6 +36,4 @@ class Application
     Rainbow.enabled = false
     Rainbow.enabled = true if @config['global']['color'].downcase == 'yes'
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 end

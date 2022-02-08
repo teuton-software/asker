@@ -3,8 +3,6 @@
 require_relative 'base_stage'
 require_relative '../question'
 
-# StageF: process tables with 1 field
-# rubocop:disable Metrics/ClassLength
 class StageF < BaseStage
   ##
   # run stage_f: generate guqestion for tables with 1 field
@@ -24,8 +22,6 @@ class StageF < BaseStage
 
   private
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   def run_only_this_concept(table, list1)
     questions = []
     lang = concept.lang
@@ -69,12 +65,7 @@ class StageF < BaseStage
     end
     questions
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 
-  # rubocop:disable Lint/BooleanSymbol
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def make_questions_with(values, table)
     questions = []
     lang = concept.lang
@@ -124,17 +115,11 @@ class StageF < BaseStage
     q.good =  lang.text_for(:misspelling)
     q.bads << lang.text_for(:true)
     q.bads << lang.text_for(:false)
-    q.feedback = "Text #{save} mispelled!"
+    q.feedback = "Text #{save} misspelled!"
     values[0] = save
     questions << q
   end
-  # rubocop:enable Lint/BooleanSymbol
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 
-  # rubocop:disable Lint/BooleanSymbol
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def run_with_other_concepts(table, list1, list2)
     questions = []
 
@@ -177,8 +162,4 @@ class StageF < BaseStage
 
     questions
   end
-  # rubocop:enable Lint/BooleanSymbol
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 end
-# rubocop:enable Metrics/ClassLength

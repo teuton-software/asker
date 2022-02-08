@@ -15,7 +15,7 @@
 1. Download this project
     * (a) `git clone https://github.com/dvarrui/asker.git` or
     * (b) Download and unzip [file](https://github.com/dvarrui/asker/archive/master.zip).
-1. Move into repo folder
+1. Move into repo folder.
     * Run `cd asker`
 1. Gems installation.
     * `rake install:gems`, to install required gems.

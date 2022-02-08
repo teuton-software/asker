@@ -3,8 +3,6 @@
 require 'rainbow'
 require 'rexml/document'
 
-require_relative '../application'
-require_relative '../logger'
 require_relative '../lang/lang_factory'
 require_relative '../loader/embedded_file'
 require_relative 'table'
@@ -24,7 +22,7 @@ class Concept
   attr_reader :data      # Data about this concept
   attr_accessor :process # (Boolean) if it is necesary generate questions
 
-  @@id = 0 # Global Concept counter
+  @@id = 0 # Global Concept counter (concept identifier)
 
   ##
   # Initilize Concept
@@ -93,7 +91,8 @@ class Concept
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/CyclomaticComplexity
   def calculate_nearness_to_concept(other)
-    a = Application.instance.config['ai']['formula_weights']
+    a = ProjectData.instance.get(:weights)
+    #Application.instance.config['ai']['formula_weights']
     weights = a.split(',').map(&:to_f)
 
     max1 = @context.count
@@ -180,7 +179,7 @@ class Concept
         @data[:tables] << Table.new(self, i)
       else
         text = "   [ERROR] Concept #{name} with unkown attribute: #{i.name}"
-        Logger.verboseln Rainbow(text).color(:red)
+        puts Rainbow(text).color(:red)
       end
     end
   end
@@ -195,7 +194,7 @@ class Concept
 
   def process_tags(value)
     if value.text.nil? || value.text.size.zero?
-      Logger.verboseln Rainbow("[ERROR] Concept #{name} has tags empty!").red.briht
+      puts Rainbow("[ERROR] Concept #{name} has tags empty!").red.briht
       exit 1
     end
 
@@ -208,14 +207,16 @@ class Concept
   def process_def(value)
     case value.attributes['type']
     when 'image_url'
+      # Link with remote image
       @data[:images] << EmbeddedFile.load(value.text.strip, File.dirname(@filename))
     when 'file'
+      # Load local images and text files
       @data[:images] << EmbeddedFile.load(value.text.strip, File.dirname(@filename))
     when nil
       @data[:texts] << value.text.strip
     else
       msg = "[ERROR] Unknown type: #{value.attributes['type']}"
-      Logger.verboseln Rainbow(msg).red.bright
+      puts Rainbow(msg).red.bright
       exit 1
     end
   end

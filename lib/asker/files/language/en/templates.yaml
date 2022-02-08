@@ -13,7 +13,7 @@
 :f2: 'The next items are "<%=text2%>".<br/>Choose the option that not belongs concept <b><%=text1%></b>.'
 :f3: 'The next items are "<%=text2%>" from <b><%=text1%></b> concept:<br><p><%=text3%></p>(Put every word into the right position)'
 :i1: '<%=text1%><br/>Choose the best association for the previous image.<br/>'
-:i2: '<%=text1%><br/>The previous image corresponds to <b><%=text2%></b>.'
+:i2: '<%=text1%><br/>The previous image/text corresponds to <b><%=text2%></b>.'
 :i3: '<%=text1%><br/>Write the best answer <%=text2%>, for the previous image.<br/>'
 :i4: '<%=text1%><br/>Definition:<br/> <i><%=text2%></i><br/><br/>(Put every word in the right text position)'
 :s1: "About <b><%=text1%></b> concept, sort every \"<%=text2%>\", so It is true that \"<%=text3%>\".<br/>"

@@ -4,8 +4,7 @@ require 'rainbow'
 require 'rexml/document'
 require_relative '../data/concept'
 require_relative 'code_loader'
-require_relative '../logger'
-require_relative '../project'
+require_relative '../data/project_data'
 
 # Define methods that load data from XML contents
 module ContentLoader
@@ -13,8 +12,6 @@ module ContentLoader
   # Load XML content into Asker data objects
   # @param filepath (String) File path
   # @param content (String) XML plane text content
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def self.load(filepath, content)
     concepts = []
     codes = []
@@ -33,7 +30,7 @@ module ContentLoader
       when 'code'
         codes << read_code(xmldata, filepath)
       else
-        Logger.verboseln Rainbow("[ERROR] Unkown tag <#{xmldata.name}>").red
+        puts Rainbow("[ERROR] Unkown tag <#{xmldata.name}>").red
       end
     end
 
@@ -49,7 +46,7 @@ module ContentLoader
     begin
       lang = xmldata.root.attributes['lang']
     rescue StandardError
-      lang = Project.instance.lang
+      lang = ProjectData.instance.lang
     end
     lang
   end
@@ -73,7 +70,7 @@ module ContentLoader
   # @param lang
   # @param context
   private_class_method def self.read_concept(xmldata, filepath, lang, context)
-    project = Project.instance
+    project = ProjectData.instance
     c = Concept.new(xmldata, filepath, lang, context)
     c.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
     c
@@ -84,7 +81,7 @@ module ContentLoader
   # @param xmldata (XML Object)
   # @param filepath (String)
   private_class_method def self.read_code(xmldata, filepath)
-    project = Project.instance
+    project = ProjectData.instance
     c = CodeLoader.load(xmldata, filepath)
     c.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
     c
@@ -95,8 +92,9 @@ module ContentLoader
   # @param filepath (String)
   # @param content (String)
   private_class_method def self.raise_error_with(filepath, content)
-    msg = Rainbow("[ERROR] ContentLoader: Format error in #{filepath}").red.bright
-    Logger.verboseln msg
+    msg =  "[ERROR] ContentLoader: Format error in #{filepath}\n"
+    msg += "        Take a look at ouput/error.xml"
+    puts Rainbow(msg).red.bright
     f = File.open('output/error.xml', 'w')
     f.write(content)
     f.close

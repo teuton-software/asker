@@ -12,7 +12,7 @@ class BaseStageTest < Minitest::Test
   def setup
     string_data = get_xml_data
     concepts    = []
-    world       = World.new(concepts, false)
+    world       = World.new(concepts)
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name="concept" then
