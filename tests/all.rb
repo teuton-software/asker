@@ -3,6 +3,7 @@
 require 'minitest/autorun'
 
 require_relative 'application_test'
+require_relative 'version_test'
 require_relative 'check_input_test'
 
 require_relative 'ai/code/code_ai_factory_test'
@@ -31,5 +32,7 @@ require_relative 'loader/file_loader_test'
 require_relative 'loader/directory_loader_test'
 require_relative 'loader/input_loader_test'
 require_relative 'loader/project_loader_test'
+
+require_relative 'asker_command_test'
 
 #require_relative 'rubocop_test'

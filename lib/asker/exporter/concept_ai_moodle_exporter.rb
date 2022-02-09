@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../formatter/question_moodle_formatter'
+require_relative '../version'
 
 # Export ConceptIA data to gift to moodlefile
 module ConceptAIMoodleExporter
@@ -13,8 +14,8 @@ module ConceptAIMoodleExporter
     file.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
     file.write("<quiz>\n")
     file.write("<!--\n#{('=' * 50)}\n")
-    file.write(" Created by : #{Application::NAME}")
-    file.write(" (version #{Application::VERSION})\n")
+    file.write(" Created by : #{Version::NAME}")
+    file.write(" (version #{Version::VERSION})\n")
     file.write(" File       : #{project.get(:moodlename)}\n")
     file.write(" Time       : #{Time.new}\n")
     file.write(" Author     : David Vargas Ruiz\n")

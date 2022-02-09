@@ -3,8 +3,9 @@
 # File: Rakefile
 # Usage: rake
 
-require_relative 'tasks/build'
 require_relative 'tasks/install'
+require_relative 'tasks/build'
+require_relative 'tasks/push'
 
 # Define tasks
 desc 'Default action => check & build'

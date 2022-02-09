@@ -4,22 +4,38 @@ require 'minitest/autorun'
 require_relative '../lib/asker/application'
 
 class ApplicationTest < Minitest::Test
-  def test_params
-    assert_equal 'asker',  Application::NAME
-    assert_equal 'asker-tool',  Application::GEM
-    assert_equal String, Application::VERSION.class
+
+  def setup
+    @app = Application.instance.config
   end
 
-  def test_config
-    c = Application.instance.config
-    assert_equal 'yes', c['global']['internet'] unless
+  def test_internet_no
+    assert_equal 'yes', @app['global']['internet'] unless
               Application.instance.config['global']['internet'] == 'no'
-    assert_equal 'no', c['global']['internet'] unless
+  end
+
+  def test_internet_yes
+    assert_equal 'no', @app['global']['internet'] unless
               Application.instance.config['global']['internet'] == 'yes'
-    assert_equal 'output', c['output']['folder']
-    assert_equal 'default', c['global']['show_mode']
-    assert_equal [1, 1, 1], c['ai']['formula_weights'].split(',').map(&:to_i)
-    assert_nil c['questions']['category']
-    assert_nil c['questions']['exclude']
+  end
+
+  def test_output
+    assert_equal 'output', @app['output']['folder']
+  end
+
+  def test_show_mode
+    assert_equal 'default', @app['global']['show_mode']
+  end
+
+  def test_formula_weights
+    assert_equal [1, 1, 1], @app['ai']['formula_weights'].split(',').map(&:to_i)
+  end
+
+  def test_category
+    assert_nil @app['questions']['category']
+  end
+
+  def test_exclude
+    assert_nil @app['questions']['exclude']
   end
 end

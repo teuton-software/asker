@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rainbow'
-require_relative 'check_input/input_data'
+require_relative 'check_input/check_haml_data'
 
 class CheckInput
   def initialize(verbose = true)
@@ -43,7 +43,7 @@ class CheckInput
   end
 
   def check_file_content
-    data = InputData.new(@filepath)
+    data = CheckHamlData.new(@filepath)
     data.check
     data.show_errors if @verbose
     data.ok?

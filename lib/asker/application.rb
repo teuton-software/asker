@@ -3,16 +3,11 @@
 require 'singleton'
 require 'inifile'
 require 'rainbow'
+require_relative 'version'
 
 # Global parameters
 class Application
   include Singleton
-
-  VERSION = '2.2.2'
-  NAME = 'asker'
-  HOMEPAGE = "https://github.com/dvarrui/#{NAME}/tree/v2.2"
-  GEM = 'asker-tool'
-  CONFIGFILE = 'asker.ini'
   attr_reader :config
 
   def initialize
@@ -20,8 +15,11 @@ class Application
   end
 
   def reset
-    filename = File.join(Dir.pwd, CONFIGFILE)
-    filename = File.join(File.dirname(__FILE__), 'files', CONFIGFILE) unless File.exist? filename
+    filename = File.join(Dir.pwd,
+                         Version::CONFIGFILE)
+    filename = File.join(File.dirname(__FILE__),
+                         'files',
+                          Version::CONFIGFILE) unless File.exist? filename
 
     begin
       @config = IniFile.load(filename)
