@@ -9,7 +9,7 @@ the_map do
     tags 'single, seat, leg, backrest'
     one_def 'Single seat with legs and backrest'
     one_def 'Furniture that is placed around the table to sit'
-    one_def type: 'image_url', 'https://www.portobellostreet.es/imagenes_muebles/Muebles-Silla-colonial-Fusta-Bora-Bora.jpg'
+    one_def_file 'https://www.portobellostreet.es/imagenes_muebles/Muebles-Silla-colonial-Fusta-Bora-Bora.jpg'
   end
 
   concept do
