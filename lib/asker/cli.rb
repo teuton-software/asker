@@ -17,6 +17,32 @@ class CLI < Thor
     exit 0
   end
 
+  map ['--init'] => 'init'
+  desc 'init', 'Create default INI config file'
+  def init
+    Asker.init
+    exit 0
+  end
+
+  map ['new','--new'] => 'new_input'
+  desc 'new DIRPATH', 'Create Asker demo input files'
+  ##
+  # Create Asker demo input files
+  # @param dirname (String) Path to folder
+  def new_input(dirname)
+    Asker.new_input(dirname)
+    exit 0
+  end
+
+  map ['--check'] => 'check'
+  desc 'check FILEPATH', 'Check input HAML file syntax'
+  def check(filename)
+    # Enable/disable color output
+    Rainbow.enabled = false if options['color'] == false
+    # Asker start processing input file
+    Asker.check(filename)
+  end
+
   map ['f', '-f', '--file'] => 'file'
   desc '[file] FILEPATH', 'Build output files, from HAML/XML input file.'
   long_desc <<-LONGDESC
@@ -37,30 +63,6 @@ class CLI < Thor
   def file(filename)
     # Asker start processing input file
     Asker.start(filename)
-  end
-
-  map ['--check'] => 'check'
-  desc 'check FILEPATH', 'Check input HAML file syntax'
-  def check(filename)
-    # Enable/disable color output
-    Rainbow.enabled = false if options['color'] == false
-    # Asker start processing input file
-    Asker.check(filename)
-  end
-
-  map ['--init'] => 'init'
-  desc 'init', 'Create default INI config file'
-  def init
-    Asker.init
-  end
-
-  map ['new','--new'] => 'new_input'
-  desc 'new DIRPATH', 'Create Asker demo input files'
-  ##
-  # Create Asker demo input files
-  # @param dirname (String) Path to folder
-  def new_input(dirname)
-    Asker.new_input(dirname)
   end
 
   ##

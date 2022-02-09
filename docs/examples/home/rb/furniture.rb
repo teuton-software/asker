@@ -1,14 +1,15 @@
 # UNDER DEVELOPMENT!!: Working on new input format
-amap :lang => 'en',
-    :context => 'furniture, home',
-    :version => '1' do
+the_map do
+  lang 'en'
+  context 'furniture, home'
+  version '1'
 
   concept do
     names 'chair'
     tags 'single, seat, leg, backrest'
-    adef 'Single seat with legs and backrest'
-    adef 'Furniture that is placed around the table to sit'
-    adef type: 'image_url', 'https://www.portobellostreet.es/imagenes_muebles/Muebles-Silla-colonial-Fusta-Bora-Bora.jpg'
+    one_def 'Single seat with legs and backrest'
+    one_def 'Furniture that is placed around the table to sit'
+    one_def type: 'image_url', 'https://www.portobellostreet.es/imagenes_muebles/Muebles-Silla-colonial-Fusta-Bora-Bora.jpg'
   end
 
   concept do
