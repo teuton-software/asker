@@ -88,4 +88,20 @@ class AskerCommandTest < Minitest::Test
     cmd = "asker check #{filename} > /dev/null"
     assert_equal true,  system(cmd)
   end
+
+  def test_check_example_loading_files
+    filename = File.join('docs', 'examples', 'loading_files', 'john-lennon.haml')
+    cmd = "asker check #{filename} > /dev/null"
+    assert_equal true,  system(cmd)
+  end
+
+  def test_check_example_starwars
+    filename = File.join('docs', 'examples', 'starwars', 'jedi.haml')
+    cmd = "asker check #{filename} > /dev/null"
+    assert_equal true,  system(cmd)
+
+    filename = File.join('docs', 'examples', 'starwars', 'sith.haml')
+    cmd = "asker check #{filename} > /dev/null"
+    assert_equal true,  system(cmd)
+  end
 end
