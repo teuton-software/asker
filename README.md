@@ -1,8 +1,8 @@
 [![Gem Version](https://badge.fury.io/rb/asker-tool.svg)](https://badge.fury.io/rb/asker-tool)
 ![GitHub](https://img.shields.io/github/license/dvarrui/asker)
-![Gem](https://img.shields.io/gem/dv/asker-tool/2.2.1)
+![Gem](https://img.shields.io/gem/dv/asker-tool/2.2.3)
 
-# ASKER (devel 2.3)
+# ASKER
 
 Generate a lot of questions from an _input_ text file with on your own _definitions_. In a way, this _input file_ is a concept map.
 
