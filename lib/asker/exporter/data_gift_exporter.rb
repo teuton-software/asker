@@ -2,6 +2,8 @@
 
 require_relative 'concept_ai_gift_exporter'
 require_relative 'code_gift_exporter'
+require_relative '../version'
+require_relative '../application'
 
 # Export Data (ConceptIA and Code) to gift to outputfile
 module DataGiftExporter
@@ -12,8 +14,8 @@ module DataGiftExporter
   def self.export_all(data, project)
     file = File.open(project.get(:outputpath), 'w')
     file.write('// ' + ('=' * 50) + "\n")
-    file.write("// Created by : #{Application::NAME}")
-    file.write(" (version #{Application::VERSION})\n")
+    file.write("// Created by : #{Version::NAME}")
+    file.write(" (version #{Version::VERSION})\n")
     file.write("// File       : #{project.get(:outputname)}\n")
     file.write("// Time       : #{Time.new}\n")
     file.write("// Author     : David Vargas Ruiz\n")

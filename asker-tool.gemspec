@@ -1,8 +1,8 @@
-require_relative 'lib/asker/application'
+require_relative 'lib/asker/version'
 
 Gem::Specification.new do |s|
-  s.name        = Application::GEM
-  s.version     = Application::VERSION
+  s.name        = Version::GEM
+  s.version     = Version::VERSION
   s.date        = Time.now.strftime("%Y-%m-%d")
   s.summary     = "Asker generates questions from input definitions file."
   s.description = "ASKER helps trainers to create a huge amount of questions, from a definitions input file."
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.license     = 'GPL-3.0'
   s.authors     = ['David Vargas Ruiz']
   s.email       = 'teuton.software@protonmail.com'
-  s.homepage    = 'https://github.com/teuton-software/asker/tree/v2.2'
+  s.homepage    = Version::HOMEPAGE
 
   s.executables << 'asker'
 

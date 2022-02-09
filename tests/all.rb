@@ -3,6 +3,7 @@
 require 'minitest/autorun'
 
 require_relative 'application_test'
+require_relative 'version_test'
 require_relative 'check_input_test'
 
 require_relative 'ai/code/code_ai_factory_test'

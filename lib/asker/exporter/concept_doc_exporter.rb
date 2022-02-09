@@ -1,18 +1,17 @@
 # frozen_string_literal: true
 
 require_relative '../formatter/concept_doc_formatter'
+require_relative '../version'
 
 ##
 # Export Concept to Doc file
 module ConceptDocExporter
   ##
-  # Export arrya of concepts to doc
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
+  # Export array of concepts to doc
   def self.export_all(concepts, project)
     file = File.new(project.get(:lessonpath), 'w')
     file.write('=' * 50 + "\n")
-    file.write("Created by : #{Application::NAME} (version #{Application::VERSION})\n")
+    file.write("Created by : #{Version::NAME} (version #{Version::VERSION})\n")
     file.write("File       : #{project.get(:lessonname)}\n")
     file.write("Time       : #{Time.new}\n")
     file.write("Author     : David Vargas Ruiz\n")
@@ -23,6 +22,4 @@ module ConceptDocExporter
     end
     file.close
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'singleton'
-require_relative 'application'
+require_relative 'version'
 
 # Display and log project messages
 class Logger
@@ -33,8 +33,8 @@ class Logger
   def self.create(logpath, logname)
     @logfile = File.open(logpath, 'w')
     @logfile.write('=' * 50 + "\n")
-    @logfile.write("Created by : #{Application::NAME}")
-    @logfile.write(" (version #{Application::VERSION})\n")
+    @logfile.write("Created by : #{Version::NAME}")
+    @logfile.write(" (version #{Version::VERSION})\n")
     @logfile.write("File       : #{logname}\n")
     @logfile.write("Time       : #{Time.new}\n")
     @logfile.write("Author     : David Vargas Ruiz\n")
