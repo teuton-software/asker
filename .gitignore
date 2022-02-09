@@ -3,3 +3,5 @@
 *.gem
 html/
 output
+private*
+priv*
