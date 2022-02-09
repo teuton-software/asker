@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'haml', '~> 5.1'
   s.add_runtime_dependency 'inifile', '~> 3.0'
   s.add_runtime_dependency 'rainbow', '~> 3.0'
+  s.add_runtime_dependency 'colorize', '~> 0.8'
   s.add_runtime_dependency 'rexml', '~> 3.2'
   s.add_runtime_dependency 'terminal-table', '~> 1.8'
   s.add_runtime_dependency 'thor', '~> 0.20'

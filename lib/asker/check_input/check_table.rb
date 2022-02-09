@@ -12,7 +12,7 @@ module CheckTable
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Parent(concept) not found!'
     elsif !line.start_with? '    %table'
-      @outputs[index][:state] = :err*
+      @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Write 4 spaces before %table'
     #else not /\s+%table{\s?fields:\s?'[A-Za-z,áéíóú]*'\s?}/.match(line)
     #  @outputs[index][:state] = :err

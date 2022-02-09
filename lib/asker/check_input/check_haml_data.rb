@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rainbow'
+require 'colorize'
 require_relative 'check_table'
 
 class CheckHamlData
@@ -35,6 +36,7 @@ class CheckHamlData
   def show_errors
     errors = 0
     # puts "Line : Error description"
+    puts "\n"
     @outputs.each do |i|
       next if i[:state] == :ok
 
@@ -43,16 +45,16 @@ class CheckHamlData
         data = { id: i[:id], msg: i[:msg], source: i[:source][0, 40] }
         order = i[:id] + 1
         data = { order: order, msg: i[:msg], source: i[:source][0, 40] }
-        puts format(' %<order>03d : %<msg>s. => %<source>s', data)
+        print format(' %<order>03d : %<msg>32s. => '.white, data)
+        puts format('%<source>s'.light_yellow, data)
       end
       puts '...' if errors == 11
     end
 
     if errors.positive?
-      puts Rainbow("[ERROR] #{errors} errors " \
-                   "from #{@inputs.size} lines!").red.bright
+      puts "\n[ ASKER ] Please! Revise #{errors.to_s.light_red} error/s\n"
     end
-    puts Rainbow('Syntax OK!').green if errors.zero?
+    puts 'Syntax OK!'.green if errors.zero?
   end
 
   def check
