@@ -3,7 +3,7 @@
 require 'minitest/autorun'
 require_relative '../lib/asker/version'
 
-class VersionºTest < Minitest::Test
+class VersionTest < Minitest::Test
   def test_name
     assert_equal 'asker',  Version::NAME
   end

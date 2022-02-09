@@ -33,4 +33,6 @@ require_relative 'loader/directory_loader_test'
 require_relative 'loader/input_loader_test'
 require_relative 'loader/project_loader_test'
 
+require_relative 'asker_command_test'
+
 #require_relative 'rubocop_test'

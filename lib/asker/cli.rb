@@ -2,7 +2,7 @@
 
 require 'rainbow'
 require 'thor'
-require_relative 'application'
+require_relative 'version'
 require_relative '../asker'
 
 ##
@@ -13,7 +13,8 @@ class CLI < Thor
   map ['--version'] => 'version'
   desc 'version', 'Show the program version'
   def version
-    puts "#{Application::NAME} version #{Application::VERSION}"
+    puts "#{Version::NAME} version #{Version::VERSION}"
+    exit 0
   end
 
   map ['f', '-f', '--file'] => 'file'
