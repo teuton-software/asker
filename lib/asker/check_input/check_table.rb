@@ -14,10 +14,23 @@ module CheckTable
     elsif !line.start_with? '    %table'
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Write 4 spaces before %table'
+    end
+
+    unless line.include? "%table{"
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "table must be next to { (Without spaces)"
+    end
+
+    unless line.include? "fields:"
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "fields must be next to : (Without spaces)"
+    end
+
+    # TODO
     #else not /\s+%table{\s?fields:\s?'[A-Za-z,áéíóú]*'\s?}/.match(line)
     #  @outputs[index][:state] = :err
     #  @outputs[index][:msg] = 'Table#fields malformed!'
-    end
+    #end
   end
 
   def check_row(line, index)
