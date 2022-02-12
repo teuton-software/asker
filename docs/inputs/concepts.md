@@ -21,7 +21,7 @@ Let's start!.
 * **map**: Once, at first line, we write keyword `map`. Example:
 
 ```ruby
-%map{ :lang => 'en', :context => 'furniture, home', :version => '1'}
+%map{ lang: 'en', context: 'furniture, home', version: '1'}
 ```
 
 | Attribute | Description                                    |

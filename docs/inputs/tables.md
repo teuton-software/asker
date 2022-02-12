@@ -50,7 +50,7 @@ Example, adding meaning using 1 field table. Field called `members`:
 %concept
   %names AC/DC, ACDC
   %tags rock, band, australia
-  %table{ :fields => 'members'}
+  %table{ fields: 'members'}
     %row Bon Scott
     %row Angus Young
     %row Malcolm Young
@@ -80,7 +80,7 @@ Example, adding meaning using 2 fields table. Fields called `attribute` and `val
   %concept
     %names AC/DC, ACDC
     %tags rock, band, australia
-    %table{ :fields => 'attribute, value'}
+    %table{ fields: 'attribute, value'}
       %row
         %col Genres
         %col Hard rock, blues rock, rock and roll
@@ -118,7 +118,7 @@ Sometimes we have a 1 field table where rows are sorted or form a sequence. In t
 %concept
   %names AC/DC, ACDC
   %tags rock, band, australia
-  %table{ :fields => 'Albums', :sequence => 'Albums sorted by date'}
+  %table{ fields: 'Albums', sequence: 'Albums sorted by date'}
     %row Albums High Voltage
     %row Powerage
     %row Highway to Hell
