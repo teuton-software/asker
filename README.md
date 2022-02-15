@@ -10,7 +10,7 @@ Generate a lot of questions from an _input_ text file with on your own _definiti
 
 ASKER helps trainers to create a huge amount of questions, from a definitions (_conceptual entities_) input file.
 
-* Free Software [LICENSE](LICENSE.txt).
+* Free Software [LICENSE](LICENSE).
 * Multiplatform.
 * Ruby program.
 
