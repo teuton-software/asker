@@ -12,7 +12,7 @@ ASKER helps trainers to create a huge amount of questions, from a definitions (_
 
 * Free Software [LICENSE](LICENSE).
 * Multiplatform.
-* Ruby program.
+* [Ruby program](https://rubygems.org/gems/asker-tool)
 
 ## Installation
 
