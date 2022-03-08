@@ -33,7 +33,7 @@ Let's see.
 Example, using `code` keyword to use `files/string.py` as python file:
 
 ```
-%map{ :version => '1', :lang => 'en', :context=>'python, programming, language' }
+%map{ version: '1', lang: 'en', context: 'python, programming, language' }
 
   %code
     %type python
@@ -52,7 +52,7 @@ Resume:
 Example, using `code` keyword to define several python programs from `files/` folder:
 
 ```
-%map{ :version => '1', :lang => 'en', :context=>'python, programming, language' }
+%map{ version: '1', lang: 'en', context: 'python, programming, language' }
 
   %code
     %type python

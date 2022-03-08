@@ -41,8 +41,8 @@ To be more productive, we could use `template` keyword. So we replace every repe
     %names command
     %tags computing,directive,computer,perform,specific,task
     %def In computing, is a directive to a computer program to perform a specific task.
-    %table{:fields => 'action, description'}
-      %template{:DIRNAME => 'Endor,Naboo,Dagobah'}
+    %table{ fields: 'action, description'}
+      %template{ DIRNAME: 'Endor,Naboo,Dagobah'}
         %row
           %col mkdir DIRNAME
           %col Create DIRNAME directory
@@ -65,8 +65,8 @@ This example will multiply by three the number of input lines.
     %names command
     %tags computing,directive,computer,perform,specific,task
     %def In computing, is a directive to a computer program to perform a specific task.
-    %table{:fields => 'action, description'}
-      %template{:NAME => 'Endor,Naboo,Dagobah'}
+    %table{ fields: 'action, description'}
+      %template{ NAME: 'Endor,Naboo,Dagobah'}
         %row
           %col mkdir NAME
           %col Create NAME directory

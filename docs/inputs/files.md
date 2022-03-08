@@ -27,9 +27,9 @@ Take a look to our loading files example (`docs/examples/loading_files/john-lenn
 %concept
   %names John Lennon
   %tags famous, singer, player, member, beatles
-  %def{:type => :file} txt/quote.txt
-  %def{:type => :file} images/john-lennon.png
-  %def{:type => :file} https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/John_Lennon_1969_%28cropped%29-Colorized.jpg/800px-John_Lennon_1969_%28cropped%29-Colorized.jpg
+  %def{ type: 'file'} txt/quote.txt
+  %def{ type: 'file'} images/john-lennon.png
+  %def{ type: 'file'} https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/John_Lennon_1969_%28cropped%29-Colorized.jpg/800px-John_Lennon_1969_%28cropped%29-Colorized.jpg
 ```
 
 This example use external files to define the concept:
