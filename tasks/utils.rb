@@ -16,13 +16,13 @@ module Utils
   end
 
   def self.install_gems(list)
-    puts '[INFO] Installing Ruby gems...'
+    puts '[-] Installing Ruby gems...'
     fails = filter_uninstalled_gems(list)
     fails.each { |name| system("gem install #{name}") }
   end
 
   def self.create_symbolic_link
-    puts '[INFO] Creating symbolic link into /usr/local/bin'
+    puts '[-] Creating symbolic link into /usr/local/bin'
     system("ln -s #{Dir.pwd}/asker /usr/local/bin/asker")
   end
 end

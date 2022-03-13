@@ -6,12 +6,12 @@ require_relative '../lib/asker/version'
 namespace :install do
   desc 'Check installation'
   task :check do
-    puts "[ INFO ] asker version => #{Version::VERSION}"
+    puts "[-] asker version => #{Version::VERSION}"
     fails = Utils.filter_uninstalled_gems(Utils.packages)
     if fails.size.zero?
-      puts '[  OK  ] Gems installed OK!'
+      puts '[+] Gems installed OK!'
     else
-      puts '[ FAIL ] Gems not installed!: ' + fails.join(',')
+      puts '[X] Gems not installed!: ' + fails.join(',')
     end
     testfile = File.join('.', 'tests', 'all.rb')
     a = File.read(testfile).split("\n")
@@ -19,11 +19,11 @@ namespace :install do
     c = Dir.glob(File.join('.', 'tests', '**', '*_test.rb'))
 
     if b.size == c.size
-      puts "[  OK  ] All test files included into #{testfile}"
+      puts "[+] All test files included into #{testfile}"
     else
-      puts "[ FAIL ] Some ruby tests are not executed by #{testfile}"
+      puts "[X] Some ruby tests are not executed by #{testfile}"
     end
-    puts "[ INFO ] Running #{testfile}"
+    puts "[-] Running #{testfile}"
     system(testfile)
     # Rake::Task['build:gem'].invoke
   end
@@ -53,7 +53,7 @@ namespace :install do
 
   desc 'Install developer gems'
   task :devel do
-    puts '[ INFO ] Installing developer Ruby gems...'
+    puts '[-] Installing developer Ruby gems...'
     p = %w[rubocop minitest pry-byebug yard]
     Utils.install_gems p
   end
