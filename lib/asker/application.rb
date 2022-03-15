@@ -31,6 +31,10 @@ class Application
     end
     stages = @config['questions']['stages'].split(',')
     @config['questions']['stages'] = stages.map(&:to_sym)
+
+    fractions = @config['questions']['fractions'].split(',')
+    @config['questions']['fractions'] = fractions
+    
     Rainbow.enabled = false
     Rainbow.enabled = true if @config['global']['color'].downcase == 'yes'
   end
