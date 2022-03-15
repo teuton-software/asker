@@ -5,7 +5,7 @@ require_relative '../lib/asker/version'
 
 class VersionTest < Minitest::Test
   def test_major_number
-    assert_equal '2.2',  Version::MAJOR_NUMBER
+    assert_equal '2.3',  Version::MAJOR_NUMBER
   end
 
   def test_version
