@@ -33,8 +33,9 @@ class Application
     @config['questions']['stages'] = stages.map(&:to_sym)
 
     fractions = @config['questions']['fractions'].split(',')
-    @config['questions']['fractions'] = fractions
-    
+    @config['questions']['fractions'] = fractions + Array.new(5, '0')
+    # require 'debug'; binding.break
+
     Rainbow.enabled = false
     Rainbow.enabled = true if @config['global']['color'].downcase == 'yes'
   end

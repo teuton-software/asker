@@ -15,6 +15,7 @@ module QuestionMoodleFormatter
       fractions = Application.instance.config['questions']['fractions']
       # penalties = ['', '-50', '-33.33333', '-25', '-20']
       penalties = fractions
+      
       penalty = penalties[question.bads.size]
       template = File.read(File.join(File.dirname(__FILE__), 'moodle', 'multichoice.erb'))
     when :boolean
