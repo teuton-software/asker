@@ -1,6 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/asker-tool.svg)](https://badge.fury.io/rb/asker-tool)
 ![GitHub](https://img.shields.io/github/license/dvarrui/asker)
-![Gem](https://img.shields.io/gem/dv/asker-tool/2.2.5)
 
 # ASKER
 
