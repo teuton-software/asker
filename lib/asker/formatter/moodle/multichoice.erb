@@ -36,7 +36,6 @@
       </feedback>
     </answer>
     <%
-      question.bads.shuffle! if question.shuffle?
       question.bads.each do |i|
     %>
     <answer fraction="<%= penalty %>" format="html">
