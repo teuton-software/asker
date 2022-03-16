@@ -16,11 +16,9 @@ ASKER helps trainers to create a huge amount of questions, from a definitions (_
 ## Installation
 
 1. Install Ruby on your system.
-2. Install Asker on your system. Two ways:
-    * (a) `sudo gem install asker-tool` as superuser (root) or
-    * (b) `gem install --user-install asker-tool` as regular user.
+2. Install Asker on your system: `sudo gem install asker-tool`
 
-> To update Asker we do `sudo gem update asker-tool`
+> REMEMBER: To update Asker execute `sudo gem update asker-tool`
 
 ## Usage
 
