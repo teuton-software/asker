@@ -31,8 +31,6 @@ class StageB < BaseStage
 
     questions
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 
   ##
   # Process table data to generate match questions
@@ -52,7 +50,7 @@ class StageB < BaseStage
         # Question type <b1match>: match 4 items from the same table
         e.shuffle!
         q = Question.new(:match)
-        q.name = "#{name}-#{num}-b1match4x4-#{p_table.name}"
+        q.name = "#{name}-#{num}-b1match4-#{p_table.name}"
         q.tags << 'match'
         q.tags << 'random'
         q.text = random_image_for(name) \
@@ -64,9 +62,11 @@ class StageB < BaseStage
         # Add an extra line
         if list2.count.positive?
           q.matching << ['', list2[0][:data][index2]]
+          q.name = "#{name}-#{num}-b1match4x5-#{p_table.name}"
         else
-          q.tags << 'misspell'
+          q.tags << 'misspelled'
           q.matching << ['', lang.do_mistake_to(e[0][:data][index2])]
+          q.name = "#{name}-#{num}-b1match4x5misspelled-#{p_table.name}"
         end
         questions << q
 
@@ -85,9 +85,11 @@ class StageB < BaseStage
         # Add an extra line
         if list2.count.positive?
           q.matching << ['', list2[0][:data][index2]]
+          q.name = "#{name}-#{num}-b1match3x1misspelledx1error-#{p_table.name}"
         else
-          q.tags << 'misspell'
+          q.tags << 'misspelled'
           q.matching << ['', lang.do_mistake_to(e[0][:data][index2])]
+          q.name = "#{name}-#{num}-b1match3x1misspelledx1misspelled-#{p_table.name}"
         end
         questions << q
       end
@@ -103,7 +105,7 @@ class StageB < BaseStage
       # Question 3 items from table-A, and 1 item from table-B
       if s.count > 3
         q = Question.new(:match)
-        q.name = "#{name}-#{num}-b1match3x1-#{p_table.name}"
+        q.name = "#{name}-#{num}-b1match3x1errorx1misspelled-#{p_table.name}"
         q.tags << 'match'
         q.tags << 'random'
         q.text = random_image_for(name) \
@@ -119,10 +121,4 @@ class StageB < BaseStage
 
     questions
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/CyclomaticComplexity
-  # rubocop:enable Style/ConditionalAssignment
-  # rubocop:enable Metrics/BlockLength
-  # rubocop:enable Metrics/PerceivedComplexity
 end
