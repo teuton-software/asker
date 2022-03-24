@@ -1,9 +1,9 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
+require 'test/unit'
 require_relative '../../lib/asker/loader/image_url_loader'
 
-class ImageUrlLoaderTest < Minitest::Test
+class ImageUrlLoaderTest < Test::Unit::TestCase
 
   def setup
     @filters  = [ 'obiwan', 'yoda', ['character', 'starwars'] ]

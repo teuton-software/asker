@@ -1,13 +1,10 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
-
+require 'test/unit'
 require_relative '../../lib/asker/lang/lang_factory'
 require_relative '../../lib/asker/application'
 
-class LangFactoryTest < Minitest::Test
-  def setup
-  end
+class LangFactoryTest < Test::Unit::TestCase
 
   def test_hide_text
     languages = Application.instance.config['languages']

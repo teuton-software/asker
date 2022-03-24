@@ -1,9 +1,10 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
+require 'test/unit'
 require_relative '../../lib/asker/lang/lang'
 
-class LangTest < Minitest::Test
+class LangTest < Test::Unit::TestCase
+
   def setup
     @lang = { :en => Lang.new('en'), :es => Lang.new('es') }
     @texts = [ 'hello', 'hello world!', 'bye,bye' ]

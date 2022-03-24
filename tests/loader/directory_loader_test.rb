@@ -1,11 +1,12 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
+require 'test/unit'
 require_relative '../../lib/asker/application'
 require_relative '../../lib/asker/loader/project_loader'
 require_relative '../../lib/asker/loader/directory_loader'
 
-class DirectoryLoaderTest < Minitest::Test
+class DirectoryLoaderTest < Test::Unit::TestCase
+
   def test_load_test_input_starwars
     filepath = 'tests/input/starwars/jedi.haml'
     ProjectData.instance.reset

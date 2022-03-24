@@ -1,9 +1,10 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
+require 'test/unit'
 require_relative '../../lib/asker/loader/project_loader'
 
-class ProjectLoaderTest < Minitest::Test
+class ProjectLoaderTest < Test::Unit::TestCase
+
   def test_load_jedi_haml
     filepath = 'tests/input/starwars/jedi.haml'
     project = ProjectData.instance

@@ -1,9 +1,9 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
+require 'test/unit'
 require_relative '../lib/asker/application'
 
-class ApplicationTest < Minitest::Test
+class ApplicationTest < Test::Unit::TestCase
 
   def setup
     @app = Application.instance.config

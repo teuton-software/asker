@@ -1,7 +1,5 @@
 #!/usr/bin/ruby
 
-#require 'test/unit'
-#< Test::Unit::TestCase
 require 'test/unit'
 
 class AskerCommandTest < Test::Unit::TestCase
