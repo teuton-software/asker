@@ -1,12 +1,13 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
+require 'test/unit'
 require 'rexml/document'
 
 require_relative '../../lib/asker/data/data_field'
 
 # Define class DataFieldTest to test DataField class
-class DataFieldTest < Minitest::Test
+class DataFieldTest < Test::Unit::TestCase
+
   def test_text_data
     d = DataField.new('obiwan', 0, 'text')
 

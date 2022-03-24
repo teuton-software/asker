@@ -1,9 +1,10 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
-require_relative "../../lib/asker/ai/question"
+require 'test/unit'
+require_relative '../../lib/asker/ai/question'
 
-class QuestionTest < Minitest::Test
+class QuestionTest < Test::Unit::TestCase
+
   def setup
     q0 = Question.new
 

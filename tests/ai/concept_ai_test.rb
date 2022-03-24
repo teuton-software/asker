@@ -1,13 +1,14 @@
 #!/usr/bin/ruby
 
-require "minitest/autorun"
+require 'test/unit'
 require 'rexml/document'
 
 require_relative "../../lib/asker/data/concept"
 require_relative "../../lib/asker/data/world"
 require_relative "../../lib/asker/ai/concept_ai"
 
-class ConceptAITest < Minitest::Test
+class ConceptAITest < Test::Unit::TestCase
+
   def setup
     string_data = get_xml_data
     concepts = []

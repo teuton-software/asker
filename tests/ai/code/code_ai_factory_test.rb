@@ -1,10 +1,11 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
+require 'test/unit'
 require_relative '../../../lib/asker/ai/code/code_ai_factory'
 require_relative '../../../lib/asker/data/code'
 
-class CodeAIFactoryTest < Minitest::Test
+class CodeAIFactoryTest < Test::Unit::TestCase
+
   def setup
     @examples = []
     @examples << { filename: 'files/string.rb', lines: 4, questions: 5 }

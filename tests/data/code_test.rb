@@ -1,9 +1,10 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
+require 'test/unit'
 require_relative '../../lib/asker/data/code'
 
-class CodeTest < Minitest::Test
+class CodeTest < Test::Unit::TestCase
+
   def setup
     @examples = []
     @examples << { filename: 'files/string.rb', lines: 4, questions: 5 }

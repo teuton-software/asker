@@ -1,12 +1,13 @@
 #!/usr/bin/ruby
 
-require "minitest/autorun"
+require 'test/unit'
 require 'rexml/document'
 
 require_relative '../../lib/asker/data/concept'
 require_relative '../../lib/asker/data/template'
 
-class TemplateTest < Minitest::Test
+class TemplateTest < Test::Unit::TestCase
+
   def setup
     string_concept=%q{
     <map>

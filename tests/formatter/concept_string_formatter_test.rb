@@ -1,12 +1,12 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
+require 'test/unit'
 require_relative '../../lib/asker/application'
 require_relative '../../lib/asker/loader/project_loader'
 require_relative '../../lib/asker/loader/input_loader'
 require_relative '../../lib/asker/formatter/concept_string_formatter'
 
-class ConceptStringFormatterTest < Minitest::Test
+class ConceptStringFormatterTest < Test::Unit::TestCase
 
   def test_load_jedi_haml
     filepath = 'tests/input/starwars/jedi.haml'

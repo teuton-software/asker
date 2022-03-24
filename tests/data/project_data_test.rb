@@ -1,11 +1,12 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
+require 'test/unit'
 require 'fileutils'
 require_relative '../../lib/asker/data/project_data'
 require_relative '../../lib/asker/application'
 
-class ProjectDataTest < Minitest::Test
+class ProjectDataTest < Test::Unit::TestCase
+
   def setup
     @project = ProjectData.instance
     @project.reset

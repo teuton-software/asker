@@ -27,8 +27,4 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'rexml', '~> 3.2'
   s.add_runtime_dependency 'terminal-table', '~> 1.8'
   s.add_runtime_dependency 'thor', '~> 0.20'
-
-  s.add_development_dependency 'minitest', '~> 5.11'
-  s.add_development_dependency 'pry-byebug', '~> 3.9'
-  s.add_development_dependency 'rubocop', '~> 0.74'
 end

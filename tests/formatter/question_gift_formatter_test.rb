@@ -1,10 +1,11 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
+require 'test/unit'
 require_relative '../../lib/asker/ai/question'
 require_relative '../../lib/asker/formatter/question_gift_formatter'
 
-class QuestionGiftFormatterTest < Minitest::Test
+class QuestionGiftFormatterTest < Test::Unit::TestCase
+
   def setup
     q0 = Question.new
 
