@@ -15,7 +15,6 @@ Gem::Specification.new do |s|
   s.homepage    = Version::HOMEPAGE
 
   s.executables << 'asker'
-
   s.files       = Dir.glob(File.join('lib','**','*.*'))
 
   s.required_ruby_version = '>= 2.5.5'
