@@ -1,9 +1,10 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
+require 'test/unit'
 require_relative '../lib/asker/check_input'
 
-class CheckInputTest < Minitest::Test
+class CheckInputTest < Test::Unit::TestCase
+
   def test_action_check
     checker = CheckInput.new(false)
 

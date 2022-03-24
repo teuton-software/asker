@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 require_relative 'stage_d'
 require_relative 'stage_b'

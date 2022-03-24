@@ -1,14 +1,16 @@
 #!/usr/bin/ruby
 
-require 'minitest/autorun'
+#require 'test/unit'
+#< Test::Unit::TestCase
+require 'test/unit'
 
-class AskerCommandTest < Minitest::Test
+class AskerCommandTest < Test::Unit::TestCase
 
   def test_version
     assert_equal true,  system('asker version > /dev/null')
   end
 
-  def test_file
+  def test_file_argument
     filename = File.join('docs', 'examples', 'bands', 'acdc.haml')
     cmd = "asker file #{filename} > /dev/null"
     assert_equal true,  system(cmd)
@@ -51,7 +53,7 @@ class AskerCommandTest < Minitest::Test
     assert_equal true,  system("rmdir #{dir}")
   end
 
-  def test_file
+  def test_new_then_file
     dir = 'delete.this.file'
     cmd = "asker new #{dir} > /dev/null"
     assert_equal true,  system(cmd)
