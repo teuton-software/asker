@@ -2,7 +2,7 @@
 # Global parameters
 module Version
   MAJOR_NUMBER = '2.3'
-  VERSION = "#{MAJOR_NUMBER}.3"
+  VERSION = "#{MAJOR_NUMBER}.4"
   NAME = 'asker'
   GEM = 'asker-tool'
   CONFIGFILE = 'asker.ini'
