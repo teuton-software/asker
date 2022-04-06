@@ -1,11 +1,9 @@
-# frozen_string_literal: true
 
 require 'erb'
 require 'yaml'
 require_relative 'text_actions'
 require_relative '../logger'
 
-# Lang#lang
 class Lang
   include TextActions
 
@@ -32,7 +30,6 @@ class Lang
     @mistakes = load_yaml_file(filepath)
   end
 
-  # rubocop:disable Security/YAMLLoad
   def load_yaml_file(filepath)
     begin
       content = YAML.load(File.new(filepath))
@@ -44,5 +41,4 @@ class Lang
     end
     content
   end
-  # rubocop:enable Security/YAMLLoad
 end
