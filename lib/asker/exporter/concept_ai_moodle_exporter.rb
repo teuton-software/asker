@@ -31,7 +31,6 @@ module ConceptAIMoodleExporter
   # Export 1 concept_ai from project
   # @param concept_ai (ConceptAI)
   # @param file (File)
-  # rubocop:disable Metrics/AbcSize
   private_class_method def self.export(concept_ai, file)
     return unless concept_ai.concept.process?
 
@@ -41,5 +40,4 @@ module ConceptAIMoodleExporter
       end
     end
   end
-  # rubocop:enable Metrics/AbcSize
 end

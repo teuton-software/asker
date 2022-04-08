@@ -4,7 +4,7 @@ require 'erb'
 require_relative '../application'
 
 # Transform Questions into Gift format
-module QuestionMoodleFormatter
+class QuestionMoodleFormatter
   ##
   # Convert question object into gift formatted string
   # @param question (Question)
@@ -13,9 +13,11 @@ module QuestionMoodleFormatter
     case question.type
     when :choice
       fractions = Application.instance.config['questions']['fractions']
-      # penalties = ['', '-50', '-33.33333', '-25', '-20']
       penalties = fractions
-      
+      # penalties = ['', '-50', '-33.33333', '-25', '-20']
+      # puts "[DEBUG] fractions : #{fractions}"
+      # puts "[DEBUG] penalties : #{penalties}"
+
       penalty = penalties[question.bads.size]
       template = File.read(File.join(File.dirname(__FILE__), 'moodle', 'multichoice.erb'))
     when :boolean
