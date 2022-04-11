@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rainbow'
+require 'colorize'
 
 require_relative 'asker/skeleton'
 require_relative 'asker/check_input'
