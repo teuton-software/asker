@@ -6,3 +6,4 @@ output
 private*
 priv*
 *.lock
+pkg/*
