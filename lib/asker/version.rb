@@ -1,7 +1,6 @@
 
-module Version
-  MAJOR_NUMBER = '2.4'
-  VERSION = "#{MAJOR_NUMBER}.1"
+module Asker
+  VERSION = '2.4.1'
   NAME = 'asker'
   GEM = 'asker-tool'
   CONFIGFILE = 'asker.ini'

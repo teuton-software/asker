@@ -1,19 +1,20 @@
-require_relative 'lib/asker/version'
 
-Gem::Specification.new do |s|
-  s.name        = Version::GEM
-  s.version     = Version::VERSION
+name = "asker"
+$LOAD_PATH.unshift File.expand_path("../lib", name)
+require "#{name}/version"
+
+
+Gem::Specification.new name, Asker::VERSION do |s|
   s.date        = Time.now.strftime("%Y-%m-%d")
   s.summary     = "Asker generates questions from input definitions file."
   s.description = "ASKER helps trainers to create a huge amount of questions, from a definitions input file."
 
-  s.extra_rdoc_files = [ 'README.md', 'LICENSE' ]
-
   s.license     = 'GPL-3.0'
   s.authors     = ['David Vargas Ruiz']
   s.email       = 'teuton.software@protonmail.com'
-  s.homepage    = Version::HOMEPAGE
+  s.homepage    = Asker::HOMEPAGE
 
+  s.extra_rdoc_files = [ 'README.md', 'LICENSE' ]
   s.executables << 'asker'
   s.files       = Dir.glob(File.join('lib','**','*.*'))
 

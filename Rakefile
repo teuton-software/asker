@@ -2,6 +2,7 @@
 
 # File: Rakefile
 # Usage: rake
+require "bump/tasks"
 
 require_relative 'tasks/install'
 require_relative 'tasks/build'
