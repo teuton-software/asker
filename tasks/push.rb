@@ -6,7 +6,7 @@ namespace :push do
   desc 'Push gem'
   task :gem do
     puts '[INFO] Pushing gem...'
-    system("gem push #{Asker::GEM}-*.*.*.gem")
+    system("gem push pkg/#{Asker::GEM}-*.*.*.gem")
   end
 
   desc 'Push docker'
