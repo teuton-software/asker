@@ -24,13 +24,13 @@ class CLI < Thor
     exit 0
   end
 
-  map ['new','--new'] => 'new_input'
+  map ['new','--new'] => 'create_input'
   desc 'new DIRPATH', 'Create Asker demo input files'
   ##
   # Create Asker demo input files
   # @param dirname (String) Path to folder
-  def new_input(dirname)
-    Asker.new_input(dirname)
+  def create_input(dirname)
+    Asker.create_input(dirname)
     exit 0
   end
 

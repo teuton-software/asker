@@ -13,11 +13,12 @@ require_relative 'asker/logger'
 require_relative 'asker/loader/project_loader'
 require_relative 'asker/loader/input_loader'
 class Asker
+
   def self.init
     Skeleton.create_configuration
   end
 
-  def self.new_input(dirpath)
+  def self.create_input(dirpath)
     Skeleton.create_input(dirpath)
   end
 
