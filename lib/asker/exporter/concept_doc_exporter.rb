@@ -11,7 +11,7 @@ module ConceptDocExporter
   def self.export_all(concepts, project)
     file = File.new(project.get(:lessonpath), 'w')
     file.write('=' * 50 + "\n")
-    file.write("Created by : #{Version::NAME} (version #{Version::VERSION})\n")
+    file.write("Created by : #{Asker::NAME} (version #{Asker::VERSION})\n")
     file.write("File       : #{project.get(:lessonname)}\n")
     file.write("Time       : #{Time.new}\n")
     file.write("Author     : David Vargas Ruiz\n")

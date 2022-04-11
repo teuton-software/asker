@@ -6,7 +6,7 @@ require_relative '../lib/asker/version'
 namespace :install do
   desc 'Check installation'
   task :check do
-    puts "[-] asker version => #{Version::VERSION}"
+    puts "[-] asker version => #{Asker::VERSION}"
     fails = Utils.filter_uninstalled_gems(Utils.packages)
     if fails.size.zero?
       puts '[+] Gems installed OK!'

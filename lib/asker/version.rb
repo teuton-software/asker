@@ -1,5 +1,5 @@
 
-module Asker
+class Asker
   VERSION = '2.4.1'
   NAME = 'asker'
   GEM = 'asker-tool'

@@ -16,10 +16,10 @@ class Application
 
   def reset
     filename = File.join(Dir.pwd,
-                         Version::CONFIGFILE)
+                         Asker::CONFIGFILE)
     filename = File.join(File.dirname(__FILE__),
                          'files',
-                          Version::CONFIGFILE) unless File.exist? filename
+                          Asker::CONFIGFILE) unless File.exist? filename
 
     begin
       @config = IniFile.load(filename)

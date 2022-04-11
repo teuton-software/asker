@@ -34,8 +34,8 @@ module Skeleton
   # Create default configuration files
   def self.create_configuration
     puts "\n[INFO] Creating configuration files"
-    src = File.join(File.dirname(__FILE__), 'files', Version::CONFIGFILE)
-    dst = File.join(Version::CONFIGFILE)
+    src = File.join(File.dirname(__FILE__), 'files', Asker::CONFIGFILE)
+    dst = File.join(Asker::CONFIGFILE)
     copyfile(src, dst)
   end
 

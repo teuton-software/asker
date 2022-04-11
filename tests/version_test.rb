@@ -8,23 +8,19 @@ require_relative '../lib/asker/version'
 class VersionTest < Test::Unit::TestCase
 
   def test_const_major_number
-    assert_equal '2.',  Version::MAJOR_NUMBER[0,2]
-  end
-
-  def test_const_version
-    assert Version::VERSION.start_with? Version::MAJOR_NUMBER
+    assert_equal '2.',  Asker::VERSION[0,2]
   end
 
   def test_cont_name
-    assert_equal 'asker',  Version::NAME
+    assert_equal 'asker',  Asker::NAME
   end
 
   def test_cont_gem
-    assert_equal 'asker-tool', Version::GEM
+    assert_equal 'asker-tool', Asker::GEM
   end
 
   def test_version_class
-    assert_equal String, Version::VERSION.class
+    assert_equal String, Asker::VERSION.class
   end
 
 end
