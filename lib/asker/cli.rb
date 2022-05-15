@@ -8,9 +8,9 @@ require_relative '../asker'
 ##
 # Command Line User Interface
 class CLI < Thor
-  map ['--help'] => 'help'
+  map ['-h', '--help'] => 'help'
 
-  map ['--version'] => 'version'
+  map ['-v', '--version'] => 'version'
   desc 'version', 'Show the program version'
   def version
     puts "#{Asker::NAME} version #{Asker::VERSION}"
