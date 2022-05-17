@@ -1,9 +1,10 @@
+asker.ini
 .yardoc/
 *.devel/
 *.gem
+*.lock
 html/
 output
 private*
 priv*
-*.lock
 pkg/*
