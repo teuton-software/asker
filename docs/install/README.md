@@ -5,9 +5,20 @@
 
 **Install** Asker:
 1. Install Ruby on your system.
-2. Install Asker on your system. Two ways:
-    * (a) `sudo gem install asker-tool` as superuser (root) or
-    * (b) `gem install --user-install asker-tool` as regular user.
+2. Install Asker on your system.
+
+## 1. Install Ruby on your system
+
+* OpenSUSE: Done!
+* Debian/Ubuntu: `sudo apt install ruby`
+* Windows: https://rubyinstaller.org/
+* MacOS: Done!
+
+## 2. Install Asker on your system.
+
+Two ways:
+* (a) `sudo gem install asker-tool` as superuser (root) or
+* (b) `gem install --user-install asker-tool` as regular user.
 
 Run `asker version` to check that your installation is ok.
 
