@@ -2,10 +2,10 @@
 
 require_relative '../lib/asker/version'
 
-namespace :push do
+namespace :docker do
   desc 'Push docker'
-  task :docker do
+  task :push do
     puts '[INFO] Pushing docker...'
-    system("docker push dvarrui/#{Asker::NAME}:#{Asker::VERSION}")
+    system("docker push dvarrui/#{Asker::NAME}") #{}":#{Asker::VERSION}")
   end
 end
