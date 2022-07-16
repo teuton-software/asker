@@ -9,7 +9,7 @@ require_relative 'tasks/push'
 
 Bundler::GemHelper.install_tasks
 
-desc 'Default action => check & build'
+desc 'Default action => check'
 task :default do
   Rake::Task['install:check'].invoke
 end

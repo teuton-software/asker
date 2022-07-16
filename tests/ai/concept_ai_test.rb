@@ -76,7 +76,7 @@ class ConceptAITest < Test::Unit::TestCase
     @concepts_ai[i].make_questions
     assert_equal 0,  @concepts_ai[i].questions[:d].size
     assert_equal 0,  @concepts_ai[i].questions[:b].size
-    assert_equal 20, @concepts_ai[i].questions[:f].size
+    assert_equal 12, @concepts_ai[i].questions[:f].size
     assert_equal 0,  @concepts_ai[i].questions[:i].size
     assert_equal 4,  @concepts_ai[i].questions[:s].size
     assert_equal 0,  @concepts_ai[i].questions[:t].size
