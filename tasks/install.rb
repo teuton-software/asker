@@ -50,11 +50,4 @@ namespace :install do
     Rake::Task['install:devel'].invoke
     Utils.create_symbolic_link
   end
-
-  desc 'Install developer gems'
-  task :devel do
-    puts '[-] Installing developer Ruby gems...'
-    p = %w[rubocop minitest pry-byebug yard]
-    Utils.install_gems p
-  end
 end
