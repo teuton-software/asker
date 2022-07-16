@@ -56,7 +56,8 @@ class StageF < BaseStage
             q.matching << [(index + 1).to_s, filtered[:words][value][:word].downcase]
           end
           q.matching << ['', lang.do_mistake_to(filtered[:words][rand(filtered[:words].size)][:word].downcase)]
-          questions << q
+          # questions << q
+          # TODO: Revise this type of questions
         end
       end
     else
