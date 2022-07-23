@@ -11,12 +11,17 @@ module EmbeddedFile
   # @param value (String)
   # @param localdir (String) Input file base folder
   # @return Hash
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def self.load(value, localdir)
     # When filename is an URL
     if value.start_with?('https://') || value.start_with?('http://')
-      return { text: "<img src=\"#{value}\" alt=\"image\" width=\"400\" height=\"300\">", file: :none }
+      if is_image? value
+        html_text = "<img src=\"#{value}\" alt=\"image\" width=\"400\" height=\"300\">"
+      elsif is_audio? value
+        html_text = "<audio src=\"#{value}\" controls></audio>"
+      else
+        html_text = "<b> #{value}: Unkown file type!</b>"
+      end
+      return { text: html_text, file: :none }
     end
 
     filepath = File.join(localdir, value)
@@ -26,7 +31,7 @@ module EmbeddedFile
       exit 1
     end
     # When filename is PNG, JPG o JPEG
-    if ['.png', '.jpg', '.jpeg'].include? File.extname(filepath)
+    if is_image? filepath
       # converts image into base64 strings
       text = '<img src="@@PLUGINFILE@@/' + File.basename(filepath) \
              + '" alt="imagen" class="img-responsive atto_image_button_text-bottom">'
@@ -37,6 +42,17 @@ module EmbeddedFile
     # Suposse that filename is TXT file
     return { text: "<pre>#{File.read(filepath)}</pre>", file: :none } if File.exist?(filepath)
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
+
+  def self.is_image?(filename)
+    extens = ['.jpg', '.jpeg', '.png']
+    extens.each {|ext| return true if filename.downcase.end_with?(ext) }
+    false
+  end
+
+  def self.is_audio?(filename)
+    extens = ['.mp3', '.ogg', '.wav']
+    extens.each {|ext| return true if filename.downcase.end_with?(ext) }
+    false
+  end
+
 end
