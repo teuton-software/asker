@@ -42,14 +42,12 @@ This example use external files to define the concept:
 **def** can be used with local or remote images. So we have to find an image that uniquely identifies our concept and write our definitions like this.
 
 ```
-    %def{:type => 'file'}PATH-TO-FILE
+    %def{:type => 'file'} PATH-TO-FILE
 ```
 
 | Attribute | Value | Description  |
 | --------- | ----- | ------------ |
 | type      | file  | Value is an URL or PATH to file |
-
-**WARNING**: By now only PNG, JPG, JPEG and TXT type files are accepted.
 
 ---
 [>> Learn about tables](tables.md)
