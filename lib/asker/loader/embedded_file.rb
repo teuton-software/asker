@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 require 'base64'
 
@@ -30,17 +29,35 @@ module EmbeddedFile
       Logger.verbose Rainbow("[ERROR] Unknown file! #{filepath}").red.bright
       exit 1
     end
-    # When filename is PNG, JPG o JPEG
     if is_image? filepath
-      # converts image into base64 strings
       text = '<img src="@@PLUGINFILE@@/' + File.basename(filepath) \
              + '" alt="imagen" class="img-responsive atto_image_button_text-bottom">'
+      data = '<file name="' + File.basename(filepath) + '" path="/" encoding="base64">' \
+             + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
+      return { text: text, file: data }
+    elsif is_audio? filepath
+      text = '<audio controls><source src="' + File.basename(filepath) \
+             + '">Your browser does not support the audio tag.</video>'
+      data = '<file name="' + File.basename(filepath) + '" path="/" encoding="base64">' \
+             + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
+      return { text: text, file: data }
+    elsif is_video? filepath
+      text = '<video controls><source src="' + File.basename(filepath) \
+             + '">Your browser does not support the video tag.</video>'
       data = '<file name="' + File.basename(filepath) + '" path="/" encoding="base64">' \
              + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
       return { text: text, file: data }
     end
     # Suposse that filename is TXT file
     return { text: "<pre>#{File.read(filepath)}</pre>", file: :none } if File.exist?(filepath)
+
+    { text: :error, file: :none}
+  end
+
+  def self.is_audio?(filename)
+    extens = ['.mp3', '.ogg', '.wav']
+    extens.each {|ext| return true if filename.downcase.end_with?(ext) }
+    false
   end
 
   def self.is_image?(filename)
@@ -49,10 +66,11 @@ module EmbeddedFile
     false
   end
 
-  def self.is_audio?(filename)
-    extens = ['.mp3', '.ogg', '.wav']
+  def self.is_video?(filename)
+    extens = ['.mp4', '.ogv']
     extens.each {|ext| return true if filename.downcase.end_with?(ext) }
     false
   end
+
 
 end

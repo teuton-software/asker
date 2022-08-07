@@ -3,11 +3,9 @@ require_relative 'concept_doc_exporter'
 require_relative 'data_gift_exporter'
 require_relative 'data_moodle_exporter'
 
-# Export Output data:
-# * Gift (ConceptAI, Code)
-# * YAML
-# * Doc (txt)
-# * Moodle XML (ConceptAI, Code)
+##
+# Export Output data files
+# * YAML, Doc (txt), Gift (ConceptAI, Code) and Moodle XML (ConceptAI, Code)
 module OutputFileExporter
   def self.export(data, project)
     config = Application.instance.config
