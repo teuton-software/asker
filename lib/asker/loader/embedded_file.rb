@@ -72,6 +72,7 @@ module EmbeddedFile
     false
   end
 
+  # TODO: convertir load a load_image, load_audio y load_video
   def self.load_image(value, localdir)
     output = { text: :error, file: :none, type: :image}
 
