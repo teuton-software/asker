@@ -36,13 +36,13 @@ module EmbeddedFile
              + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
       return { text: text, file: data }
     elsif is_audio? filepath
-      text = '<audio controls><source src="' + File.basename(filepath) \
-             + '">Your browser does not support the audio tag.</video>'
+      text = '<audio controls><source src="@@PLUGINFILE@@/' + File.basename(filepath) \
+             + '">Your browser does not support the audio tag.</audio>'
       data = '<file name="' + File.basename(filepath) + '" path="/" encoding="base64">' \
              + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
       return { text: text, file: data }
     elsif is_video? filepath
-      text = '<video controls><source src="' + File.basename(filepath) \
+      text = '<video controls><source src="@@PLUGINFILE@@/' + File.basename(filepath) \
              + '">Your browser does not support the video tag.</video>'
       data = '<file name="' + File.basename(filepath) + '" path="/" encoding="base64">' \
              + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
