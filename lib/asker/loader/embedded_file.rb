@@ -72,5 +72,26 @@ module EmbeddedFile
     false
   end
 
+  def self.load_image(value, localdir)
+    output = { text: :error, file: :none, type: :image}
+
+    if value.start_with?('https://') || value.start_with?('http://')
+      output[:text] = "<img src=\"#{value}\" alt=\"image\" width=\"400\" height=\"300\">"
+      output[:file] = ''
+      return output
+    end
+
+    filepath = File.join(localdir, value)
+    unless File.exist?(filepath)
+      Logger.verbose Rainbow("[ERROR] Unknown file! #{filepath}").red.bright
+      exit 1
+    end
+    output[:text] = '<img src="@@PLUGINFILE@@/' + File.basename(filepath) \
+                    + '" alt="imagen" class="img-responsive atto_image_button_text-bottom">'
+    output[:file] = '<file name="' + File.basename(filepath) \
+                    + '" path="/" encoding="base64">' \
+                    + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
+    output
+  end
 
 end
