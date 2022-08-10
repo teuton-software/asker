@@ -20,7 +20,7 @@ module EmbeddedFile
       else
         html_text = "<b> #{value}: Unkown file type!</b>"
       end
-      return { text: html_text, file: :none }
+      return { text: html_text, file: :none, type: :url }
     end
 
     filepath = File.join(localdir, value)
@@ -29,24 +29,24 @@ module EmbeddedFile
       Logger.verbose Rainbow("[ERROR] Unknown file! #{filepath}").red.bright
       exit 1
     end
-    if is_image? filepath
-      text = '<img src="@@PLUGINFILE@@/' + File.basename(filepath) \
-             + '" alt="imagen" class="img-responsive atto_image_button_text-bottom">'
-      data = '<file name="' + File.basename(filepath) + '" path="/" encoding="base64">' \
-             + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
-      return { text: text, file: data }
-    elsif is_audio? filepath
+    if is_audio? filepath
       text = '<audio controls><source src="@@PLUGINFILE@@/' + File.basename(filepath) \
              + '">Your browser does not support the audio tag.</audio>'
       data = '<file name="' + File.basename(filepath) + '" path="/" encoding="base64">' \
              + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
-      return { text: text, file: data }
+      return { text: text, file: data, type: :audio }
+    elsif is_image? filepath
+      text = '<img src="@@PLUGINFILE@@/' + File.basename(filepath) \
+             + '" alt="imagen" class="img-responsive atto_image_button_text-bottom">'
+      data = '<file name="' + File.basename(filepath) + '" path="/" encoding="base64">' \
+             + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
+      return { text: text, file: data, type: :image }
     elsif is_video? filepath
       text = '<video controls><source src="@@PLUGINFILE@@/' + File.basename(filepath) \
              + '">Your browser does not support the video tag.</video>'
       data = '<file name="' + File.basename(filepath) + '" path="/" encoding="base64">' \
              + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
-      return { text: text, file: data }
+      return { text: text, file: data, type: :video }
     end
     # Suposse that filename is TXT file
     return { text: "<pre>#{File.read(filepath)}</pre>", file: :none } if File.exist?(filepath)
@@ -79,6 +79,7 @@ module EmbeddedFile
     if value.start_with?('https://') || value.start_with?('http://')
       output[:text] = "<img src=\"#{value}\" alt=\"image\" width=\"400\" height=\"300\">"
       output[:file] = ''
+      output[:type] = :url
       return output
     end
 
@@ -92,6 +93,7 @@ module EmbeddedFile
     output[:file] = '<file name="' + File.basename(filepath) \
                     + '" path="/" encoding="base64">' \
                     + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
+    output[:type] = :image
     output
   end
 
