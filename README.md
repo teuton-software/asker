@@ -43,6 +43,7 @@ asker docs/examples/bands/acdc.haml
 * [Videos](docs/videos.md)
 * [Inputs](docs/inputs/README.md)
 * [Usage](docs/usage.md)
+* [Reference](docs/reference.md)
 * [Contributions](docs/contributions.md)
 * [Problem to solve](docs/idea.md)
 * [History](docs/history.md)

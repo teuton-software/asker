@@ -10,6 +10,8 @@
 | [asker new](usage.md)     | Create new Asker input |
 | [asker version](usage.md) | Show Asker version |
 
+---
+
 | Keyword | Description |
 | ------- | ----------- |
 | export  | Export results into output files |
@@ -19,6 +21,8 @@
 | show    | Show/display process into console screen |
 | start   | Start evaluation |
 | target  | Start new target definition |
+
+---
 
 | Input definition                | Description |
 | ------------------------------- | ----------- |
