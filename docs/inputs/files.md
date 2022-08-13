@@ -37,12 +37,14 @@ This example use external files to define the concept:
 * Second definition use external local image file.
 * And the third use external remote image file.
 
+It is posible link audio, image, video and plain text files.
+
 # Conclusion
 
 **def** can be used with local or remote images. So we have to find an image that uniquely identifies our concept and write our definitions like this.
 
 ```
-    %def{:type => 'file'} PATH-TO-FILE
+    %def{ type: 'file' } PATH-TO-FILE
 ```
 
 | Attribute | Value | Description  |
