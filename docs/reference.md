@@ -23,6 +23,7 @@
 | Input definition                | Description |
 | ------------------------------- | ----------- |
 | [concept](inputs/concepts.md)   | Concept definition |
+| [code](inputs/code.md)          | Code definition |
 | [col](inputs/tables.md)         | Col definition |
 | [def](inputs/concepts.md)       | Def definition |
 | [map](inputs/concepts.md)       | Map definition |
