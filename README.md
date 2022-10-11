@@ -22,20 +22,14 @@ ASKER helps trainers to create a huge amount of questions, from a definitions (_
 
 ## Usage
 
-Steps:
-
-1. Create an input file with your inputs (_conceptual map_).
-1. Run _asker_ and get the results into `output` directory.
-
-Example: Running `asker` with our example input file as argument (`acdc.haml`):
-
-```
+1. **Create input file** with your content (_conceptual map_). Examples at [Asker inputs folder](./docs/examples).
+2. **Run `asker PATH/TO/INPUT`**. Example: Create questions from ACDC input example file:
+```bash
 asker docs/examples/bands/acdc.haml
 ```
+3. Output files created into the `output` folder.
 
-* Output files created into the `output` folder.
-* More [example input files](./docs/examples).
-* More asker input files at [github/dvarrui/asker-inputs](https://github.com/dvarrui/asker-inputs) repository.
+> More input examples at [dvarrui/asker-input](https://github.com/dvarrui/asker-inputs) repository.
 
 ## Documentation
 
@@ -51,4 +45,3 @@ asker docs/examples/bands/acdc.haml
 ## Contact
 
 * **Email**: `teuton.software@protonmail.com`
-* **Twitter**: `@SoftwareTeuton`
