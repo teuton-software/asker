@@ -19,7 +19,6 @@ module QuestionHashFormatter
       s[:answer] = @question.good
     when :match
       s[:answer] = @question.matching
-      s[:matching] = @question.matching
     when :short
       @question.shorts.uniq!
       s[:answer] = @question.shorts
