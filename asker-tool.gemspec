@@ -15,7 +15,7 @@ Gem::Specification.new Asker::GEM, Asker::VERSION do |s|
   s.executables << 'asker'
   s.files       = Dir.glob(File.join('lib','**','*.*'))
 
-  s.required_ruby_version = '>= 2.5.5'
+  s.required_ruby_version = '>= 3.0.4'
 
   s.add_runtime_dependency 'haml', '~> 5.1'
   s.add_runtime_dependency 'inifile', '~> 3.0'
@@ -23,5 +23,5 @@ Gem::Specification.new Asker::GEM, Asker::VERSION do |s|
   s.add_runtime_dependency 'colorize', '~> 0.8'
   s.add_runtime_dependency 'rexml', '~> 3.2'
   s.add_runtime_dependency 'terminal-table', '~> 1.8'
-  s.add_runtime_dependency 'thor', '~> 0.20'
+  s.add_runtime_dependency 'thor', '~> 1.2'
 end
