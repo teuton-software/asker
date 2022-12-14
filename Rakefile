@@ -5,7 +5,6 @@ require "bundler/gem_tasks"
 require "bump/tasks"
 
 require_relative 'tasks/install'
-require_relative 'tasks/push'
 
 Bundler::GemHelper.install_tasks
 
