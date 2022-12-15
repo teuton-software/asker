@@ -1,8 +1,8 @@
-# frozen_string_literal: true
 
-require 'rainbow'
-require 'colorize'
-require_relative 'check_table'
+# require 'rainbow'
+require "debug"
+require "colorize"
+require_relative "check_table"
 
 class CheckHamlData
   include CheckTable
@@ -117,9 +117,10 @@ class CheckHamlData
     if find_parent(index) != :map
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Parent(map) not found!'
-    elsif line != '  %concept'
+    elsif !line.match(/^\s\s%concept\s*$/)
+      binding.break
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Write 2 spaces before %concept'
+      @outputs[index][:msg] = 'Write 2 spaces before %concept, and no text after'
     end
   end
 
@@ -134,6 +135,7 @@ class CheckHamlData
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Parent(concept) not found!'
     elsif !line.start_with? '    %names'
+    elsif !line.match(/^\s\s\s\s%names\s/)
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Write 4 spaces before %names'
     end
@@ -149,7 +151,7 @@ class CheckHamlData
     if find_parent(index) != :concept
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Parent(concept) not found!'
-    elsif !line.start_with? '    %tags'
+    elsif !line.match(/^\s\s\s\s%tags\s/)
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Write 4 spaces before %tags'
     end
@@ -165,7 +167,7 @@ class CheckHamlData
     if find_parent(index) != :concept
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Parent(concept) not found!'
-    elsif !line.start_with? '    %def'
+    elsif !line.match(/^\s\s\s\s%def\s/)
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Write 4 spaces before %def'
     end
@@ -181,9 +183,9 @@ class CheckHamlData
     if find_parent(index) != :map
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Parent(map) not found!'
-    elsif line != '  %code'
+    elsif !line.match(/^\s\s%code\s*$/)
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Write 2 spaces before %code'
+      @outputs[index][:msg] = 'Write 2 spaces before %code, and no text after'
     end
   end
 
@@ -197,7 +199,7 @@ class CheckHamlData
     if find_parent(index) != :code
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Parent(code) not found!'
-    elsif !line.start_with? '    %type'
+    elsif !line.match(/^\s\s\s\s%type\s/)
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Write 4 spaces before %type'
     end
@@ -213,7 +215,7 @@ class CheckHamlData
     if find_parent(index) != :code
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Parent(code) not found!'
-    elsif !line.start_with? '    %path'
+    elsif !line.match(/^\s\s\s\s%path\s/)
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Write 4 spaces before %type'
     end
@@ -229,9 +231,9 @@ class CheckHamlData
     if find_parent(index) != :code
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Parent(code) not found!'
-    elsif !line.start_with? '    %features'
+    elsif !line.match(/^\s\s\s\s%features\s*$/)
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Write 4 spaces before %features'
+      @outputs[index][:msg] = 'Write 4 spaces before %features, and no text after'
     end
   end
 

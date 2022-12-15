@@ -11,7 +11,7 @@ module CheckTable
     if find_parent(index) != :concept
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Parent(concept) not found!'
-    elsif !line.start_with? '    %table'
+    elsif !line.match(/^\s\s\s\s%table\s*/)
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Write 4 spaces before %table'
     end
@@ -25,12 +25,6 @@ module CheckTable
       @outputs[index][:state] = :err
       @outputs[index][:msg] = "fields must be next to : (Without spaces)"
     end
-
-    # TODO
-    #else not /\s+%table{\s?fields:\s?'[A-Za-z,áéíóú]*'\s?}/.match(line)
-    #  @outputs[index][:state] = :err
-    #  @outputs[index][:msg] = 'Table#fields malformed!'
-    #end
   end
 
   def check_row(line, index)
@@ -109,7 +103,7 @@ module CheckTable
     if find_parent(index) != :table
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Parent(concept) not found!'
-    elsif !line.start_with? '      %template'
+    elsif !line.match(/^\s\s\s\s\s\s%template\s*/)
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Write 6 spaces before %template'
     end

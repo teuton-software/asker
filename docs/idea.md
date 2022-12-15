@@ -5,7 +5,7 @@
 
 > **Disclaimber**
 >
-> I work as a teacher, and I try to do the best I know. But I'm really a programmer. I studied Computer Science at *ULPGC*.
+> I work as a teacher, and I try to do the best I know. But I'm really a programmer. I studied Computer Science.
 >
 > The 90% of what I've learned, I must thank to *Open Source* community.
 The other 10%, It's luck and time wasted working.
