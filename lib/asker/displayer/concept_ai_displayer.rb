@@ -74,7 +74,7 @@ class ConceptAIDisplayer
 
     # Create table TAIL
     screen_table.add_separator
-    screen_table.add_row [Rainbow("TOTAL = #{total[:c]}").bright,
+    screen_table.add_row [Rainbow("#{total[:c]} concept/s").bright,
                           Rainbow(total[:q].to_s).bright,
                           Rainbow(total[:e].to_s).bright,
                           Rainbow((total[:q].to_f / total[:e]).round(2)).bright,
