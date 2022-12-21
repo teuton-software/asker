@@ -29,9 +29,6 @@ gem install asker-tool
 
 ```
 ❯ asker docs/examples/bands/acdc.haml
-[INFO] Project open
-   ├── inputdirs    = docs/examples/bands
-   └── process_file = acdc.haml
 
 +--------------------+-----------+---------+---------+---+---+----+---+---+----+
 | Concept            | Questions | Entries | xFactor | d | b | f  | i | s | t  |
