@@ -1,7 +1,7 @@
+# ASKER
+
 [![Gem Version](https://badge.fury.io/rb/asker-tool.svg)](https://badge.fury.io/rb/asker-tool)
 ![GitHub](https://img.shields.io/github/license/dvarrui/asker)
-
-# ASKER
 
 Generate a lot of questions from an _input_ text file with on your own _definitions_. In a way, this _input file_ is a concept map.
 
@@ -14,21 +14,38 @@ ASKER helps trainers to create a huge amount of questions, from a definitions (_
 
 ## Installation
 
-1. Install Ruby on your system.
-2. Install Asker on your system: `sudo gem install asker-tool`
+First install Ruby and then:
 
-> REMEMBER: To update Asker execute `sudo gem update asker-tool`
+```
+gem install asker-tool
+```
+
+> REMEMBER: Update Asker with `gem update asker-tool`
 
 ## Usage
 
-1. **Create input file** with your content (_conceptual map_). Examples at [Asker inputs folder](./docs/examples).
-2. **Run `asker PATH/TO/INPUT`**. Example: Create questions from ACDC input example file:
-```bash
-asker docs/examples/bands/acdc.haml
-```
-3. Output files created into the `output` folder.
+1. **Create input file** with your contents (_conceptual map_). [Here are some examples](./docs/examples).
+2. **Run `asker PATH/TO/INPUT`**. Let's see an example creating questions from ACDC input example file:
 
-> More input examples at [dvarrui/asker-input](https://github.com/dvarrui/asker-inputs) repository.
+```
+❯ asker docs/examples/bands/acdc.haml
+[INFO] Project open
+   ├── inputdirs    = docs/examples/bands
+   └── process_file = acdc.haml
+
++--------------------+-----------+---------+---------+---+---+----+---+---+----+
+| Concept            | Questions | Entries | xFactor | d | b | f  | i | s | t  |
++--------------------+-----------+---------+---------+---+---+----+---+---+----+
+| AC/DC              | 45        | 18      | 2.5     | 7 | 0 | 15 | 0 | 3 | 20 |
+| Excluded questions | 0         | -       | -       | 0 | 0 | 0  | 0 | 0 | 0  |
++--------------------+-----------+---------+---------+---+---+----+---+---+----+
+| TOTAL = 1          | 45        | 18      | 2.5     | 7 | 0 | 15 | 0 | 3 | 20 |
++--------------------+-----------+---------+---------+---+---+----+---+---+----+
+```
+
+3. **Output files** are saved into the `output` folder.
+
+> More input examples at [asker-input  repository](https://github.com/dvarrui/asker-inputs).
 
 ## Documentation
 
