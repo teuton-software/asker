@@ -18,7 +18,6 @@ module DataGiftExporter
     file.write(" (version #{Asker::VERSION})\n")
     file.write("// File       : #{project.get(:outputname)}\n")
     file.write("// Time       : #{Time.new}\n")
-    file.write("// Author     : David Vargas Ruiz\n")
     file.write('// ' + ('=' * 50) + "\n\n")
     category = Application.instance.config['questions']['category']
     file.write("$CATEGORY: $course$/#{category}\n") unless category.nil?

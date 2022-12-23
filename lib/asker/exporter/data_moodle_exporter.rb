@@ -15,7 +15,6 @@ module DataMoodleExporter
     file.write(" (version #{Asker::VERSION})\n")
     file.write(" File       : #{project.get(:moodlename)}\n")
     file.write(" Time       : #{Time.new}\n")
-    file.write(" Author     : David Vargas Ruiz\n")
     file.write("#{('=' * 50)}\n-->\n\n")
 
     data[:concepts_ai].each do |concept_ai|

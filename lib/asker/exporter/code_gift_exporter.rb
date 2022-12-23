@@ -1,7 +1,5 @@
+require_relative "../formatter/question_gift_formatter"
 
-require_relative '../formatter/question_gift_formatter'
-
-# Use to export questions from Code to gift format
 module CodeGiftExporter
   ##
   # Export an Array of codes to gift format file

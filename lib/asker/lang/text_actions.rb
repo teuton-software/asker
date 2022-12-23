@@ -6,19 +6,47 @@ module TextActions
   ##
   # Return text indicated by lang code...
   def text_for(option, *input)
-    text1 = input[0]
-    text2 = input[1]
-    text3 = input[2]
-    text4 = input[3]
-    text5 = input[4]
-    text6 = input[5]
-    text7 = input[6]
+    @_text1 = input[0] # FIXME: done to avoid linter complaints.
+    @_text2 = input[1]
+    @_text3 = input[2]
+    @_text4 = input[3]
+    @_text5 = input[4]
+    @_text6 = input[5]
+    @_text7 = input[6]
 
     # Check if exists option before use it
     raise "[ERROR] Unkown template #{option}" if @templates[option].nil?
 
     renderer = ERB.new(@templates[option])
     renderer.result(binding)
+  end
+
+  def text1
+    @_text1
+  end
+
+  def text2
+    @_text2
+  end
+
+  def text3
+    @_text3
+  end
+
+  def text4
+    @_text4
+  end
+
+  def text5
+    @_text5
+  end
+
+  def text6
+    @_text6
+  end
+
+  def text7
+    @_text7
   end
 
   ##

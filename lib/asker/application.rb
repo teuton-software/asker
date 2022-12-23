@@ -1,9 +1,7 @@
-# frozen_string_literal: true
-
-require 'singleton'
-require 'inifile'
-require 'rainbow'
-require_relative 'version'
+require "singleton"
+require "inifile"
+require "rainbow"
+require_relative "version"
 
 # Global parameters
 class Application

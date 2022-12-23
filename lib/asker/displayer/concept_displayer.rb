@@ -1,10 +1,7 @@
-# frozen_string_literal: true
-
 require_relative '../application'
 require_relative '../formatter/concept_string_formatter'
-require_relative '../logger'
+require_relative "../logger"
 
-# Show Concept Data on screen
 module ConceptDisplayer
   ##
   # Show concepts on screen

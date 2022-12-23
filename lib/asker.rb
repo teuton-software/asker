@@ -52,9 +52,7 @@ class Asker
   end
 
   private_class_method def self.init_logger(project_data)
-    # Create log file where to save log messages
-    Logger.create(project_data.get(:logpath),
-                  project_data.get(:logname))
+    Logger.create(project_data.get(:logpath))
     Logger.instance.set_verbose(Application.instance.config['verbose'])
     Logger.verboseln '[INFO] Project open'
     Logger.verboseln '   ├── inputdirs    = ' + Rainbow(project_data.get(:inputdirs)).bright
