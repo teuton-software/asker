@@ -1,4 +1,3 @@
-
 class Asker
   VERSION = "2.5.6"
   NAME = "asker"
