@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rainbow'
 require 'colorize'
 
@@ -13,8 +11,8 @@ require_relative 'asker/logger'
 
 require_relative 'asker/loader/project_loader'
 require_relative 'asker/loader/input_loader'
-class Asker
 
+class Asker
   def self.init
     Skeleton.create_configuration
   end
@@ -64,38 +62,6 @@ class Asker
   end
 
   private_class_method def self.create_output(project, data)
-    Logger.verboseln "\n[INFO] Creating output files"
-    m = '   ├── Gift questions file => '
-    m += if Application.instance.config['output']['gift'] == 'yes'
-           Rainbow(project.get(:outputpath)).bright
-         else
-           "#{project.get(:outputpath)} (No)"
-         end
-    Logger.verboseln m
-
-    m = '   ├── Lesson file         => '
-    m += if Application.instance.config['output']['doc'] == 'yes'
-           Rainbow(project.get(:lessonpath)).bright
-         else
-           "#{project.get(:lessonpath)} (No)"
-         end
-    Logger.verboseln m
-
-    m = '   ├── YAML questions file => '
-    m += if Application.instance.config['output']['yaml'] == 'yes'
-           Rainbow(project.get(:yamlpath)).bright
-         else
-           "#{project.get(:yamlpath)} (No)"
-         end
-    Logger.verboseln m
-
-    m = '   └── Moodle XML file     => '
-    m += if Application.instance.config['output']['moodle'] == 'yes'
-           Rainbow(project.get(:moodlepath)).bright
-         else
-           "#{project.get(:moodlepath)} (No)"
-         end
-    Logger.verboseln m
     OutputFileExporter.export(data, project)
     StatsDisplayer.show(data)
     Logger.close
