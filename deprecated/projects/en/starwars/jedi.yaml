@@ -1,3 +1,0 @@
----
-:inputdirs: 'input/en/starwars' 
-:process_file: 'jedi.haml'

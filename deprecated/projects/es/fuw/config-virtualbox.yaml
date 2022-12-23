@@ -1,4 +1,0 @@
----
-:projectdir: fuw
-:inputdirs: maps/fuw,maps/idp
-:process_file: virtualbox.haml

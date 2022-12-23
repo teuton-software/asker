@@ -1,4 +1,0 @@
----
-:inputdirs: 'input/es/add,input/es/idp'
-:process_file: 'ruby1.haml'
-

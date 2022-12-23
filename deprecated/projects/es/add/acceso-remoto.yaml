@@ -1,3 +1,0 @@
----
-:inputdirs: 'input/es/add,input/es/idp'
-:process_file: 'acceso-remoto.haml'
