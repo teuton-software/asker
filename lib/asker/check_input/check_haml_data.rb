@@ -1,6 +1,3 @@
-
-# require 'rainbow'
-require "debug"
 require "colorize"
 require_relative "check_table"
 
