@@ -15,7 +15,7 @@ Gem::Specification.new Asker::GEM, Asker::VERSION do |s|
   s.executables << 'asker'
   s.files       = Dir.glob(File.join('lib','**','*.*'))
 
-  s.required_ruby_version = '>= 3.0.4'
+  s.required_ruby_version = '>= 3.0'
 
   s.add_runtime_dependency 'haml', '~> 6.1'          # ruby > 2.1.0, 5.1
   s.add_runtime_dependency 'inifile', '~> 3.0'
