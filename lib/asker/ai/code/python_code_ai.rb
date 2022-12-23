@@ -11,8 +11,8 @@ class PythonCodeAI < BaseCodeAI
 
   def make_comment_error
     questions = []
-    error_lines = []
-    @lines.each_with_index do |line,index|
+    # error_lines = []
+    @lines.each_with_index do |line, index|
       if line.strip.start_with?('#')
         lines = clone_array @lines
         lines[index].sub!('#','').strip!
@@ -117,7 +117,7 @@ class PythonCodeAI < BaseCodeAI
 
   def make_variable_error
     questions = []
-    error_lines = []
+    # error_lines = []
     @lines.each_with_index do |line, index|
       # Search Variable assignment
       m = /\s*(\w*)\s*\=\w*/.match(line)

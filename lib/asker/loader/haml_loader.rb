@@ -4,7 +4,7 @@ module HamlLoader
   def self.load(filename)
     template = File.read(filename)
     begin
-      # INFO <haml 5.1>
+      # INFO <haml 5.1> 20221223
       #   haml_engine = Haml::Engine.new(template)
       #   return haml_engine.render
       return Haml::Template.new { template }.render

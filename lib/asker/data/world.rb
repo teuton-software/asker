@@ -3,6 +3,7 @@
 require_relative '../loader/image_url_loader'
 
 class World
+  # TODO: change how World class works ?
   attr_reader :concepts, :filenames, :contexts, :image_urls
 
   def initialize(concepts, internet = true)
@@ -27,7 +28,6 @@ class World
 
   private
 
-  # rubocop:disable Metrics/MethodLength
   def get_lists_from(input)
     concepts = {}
     filenames = []
@@ -43,12 +43,7 @@ class World
     contexts.uniq!
     [concepts, filenames, contexts]
   end
-  # rubocop:enable Metrics/MethodLength
 
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/CyclomaticComplexity
-  # rubocop:disable Metrics/PerceivedComplexity
   def find_url_images_from_internet(internet)
     return {} unless internet
 
@@ -61,11 +56,7 @@ class World
     searchs.each do |search|
       threads << Thread.new { urls[search] = ImageUrlLoader.load(search) }
     end
-    threads.each(&:join) # wait for all threads to finish
+    threads.each(&:join)
     urls
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/CyclomaticComplexity
-  # rubocop:enable Metrics/PerceivedComplexity
 end

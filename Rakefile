@@ -1,24 +1,31 @@
 # File: Rakefile
-# Usage: rake
 
 require "bundler/gem_tasks"
-require "bump/tasks"
+require "rake/testtask"
 
-require_relative 'tasks/install'
-
-Bundler::GemHelper.install_tasks
-
-desc 'Default action => check'
-task :default do
-  Rake::Task['install:check'].invoke
+Rake::TestTask.new(:test) do |t|
+  t.libs << "test"
+  t.libs << "lib"
+  t.test_files = FileList["test/**/*_test.rb"]
 end
 
-desc 'Show rake help'
+require "standard/rake"
+# task default: %i[test standard]
+task default: %i[test]
+
+require_relative "tasks/devel"
+
+desc "Default: run tests"
+task :default do
+  Rake::Task["test"].invoke
+end
+
+desc "Show rake help"
 task :help do
   system('rake -T')
 end
 
-desc 'Clean output folder'
+desc "Delete output files"
 task :clean do
-  system('rm output/*')
+  system("rm output/*")
 end

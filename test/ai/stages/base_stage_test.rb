@@ -1,7 +1,5 @@
-#!/usr/bin/ruby
-
-require 'test/unit'
-require 'rexml/document'
+require "test/unit"
+require "rexml/document"
 
 require_relative "../../../lib/asker/ai/stages/base_stage"
 require_relative "../../../lib/asker/data/concept"
@@ -45,7 +43,7 @@ class BaseStageTest < Test::Unit::TestCase
   end
 
   def get_xml_data
-    string_data=<<EOF
+    string_data = <<EOF
     <map lang='en' context='character, starwars' version='1'>
 
       <concept>
@@ -117,5 +115,6 @@ class BaseStageTest < Test::Unit::TestCase
       </concept>
     </map>
 EOF
+    string_data
   end
 end

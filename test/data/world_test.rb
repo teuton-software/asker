@@ -1,7 +1,5 @@
-#!/usr/bin/ruby
-
 require "test/unit"
-require 'rexml/document'
+require "rexml/document"
 
 require_relative "../../lib/asker/data/world"
 require_relative "../../lib/asker/data/concept"
@@ -12,11 +10,11 @@ class WorldTest < Test::Unit::TestCase
   def setup
     string_data = get_xml_data
     @concepts = []
-    @context  = ['character', 'starwars']
+    @context  = ["character", "starwars"]
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name=="concept" then
-        c = Concept.new(xml_data, 'input.haml', 'en', @context)
+        c = Concept.new(xml_data, "input.haml", "en", @context)
         c.process = true
         @concepts << c
       end
@@ -60,7 +58,7 @@ class WorldTest < Test::Unit::TestCase
   end
 
   def get_xml_data
-    string_data=<<EOF
+    string_data = <<EOF
     <map lang='en' context='character, starwars' version='1'>
 
       <concept>
@@ -112,5 +110,6 @@ class WorldTest < Test::Unit::TestCase
       </concept>
     </map>
 EOF
+    string_data
   end
 end

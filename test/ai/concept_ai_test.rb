@@ -1,7 +1,5 @@
-#!/usr/bin/ruby
-
-require 'test/unit'
-require 'rexml/document'
+require "test/unit"
+require "rexml/document"
 
 require_relative "../../lib/asker/data/concept"
 require_relative "../../lib/asker/data/world"
@@ -83,7 +81,7 @@ class ConceptAITest < Test::Unit::TestCase
   end
 
   def donttest_get_list1_and_list2_from_table
-    world = World.new(@concepts, false)
+    World.new(@concepts, false) # Update neigbours for @concepts
 
     c = @concepts_ai[0]
     t = c.tables[0]

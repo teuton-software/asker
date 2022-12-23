@@ -1,17 +1,15 @@
-#!/usr/bin/ruby
+require "test/unit"
+require "rexml/document"
 
-require 'test/unit'
-require 'rexml/document'
-
-require_relative '../../lib/asker/data/concept'
-require_relative '../../lib/asker/data/world'
+require_relative "../../lib/asker/data/concept"
+require_relative "../../lib/asker/data/world"
 
 class ConceptTest < Test::Unit::TestCase
 
   def setup
     string_data = get_xml_data
     @concept = []
-    @context = [ 'character', 'starwars']
+    @context = [ "character", "starwars"]
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name=="concept" then
@@ -21,7 +19,7 @@ class ConceptTest < Test::Unit::TestCase
   end
 
   def test_id
-    assert_equal @concept[0].id+1, @concept[1].id
+    assert_equal @concept[0].id + 1, @concept[1].id
   end
 
   def test_names
@@ -93,7 +91,7 @@ class ConceptTest < Test::Unit::TestCase
     assert_equal 0        , @concept[0].neighbors.size
     assert_equal 0        , @concept[1].neighbors.size
 
-    world = World.new(@concept)
+    World.new(@concept) # Add neigbours to @concepts 
 
     assert_equal 1        , @concept[0].neighbors.size
     assert_equal "yoda"   , @concept[0].neighbors[0][:concept].name
@@ -121,7 +119,7 @@ class ConceptTest < Test::Unit::TestCase
 
 
   def get_xml_data
-    string_data=<<EOF
+    string_data = <<EOF
     <map lang='en' context='character, starwars' version='1'>
 
       <concept>
@@ -173,5 +171,6 @@ class ConceptTest < Test::Unit::TestCase
       </concept>
     </map>
 EOF
+    string_data
   end
 end

@@ -1,15 +1,12 @@
+require_relative "../../lang/lang_factory"
+require_relative "../../ai/question"
+require_relative "base_code_ai"
 
-require_relative '../../lang/lang_factory'
-require_relative '../../ai/question'
-require_relative 'base_code_ai'
-
-##
-# Class for RubyCodeAI objects
 class RubyCodeAI < BaseCodeAI
   def initialize(code)
     @reduce = 1
     @reduce = 4 if code.lines.size > 25
-    @lang = LangFactory.instance.get('ruby')
+    @lang = LangFactory.instance.get("ruby")
     super code
   end
 
@@ -17,8 +14,8 @@ class RubyCodeAI < BaseCodeAI
   # Make errors about comments
   def make_comment_error
     questions = []
-    error_lines = []
-    @lines.each_with_index do |line,index|
+    # error_lines = []
+    @lines.each_with_index do |line, index|
       if line.strip.start_with?('#')
         lines = clone_array @lines
         lines[index].sub!('#','').strip!
@@ -129,7 +126,7 @@ class RubyCodeAI < BaseCodeAI
   # Make questions with variable errors
   def make_variable_error
     questions = []
-    error_lines = []
+    # error_lines = []
     @lines.each_with_index do |line, index|
       # Search Variable assignment
       m = /\s*(\w*)\s*\=\w*/.match(line)

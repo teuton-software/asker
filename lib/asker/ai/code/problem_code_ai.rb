@@ -17,7 +17,7 @@ class ProblemCodeAI < BaseCodeAI
   # Make errors about comments
   def make_comment_error
     questions = []
-    error_lines = []
+    # error_lines = []
     @lines.each_with_index do |line,index|
       if line.strip.start_with?('#')
         lines = clone_array @lines
@@ -129,7 +129,7 @@ class ProblemCodeAI < BaseCodeAI
   # Make questions with variable errors
   def make_variable_error
     questions = []
-    error_lines = []
+    # error_lines = []
     @lines.each_with_index do |line, index|
       # Search Variable assignment
       m = /\s*(\w*)\s*\=\w*/.match(line)

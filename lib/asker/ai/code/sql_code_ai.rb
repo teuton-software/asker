@@ -10,7 +10,6 @@ class SQLCodeAI < BaseCodeAI
   end
 
   def make_comment_error
-    error_lines = []
     questions = []
     @lines.each_with_index do |line,index|
       if line.include?('//')

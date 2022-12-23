@@ -38,14 +38,14 @@ module TextActions
 	      # if <word> is a conector and <pFilter>==true Then Choose this <word>
 	      # if <word> isn't a conector and <pFilter>==true and <word>.length>1 Then Choose this <word>
         if (flag and filter) || (!flag and !filter and word.length > 1)
-		      output_words << {:word => word, :row => rowindex, :col => colindex }
-		      row << (output_words.size-1)
-	      else
-		      row << word
+          output_words << {:word => word, :row => rowindex, :col => colindex }
+          row << (output_words.size-1)
+        else
+          row << word
         end
-	    end
-	    row << '.'
-	    output_lines << row
+      end
+      row << '.'
+      output_lines << row
     end
 
     indexes = []
