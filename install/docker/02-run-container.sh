@@ -1,9 +1,10 @@
 # Create docker container
 # Using volumen for persistet data
 
-DNAME=asker
-DIMAGE=dvarrui/asker
-DVOLUME=$PWD
+NAME=asker
+IMAGE=dvarrui/asker
+VOLUME=$PWD
+CMD="$1 $2 $3 $4"
 
-docker run -it --rm --name $DNAME -v $DVOLUME:/opt -w /opt $DIMAGE 
+docker run -it --rm --name $NAME -v $VOLUME:/opt -w /opt $IMAGE  $CMD
 
