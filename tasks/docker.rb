@@ -5,6 +5,7 @@ namespace :docker do
   task :build do
     image = "dvarrui/asker"
     puts "==> Creating docker image <#{image}>"
+    system("docker rmi #{image}")
     system("docker build -t #{image} install/docker")
     system("docker tag #{image}:latest #{image}:#{Asker::VERSION}")
   end
@@ -21,7 +22,7 @@ namespace :docker do
   desc "Publish docker image"
   task :push do
     image = "dvarrui/asker"
-    system("docker push #{image}:latest")
     system("docker push #{image}:#{Asker::VERSION}")
+    system("docker push #{image}:latest")
   end
 end
