@@ -14,7 +14,7 @@ ASKER helps trainers to create a huge amount of questions, from a definitions (_
 
 ## Installation
 
-First install Ruby and then:
+At first install Ruby and then:
 
 ```
 gem install asker-tool
@@ -24,10 +24,13 @@ gem install asker-tool
 
 ## Usage
 
-1. **Create input file** with your contents (_conceptual map_). [Here are some examples](./docs/examples).
+1. **Create input file** with your contents (_conceptual map_). Here are some [examples](./docs/examples).
+
+> More examples [repository](https://github.com/dvarrui/asker-inputs).
+
 2. **Run `asker PATH/TO/INPUT`**. Let's see an example creating questions from ACDC input example file:
 
-```
+```console
 ❯ asker docs/examples/bands/acdc.haml
 
 +--------------------+-----------+---------+---------+---+---+----+---+---+----+
@@ -40,9 +43,8 @@ gem install asker-tool
 +--------------------+-----------+---------+---------+---+---+----+---+---+----+
 ```
 
-3. **Output files** are saved into the `output` folder.
+3. **Output files** saved into the `output` folder.
 
-> More input examples at [asker-input  repository](https://github.com/dvarrui/asker-inputs).
 
 ## Documentation
 
