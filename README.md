@@ -5,9 +5,9 @@
 
 Generate a lot of questions from an _input_ text file with on your own _definitions_. In a way, this _input file_ is a concept map.
 
-![logo](./docs/images/logo.png)
+Asker helps trainers to create a huge amount of questions, from a definitions (_conceptual entities_) input file.
 
-ASKER helps trainers to create a huge amount of questions, from a definitions (_conceptual entities_) input file.
+![logo](./docs/images/logo.png)
 
 # Installation
 
