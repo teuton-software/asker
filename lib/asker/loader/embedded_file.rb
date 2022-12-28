@@ -14,14 +14,14 @@ module EmbeddedFile
     return load_audio(value, localdir) if is_audio? value
     return load_video(value, localdir) if is_video? value
 
-    unless is_url? value
-      Logger.verbose Rainbow("[ERROR] Unkown URL: #{value}").red.bright
+    if is_url? value
+      Logger.verbose Rainbow("[ERROR] EmbebbedFile. Unkown URL: #{value}").red.bright
       exit 1
     end
 
     filepath = File.join(localdir, value)
     unless File.exist?(filepath)
-      Logger.verbose Rainbow("[ERROR] File does not exist!: #{filepath}").red.bright
+      Logger.verbose Rainbow("[ERROR] EmbeddedFile. File does not exist!: #{filepath}").red.bright
       # return { text: "URI error", file: :none, type: :unkown }
       exit 1
     end
