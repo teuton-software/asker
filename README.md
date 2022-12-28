@@ -24,11 +24,13 @@ gem install asker-tool
 
 ## Usage
 
-1. **Create input file** with your contents (_conceptual map_). Here are some [examples](./docs/examples).
+| Step | Action                | Description |
+| ---: | --------------------- | ----------- |
+| 1    | Create your **input file** | Create input file with your contents (_conceptual map_). Here are some [examples](./docs/examples). And more examples at this [repository](https://github.com/dvarrui/asker-inputs).
+| 2    | **Run `asker`** | `asker PATH/TO/INPUT` |
+| 3    | Choose your **output files** | Output files saved into the `output` folder |
 
-> More examples [repository](https://github.com/dvarrui/asker-inputs).
-
-2. **Run `asker PATH/TO/INPUT`**. Let's see an example creating questions from ACDC input example file:
+Let's see an example creating questions from ACDC input example file:
 
 ```console
 ❯ asker docs/examples/bands/acdc.haml
@@ -42,9 +44,6 @@ gem install asker-tool
 | 1 concept/s        | 45        | 18      | 2.5     | 7 | 0 | 15 | 0 | 3 | 20 |
 +--------------------+-----------+---------+---------+---+---+----+---+---+----+
 ```
-
-3. **Output files** saved into the `output` folder.
-
 
 ## Documentation
 
