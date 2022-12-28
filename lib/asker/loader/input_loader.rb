@@ -1,10 +1,7 @@
-# frozen_string_literal: true
-
 require_relative 'directory_loader'
 require_relative '../ai/concept_ai'
 require_relative '../data/world'
 
-# Load DATA defined into our Project
 module InputLoader
   ##
   # Load input data from every input directory
@@ -12,7 +9,6 @@ module InputLoader
   def self.load(inputdirs, internet = true)
     data = { concepts: [], codes: [], world: nil,
              concepts_ai: [], codes_ai: [] }
-    #Logger.verboseln "\n[INFO] Loading input data"
     inputdirs.each do |dirname|
       temp = DirectoryLoader.load(dirname)
       data[:concepts] += temp[:concepts]

@@ -1,12 +1,7 @@
-#!/usr/bin/ruby
-
-# require 'minitest/autorun'
 require 'test/unit'
 require_relative '../lib/asker/version'
 
-#class VersionTest < Minitest::Test
 class VersionTest < Test::Unit::TestCase
-
   def test_const_major_number
     assert_equal '2.',  Asker::VERSION[0,2]
   end
@@ -22,5 +17,4 @@ class VersionTest < Test::Unit::TestCase
   def test_version_class
     assert_equal String, Asker::VERSION.class
   end
-
 end

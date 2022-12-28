@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rainbow'
 require 'rexml/document'
 
@@ -8,10 +6,6 @@ require_relative '../loader/embedded_file'
 require_relative 'table'
 require_relative 'data_field'
 
-##
-# Store Concept information
-# rubocop:disable Metrics/ClassLength
-# rubocop:disable Style/ClassVars
 class Concept
   attr_reader :id        # Unique identifer (Integer)
   attr_reader :lang      # Lang code (By default is the same as map lang)
@@ -30,8 +24,6 @@ class Concept
   # @param filename (String)
   # @param lang_code (String)
   # @param context (Array)
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def initialize(xml_data, filename, lang_code = 'en', context = [])
     @@id += 1
     @id = @@id
@@ -62,8 +54,6 @@ class Concept
 
     read_data_from_xml(xml_data)
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 
   def name(option = :raw)
     DataField.new(@names[0], @id, @type).get(option)
@@ -87,12 +77,9 @@ class Concept
     @data[:neighbors].reverse!
   end
 
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/CyclomaticComplexity
   def calculate_nearness_to_concept(other)
     a = ProjectData.instance.get(:weights)
-    #Application.instance.config['ai']['formula_weights']
+    # Application.instance.config['ai']['formula_weights']
     weights = a.split(',').map(&:to_f)
 
     max1 = @context.count
@@ -110,12 +97,7 @@ class Concept
     max = (max1 * weights[0] + max2 * weights[1] + max3 * weights[2])
     (alike * 100.0 / max)
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/CyclomaticComplexity
 
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def try_adding_references(other)
     reference_to = 0
     @data[:tags].each do |i|
@@ -132,8 +114,6 @@ class Concept
     @data[:reference_to] << other.name
     other.data[:referenced_by] << name
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 
   def tags
     @data[:tags]
@@ -165,17 +145,16 @@ class Concept
 
   private
 
-  # rubocop:disable Metrics/MethodLength
   def read_data_from_xml(xml_data)
     xml_data.elements.each do |i|
       case i.name
-      when 'names'
+      when "names"
         process_names(i)
-      when 'tags'
+      when "tags"
         process_tags(i)
-      when 'def'
+      when "def"
         process_def(i)
-      when 'table'
+      when "table"
         @data[:tables] << Table.new(self, i)
       else
         text = "   [ERROR] Concept #{name} with unkown attribute: #{i.name}"
@@ -183,7 +162,6 @@ class Concept
       end
     end
   end
-  # rubocop:enable Metrics/MethodLength
 
   def process_names(value)
     @names = []
@@ -194,7 +172,7 @@ class Concept
 
   def process_tags(value)
     if value.text.nil? || value.text.size.zero?
-      puts Rainbow("[ERROR] Concept #{name} has tags empty!").red.briht
+      puts Rainbow("[ERROR] Concept without tags: #{name} ").red.briht
       exit 1
     end
 
@@ -202,14 +180,12 @@ class Concept
     @data[:tags].collect!(&:strip)
   end
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   def process_def(value)
-    case value.attributes['type']
-    when 'image_url'
+    case value.attributes["type"]
+    when "image_url"
       # Link with remote image
       @data[:images] << EmbeddedFile.load(value.text.strip, File.dirname(@filename))
-    when 'file'
+    when "file"
       # Load local images and text files
       @data[:images] << EmbeddedFile.load(value.text.strip, File.dirname(@filename))
     when nil
@@ -220,8 +196,4 @@ class Concept
       exit 1
     end
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 end
-# rubocop:enable Metrics/ClassLength
-# rubocop:enable Style/ClassVars

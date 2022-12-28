@@ -1,11 +1,7 @@
-#!/usr/bin/ruby
-
 require 'test/unit'
-
 require_relative '../lib/asker/application'
 
 class ApplicationTest < Test::Unit::TestCase
-
   def setup
     @app = Application.instance.config
   end

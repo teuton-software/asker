@@ -6,15 +6,14 @@ require_relative "../../lib/asker/data/world"
 require_relative "../../lib/asker/ai/concept_ai"
 
 class ConceptAITest < Test::Unit::TestCase
-
   def setup
     string_data = get_xml_data
     concepts = []
     world = World.new(concepts)
     root_xml_data = REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
-      if xml_data.name == 'concept'
-        concepts << Concept.new(xml_data, 'input.haml', 'en', [])
+      if xml_data.name == "concept"
+        concepts << Concept.new(xml_data, "input.haml", "en", [])
       end
     end
 
@@ -151,7 +150,7 @@ class ConceptAITest < Test::Unit::TestCase
       <concept>
         <names>maul</names>
         <tags>lord, sith</tags>
-        <def type="image_url">http://maul.pgn</def>
+        <def type="file">http://maul.png</def>
       </concept>
 
       <concept>

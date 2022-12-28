@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
-require 'rainbow'
-require 'rexml/document'
-require_relative '../data/concept'
-require_relative 'code_loader'
-require_relative '../data/project_data'
+require "rainbow"
+require "rexml/document"
+require_relative "code_loader"
+require_relative "../data/concept"
+require_relative "../data/project_data"
 
 # Define methods that load data from XML contents
 module ContentLoader
@@ -25,28 +23,28 @@ module ContentLoader
 
     xmlcontent.root.elements.each do |xmldata|
       case xmldata.name
-      when 'concept'
+      when "concept"
         concepts << read_concept(xmldata, filepath, lang, context)
-      when 'code'
+      when "code"
         codes << read_code(xmldata, filepath)
       else
-        puts Rainbow("[ERROR] Unkown tag <#{xmldata.name}>").red
+        puts Rainbow("[ERROR] Unkown tag: #{xmldata.name}").red
+        puts Rainbow("[INFO ] Only 'concept' and 'code' are available at this level").red
       end
     end
 
     { concepts: concepts, codes: codes }
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 
   ##
   # Read lang attr from input XML data
   # @param xmldata (XML Object)
   private_class_method def self.read_lang_attribute(xmldata)
     begin
-      lang = xmldata.root.attributes['lang']
+      lang = xmldata.root.attributes["lang"]
     rescue StandardError
       lang = ProjectData.instance.lang
+      puts Rainbow("[WARN ] Default lang: #{lang}").yellow
     end
     lang
   end
@@ -56,9 +54,10 @@ module ContentLoader
   # @param xmldata (XML Object)
   private_class_method def self.read_context_attribute(xmldata)
     begin
-      context = xmldata.root.attributes['context']
+      context = xmldata.root.attributes["context"]
     rescue StandardError
-      context = 'unknown'
+      context = "unknown"
+      puts Rainbow("[WARN ] Default context: #{context}").yellow
     end
     context
   end

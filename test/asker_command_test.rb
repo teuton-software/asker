@@ -1,9 +1,6 @@
-#!/usr/bin/ruby
-
 require 'test/unit'
 
 class AskerCommandTest < Test::Unit::TestCase
-
   def test_version
     assert_equal true,  system('asker version > /dev/null')
   end
@@ -27,7 +24,7 @@ class AskerCommandTest < Test::Unit::TestCase
   end
 
   def test_new
-    dir = 'delete.this.new'
+    dir = "delete.this.new"
     cmd = "asker new #{dir} > /dev/null"
     assert_equal true,  system(cmd)
 
@@ -38,7 +35,7 @@ class AskerCommandTest < Test::Unit::TestCase
   end
 
   def test_check
-    dir = 'delete.this.check'
+    dir = "delete.this.check"
     cmd = "asker new #{dir} > /dev/null"
     assert_equal true,  system(cmd)
 
@@ -52,7 +49,7 @@ class AskerCommandTest < Test::Unit::TestCase
   end
 
   def test_new_then_file
-    dir = 'delete.this.file'
+    dir = "delete.this.file"
     cmd = "asker new #{dir} > /dev/null"
     assert_equal true,  system(cmd)
 
@@ -68,13 +65,13 @@ class AskerCommandTest < Test::Unit::TestCase
   end
 
   def test_check_example_band
-    filename = File.join('docs', 'examples', 'band', 'acdc.haml')
+    filename = File.join("docs", 'examples', "band", "acdc.haml")
     cmd = "asker check #{filename} > /dev/null"
     assert_equal true,  system(cmd)
   end
 
   def test_check_example_code
-    filename = File.join('docs', 'examples', 'code', 'python.haml')
+    filename = File.join("docs", "examples", "code", "python.haml")
     cmd = "asker check #{filename} > /dev/null"
     assert_equal true,  system(cmd)
   end

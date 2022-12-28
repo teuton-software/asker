@@ -32,7 +32,6 @@ class CheckHamlData
 
   def show_errors
     errors = 0
-    # puts "Line : Error description"
     puts "\n"
     @outputs.each do |i|
       next if i[:state] == :ok
@@ -164,7 +163,7 @@ class CheckHamlData
     if find_parent(index) != :concept
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Parent(concept) not found!'
-    elsif !line.match(/^\s\s\s\s%def\s/)
+    elsif !line.match(/^\s\s\s\s%def[\s{]/)
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Write 4 spaces before %def'
     end

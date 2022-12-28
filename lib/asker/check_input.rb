@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rainbow'
 require_relative 'check_input/check_haml_data'
 

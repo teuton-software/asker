@@ -1,4 +1,3 @@
-
 require 'base64'
 
 # Methods to load embedded files defined into asker input data file
@@ -15,8 +14,8 @@ module EmbeddedFile
     return load_audio(value, localdir) if is_audio? value
     return load_video(value, localdir) if is_video? value
 
-    if is_url? value
-      Logger.verbose Rainbow("[ERROR] Unkown URL type!: #{value}").red.bright
+    unless is_url? value
+      Logger.verbose Rainbow("[ERROR] Unkown URL: #{value}").red.bright
       exit 1
     end
 

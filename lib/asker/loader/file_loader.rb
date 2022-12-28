@@ -1,9 +1,7 @@
-# frozen_string_literal: true
+require_relative "content_loader"
+require_relative "haml_loader"
 
-require_relative 'content_loader'
-require_relative 'haml_loader'
-
-# Methods that load a filename and return list of concepts
+# Load a filename and return list of concepts
 module FileLoader
   def self.load(filename)
     if File.extname(filename).casecmp('.haml').zero?

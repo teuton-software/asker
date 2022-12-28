@@ -1,4 +1,4 @@
-require 'haml'
+require "haml"
 
 module HamlLoader
   def self.load(filename)
