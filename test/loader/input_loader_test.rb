@@ -8,7 +8,7 @@ require_relative '../../lib/asker/loader/input_loader'
 class InputLoaderTest < Test::Unit::TestCase
 
   def test_load_jedi_haml
-    filepath = 'tests/input/starwars/jedi.haml'
+    filepath = 'test/input/starwars/jedi.haml'
     ProjectData.instance.reset
     ProjectLoader.load(filepath)
 

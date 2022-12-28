@@ -13,7 +13,7 @@ class CodeTest < Test::Unit::TestCase
   end
 
   def test_load_ruby_files
-    dirname = 'tests/input/ruby'
+    dirname = 'test/input/ruby'
     type = :ruby
 
     @examples.each do |example|

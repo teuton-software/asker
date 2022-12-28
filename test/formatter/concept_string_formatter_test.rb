@@ -9,17 +9,17 @@ require_relative '../../lib/asker/formatter/concept_string_formatter'
 class ConceptStringFormatterTest < Test::Unit::TestCase
 
   def test_load_jedi_haml
-    filepath = 'tests/input/starwars/jedi.haml'
+    filepath = 'test/input/starwars/jedi.haml'
     ProjectData.instance.reset
     Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
 
     Rainbow.enabled = false
-    data = InputLoader.load(['tests/input/starwars'])
+    data = InputLoader.load(['test/input/starwars'])
 
 #    t =  "+---------------+-------------------------------------------------------+\n"
 #    t += "| 1             | obiwan (lang=en)                                      |\n"
-    t = "| Filename      | tests/input/starwars/jedi.haml                        |\n"
+    t = "| Filename      | test/input/starwars/jedi.haml                        |\n"
     t += "| Context       | character, starwars                                   |\n"
     t += "| Tags          | jedi, teacher, annakin, skywalker, pupil, quigon-jinn |\n"
     t += "| Reference to  |                                                       |\n"

@@ -29,7 +29,7 @@ class ConceptAITest < Test::Unit::TestCase
     assert_equal( @initial, @concepts_ai[i].excluded_questions)
     @concepts_ai[i].concept.process = true
     @concepts_ai[i].make_questions
-    assert_equal 9, @concepts_ai[i].questions[:d].size
+    assert_equal 11, @concepts_ai[i].questions[:d].size
     assert_equal 0,  @concepts_ai[i].questions[:b].size
     assert_equal 0,  @concepts_ai[i].questions[:f].size
     assert_equal 0,  @concepts_ai[i].questions[:i].size
@@ -43,7 +43,7 @@ class ConceptAITest < Test::Unit::TestCase
     assert_equal( @initial, @concepts_ai[i].excluded_questions)
     @concepts_ai[i].concept.process = true
     @concepts_ai[i].make_questions
-    assert_equal 25, @concepts_ai[i].questions[:d].size
+    assert_equal 29, @concepts_ai[i].questions[:d].size
     assert_equal 4,  @concepts_ai[i].questions[:b].size
     assert_equal 0,  @concepts_ai[i].questions[:f].size
     assert_equal 0,  @concepts_ai[i].questions[:i].size

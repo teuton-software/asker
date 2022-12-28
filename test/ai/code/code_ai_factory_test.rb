@@ -1,5 +1,3 @@
-#!/usr/bin/ruby
-
 require 'test/unit'
 require_relative '../../../lib/asker/ai/code/code_ai_factory'
 require_relative '../../../lib/asker/data/code'
@@ -13,7 +11,7 @@ class CodeAIFactoryTest < Test::Unit::TestCase
     @examples << { filename: 'files/iterador.rb', lines: 10, questions: 86 }
 
     @codes = []
-    dirname = 'tests/input/ruby'
+    dirname = 'test/input/ruby'
     type = :ruby
     @examples.each do |example|
       @codes << Code.new(dirname, example[:filename], type)

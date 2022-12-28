@@ -97,7 +97,7 @@ class BaseStageTest < Test::Unit::TestCase
       <concept>
         <names>maul</names>
         <tags>lord, sith</tags>
-        <def type="image_url">http://maul.pgn</def>
+        <def type="image_url">http://maul.png</def>
       </concept>
 
       <concept>

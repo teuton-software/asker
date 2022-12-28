@@ -8,7 +8,7 @@ require_relative '../../lib/asker/loader/file_loader'
 class FileLoaderTest < Test::Unit::TestCase
 
   def test_load_jedi
-    filepath = 'tests/input/starwars/jedi.haml'
+    filepath = 'test/input/starwars/jedi.haml'
     ProjectData.instance.reset
     Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
@@ -29,9 +29,9 @@ class FileLoaderTest < Test::Unit::TestCase
   def test_load_sith
     ProjectData.instance.reset
     Application.instance.config['global']['verbose'] = 'no'
-    ProjectLoader.load('tests/input/starwars/jedi.haml')
+    ProjectLoader.load('test/input/starwars/jedi.haml')
 
-    data = FileLoader.load 'tests/input/starwars/sith.haml'
+    data = FileLoader.load 'test/input/starwars/sith.haml'
 
     assert_equal 2, data[:concepts].size
     assert_equal 'sidious', data[:concepts][0].name
@@ -45,7 +45,7 @@ class FileLoaderTest < Test::Unit::TestCase
   end
 
   def test_load_test_input_ruby
-    filepath = 'tests/input/ruby/ruby1.haml'
+    filepath = 'test/input/ruby/ruby1.haml'
     ProjectData.instance.reset
     Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
@@ -62,9 +62,9 @@ class FileLoaderTest < Test::Unit::TestCase
     assert_equal 'files/array.rb', data[:codes][1].filename
     assert_equal 'files/iterador.rb', data[:codes][2].filename
 
-    assert_equal 'tests/input/ruby', data[:codes][0].dirname
-    assert_equal 'tests/input/ruby', data[:codes][1].dirname
-    assert_equal 'tests/input/ruby', data[:codes][2].dirname
+    assert_equal 'test/input/ruby', data[:codes][0].dirname
+    assert_equal 'test/input/ruby', data[:codes][1].dirname
+    assert_equal 'test/input/ruby', data[:codes][2].dirname
 
     assert_equal true, data[:codes][0].process?
     assert_equal true, data[:codes][1].process?
