@@ -1,13 +1,8 @@
-#!/usr/bin/ruby
+require "test/unit"
+require "rexml/document"
+require_relative "../../lib/asker/data/data_field"
 
-require 'test/unit'
-require 'rexml/document'
-
-require_relative '../../lib/asker/data/data_field'
-
-# Define class DataFieldTest to test DataField class
 class DataFieldTest < Test::Unit::TestCase
-
   def test_text_data
     d = DataField.new('obiwan', 0, 'text')
 
@@ -56,7 +51,7 @@ class DataFieldTest < Test::Unit::TestCase
   end
 
   def test_textfile_path
-    filepath = File.join('tests', 'input', 'files', 'hosts')
+    filepath = File.join('test', 'input', 'files', 'hosts')
     d = DataField.new(filepath, 4, 'textfile_path')
 
     assert_equal 4,                           d.id

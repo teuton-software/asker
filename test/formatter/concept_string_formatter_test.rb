@@ -1,13 +1,10 @@
-#!/usr/bin/ruby
-
-require 'test/unit'
+require "test/unit"
 require_relative '../../lib/asker/application'
 require_relative '../../lib/asker/loader/project_loader'
 require_relative '../../lib/asker/loader/input_loader'
 require_relative '../../lib/asker/formatter/concept_string_formatter'
 
 class ConceptStringFormatterTest < Test::Unit::TestCase
-
   def test_load_jedi_haml
     filepath = 'test/input/starwars/jedi.haml'
     ProjectData.instance.reset
@@ -19,7 +16,7 @@ class ConceptStringFormatterTest < Test::Unit::TestCase
 
 #    t =  "+---------------+-------------------------------------------------------+\n"
 #    t += "| 1             | obiwan (lang=en)                                      |\n"
-    t = "| Filename      | test/input/starwars/jedi.haml                        |\n"
+    t = "| Filename      | test/input/starwars/jedi.haml                         |\n"
     t += "| Context       | character, starwars                                   |\n"
     t += "| Tags          | jedi, teacher, annakin, skywalker, pupil, quigon-jinn |\n"
     t += "| Reference to  |                                                       |\n"

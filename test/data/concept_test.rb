@@ -5,7 +5,6 @@ require_relative "../../lib/asker/data/concept"
 require_relative "../../lib/asker/data/world"
 
 class ConceptTest < Test::Unit::TestCase
-
   def setup
     string_data = get_xml_data
     @concept = []
@@ -91,7 +90,7 @@ class ConceptTest < Test::Unit::TestCase
     assert_equal 0        , @concept[0].neighbors.size
     assert_equal 0        , @concept[1].neighbors.size
 
-    World.new(@concept) # Add neigbours to @concepts 
+    World.new(@concept) # Add neigbours to @concepts
 
     assert_equal 1        , @concept[0].neighbors.size
     assert_equal "yoda"   , @concept[0].neighbors[0][:concept].name
