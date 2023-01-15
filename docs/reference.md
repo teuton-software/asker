@@ -4,23 +4,12 @@
 
 | Command | Description |
 | ------- | ----------- |
-| [asker](usage.md)   | Show available command functions |
-| [asker INPUTFILE](usage.md)       | Process INPUTFILE |
-| [asker check INPUTFILE](usage.md) | Check INPUTFILE asker syntax |
-| [asker new](usage.md)     | Create new Asker input |
-| [asker version](usage.md) | Show Asker version |
-
----
-
-| Keyword | Description |
-| ------- | ----------- |
-| export  | Export results into output files |
-| group   | Group of targets |
-| run     | Run/execute command into remote/local device |
-| send    | Send result output file to remote device |
-| show    | Show/display process into console screen |
-| start   | Start evaluation |
-| target  | Start new target definition |
+| [asker](usage.md)                  | Show available command functions |
+| [asker [file] INPUTFILE](usage.md) | Build questions from INPUTFILE |
+| [asker check INPUTFILE](usage.md)  | Check file syntax |
+| asker init                         | Create default INI config file |
+| [asker new](usage.md)              | Create new Asker input |
+| [asker version](usage.md)          | Show Asker version |
 
 ---
 
