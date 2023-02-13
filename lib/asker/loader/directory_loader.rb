@@ -27,25 +27,17 @@ module DirectoryLoader
   end
 
   ##
-  # Load accepted files from dirname directory
+  # Load files from dirname directory
   # @param filenames (Array) File name list
   # @param dirname (String) Base directory
   def self.load_files(filenames, dirname)
     output = { concepts: [], codes: [] }
     filenames.each do |filename|
       filepath = File.join(dirname, filename)
-      data = DirectoryLoader.load_file(filepath, filename == filenames.last)
+      data = FileLoader.load(filepath)
       output[:concepts] += data[:concepts]
       output[:codes] += data[:codes]
     end
     output
-  end
-
-  ##
-  # Load one input file
-  # @param filepath (String) Path to input file
-  # @param last (Boolean) True if it is the last filename
-  def self.load_file(filepath, last = false)
-    FileLoader.load(filepath)
   end
 end

@@ -1,7 +1,9 @@
 require_relative "content_loader"
 require_relative "haml_loader"
 
-# Load a filename and return list of concepts
+##
+# Load a filename and return a Hash with concepts list and code list
+# return { concepts: [], codes: [] }
 module FileLoader
   def self.load(filename)
     if File.extname(filename).casecmp('.haml').zero?

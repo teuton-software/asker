@@ -1,5 +1,3 @@
-#!/usr/bin/ruby
-
 require 'test/unit'
 require_relative '../../lib/asker/application'
 require_relative '../../lib/asker/loader/project_loader'
