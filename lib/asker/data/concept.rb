@@ -189,7 +189,11 @@ class Concept
       # Load local images and text files
       @data[:images] << EmbeddedFile.load(value.text.strip, File.dirname(@filename))
     when nil
-      @data[:texts] << value.text.strip
+      if value.text.nil?
+        warn Rainbow("[WARN] def: without text!").yellow.bright
+      else
+        @data[:texts] << value.text.strip
+      end
     else
       msg = "[ERROR] Unknown type: #{value.attributes['type']}"
       puts Rainbow(msg).red.bright

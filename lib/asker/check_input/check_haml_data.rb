@@ -166,6 +166,12 @@ class CheckHamlData
     elsif !line.match(/^\s\s\s\s%def[\s{]/)
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Write 4 spaces before %def'
+    else
+      items = line.strip.split
+      if items.size < 2
+        @outputs[index][:state] = :err
+        @outputs[index][:msg] = '%def has no definition'
+      end
     end
   end
 
