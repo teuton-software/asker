@@ -25,7 +25,8 @@ gem install asker-tool
 | ---: | --------------------- | ----------- |
 | 1    | Create your **input file** | Create input file with your contents (_conceptual map_). Here are some [examples](./docs/examples). And more examples at this [repository](https://github.com/dvarrui/asker-inputs).
 | 2    | **Run `asker`** | `asker PATH/TO/INPUT` |
-| 3    | Choose your **output files** | Output files saved into the `output` folder |
+
+Output files saved into the `output` folder.
 
 Let's see an example creating questions from ACDC input example file:
 
