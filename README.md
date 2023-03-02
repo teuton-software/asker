@@ -45,6 +45,10 @@ Let's see an example creating questions from ACDC input example file:
 
 * [Free Software License](LICENSE).
 * Multiplatform.
+* Input files formats: XML, HAML.
+* Output formats: GIFT, Moodle XML.
+* Question types: true/false, multiple choice, short answer, matching.
+* Embed images, sound and text in the question statements.
 
 # Documentation
 
