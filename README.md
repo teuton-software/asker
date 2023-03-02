@@ -23,8 +23,8 @@ gem install asker-tool
 
 | Step | Action                | Tool | Description |
 | ---: | --------------------- | ---- | ----------- |
-| 1    | Create your **input file** | Text plain editor | Create input file with your contents (_conceptual map_). Here are some [examples](./docs/examples). And more examples at this [repository](https://github.com/dvarrui/asker-inputs).
-| 2    | Run `asker` to create output | `asker PATH/TO/INPUT` | **Run `asker`** to process input file. Output files are saved into the `output` folder |
+| 1    | Define your concepts | Text plain editor | Create input file with your contents (_conceptual map_). Here are some [examples](./docs/examples). And more examples at this [repository](https://github.com/dvarrui/asker-inputs).
+| 2    | Generate questions | `asker PATH/TO/INPUT` | **Run `asker`** to process input file. Output files are saved into the `output` folder |
 
 Let's see an example creating questions from ACDC input example file:
 
