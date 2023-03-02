@@ -27,29 +27,30 @@ module EmbeddedFile
     end
 
     # Suposse that filename is TEXT file
-    return { text: "<pre>#{File.read(filepath)}</pre>", file: :none, type: :text }
+    return {text: "<pre>#{File.read(filepath)}</pre>", file: :none, type: :text}
   end
 
   def self.is_audio?(filename)
-    extens = ['.mp3', '.ogg', '.wav']
+    extens = [ ".mp3", ".ogg", ".wav"]
     extens.each {|ext| return true if filename.downcase.end_with?(ext) }
     false
   end
 
   def self.is_image?(filename)
-    extens = ['.jpg', '.jpeg', '.png']
-    extens.each {|ext| return true if filename.downcase.end_with?(ext) }
+    extens = [ ".jpg", ".jpeg", ".png" ]
+    extens.each { |ext| return true if filename.downcase.end_with?(ext) }
     false
   end
 
   def self.is_video?(filename)
-    extens = ['.mp4', '.ogv']
-    extens.each {|ext| return true if filename.downcase.end_with?(ext) }
+    extens = [ ".mp4", ".ogv" ]
+    extens.each { |ext| return true if filename.downcase.end_with?(ext) }
     false
   end
 
   def self.is_url?(value)
-    return true if value.start_with?('https://') || value.start_with?('http://')
+    return true if value.start_with?("https://", "http://")
+
     false
   end
 
@@ -72,13 +73,14 @@ module EmbeddedFile
                     + '">Your browser does not support the audio tag.</audio>'
     output[:file] = '<file name="' + File.basename(filepath) \
                     + '" path="/" encoding="base64">' \
-                    + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
+                    + Base64.strict_encode64(File.open(filepath, 'rb').read) \
+                    + "</file>"
     output[:type] = :audio
     output
   end
 
   def self.load_image(value, localdir)
-    output = { text: :error, file: :none, type: :image}
+    output = {text: :error, file: :none, type: :image}
 
     if is_url? value
       output[:text] = "<img src=\"#{value}\" alt=\"image\" width=\"400\" height=\"300\">"
@@ -96,14 +98,14 @@ module EmbeddedFile
                     + '" alt="imagen" class="img-responsive atto_image_button_text-bottom">'
     output[:file] = '<file name="' + File.basename(filepath) \
                     + '" path="/" encoding="base64">' \
-                    + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
+                    + Base64.strict_encode64(File.open(filepath, 'rb').read) \
+                    + "</file>"
     output[:type] = :image
     output
   end
 
   def self.load_video(value, localdir)
-    output = { text: :error, file: :none, type: :video}
-
+    output = {text: :error, file: :none, type: :video}
     if is_url? value
       output[:text] = "<video controls width=\"400\" height=\"300\">" \
                       + "<source src=\"#{value}\"/></video>"

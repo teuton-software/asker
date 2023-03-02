@@ -16,18 +16,13 @@ class ConceptStringFormatterTest < Test::Unit::TestCase
 
 #    t =  "+---------------+-------------------------------------------------------+\n"
 #    t += "| 1             | obiwan (lang=en)                                      |\n"
-    t = "| Filename      | test/input/starwars/jedi.haml                         |\n"
-    t += "| Context       | character, starwars                                   |\n"
-    t += "| Tags          | jedi, teacher, annakin, skywalker, pupil, quigon-jinn |\n"
-    t += "| Reference to  |                                                       |\n"
-    t += "| Referenced by |                                                       |\n"
-    t += "| .def(text)    | Jedi, teacher of Annakin  Skywalker                   |\n"
-    t += "|               | Jedi, pupil of Quigon-Jinn                            |\n"
-    t += "| .tables       | $attribute$value                                      |\n"
-    t += "| .neighbors    | yoda(44.44)                                           |\n"
-    t += "|               | sidious(44.44)                                        |\n"
-    t += "|               | maul(22.22)                                           |\n"
-    t += "+---------------+-------------------------------------------------------+\n"
+    t =  "| Tags      | jedi, teacher, annakin, skywalker, pupil, quigon-jinn |\n"
+    t += "| def       | 2                                                     |\n"
+    t += "| tables    | $attribute$value                                      |\n"
+    t += "| neighbors | 44.44 yoda                                            |\n"
+    t += "|           | 44.44 sidious                                         |\n"
+    t += "|           | 22.22 maul                                            |\n"
+    t += "+-----------+-------------------------------------------------------+\n"
 
     t2 = t.split("\n")
 

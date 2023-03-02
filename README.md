@@ -48,7 +48,7 @@ Let's see an example creating questions from ACDC input example file:
 * Input files formats: XML, HAML.
 * Output formats: GIFT, Moodle XML.
 * Question types: true/false, multiple choice, short answer, matching.
-* Embed images, sound and text in the question statements.
+* Embeded files: mp3, ogg, wav, jpg, jpeg, png, mp4, ogv and plain text files.
 
 # Documentation
 

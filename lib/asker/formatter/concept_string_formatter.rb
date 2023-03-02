@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'rainbow'
-require 'terminal-table'
+require "rainbow"
+require "terminal-table"
 
 # Define methods to transform Concept into String
 module ConceptStringFormatter
@@ -15,32 +15,33 @@ module ConceptStringFormatter
     tt.to_s
   end
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   private_class_method def self.get_tt_rows(concept)
     rows = []
     rows << [Rainbow(concept.id.to_s).bright,
-             Rainbow(concept.name(:screen)).white.bg(:blue).bright +
-             " (lang=#{concept.lang.lang}) "]
-    rows << [Rainbow('Filename').blue, concept.filename]
-    rows << [Rainbow('Context').blue, concept.context.join(', ').to_s]
-    rows << [Rainbow('Tags').blue, concept.tags.join(', ').to_s]
-    rows << [Rainbow('Reference to').blue,
+             Rainbow(concept.name(:screen)).green.bright]
+            # +          " (lang=#{concept.lang.lang}) "]
+    # rows << [Rainbow("Filename").white, concept.filename]
+    # rows << [Rainbow("Context").white, concept.context.join(', ').to_s]
+    rows << [Rainbow("Tags").white, concept.tags.join(', ').to_s]
+    unless concept.reference_to.size.zero?
+      rows << [Rainbow("Reference to").white,
              concept.reference_to.join(', ')[0...70].to_s]
-    rows << [Rainbow('Referenced by').blue,
+    end
+    unless concept.referenced_by.size.zero?
+      rows << [Rainbow("Referenced by").white,
              concept.referenced_by.join(', ')[0...70].to_s]
+    end
     rows << format_texts(concept)
     unless concept.images.size.zero?
-      counter1 = 0
-      concept.images.each { |image|  counter1 += 1 if image[:file] == :none }
-      counter2 = concept.images.size - counter1
-      rows << [Rainbow('.def(images)').blue, "#{counter1} text / #{counter2} file"]
+      counter = concept.images.size
+      # counter1 = 0
+      # concept.images.each { |image|  counter1 += 1 if image[:file] == :none }
+      # counter2 = concept.images.size - counter1
+      rows << [Rainbow("def(file)").white, "#{counter} file/s"]
     end
     rows << format_tables(concept) unless concept.tables.count.zero?
     rows << format_neighbors(concept)
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 
   private_class_method def self.format_texts(concept)
     list = []
@@ -51,20 +52,22 @@ module ConceptStringFormatter
       end
       list << i[0...70].to_s + '...'
     end
-    [Rainbow('.def(text)').blue, list.join("\n")]
+    # [Rainbow("def").white, list.join("\n")]
+    [Rainbow("def").white, list.size.to_s]
   end
 
   private_class_method def self.format_tables(concept)
     return [] if concept.tables.count.zero?
 
     list = concept.tables.map(&:to_s)
-    [Rainbow('.tables').color(:blue), list.join("\n")]
+    [Rainbow("tables").white, list.join("\n")]
   end
 
   private_class_method def self.format_neighbors(concept)
     list = concept.neighbors[0..4].map do |i|
-      i[:concept].name(:screen) + '(' + i[:value].to_s[0..4] + ')'
+      value = Rainbow(i[:value].to_s[0..4]).white
+      "#{value} #{i[:concept].name(:screen)}"
     end
-    [Rainbow('.neighbors').blue, list.join("\n")]
+    [Rainbow("neighbors").white, list.join("\n")]
   end
 end

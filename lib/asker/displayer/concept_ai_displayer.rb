@@ -1,21 +1,17 @@
 # frozen_string_literal: true
 
-require 'erb'
-require 'terminal-table'
-require_relative '../application'
-require_relative '../logger'
+require "erb"
+require "terminal-table"
+require_relative "../application"
+require_relative "../logger"
 
 # Display ConceptAI stat on screen
 class ConceptAIDisplayer
   ##
   # Display ConceptAI stat on screen
   # @param concepts_ai (Array)
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/CyclomaticComplexity
-  # rubocop:disable Metrics/PerceivedComplexity
   def self.show(concepts_ai)
-    stages = Application.instance.config['questions']['stages']
+    stages = Application.instance.config["questions"]["stages"]
     # Create table HEAD
     screen_table = Terminal::Table.new do |st|
       title = %w[Concept Questions Entries xFactor]
@@ -52,7 +48,7 @@ class ConceptAIDisplayer
       st = concept_ai.questions[:t].size if stages.include? :t
       t = sd + sb + sf + si + ss + st
 
-      factor = 'Unkown'
+      factor = "Unkown"
       factor = (t.to_f / e).round(2).to_s unless e.zero?
       screen_table.add_row [Rainbow(concept_ai.concept.name(:screen)).green.bright,
                             t, e, factor, sd, sb, sf, si, ss, st]
@@ -83,13 +79,7 @@ class ConceptAIDisplayer
     export_notes
     Logger.verboseln "#{screen_table}\n"
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/CyclomaticComplexity
-  # rubocop:enable Metrics/PerceivedComplexity
 
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   private_class_method def self.export_excluded_questions(screen_table, concepts_ai)
     # Create table BODY
     total = {}
@@ -123,8 +113,6 @@ class ConceptAIDisplayer
                           total[:sf], total[:si],
                           total[:ss], total[:st]]
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 
   private_class_method def self.export_notes
     exclude_questions = Application.instance.config['questions']['exclude'].to_s
