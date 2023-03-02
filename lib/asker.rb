@@ -1,5 +1,4 @@
 require 'rainbow'
-require 'colorize'
 
 require_relative 'asker/skeleton'
 require_relative 'asker/check_input'
@@ -51,12 +50,12 @@ class Asker
     project_data.set(:weights, formula_weights)
   end
 
-  private_class_method def self.init_logger(project_data)
-    Logger.create(project_data.get(:logpath))
+  private_class_method def self.init_logger(project)
+    Logger.create(project.get(:logpath))
     Logger.instance.set_verbose(Application.instance.config['verbose'])
     Logger.verboseln '[INFO] Project open'
-    Logger.verboseln '   ├── inputdirs    = ' + Rainbow(project_data.get(:inputdirs)).bright
-    Logger.verboseln '   └── process_file = ' + Rainbow(project_data.get(:process_file)).bright
+    Logger.verboseln '   ├── inputdirs    = ' + Rainbow(project.get(:inputdirs)).bright
+    Logger.verboseln '   └── process_file = ' + Rainbow(project.get(:process_file)).bright
   end
 
   private_class_method def self.create_output(project, data)

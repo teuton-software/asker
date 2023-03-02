@@ -1,4 +1,3 @@
-require "colorize"
 require_relative "check_table"
 
 class CheckHamlData
@@ -41,16 +40,19 @@ class CheckHamlData
         data = { id: i[:id], msg: i[:msg], source: i[:source][0, 40] }
         order = i[:id] + 1
         data = { order: order, msg: i[:msg], source: i[:source][0, 40] }
-        print format(' %<order>03d : %<msg>32s. => '.white, data)
-        puts format('%<source>s'.light_yellow, data)
+        message = Rainbow(" %<order>03d : %<msg>32s. => ").white
+        print format(message, data)
+        message = Rainbow("%<source>s").yellow.bright
+        puts format(message, data)
       end
-      puts '...' if errors == 11
+      puts "..." if errors == 11
     end
 
     if errors.positive?
-      puts "\n[ ASKER ] Please! Revise #{errors.to_s.light_red} error/s\n"
+      message = Rainbow(errors.to_s).red.bright
+      puts "\n[WARN] #{message} syntax error/s\n"
     end
-    puts 'Syntax OK!'.green if errors.zero?
+    puts Rainbow("Syntax OK!").green if errors.zero?
   end
 
   def check

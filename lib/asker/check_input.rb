@@ -27,14 +27,15 @@ class CheckInput
 
   def check_file_exist
     if @filepath.nil?
-      raise Rainbow("Can't check nil filename")
+      puts Rainbow("[ERROR] Can't check nil filename").red.bright
+      return false
     end
     unless File.exist? @filepath
-      puts Rainbow('File not found!').red.bright if @verbose
+      puts Rainbow("[ERROR] File not found!: #{@filepath}").red.bright if @verbose
       return false
     end
     unless File.extname(@filepath) == '.haml'
-      puts Rainbow('Only check HAML files!').yellow.bright if @verbose
+      puts Rainbow("[ERROR] Check require's HAML file").red.bright if @verbose
       return false
     end
     true
