@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'fileutils'
-require 'rainbow'
-require_relative 'version'
+require "fileutils"
+require "rainbow"
+require_relative "version"
 
 # Skeleton: create skeleton for asker input files
 # * create
@@ -17,15 +17,15 @@ module Skeleton
   # rubocop:disable Metrics/MethodLength
   def self.create_input(inputpath)
     puts "\n[INFO] Creating example input #{Rainbow(inputpath).bright}"
-    if File.extname(inputpath) == '.haml'
+    if File.extname(inputpath) == ".haml"
       dirpath = File.dirname(inputpath)
       filename = File.basename(inputpath)
     else
       dirpath = inputpath
-      filename = 'example-concept.haml'
+      filename = "example-concept.haml"
     end
     create_dir dirpath
-    source = File.join(File.dirname(__FILE__), 'files/example-concept.haml')
+    source = File.join(File.dirname(__FILE__), "files", "example-concept.haml")
     copyfile(source, File.join(dirpath, filename))
   end
   # rubocop:enable Metrics/MethodLength
@@ -34,7 +34,7 @@ module Skeleton
   # Create default configuration files
   def self.create_configuration
     puts "\n[INFO] Creating configuration files"
-    src = File.join(File.dirname(__FILE__), 'files', Asker::CONFIGFILE)
+    src = File.join(File.dirname(__FILE__), "files", Asker::CONFIGFILE)
     dst = File.join(Asker::CONFIGFILE)
     copyfile(src, dst)
   end
@@ -49,7 +49,7 @@ module Skeleton
       begin
         FileUtils.mkdir_p(dirpath)
         puts "* Create dir        => #{Rainbow(dirpath).green}"
-      rescue StandardError
+      rescue
         puts "* Create dir  ERROR => #{Rainbow(dirpath).red}"
       end
     end
@@ -67,7 +67,7 @@ module Skeleton
     begin
       FileUtils.cp(target, dest)
       puts "* Create file       => #{Rainbow(dest).green}"
-    rescue StandardError
+    rescue
       puts "* Create file ERROR => #{Rainbow(dest).red}"
     end
   end

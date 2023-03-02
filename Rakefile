@@ -10,8 +10,8 @@ Rake::TestTask.new(:test) do |t|
 end
 
 require "standard/rake"
-# task default: %i[test standard]
-task default: %i[test]
+task default: %i[test standard]
+# task default: %i[test]
 
 require_relative "tasks/devel"
 require_relative "tasks/docker"

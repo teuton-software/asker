@@ -117,11 +117,14 @@ module EmbeddedFile
       Logger.verbose Rainbow("[ERROR] Unknown file! #{filepath}").red.bright
       exit 1
     end
-    output[:text] = '<video controls><source src="@@PLUGINFILE@@/' + File.basename(filepath) \
+    output[:text] = '<video controls><source src="@@PLUGINFILE@@/' \
+                    + File.basename(filepath) \
                     + '"/>Your browser does not support the video tag.</video>'
-    output[:file] = '<file name="' + File.basename(filepath) \
+    output[:file] = '<file name="' \
+                    + File.basename(filepath) \
                     + '" path="/" encoding="base64">' \
-                    + Base64.strict_encode64(File.open(filepath, 'rb').read) + '</file>'
+                    + Base64.strict_encode64(File.open(filepath, "rb").read) \
+                    + "</file>"
     output[:type] = :video
     output
   end

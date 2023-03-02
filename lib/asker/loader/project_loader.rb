@@ -1,14 +1,9 @@
 # frozen_string_literal: true
 
-require 'yaml'
-require_relative '../data/project_data'
+require "yaml"
+require_relative "../data/project_data"
 
 # Load params into Project class using arg input
-# * load
-# * load_from_string
-# * load_from_yaml
-# * load_from_directory
-# * load_error
 module ProjectLoader
   ##
   # Load project from args
@@ -17,22 +12,21 @@ module ProjectLoader
   def self.load(args)
     project = ProjectData.instance
 
-    if args.class == Hash
+    if args.instance_of? Hash
       project.param.merge!(args)
       project.open
       return project
-    elsif args.class == String
+    elsif args.instance_of? String
       ProjectLoader.load_from_string(args)
       project.open
       return project
     end
 
-    msg = '[ERROR] ProjectLoader:'
+    msg = "[ERROR] ProjectLoader:"
     msg += "Configuration params format is <#{pArgs.class}>!"
     puts Rainbow(msg).red
     raise msg
   end
-  # rubocop:enable Metrics/MethodLength
 
   ##
   # Load project from filepath. Options:
@@ -50,19 +44,16 @@ module ProjectLoader
       exit 1
     end
 
-    if File.extname(filepath) == '.haml' || File.extname(filepath) == '.xml'
+    if File.extname(filepath) == ".haml" || File.extname(filepath) == ".xml"
       project.set(:inputdirs, File.dirname(filepath))
       project.set(:process_file, File.basename(filepath))
       return project
-    elsif File.extname(filepath) == '.yaml'
+    elsif File.extname(filepath) == ".yaml"
       return load_from_yaml(filepath)
     end
     error_loading(filepath)
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 
-  # rubocop:disable Security/YAMLLoad
   def self.load_from_yaml(arg)
     project = ProjectData.instance
     project.param.merge!(YAML.load(File.open(arg)))
@@ -70,7 +61,6 @@ module ProjectLoader
     project.set(:projectdir, File.dirname(arg))
     project
   end
-  # rubocop:enable Security/YAMLLoad
 
   ##
   # Error found and exit application.

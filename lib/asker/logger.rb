@@ -27,13 +27,13 @@ class Logger
   end
 
   def self.create(logpath)
-    @logfile = File.open(logpath, 'w')
-    @logfile.write('=' * 50 + "\n")
+    @logfile = File.open(logpath, "w")
+    @logfile.write("=" * 50 + "\n")
     @logfile.write("Created by : #{Asker::NAME}")
     @logfile.write(" (version #{Asker::VERSION})\n")
     @logfile.write("File       : #{File.basename(logpath)}\n")
     @logfile.write("Time       : #{Time.new}\n")
-    @logfile.write('=' * 50 + "\n\n")
+    @logfile.write("=" * 50 + "\n\n")
   end
 
   def self.close

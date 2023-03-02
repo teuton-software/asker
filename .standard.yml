@@ -1,5 +1,5 @@
 ignore:
-  - "lib/asker/lang/text_actions.rb"
-  - "lib/asker/**/*"
+  #- "lib/asker/lang/text_actions.rb"
+  #- "lib/asker/**/*"
   - "private/**/*"
   - "test/**/*"
