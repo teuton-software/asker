@@ -35,7 +35,7 @@ class CheckInput
       return false
     end
     unless File.extname(@filepath) == '.haml'
-      puts Rainbow("[ERROR] Check require's HAML file").red.bright if @verbose
+      puts Rainbow("[ERROR] Check require's HAML file!").red.bright if @verbose
       return false
     end
     true

@@ -31,7 +31,6 @@ class CheckHamlData
 
   def show_errors
     errors = 0
-    puts "\n"
     @outputs.each do |i|
       next if i[:state] == :ok
 
@@ -48,11 +47,12 @@ class CheckHamlData
       puts "..." if errors == 11
     end
 
-    if errors.positive?
-      message = Rainbow(errors.to_s).red.bright
-      puts "\n[WARN] #{message} syntax error/s\n"
+    if errors.zero?
+      puts Rainbow("Syntax OK!").green.bright
+    else
+      message = "\nRevise #{errors.to_s} syntax error/s\n"
+      puts Rainbow(message).yellow.bright
     end
-    puts Rainbow("Syntax OK!").green if errors.zero?
   end
 
   def check
