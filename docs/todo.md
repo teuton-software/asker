@@ -1,10 +1,11 @@
 
 # TO-DO
 
-# 1. Nuevo formato de input (rb)
+# 1. Nuevo formato de input 
 
 * ISSUE: Revisar el número de columnas por cada tabla...
 * Template multivariable con match: true or match: false
+* Template multivariable combinando valores para aumentar las salidas geenradas
 
 # 2. Entorno gráfico
 
@@ -15,14 +16,11 @@ Creación de `asker-panel`
 * Botón de check y botón de generar output.
 * Subventana que muestre los resultados (salida del comando asker)
 
-# 3. Configurar
-
-* Incluir las penalizaciones en el fichero de configuración "asker.ini".
-
 # 4. Frikada
 
 * Frases célebres
-* Prolog (nueva entidad conceptual)
+* Prolog (nueva entidad conceptual) o nuevo campo para inducir estructura lógica a las entidades
+* Conexión OpenAI
 
 # 5. Moodle XML
 
