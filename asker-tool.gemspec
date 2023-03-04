@@ -17,11 +17,11 @@ Gem::Specification.new Asker::GEM, Asker::VERSION do |s|
 
   s.required_ruby_version = '>= 3.0'
 
+  # TO REVISE: decide better haml gem version
   # s.add_runtime_dependency 'haml', '~> 6.1'          # ruby > 2.1.0, 5.1
   s.add_runtime_dependency 'haml', '~> 5.2'
   s.add_runtime_dependency 'inifile', '~> 3.0'
   s.add_runtime_dependency 'rainbow', '~> 3.0'       # ruby > 2.3.0
-  # s.add_runtime_dependency 'colorize', '~> 0.8'
   s.add_runtime_dependency 'rexml', '~> 3.2'
   s.add_runtime_dependency 'terminal-table', '~> 3.0' # 1.8
   s.add_runtime_dependency 'thor', '~> 1.2'           # ruby > 2.0.0
