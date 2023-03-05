@@ -1,20 +1,15 @@
-# frozen_string_literal: true
-
-require 'set'
-require_relative 'base_stage'
-require_relative '../question'
+require "set"
+require_relative "base_stage"
+require_relative "../question"
 
 ##
 # StageT create questions based con Table data
 # range t1-t9
-# rubocop:disable Metrics/ClassLength
 class StageT < BaseStage
   # process_tableXfields
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def run(table, row, list)
     questions = []
-    return questions unless concept.type == 'text'
+    return questions unless concept.type == "text"
 
     if table.fields.count == 2
       questions += process_table2fields(table, row, list, 0, 1)
@@ -29,15 +24,9 @@ class StageT < BaseStage
 
     questions
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 
   private
 
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/CyclomaticComplexity
-  # rubocop:disable Metrics/PerceivedComplexity
   def process_table2fields(table, row, list, col1, col2)
     questions = []
     lang = concept.lang
@@ -203,9 +192,4 @@ class StageT < BaseStage
     end
     questions
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/CyclomaticComplexity
-  # rubocop:enable Metrics/PerceivedComplexity
 end
-# rubocop:enable Metrics/ClassLength

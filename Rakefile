@@ -23,7 +23,7 @@ end
 
 desc "Show rake help"
 task :help do
-  system('rake -T')
+  system("rake -T")
 end
 
 desc "Delete output files"

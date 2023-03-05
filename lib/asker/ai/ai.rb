@@ -13,13 +13,13 @@ module AI
 
     make_questions_stages_di
     # Process every table of this concept
-    concept.tables.each do |tab|
-      list1, list2 = get_list1_and_list2_from(tab)
-      make_questions_stages_bsf(tab, list1, list2)
-      make_questions_stages_t(tab, list1, list2)
+    concept.tables.each do |table|
+      list1, list2 = get_list1_and_list2_from(table)
+      make_questions_stages_bsf(table, list1, list2)
+      make_questions_stages_t(table, list1, list2)
     end
     # -------------------------------------------------------
-    # Exclude questions as is defined into config.ini params
+    # Exclude questions as is defined into asker.ini params
     exclude_questions
   end
 
@@ -30,27 +30,24 @@ module AI
   end
 
   # Make questions for stages B, S and F
-  def make_questions_stages_bsf(tab, list1, list2)
+  def make_questions_stages_bsf(table, list1, list2)
     # Stage B: process table to make match questions
-    @questions[:b] += StageB.new(self).run(tab, list1, list2)
+    @questions[:b] += StageB.new(self).run(table, list1, list2)
     # Stage S: process tables with sequences
-    @questions[:s] += StageS.new(self).run(tab, list1, list2)
+    @questions[:s] += StageS.new(self).run(table, list1, list2)
     # Stage F: process tables with only 1 field
-    @questions[:f] += StageF.new(self).run(tab, list1, list2)
+    @questions[:f] += StageF.new(self).run(table, list1, list2)
   end
 
-  # Make questions for stage T
-  def make_questions_stages_t(tab, list1, list2)
+  def make_questions_stages_t(table, list1, list2)
     # Stage T: process_tableXfields
     list3 = list1 + list2
     list1.each do |row|
       reorder_list_with_row(list3, row)
-      @questions[:t] += StageT.new(self).run(tab, row, list3)
+      @questions[:t] += StageT.new(self).run(table, row, list3)
     end
   end
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   def exclude_questions
     param = Application.instance.config['questions']['exclude']
     return if param.nil?
@@ -66,8 +63,6 @@ module AI
     @questions = input
     @excluded_questions = output
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 
   def string_has_this_tags?(input, tags)
     flag = false
