@@ -159,7 +159,7 @@ class StageT < BaseStage
       q.shorts << row[:data][col1]
       q.shorts << row[:data][col1].gsub('-', ' ').gsub('_', ' ')
       questions << q
-    elsif lang.count_words(row[:data][col1]) > 1
+    elsif lang.count_words(row[:data][col1]) == 2
       q = Question.new
       q.set_short
       q.name = "#{name}-#{num}t9table-#{table.name}"
@@ -183,7 +183,7 @@ class StageT < BaseStage
       q.shorts << row[:data][col2]
       q.shorts << row[:data][col2].gsub('-', ' ').gsub('_', ' ')
       questions << q
-    elsif lang.count_words(row[:data][col2]) > 1
+    elsif lang.count_words(row[:data][col2]) == 2
       q = Question.new
       q.set_short
       q.name = "#{name}-#{num}t9table-#{table.name}"
