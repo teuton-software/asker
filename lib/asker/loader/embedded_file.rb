@@ -1,4 +1,4 @@
-require 'base64'
+require "base64"
 
 # Methods to load embedded files defined into asker input data file
 # Example:

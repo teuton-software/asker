@@ -7,8 +7,6 @@ module AICalculate
   # * return list1 (Array) List with all the rows from the table
   # * return list2 (Array) List with similar rows (same table name) from the neighbours tables
   # @param p_table (Table)
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def get_list1_and_list2_from(p_table)
     # create <list1> with all the rows from the table
     list1 = []
@@ -32,8 +30,6 @@ module AICalculate
     end
     [list1, list2]
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 
   def calculate_nearness_between_texts(text1, text2)
     return 0.0 if text2.nil? || text2.empty?
@@ -44,26 +40,23 @@ module AICalculate
     (count * 100 / words.count)
   end
 
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def reorder_list_with_row(list, row)
-    # evaluate every row of the list2
+    # evaluate every row of the list, and calculate weight
+    magic_number = -300
     list.each do |r|
       if r[:id] == row[:id]
-        r[:weight] = -300
+        r[:weight] = magic_number
       else
-        val = 0
+        value = 0
         s = row[:data].count
         s.times do |i|
-          val += calculate_nearness_between_texts(row[:data][i], r[:data][i])
+          value += calculate_nearness_between_texts(row[:data][i], r[:data][i])
         end
-        val /= s
-        r[:weight] = val
+        value /= s
+        r[:weight] = value
       end
     end
     list.sort! { |a, b| a[:weight] <=> b[:weight] }
     list.reverse!
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 end
