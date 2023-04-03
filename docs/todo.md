@@ -9,7 +9,7 @@
 
 # 2. Entorno gráfico
 
-Creación de `asker-panel`
+Creación de `asker-editor`
 * Front-end gráfico. Aplicación de escritorio autocontenida.
 * Abre fichero de input (texto plano), lo edita y graba.
 * Botón de salir
@@ -20,7 +20,7 @@ Creación de `asker-panel`
 
 * Frases célebres
 * Prolog (nueva entidad conceptual) o nuevo campo para inducir estructura lógica a las entidades
-* Conexión OpenAI
+* Conexión OpenAI? problemas al usar la gema openai
 
 # 5. Moodle XML
 
