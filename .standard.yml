@@ -3,5 +3,6 @@ ignore:
   - "docs/**/*"
   - "install/**/*"
   - "lib/**/*"
+  - "lib/asker/loader/project_loader.rb"
   - "private*/**/*"
   - "test/**/*"

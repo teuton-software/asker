@@ -37,13 +37,13 @@ module EmbeddedFile
   end
 
   def self.is_image?(filename)
-    extens = [ ".jpg", ".jpeg", ".png" ]
+    extens = [".jpg", ".jpeg", ".png"]
     extens.each { |ext| return true if filename.downcase.end_with?(ext) }
     false
   end
 
   def self.is_video?(filename)
-    extens = [ ".mp4", ".ogv" ]
+    extens = [".mp4", ".ogv"]
     extens.each { |ext| return true if filename.downcase.end_with?(ext) }
     false
   end
@@ -73,7 +73,7 @@ module EmbeddedFile
                     + '">Your browser does not support the audio tag.</audio>'
     output[:file] = '<file name="' + File.basename(filepath) \
                     + '" path="/" encoding="base64">' \
-                    + Base64.strict_encode64(File.open(filepath, 'rb').read) \
+                    + Base64.strict_encode64(File.open(filepath, "rb").read) \
                     + "</file>"
     output[:type] = :audio
     output
@@ -98,7 +98,7 @@ module EmbeddedFile
                     + '" alt="imagen" class="img-responsive atto_image_button_text-bottom">'
     output[:file] = '<file name="' + File.basename(filepath) \
                     + '" path="/" encoding="base64">' \
-                    + Base64.strict_encode64(File.open(filepath, 'rb').read) \
+                    + Base64.strict_encode64(File.open(filepath, "rb").read) \
                     + "</file>"
     output[:type] = :image
     output
