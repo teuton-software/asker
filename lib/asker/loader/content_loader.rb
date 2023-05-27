@@ -23,10 +23,12 @@ module ContentLoader
 
     xmlcontent.root.elements.each do |xmldata|
       case xmldata.name
-      when "concept"
-        concepts << read_concept(xmldata, filepath, lang, context)
       when "code"
         codes << read_code(xmldata, filepath)
+      when "concept"
+        concepts << read_concept(xmldata, filepath, lang, context)
+      when "problem"
+        puts "[DEBUG] Reading a problem. problems << read_problem(xmldata, filepath)"
       else
         puts Rainbow("[ERROR] Unkown tag: #{xmldata.name}").red
         puts Rainbow("[INFO ] Only 'concept' and 'code' are available at this level").red
@@ -36,9 +38,6 @@ module ContentLoader
     { concepts: concepts, codes: codes }
   end
 
-  ##
-  # Read lang attr from input XML data
-  # @param xmldata (XML Object)
   private_class_method def self.read_lang_attribute(xmldata)
     begin
       lang = xmldata.root.attributes["lang"]
@@ -49,9 +48,6 @@ module ContentLoader
     lang
   end
 
-  ##
-  # Read context attr from input XML data
-  # @param xmldata (XML Object)
   private_class_method def self.read_context_attribute(xmldata)
     begin
       context = xmldata.root.attributes["context"]
@@ -62,12 +58,6 @@ module ContentLoader
     context
   end
 
-  ##
-  # Read concept from input XML data
-  # @param xmldata (XML Object)
-  # @param filepath (String)
-  # @param lang
-  # @param context
   private_class_method def self.read_concept(xmldata, filepath, lang, context)
     project = ProjectData.instance
     c = Concept.new(xmldata, filepath, lang, context)
@@ -75,10 +65,6 @@ module ContentLoader
     c
   end
 
-  ##
-  # Read code from input XML data
-  # @param xmldata (XML Object)
-  # @param filepath (String)
   private_class_method def self.read_code(xmldata, filepath)
     project = ProjectData.instance
     c = CodeLoader.load(xmldata, filepath)
