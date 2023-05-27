@@ -10,7 +10,7 @@
   El campo clave pueden ser varios campos (f1,f2) ¿?
 * Check Asker analizer lexical, syntax and semantic
 
-# 1. Nuevo formato de input 
+# 1. Nuevo formato de input
 
 * ISSUE: Revisar el número de columnas por cada tabla...
 * Template multivariable con match: true or match: false
@@ -74,19 +74,18 @@ El problem tendrá varias partes
 
 ```
 problem
-  inputs
-    names PRODUCTO, PRECIO, MONEDA, DINERO
-    cases
-      case manzana, 1, euro, 10
-      case pera, 1, dolar, 13
-      case plátanos, 0.5, euros, 5
-    descripcion Quiero comprar PRODUCTO en el supermercado. Resulta que mirando los precios veo que cada PRODUCTO cuesta PRECIO.
-    question
-      step
-        text ¿Cuántas PRODUCTO puedo comprar si tengo DINERO MONEDA?
-        formula DINERO / PRECIO
-        varname F1
-        feedback Puedo comprar F1 PRODUCTO
+  names PRODUCTO, PRECIO, MONEDA, DINERO
+  cases
+    case manzana, 1, euro, 10
+    case pera, 1, dolar, 13
+    case plátanos, 0.5, euros, 5
+  descripcion Quiero comprar PRODUCTO en el supermercado. Resulta que mirando los precios veo que cada PRODUCTO cuesta PRECIO.
+  question
+    step
+      text ¿Cuántas PRODUCTO puedo comprar si tengo DINERO MONEDA?
+      formula DINERO / PRECIO
+      varname F1
+      feedback Puedo comprar F1 PRODUCTO
 ```
 
 ```      
