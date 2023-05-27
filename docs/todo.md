@@ -8,6 +8,7 @@
 * Definir tablas que contienen un conjunto cerrado finito.
   Por defecto el campo clave es f1. Pero también podría ser f2 ¿?
   El campo clave pueden ser varios campos (f1,f2) ¿?
+* Check Asker analizer lexical, syntax and semantic
 
 # 1. Nuevo formato de input 
 
