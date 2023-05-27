@@ -36,8 +36,6 @@ class ProjectData
   # IMPORTANT: We need at least these values
   # * process_file
   # * inputdirs
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def open
     ext = File.extname(@param[:process_file]) || '.haml'
     @param[:projectname] = @param[:projectname] ||
@@ -58,6 +56,4 @@ class ProjectData
 
     Dir.mkdir(outputdir) unless Dir.exist?(outputdir)
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 end
