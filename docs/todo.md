@@ -9,6 +9,7 @@
   Por defecto el campo clave es f1. Pero también podría ser f2 ¿?
   El campo clave pueden ser varios campos (f1,f2) ¿?
 * Check Asker analizer lexical, syntax and semantic
+* Split Concept into Concept and ConceptLoader
 
 # 1. Nuevo formato de input
 
