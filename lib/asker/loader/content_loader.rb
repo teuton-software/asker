@@ -29,7 +29,7 @@ module ContentLoader
       when "concept"
         concepts << read_concept(xmldata, filepath, lang, context)
       when "problem"
-        problems << read_problem(xmldata, filepath)
+        problems << read_problem(xmldata, filepath, lang, context)
       else
         puts Rainbow("[ERROR] Unkown tag: #{xmldata.name}").red
         puts Rainbow("[INFO ] Available at this level: concept, code and problem").red
@@ -73,9 +73,9 @@ module ContentLoader
     c
   end
 
-  private_class_method def self.read_problem(xmldata, filepath)
+  private_class_method def self.read_problem(xmldata, filepath, lang, context)
     project = ProjectData.instance
-    p = ProblemLoader.call(xmldata, filepath)
+    p = ProblemLoader.call(xmldata, filepath, lang, context)
     p.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
     p
   end

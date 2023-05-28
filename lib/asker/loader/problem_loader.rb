@@ -10,10 +10,15 @@ module ProblemLoader
   # Load XML data about Problem object
   # @param xmldata (XML Object)
   # @param filepath (String)
-  # @return Code object
-  def self.call(xmldata, filepath)
+  # @param lang (String)
+  # @param context (String)
+  # @return Problem object
+  def self.call(xmldata, filepath, lang, context)
     data = read_problemdata_from_xml(xmldata, File.basename(filepath))
-    Problem.from(data)
+    problem = Problem.from(data)
+    problem.lang = lang
+    problem.context = context
+    problem
   end
 
   private_class_method def self.read_problemdata_from_xml(xmldata, filename)

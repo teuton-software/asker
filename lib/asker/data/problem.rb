@@ -1,4 +1,6 @@
 class Problem
+  attr_accessor :lang
+  attr_accessor :context
   attr_accessor :process
   attr_accessor :filename
   attr_accessor :varnames
@@ -8,6 +10,8 @@ class Problem
   attr_accessor :questions
 
   def initialize
+    @lang = nil
+    @context = nil
     @process = false
     @filename = "?"
     @varnames = []
