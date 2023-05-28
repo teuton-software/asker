@@ -6,7 +6,7 @@ module DirectoryLoader
   ##
   # Load input data from one directory
   # @param dirname (String) Directory name
-  def self.load(dirname)
+  def self.call(dirname)
     DirectoryLoader.check_dir(dirname)
     files = (Dir.new(dirname).entries - [".", ".."]).sort
     # Accept only HAML or XML files

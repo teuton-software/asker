@@ -12,7 +12,7 @@ module InputLoader
       world: nil, concepts_ai: [], codes_ai: []
     }
     inputdirs.each do |dirname|
-      loaded = DirectoryLoader.load(dirname)
+      loaded = DirectoryLoader.call(dirname)
       data[:concepts] += loaded[:concepts]
       data[:codes] += loaded[:codes]
       data[:problems] += loaded[:problems]

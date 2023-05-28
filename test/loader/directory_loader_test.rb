@@ -13,7 +13,7 @@ class DirectoryLoaderTest < Test::Unit::TestCase
     Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
 
-    data = DirectoryLoader.load 'test/input/starwars'
+    data = DirectoryLoader.call 'test/input/starwars'
 
     assert_equal 4, data[:concepts].size
     assert_equal 'obiwan', data[:concepts][0].name
@@ -36,7 +36,7 @@ class DirectoryLoaderTest < Test::Unit::TestCase
     Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
 
-    data = DirectoryLoader.load 'test/input/ruby'
+    data = DirectoryLoader.call 'test/input/ruby'
 
     assert_equal 0, data[:concepts].size
     assert_equal 3, data[:codes].size
