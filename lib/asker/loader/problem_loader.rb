@@ -13,8 +13,6 @@ module ProblemLoader
   # @return Code object
   def self.call(xmldata, filepath)
     data = read_problemdata_from_xml(xmldata, File.basename(filepath))
-    puts "[DEBUG] Loading problem data"
-    pp data
     Problem.from(data)
   end
 
@@ -47,7 +45,7 @@ module ProblemLoader
   end
 
   private_class_method def self.read_question(xmldata, filename)
-    question = {text: "?", answer: "?"}
+    question = {text: nil, answer: nil}
     xmldata.elements.each do |i|
       if i.name == "text"
         question[:text] = i.text
