@@ -4,20 +4,20 @@ require_relative "code_loader"
 require_relative "../data/concept"
 require_relative "../data/project_data"
 
-# Define methods that load data from XML contents
 module ContentLoader
   ##
   # Load XML content into Asker data objects
   # @param filepath (String) File path
   # @param content (String) XML plane text content
   def self.load(filepath, content)
-    concepts = []
-    codes = []
     begin
       xmlcontent = REXML::Document.new(content)
     rescue REXML::ParseException
       raise_error_with(filepath, content)
     end
+    codes = []
+    concepts = []
+    problems = []
     lang = read_lang_attribute(xmlcontent)
     context = read_context_attribute(xmlcontent)
 
@@ -58,13 +58,6 @@ module ContentLoader
     context
   end
 
-  private_class_method def self.read_concept(xmldata, filepath, lang, context)
-    project = ProjectData.instance
-    c = Concept.new(xmldata, filepath, lang, context)
-    c.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
-    c
-  end
-
   private_class_method def self.read_code(xmldata, filepath)
     project = ProjectData.instance
     c = CodeLoader.load(xmldata, filepath)
@@ -72,10 +65,13 @@ module ContentLoader
     c
   end
 
-  ##
-  # Raise error and save content into error.file
-  # @param filepath (String)
-  # @param content (String)
+  private_class_method def self.read_concept(xmldata, filepath, lang, context)
+    project = ProjectData.instance
+    c = Concept.new(xmldata, filepath, lang, context)
+    c.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
+    c
+  end
+
   private_class_method def self.raise_error_with(filepath, content)
     msg =  "[ERROR] ContentLoader: Format error in #{filepath}\n"
     msg += "        Take a look at ouput/error.xml"
