@@ -5,8 +5,6 @@ require_relative "python_code_ai"
 require_relative "ruby_code_ai"
 require_relative "sql_code_ai"
 
-##
-# CodeAI factory
 module CodeAIFactory
   ##
   # Return CodeAI associated to Code.type

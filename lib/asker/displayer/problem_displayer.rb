@@ -22,7 +22,7 @@ module ProblemDisplayer
         e += ask[:steps].size
         e += 1 if !ask[:answer].nil?
       end
-      q = 0 # TODO
+      q = problem.questions.size
       factor = 'Unkown'
       factor = (q.to_f / e).round(2).to_s unless e.zero?
       desc = Rainbow(problem.desc[0,50]).green

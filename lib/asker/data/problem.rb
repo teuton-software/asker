@@ -5,6 +5,7 @@ class Problem
   attr_accessor :cases
   attr_accessor :descs
   attr_accessor :asks
+  attr_accessor :questions
 
   def initialize
     @process = false
@@ -13,6 +14,7 @@ class Problem
     @cases = []
     @descs = []
     @asks = []
+    @questions = []
   end
 
   def self.from(values)
