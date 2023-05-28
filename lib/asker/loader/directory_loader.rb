@@ -33,7 +33,7 @@ module DirectoryLoader
     data = {concepts: [], codes: [], problems: []}
     filenames.each do |filename|
       filepath = File.join(dirname, filename)
-      loaded = FileLoader.load(filepath)
+      loaded = FileLoader.call(filepath)
       data[:concepts] += loaded[:concepts]
       data[:codes] += loaded[:codes]
       data[:problems] += loaded[:problems]

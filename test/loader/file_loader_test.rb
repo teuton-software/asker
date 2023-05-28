@@ -11,7 +11,7 @@ class FileLoaderTest < Test::Unit::TestCase
     Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
 
-    data = FileLoader.load filepath
+    data = FileLoader.call filepath
 
     assert_equal 2, data[:concepts].size
     assert_equal 'obiwan', data[:concepts][0].name
@@ -29,7 +29,7 @@ class FileLoaderTest < Test::Unit::TestCase
     Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load('test/input/starwars/jedi.haml')
 
-    data = FileLoader.load 'test/input/starwars/sith.haml'
+    data = FileLoader.call 'test/input/starwars/sith.haml'
 
     assert_equal 2, data[:concepts].size
     assert_equal 'sidious', data[:concepts][0].name
@@ -48,7 +48,7 @@ class FileLoaderTest < Test::Unit::TestCase
     Application.instance.config['global']['verbose'] = 'no'
     ProjectLoader.load(filepath)
 
-    data = FileLoader.load filepath
+    data = FileLoader.call filepath
 
     assert_equal 0, data[:concepts].size
     assert_equal 3, data[:codes].size

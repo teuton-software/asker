@@ -5,7 +5,7 @@ require_relative "haml_loader"
 # Load a filename and return a Hash with concepts list and code list
 # return { concepts: [], codes: [] }
 module FileLoader
-  def self.load(filename)
+  def self.call(filename)
     if File.extname(filename).casecmp(".haml").zero?
       file_content = HamlLoader.load filename
     elsif File.extname(filename).casecmp(".xml").zero?
