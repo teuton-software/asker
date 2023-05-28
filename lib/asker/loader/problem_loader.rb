@@ -22,7 +22,7 @@ module ProblemLoader
       varnames: [],
       cases: [],
       descs: [],
-      questions: [],
+      asks: [],
       steps: []
     }
     xmldata.elements.each do |i|
@@ -32,8 +32,8 @@ module ProblemLoader
         data[:cases] << i.text.split(",")
       elsif i.name == "desc"
         data[:descs] << i.text
-      elsif i.name == "question"
-        data[:questions] << read_question(i, filename)
+      elsif i.name == "ask"
+        data[:asks] << read_question(i, filename)
       elsif i.name == "step"
         data[:steps] << i.text
       else

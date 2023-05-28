@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require_relative '../application'
-require_relative 'concept_ai_displayer'
-require_relative 'code_displayer'
+require_relative "../application"
+require_relative "concept_ai_displayer"
+require_relative "code_displayer"
+require_relative "problem_displayer"
 
-# Display Stats on screen.
-# * Display all "Concept AI"
-# * Display all "Code"
 module StatsDisplayer
   # Display Stats on screen.
   # * Display all "Concept AI"
@@ -18,5 +16,6 @@ module StatsDisplayer
     # show_final_results
     ConceptAIDisplayer.show(data[:concepts_ai])
     CodeDisplayer.show(data[:codes_ai])
+    ProblemDisplayer.show(data[:problems_ai])
   end
 end
