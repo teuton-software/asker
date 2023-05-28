@@ -25,10 +25,8 @@ module ProblemDisplayer
       q = 0 # TODO
       factor = 'Unkown'
       factor = (q.to_f / e).round(2).to_s unless e.zero?
-      my_screen_table.add_row [Rainbow(problem.desc[0,50]).green,
-                               q,
-                               e,
-                               factor]
+      desc = Rainbow(problem.desc[0,50]).green
+      my_screen_table.add_row [desc, q, e, factor]
       total_p += 1
       total_q += q
       total_e += e
