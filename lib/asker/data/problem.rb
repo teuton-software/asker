@@ -11,17 +11,13 @@ class Problem
     @steps = []
   end
 
-  class Step
-    attr_accessor :text
-    attr_accessor :formula
-    attr_accessor :varname
-    attr_accessor :feedback
-
-    def initialize(varnames)
-      @varnames = varnames
-      @text = ""
-      @formula = ""
-      @varname = ""
+  def self.from(values)
+    problem = Problem.new
+    fields = %i(varnames cases desc questions steps)
+    fields.each do |fieldname|
+      methodname = "#{fieldname}=".to_sym
+      problem.send(methodname, values[fieldname])
     end
+    problem
   end
 end
