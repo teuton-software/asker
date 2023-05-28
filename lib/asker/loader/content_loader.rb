@@ -10,7 +10,7 @@ module ContentLoader
   # Load XML content into Asker data objects
   # @param filepath (String) File path
   # @param content (String) XML plane text content
-  def self.load(filepath, content)
+  def self.call(filepath, content)
     begin
       xmlcontent = REXML::Document.new(content)
     rescue REXML::ParseException

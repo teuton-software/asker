@@ -14,6 +14,6 @@ module FileLoader
       puts "[ERROR] FileLoader: Format error #{filename}"
       raise msg
     end
-    ContentLoader.load(filename, file_content)
+    ContentLoader.call(filename, file_content)
   end
 end
