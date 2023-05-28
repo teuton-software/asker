@@ -92,13 +92,12 @@ problem
 
 ```      
 problem
-  varnames X, Y, PRODUCTO, Z, PERSONA
-  cases
+  cases {  varnames:  "X, Y, PRODUCTO, Z, PERSONA" }
     case 3, 4, manzanas, 2, Caperucita
     case 6, 7, juegos de la PS4, 5, PlayerOne
     case 9, 8, libros de Anime, 6, Akira
   description Tengo X PRODUCTO en la mochila, y también tengo Y PRODUCTO en mi casa.
-  question
+  ask
     step
       text ¿Cuántos/as PRODUCTO tengo en total?
       formula X + Y
