@@ -13,26 +13,27 @@ module ProblemLoader
   # @return Code object
   def self.load(xmldata, filepath)
     data = read_problemdata_from_xml(xmldata, File.basename(filepath))
-    problem = Problem.new(File.dirname(filepath), data[:path], data[:type])
-    problem.features << data[:features]
-    problem
+    puts "[DEBUG] Loading problem data"
+    pp data
+    Problem.from(data)
   end
 
   private_class_method def self.read_problemdata_from_xml(xmldata, filename)
     data = {
+      filename: filename,
       varnames: [],
       cases: [],
-      desc: [],
+      descs: [],
       questions: [],
       steps: []
     }
     xmldata.elements.each do |i|
       if i.name == "varnames"
         data[:varnames] = i.text.split(",")
-      elsif i.name == "cases"
+      elsif i.name == "case"
         data[:cases] << i.text.split(",")
       elsif i.name == "desc"
-        data[:desc] << i.text
+        data[:descs] << i.text
       elsif i.name == "question"
         data[:questions] << read_question(i, filename)
       elsif i.name == "step"
@@ -46,11 +47,11 @@ module ProblemLoader
   end
 
   private_class_method def self.read_question(xmldata, filename)
-    question = { text: "?", asnwer: "?" }
+    question = { text: "?", answer: "?" }
     xmldata.elements.each do |i|
       if i.name == "text"
         question[:text] = i.text
-      elsif i.name == "asnwer"
+      elsif i.name == "answer"
         question[:answer] = i.text
       else
         msg = Rainbow("[ERROR] Unkown tag! problem/question/#{i.name} (from #{filename})").color(:red)

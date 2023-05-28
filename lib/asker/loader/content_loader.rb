@@ -32,7 +32,7 @@ module ContentLoader
         problems << read_problem(xmldata, filepath)
       else
         puts Rainbow("[ERROR] Unkown tag: #{xmldata.name}").red
-        puts Rainbow("[INFO ] Only 'concept' and 'code' are available at this level").red
+        puts Rainbow("[INFO ] Only 'concept', 'code' and 'problem' are available at this level").red
       end
     end
 
