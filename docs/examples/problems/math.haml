@@ -1,13 +1,30 @@
 %map{ lang: 'en', context: 'math', version: '1'}
 
   %problem
-    %varnames A, B
-    %cases
-      %case 1, 3
-      %case 2, 4
+    %varnames A, B, SUM, SUB
+    %case 3, 1, 4, 2
+    %case 1, 3, 4, -2
+    %case 4, 3, 7, 1
+    %case 3, 4, 7, -1
     %description Mathematical operations
-    %step
-      %text Find the sum of A and B
-      %formula A + B
-      %varname S1
-      %feedback The result is S1
+    %questions
+      %text Calculate the sum of A and B
+      %answer SUM
+    %questions
+      %text Substract B from A
+      %answer SUB
+
+  %problem
+    %varnames X, VALUE
+    %case x
+    %case y
+    %case z
+    %description Solve the following equation 2X -4 = 6
+    %step 2X -4 = 6
+    %step 2X = 6 +4
+    %step 2X = 10
+    %step X = 10 / 2
+    %step X = 2
+    %questions
+      %text What is the value of the variable X
+      %answer 2
