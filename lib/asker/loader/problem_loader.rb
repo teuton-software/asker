@@ -11,7 +11,7 @@ module ProblemLoader
   # @param xmldata (XML Object)
   # @param filepath (String)
   # @return Code object
-  def self.load(xmldata, filepath)
+  def self.call(xmldata, filepath)
     data = read_problemdata_from_xml(xmldata, File.basename(filepath))
     puts "[DEBUG] Loading problem data"
     pp data
