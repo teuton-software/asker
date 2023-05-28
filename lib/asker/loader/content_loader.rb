@@ -1,6 +1,7 @@
 require "rainbow"
 require "rexml/document"
 require_relative "code_loader"
+require_relative "problem_loader"
 require_relative "../data/concept"
 require_relative "../data/project_data"
 
@@ -28,7 +29,7 @@ module ContentLoader
       when "concept"
         concepts << read_concept(xmldata, filepath, lang, context)
       when "problem"
-        puts "[DEBUG] Reading a problem. problems << read_problem(xmldata, filepath)"
+        problems << read_problem(xmldata, filepath)
       else
         puts Rainbow("[ERROR] Unkown tag: #{xmldata.name}").red
         puts Rainbow("[INFO ] Only 'concept' and 'code' are available at this level").red
@@ -70,6 +71,14 @@ module ContentLoader
     c = Concept.new(xmldata, filepath, lang, context)
     c.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
     c
+  end
+
+  private_class_method def self.read_problem(xmldata, filepath)
+    puts "[DEBUG] Reading a problem"
+    project = ProjectData.instance
+    p = ProblemLoader.load(xmldata, filepath)
+    p.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
+    p
   end
 
   private_class_method def self.raise_error_with(filepath, content)
