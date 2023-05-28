@@ -10,6 +10,7 @@
   El campo clave pueden ser varios campos (f1,f2) ¿?
 * Check Asker analizer lexical, syntax and semantic
 * Split Concept into Concept and ConceptLoader
+* Move puts to logger object. Then remove Rainbow import from other classes
 
 # 1. Nuevo formato de input
 
