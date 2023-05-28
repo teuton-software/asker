@@ -6,7 +6,7 @@ module InputLoader
   ##
   # Load input data from every input directory
   # @param inputdirs (Array)
-  def self.load(inputdirs, internet = true)
+  def self.call(inputdirs, internet = true)
     data = {
       concepts: [], codes: [], problems: [],
       world: nil, concepts_ai: [], codes_ai: []
