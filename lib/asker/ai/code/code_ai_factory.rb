@@ -1,10 +1,9 @@
 
-require 'rainbow'
-require_relative 'javascript_code_ai'
-require_relative 'problem_code_ai'
-require_relative 'python_code_ai'
-require_relative 'ruby_code_ai'
-require_relative 'sql_code_ai'
+require "rainbow"
+require_relative "javascript_code_ai"
+require_relative "python_code_ai"
+require_relative "ruby_code_ai"
+require_relative "sql_code_ai"
 
 ##
 # CodeAI factory
@@ -18,8 +17,6 @@ module CodeAIFactory
     case type
     when :javascript
       return JavascriptCodeAI.new(code)
-    when :problem
-      return ProblemCodeAI.new(code)
     when :python
       return PythonCodeAI.new(code)
     when :ruby
