@@ -1,9 +1,8 @@
 # encoding: utf-8
 
-##
-# Set of functions used by Lang class
 module TextActions
   ##
+  # Set of functions used by Lang class
   # Return text indicated by lang code...
   def text_for(option, *input)
     @_text1 = input[0] # FIXME: done to avoid linter complaints.
@@ -55,12 +54,12 @@ module TextActions
   # @param filter (Boolean) true => apply filter, false => dont filter
   # @return Array
   def text_filter_connectors(input, filter)
-    input_lines = input.split('.')
+    input_lines = input.split(".")
     output_lines = []
     output_words = []
     input_lines.each_with_index do |line, rowindex|
 	    row = []
-      line.split(' ').each_with_index do |word, colindex|
+      line.split(" ").each_with_index do |word, colindex|
         flag = @connectors.include? word.downcase
 
 	      # if <word> is a conector and <pFilter>==true Then Choose this <word>
@@ -72,7 +71,7 @@ module TextActions
           row << word
         end
       end
-      row << '.'
+      row << "."
       output_lines << row
     end
 
@@ -103,12 +102,12 @@ module TextActions
     lines = input_struct[:lines]
     indexes = input_indexes.sort
     counter = 1
-    text = ''
+    text = ""
 
     lines.each do |line|
       line.each do |value|
         if value.class == String
-          text += (' ' + value)
+          text += (" " + value)
         elsif value == value.to_i
           # INFO: ruby 2.4 unifies Fixnum and Bignum into Integer
           #       Avoid using deprecated classes.
@@ -117,14 +116,14 @@ module TextActions
             counter += 1
           else
             word = input_struct[:words][value][:word]
-            text += (' ' + word)
+            text += (" " + word)
           end
         end
       end
     end
-    text.gsub!(' .', '.')
-    text.gsub!(' ,', ',')
-    text = text[1, text.size] if text[0] == ' '
+    text.gsub!(" .", ".")
+    text.gsub!(" ,", ",")
+    text = text[1, text.size] if text[0] == " "
     text
   end
 
@@ -174,20 +173,20 @@ module TextActions
     end
     return text if text != input
 
-    text + 's'
+    text + "s"
   end
 
   def hide_text(input_text)
     input = input_text.clone
     if count_words(input) < 2 && input.size < 10
-      output = '[*]'
+      output = "[*]"
     else
-      output = ''
+      output = ""
       input.each_char do |char|
         if ' !|"@#$%&/()=?¿¡+*(){}[],.-_<>'.include? char
           output += char
         else
-          output += '?'
+          output += "?"
         end
       end
     end

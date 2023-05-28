@@ -47,7 +47,7 @@ module ProblemLoader
   end
 
   private_class_method def self.read_question(xmldata, filename)
-    question = { text: "?", answer: "?" }
+    question = {text: "?", answer: "?"}
     xmldata.elements.each do |i|
       if i.name == "text"
         question[:text] = i.text

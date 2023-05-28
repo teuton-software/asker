@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
-require_relative 'file_loader'
+require_relative "file_loader"
 
-# Load input data from one directory
 module DirectoryLoader
   ##
-  # Load input data from directory
+  # Load input data from one directory
   # @param dirname (String) Directory name
   def self.load(dirname)
     DirectoryLoader.check_dir(dirname)
-    files = (Dir.new(dirname).entries - ['.', '..']).sort
+    files = (Dir.new(dirname).entries - [".", ".."]).sort
     # Accept only HAML or XML files
     accepted = files.select { |f| %w[.xml .haml].include? File.extname(f) }
     DirectoryLoader.load_files(accepted, dirname)
@@ -31,13 +30,14 @@ module DirectoryLoader
   # @param filenames (Array) File name list
   # @param dirname (String) Base directory
   def self.load_files(filenames, dirname)
-    output = { concepts: [], codes: [] }
+    data = {concepts: [], codes: [], problems: []}
     filenames.each do |filename|
       filepath = File.join(dirname, filename)
-      data = FileLoader.load(filepath)
-      output[:concepts] += data[:concepts]
-      output[:codes] += data[:codes]
+      loaded = FileLoader.load(filepath)
+      data[:concepts] += loaded[:concepts]
+      data[:codes] += loaded[:codes]
+      data[:problems] += loaded[:problems]
     end
-    output
+    data
   end
 end

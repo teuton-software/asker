@@ -32,17 +32,17 @@ module ContentLoader
         problems << read_problem(xmldata, filepath)
       else
         puts Rainbow("[ERROR] Unkown tag: #{xmldata.name}").red
-        puts Rainbow("[INFO ] Only 'concept', 'code' and 'problem' are available at this level").red
+        puts Rainbow("[INFO ] Available at this level: concept, code and problem").red
       end
     end
 
-    { concepts: concepts, codes: codes }
+    {concepts: concepts, codes: codes, problems: problems}
   end
 
   private_class_method def self.read_lang_attribute(xmldata)
     begin
       lang = xmldata.root.attributes["lang"]
-    rescue StandardError
+    rescue itself
       lang = ProjectData.instance.lang
       puts Rainbow("[WARN ] Default lang: #{lang}").yellow
     end
@@ -52,7 +52,7 @@ module ContentLoader
   private_class_method def self.read_context_attribute(xmldata)
     begin
       context = xmldata.root.attributes["context"]
-    rescue StandardError
+    rescue itself
       context = "unknown"
       puts Rainbow("[WARN ] Default context: #{context}").yellow
     end
@@ -61,7 +61,7 @@ module ContentLoader
 
   private_class_method def self.read_code(xmldata, filepath)
     project = ProjectData.instance
-    c = CodeLoader.load(xmldata, filepath)
+    c = CodeLoader.call(xmldata, filepath)
     c.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
     c
   end
@@ -81,10 +81,10 @@ module ContentLoader
   end
 
   private_class_method def self.raise_error_with(filepath, content)
-    msg =  "[ERROR] ContentLoader: Format error in #{filepath}\n"
+    msg = "[ERROR] ContentLoader: Format error in #{filepath}\n"
     msg += "        Take a look at ouput/error.xml"
     puts Rainbow(msg).red.bright
-    f = File.open('output/error.xml', 'w')
+    f = File.open("output/error.xml", "w")
     f.write(content)
     f.close
     raise msg

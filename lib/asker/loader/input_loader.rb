@@ -7,11 +7,15 @@ module InputLoader
   # Load input data from every input directory
   # @param inputdirs (Array)
   def self.load(inputdirs, internet = true)
-    data = {concepts: [], codes: [], world: nil, concepts_ai: [], codes_ai: []}
+    data = {
+      concepts: [], codes: [], problems: [],
+      world: nil, concepts_ai: [], codes_ai: []
+    }
     inputdirs.each do |dirname|
-      temp = DirectoryLoader.load(dirname)
-      data[:concepts] += temp[:concepts]
-      data[:codes] += temp[:codes]
+      loaded = DirectoryLoader.load(dirname)
+      data[:concepts] += loaded[:concepts]
+      data[:codes] += loaded[:codes]
+      data[:problems] += loaded[:problems]
     end
     create_questions(data, internet)
   end

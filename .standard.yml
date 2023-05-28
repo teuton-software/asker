@@ -3,6 +3,8 @@ ignore:
   - "docs/**/*"
   - "install/**/*"
   - "lib/**/*"
+  - "lib/asker/lang/text_actions.rb"
+  - "lib/asker/loader/embedded_file.rb"
   - "lib/asker/loader/project_loader.rb"
   - "private*/**/*"
   - "test/**/*"

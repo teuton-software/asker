@@ -27,12 +27,12 @@ module EmbeddedFile
     end
 
     # Suposse that filename is TEXT file
-    return {text: "<pre>#{File.read(filepath)}</pre>", file: :none, type: :text}
+    {text: "<pre>#{File.read(filepath)}</pre>", file: :none, type: :text}
   end
 
   def self.is_audio?(filename)
-    extens = [ ".mp3", ".ogg", ".wav"]
-    extens.each {|ext| return true if filename.downcase.end_with?(ext) }
+    extens = [".mp3", ".ogg", ".wav"]
+    extens.each { |ext| return true if filename.downcase.end_with?(ext) }
     false
   end
 
@@ -55,7 +55,7 @@ module EmbeddedFile
   end
 
   def self.load_audio(value, localdir)
-    output = { text: :error, file: :none, type: :audio}
+    output = {text: :error, file: :none, type: :audio}
 
     if is_url? value
       output[:text] = "<audio src=\"#{value}\" controls></audio>"
