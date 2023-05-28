@@ -5,7 +5,6 @@ class Problem
   attr_accessor :cases
   attr_accessor :descs
   attr_accessor :asks
-  attr_accessor :steps
 
   def initialize
     @process = false
@@ -14,12 +13,11 @@ class Problem
     @cases = []
     @descs = []
     @asks = []
-    @steps = []
   end
 
   def self.from(values)
     problem = Problem.new
-    fields = %i(filename varnames cases descs asks steps)
+    fields = %i(filename varnames cases descs asks)
     fields.each do |fieldname|
       methodname = "#{fieldname}=".to_sym
       problem.send(methodname, values[fieldname])
@@ -49,13 +47,15 @@ class Problem
       puts "[ERROR] No problem/case"
     end
 
-    if (@asks.size + @steps.size).zero?
-      puts "[ERROR] No problem/ask or problem/step"
+    if @asks.size.zero?
+      puts "[ERROR] No problem/ask"
     end
 
     @asks.each do |ask|
       puts "[ERROR] No problem/ask/text" if ask[:text].nil?
-      puts "[ERROR] No problem/ask/answer" if ask[:answer].nil?
+      if ask[:answer].nil? && ask[:steps].size.zero?
+        puts "[ERROR] No problem/ask/answer or problem/ask/step"
+      end
     end
   end
 end

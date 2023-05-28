@@ -17,7 +17,11 @@ module ProblemDisplayer
     problems.each do |problem|
       next unless problem.process?
 
-      e = problem.asks.size + problem.steps.size
+      e = 0
+      problem.asks.each do |ask|
+        e += ask[:steps].size
+        e += 1 if !ask[:answer].nil?
+      end
       q = 0 # TODO
       factor = 'Unkown'
       factor = (q.to_f / e).round(2).to_s unless e.zero?

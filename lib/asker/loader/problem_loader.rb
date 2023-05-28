@@ -22,8 +22,7 @@ module ProblemLoader
       varnames: [],
       cases: [],
       descs: [],
-      asks: [],
-      steps: []
+      asks: []
     }
     xmldata.elements.each do |i|
       if i.name == "varnames"
@@ -33,9 +32,7 @@ module ProblemLoader
       elsif i.name == "desc"
         data[:descs] << i.text
       elsif i.name == "ask"
-        data[:asks] << read_question(i, filename)
-      elsif i.name == "step"
-        data[:steps] << i.text
+        data[:asks] << read_ask(i, filename)
       else
         msg = Rainbow("[ERROR] Unkown tag! problem/#{i.name} (from #{filename})").color(:red)
         Logger.verboseln msg
@@ -44,18 +41,20 @@ module ProblemLoader
     data
   end
 
-  private_class_method def self.read_question(xmldata, filename)
-    question = {text: nil, answer: nil}
+  private_class_method def self.read_ask(xmldata, filename)
+    ask = {text: nil, answer: nil, steps: []}
     xmldata.elements.each do |i|
       if i.name == "text"
-        question[:text] = i.text
+        ask[:text] = i.text
       elsif i.name == "answer"
-        question[:answer] = i.text
+        ask[:answer] = i.text
+      elsif i.name == "step"
+        ask[:steps] = i.text
       else
-        msg = Rainbow("[ERROR] Unkown tag! problem/question/#{i.name} (from #{filename})").color(:red)
+        msg = Rainbow("[ERROR] Unkown tag! problem/ask/#{i.name} (from #{filename})").color(:red)
         Logger.verboseln msg
       end
     end
-    question
+    ask
   end
 end
