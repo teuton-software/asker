@@ -1,15 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../lang/lang'
-require_relative 'ai'
-require_relative 'question'
+require_relative "../lang/lang"
+require_relative "ai"
+require_relative "question"
 
-# ConceptAI: Add more info to every Concept instance.
-#            Encapsulating AI data => questions
-# * concept
-# * questions
-# * num
-# * random_image_for
+# Add more info to every Concept instance.
+# Encapsulating AI data => questions
 class ConceptAI
   include AI
 
@@ -17,10 +13,6 @@ class ConceptAI
   attr_reader :questions
   attr_reader :excluded_questions
 
-  ##
-  # Initialize ConcepAI
-  # @param concept (Concept)
-  # @param world (World)
   def initialize(concept, world)
     @concept = concept
     @world = world
@@ -30,9 +22,8 @@ class ConceptAI
     make_questions
   end
 
-  ##
-  # Generates and return new "num" value
   def num
+    # Generates and return new "num" value
     @num += 1
     @num.to_s
   end
@@ -43,9 +34,8 @@ class ConceptAI
     @concept.send(method, *args, &block)
   end
 
-  ##
-  # Generates random image URL
   def random_image_for(_conceptname)
+    # Generates random image URL
     return '' if rand <= ProjectData.instance.get(:threshold)
 
     keys = @world.image_urls.keys
