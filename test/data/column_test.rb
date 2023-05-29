@@ -1,12 +1,9 @@
-#!/usr/bin/ruby
-
-require 'test/unit'
-require 'rexml/document'
-
-require_relative '../../lib/asker/data/concept'
+require "test/unit"
+require "rexml/document"
+require_relative "../../lib/asker/data/concept"
+require_relative "../../lib/asker/lang/lang_factory"
 
 class ColumnTest < Test::Unit::TestCase
-
   def setup
     string_concept=%q{
     <map>
@@ -53,10 +50,11 @@ class ColumnTest < Test::Unit::TestCase
     }
 
     @concepts = []
+    lang = LangFactory.instance.get("en")
     root_xml_data = REXML::Document.new(string_concept)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name == 'concept'
-        @concepts << Concept.new(xml_data, 'input.haml', 'en', ['starwars'])
+        @concepts << Concept.new(xml_data, 'input.haml', lang, ['starwars'])
       end
     end
   end

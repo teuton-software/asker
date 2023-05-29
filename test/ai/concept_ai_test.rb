@@ -1,19 +1,20 @@
 require "test/unit"
 require "rexml/document"
-
+require_relative "../../lib/asker/ai/concept_ai"
 require_relative "../../lib/asker/data/concept"
 require_relative "../../lib/asker/data/world"
-require_relative "../../lib/asker/ai/concept_ai"
+require_relative "../../lib/asker/lang/lang_factory"
 
 class ConceptAITest < Test::Unit::TestCase
   def setup
     string_data = get_xml_data
     concepts = []
     world = World.new(concepts)
+    lang = LangFactory.instance.get("en")
     root_xml_data = REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name == "concept"
-        concepts << Concept.new(xml_data, "input.haml", "en", [])
+        concepts << Concept.new(xml_data, "input.haml", lang, [])
       end
     end
 
