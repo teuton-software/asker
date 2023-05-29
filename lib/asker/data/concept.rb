@@ -31,15 +31,16 @@ class Concept
     @filename = filename
     @process = false
     @lang = LangFactory.instance.get(lang_code)
+    @context = context
+    # if context.class == Array
+    #  @context = context
+    # elsif context.nil?
+    #  @context = []
+    #else
+    #  @context = context.split(',')
+    #  @context.collect!(&:strip)
+    #end
 
-    if context.class == Array
-      @context = context
-    elsif context.nil?
-      @context = []
-    else
-      @context = context.split(',')
-      @context.collect!(&:strip)
-    end
     @names = ['concept.' + @id.to_s]
     @type  = 'text'
 

@@ -51,10 +51,11 @@ module ContentLoader
 
   private_class_method def self.read_context_attribute(xmldata)
     begin
-      context = xmldata.root.attributes["context"]
+      context = xmldata.root.attributes["context"].split(',')
+      context.collect!(&:strip)
     rescue itself
-      context = "unknown"
-      puts Rainbow("[WARN ] Default context: #{context}").yellow
+      context = ["unknown"]
+      puts Rainbow("[WARN ] Context unkown!").yellow
     end
     context
   end
