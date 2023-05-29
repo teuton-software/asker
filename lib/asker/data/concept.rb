@@ -8,7 +8,7 @@ require_relative 'data_field'
 
 class Concept
   attr_reader :id        # Unique identifer (Integer)
-  attr_reader :lang      # Lang code (By default is the same as map lang)
+  attr_reader :lang      # Lang object
   attr_reader :context   # Context inherits from map
   attr_reader :names     # Names used to identify or name this concept
   attr_reader :type      # type = text -> Name values are only text
@@ -24,7 +24,7 @@ class Concept
   # @param filename (String)
   # @param lang_code (String)
   # @param context (Array)
-  def initialize(xml_data, filename, lang_code = 'en', context = [])
+  def initialize(xml_data, filename, lang_code, context)
     @@id += 1
     @id = @@id
 

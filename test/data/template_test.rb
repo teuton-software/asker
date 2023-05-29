@@ -39,7 +39,7 @@ class TemplateTest < Test::Unit::TestCase
     root_xml_data=REXML::Document.new(string_concept)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name == 'concept'
-        @concepts << Concept.new(xml_data, 'input.haml')
+        @concepts << Concept.new(xml_data, 'input.haml', 'en', [])
       end
     end
   end
