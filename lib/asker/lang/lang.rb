@@ -7,7 +7,8 @@ require_relative '../logger'
 class Lang
   include TextActions
 
-  attr_reader :code, :mistakes
+  attr_reader :code
+  attr_reader :mistakes
 
   def initialize(code = 'en')
     @code = code.to_s

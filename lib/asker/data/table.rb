@@ -30,14 +30,10 @@ class Table
     @rows = @datarows.map(&:raws)
   end
 
-  ##
-  # Return table name
   def to_s
     @name.to_s
   end
 
-  ##
-  # Return true if table has a sequence defined
   def sequence?
     @sequence.size.positive?
   end
@@ -68,9 +64,7 @@ class Table
   ##
   # Fill:fields, name and id from XML input
   # @param xml_data (XML)
-  # rubocop:disable Metrics/AbcSize
   def read_attributes_from_xml(xml_data)
-    # read attributes from XML data
     t = xml_data.attributes['fields'].to_s.strip.split(',')
     t.each(&:strip!)
     @fields = t || []
@@ -84,13 +78,7 @@ class Table
 
     @sequence = xml_data.attributes['sequence'].to_s.split(',')
   end
-  # rubocop:enable Metrics/AbcSize
 
-  ##
-  # Build table data from xml input
-  # @param xml_data (XML)
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def read_data_from_xml(xml_data)
     xml_data.elements.each do |i|
       case i.name
@@ -109,12 +97,7 @@ class Table
       end
     end
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Style/ConditionalAssignment
   def read_lang_from_xml(xml_data)
     j = xml_data.text.split(',')
     codes = @langs.map(&:code)
@@ -130,13 +113,10 @@ class Table
       end
     end
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Style/ConditionalAssignment
 
   def read_type_from_xml(xml_data)
-    j = xml_data.text.split(',')
-    return if j.join(',') == @types.join(',')
+    j = xml_data.text.split(",")
+    return if j.join(",") == @types.join(",")
 
     simple_off(:type)
     @types = []

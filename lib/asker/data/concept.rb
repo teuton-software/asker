@@ -24,13 +24,13 @@ class Concept
   # @param filename (String)
   # @param lang_code (String)
   # @param context (Array)
-  def initialize(xml_data, filename, lang_code, context)
+  def initialize(xml_data, filename, lang, context)
     @@id += 1
     @id = @@id
 
     @filename = filename
     @process = false
-    @lang = LangFactory.instance.get(lang_code)
+    @lang = lang # LangFactory.instance.get(lang_code)
     @context = context
     @names = ['concept.' + @id.to_s]
     @type  = 'text'

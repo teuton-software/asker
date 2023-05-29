@@ -4,6 +4,7 @@ require_relative "code_loader"
 require_relative "problem_loader"
 require_relative "../data/concept"
 require_relative "../data/project_data"
+require_relative '../lang/lang_factory'
 
 module ContentLoader
   ##
@@ -41,12 +42,12 @@ module ContentLoader
 
   private_class_method def self.read_lang_attribute(xmldata)
     begin
-      lang = xmldata.root.attributes["lang"]
+      lang_code = xmldata.root.attributes["lang"]
     rescue itself
-      lang = ProjectData.instance.lang
-      puts Rainbow("[WARN ] Default lang: #{lang}").yellow
+      lang_code = ProjectData.instance.lang
+      puts Rainbow("[WARN ] Default lang: #{lang_code}").yellow
     end
-    lang
+    LangFactory.instance.get(lang_code)
   end
 
   private_class_method def self.read_context_attribute(xmldata)

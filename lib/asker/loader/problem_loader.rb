@@ -22,7 +22,6 @@ class ProblemLoader
     problem = Problem.from(data)
     problem.lang = @lang
     problem.context = @context
-    require "debug"; binding.break
     problem
   end
 

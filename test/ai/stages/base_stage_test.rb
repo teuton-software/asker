@@ -5,6 +5,7 @@ require_relative "../../../lib/asker/ai/stages/base_stage"
 require_relative "../../../lib/asker/data/concept"
 require_relative "../../../lib/asker/data/world"
 require_relative "../../../lib/asker/ai/concept_ai"
+require_relative "../../../lib/asker/lang/lang_factory"
 
 class BaseStageTest < Test::Unit::TestCase
 
@@ -12,10 +13,11 @@ class BaseStageTest < Test::Unit::TestCase
     string_data = get_xml_data
     concepts    = []
     world       = World.new(concepts)
+    lang = LangFactory.instance.get("en")
     root_xml_data=REXML::Document.new(string_data)
     root_xml_data.root.elements.each do |xml_data|
       if xml_data.name="concept" then
-        concepts << Concept.new(xml_data, "input.haml", "en", [])
+        concepts << Concept.new(xml_data, "input.haml", lang, [])
       end
     end
 
