@@ -78,9 +78,7 @@ class Concept
   end
 
   def calculate_nearness_to_concept(other)
-    a = ProjectData.instance.get(:weights)
-    # Application.instance.config['ai']['formula_weights']
-    weights = a.split(',').map(&:to_f)
+    weights = ProjectData.instance.get(:weights).split(',').map(&:to_f)
 
     max1 = @context.count
     max2 = @data[:tags].count

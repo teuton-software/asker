@@ -75,7 +75,7 @@ module ContentLoader
 
   private_class_method def self.read_problem(xmldata, filepath, lang, context)
     project = ProjectData.instance
-    p = ProblemLoader.call(xmldata, filepath, lang, context)
+    p = ProblemLoader.new(lang, context).call(xmldata, filepath)
     p.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
     p
   end

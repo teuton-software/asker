@@ -1,12 +1,12 @@
 %map{ lang: 'en', context: 'math', version: '1'}
 
   %problem
-    %varnames A, B, SUM, SUB
-    %case 3, 1, 4, 2
-    %case 1, 3, 4, -2
-    %case 4, 3, 7, 1
-    %case 3, 4, 7, -1
-    %desc Mathematical operations
+    %cases{ varnames: 'A, B, SUM, SUB' }
+      %case 3, 1, 4, 2
+      %case 1, 3, 4, -2
+      %case 4, 3, 7, 1
+      %case 3, 4, 7, -1
+    %desc Mathematical operations with numbers A and B
     %ask
       %text Calculate the sum of A and B
       %answer SUM
@@ -15,10 +15,10 @@
       %answer SUB
 
   %problem
-    %varnames X
-    %case x
-    %case y
-    %case z
+    %cases{ varnames: 'X' }
+      %case x
+      %case y
+      %case z
     %desc Solve the following equation 2X -4 = 6
     %ask
       %text Solving the problem
