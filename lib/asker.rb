@@ -1,13 +1,12 @@
-require 'rainbow'
+require "rainbow"
 
-require_relative 'asker/skeleton'
-require_relative 'asker/check_input'
+require_relative "asker/check_input"
+require_relative "asker/logger"
+require_relative "asker/skeleton"
 
 require_relative 'asker/displayer/concept_displayer'
 require_relative 'asker/displayer/stats_displayer'
 require_relative 'asker/exporter/output_file_exporter'
-require_relative 'asker/logger'
-
 require_relative 'asker/loader/project_loader'
 require_relative 'asker/loader/input_loader'
 
@@ -21,7 +20,7 @@ class Asker
   end
 
   def self.check(filepath)
-    CheckInput.new.file(filepath).check
+    CheckInput.new.check(filepath)
   end
 
   def self.start(filepath)

@@ -6,17 +6,13 @@ class CheckInput
     @verbose = verbose
   end
 
-  def file(filepath)
-    @filepath = filepath
-    self
-  end
-
   def verbose(verbose)
     @verbose = verbose
     self
   end
 
-  def check
+  def check(filepath)
+    @filepath = filepath
     # Check HAML file syntax
     exist = check_file_exist
     return false unless exist
