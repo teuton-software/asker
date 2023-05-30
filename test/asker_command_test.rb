@@ -32,10 +32,14 @@ class AskerCommandTest < Test::Unit::TestCase
     cmd = "asker new #{dir} > /dev/null"
     assert_equal true,  system(cmd)
 
-    filename = File.join(dir, 'example-concept.haml')
+    filename = File.join(dir, "example-concept.haml")
     assert_equal true, File.exist?(filename)
-    assert_equal true,  system("rm #{filename}")
-    assert_equal true,  system("rmdir #{dir}")
+    FileUtils.rm(filename)
+    assert_equal false,  File.exist?(filename)
+
+    assert_equal true, Dir.exist?(dir)
+    FileUtils.rmdir(dir)
+    assert_equal false,  Dir.exist?(dir)
   end
 
   def test_check
@@ -48,8 +52,13 @@ class AskerCommandTest < Test::Unit::TestCase
     assert_equal true,  system(cmd)
 
     assert_equal true, File.exist?(filename)
-    assert_equal true,  system("rm #{filename}")
-    assert_equal true,  system("rmdir #{dir}")
+    FileUtils.rm(filename)
+    assert_equal false,  File.exist?(filename)
+
+    assert_equal true, Dir.exist?(dir)
+    FileUtils.rmdir(dir)
+    assert_equal false,  Dir.exist?(dir)
+
   end
 
   def test_new_then_file
