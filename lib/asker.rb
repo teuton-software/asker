@@ -1,4 +1,4 @@
-require "rainbow"
+# require "rainbow"
 
 require_relative "asker/check_input"
 # require_relative "asker/logger"

@@ -1,4 +1,5 @@
-require 'test/unit'
+require "test/unit"
+require "fileutils"
 
 class AskerCommandTest < Test::Unit::TestCase
   def test_version
@@ -15,12 +16,15 @@ class AskerCommandTest < Test::Unit::TestCase
   end
 
   def test_init
-    cmd = "asker init > /dev/null"
-    assert_equal true,  system(cmd)
-
     filename = 'asker.ini'
+    assert_equal false, File.exist?(filename)
+
+    cmd = "asker init > /dev/null"
+    assert_equal true, system(cmd)
+
     assert_equal true, File.exist?(filename)
-    assert_equal true,  system("rm #{filename}")
+    FileUtils.rm(filename)
+    assert_equal false, File.exist?(filename)
   end
 
   def test_new
