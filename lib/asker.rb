@@ -52,9 +52,9 @@ class Asker
   private_class_method def self.init_logger(project)
     Logger.create(project.get(:logpath))
     Logger.instance.set_verbose(Application.instance.config['verbose'])
-    Logger.verboseln '[INFO] Project open'
-    Logger.verboseln '   ├── inputdirs    = ' + Rainbow(project.get(:inputdirs)).bright
-    Logger.verboseln '   └── process_file = ' + Rainbow(project.get(:process_file)).bright
+    # Logger.verboseln '[INFO] Project open'
+    # Logger.verboseln '   ├── inputdirs    = ' + Rainbow(project.get(:inputdirs)).bright
+    # Logger.verboseln '   └── process_file = ' + Rainbow(project.get(:process_file)).bright
   end
 
   private_class_method def self.create_output(project, data)
