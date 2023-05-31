@@ -1,5 +1,6 @@
 require_relative "directory_loader"
 require_relative "../ai/concept_ai"
+require_relative "../ai/problem_ai"
 require_relative "../data/world"
 
 class InputLoader

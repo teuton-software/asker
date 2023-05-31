@@ -7,7 +7,6 @@ class ProblemAI
   attr_accessor :questions
 
   def initialize(problem)
-    @lang = LangFactory.instance.get("es")
     @problem = problem
     @questions = []
   end
