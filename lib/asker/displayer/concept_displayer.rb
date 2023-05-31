@@ -7,6 +7,8 @@ module ConceptDisplayer
   # Show concepts on screen
   # @param concepts (Array) List of concept data
   def self.show(concepts)
+    return if concepts.nil? || concepts.size.zero?
+
     show_mode = Application.instance.config["global"]["show_mode"]
     return unless show_mode
 
@@ -14,8 +16,8 @@ module ConceptDisplayer
     Logger.verboseln msg
     case show_mode
     when "resume"
-      s = "* Concepts (#{concepts.count}): "
-      concepts.each { |c| s += c.name + ", " }
+      names = concepts.map { |c| c.name }
+      s = " * Concepts (#{names.count}): #{names.join(",")}"
       Logger.verboseln s
     when "default"
       # Only show Concepts with process attr true
