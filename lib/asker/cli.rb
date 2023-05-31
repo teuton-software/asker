@@ -82,9 +82,6 @@ class CLI < Thor
   (2) #{Rainbow('asker foo/bar.xml').aqua}, Build questions from XML input file.
   Path to input file can be relative or absolute.
 
-  (3) #{Rainbow('asker /home/user/foo/bar.xml').aqua}, Build questions from XML input file.
-  Path to in put file can be relative or absolute.
-
   LONGDESC
   def file(filename)
     Asker.start(filename)

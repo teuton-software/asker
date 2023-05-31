@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require "erb"
+require "rainbow"
 require "terminal-table"
 require_relative "../application"
 require_relative "../logger"
 
-# Display ConceptAI stat on screen
 class ConceptAIDisplayer
   ##
   # Display ConceptAI stat on screen
@@ -117,6 +117,6 @@ class ConceptAIDisplayer
   private_class_method def self.export_notes
     exclude_questions = Application.instance.config['questions']['exclude'].to_s
     renderer = ERB.new(File.read(File.join(File.dirname(__FILE__), 'concept_ai_displayer.erb')))
-    Logger.verboseln renderer.result(binding)
+    Logger.verboseln Rainbow(renderer.result(binding)).white
   end
 end
