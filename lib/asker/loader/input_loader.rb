@@ -11,7 +11,7 @@ class InputLoader
     data = {
       world: nil,
       concepts: [], codes: [], problems: [],
-      concepts_ai: [], codes_ai: [], problems_ai: []
+      concepts_ai: [], codes_ai: []
     }
     inputdirs.each do |dirname|
       loaded = DirectoryLoader.call(dirname)
@@ -39,11 +39,9 @@ class InputLoader
       data[:codes_ai] << CodeAIFactory.get(code)
     end
 
-    # Create ProblemAI data (ProblemAI = problem + questions)
-    data[:problems].each do |problem|
-      # FIXME
-      data[:problems_ai] << problem # ProblemAIFactory.get(problem)
-    end
+    # Fill problem with questions
+    data[:problems].each { |problem| ProblemAI.new.call(problem) }
+
     data
   end
 end

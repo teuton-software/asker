@@ -4,10 +4,23 @@ require_relative "question"
 
 class ProblemAI
   attr_accessor :problem
-  attr_accessor :questions
 
-  def initialize(problem)
+  def call(problem)
     @problem = problem
-    @questions = []
+    create_questions
+    @problem
+  end
+
+  private
+
+  def create_questions
+    puts "_" * 40
+    vars = problem.varnames
+    problem.cases.each do |acase|
+      vars.each_with_index do |varname, index|
+        print "| #{varname} = #{acase[index]} "
+      end
+      puts ""
+    end
   end
 end
