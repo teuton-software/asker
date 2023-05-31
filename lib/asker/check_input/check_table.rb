@@ -38,9 +38,9 @@ module CheckTable
     when 6
       @outputs[index][:level] = 3
       parent = find_parent(index)
-      unless %i[table features].include? parent
+      unless %i[table template features].include? parent
         @outputs[index][:state] = :err
-        @outputs[index][:msg] = 'Parent(table/features) not found!'
+        @outputs[index][:msg] = 'Parent(table/template/features) not found!'
       end
     when 8
       @outputs[index][:level] = 4
@@ -60,6 +60,16 @@ module CheckTable
 
     @outputs[index][:type] = :col
     @outputs[index][:state] = :ok
+
+    # row parent requires empty msg
+    if @outputs[index - 1][:type] == :row
+      if @outputs[index - 1][:source].strip != "%row"
+        require "debug"; binding.break
+        @outputs[index - 1][:state] = :err
+        @outputs[index - 1 ][:msg] = 'Row with cols requires empty text!'
+      end
+    end
+
     case count_spaces(line)
     when 8
       @outputs[index][:level] = 4

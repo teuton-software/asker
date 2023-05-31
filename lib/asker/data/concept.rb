@@ -162,7 +162,7 @@ class Concept
 
   def process_tags(value)
     if value.text.nil? || value.text.size.zero?
-      puts Rainbow("[ERROR] Concept without tags: #{name} ").red.briht
+      puts Rainbow("[ERROR] Concept without tags: #{name} ").red.bright
       exit 1
     end
 

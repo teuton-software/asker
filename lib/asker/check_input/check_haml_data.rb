@@ -146,7 +146,10 @@ class CheckHamlData
     @outputs[index][:type] = :tags
     @outputs[index][:level] = 2
     @outputs[index][:state] = :ok
-    if find_parent(index) != :concept
+    if line.strip == '%tags'
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = 'Please, fill with concept tags!'
+    elsif find_parent(index) != :concept
       @outputs[index][:state] = :err
       @outputs[index][:msg] = 'Parent(concept) not found!'
     elsif !line.match(/^\s\s\s\s%tags\s/)
