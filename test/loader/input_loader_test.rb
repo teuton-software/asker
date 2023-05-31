@@ -10,7 +10,7 @@ class InputLoaderTest < Test::Unit::TestCase
     ProjectData.instance.reset
     ProjectLoader.load(filepath)
 
-    data = InputLoader.call(ProjectData.instance.get(:inputdirs).split(','))
+    data = InputLoader.new.call(ProjectData.instance.get(:inputdirs).split(','))
     assert_equal 4, data[:concepts].size
     assert_equal 'obiwan', data[:concepts][0].name
     assert_equal 'yoda', data[:concepts][1].name

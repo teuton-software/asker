@@ -2,11 +2,11 @@ require_relative "directory_loader"
 require_relative "../ai/concept_ai"
 require_relative "../data/world"
 
-module InputLoader
+class InputLoader
   ##
   # Load input data from every input directory
   # @param inputdirs (Array)
-  def self.call(inputdirs, internet = true)
+  def call(inputdirs, internet = true)
     data = {
       world: nil,
       concepts: [], codes: [], problems: [],
@@ -21,10 +21,11 @@ module InputLoader
     create_questions(data, internet)
   end
 
-  private_class_method def self.create_questions(data, internet)
-    # Create World data
-    # * Calculate concept neighbours
-    # * TO-DO: Calculate code neighbours
+  private
+
+  def create_questions(data, internet)
+    # Create World data. Calculate concept neighbours
+    # TODO: Calculate code and problem neighbours
     data[:world] = World.new(data[:concepts], internet)
 
     # Create ConceptAI data (ConceptAI = concept + questions)

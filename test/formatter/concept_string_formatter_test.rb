@@ -12,7 +12,7 @@ class ConceptStringFormatterTest < Test::Unit::TestCase
     ProjectLoader.load(filepath)
 
     Rainbow.enabled = false
-    data = InputLoader.call(['test/input/starwars'])
+    data = InputLoader.new.call(['test/input/starwars'])
 
 #    t =  "+---------------+-------------------------------------------------------+\n"
 #    t += "| 1             | obiwan (lang=en)                                      |\n"

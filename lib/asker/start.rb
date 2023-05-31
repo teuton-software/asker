@@ -22,7 +22,7 @@ class Start
 
     inputdirs = project_data.get(:inputdirs).split(',')
     internet = Application.instance.config['global']['internet'] == 'yes'
-    data = InputLoader.call(inputdirs, internet)
+    data = InputLoader.new.call(inputdirs, internet)
     [project_data, data]
   end
 
