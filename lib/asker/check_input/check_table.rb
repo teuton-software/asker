@@ -66,7 +66,7 @@ module CheckTable
       if @outputs[index - 1][:source].strip != "%row"
         require "debug"; binding.break
         @outputs[index - 1][:state] = :err
-        @outputs[index -1 ][:msg] = 'Row with cols requires empty text!'
+        @outputs[index - 1 ][:msg] = 'Row with cols requires empty text!'
       end
     end
 
