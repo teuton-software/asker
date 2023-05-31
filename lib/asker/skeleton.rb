@@ -4,18 +4,11 @@ require "fileutils"
 require "rainbow"
 require_relative "version"
 
-# Skeleton: create skeleton for asker input files
-# * create
-# * create_main_dir_and_files
-# * create_dir
-# * create_dirs
-# * copyfile
-module Skeleton
+class Skeleton
   ##
   # Create skeleton for asker input files
   # @param inputpath (String)
-  # rubocop:disable Metrics/MethodLength
-  def self.create_input(inputpath)
+  def create_input(inputpath)
     puts "\n[INFO] Creating example input #{Rainbow(inputpath).bright}"
     if File.extname(inputpath) == ".haml"
       dirpath = File.dirname(inputpath)
@@ -28,21 +21,17 @@ module Skeleton
     source = File.join(File.dirname(__FILE__), "files", "example-concept.haml")
     copyfile(source, File.join(dirpath, filename))
   end
-  # rubocop:enable Metrics/MethodLength
 
-  ##
-  # Create default configuration files
-  def self.create_configuration
+  def create_configuration
     puts "\n[INFO] Creating configuration files"
     src = File.join(File.dirname(__FILE__), "files", Asker::CONFIGFILE)
     dst = File.join(Asker::CONFIGFILE)
     copyfile(src, dst)
   end
 
-  ##
-  # Create folder
-  # @param dirpath (String)
-  private_class_method def self.create_dir(dirpath)
+  private
+
+  def create_dir(dirpath)
     if Dir.exist? dirpath
       puts "* Exists dir!       => #{Rainbow(dirpath).yellow}"
     else
@@ -55,11 +44,7 @@ module Skeleton
     end
   end
 
-  ##
-  # Copy target file to dest
-  # @param target (String)
-  # @param dest (String)
-  private_class_method def self.copyfile(target, dest)
+  def copyfile(target, dest)
     if File.exist? dest
       puts "* Exists file!      => #{Rainbow(dest).yellow}"
       return true

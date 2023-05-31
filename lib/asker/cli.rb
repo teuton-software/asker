@@ -25,17 +25,40 @@ class CLI < Thor
   end
 
   map ['new','--new'] => 'create_input'
-  desc 'new DIRPATH', 'Create Asker demo input files'
-  ##
-  # Create Asker demo input files
-  # @param dirname (String) Path to folder
+  desc 'new PATH', 'Create Asker sample input file'
+  long_desc <<-LONGDESC
+
+  Create Asker sample input file (HAML format).
+
+  Examples:
+
+  (1) #{Rainbow('asker new foo/bar.haml').aqua}, Create "foo" dir and "bar.haml" file.
+  Path to input file can be relative or absolute.
+
+  (2) #{Rainbow('asker new foo').aqua}, Create "foo" dir and sample HAML file.
+  Path to directory can be relative or absolute.
+
+  (3) #{Rainbow('asker new /home/user/foo/bar.yaml').aqua}, Create absolute path "dir" foo and "bar.haml" file.
+  Path to project file can be relative or absolute.
+
+  LONGDESC
   def create_input(dirname)
     Asker.create_input(dirname)
     exit 0
   end
 
   map ['--check'] => 'check'
-  desc 'check FILEPATH', 'Check input HAML file syntax'
+  desc 'check FILEPATH', 'Check HAML input file syntax'
+  long_desc <<-LONGDESC
+
+  Check HAML input file syntax.
+
+  Examples:
+
+  (*) #{Rainbow('asker check foo/bar.haml').aqua}, Check "bar.haml" input file.
+  Path to input file can be relative or absolute.
+
+  LONGDESC
   def check(filename)
     # Enable/disable color output
     Rainbow.enabled = false if options['color'] == false
@@ -53,15 +76,17 @@ class CLI < Thor
 
   Examples:
 
-  (1) #{Rainbow('asker input/foo/foo.haml').aqua}, Build questions from HAML file.
+  (1) #{Rainbow('asker foo/bar.haml').aqua}, Build questions from HAML input file.
+  Path to input file can be relative or absolute.
 
-  (2) #{Rainbow('asker input/foo/foo.xml').aqua}, Build questions from XML file.
+  (2) #{Rainbow('asker foo/bar.xml').aqua}, Build questions from XML input file.
+  Path to input file can be relative or absolute.
 
-  (3) #{Rainbow('asker projects/foo/foo.yaml').aqua}, Build questions from YAML project file.
+  (3) #{Rainbow('asker /home/user/foo/bar.xml').aqua}, Build questions from XML input file.
+  Path to in put file can be relative or absolute.
 
   LONGDESC
   def file(filename)
-    # Asker start processing input file
     Asker.start(filename)
   end
 

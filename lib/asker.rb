@@ -13,11 +13,11 @@ require_relative "asker/start"
 
 class Asker
   def self.init
-    Skeleton.create_configuration
+    Skeleton.new.create_configuration
   end
 
   def self.create_input(dirpath)
-    Skeleton.create_input(dirpath)
+    Skeleton.new.create_input(dirpath)
   end
 
   def self.check(filepath)
