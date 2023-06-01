@@ -39,7 +39,7 @@ module CodeDisplayer
                              Rainbow((total_q / total_e.to_f).round(2)).bright]
     return unless total_c.positive?
 
-    Logger.verboseln "\n[INFO] Showing CODE statistics"
+    Logger.verboseln "\n[INFO] Showing CODEs statistics"
     Logger.verboseln my_screen_table.to_s
   end
 end

@@ -9,7 +9,10 @@ class Problem
   attr_accessor :asks
   attr_accessor :questions
 
+  @@id = 0
   def initialize
+    @@id +=1
+    @id = @@id
     @lang = nil
     @context = nil
     @process = false
@@ -38,6 +41,10 @@ class Problem
 
   def process?
     @process
+  end
+
+  def name
+    "problem#{@id}"
   end
 
   def validate
