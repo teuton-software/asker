@@ -10,7 +10,7 @@ module ProblemDisplayer
 
     total_p = total_q = total_e = 0
     my_screen_table = Terminal::Table.new do |st|
-      st << %w[ID Problem Questions Entries xFactor]
+      st << %w[Problem Desc Questions Entries xFactor]
       st << :separator
     end
 

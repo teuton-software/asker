@@ -24,6 +24,17 @@ class ProblemAI
 
     puts problem.name
     pp instances
+
+    instances.each do |instance|
+      puts customize(problem.desc, instance)
+      puts customize(problem.asks[0][:text], instance)
+    end
     instances
+  end
+
+  def customize(text, instance)
+    output = text.clone
+    instance.each_pair { |oldvalue, newvalue| output.gsub!(oldvalue, newvalue) }
+    output
   end
 end
