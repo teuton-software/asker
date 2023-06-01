@@ -7,20 +7,23 @@ class ProblemAI
 
   def call(problem)
     @problem = problem
-    create_questions
+    @instances = create_instance
     @problem
   end
 
   private
 
-  def create_questions
-    puts "_" * 40
+  def create_instance
+    instances = []
     vars = problem.varnames
     problem.cases.each do |acase|
-      vars.each_with_index do |varname, index|
-        print "| #{varname} = #{acase[index]} "
-      end
-      puts ""
+      instance = {}
+      vars.each_with_index { |varname, index| instance[varname] = acase[index] }
+      instances << instance
     end
+
+    puts problem.name
+    pp instances
+    instances
   end
 end
