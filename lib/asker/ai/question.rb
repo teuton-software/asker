@@ -17,7 +17,6 @@ class Question
   attr_accessor :lang     # Info used when export (YAML)
   attr_accessor :encode   # image base64 content used when export Moodle xml
 
-  # Initialize object
   # @param type (Symbol) Question type: choice, match, boolean, short
   def initialize(type = :choice)
     reset(type)
@@ -25,7 +24,6 @@ class Question
 
   # Reset attributes
   # @param type (Symbol) Question type: choice, match, boolean, short
-  # rubocop:disable Metrics/MethodLength
   def reset(type = :choice)
     @name = ''
     @comment = ''
@@ -41,39 +39,31 @@ class Question
     @lang = nil
     @encode = :none
   end
-  # rubocop:enable Metrics/MethodLength
 
-  # Set choice type
   def set_choice
     @type = :choice
   end
 
-  # Set match type
   def set_match
     @type = :match
   end
 
-  # Set boolean type
   def set_boolean
     @type = :boolean
   end
 
-  # Set short type
   def set_short
     @type = :short
   end
 
-  # Set shuffle off
   def shuffle_off
     @shuffle = false
   end
 
-  # Set shuffle on
   def shuffle_on
     @shuffle = true
   end
 
-  # Return shuffle value
   def shuffle?
     @shuffle
   end
