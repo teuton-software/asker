@@ -45,7 +45,7 @@ module ContentLoader
       lang_code = xmldata.root.attributes["lang"]
     rescue itself
       lang_code = ProjectData.instance.lang
-      warn Rainbow("[WARN ] Default lang: #{lang_code}").yellow
+      warn Rainbow("[WARN ] ContentLoader: Default lang #{lang_code}").yellow.bright
     end
     LangFactory.instance.get(lang_code)
   end
@@ -56,7 +56,7 @@ module ContentLoader
       context.collect!(&:strip)
     rescue itself
       context = ["unknown"]
-      warn Rainbow("[WARN ] Context unkown!").yellow
+      warn Rainbow("[WARN ] ContentLoader: Context unkown!").yellow.bright
     end
     context
   end
@@ -85,7 +85,7 @@ module ContentLoader
   private_class_method def self.raise_error_with(filepath, content)
     msg = "[ERROR] ContentLoader: Format error in #{filepath}\n"
     msg += "        Take a look at ouput/error.xml"
-    puts Rainbow(msg).red.bright
+    warn Rainbow(msg).red.bright
     f = File.open("output/error.xml", "w")
     f.write(content)
     f.close

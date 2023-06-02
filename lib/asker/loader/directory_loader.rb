@@ -20,8 +20,8 @@ module DirectoryLoader
   def self.check_dir(dirname)
     return if Dir.exist? dirname
 
-    msg = Rainbow("[ERROR] #{dirname} directory dosn't exist!").color(:red)
-    puts msg
+    msg = Rainbow("[ERROR] DirectoryLoader: #{dirname} directory dosn't exist!").color(:red)
+    warn msg
     raise msg
   end
 

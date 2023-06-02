@@ -41,9 +41,9 @@ class ProjectData
     @param[:projectname] = @param[:projectname] ||
                            File.basename(@param[:process_file], ext)
 
-    @param[:logname] = "#{@param[:projectname]}-log.txt"
+    @param[:logname] = "#{@param[:projectname]}.log"
     @param[:outputname] = "#{@param[:projectname]}-gift.txt"
-    @param[:lessonname] = "#{@param[:projectname]}-doc.txt"
+    @param[:lessonname] = "#{@param[:projectname]}.txt"
     @param[:yamlname] = "#{@param[:projectname]}.yaml"
     @param[:moodlename] = "#{@param[:projectname]}-moodle.xml"
 

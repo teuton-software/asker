@@ -9,6 +9,23 @@ class Logger
     @attr_verbose = value
   end
 
+  def self.info(msg)
+    puts msg if @attr_verbose == "yes"
+    @logfile&.write(msg)
+  end
+
+  def self.warn(msg)
+    msg = Rainbow(msg).yellow.bright
+    puts msg if @attr_verbose == "yes"
+    @logfile&.write(msg)
+  end
+
+  def self.error(msg)
+    msg = Rainbow(msg).red
+    puts msg if @attr_verbose == "yes"
+    @logfile&.write(msg)
+  end
+
   def self.verbose(msg)
     print msg if @attr_verbose == "yes"
     @logfile&.write(msg)
@@ -18,13 +35,13 @@ class Logger
     verbose(msg + "\n")
   end
 
-  def log(msg)
-    verbose(msg)
-  end
+  #def log(msg)
+  #  verbose(msg)
+  #end
 
-  def logln(msg)
-    verboseln(msg)
-  end
+  #def logln(msg)
+  #  verboseln(msg)
+  #end
 
   def self.create(logpath)
     @logfile = File.open(logpath, "w")

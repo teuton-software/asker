@@ -77,7 +77,7 @@ class ConceptAIDisplayer
                           total[:sd], total[:sb], total[:sf],
                           total[:si], total[:ss], total[:st]]
     export_notes
-    Logger.verboseln "#{screen_table}\n"
+    Logger.info "#{screen_table}\n"
   end
 
   private_class_method def self.export_excluded_questions(screen_table, concepts_ai)
@@ -117,6 +117,6 @@ class ConceptAIDisplayer
   private_class_method def self.export_notes
     exclude_questions = Application.instance.config['questions']['exclude'].to_s
     renderer = ERB.new(File.read(File.join(File.dirname(__FILE__), 'concept_ai_displayer.erb')))
-    Logger.verboseln Rainbow(renderer.result(binding)).white
+    Logger.info Rainbow(renderer.result(binding)).white
   end
 end
