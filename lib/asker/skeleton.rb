@@ -5,9 +5,14 @@ require "rainbow"
 require_relative "version"
 
 class Skeleton
-  ##
-  # Create skeleton for asker input files
-  # @param inputpath (String)
+
+  def create_configuration
+    puts "\n[INFO] Creating configuration files"
+    src = File.join(File.dirname(__FILE__), "files", Asker::CONFIGFILE)
+    dst = File.join(Asker::CONFIGFILE)
+    copyfile(src, dst)
+  end
+
   def create_input(inputpath)
     puts "\n[INFO] Creating example input #{Rainbow(inputpath).bright}"
     if File.extname(inputpath) == ".haml"
@@ -22,13 +27,6 @@ class Skeleton
     copyfile(source, File.join(dirpath, filename))
   end
 
-  def create_configuration
-    puts "\n[INFO] Creating configuration files"
-    src = File.join(File.dirname(__FILE__), "files", Asker::CONFIGFILE)
-    dst = File.join(Asker::CONFIGFILE)
-    copyfile(src, dst)
-  end
-
   private
 
   def create_dir(dirpath)
@@ -39,7 +37,8 @@ class Skeleton
         FileUtils.mkdir_p(dirpath)
         puts "* Create dir        => #{Rainbow(dirpath).green}"
       rescue
-        puts "* Create dir  ERROR => #{Rainbow(dirpath).red}"
+        warn "* Create dir  ERROR => #{Rainbow(dirpath).red}"
+        exit 1
       end
     end
   end
@@ -53,7 +52,8 @@ class Skeleton
       FileUtils.cp(target, dest)
       puts "* Create file       => #{Rainbow(dest).green}"
     rescue
-      puts "* Create file ERROR => #{Rainbow(dest).red}"
+      warn "* Create file ERROR => #{Rainbow(dest).red}"
+      exit 1
     end
   end
 end
