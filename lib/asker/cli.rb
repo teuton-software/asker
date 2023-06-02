@@ -38,9 +38,6 @@ class CLI < Thor
   (2) #{Rainbow('asker new foo').aqua}, Create "foo" dir and sample HAML file.
   Path to directory can be relative or absolute.
 
-  (3) #{Rainbow('asker new /home/user/foo/bar.yaml').aqua}, Create absolute path "dir" foo and "bar.haml" file.
-  Path to project file can be relative or absolute.
-
   LONGDESC
   def create_input(dirname)
     Asker.create_input(dirname)

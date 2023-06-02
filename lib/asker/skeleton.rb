@@ -7,14 +7,14 @@ require_relative "version"
 class Skeleton
 
   def create_configuration
-    puts "\n[INFO] Creating configuration files"
+    puts "\nCreating configuration files"
     src = File.join(File.dirname(__FILE__), "files", Asker::CONFIGFILE)
     dst = File.join(Asker::CONFIGFILE)
     copyfile(src, dst)
   end
 
   def create_input(inputpath)
-    puts "\n[INFO] Creating example input #{Rainbow(inputpath).bright}"
+    puts "\nCreating example input #{Rainbow(inputpath).bright}"
     if File.extname(inputpath) == ".haml"
       dirpath = File.dirname(inputpath)
       filename = File.basename(inputpath)
@@ -31,7 +31,7 @@ class Skeleton
 
   def create_dir(dirpath)
     if Dir.exist? dirpath
-      puts "* Exists dir!       => #{Rainbow(dirpath).yellow}"
+      puts "* Exists dir!       => #{Rainbow(dirpath).yellow.bright}"
     else
       begin
         FileUtils.mkdir_p(dirpath)
@@ -45,7 +45,7 @@ class Skeleton
 
   def copyfile(target, dest)
     if File.exist? dest
-      puts "* Exists file!      => #{Rainbow(dest).yellow}"
+      puts "* Exists file!      => #{Rainbow(dest).yellow.bright}"
       return true
     end
     begin
