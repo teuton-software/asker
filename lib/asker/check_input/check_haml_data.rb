@@ -39,19 +39,20 @@ class CheckHamlData
         data = { id: i[:id], msg: i[:msg], source: i[:source][0, 40] }
         order = i[:id] + 1
         data = { order: order, msg: i[:msg], source: i[:source][0, 40] }
-        message = Rainbow(" %<order>03d : %<msg>32s. => ").white
-        print format(message, data)
-        message = Rainbow("%<source>s").yellow.bright
-        puts format(message, data)
+        message1 = Rainbow(" %<order>03d : %<msg>32s. => ").white
+        message2 = Rainbow("%<source>s").yellow.bright
+        output = format(message1, data) +  format(message2, data)
+        warn output
       end
-      puts "..." if errors == 11
+      warn "..." if errors == 11
     end
 
     if errors.zero?
       puts Rainbow("Syntax OK!").green.bright
     else
-      message = "\nRevise #{errors.to_s} syntax error/s\n"
-      puts Rainbow(message).yellow.bright
+      message = "\nRevise #{errors.to_s} syntax warning or error/s\n"
+      warn Rainbow(message).yellow.bright
+      exit 1
     end
   end
 
