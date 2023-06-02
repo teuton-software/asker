@@ -32,8 +32,8 @@ module ContentLoader
       when "problem"
         problems << read_problem(xmldata, filepath, lang, context)
       else
-        puts Rainbow("[ERROR] Unkown tag: #{xmldata.name}").red
-        puts Rainbow("[INFO ] Available at this level: concept, code and problem").red
+        warn Rainbow("[ERROR] Unkown tag: #{xmldata.name}").red
+        warn Rainbow("        Use concept, code or problem").red
       end
     end
 
@@ -45,7 +45,7 @@ module ContentLoader
       lang_code = xmldata.root.attributes["lang"]
     rescue itself
       lang_code = ProjectData.instance.lang
-      puts Rainbow("[WARN ] Default lang: #{lang_code}").yellow
+      warn Rainbow("[WARN ] Default lang: #{lang_code}").yellow
     end
     LangFactory.instance.get(lang_code)
   end
@@ -56,7 +56,7 @@ module ContentLoader
       context.collect!(&:strip)
     rescue itself
       context = ["unknown"]
-      puts Rainbow("[WARN ] Context unkown!").yellow
+      warn Rainbow("[WARN ] Context unkown!").yellow
     end
     context
   end

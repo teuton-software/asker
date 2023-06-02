@@ -9,9 +9,9 @@ module HamlLoader
       # INFO <haml 6.1> 20221226
       # return Haml::Template.new { template }.render
     rescue => e
-      puts "[ERROR] HamlLoader: Can't load <#{filename}> file!"
-      puts "  => #{e}"
-      exit 0
+      warn Rainbow("[ERROR] HamlLoader: Can't load <#{filename}> file!").red
+      warn Rainbow("  => #{e}").red
+      exit 1
     end
     haml_engine.render
   end

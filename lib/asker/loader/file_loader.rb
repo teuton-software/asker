@@ -11,7 +11,8 @@ module FileLoader
     elsif File.extname(filename).casecmp(".xml").zero?
       file_content = File.read(filename)
     else
-      puts "[ERROR] FileLoader: Format error #{filename}"
+      msg = "[ERROR] FileLoader: Load HAML or XML file! (#{filename})"
+      warn Rainbow(msg).red
       raise msg
     end
     ContentLoader.call(filename, file_content)
