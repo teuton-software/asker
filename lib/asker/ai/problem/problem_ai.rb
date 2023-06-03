@@ -53,14 +53,31 @@ class ProblemAI
         next if ask[:text].nil?
         asktext = customize(text: ask[:text], custom: custom)
         next if ask[:answer].nil?
-        answer = customize(text: ask[:answer], custom: custom)
+        correct_answer = customize(text: ask[:answer], custom: custom)
 
         # Question boolean => true
         q = Question.new(:boolean)
         q.name = "#{name}-#{counter}-problem1a-true"
-        q.text = lang.text_for(:problem1a, desc, asktext, answer)
+        q.text = lang.text_for(:problem1a, desc, asktext, correct_answer)
         q.good = 'TRUE'
         @questions << q
+
+        # Locate incorrect answers
+        incorrect_answers = []
+        @problem.asks.each do |ask|
+          next if ask[:answer].nil?
+          incorrect = customize(text: ask[:answer], custom: custom)
+          incorrect_answers << incorrect if incorrect != correct_answer
+        end
+
+        # Question boolean => true
+        if incorrect_answers.size > 0
+          q = Question.new(:boolean)
+          q.name = "#{name}-#{counter}-problem1a-false"
+          q.text = lang.text_for(:problem1a, desc, asktext, incorrect_answers.first)
+          q.good = 'FALSE'
+          @questions << q
+        end
       end
     end
   end
