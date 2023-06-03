@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require "rainbow"
 require "rexml/document"
 require_relative "../logger"
 require_relative "../data/problem"
 
 class ProblemLoader
-
   def initialize(lang, context)
     @lang = lang
     @context = context
@@ -46,8 +44,7 @@ class ProblemLoader
       when "ask"
         data[:asks] << read_ask(i, filename)
       else
-        msg = Rainbow("[ERROR] Unkown tag! problem/#{i.name} (#{filename})").color(:red)
-        Logger.verboseln msg
+        Logger.warn "[WARN] ProblemLoader: Unkown tag problem/#{i.name} (#{filename})"
       end
     end
     data
@@ -63,8 +60,7 @@ class ProblemLoader
       elsif i.name == "step"
         ask[:steps] << i.text
       else
-        msg = Rainbow("[ERROR] Unkown tag problem/ask/#{i.name} (#{filename})").color(:red)
-        Logger.verboseln msg
+        Logger.warn "[WARN] ProblemLoader: Unkown tag problem/ask/#{i.name} (#{filename})"
       end
     end
     ask
@@ -77,8 +73,7 @@ class ProblemLoader
       if i.name == "case"
         cases << i.text.split(",").map{ _1.strip }
       else
-        msg = Rainbow("[ERROR] Unkown tag problem/cases/#{i.name} (#{filename})").color(:red)
-        Logger.verboseln msg
+        Logger.warn "[WARN] ProblemLoader: Unkown tag problem/cases/#{i.name} (#{filename})"
       end
     end
     cases

@@ -32,8 +32,7 @@ module ContentLoader
       when "problem"
         problems << read_problem(xmldata, filepath, lang, context)
       else
-        Logger.warn "[WARN] ContentLoader: Unkown tag#{xmldata.name}"
-        Logger.warn "       Use concept, code or problem"
+        Logger.warn "[WARN] ContentLoader: Unkown tag #{xmldata.name} (Use concept, code or problem)"
       end
     end
 

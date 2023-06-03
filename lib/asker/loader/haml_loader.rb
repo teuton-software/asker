@@ -1,4 +1,5 @@
 require "haml"
+require_relative "../logger"
 
 module HamlLoader
   def self.load(filename)
@@ -9,8 +10,8 @@ module HamlLoader
       # INFO <haml 6.1> 20221226
       # return Haml::Template.new { template }.render
     rescue => e
-      warn Rainbow("[ERROR] HamlLoader: Can't load <#{filename}> file!").red
-      warn Rainbow("  => #{e}").red
+      Logger.warn "[ERROR] HamlLoader: Can't load <#{filename}> file!"
+      Logger.warn "  => #{e}"
       exit 1
     end
     haml_engine.render

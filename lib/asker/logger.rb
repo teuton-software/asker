@@ -17,7 +17,7 @@ class Logger
   def self.warn(msg)
     msg = Rainbow(msg).yellow.bright
     puts msg if @verbose == "yes"
-    @logfile&.write(msg)
+    @logfile&.write(msg + "\n")
   end
 
   def self.error(msg)
