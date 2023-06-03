@@ -16,13 +16,13 @@ module EmbeddedFile
     return load_video(value, localdir) if is_video? value
 
     if is_url? value
-      Logger.error "[ERROR] EmbebbedFile. Unkown URL: #{value}"
+      Logger.error "EmbebbedFile: Unkown URL (#{value})"
       exit 1
     end
 
     filepath = File.join(localdir, value)
     unless File.exist?(filepath)
-      Logger.error "[ERROR] EmbeddedFile: File does not exist! #{filepath}"
+      Logger.error "EmbeddedFile: File does not exist (#{filepath})"
       exit 1
     end
 
@@ -66,7 +66,7 @@ module EmbeddedFile
 
     filepath = File.join(localdir, value)
     unless File.exist?(filepath)
-      Logger.error "[ERROR] Audio file no exists!: #{filepath}"
+      Logger.error "EmbebbedFile: Audio file no exists (#{filepath})"
       exit 1
     end
     output[:text] = '<audio controls><source src="@@PLUGINFILE@@/' + File.basename(filepath) \
@@ -91,7 +91,7 @@ module EmbeddedFile
 
     filepath = File.join(localdir, value)
     unless File.exist?(filepath)
-      Logger.error "[ERROR] EmbeddedFile: Unknown file! #{filepath}"
+      Logger.error "EmbeddedFile: Unknown file (#{filepath})"
       exit 1
     end
     output[:text] = '<img src="@@PLUGINFILE@@/' + File.basename(filepath) \
@@ -116,7 +116,7 @@ module EmbeddedFile
 
     filepath = File.join(localdir, value)
     unless File.exist?(filepath)
-      Logger.error "[ERROR] Unknown file! #{filepath}"
+      Logger.error "Unknown file (#{filepath})"
       exit 1
     end
     output[:text] = '<video controls><source src="@@PLUGINFILE@@/' \

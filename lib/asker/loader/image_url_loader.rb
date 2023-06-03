@@ -1,5 +1,6 @@
 require "net/http"
 require "uri"
+require_relative "../logger"
 
 # Search URL images on Internet
 # Methods:
@@ -15,7 +16,8 @@ module ImageUrlLoader
     elsif input.instance_of? Array
       filters = sanitize_array(input.clone)
     else
-      raise "[ERROR] ImageUrlLoader: Unkown type #{input.class}"
+      Logger.error "ImageUrlLoader: Unkown type (#{input.class})"
+      exit 1
     end
     # Search Image URLs from Google site, selected by <filters>
     search_url = "https://www.google.es/search?q="
@@ -33,10 +35,9 @@ module ImageUrlLoader
         end
       end
     rescue
-      puts "[ERROR] ImageUrlLoader"
-      puts " => #{search_url}"
-      puts " => Check Internet connections"
-      puts " => Ensure URL is well formed"
+      Logger.warn "ImageUrlLoader: Problems with URL (#{search_url})"
+      Logger.warn "                (a) Check Internet connections"
+      Logger.warn "                (b) Ensure URL is well formed"
     end
     image_urls
   end

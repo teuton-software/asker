@@ -1,5 +1,6 @@
 require_relative "content_loader"
 require_relative "haml_loader"
+require_relative "../logger"
 
 ##
 # Load a filename and return a Hash with concepts list and code list
@@ -11,9 +12,8 @@ module FileLoader
     elsif File.extname(filename).casecmp(".xml").zero?
       file_content = File.read(filename)
     else
-      msg = "[ERROR] FileLoader: Load HAML or XML file! (#{filename})"
-      warn Rainbow(msg).red
-      raise msg
+      Logger.error "FileLoader: HAML or XML required (#{filename})"
+      exit 1
     end
     ContentLoader.call(filename, file_content)
   end

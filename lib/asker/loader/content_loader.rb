@@ -44,7 +44,7 @@ module ContentLoader
       lang_code = xmldata.root.attributes["lang"]
     rescue itself
       lang_code = ProjectData.instance.lang
-      Logger.warn "[WARN ] ContentLoader: Default lang #{lang_code}"
+      Logger.warn "ContentLoader: Applying default lang (#{lang_code})"
     end
     LangFactory.instance.get(lang_code)
   end
@@ -55,7 +55,7 @@ module ContentLoader
       context.collect!(&:strip)
     rescue itself
       context = ["unknown"]
-      Logger.warn "[WARN ] ContentLoader: Context unkown!"
+      Logger.warn "ContentLoader: Context is empty!"
     end
     context
   end
@@ -82,8 +82,8 @@ module ContentLoader
   end
 
   private_class_method def self.raise_error_with(filepath, content)
-    Logger.error "[ERROR] ContentLoader: Format error in #{filepath}\n"
-    Logger.error "        Take a look at ouput/error.xml"
+    Logger.error "ContentLoader: Format error (#{filepath})"
+    Logger.error "             : Revise output file (ouput/error.xml)"
     f = File.open("output/error.xml", "w")
     f.write(content)
     f.close
