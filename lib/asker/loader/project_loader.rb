@@ -2,6 +2,7 @@
 
 require "yaml"
 require_relative "../data/project_data"
+require_relative "../logger"
 
 module ProjectLoader
   ##
@@ -21,8 +22,8 @@ module ProjectLoader
     end
 
     msg = "[ERROR] ProjectLoader: Configuration params format is <#{args.class}>!"
-    puts Rainbow(msg).red
-    raise msg
+    Logger.error msg
+    exit 1
   end
 
   ##
@@ -34,7 +35,7 @@ module ProjectLoader
   def self.load_from_string(filepath)
     project = ProjectData.instance
     unless File.exist?(filepath)
-      warn Rainbow("[ERROR] ProjectLoader: #{filepath} not found!").red.bright
+      Logger.error "[ERROR] ProjectLoader: #{filepath} not found!"
       exit 1
     end
 
@@ -59,7 +60,7 @@ module ProjectLoader
   ##
   # Error found and exit application.
   def self.error_loading(arg)
-    warn Rainbow("[ERROR] ProjectLoader: Loading... #{arg}").red.bright
+    Logger.error  "[ERROR] ProjectLoader: Loading... #{arg}"
     exit 1
   end
 end
