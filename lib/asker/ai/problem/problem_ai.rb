@@ -47,14 +47,21 @@ class ProblemAI
     lang = @problem.lang
 
     @customs.each do |custom|
-      text = customize(text: @problem.desc, custom: custom)
+      desc = customize(text: @problem.desc, custom: custom)
 
-      # Question boolean => true
-      q = Question.new(:boolean)
-      q.name = "#{problem.name}-#{counter}-d2true"
-      q.text = lang.text_for(:d2, name, text)
-      q.good = 'TRUE'
-      @questions << q
+      @problem.asks.each do |ask|
+        next if ask[:text].nil?
+        asktext = customize(text: ask[:text], custom: custom)
+        next if ask[:answer].nil?
+        answer = customize(text: ask[:answer], custom: custom)
+
+        # Question boolean => true
+        q = Question.new(:boolean)
+        q.name = "#{name}-#{counter}-problem1a-true"
+        q.text = lang.text_for(:problem1a, desc, asktext, answer)
+        q.good = 'TRUE'
+        @questions << q
+      end
     end
   end
 end

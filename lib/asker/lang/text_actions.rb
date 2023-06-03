@@ -15,7 +15,6 @@ module TextActions
     @_text6 = input[5]
     @_text7 = input[6]
 
-    # Check if exists option before use it
     if @templates[option].nil?
       Logger.error "TextActions: Unkown template (#{option})"
       exit 1

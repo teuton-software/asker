@@ -1,9 +1,8 @@
 
 require_relative '../version'
+require_relative "../formatter/question_moodle_formatter"
 require_relative 'concept_ai_moodle_exporter'
-require_relative 'code_moodle_exporter'
 
-# Export data to MoodleXML file
 module DataMoodleExporter
 
   def self.export_all(data, project)
@@ -21,15 +20,28 @@ module DataMoodleExporter
       ConceptAIMoodleExporter.run(concept_ai, file)
     end
 
-    data[:codes_ai].each do |code|
-      CodeMoodleExporter.run(code, file)
-    end
-
-    data[:problems].each do |problem|
-      ProblemMoodleExporter.new.call(problem, file)
-    end
+    export_codes(codes: data[:codes_ai], file: file)
+    export_problems(problems: data[:problems], file: file)
 
     file.write("</quiz>\n")
     file.close
+  end
+
+  def self.export_codes(codes:, file:)
+    codes.each do |code|
+      next unless code.process?
+      code.questions.each do |question|
+        file.write QuestionMoodleFormatter.to_s(question)
+      end
+    end
+  end
+
+  def self.export_problems(problems: ,file:)
+    problems.each do |problem|
+      next unless problem.process?
+      problem.questions.each do |question|
+        file.write QuestionMoodleFormatter.to_s(question)
+      end
+    end
   end
 end
