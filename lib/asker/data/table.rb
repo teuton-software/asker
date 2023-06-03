@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'row'
-require_relative 'template'
+require_relative "row"
+require_relative "template"
+require_relative "../logger"
 
-# Contains data table information
 class Table
   attr_reader :name, :id
   attr_reader :fields, :sequence
@@ -14,7 +14,6 @@ class Table
   attr_reader :simple
 
   ##
-  # initialize Table object
   # @param concept (Concept)
   # @param xml_data (XML)
   def initialize(concept, xml_data)
@@ -93,7 +92,7 @@ class Table
       when 'type'
         read_type_from_xml(i)
       else
-        puts Rainbow("[ERROR] concept/table#xml_data with #{i.name}").red.bright
+        Logger.warn "Table: Tag unkown (concept/table/#{i.name})"
       end
     end
   end

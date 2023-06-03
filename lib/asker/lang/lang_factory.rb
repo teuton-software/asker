@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'singleton'
-require_relative 'lang'
-require_relative '../application'
+require "singleton"
+require_relative "lang"
+require_relative "../application"
+require_relative "../logger"
 
 ##
-# LangFactory singleton class.
 # * Read all language codes defined into configuration file
 # * and load every language
 # Lang objects are reused
@@ -31,15 +31,13 @@ class LangFactory
   def get(code)
     return @langs[code] unless @langs[code].nil?
 
-    puts Rainbow("[ERROR] Unkown Lang code: #{code}").bright
-    puts Rainbow('        => Change input file code lang').bright
-    puts Rainbow('        => Revise configuration from config.ini').bright
-    puts Rainbow('        => Revise template files').bright
+    Logger.error "LangFactory: Unkown Lang code: #{code}"
+    Logger.error "             (a) Change input file code lang"
+    Logger.error "             (b) Revise configuration from asker.ini"
+    Logger.error "             (c) Revise template files"
     exit 1
   end
 
-  ##
-  # Return default Lang object
   def default
     get(@default)
   end

@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require_relative "../logger"
+
 module TextActions
   ##
   # Set of functions used by Lang class
@@ -14,8 +16,10 @@ module TextActions
     @_text7 = input[6]
 
     # Check if exists option before use it
-    raise "[ERROR] Unkown template #{option}" if @templates[option].nil?
-
+    if @templates[option].nil?
+      Logger.error "TextActions: Unkown template (#{option})"
+      exit 1
+    end
     renderer = ERB.new(@templates[option])
     renderer.result(binding)
   end

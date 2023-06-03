@@ -1,8 +1,8 @@
 
-require 'erb'
-require 'yaml'
-require_relative 'text_actions'
-require_relative '../logger'
+require "erb"
+require "yaml"
+require_relative "text_actions"
+require_relative "../logger"
 
 class Lang
   include TextActions
@@ -35,10 +35,9 @@ class Lang
     begin
       content = YAML.load(File.new(filepath))
     rescue StandardError => e
-      Logger.verboseln '[ERROR] Lang.initialize():' \
-                       " Reading YAML file <#{filepath}>"
-      Logger.verboseln '[ADVISE] Revise apostrophe into string without \ symbol'
-      raise e
+      Logger.error "Lang: YAML loading error (#{filepath})"
+      Logger.error "    : Revise apostrophe into string without \\ symbol"
+      exit 1
     end
     content
   end
