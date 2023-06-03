@@ -1,10 +1,8 @@
+/html/
+/output/
+/pkg/
+/private/
+/.yardoc/
 asker.ini
-.yardoc/
-*.devel/
 *.gem
 *.lock
-html/
-output
-private*
-priv*
-pkg/*
