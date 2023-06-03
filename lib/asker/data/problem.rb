@@ -1,3 +1,5 @@
+require_relative "../logger"
+
 class Problem
   attr_accessor :lang
   attr_accessor :context
@@ -50,24 +52,26 @@ class Problem
   def validate
     @cases.each do |acase|
       if acase.size != @varnames.size
-        puts "[ERROR] problem/varnames.size not equal to problem/cases/size"
-        puts "        varnames size #{@varnames.size} (#{@varnames.join(",")})"
-        puts "           cases size #{acase.size} (#{acase.join(",")})"
+        Logger.error "Problem: problem/varnames.size not equal to problem/cases/size"
+        Logger.error "       : varnames size #{@varnames.size} (#{@varnames.join(",")})"
+        Logger.error "       : cases size #{acase.size} (#{acase.join(",")})"
+        exit 1
       end
     end
 
     if !@varnames.size.zero? && @cases.size.zero?
-      puts "[ERROR] No problem/case"
+      Logger.warn "Problem: No problem/case"
     end
 
     if @asks.size.zero?
-      puts "[ERROR] No problem/ask"
+      Logger.warn "Problem: No problem/ask"
     end
 
     @asks.each do |ask|
-      puts "[ERROR] No problem/ask/text" if ask[:text].nil?
+      Logger.warn "Problem: No problem/ask/text" if ask[:text].nil?
       if ask[:answer].nil? && ask[:steps].size.zero?
-        puts "[ERROR] No problem/ask/answer or problem/ask/step"
+        Logger.error "Problem: No problem/ask/answer or problem/ask/step"
+        exit 1
       end
     end
   end

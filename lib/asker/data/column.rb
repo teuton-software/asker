@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "../logger"
+
 # Contain data information for every column
 # Params:
 # * +pRow+ - Parent row for this column
@@ -9,7 +11,6 @@ class Column
   attr_reader :row, :index, :id, :raw, :lang, :type, :simple
 
   ##
-  # initialize Column
   # @param row (Row)
   # @param index (Integer)
   # @param xml_data (XMLdata)
@@ -17,7 +18,7 @@ class Column
     @row    = row
     @index  = index
     @id     = "#{@row.id}.#{@index}"
-    @raw    = ''
+    @raw    = ""
     @lang   = @row.langs[@index]
     @type   = @row.types[@index]
     @simple = { lang: true, type: true }
@@ -39,7 +40,10 @@ class Column
   private
 
   def read_data_from_xml(xml_data)
-    raise '[ERROR] Column with elements!' if xml_data.elements.count.positive?
+    if xml_data.elements.count.positive?
+      Logger.error "Column: Do not use elements!"
+      exit 1
+    end
 
     @raw = xml_data.text.strip.to_s
 

@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-require_relative 'column'
+require_relative "column"
+require_relative "../logger"
 
-##
-# Row objects
 class Row
   attr_reader :table, :index, :id
   attr_reader :langs, :types, :raws, :columns
@@ -40,7 +39,10 @@ class Row
       build_row_with_n_columns(xml_data)
     end
 
-    raise "[ERROR] Row: #{xml_data}" unless @columns.size == @table.fields.size
+    unless @columns.size == @table.fields.size
+      Logger.error "Row: columns size != table.fields.size (#{xml_data})"
+      exit 1
+    end
   end
 
   def build_row_with_1_column(xml_data)
