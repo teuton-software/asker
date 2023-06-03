@@ -21,8 +21,7 @@ module ProjectLoader
       return project
     end
 
-    msg = "[ERROR] ProjectLoader: Configuration params format is <#{args.class}>!"
-    Logger.error msg
+    Logger.error "ProjectLoader: loading args with incorrect type (#{args.class})"
     exit 1
   end
 
@@ -35,7 +34,7 @@ module ProjectLoader
   def self.load_from_string(filepath)
     project = ProjectData.instance
     unless File.exist?(filepath)
-      Logger.error "[ERROR] ProjectLoader: #{filepath} not found!"
+      Logger.error "ProjectLoader: #{filepath} not found!"
       exit 1
     end
 
@@ -60,7 +59,7 @@ module ProjectLoader
   ##
   # Error found and exit application.
   def self.error_loading(arg)
-    Logger.error  "[ERROR] ProjectLoader: Loading... #{arg}"
+    Logger.error  "ProjectLoader: Loading... #{arg}"
     exit 1
   end
 end

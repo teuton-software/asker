@@ -1,16 +1,7 @@
-require 'rainbow'
-require_relative 'check_input/check_haml_data'
+require_relative "check_input/check_haml_data"
+require_relative "logger"
 
 class CheckInput
-  def initialize(verbose = true)
-    @verbose = verbose
-  end
-
-  def verbose(verbose)
-    @verbose = verbose
-    self
-  end
-
   def check(filepath)
     @filepath = filepath
     # Check HAML file syntax
@@ -23,16 +14,16 @@ class CheckInput
 
   def check_file_exist
     if @filepath.nil?
-      puts Rainbow("[ERROR] Can't check nil filename").red.bright
-      return false
+      Logger.error "CheckInput: Unkown filename"
+      exit 1
     end
     unless File.exist? @filepath
-      puts Rainbow("[ERROR] File not found!: #{@filepath}").red.bright if @verbose
-      return false
+      Logger.error "CheckInput: File not found! (#{@filepath})"
+      exit 1
     end
     unless File.extname(@filepath) == '.haml'
-      puts Rainbow("[ERROR] Check require's HAML file!").red.bright if @verbose
-      return false
+      Logger.error "CheckInput: Check works with HAML files!"
+      exit 1
     end
     true
   end

@@ -44,7 +44,7 @@ class ProblemLoader
       when "ask"
         data[:asks] << read_ask(i, filename)
       else
-        Logger.warn "[WARN] ProblemLoader: Unkown tag problem/#{i.name} (#{filename})"
+        Logger.warn "ProblemLoader: Unkown tag problem/#{i.name} (#{filename})"
       end
     end
     data
@@ -60,7 +60,7 @@ class ProblemLoader
       elsif i.name == "step"
         ask[:steps] << i.text
       else
-        Logger.warn "[WARN] ProblemLoader: Unkown tag problem/ask/#{i.name} (#{filename})"
+        Logger.warn "ProblemLoader: Unkown tag problem/ask/#{i.name} (#{filename})"
       end
     end
     ask
@@ -73,7 +73,7 @@ class ProblemLoader
       if i.name == "case"
         cases << i.text.split(",").map{ _1.strip }
       else
-        Logger.warn "[WARN] ProblemLoader: Unkown tag problem/cases/#{i.name} (#{filename})"
+        Logger.warn "ProblemLoader: Unkown tag problem/cases/#{i.name} (#{filename})"
       end
     end
     cases

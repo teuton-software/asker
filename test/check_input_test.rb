@@ -2,12 +2,19 @@ require "test/unit"
 require_relative "../lib/asker/check_input"
 
 class CheckInputTest < Test::Unit::TestCase
-  def test_action_check
-    checker = CheckInput.new(false)
+  def setup
+    @checker = CheckInput.new
+  end
 
-    file = "docs/examples/bands/david.haml"
-    assert_equal false, checker.check(file)
-    file = "docs/examples/bands/acdc.haml"
-    assert_equal true,  checker.check(file)
+  def test_check_fail
+    filename = File.join("docs", "examples", "bands", "david.haml")
+    Logger.instance.set_verbose(false)
+    assert_equal false, @checker.check(filename)
+  end
+
+  def test_check_ok
+    filename = File.join("docs", "examples", "bands", "acdc.haml")
+    Logger.instance.set_verbose(false)
+    assert_equal true, @checker.check(filename)
   end
 end

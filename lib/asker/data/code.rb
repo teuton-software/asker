@@ -37,7 +37,7 @@ class Code
     return if filepath.nil?
 
     unless File.exist? filepath
-      Logger.warn "[WARN] Code: Unkown file (#{filepath})"
+      Logger.warn "Code: Unkown file (#{filepath})"
       return
     end
     content = File.read(filepath)
@@ -55,7 +55,7 @@ class Code
     begin
       text = ec.convert(text)
     rescue StandardError => e
-      Logger.warn "[WARN] Code: Encoding error (#{e}) with filename (#{@filename})"
+      Logger.warn "Code: Encoding error (#{e}) with filename (#{@filename})"
     end
 
     text.split("\n")

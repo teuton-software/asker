@@ -1,10 +1,10 @@
-require 'rainbow'
-require 'rexml/document'
+require "rexml/document"
 
-require_relative '../lang/lang_factory'
-require_relative '../loader/embedded_file'
-require_relative 'table'
-require_relative 'data_field'
+require_relative "../lang/lang_factory"
+require_relative "../loader/embedded_file"
+require_relative "../logger"
+require_relative "table"
+require_relative "data_field"
 
 class Concept
   attr_reader :id        # Unique identifer (Integer)
@@ -147,8 +147,7 @@ class Concept
       when "table"
         @data[:tables] << Table.new(self, i)
       else
-        text = "   [ERROR] Concept #{name} with unkown attribute: #{i.name}"
-        puts Rainbow(text).color(:red)
+        Logger.warn "Concept #{name} with unkown attribute: #{i.name}"
       end
     end
   end
@@ -162,8 +161,8 @@ class Concept
 
   def process_tags(value)
     if value.text.nil? || value.text.size.zero?
-      puts Rainbow("[ERROR] Concept without tags: #{name} ").red.bright
-      exit 1
+      Logger.warn "Concept: Concept #{name} without <tags>"
+      return []
     end
 
     @data[:tags] = value.text.split(',')
@@ -180,14 +179,12 @@ class Concept
       @data[:images] << EmbeddedFile.load(value.text.strip, File.dirname(@filename))
     when nil
       if value.text.nil?
-        warn Rainbow("[WARN] def: without text!").yellow.bright
+        Logger.warn "Concept: def/text empty!"
       else
         @data[:texts] << value.text.strip
       end
     else
-      msg = "[ERROR] Unknown type: #{value.attributes['type']}"
-      puts Rainbow(msg).red.bright
-      exit 1
+      Logger.warn "Concept: Unknown def/type (#{value.attributes['type']})"
     end
   end
 end

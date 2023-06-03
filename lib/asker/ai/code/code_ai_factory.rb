@@ -23,7 +23,7 @@ module CodeAIFactory
     when :vagrantfile
       return RubyCodeAI.new(code)
     else
-      Logger.warn "[WARN] CodeAIFactory: Invalid type (#{type})"
+      Logger.warn "CodeAIFactory: Invalid type (#{type})"
     end
     nil
   end

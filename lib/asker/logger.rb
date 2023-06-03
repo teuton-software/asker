@@ -3,31 +3,35 @@ require_relative "version"
 
 class Logger
   include Singleton
-  @verbose = "yes"
+  @verbose = true
 
   def set_verbose(value)
-    @verbose = value
+    @verbose = if value == "yes"
+      true
+    else
+      false
+    end
   end
 
   def self.info(msg)
-    puts msg if @verbose == "yes"
+    puts msg if @verbose
     @logfile&.write(msg)
   end
 
   def self.warn(msg)
-    msg = Rainbow(msg).yellow.bright
-    puts msg if @verbose == "yes"
-    @logfile&.write(msg + "\n")
+    msg = Rainbow("[WARN] #{msg}\n").yellow.bright
+    puts msg if @verbose
+    @logfile&.write(msg)
   end
 
   def self.error(msg)
-    msg = Rainbow(msg).red
-    warn msg if @verbose == "yes"
+    msg = Rainbow("[ERROR] #{msg}\n").red
+    Warning.warn msg if @verbose
     @logfile&.write(msg)
   end
 
   def self.verbose(msg)
-    print msg if @verbose == "yes"
+    print msg if @verbose
     @logfile&.write(msg)
   end
 
