@@ -1,11 +1,9 @@
-
+require_relative "../application"
 require_relative '../version'
 require_relative "../formatter/question_moodle_formatter"
-require_relative 'concept_ai_moodle_exporter'
 
 module DataMoodleExporter
-
-  def self.export_all(data, project)
+  def self.call(data, project)
     file = File.open(project.get(:moodlepath), 'w')
     file.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
     file.write("<quiz>\n")
@@ -16,15 +14,24 @@ module DataMoodleExporter
     file.write(" Time       : #{Time.new}\n")
     file.write("#{('=' * 50)}\n-->\n\n")
 
-    data[:concepts_ai].each do |concept_ai|
-      ConceptAIMoodleExporter.run(concept_ai, file)
-    end
-
+    export_concepts(concepts: data[:concepts_ai], file: file)
     export_codes(codes: data[:codes_ai], file: file)
     export_problems(problems: data[:problems], file: file)
 
     file.write("</quiz>\n")
     file.close
+  end
+
+  def self.export_concepts(concepts:, file:)
+    concepts.each do |concept_ai|
+      next unless concept_ai.concept.process?
+
+      Application.instance.config['questions']['stages'].each do |stage|
+        concept_ai.questions[stage].each do |question|
+          file.write(QuestionMoodleFormatter.to_s(question))
+        end
+      end
+    end
   end
 
   def self.export_codes(codes:, file:)

@@ -9,9 +9,10 @@ require_relative 'data_moodle_exporter'
 module OutputFileExporter
   def self.export(data, project)
     config = Application.instance.config
+
     ConceptAIYAMLExporter.export_all(data[:concepts_ai], project) if config['output']['yaml'] == 'yes'
     ConceptDocExporter.export_all(data[:concepts], project) if config['output']['doc'] == 'yes'
     DataGiftExporter.export_all(data, project) if config['output']['gift'] == 'yes'
-    DataMoodleExporter.export_all(data, project) if config['output']['moodle'] == 'yes'
+    DataMoodleExporter.call(data, project) if config['output']['moodle'] == 'yes'
   end
 end
