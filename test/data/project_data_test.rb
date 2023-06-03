@@ -1,12 +1,9 @@
-#!/usr/bin/ruby
-
 require 'test/unit'
 require 'fileutils'
 require_relative '../../lib/asker/data/project_data'
 require_relative '../../lib/asker/application'
 
 class ProjectDataTest < Test::Unit::TestCase
-
   def setup
     @project = ProjectData.instance
     @project.reset
@@ -39,14 +36,14 @@ class ProjectDataTest < Test::Unit::TestCase
     assert_equal projectname, @project.get(:projectname)
 
     assert_equal "#{projectname}-gift.txt", @project.get(:outputname)
-    assert_equal "#{projectname}-log.txt" , @project.get(:logname)
-    assert_equal "#{projectname}-doc.txt" , @project.get(:lessonname)
+    assert_equal "#{projectname}.log" , @project.get(:logname)
+    assert_equal "#{projectname}.txt" , @project.get(:lessonname)
     assert_equal "#{projectname}.yaml" , @project.get(:yamlname)
     assert_equal "#{projectname}-moodle.xml" , @project.get(:moodlename)
 
     assert_equal File.join("output", "#{projectname}-gift.txt"), @project.get(:outputpath)
-    assert_equal File.join("output", "#{projectname}-log.txt" ), @project.get(:logpath)
-    assert_equal File.join("output", "#{projectname}-doc.txt" ), @project.get(:lessonpath)
+    assert_equal File.join("output", "#{projectname}.log" ), @project.get(:logpath)
+    assert_equal File.join("output", "#{projectname}.txt" ), @project.get(:lessonpath)
     assert_equal File.join("output", "#{projectname}.yaml" ), @project.get(:yamlpath)
     assert_equal File.join("output", "#{projectname}-moodle.xml" ), @project.get(:moodlepath)
   end

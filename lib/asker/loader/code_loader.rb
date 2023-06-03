@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "rainbow"
 require "rexml/document"
 require_relative "../logger"
 require_relative "../data/code"
@@ -34,8 +33,7 @@ module CodeLoader
       if i.name == "row"
         features << i.text
       else
-        msg = Rainbow("[ERROR] features/#{i.name} from #{filename}").color(:red)
-        Logger.verboseln msg
+        Logger.error "[ERROR] features/#{i.name} from #{filename}"
       end
     end
     features
