@@ -1,6 +1,6 @@
 
-require_relative "../lang/lang_factory"
-require_relative "question"
+require_relative "../../lang/lang_factory"
+require_relative "../question"
 
 class ProblemAI
   attr_accessor :problem
