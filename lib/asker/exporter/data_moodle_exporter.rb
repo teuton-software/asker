@@ -5,19 +5,27 @@ require_relative "../formatter/question_moodle_formatter"
 module DataMoodleExporter
   def self.call(data, project)
     file = File.open(project.get(:moodlepath), 'w')
-    file.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
-    file.write("<quiz>\n")
-    file.write("<!--\n#{('=' * 50)}\n")
-    file.write(" Created by : #{Asker::NAME}")
-    file.write(" (version #{Asker::VERSION})\n")
-    file.write(" File       : #{project.get(:moodlename)}\n")
-    file.write(" Time       : #{Time.new}\n")
-    file.write("#{('=' * 50)}\n-->\n\n")
+    add_header(file, project)
 
     export_concepts(concepts: data[:concepts_ai], file: file)
     export_codes(codes: data[:codes_ai], file: file)
     export_problems(problems: data[:problems], file: file)
 
+    close(file)
+  end
+
+  def self.add_header(file, project)
+    file.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
+    file.write("<quiz>\n")
+    file.write("<!--\n#{('=' * 50)}\n")
+    file.write(" #{Asker::NAME}    : version #{Asker::VERSION}\n")
+    file.write(" Filename : #{project.get(:moodlename)}\n")
+    file.write(" Datetime : #{Time.new}\n")
+    file.write("#{('=' * 50)}\n-->\n\n")
+    file
+  end
+
+  def self.close(file)
     file.write("</quiz>\n")
     file.close
   end
