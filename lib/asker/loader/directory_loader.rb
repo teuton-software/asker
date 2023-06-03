@@ -18,9 +18,8 @@ module DirectoryLoader
   def self.check_dir(dirname)
     return if Dir.exist? dirname
 
-    msg = "[ERROR] DirectoryLoader: #{dirname} directory dosn't exist!"
-    Logger.error msg
-    raise msg
+    Logger.error "DirectoryLoader: #{dirname} directory dosn't exist!"
+    exit 1
   end
 
   ##

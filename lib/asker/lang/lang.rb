@@ -37,6 +37,7 @@ class Lang
     rescue StandardError => e
       Logger.error "Lang: YAML loading error (#{filepath})"
       Logger.error "    : Revise apostrophe into string without \\ symbol"
+      Logger.error "    : #{e}"
       exit 1
     end
     content

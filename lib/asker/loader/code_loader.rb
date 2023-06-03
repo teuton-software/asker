@@ -33,7 +33,7 @@ module CodeLoader
       if i.name == "row"
         features << i.text
       else
-        Logger.error "[ERROR] features/#{i.name} from #{filename}"
+        Logger.error "CodeLoader: features/#{i.name} from #{filename}"
       end
     end
     features
