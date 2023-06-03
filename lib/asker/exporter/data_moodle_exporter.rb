@@ -25,6 +25,10 @@ module DataMoodleExporter
       CodeMoodleExporter.run(code, file)
     end
 
+    data[:problems].each do |problem|
+      ProblemMoodleExporter.new.call(problem, file)
+    end
+
     file.write("</quiz>\n")
     file.close
   end

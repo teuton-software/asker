@@ -1,9 +1,8 @@
-
-require "rainbow"
 require_relative "javascript_code_ai"
 require_relative "python_code_ai"
 require_relative "ruby_code_ai"
 require_relative "sql_code_ai"
+require_relative "../../logger"
 
 module CodeAIFactory
   ##
@@ -24,7 +23,7 @@ module CodeAIFactory
     when :vagrantfile
       return RubyCodeAI.new(code)
     else
-      puts Rainbow("[ERROR] <#{type}> is not valid type").red.bright
+      Logger.warn "[WARN] CodeAIFactory: Invalid type (#{type})"
     end
     nil
   end
