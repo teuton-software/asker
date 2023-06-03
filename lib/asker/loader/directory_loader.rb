@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "file_loader"
+require_relative "../logger"
 
 module DirectoryLoader
   ##
@@ -14,14 +15,11 @@ module DirectoryLoader
     DirectoryLoader.load_files(accepted, dirname)
   end
 
-  ##
-  # Check directory
-  # @param dirname (String) Directory name
   def self.check_dir(dirname)
     return if Dir.exist? dirname
 
-    msg = Rainbow("[ERROR] DirectoryLoader: #{dirname} directory dosn't exist!").color(:red)
-    warn msg
+    msg = "[ERROR] DirectoryLoader: #{dirname} directory dosn't exist!"
+    Logger.error msg
     raise msg
   end
 

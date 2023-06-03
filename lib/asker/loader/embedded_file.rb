@@ -1,4 +1,5 @@
 require "base64"
+require_relative "../logger"
 
 # Methods to load embedded files defined into asker input data file
 # Example:
@@ -15,14 +16,13 @@ module EmbeddedFile
     return load_video(value, localdir) if is_video? value
 
     if is_url? value
-      Logger.verbose Rainbow("[ERROR] EmbebbedFile. Unkown URL: #{value}").red.bright
+      Logger.error "[ERROR] EmbebbedFile. Unkown URL: #{value}"
       exit 1
     end
 
     filepath = File.join(localdir, value)
     unless File.exist?(filepath)
-      Logger.verbose Rainbow("[ERROR] EmbeddedFile. File does not exist!: #{filepath}").red.bright
-      # return { text: "URI error", file: :none, type: :unkown }
+      Logger.error "[ERROR] EmbeddedFile: File does not exist! #{filepath}"
       exit 1
     end
 
@@ -66,7 +66,7 @@ module EmbeddedFile
 
     filepath = File.join(localdir, value)
     unless File.exist?(filepath)
-      Logger.verbose Rainbow("[ERROR] Audio file no exists!: #{filepath}").red.bright
+      Logger.error "[ERROR] Audio file no exists!: #{filepath}"
       exit 1
     end
     output[:text] = '<audio controls><source src="@@PLUGINFILE@@/' + File.basename(filepath) \
@@ -91,7 +91,7 @@ module EmbeddedFile
 
     filepath = File.join(localdir, value)
     unless File.exist?(filepath)
-      Logger.verbose Rainbow("[ERROR] Unknown file! #{filepath}").red.bright
+      Logger.error "[ERROR] EmbeddedFile: Unknown file! #{filepath}"
       exit 1
     end
     output[:text] = '<img src="@@PLUGINFILE@@/' + File.basename(filepath) \
@@ -116,7 +116,7 @@ module EmbeddedFile
 
     filepath = File.join(localdir, value)
     unless File.exist?(filepath)
-      Logger.verbose Rainbow("[ERROR] Unknown file! #{filepath}").red.bright
+      Logger.error "[ERROR] Unknown file! #{filepath}"
       exit 1
     end
     output[:text] = '<video controls><source src="@@PLUGINFILE@@/' \

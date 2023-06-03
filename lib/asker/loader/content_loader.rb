@@ -1,10 +1,10 @@
-require "rainbow"
 require "rexml/document"
 require_relative "code_loader"
 require_relative "problem_loader"
 require_relative "../data/concept"
 require_relative "../data/project_data"
 require_relative '../lang/lang_factory'
+require_relative "../logger"
 
 module ContentLoader
   ##
@@ -32,8 +32,8 @@ module ContentLoader
       when "problem"
         problems << read_problem(xmldata, filepath, lang, context)
       else
-        warn Rainbow("[ERROR] Unkown tag: #{xmldata.name}").red
-        warn Rainbow("        Use concept, code or problem").red
+        Logger.warn "[WARN] ContentLoader: Unkown tag#{xmldata.name}"
+        Logger.warn "       Use concept, code or problem"
       end
     end
 
@@ -45,7 +45,7 @@ module ContentLoader
       lang_code = xmldata.root.attributes["lang"]
     rescue itself
       lang_code = ProjectData.instance.lang
-      warn Rainbow("[WARN ] ContentLoader: Default lang #{lang_code}").yellow.bright
+      Logger.warn "[WARN ] ContentLoader: Default lang #{lang_code}"
     end
     LangFactory.instance.get(lang_code)
   end
@@ -56,7 +56,7 @@ module ContentLoader
       context.collect!(&:strip)
     rescue itself
       context = ["unknown"]
-      warn Rainbow("[WARN ] ContentLoader: Context unkown!").yellow.bright
+      Logger.warn "[WARN ] ContentLoader: Context unkown!"
     end
     context
   end
@@ -83,9 +83,8 @@ module ContentLoader
   end
 
   private_class_method def self.raise_error_with(filepath, content)
-    msg = "[ERROR] ContentLoader: Format error in #{filepath}\n"
-    msg += "        Take a look at ouput/error.xml"
-    warn Rainbow(msg).red.bright
+    Logger.error "[ERROR] ContentLoader: Format error in #{filepath}\n"
+    Logger.error "        Take a look at ouput/error.xml"
     f = File.open("output/error.xml", "w")
     f.write(content)
     f.close
