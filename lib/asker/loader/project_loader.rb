@@ -7,7 +7,6 @@ module ProjectLoader
   ##
   # Load project from args
   # @param args (String or Hash)
-  # rubocop:disable Metrics/MethodLength
   def self.load(args)
     project = ProjectData.instance
 
@@ -32,8 +31,6 @@ module ProjectLoader
   # * XML filepath
   # * YAML filepath
   # @param filepath (String)
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def self.load_from_string(filepath)
     project = ProjectData.instance
     unless File.exist?(filepath)
