@@ -61,6 +61,16 @@ class Problem
     if !@varnames.size.zero? && @cases.size.zero?
       Logger.warn "Problem: No problem/varnames defined with no problem/case"
     end
+
+    @varnames.each_with_index do |varname1, index1|
+      @varnames.each_with_index do |varname2, index2|
+        next if index1 == index2
+        if varname1.include? varname2
+          Logger.error "Problem: varname(#{varname1}) includes varname(#{varname2}). Change one of them!"
+          exit 1
+        end
+      end
+    end
   end
 
   def validate_cases

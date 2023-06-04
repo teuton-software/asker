@@ -25,7 +25,7 @@ class Logger
   end
 
   def self.error(msg)
-    msg = Rainbow("[ERROR] #{msg}\n").red
+    msg = Rainbow("[ERROR] #{msg}\n").red.bright
     Warning.warn msg if @verbose
     @logfile&.write(msg)
   end
