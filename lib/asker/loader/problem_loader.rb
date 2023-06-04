@@ -71,7 +71,7 @@ class ProblemLoader
 
     xmldata.elements.each do |i|
       if i.name == "case"
-        cases << i.text.split(",").map{ _1.strip }
+        cases << i.text.split(",").map { _1.strip }
       else
         Logger.warn "ProblemLoader: Unkown tag problem/cases/#{i.name} (#{filename})"
       end

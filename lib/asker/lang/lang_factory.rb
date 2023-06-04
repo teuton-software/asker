@@ -12,16 +12,15 @@ require_relative "../logger"
 class LangFactory
   include Singleton
 
-  ##
-  # Read all language codes from configuration file and load every language
   def initialize
-    @default = Application.instance.config['languages']['default'].downcase
+    # Read all language codes from configuration file and load every language
+    @default = Application.instance.config["languages"]["default"].downcase
     @langs = {}
-    Application.instance.config['languages'].each_pair do |key, value|
+    Application.instance.config["languages"].each_pair do |key, value|
       code = key.downcase
-      next if code == 'default'
+      next if code == "default"
 
-      @langs[code] = Lang.new(code) if value.downcase == 'yes'
+      @langs[code] = Lang.new(code) if value.downcase == "yes"
     end
   end
 

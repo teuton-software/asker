@@ -5,7 +5,6 @@ require "rainbow"
 require_relative "version"
 
 class Skeleton
-
   def create_configuration
     puts "\nCreating configuration files"
     src = File.join(File.dirname(__FILE__), "files", Asker::CONFIGFILE)

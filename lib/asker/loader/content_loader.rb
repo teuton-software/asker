@@ -3,7 +3,7 @@ require_relative "code_loader"
 require_relative "problem_loader"
 require_relative "../data/concept"
 require_relative "../data/project_data"
-require_relative '../lang/lang_factory'
+require_relative "../lang/lang_factory"
 require_relative "../logger"
 
 module ContentLoader
@@ -51,7 +51,7 @@ module ContentLoader
 
   private_class_method def self.read_context_attribute(xmldata)
     begin
-      context = xmldata.root.attributes["context"].split(',')
+      context = xmldata.root.attributes["context"].split(",")
       context.collect!(&:strip)
     rescue itself
       context = ["unknown"]

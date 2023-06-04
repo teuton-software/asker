@@ -6,11 +6,7 @@ class Logger
   @verbose = true
 
   def set_verbose(value)
-    @verbose = if value == "yes"
-      true
-    else
-      false
-    end
+    @verbose = (value == "yes")
   end
 
   def self.info(msg)

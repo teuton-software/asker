@@ -19,20 +19,20 @@ class Start
     init_project_data
     project_data = ProjectLoader.load(args)
     Logger.create(project_data.get(:logpath))
-    Logger.instance.set_verbose(Application.instance.config['verbose'])
+    Logger.instance.set_verbose(Application.instance.config["verbose"])
 
-    inputdirs = project_data.get(:inputdirs).split(',')
-    internet = Application.instance.config['global']['internet'] == 'yes'
+    inputdirs = project_data.get(:inputdirs).split(",")
+    internet = Application.instance.config["global"]["internet"] == "yes"
     data = InputLoader.new.call(inputdirs, internet)
     [project_data, data]
   end
 
-  def init_project_data()
+  def init_project_data
     project_data = ProjectData.instance
-    outputdir = Application.instance.config['output']['folder']
+    outputdir = Application.instance.config["output"]["folder"]
     project_data.set(:outputdir, outputdir)
 
-    formula_weights = Application.instance.config['ai']['formula_weights']
+    formula_weights = Application.instance.config["ai"]["formula_weights"]
     project_data.set(:weights, formula_weights)
   end
 
