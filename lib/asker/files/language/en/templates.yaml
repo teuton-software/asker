@@ -1,5 +1,5 @@
 ---
-:none: 'No correct'
+:none: 'None correct'
 :error: 'Error'
 :misspelling: 'Misspelling'
 :true: 'True'

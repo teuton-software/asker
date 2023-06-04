@@ -14,7 +14,7 @@ class ProblemAI
     @counter = 0
     @questions = []
     @customs = get_customs(@problem)
-    make_boolean_questions
+    make_questions_with_asks
     @problem.questions = @questions
   end
 
@@ -41,7 +41,7 @@ class ProblemAI
     output
   end
 
-  def make_boolean_questions
+  def make_questions_with_asks
     name = @problem.name
     lang = @problem.lang
 
@@ -63,9 +63,9 @@ class ProblemAI
 
         # Locate incorrect answers
         incorrect_answers = []
-        @problem.asks.each do |ask|
-          next if ask[:answer].nil?
-          incorrect = customize(text: ask[:answer], custom: custom)
+        @customs.each do |aux|
+          next if aux == custom
+          incorrect = customize(text: ask[:answer], custom: aux)
           incorrect_answers << incorrect if incorrect != correct_answer
         end
 
@@ -75,6 +75,47 @@ class ProblemAI
           q.name = "#{name}-#{counter}-problem1a-false"
           q.text = lang.text_for(:problem1a, desc, asktext, incorrect_answers.first)
           q.good = "FALSE"
+          @questions << q
+        end
+
+        # Question choice NONE
+        if incorrect_answers.size > 2
+          q = Question.new(:choice)
+          q.name = "#{name}-#{counter}-problem1b-choice"
+          q.text = lang.text_for(:problem1b, desc, asktext)
+          q.good = lang.text_for(:none)
+          incorrect_answers.shuffle!
+          q.bads << incorrect_answers[0]
+          q.bads << incorrect_answers[1]
+          q.bads << incorrect_answers[2]
+          q.feedback = "Correct answer is #{correct_answer}."
+          @questions << q
+        end
+
+        # Question choice OK
+        if incorrect_answers.size > 2
+          q = Question.new(:choice)
+          q.name = "#{name}-#{counter}-problem1b-choice"
+          q.text = lang.text_for(:problem1b, desc, asktext)
+          q.good = correct_answer
+          incorrect_answers.shuffle!
+          q.bads << incorrect_answers[0]
+          q.bads << incorrect_answers[1]
+          q.bads << incorrect_answers[2]
+          q.feedback = "Correct answer is #{correct_answer}."
+          @questions << q
+        end
+
+        if incorrect_answers.size > 1
+          q = Question.new(:choice)
+          q.name = "#{name}-#{counter}-problem1b-choice"
+          q.text = lang.text_for(:problem1b, desc, asktext)
+          q.good = correct_answer
+          incorrect_answers.shuffle!
+          q.bads << incorrect_answers[0]
+          q.bads << incorrect_answers[1]
+          q.bads << lang.text_for(:none)
+          q.feedback = "Correct answer is #{correct_answer}."
           @questions << q
         end
 

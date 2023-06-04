@@ -27,3 +27,5 @@
 :t8table: 'Concepto <b><%=text1%></b><br/>Completa la siguiente asociación:<br/><ul><li><%=text2%>: "<%=text3%>"</li><li><%=text4%>: [*]</li></ul>Escribir una palabra.<br/>'
 :t9table: 'Concepto <b><%=text1%></b><br/>Completa la siguiente asociación:<br/><ul><li><%=text2%>: "<%=text3%>"</li><li><%=text4%>: <%=text5%></li></ul>Escribir <%=text6%> palabras.<br/>'
 :code1: '<pre><%=text1%></pre><br/><p>Escribir el número de línea donde está el primer error. Escribir 0 si no hay ningún error.</p>'
+:problem1a: '<p><b>Problema:</b> <%=text1%></p><ul><li>Pregunta: <i><%=text2%></i></li><li>Respuesta: <i><%=text3%></i></li></ul>'
+:problem1b: '<p><b>Problema:</b> <%=text1%></p><p>Pregunta: <i><%=text2%></i></p>'
