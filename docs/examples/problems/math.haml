@@ -1,18 +1,21 @@
 %map{ lang: 'en', context: 'arithmetic,math,problems', version: '1'}
 
   %problem
-    %cases{ varnames: 'N1, N2, SUM, SUB' }
-      %case 3, 2, 5, 1
-      %case 7, 4, 11, 3
-      %case 13, 11, 24, 2
-      %case 4, 4, 8, 0
-    %desc Mathematical operations with 2 numbers.
+    %cases{ varnames: 'N1, N2, RES1, RES2, RES3' }
+      %case 3, 2, 5, 1, 0
+      %case 7, 4, 11, 3, 2
+      %case 13, 11, 24, 2, -7
+      %case 4, 4, 8, 0, -4
+    %desc Mathematical operations with integers.
     %ask
-      %text Calculate the sum of N1 and N2
-      %answer SUM
+      %text Calculate N1 + N2
+      %answer RES1
     %ask
-      %text Substract N2 from N1
-      %answer SUB
+      %text Calculate N1 - N2
+      %answer RES2
+    %ask
+      %text Calculate 2*N1-3*N2
+      %answer RES3
 
   %problem
     %cases{ varnames: 'X' }
