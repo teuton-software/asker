@@ -51,7 +51,7 @@ class ConceptAIDisplayer
       factor = "Unkown"
       factor = (t.to_f / e).round(2).to_s unless e.zero?
       screen_table.add_row [Rainbow(concept_ai.concept.name(:screen)).green.bright,
-                            t, e, factor, sd, sb, sf, si, ss, st]
+        t, e, factor, sd, sb, sf, si, ss, st]
 
       total[:q] += t
       total[:e] += e
@@ -71,11 +71,11 @@ class ConceptAIDisplayer
     # Create table TAIL
     screen_table.add_separator
     screen_table.add_row [Rainbow("#{total[:c]} concept/s").bright,
-                          Rainbow(total[:q].to_s).bright,
-                          Rainbow(total[:e].to_s).bright,
-                          Rainbow((total[:q].to_f / total[:e]).round(2)).bright,
-                          total[:sd], total[:sb], total[:sf],
-                          total[:si], total[:ss], total[:st]]
+      Rainbow(total[:q].to_s).bright,
+      Rainbow(total[:e].to_s).bright,
+      Rainbow((total[:q].to_f / total[:e]).round(2)).bright,
+      total[:sd], total[:sb], total[:sf],
+      total[:si], total[:ss], total[:st]]
     export_notes
     Logger.info "#{screen_table}\n"
   end
@@ -107,16 +107,16 @@ class ConceptAIDisplayer
       total[:ss] += ss
       total[:st] += st
     end
-    screen_table.add_row [Rainbow('Excluded questions').yellow.bright,
-                          total[:q], '-', '-',
-                          total[:sd], total[:sb],
-                          total[:sf], total[:si],
-                          total[:ss], total[:st]]
+    screen_table.add_row [Rainbow("Excluded questions").yellow.bright,
+      total[:q], "-", "-",
+      total[:sd], total[:sb],
+      total[:sf], total[:si],
+      total[:ss], total[:st]]
   end
 
   private_class_method def self.export_notes
-    exclude_questions = Application.instance.config['questions']['exclude'].to_s
-    renderer = ERB.new(File.read(File.join(File.dirname(__FILE__), 'concept_ai_displayer.erb')))
+    exclude_questions = Application.instance.config["questions"]["exclude"].to_s
+    renderer = ERB.new(File.read(File.join(File.dirname(__FILE__), "concept_ai_displayer.erb")))
     Logger.info Rainbow(renderer.result(binding)).white
   end
 end

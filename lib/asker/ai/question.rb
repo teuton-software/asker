@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'set'
+require "set"
 
 # Define Question class
 class Question
@@ -12,7 +12,7 @@ class Question
   attr_accessor :matching # Matching answers used by match type question
   attr_accessor :shorts   # Short answers used by short type question
   attr_accessor :feedback # Question feedbak
-  attr_reader   :type     # Question type: :choice, :match, :boolean, :short
+  attr_reader :type     # Question type: :choice, :match, :boolean, :short
   attr_accessor :tags
   attr_accessor :lang     # Info used when export (YAML)
   attr_accessor :encode   # image base64 content used when export Moodle xml
@@ -25,11 +25,11 @@ class Question
   # Reset attributes
   # @param type (Symbol) Question type: choice, match, boolean, short
   def reset(type = :choice)
-    @name = ''
-    @comment = ''
-    @text = ''
+    @name = ""
+    @comment = ""
+    @text = ""
     @type = type
-    @good = ''
+    @good = ""
     @bads = []
     @matching = []
     @shorts = []

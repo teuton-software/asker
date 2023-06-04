@@ -1,4 +1,3 @@
-
 # Transform Questions into YAML format
 module QuestionHashFormatter
   def self.to_hash(question)
@@ -26,14 +25,14 @@ module QuestionHashFormatter
     s
   end
 
-  def self.sanitize(input = '')
+  def self.sanitize(input = "")
     output = input.dup
     output.gsub!("#", "\\#")
-    output.gsub!("\n", " ")
-    #output.gsub!(":", "\\:")
+    output.tr!("\n", " ")
+    # output.gsub!(":", "\\:")
     output.gsub!("=", "\\=")
-    output.gsub!("\{", "\\{")
-    output.gsub!("\}", "\\}")
+    output.gsub!("{", "\\{")
+    output.gsub!("}", "\\}")
     output
   end
 end

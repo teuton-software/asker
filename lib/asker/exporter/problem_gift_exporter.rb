@@ -22,9 +22,9 @@ class ProblemGiftExporter
 
   def head(problem)
     s = "\n"
-    s += '// ' + '=' * 50 + "\n"
+    s += "// " + "=" * 50 + "\n"
     s += "// Problem: #{problem.name} (#{problem.questions.size} questions)\n"
-    s += '// ' + '=' * 50 + "\n"
+    s += "// " + "=" * 50 + "\n"
     s
   end
 end

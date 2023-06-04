@@ -10,7 +10,7 @@ class BaseStage
   end
 
   def run
-    raise 'Implement run method!'
+    raise "Implement run method!"
   end
 
   def concept
@@ -22,7 +22,7 @@ class BaseStage
   end
 
   def names
-    raise 'Change names by concept.names'
+    raise "Change names by concept.names"
   end
 
   def num
@@ -30,23 +30,23 @@ class BaseStage
   end
 
   def lang
-    raise 'Change lang by concept.lang'
+    raise "Change lang by concept.lang"
   end
 
   def type
-    raise 'Change type by concept.type'
+    raise "Change type by concept.type"
   end
 
   def texts
-    raise 'Change texts by cocept.texts'
+    raise "Change texts by cocept.texts"
   end
 
   def images
-    raise 'Change images by cocept.images'
+    raise "Change images by cocept.images"
   end
 
   def neighbors
-    raise 'Change neighbors by concept.neighbors'
+    raise "Change neighbors by concept.neighbors"
   end
 
   def random_image_for(option)

@@ -12,7 +12,7 @@ class DataField
   # initialize DataField
   def initialize(data, id, type)
     @data = data
-    @id   = id.to_i # TODO: revise where it comes from? Is it unique value?
+    @id = id.to_i # TODO: revise where it comes from? Is it unique value?
     @type = type.to_sym
   end
 
@@ -94,7 +94,7 @@ class DataField
   # rubocop:enable Metrics/MethodLength
 
   def to_screen(text)
-    return text[0, 7] + '...' + text[-15, 15] if text.size > 25
+    return text[0, 7] + "..." + text[-15, 15] if text.size > 25
 
     text
   end

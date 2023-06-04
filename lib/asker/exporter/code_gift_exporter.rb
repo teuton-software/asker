@@ -23,9 +23,9 @@ module CodeGiftExporter
 
   private_class_method def self.head(code)
     s = "\n"
-    s += '// ' + '=' * 50 + "\n"
+    s += "// " + "=" * 50 + "\n"
     s += "// Code #{code.type}: #{code.filename} (#{code.questions.size})\n"
-    s += '// ' + '=' * 50 + "\n"
+    s += "// " + "=" * 50 + "\n"
     s
   end
 end

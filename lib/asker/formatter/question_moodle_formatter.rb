@@ -1,7 +1,7 @@
 # frozen_string_literal: false
 
-require 'erb'
-require_relative '../application'
+require "erb"
+require_relative "../application"
 
 # Transform Questions into Gift format
 class QuestionMoodleFormatter
@@ -12,20 +12,20 @@ class QuestionMoodleFormatter
   def self.to_s(question)
     case question.type
     when :choice
-      fractions = Application.instance.config['questions']['fractions']
+      fractions = Application.instance.config["questions"]["fractions"]
       penalties = fractions
       # penalties = ['', '-50', '-33.33333', '-25', '-20']
       # puts "[DEBUG] fractions : #{fractions}"
       # puts "[DEBUG] penalties : #{penalties}"
 
       penalty = penalties[question.bads.size]
-      template = File.read(File.join(File.dirname(__FILE__), 'moodle', 'multichoice.erb'))
+      template = File.read(File.join(File.dirname(__FILE__), "moodle", "multichoice.erb"))
     when :boolean
-      template = File.read(File.join(File.dirname(__FILE__), 'moodle', 'truefalse.erb'))
+      template = File.read(File.join(File.dirname(__FILE__), "moodle", "truefalse.erb"))
     when :match
-      template = File.read(File.join(File.dirname(__FILE__), 'moodle', 'matching.erb'))
+      template = File.read(File.join(File.dirname(__FILE__), "moodle", "matching.erb"))
     when :short
-      template = File.read(File.join(File.dirname(__FILE__), 'moodle', 'shortanswer.erb'))
+      template = File.read(File.join(File.dirname(__FILE__), "moodle", "shortanswer.erb"))
     end
     renderer = ERB.new(template)
     renderer.result(binding)

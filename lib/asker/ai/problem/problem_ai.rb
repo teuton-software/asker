@@ -1,4 +1,3 @@
-
 require_relative "../../lang/lang_factory"
 require_relative "../question"
 
@@ -59,7 +58,7 @@ class ProblemAI
         q = Question.new(:boolean)
         q.name = "#{name}-#{counter}-problem1a-true"
         q.text = lang.text_for(:problem1a, desc, asktext, correct_answer)
-        q.good = 'TRUE'
+        q.good = "TRUE"
         @questions << q
 
         # Locate incorrect answers
@@ -75,7 +74,7 @@ class ProblemAI
           q = Question.new(:boolean)
           q.name = "#{name}-#{counter}-problem1a-false"
           q.text = lang.text_for(:problem1a, desc, asktext, incorrect_answers.first)
-          q.good = 'FALSE'
+          q.good = "FALSE"
           @questions << q
         end
 

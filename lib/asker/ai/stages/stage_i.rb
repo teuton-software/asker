@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'set'
+require "set"
 
-require_relative 'base_stage'
-require_relative '../question'
+require_relative "base_stage"
+require_relative "../question"
 
 # range i1, i2, i3, i4
 class StageI < BaseStage
@@ -15,7 +15,7 @@ class StageI < BaseStage
   # rubocop:disable Metrics/PerceivedComplexity
   def run
     questions = []
-    return questions unless concept.type == 'text'
+    return questions unless concept.type == "text"
 
     lang = concept.lang
     # for every <image> do this
@@ -72,7 +72,7 @@ class StageI < BaseStage
       q.name = "#{name}-#{num}-i2true"
       q.text = lang.text_for(:i2, url, name)
       q.encode = image[:file]
-      q.good = 'TRUE'
+      q.good = "TRUE"
       questions << q
 
       # Question type <i2>: boolean => FALSE
@@ -81,7 +81,7 @@ class StageI < BaseStage
         q.name = "#{name}-#{num}-i2false"
         q.text = lang.text_for(:i2, url, concept.neighbors[0][:concept].name)
         q.encode = image[:file]
-        q.good = 'FALSE'
+        q.good = "FALSE"
         questions << q
       end
 
@@ -91,7 +91,7 @@ class StageI < BaseStage
       q.text = lang.text_for(:i3, url, lang.hide_text(name))
       q.encode = image[:file]
       q.shorts << name
-      q.shorts << name.gsub('-', ' ').gsub('_', ' ')
+      q.shorts << name.tr("-", " ").tr("_", " ")
       questions << q
 
       # Question filtered text questions
@@ -101,7 +101,7 @@ class StageI < BaseStage
 
         indexes = filtered[:indexes]
         groups = indexes.combination(4).to_a.shuffle
-        max    = (indexes.size / 4).to_i
+        max = (indexes.size / 4).to_i
         groups[0, max].each do |e|
           q = Question.new(:match)
           q.shuffle_off

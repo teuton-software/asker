@@ -15,23 +15,23 @@ class Column
   # @param index (Integer)
   # @param xml_data (XMLdata)
   def initialize(row, index, xml_data)
-    @row    = row
-    @index  = index
-    @id     = "#{@row.id}.#{@index}"
-    @raw    = ""
-    @lang   = @row.langs[@index]
-    @type   = @row.types[@index]
-    @simple = { lang: true, type: true }
+    @row = row
+    @index = index
+    @id = "#{@row.id}.#{@index}"
+    @raw = ""
+    @lang = @row.langs[@index]
+    @type = @row.types[@index]
+    @simple = {lang: true, type: true}
     read_data_from_xml(xml_data)
   end
 
   def to_html
     case @type
-    when 'text'
+    when "text"
       return @raw
-    when 'image_url'
-      return "<img src=\"#{raw}\" alt\=\"image\">"
-    when 'textfile_path'
+    when "image_url"
+      return "<img src=\"#{raw}\" alt=\"image\">"
+    when "textfile_path"
       return "<pre>#{raw}</pre>"
     end
     "ERROR type #{@type}"
@@ -53,9 +53,9 @@ class Column
   end
 
   def read_lang_from_xml(xml_data)
-    return unless xml_data.attributes['lang']
+    return unless xml_data.attributes["lang"]
 
-    code = xml_data.attributes['lang'].strip
+    code = xml_data.attributes["lang"].strip
     return if code == @lang.code
 
     @lang = LangFactory.instance.get(code)
@@ -64,9 +64,9 @@ class Column
   end
 
   def read_type_from_xml(xml_data)
-    return unless xml_data.attributes['type']
+    return unless xml_data.attributes["type"]
 
-    type = xml_data.attributes['type'].strip
+    type = xml_data.attributes["type"].strip
     return if type == @type.to_s
 
     @type = type

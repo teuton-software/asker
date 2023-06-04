@@ -1,14 +1,14 @@
 # frozen_string_literal: false
 
-require 'rainbow'
-require 'terminal-table'
+require "rainbow"
+require "terminal-table"
 
 module ConceptDocFormatter
   ##
   # Formatter Concept into Doc
   # @param concept (Concept)
   def self.to_s(concept)
-    out = ''
+    out = ""
     out << "\n#{Rainbow(concept.name).bg(:blue).bright}\n\n"
     concept.texts.each { |i| out << "* #{i}\n" }
     out << "\n"

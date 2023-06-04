@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'base_stage'
-require_relative '../question'
+require_relative "base_stage"
+require_relative "../question"
 
 class StageF < BaseStage
   ##
@@ -43,7 +43,7 @@ class StageF < BaseStage
         indexes = filtered[:indexes]
 
         groups = indexes.combination(4).to_a.shuffle
-        max    = (indexes.size / 4).to_i
+        max = (indexes.size / 4).to_i
         groups[0, max].each do |i|
           i.sort!
           q = Question.new(:match)
@@ -55,7 +55,7 @@ class StageF < BaseStage
           i.each_with_index do |value, index|
             q.matching << [(index + 1).to_s, filtered[:words][value][:word].downcase]
           end
-          q.matching << ['', lang.do_mistake_to(filtered[:words][rand(filtered[:words].size)][:word].downcase)]
+          q.matching << ["", lang.do_mistake_to(filtered[:words][rand(filtered[:words].size)][:word].downcase)]
           # questions << q
           # TODO: Revise this type of questions
         end
@@ -75,19 +75,19 @@ class StageF < BaseStage
     q = Question.new(:choice)
     q.name = "#{name(:id)}-#{num}-f1true#{values.size}-#{table.name}"
     q.text = random_image_for(name(:raw))
-    q.text += lang.text_for(:f1, name(:decorated), table.fields[0].capitalize, values.join('</li><li>'))
-    q.good =  lang.text_for(:true)
+    q.text += lang.text_for(:f1, name(:decorated), table.fields[0].capitalize, values.join("</li><li>"))
+    q.good = lang.text_for(:true)
     q.bads << lang.text_for(:misspelling)
     q.bads << lang.text_for(:false)
 
-    if concept.type == 'text'
+    if concept.type == "text"
       values.shuffle!
       q = Question.new(:short)
       q.name = "#{name(:id)}-#{num}-f1short#{values.size}-#{table.name}"
       q.text = random_image_for(name(:raw))
-      q.text += lang.text_for(:f1, lang.hide_text(name(:raw)), table.fields[0].capitalize, values.join('</li><li>'))
+      q.text += lang.text_for(:f1, lang.hide_text(name(:raw)), table.fields[0].capitalize, values.join("</li><li>"))
       q.shorts << name(:raw)
-      q.shorts << name(:raw).tr('-_', ' ')
+      q.shorts << name(:raw).tr("-_", " ")
       questions << q
 
       values.shuffle!
@@ -96,9 +96,9 @@ class StageF < BaseStage
       q = Question.new(:choice)
       q.name = "#{name(:id)}-#{num}-f1name-misspelled#{values.size}-#{table.name}"
       q.text = random_image_for(name(:raw))
-      q.text += lang.text_for(:f1, lang.do_mistake_to(name(:decorated)), \
-                              table.fields[0].capitalize, values.join('</li><li>'))
-      q.good =  lang.text_for(:misspelling)
+      q.text += lang.text_for(:f1, lang.do_mistake_to(name(:decorated)),
+        table.fields[0].capitalize, values.join("</li><li>"))
+      q.good = lang.text_for(:misspelling)
       q.bads << lang.text_for(:true)
       q.bads << lang.text_for(:false)
       q.feedback = "Concept name #{name(:raw)} misspelled!"
@@ -112,8 +112,8 @@ class StageF < BaseStage
     q = Question.new(:choice)
     q.name = "#{name(:id)}-#{num}-f1true-misspelled#{values.size}-#{table.name}"
     q.text = random_image_for(name(:raw))
-    q.text += lang.text_for(:f1, name(:decorated), table.fields[0].capitalize, values.join('</li><li>'))
-    q.good =  lang.text_for(:misspelling)
+    q.text += lang.text_for(:f1, name(:decorated), table.fields[0].capitalize, values.join("</li><li>"))
+    q.good = lang.text_for(:misspelling)
     q.bads << lang.text_for(:true)
     q.bads << lang.text_for(:false)
     q.feedback = "Text #{save} misspelled!"
@@ -143,8 +143,8 @@ class StageF < BaseStage
       q = Question.new(:choice)
       q.name = "#{name(:id)}-#{num}-f1false-#{table.name}"
       q.text = random_image_for(name(:raw))
-      q.text += concept.lang.text_for(:f1, name(:decorated), table.fields[0].capitalize, e.join('</li><li>'))
-      q.good =  concept.lang.text_for(:false)
+      q.text += concept.lang.text_for(:f1, name(:decorated), table.fields[0].capitalize, e.join("</li><li>"))
+      q.good = concept.lang.text_for(:false)
       q.bads << concept.lang.text_for(:misspelling)
       q.bads << concept.lang.text_for(:true)
       questions << q
@@ -154,7 +154,7 @@ class StageF < BaseStage
       q.name = "#{name(:id)}-#{num}-f2outsider-#{table.name}"
       q.text = random_image_for(name(:raw))
       q.text += concept.lang.text_for(:f2, name(:decorated), table.fields[0].capitalize)
-      q.good =  f4
+      q.good = f4
       q.bads << e1
       q.bads << e2
       q.bads << e3

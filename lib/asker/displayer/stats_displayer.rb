@@ -8,7 +8,7 @@ require_relative "problem_displayer"
 module StatsDisplayer
   # @param data (Hash) With concept_ai, code and problem list
   def self.show(data)
-    return unless Application.instance.config['global']['show_mode']
+    return unless Application.instance.config["global"]["show_mode"]
 
     ConceptAIDisplayer.show(data[:concepts_ai])
     CodeDisplayer.show(data[:codes_ai])

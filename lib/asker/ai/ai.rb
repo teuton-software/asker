@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'stages/main'
-require_relative 'ai_calculate'
+require_relative "stages/main"
+require_relative "ai_calculate"
 
 # Description: Method to be included into every ConceptAI instance.
 # * make_questions: use AI to fill @questions Array
@@ -49,12 +49,12 @@ module AI
   end
 
   def exclude_questions
-    param = Application.instance.config['questions']['exclude']
+    param = Application.instance.config["questions"]["exclude"]
     return if param.nil?
 
-    tags = param.split(',').each(&:strip!)
-    input = { d: [], b: [], f: [], i: [], s: [], t: [] }
-    output = { d: [], b: [], f: [], i: [], s: [], t: [] }
+    tags = param.split(",").each(&:strip!)
+    input = {d: [], b: [], f: [], i: [], s: [], t: []}
+    output = {d: [], b: [], f: [], i: [], s: [], t: []}
 
     @questions.each_pair do |key, qlist|
       output[key] = qlist.select { |q| string_has_this_tags?(q.name, tags) }

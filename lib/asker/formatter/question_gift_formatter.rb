@@ -7,7 +7,7 @@ module QuestionGiftFormatter
   # @param question (Question)
   # @return String
   def self.to_s(question)
-    s = ''
+    s = ""
     return s unless question.encode == :none
 
     # Return question using gift format
@@ -19,14 +19,14 @@ module QuestionGiftFormatter
     when :choice
       s += "{\n"
       a = ["  =#{sanitize(question.good)}\n"]
-      penalties = ['', '%-50%', '%-33.33333%', '%-25%', '%-20%']
+      penalties = ["", "%-50%", "%-33.33333%", "%-25%", "%-20%"]
       penalty = penalties[question.bads.size]
 
       question.bads.each { |i| a << ("  ~#{penalty}" + sanitize(i) + "\n") }
       a.shuffle! if question.shuffle?
       a.each do |i|
         text = i
-        text = i[0, 220] + '...(ERROR: text too long)' if text.size > 255
+        text = i[0, 220] + "...(ERROR: text too long)" if text.size > 255
         s << text
       end
       s += "  #####{sanitize(question.feedback.to_s)}\n" if question.feedback
@@ -37,8 +37,8 @@ module QuestionGiftFormatter
       s << "{\n"
       a = []
       question.matching.each do |i, j|
-        i = i[0, 220] + '...(ERROR: text too long)' if i.size > 255
-        j = j[0, 220] + '...(ERROR: text too long)' if j.size > 255
+        i = i[0, 220] + "...(ERROR: text too long)" if i.size > 255
+        j = j[0, 220] + "...(ERROR: text too long)" if j.size > 255
         a << "  =#{sanitize(i)} -> #{sanitize(j)}\n"
       end
       a.shuffle! if question.shuffle?
@@ -49,7 +49,7 @@ module QuestionGiftFormatter
       question.shorts.uniq!
       question.shorts.each do |i|
         text = i
-        text = i[0, 220] + '...(ERROR: too long)' if text.size > 255
+        text = i[0, 220] + "...(ERROR: too long)" if text.size > 255
         s << "  =%100%#{text}#\n"
       end
       s << "  #####{sanitize(question.feedback.to_s)}\n" if question.feedback
@@ -62,14 +62,14 @@ module QuestionGiftFormatter
   # Sanitize gift text
   # @param input (String)
   # @return String
-  def self.sanitize(input = '')
+  def self.sanitize(input = "")
     output = input.dup
-    output.gsub!('#', '\#')
-    output.gsub!("\n", " ")
-    output.gsub!(':', '\:')
-    output.gsub!('=', '\=')
-    output.gsub!("\{", "\\{")
-    output.gsub!("\}", "\\}")
+    output.gsub!("#", '\#')
+    output.tr!("\n", " ")
+    output.gsub!(":", '\:')
+    output.gsub!("=", '\=')
+    output.gsub!("{", "\\{")
+    output.gsub!("}", "\\}")
     output
   end
 end

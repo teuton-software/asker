@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'set'
+require "set"
 
-require_relative 'base_stage'
-require_relative '../question'
+require_relative "base_stage"
+require_relative "../question"
 
 ##
 # range d1-d4: d1choice, d1none-misspelled, d1none
@@ -11,7 +11,7 @@ class StageD < BaseStage
   def run
     # Stage D: process every definition, I mean every <def> tag
     questions = []
-    return questions unless concept.type == 'text'
+    return questions unless concept.type == "text"
 
     lang = concept.lang
     # for every <text> do this
@@ -85,7 +85,7 @@ class StageD < BaseStage
       q = Question.new(:choice)
       q.name = "#{name(:id)}-#{num}-d2true-misspelled"
       q.text = random_image_for(name(:raw)) + lang.text_for(:d2, name(:raw), t)
-      q.good =  lang.text_for(:true)
+      q.good = lang.text_for(:true)
       q.bads << lang.text_for(:misspelling)
       q.bads << lang.text_for(:false)
       questions << q
@@ -94,7 +94,7 @@ class StageD < BaseStage
       q = Question.new(:boolean)
       q.name = "#{name(:id)}-#{num}-d2true"
       q.text = random_image_for(name(:raw)) + lang.text_for(:d2, name(:raw), t)
-      q.good = 'TRUE'
+      q.good = "TRUE"
       questions << q
 
       # Question choice => false
@@ -102,7 +102,7 @@ class StageD < BaseStage
         q = Question.new(:choice)
         q.name = "#{name(:id)}-#{num}-d2false-misspelled"
         q.text = random_image_for(name(:raw)) + lang.text_for(:d2, a[1], t)
-        q.good =  lang.text_for(:false)
+        q.good = lang.text_for(:false)
         q.bads << lang.text_for(:misspelling)
         q.bads << lang.text_for(:true)
         questions << q
@@ -111,7 +111,7 @@ class StageD < BaseStage
         q = Question.new(:boolean)
         q.name = "#{name(:id)}-#{num}-d2false"
         q.text = random_image_for(name(:raw)) + lang.text_for(:d2, a[1], t)
-        q.good = 'FALSE'
+        q.good = "FALSE"
         questions << q
       end
 
@@ -120,7 +120,7 @@ class StageD < BaseStage
       q.name = "#{name(:id)}-#{num}-d3hidden"
       q.text = random_image_for(name(:raw)) + lang.text_for(:d3, lang.hide_text(name(:raw)), t)
       q.shorts << name(:raw)
-      q.shorts << name(:raw).gsub('-', ' ').gsub('_', ' ')
+      q.shorts << name(:raw).tr("-", " ").tr("_", " ")
       concept.names.each { |n| q.shorts << n if n != name }
       questions << q
 

@@ -21,7 +21,7 @@ class CheckInput
       Logger.error "CheckInput: File not found! (#{@filepath})"
       exit 1
     end
-    unless File.extname(@filepath) == '.haml'
+    unless File.extname(@filepath) == ".haml"
       Logger.error "CheckInput: Check works with HAML files!"
       exit 1
     end

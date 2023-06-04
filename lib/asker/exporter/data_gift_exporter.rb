@@ -12,13 +12,13 @@ module DataGiftExporter
   # @param data (Hash)
   # @param project (Project)
   def self.export_all(data, project)
-    file = File.open(project.get(:outputpath), 'w')
-    file.write('// ' + ('=' * 50) + "\n")
+    file = File.open(project.get(:outputpath), "w")
+    file.write("// " + ("=" * 50) + "\n")
     file.write("// #{Asker::NAME}    : version #{Asker::VERSION}\n")
     file.write("// Filename : #{project.get(:outputname)}\n")
     file.write("// Datetime : #{Time.new}\n")
-    file.write('// ' + ('=' * 50) + "\n\n")
-    category = Application.instance.config['questions']['category']
+    file.write("// " + ("=" * 50) + "\n\n")
+    category = Application.instance.config["questions"]["category"]
     file.write("$CATEGORY: $course$/#{category}\n") unless category.nil?
 
     ConceptAIGiftExporter.export_all(data[:concepts_ai], file)

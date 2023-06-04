@@ -16,8 +16,8 @@ class ConceptAI
   def initialize(concept, world)
     @concept = concept
     @world = world
-    @questions = { d: [], b: [], f: [], i: [], s: [], t: [] }
-    @excluded_questions = { d: [], b: [], f: [], i: [], s: [], t: [] }
+    @questions = {d: [], b: [], f: [], i: [], s: [], t: []}
+    @excluded_questions = {d: [], b: [], f: [], i: [], s: [], t: []}
     @num = 0 # Add a unique number to every question
     make_questions
   end
@@ -36,12 +36,12 @@ class ConceptAI
 
   def random_image_for(_conceptname)
     # Generates random image URL
-    return '' if rand <= ProjectData.instance.get(:threshold)
+    return "" if rand <= ProjectData.instance.get(:threshold)
 
     keys = @world.image_urls.keys
     keys.shuffle!
     values = @world.image_urls[keys[0]] # keys[0] could be conceptname
-    return '' if values.nil?
+    return "" if values.nil?
 
     values.shuffle!
     "<img src=\"#{values[0]}\" alt=\"image\"><br/>"

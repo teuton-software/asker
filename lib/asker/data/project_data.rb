@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'singleton'
+require "singleton"
 
 class ProjectData
   include Singleton
@@ -11,11 +11,11 @@ class ProjectData
   end
 
   def reset
-    @default = { inputbasedir: FileUtils.pwd,
-                 stages: { d: true, b: true, f: true, i: true, s: true, t: true },
-                 threshold: 0.5,
-                 outputdir: 'output',
-                 weights: '1, 1, 1' }
+    @default = {inputbasedir: FileUtils.pwd,
+                stages: {d: true, b: true, f: true, i: true, s: true, t: true},
+                threshold: 0.5,
+                outputdir: "output",
+                weights: "1, 1, 1"}
     @param = {}
   end
 
@@ -37,9 +37,9 @@ class ProjectData
   # * process_file
   # * inputdirs
   def open
-    ext = File.extname(@param[:process_file]) || '.haml'
+    ext = File.extname(@param[:process_file]) || ".haml"
     @param[:projectname] = @param[:projectname] ||
-                           File.basename(@param[:process_file], ext)
+      File.basename(@param[:process_file], ext)
 
     @param[:logname] = "#{@param[:projectname]}.log"
     @param[:outputname] = "#{@param[:projectname]}-gift.txt"

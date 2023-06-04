@@ -1,7 +1,7 @@
 # frozen_string_literal: false
 
-require 'rexml/document'
-require_relative 'row'
+require "rexml/document"
+require_relative "row"
 
 # This class process "template" tag used by Tables
 class Template
@@ -19,10 +19,10 @@ class Template
     vars = {}
     v = xml.attributes
     v.keys.each do |i|
-      if i == 'mode'
+      if i == "mode"
         @mode = v[i].to_sym
       else
-        vars[i] = v[i].split(',')
+        vars[i] = v[i].split(",")
       end
     end
     # fill_vars_values(vars,mode)
@@ -34,13 +34,13 @@ class Template
   end
 
   def load_template_from(xml)
-    template = ''
+    template = ""
     xml.elements.each { |i| template << i.to_s + "\n" }
     template
   end
 
   def apply_vars_to_template(vars, template)
-    output = ''
+    output = ""
     return output if vars.size.zero?
 
     max = vars.first[1].size
@@ -57,7 +57,7 @@ class Template
     data = "<template>\n#{data_string}\n</template>"
     xml = REXML::Document.new(data)
     xml.root.elements.each do |i|
-      if i.name == 'row'
+      if i.name == "row"
         datarows << Row.new(table, index, i)
         index += 1
       end

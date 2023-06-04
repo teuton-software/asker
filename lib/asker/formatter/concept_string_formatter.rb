@@ -18,18 +18,18 @@ module ConceptStringFormatter
   private_class_method def self.get_tt_rows(concept)
     rows = []
     rows << [Rainbow(concept.id.to_s).bright,
-             Rainbow(concept.name(:screen)).green.bright]
-            # +          " (lang=#{concept.lang.lang}) "]
+      Rainbow(concept.name(:screen)).green.bright]
+    # +          " (lang=#{concept.lang.lang}) "]
     # rows << [Rainbow("Filename").white, concept.filename]
     # rows << [Rainbow("Context").white, concept.context.join(', ').to_s]
-    rows << [Rainbow("Tags").white, concept.tags.join(', ').to_s]
+    rows << [Rainbow("Tags").white, concept.tags.join(", ").to_s]
     unless concept.reference_to.size.zero?
       rows << [Rainbow("Reference to").white,
-             concept.reference_to.join(', ')[0...70].to_s]
+        concept.reference_to.join(", ")[0...70].to_s]
     end
     unless concept.referenced_by.size.zero?
       rows << [Rainbow("Referenced by").white,
-             concept.referenced_by.join(', ')[0...70].to_s]
+        concept.referenced_by.join(", ")[0...70].to_s]
     end
     rows << format_texts(concept)
     unless concept.images.size.zero?
@@ -50,7 +50,7 @@ module ConceptStringFormatter
         list << i.to_s
         next
       end
-      list << i[0...70].to_s + '...'
+      list << i[0...70].to_s + "..."
     end
     # [Rainbow("def").white, list.join("\n")]
     [Rainbow("def").white, list.size.to_s]

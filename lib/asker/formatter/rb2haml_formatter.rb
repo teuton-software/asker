@@ -10,7 +10,7 @@ module Rb2HamlExporter
   end
 
   def self.check_file(filename)
-    unless File.extname(filename).casecmp('.rb').zero?
+    unless File.extname(filename).casecmp(".rb").zero?
       Logger.error "Rb2HamlExporter: File name error #{filename}"
       exit 1
     end
@@ -22,7 +22,6 @@ module Rb2HamlExporter
 
   class Map
   end
-
 end
 
-Rb2HamlExporter.export('docs/examples/home/rb/furniture.rb')
+Rb2HamlExporter.export("docs/examples/home/rb/furniture.rb")

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../ai/code/code_ai_factory'
+require_relative "../ai/code/code_ai_factory"
 require_relative "../logger"
 
 class Code
@@ -54,7 +54,7 @@ class Code
     ec = Encoding::Converter.new(encoding.to_s, "UTF-8")
     begin
       text = ec.convert(text)
-    rescue StandardError => e
+    rescue => e
       Logger.warn "Code: Encoding error (#{e}) with filename (#{@filename})"
     end
 

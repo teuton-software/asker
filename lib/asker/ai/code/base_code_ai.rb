@@ -1,7 +1,7 @@
 # frozen_string_literal: false
 
-require_relative '../../lang/lang_factory'
-require_relative '../../ai/question'
+require_relative "../../lang/lang_factory"
+require_relative "../../ai/question"
 
 ##
 # BaseCodeAI class
@@ -65,7 +65,7 @@ class BaseCodeAI
   # @return String
   # rubocop:disable Style/FormatString
   def lines_to_s(lines)
-    out = ''
+    out = ""
     lines.each_with_index do |line, index|
       out << "%2d: #{line}\n" % (index + 1)
     end
@@ -77,7 +77,7 @@ class BaseCodeAI
   # @param lines (Array)
   # @return String
   def lines_to_html(lines)
-    out = ''
+    out = ""
     lines.each_with_index do |line, index|
       out << "%2d: #{line}</br>" % (index + 1)
     end
@@ -97,7 +97,7 @@ class BaseCodeAI
 
   def find_make_methods
     list = public_methods.sort
-    list.select! { |name| name.to_s.start_with? 'make_' }
+    list.select! { |name| name.to_s.start_with? "make_" }
     list.delete(:make_questions)
     list
   end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../formatter/question_gift_formatter'
+require_relative "../formatter/question_gift_formatter"
 
 # Export ConceptIA data to gift to outputfile
 module ConceptAIGiftExporter
@@ -20,7 +20,7 @@ module ConceptAIGiftExporter
     return unless concept_ai.concept.process?
 
     file.write head(concept_ai.concept.name)
-    Application.instance.config['questions']['stages'].each do |stage|
+    Application.instance.config["questions"]["stages"].each do |stage|
       concept_ai.questions[stage].each do |question|
         file.write(QuestionGiftFormatter.to_s(question))
       end
@@ -33,9 +33,9 @@ module ConceptAIGiftExporter
   # @return String
   private_class_method def self.head(name)
     s = "\n"
-    s += '// ' + '=' * 50 + "\n"
+    s += "// " + "=" * 50 + "\n"
     s += "// Concept name: #{name}\n"
-    s += '// ' + '=' * 50 + "\n"
+    s += "// " + "=" * 50 + "\n"
     s
   end
 end

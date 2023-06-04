@@ -12,7 +12,7 @@ module AICalculate
     list1 = []
     count = 1
     p_table.rows.each do |i|
-      list1 << { id: count, weight: 0, data: i }
+      list1 << {id: count, weight: 0, data: i}
       count += 1
     end
 
@@ -23,7 +23,7 @@ module AICalculate
         next if t2.name != p_table.name
 
         t2.rows.each do |i|
-          list2 << { id: count, weight: 0, data: i }
+          list2 << {id: count, weight: 0, data: i}
           count += 1
         end
       end
@@ -34,7 +34,7 @@ module AICalculate
   def calculate_nearness_between_texts(text1, text2)
     return 0.0 if text2.nil? || text2.empty?
 
-    words = text1.split(' ')
+    words = text1.split(" ")
     count = 0
     words.each { |w| count += 1 if text2.include?(w) }
     (count * 100 / words.count)

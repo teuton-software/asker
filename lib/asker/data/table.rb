@@ -20,9 +20,9 @@ class Table
     @concept = concept
     read_attributes_from_xml(xml_data)
 
-    @simple = { lang: true, type: true }
-    @types  = ['text']        * @fields.size
-    @langs  = [@concept.lang] * @fields.size
+    @simple = {lang: true, type: true}
+    @types = ["text"] * @fields.size
+    @langs = [@concept.lang] * @fields.size
 
     @datarows = [] # DEV experiment replace row data with row objects
     read_data_from_xml(xml_data)
@@ -43,7 +43,7 @@ class Table
   # * types(index) => Return type for fields[index]
   # @param index (Integer)
   def types(index = :all)
-    @types = (['text'] * @fields.size) if @types.nil?
+    @types = (["text"] * @fields.size) if @types.nil?
     return @types if index == :all
 
     @types[index]
@@ -64,32 +64,32 @@ class Table
   # Fill:fields, name and id from XML input
   # @param xml_data (XML)
   def read_attributes_from_xml(xml_data)
-    t = xml_data.attributes['fields'].to_s.strip.split(',')
+    t = xml_data.attributes["fields"].to_s.strip.split(",")
     t.each(&:strip!)
     @fields = t || []
 
-    @name = ''
+    @name = ""
     @fields.each { |i| @name = "#{@name}$#{i.to_s.strip.downcase}" }
     @id = "#{@concept.name}.#{@name}"
 
     @sequence = []
-    return unless xml_data.attributes['sequence']
+    return unless xml_data.attributes["sequence"]
 
-    @sequence = xml_data.attributes['sequence'].to_s.split(',')
+    @sequence = xml_data.attributes["sequence"].to_s.split(",")
   end
 
   def read_data_from_xml(xml_data)
     xml_data.elements.each do |i|
       case i.name
-      when 'lang'
+      when "lang"
         read_lang_from_xml(i)
-      when 'row'
+      when "row"
         @datarows << Row.new(self, @datarows.size, i)
-      when 'sequence'
-        @sequence = i.text.split(',')
-      when 'template'
+      when "sequence"
+        @sequence = i.text.split(",")
+      when "template"
         @datarows += Template.new(self, @datarows.size, i).datarows
-      when 'type'
+      when "type"
         read_type_from_xml(i)
       else
         Logger.warn "Table: Tag unkown (concept/table/#{i.name})"
@@ -98,17 +98,17 @@ class Table
   end
 
   def read_lang_from_xml(xml_data)
-    j = xml_data.text.split(',')
+    j = xml_data.text.split(",")
     codes = @langs.map(&:code)
-    return if j.join(',') == codes.join(',')
+    return if j.join(",") == codes.join(",")
 
     simple_off(:lang)
     @langs = []
     j.each do |k|
-      if ['*', ''].include? k.strip
-        @langs << @concept.lang
+      @langs << if ["*", ""].include? k.strip
+        @concept.lang
       else
-        @langs << LangFactory.instance.get(k.strip.to_s)
+        LangFactory.instance.get(k.strip.to_s)
       end
     end
   end

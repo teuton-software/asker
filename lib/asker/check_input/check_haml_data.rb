@@ -8,19 +8,19 @@ class CheckHamlData
     @inputs = File.read(filepath).split("\n")
     @outputs = []
     @inputs.each_with_index do |line, index|
-      output = { id: index,
-                 level: 0,
-                 state: :none,
-                 type: :none,
-                 source: line,
-                 msg: '' }
+      output = {id: index,
+                level: 0,
+                state: :none,
+                type: :none,
+                source: line,
+                msg: ""}
       @outputs << output
     end
     @ok = false
   end
 
   def ok?
-   @ok
+    @ok
   end
 
   def show
@@ -36,12 +36,12 @@ class CheckHamlData
 
       errors += 1
       if errors < 11
-        data = { id: i[:id], msg: i[:msg], source: i[:source][0, 40] }
+        data = {id: i[:id], msg: i[:msg], source: i[:source][0, 40]}
         order = i[:id] + 1
-        data = { order: order, msg: i[:msg], source: i[:source][0, 40] }
+        data = {order: order, msg: i[:msg], source: i[:source][0, 40]}
         message1 = Rainbow(" %<order>03d : %<msg>32s. => ").white
         message2 = Rainbow("%<source>s").yellow.bright
-        output = format(message1, data) +  format(message2, data)
+        output = format(message1, data) + format(message2, data)
         warn output
       end
       warn "..." if errors == 11
@@ -50,7 +50,7 @@ class CheckHamlData
     if errors.zero?
       puts Rainbow("Syntax OK!").green.bright
     else
-      message = "\nRevise #{errors.to_s} syntax warning or error/s\n"
+      message = "\nRevise #{errors} syntax warning or error/s\n"
       warn Rainbow(message).yellow.bright
       exit 1
     end
@@ -83,7 +83,7 @@ class CheckHamlData
   private
 
   def check_empty_lines(line, index)
-    return unless line.strip.size.zero? || line.start_with?('#')
+    return unless line.strip.size.zero? || line.start_with?("#")
 
     @outputs[index][:type] = :empty
     @outputs[index][:level] = -1
@@ -93,155 +93,155 @@ class CheckHamlData
   def check_map(line, index)
     if index.zero?
       @outputs[index][:type] = :map
-      if line.start_with?('%map{')
+      if line.start_with?("%map{")
         @outputs[index][:state] = :ok
       else
         @outputs[index][:state] = :err
-        @outputs[index][:msg] = 'Start with %map{'
+        @outputs[index][:msg] = "Start with %map{"
       end
-    elsif index.positive? && line.include?('%map{')
+    elsif index.positive? && line.include?("%map{")
       @outputs[index][:state] = :err
       @outputs[index][:type] = :map
-      @outputs[index][:msg] = 'Write %map on line 0'
+      @outputs[index][:msg] = "Write %map on line 0"
     end
   end
 
   def check_concept(line, index)
     return unless @outputs[index][:state] == :none
-    return unless line.include? '%concept'
+    return unless line.include? "%concept"
 
     @outputs[index][:type] = :concept
     @outputs[index][:level] = 1
     @outputs[index][:state] = :ok
     if find_parent(index) != :map
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Parent(map) not found!'
+      @outputs[index][:msg] = "Parent(map) not found!"
     elsif !line.match(/^\s\s%concept\s*$/)
       binding.break
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Write 2 spaces before %concept, and no text after'
+      @outputs[index][:msg] = "Write 2 spaces before %concept, and no text after"
     end
   end
 
   def check_names(line, index)
     return unless @outputs[index][:state] == :none
-    return unless line.include? '%names'
+    return unless line.include? "%names"
 
     @outputs[index][:type] = :names
     @outputs[index][:level] = 2
     @outputs[index][:state] = :ok
     if find_parent(index) != :concept
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Parent(concept) not found!'
-    elsif !line.start_with? '    %names'
+      @outputs[index][:msg] = "Parent(concept) not found!"
+    elsif !line.start_with? "    %names"
     elsif !line.match(/^\s\s\s\s%names\s/)
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Write 4 spaces before %names'
+      @outputs[index][:msg] = "Write 4 spaces before %names"
     end
   end
 
   def check_tags(line, index)
     return unless @outputs[index][:state] == :none
-    return unless line.include? '%tags'
+    return unless line.include? "%tags"
 
     @outputs[index][:type] = :tags
     @outputs[index][:level] = 2
     @outputs[index][:state] = :ok
-    if line.strip == '%tags'
+    if line.strip == "%tags"
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Please, fill with concept tags!'
+      @outputs[index][:msg] = "Please, fill with concept tags!"
     elsif find_parent(index) != :concept
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Parent(concept) not found!'
+      @outputs[index][:msg] = "Parent(concept) not found!"
     elsif !line.match(/^\s\s\s\s%tags\s/)
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Write 4 spaces before %tags'
+      @outputs[index][:msg] = "Write 4 spaces before %tags"
     end
   end
 
   def check_def(line, index)
     return unless @outputs[index][:state] == :none
-    return unless line.include? '%def'
+    return unless line.include? "%def"
 
     @outputs[index][:type] = :def
     @outputs[index][:level] = 2
     @outputs[index][:state] = :ok
     if find_parent(index) != :concept
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Parent(concept) not found!'
+      @outputs[index][:msg] = "Parent(concept) not found!"
     elsif !line.match(/^\s\s\s\s%def[\s{]/)
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Write 4 spaces before %def'
+      @outputs[index][:msg] = "Write 4 spaces before %def"
     else
       items = line.strip.split
       if items.size < 2
         @outputs[index][:state] = :err
-        @outputs[index][:msg] = '%def has no definition'
+        @outputs[index][:msg] = "%def has no definition"
       end
     end
   end
 
   def check_code(line, index)
     return unless @outputs[index][:state] == :none
-    return unless line.include? '%code'
+    return unless line.include? "%code"
 
     @outputs[index][:type] = :code
     @outputs[index][:level] = 1
     @outputs[index][:state] = :ok
     if find_parent(index) != :map
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Parent(map) not found!'
+      @outputs[index][:msg] = "Parent(map) not found!"
     elsif !line.match(/^\s\s%code\s*$/)
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Write 2 spaces before %code, and no text after'
+      @outputs[index][:msg] = "Write 2 spaces before %code, and no text after"
     end
   end
 
   def check_type(line, index)
     return unless @outputs[index][:state] == :none
-    return unless line.include? '%type'
+    return unless line.include? "%type"
 
     @outputs[index][:type] = :type
     @outputs[index][:level] = 2
     @outputs[index][:state] = :ok
     if find_parent(index) != :code
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Parent(code) not found!'
+      @outputs[index][:msg] = "Parent(code) not found!"
     elsif !line.match(/^\s\s\s\s%type\s/)
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Write 4 spaces before %type'
+      @outputs[index][:msg] = "Write 4 spaces before %type"
     end
   end
 
   def check_path(line, index)
     return unless @outputs[index][:state] == :none
-    return unless line.include? '%path'
+    return unless line.include? "%path"
 
     @outputs[index][:type] = :path
     @outputs[index][:level] = 2
     @outputs[index][:state] = :ok
     if find_parent(index) != :code
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Parent(code) not found!'
+      @outputs[index][:msg] = "Parent(code) not found!"
     elsif !line.match(/^\s\s\s\s%path\s/)
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Write 4 spaces before %type'
+      @outputs[index][:msg] = "Write 4 spaces before %type"
     end
   end
 
   def check_features(line, index)
     return unless @outputs[index][:state] == :none
-    return unless line.include? '%features'
+    return unless line.include? "%features"
 
     @outputs[index][:type] = :features
     @outputs[index][:level] = 2
     @outputs[index][:state] = :ok
     if find_parent(index) != :code
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Parent(code) not found!'
+      @outputs[index][:msg] = "Parent(code) not found!"
     elsif !line.match(/^\s\s\s\s%features\s*$/)
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = 'Write 4 spaces before %features, and no text after'
+      @outputs[index][:msg] = "Write 4 spaces before %features, and no text after"
     end
   end
 
@@ -268,7 +268,7 @@ class CheckHamlData
   end
 
   def count_spaces(line)
-    a = line.split('%')
-    a[0].count(' ')
+    a = line.split("%")
+    a[0].count(" ")
   end
 end

@@ -13,7 +13,7 @@ class Problem
 
   @@id = 0
   def initialize
-    @@id +=1
+    @@id += 1
     @id = @@id
     @lang = nil
     @context = nil
@@ -28,7 +28,7 @@ class Problem
 
   def self.from(values)
     problem = Problem.new
-    fields = %i(filename varnames cases descs asks)
+    fields = %i[filename varnames cases descs asks]
     fields.each do |fieldname|
       methodname = "#{fieldname}=".to_sym
       problem.send(methodname, values[fieldname])

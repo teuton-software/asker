@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../loader/image_url_loader'
+require_relative "../loader/image_url_loader"
 
 class World
   # TODO: change how World class works ?
@@ -37,7 +37,7 @@ class World
 
       concepts[c.name] = c
       filenames << c.filename
-      contexts  << c.context
+      contexts << c.context
     end
     filenames.uniq!
     contexts.uniq!
@@ -52,7 +52,7 @@ class World
     urls = {}
 
     @concepts&.each_key { |key| searchs << key }
-    @contexts.each { |filter| searchs << filter.join(' ').to_s }
+    @contexts.each { |filter| searchs << filter.join(" ").to_s }
     searchs.each do |search|
       threads << Thread.new { urls[search] = ImageUrlLoader.load(search) }
     end

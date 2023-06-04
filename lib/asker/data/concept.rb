@@ -32,8 +32,8 @@ class Concept
     @process = false
     @lang = lang # LangFactory.instance.get(lang_code)
     @context = context
-    @names = ['concept.' + @id.to_s]
-    @type  = 'text'
+    @names = ["concept." + @id.to_s]
+    @type = "text"
 
     @data = {}
     @data[:tags] = []
@@ -52,7 +52,7 @@ class Concept
   end
 
   def text
-    @data[:texts][0] || '...'
+    @data[:texts][0] || "..."
   end
 
   def process?
@@ -63,14 +63,14 @@ class Concept
     p = calculate_nearness_to_concept(other)
     return if p.zero?
 
-    @data[:neighbors] << { concept: other, value: p }
+    @data[:neighbors] << {concept: other, value: p}
     # Sort neighbors list
     @data[:neighbors].sort! { |a, b| a[:value] <=> b[:value] }
     @data[:neighbors].reverse!
   end
 
   def calculate_nearness_to_concept(other)
-    weights = ProjectData.instance.get(:weights).split(',').map(&:to_f)
+    weights = ProjectData.instance.get(:weights).split(",").map(&:to_f)
 
     max1 = @context.count
     max2 = @data[:tags].count
@@ -95,7 +95,7 @@ class Concept
     end
     @data[:texts].each do |t|
       text = t.clone
-      text.split(' ').each do |word|
+      text.split(" ").each do |word|
         reference_to += 1 unless other.names.index(word.downcase).nil?
       end
     end
@@ -154,9 +154,9 @@ class Concept
 
   def process_names(value)
     @names = []
-    j = value.text.split(',')
+    j = value.text.split(",")
     j.each { |k| @names << k.strip }
-    @type = value.attributes['type'].strip if value.attributes['type']
+    @type = value.attributes["type"].strip if value.attributes["type"]
   end
 
   def process_tags(value)
@@ -165,7 +165,7 @@ class Concept
       return []
     end
 
-    @data[:tags] = value.text.split(',')
+    @data[:tags] = value.text.split(",")
     @data[:tags].collect!(&:strip)
   end
 
@@ -184,7 +184,7 @@ class Concept
         @data[:texts] << value.text.strip
       end
     else
-      Logger.warn "Concept: Unknown def/type (#{value.attributes['type']})"
+      Logger.warn "Concept: Unknown def/type (#{value.attributes["type"]})"
     end
   end
 end
