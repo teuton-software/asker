@@ -1,10 +1,7 @@
-#!/usr/bin/ruby
-
-require 'test/unit'
-require_relative '../../lib/asker/data/code'
+require "test/unit"
+require_relative "../../lib/asker/data/code"
 
 class CodeTest < Test::Unit::TestCase
-
   def setup
     @examples = []
     @examples << { filename: 'files/string.rb', lines: 4, questions: 5 }
@@ -13,7 +10,7 @@ class CodeTest < Test::Unit::TestCase
   end
 
   def test_load_ruby_files
-    dirname = 'test/input/ruby'
+    dirname = File.join("test", "input", "ruby")
     type = :ruby
 
     @examples.each do |example|
