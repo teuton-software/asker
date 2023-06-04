@@ -78,6 +78,13 @@ class ProblemAI
           q.good = 'FALSE'
           @questions << q
         end
+
+        # Question short
+        q = Question.new(:short)
+        q.name = "#{name}-#{counter}-problem1b-short"
+        q.text = lang.text_for(:problem1b, desc, asktext)
+        q.shorts << correct_answer
+        @questions << q
       end
     end
   end
