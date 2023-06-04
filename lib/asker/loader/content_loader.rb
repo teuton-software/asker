@@ -60,25 +60,28 @@ module ContentLoader
     context
   end
 
-  private_class_method def self.read_code(xmldata, filepath)
-    project = ProjectData.instance
-    c = CodeLoader.call(xmldata, filepath)
-    c.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
-    c
-  end
-
   private_class_method def self.read_concept(xmldata, filepath, lang, context)
     project = ProjectData.instance
-    c = Concept.new(xmldata, filepath, lang, context)
-    c.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
-    c
+    concept = Concept.new(xmldata, filepath, lang, context)
+    cond = [File.basename(filepath), :default].include? project.get(:process_file)
+    concept.process = true if cond
+    concept
+  end
+
+  private_class_method def self.read_code(xmldata, filepath)
+    project = ProjectData.instance
+    code = CodeLoader.call(xmldata, filepath)
+    cond =  [File.basename(filepath), :default].include? project.get(:process_file)
+    code.process = true if cond
+    code
   end
 
   private_class_method def self.read_problem(xmldata, filepath, lang, context)
     project = ProjectData.instance
-    p = ProblemLoader.new(lang, context).call(xmldata, filepath)
-    p.process = true if [File.basename(filepath), :default].include? project.get(:process_file)
-    p
+    problem = ProblemLoader.new(lang, context).call(xmldata, filepath)
+    cond = [File.basename(filepath), :default].include? project.get(:process_file)
+    problem.process = true if cond
+    problem
   end
 
   private_class_method def self.raise_error_with(filepath, content)
