@@ -17,11 +17,12 @@ module ProblemDisplayer
     problems.each do |problem|
       next unless problem.process?
 
-      e = 0
+      e = problem.cases.size
       problem.asks.each do |ask|
         e += ask[:steps].size
         e += 1 if !ask[:answer].nil?
       end
+
       q = problem.questions.size
       factor = "Unkown"
       factor = (q.to_f / e).round(2).to_s unless e.zero?
