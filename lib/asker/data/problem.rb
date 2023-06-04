@@ -50,19 +50,31 @@ class Problem
   end
 
   def validate
+    validate_varnames
+    validate_cases
+    validate_asks
+  end
+
+  private
+
+  def validate_varnames
+    if !@varnames.size.zero? && @cases.size.zero?
+      Logger.warn "Problem: No problem/varnames defined with no problem/case"
+    end
+  end
+
+  def validate_cases
     @cases.each do |acase|
       if acase.size != @varnames.size
-        Logger.error "Problem: problem/varnames.size not equal to problem/cases/size"
-        Logger.error "       : varnames size #{@varnames.size} (#{@varnames.join(",")})"
+        Logger.error "Problem: problem/cases size not equal to problem/varnames size"
         Logger.error "       : cases size #{acase.size} (#{acase.join(",")})"
+        Logger.error "       : varnames size #{@varnames.size} (#{@varnames.join(",")})"
         exit 1
       end
     end
+  end
 
-    if !@varnames.size.zero? && @cases.size.zero?
-      Logger.warn "Problem: No problem/case"
-    end
-
+  def validate_asks
     if @asks.size.zero?
       Logger.warn "Problem: No problem/ask"
     end
