@@ -90,7 +90,7 @@ class ProblemAI
         # Question choice NONE
         if incorrect_answers.size > 2
           q = Question.new(:choice)
-          q.name = "#{name}-#{counter}-problem1b-choice"
+          q.name = "#{name}-#{counter}-problem1b-choice-none"
           q.text = lang.text_for(:problem1b, desc, asktext)
           q.good = lang.text_for(:none)
           incorrect_answers.shuffle!
@@ -150,7 +150,12 @@ class ProblemAI
           next if ask[:steps].nil? || ask[:steps].empty?
           steps = ask[:steps].map { |step| customize(text: step, custom: custom) }
 
-          puts lines_to_s(steps)
+          # Question short
+          q = Question.new(:short)
+          q.name = "#{name}-#{counter}-problem2a-short"
+          q.text = lang.text_for(:problem2a, desc, asktext, lines_to_s(steps))
+          q.shorts << 0
+          @questions << q
         end
       end
     end

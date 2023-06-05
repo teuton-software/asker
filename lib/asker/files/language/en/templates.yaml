@@ -27,5 +27,6 @@
 :t8table: '<b>Concept <%=text1%></b><br/>Complete the next association:<br/><ul><li><%=text2%>: "<%=text3%>"</li><li><%=text4%>: [*]</li></ul>Write only one word.<br/>'
 :t9table: '<b>Concept <%=text1%></b><br/>Complete the next association:<br/><ul><li><%=text2%>: "<%=text3%>"</li><li><%=text4%>: <%=text5%></li></ul>Write <%=text6%> words.<br/>'
 :code1: '<pre><%=text1%></pre><br/><p>Write the number of the first wrong line. Write 0 if there is no fail.</p>'
-:problem1a: '<p><b>Problem:</b> <%=text1%></p><p><b>Question:</b> <%=text2%></p><p><b>Answer:</b> <%=text3%></p>'
-:problem1b: '<p><b>Problem:</b> <%=text1%></p><p><b>Question:</b> <%=text2%></p>'
+:problem1a: '<p><%=text1%></p><p><b>Question:</b> <%=text2%></p><p><b>Answer:</b> <%=text3%></p>'
+:problem1b: '<p><%=text1%></p><p><b>Question:</b> <%=text2%></p>'
+:problem2a: '<p><%=text1%></p><p><b>Question:</b> <%=text2%></p><p><b>Answer:</b></p><pre><%=text3%></pre><br/><i>Write the number of the first wrong line. Write 0 if there is no fail.</i>'
