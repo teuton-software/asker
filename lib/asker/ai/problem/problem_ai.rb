@@ -65,8 +65,8 @@ class ProblemAI
 
         # Question boolean => true
         q = Question.new(:boolean)
-        q.name = "#{name}-#{counter}-problem1a-true"
-        q.text = lang.text_for(:problem1a, desc, asktext, correct_answer)
+        q.name = "#{name}-#{counter}-p1answer-true"
+        q.text = lang.text_for(:p1answer, desc, asktext, correct_answer)
         q.good = "TRUE"
         @questions << q
 
@@ -81,8 +81,8 @@ class ProblemAI
         # Question boolean => true
         if incorrect_answers.size > 0
           q = Question.new(:boolean)
-          q.name = "#{name}-#{counter}-problem1a-false"
-          q.text = lang.text_for(:problem1a, desc, asktext, incorrect_answers.first)
+          q.name = "#{name}-#{counter}-p2answer-false"
+          q.text = lang.text_for(:p1answer, desc, asktext, incorrect_answers.first)
           q.good = "FALSE"
           @questions << q
         end
@@ -90,8 +90,8 @@ class ProblemAI
         # Question choice NONE
         if incorrect_answers.size > 2
           q = Question.new(:choice)
-          q.name = "#{name}-#{counter}-problem1b-choice-none"
-          q.text = lang.text_for(:problem1b, desc, asktext)
+          q.name = "#{name}-#{counter}-p3answer-choice-none"
+          q.text = lang.text_for(:p2noanswer, desc, asktext)
           q.good = lang.text_for(:none)
           incorrect_answers.shuffle!
           q.bads << incorrect_answers[0]
@@ -104,8 +104,8 @@ class ProblemAI
         # Question choice OK
         if incorrect_answers.size > 2
           q = Question.new(:choice)
-          q.name = "#{name}-#{counter}-problem1b-choice"
-          q.text = lang.text_for(:problem1b, desc, asktext)
+          q.name = "#{name}-#{counter}-p4answer-choice"
+          q.text = lang.text_for(:p2noanswer, desc, asktext)
           q.good = correct_answer
           incorrect_answers.shuffle!
           q.bads << incorrect_answers[0]
@@ -117,8 +117,8 @@ class ProblemAI
 
         if incorrect_answers.size > 1
           q = Question.new(:choice)
-          q.name = "#{name}-#{counter}-problem1b-choice"
-          q.text = lang.text_for(:problem1b, desc, asktext)
+          q.name = "#{name}-#{counter}-p5answer-choice"
+          q.text = lang.text_for(:p2noanswer, desc, asktext)
           q.good = correct_answer
           incorrect_answers.shuffle!
           q.bads << incorrect_answers[0]
@@ -130,8 +130,8 @@ class ProblemAI
 
         # Question short
         q = Question.new(:short)
-        q.name = "#{name}-#{counter}-problem1b-short"
-        q.text = lang.text_for(:problem1b, desc, asktext)
+        q.name = "#{name}-#{counter}-p6answer-short"
+        q.text = lang.text_for(:p2noanswer, desc, asktext)
         q.shorts << correct_answer
         @questions << q
       end
@@ -150,12 +150,35 @@ class ProblemAI
           next if ask[:steps].nil? || ask[:steps].empty?
           steps = ask[:steps].map { |step| customize(text: step, custom: custom) }
 
-          # Question short
+          # Question short ok
           q = Question.new(:short)
-          q.name = "#{name}-#{counter}-problem2a-short"
-          q.text = lang.text_for(:problem2a, desc, asktext, lines_to_s(steps))
+          q.name = "#{name}-#{counter}-p7steps-short-ok"
+          q.text = lang.text_for(:p3steps, desc, asktext, lines_to_s(steps))
           q.shorts << 0
           @questions << q
+
+          max = steps.size - 1
+          (0..max).each do |index|
+            change = rand(max + 1)
+            bads = steps.clone
+
+            minor = index
+            major = change
+            if minor > major
+              minor, major = major, minor
+            elsif minor == major
+              next
+            end
+            bads[minor], bads[major] = bads[major], bads[minor]
+
+            # Question short error
+            q = Question.new(:short)
+            q.name = "#{name}-#{counter}-p8steps-short-error"
+            q.text = lang.text_for(:p3steps, desc, asktext, lines_to_s(bads))
+            q.shorts << minor + 1
+            q.feedback = lang.text_for(:p3steps, minor + 1, major + 1)
+            @questions << q
+          end
         end
       end
     end
