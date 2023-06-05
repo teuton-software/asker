@@ -31,7 +31,8 @@ class ProblemLoader
       varnames: [],
       cases: [],
       descs: [],
-      asks: []
+      asks: [],
+      formats: {}
     }
     xmldata.elements.each do |i|
       case i.name
@@ -41,6 +42,11 @@ class ProblemLoader
         data[:cases] = read_cases(i, filename)
       when "desc"
         data[:descs] << i.text
+        type = i.attributes["type"]
+        unless type.nil?
+          key = "desc#{data[:descs].size}"
+          data[:formats][key] = type
+        end
       when "ask"
         data[:asks] << read_ask(i, filename)
       else
