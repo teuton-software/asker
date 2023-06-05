@@ -8,9 +8,6 @@ require_relative "../../ai/question"
 class BaseCodeAI
   attr_reader :questions
 
-  ##
-  # Create CodeAI object from Code data
-  # @param code (Code)
   def initialize(code)
     @code = code
     @lines = code.lines
@@ -19,9 +16,6 @@ class BaseCodeAI
     make_questions
   end
 
-  ##
-  # Return the name of code
-  # @return String
   def name
     File.basename(@code.filename)
   end
@@ -42,28 +36,16 @@ class BaseCodeAI
     @code.lines
   end
 
-  ##
-  # Counter
-  # @return count
   def num
     @num += 1
   end
 
-  ##
-  # Clone array
-  # @param array (Array)
-  # @return Array
   def clone_array(array)
     out = []
     array.each { |item| out << item.dup }
     out
   end
 
-  ##
-  # Convert an array of lines into one String
-  # @param lines (Array)
-  # @return String
-  # rubocop:disable Style/FormatString
   def lines_to_s(lines)
     out = ""
     lines.each_with_index do |line, index|
@@ -72,10 +54,6 @@ class BaseCodeAI
     out
   end
 
-  ##
-  # Convert an array of lines into one HTML String
-  # @param lines (Array)
-  # @return String
   def lines_to_html(lines)
     out = ""
     lines.each_with_index do |line, index|
@@ -83,10 +61,7 @@ class BaseCodeAI
     end
     out
   end
-  # rubocop:enable Style/FormatString
 
-  ##
-  # Make questions
   def make_questions
     list = find_make_methods
     list.each { |m| @questions += send m }

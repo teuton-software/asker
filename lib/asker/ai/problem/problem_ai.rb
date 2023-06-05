@@ -14,7 +14,8 @@ class ProblemAI
     @counter = 0
     @questions = []
     @customs = get_customs(@problem)
-    make_questions_with_asks
+    make_questions_with_aswers
+    make_questions_with_steps
     @problem.questions = @questions
   end
 
@@ -22,6 +23,12 @@ class ProblemAI
 
   def counter
     @counter += 1
+  end
+
+  def customize(text:, custom:)
+    output = text.clone
+    custom.each_pair { |oldvalue, newvalue| output.gsub!(oldvalue, newvalue) }
+    output
   end
 
   def get_customs(problem)
@@ -35,13 +42,15 @@ class ProblemAI
     customs
   end
 
-  def customize(text:, custom:)
-    output = text.clone
-    custom.each_pair { |oldvalue, newvalue| output.gsub!(oldvalue, newvalue) }
+  def lines_to_s(lines)
+    output = ""
+    lines.each_with_index do |line, index|
+      output << "%2d: #{line}\n" % (index + 1)
+    end
     output
   end
 
-  def make_questions_with_asks
+  def make_questions_with_aswers
     name = @problem.name
     lang = @problem.lang
 
@@ -125,6 +134,24 @@ class ProblemAI
         q.text = lang.text_for(:problem1b, desc, asktext)
         q.shorts << correct_answer
         @questions << q
+      end
+    end
+
+    def make_questions_with_steps
+      name = @problem.name
+      lang = @problem.lang
+
+      @customs.each do |custom|
+        desc = customize(text: @problem.desc, custom: custom)
+
+        @problem.asks.each do |ask|
+          next if ask[:text].nil?
+          asktext = customize(text: ask[:text], custom: custom)
+          next if ask[:steps].nil? || ask[:steps].empty?
+          steps = ask[:steps].map { |step| customize(text: step, custom: custom) }
+
+          puts lines_to_s(steps)
+        end
       end
     end
   end

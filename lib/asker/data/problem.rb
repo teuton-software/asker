@@ -92,8 +92,15 @@ class Problem
     @asks.each do |ask|
       Logger.warn "Problem: No problem/ask/text" if ask[:text].nil?
       if ask[:answer].nil? && ask[:steps].size.zero?
-        Logger.error "Problem: No problem/ask/answer or problem/ask/step"
+        Logger.error "Problem: No problem/ask/answer and no problem/ask/steps"
         exit 1
+      end
+      if !ask[:answer].nil? && !ask[:steps].size.zero?
+        Logger.error "Problem: Choose problem/ask/answer or problem/ask/steps"
+        exit 1
+      end
+      if ask[:steps].size > 0 && ask[:steps].size < 4
+        Logger.warn "Problem: problem/ask/steps less than 4"
       end
     end
   end
