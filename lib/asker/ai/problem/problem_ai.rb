@@ -193,11 +193,11 @@ class ProblemAI
             incomplete_steps[indexes[2]] = "?"
             incomplete_steps[indexes[3]] = "?"
             q.text = lang.text_for(:p5steps, desc,  asktext, lines_to_s(incomplete_steps))
-            q.matching << [indexes[0].to_s, steps[indexes[0]]]
-            q.matching << [indexes[1].to_s, steps[indexes[1]]]
-            q.matching << [indexes[2].to_s, steps[indexes[2]]]
-            q.matching << [indexes[3].to_s, steps[indexes[3]]]
-            # q.matching << ["", lang.text_for(:error)]
+            q.matching << [steps[indexes[0]], (indexes[0] + 1).to_s]
+            q.matching << [steps[indexes[1]], (indexes[1] + 1).to_s]
+            q.matching << [steps[indexes[2]], (indexes[2] + 1).to_s]
+            q.matching << [steps[indexes[3]], (indexes[3] + 1).to_s]
+            q.matching << ["", lang.text_for(:error)]
             @questions << q
           end
         end
