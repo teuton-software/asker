@@ -53,6 +53,7 @@ class Problem
     validate_varnames
     validate_cases
     validate_asks
+    validate_descs
   end
 
   private
@@ -103,5 +104,9 @@ class Problem
         Logger.warn "Problem: problem/ask/steps less than 4"
       end
     end
+  end
+
+  def validate_descs
+    # require "debug"; binding.break
   end
 end

@@ -17,20 +17,21 @@ class ProblemTest < Test::Unit::TestCase
 
   def test_problem_from
     data = {
-      varnames: %w(A B C),
-      cases: [[1, 2, 3]],
+      fieldname: "problem_test",
+      varnames: %w(N1 N2 S1),
+      cases: [["2", "3", "5"]],
       descs: ["desc1", "desc2"],
-      asks: [{text: "text1", answer: "answer1"}]
+      asks: [{text: "text1", answer: "answer1", steps: []}],
     }
     problem = Problem.from(data)
 
     assert_equal true, problem.name.start_with?("problem")
     assert_equal false, problem.process?
-    assert_equal ["A", "B", "C"], problem.varnames
-    assert_equal [[1, 2, 3]], problem.cases
+    assert_equal ["N1", "N2", "S1"], problem.varnames
+    assert_equal [["2", "3", "5"]], problem.cases
     assert_equal ["desc1", "desc2"], problem.descs
     assert_equal "desc1", problem.desc
-    assert_equal [{text: "text1", answer: "answer1"}], problem.asks
+    assert_equal [{text: "text1", answer: "answer1", steps: []}], problem.asks
     assert_equal [], problem.questions
   end
 end
