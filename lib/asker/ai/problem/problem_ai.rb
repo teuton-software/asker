@@ -182,21 +182,21 @@ class ProblemAI
           end
 
           # Match questions
-          if steps.size > 3
+          indexes = (0..(steps.size - 1)).to_a.shuffle
+          (0..(steps.size - 4)).each do |first|
+            incomplete_steps = steps.clone
+            incomplete_steps[indexes[first]] = "?"
+            incomplete_steps[indexes[first + 1]] = "?"
+            incomplete_steps[indexes[first + 2]] = "?"
+            incomplete_steps[indexes[first + 3]] = "?"
+            require "debug"; binding.break
             q = Question.new(:match)
             q.name = "#{name}-#{counter}-p4steps-match"
-
-            indexes = (0..(steps.size - 1)).to_a.shuffle
-            incomplete_steps = steps.clone
-            incomplete_steps[indexes[0]] = "?"
-            incomplete_steps[indexes[1]] = "?"
-            incomplete_steps[indexes[2]] = "?"
-            incomplete_steps[indexes[3]] = "?"
             q.text = lang.text_for(:p5steps, desc,  asktext, lines_to_s(incomplete_steps))
-            q.matching << [steps[indexes[0]], (indexes[0] + 1).to_s]
-            q.matching << [steps[indexes[1]], (indexes[1] + 1).to_s]
-            q.matching << [steps[indexes[2]], (indexes[2] + 1).to_s]
-            q.matching << [steps[indexes[3]], (indexes[3] + 1).to_s]
+            q.matching << [steps[indexes[first]], (indexes[first] + 1).to_s]
+            q.matching << [steps[indexes[first + 1]], (indexes[first + 1] + 1).to_s]
+            q.matching << [steps[indexes[first + 2]], (indexes[first + 2] + 1).to_s]
+            q.matching << [steps[indexes[first + 3]], (indexes[first + 3] + 1).to_s]
             q.matching << ["", lang.text_for(:error)]
             @questions << q
           end
