@@ -29,5 +29,6 @@
 :code1: '<pre><%=text1%></pre><br/><p>Write the number of the first wrong line. Write 0 if there is no fail.</p>'
 :p1answer: '<p><%=text1%></p><p><b>Question:</b> <%=text2%></p><p><b>Answer:</b> <%=text3%></p>'
 :p2noanswer: '<p><%=text1%></p><p><b>Question:</b> <%=text2%></p>'
-:p3steps: '<p><%=text1%></p><p><b>Question:</b> <%=text2%></p><p><b>Answer:</b></p><pre><%=text3%></pre><br/><i>Write the number of the first wrong line. Write 0 if there is no fail.</i>'
-:p4steps: 'Change step <%=text1%> by step <%=text2%>'
+:p3steps: '<p><%=text1%></p><p><b>Question:</b> <%=text2%></p><p><b>Answer:</b></p><pre><%=text3%></pre><br/><i>(Write the number of the first wrong line. Write 0 if there is no fail)</i>'
+:p4stepschanged: 'Change step <%=text1%> by step <%=text2%>'
+:p5steps: '<p><%=text1%></p><p><b>Question:</b> <%=text2%></p><p><b>Answer:</b></p><pre><%=text3%></pre><br/><i>(Place each step in its correct position within the sequence)</i>'
