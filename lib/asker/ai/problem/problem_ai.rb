@@ -189,7 +189,6 @@ class ProblemAI
             incomplete_steps[indexes[first + 1]] = "?"
             incomplete_steps[indexes[first + 2]] = "?"
             incomplete_steps[indexes[first + 3]] = "?"
-            require "debug"; binding.break
             q = Question.new(:match)
             q.name = "#{name}-#{counter}-p4steps-match"
             q.text = lang.text_for(:p5steps, desc,  asktext, lines_to_s(incomplete_steps))
