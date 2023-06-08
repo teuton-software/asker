@@ -150,12 +150,20 @@ class ProblemAI
           next if ask[:steps].nil? || ask[:steps].empty?
           steps = ask[:steps].map { |step| customize(text: step, custom: custom) }
 
-          # Question short ok
+          # Question steps ok
           q = Question.new(:short)
           q.name = "#{name}-#{counter}-p3steps-short-ok"
           q.text = lang.text_for(:p3steps, desc, asktext, lines_to_s(steps))
           q.shorts << 0
           @questions << q
+
+          if steps.size > 3
+            q = Question.new(:ordering)
+            q.name = "#{name}-#{counter}-p6steps-ordering"
+            q.text = lang.text_for(:p6steps, desc, asktext, lines_to_s(steps))
+            steps.each { |step| q.ordering << step }
+            @questions << q
+          end
 
           # Using diferents wrong steps sequences
           max = steps.size - 1
@@ -172,7 +180,7 @@ class ProblemAI
             end
             bads[minor], bads[major] = bads[major], bads[minor]
 
-            # Question short error
+            # Question steps error
             q = Question.new(:short)
             q.name = "#{name}-#{counter}-p3steps-short-error"
             q.text = lang.text_for(:p3steps, desc, asktext, lines_to_s(bads))

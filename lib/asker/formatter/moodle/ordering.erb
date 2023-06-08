@@ -1,0 +1,41 @@
+<% unless question.comment.nil? || question.comment.empty? %>
+<!-- question: <%= question.comment %>  -->
+<% end %>
+  <question type="ordering">
+    <name>
+      <text><%= question.name %></text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<%= question.text %>]]></text>
+      <% unless question.encode == :none %>
+        <%= question.encode %>
+      <% end %>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<%= question.feedback.to_s %>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <layouttype>VERTICAL</layouttype>
+    <selecttype>ALL</selecttype>
+    <selectcount>0</selectcount>
+    <gradingtype>ABSOLUTE_POSITION</gradingtype>
+    <showgrading>SHOW</showgrading>
+    <numberingstyle>none</numberingstyle>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <% question.ordering.each_with_index do |step, index| %>
+    <answer fraction="<%= index + 1 %>" format="moodle_auto_format">
+      <text><%= step %></text>
+    </answer>
+    <% end %>
+  </question>

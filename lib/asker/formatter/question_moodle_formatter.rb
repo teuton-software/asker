@@ -24,6 +24,8 @@ class QuestionMoodleFormatter
       template = File.read(File.join(File.dirname(__FILE__), "moodle", "truefalse.erb"))
     when :match
       template = File.read(File.join(File.dirname(__FILE__), "moodle", "matching.erb"))
+    when :ordering
+      template = File.read(File.join(File.dirname(__FILE__), "moodle", "ordering.erb"))
     when :short
       template = File.read(File.join(File.dirname(__FILE__), "moodle", "shortanswer.erb"))
     end

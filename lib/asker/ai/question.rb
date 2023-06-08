@@ -6,16 +6,19 @@ require "set"
 class Question
   attr_accessor :name     # Question name used as identification
   attr_accessor :comment  # Comments asociated
-  attr_accessor :text     # The real text of the question
-  attr_accessor :good     # The correct answer
-  attr_accessor :bads     # Bads answers used by choice type question
-  attr_accessor :matching # Matching answers used by match type question
-  attr_accessor :shorts   # Short answers used by short type question
-  attr_accessor :feedback # Question feedbak
-  attr_reader :type     # Question type: :choice, :match, :boolean, :short
   attr_accessor :tags
   attr_accessor :lang     # Info used when export (YAML)
   attr_accessor :encode   # image base64 content used when export Moodle xml
+
+  attr_accessor :text     # The real text of the question
+  attr_accessor :feedback # Question feedbak
+  attr_reader :type       # Question type: ;boolean, :choice, :match, :short
+
+  attr_accessor :good     # The correct answer (types: boolean, choice)
+  attr_accessor :bads     # Bads answers (type: choice)
+  attr_accessor :matching # Matching answers (type: match)
+  attr_accessor :ordering # Steps answer (type: ordering)
+  attr_accessor :shorts   # Short answers (type: short)
 
   # @param type (Symbol) Question type: choice, match, boolean, short
   def initialize(type = :choice)
@@ -27,17 +30,24 @@ class Question
   def reset(type = :choice)
     @name = ""
     @comment = ""
-    @text = ""
-    @type = type
-    @good = ""
-    @bads = []
-    @matching = []
-    @shorts = []
-    @feedback = nil
-    shuffle_on
     @tags = Set.new
     @lang = nil
     @encode = :none
+
+    @text = ""
+    @feedback = nil
+    @type = type
+
+    @good = ""
+    @bads = []
+    @matching = []
+    @ordering = []
+    @shorts = []
+    shuffle_on
+  end
+
+  def set_boolean
+    @type = :boolean
   end
 
   def set_choice
@@ -48,8 +58,9 @@ class Question
     @type = :match
   end
 
-  def set_boolean
-    @type = :boolean
+  def set_ordering
+    @type = :ordering
+    shuffle_off
   end
 
   def set_short

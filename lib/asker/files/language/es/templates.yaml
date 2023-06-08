@@ -32,3 +32,4 @@
 :p3steps: '<p><%=text1%></p><p><b>Pregunta:</b> <%=text2%></p><p><b>Respuesta:</b></p><pre><%=text3%></pre><br/><i>(Escribir el número de línea donde está el primer error. Escribir 0 si no hay ningún error)</i>'
 :p4stepschanged: 'Cambia el paso <%=text1%> por el paso <%=text2%>'
 :p5steps: '<p><%=text1%></p><p><b>Pregunta:</b> <%=text2%></p><p><b>Respuesta:</b></p><pre><%=text3%></pre><br/><i>(Coloca cada paso en su posición correcta dentro de la secuencia)</i>'
+:p6steps: '<p><%=text1%></p><p><b>Pregunta:</b> <%=text2%></p><br/><i>(Coloca cada paso en su posición correcta dentro de la secuencia)</i>'

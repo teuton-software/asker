@@ -44,6 +44,10 @@ module QuestionGiftFormatter
       a.shuffle! if question.shuffle?
       a.each { |i| s << i }
       s << "}\n\n"
+    when :ordering
+      s << "{>0 ALL VERTICAL ABSOLUTE_POSITION SHOW none\n"
+      question.ordering.each { |i| s << "#{i}\n" }
+      s << "}\n\n"
     when :short
       s << "{\n"
       question.shorts.uniq!
