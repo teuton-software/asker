@@ -65,8 +65,8 @@ class ProblemAI
 
         # Question boolean => true
         q = Question.new(:boolean)
-        q.name = "#{name}-#{counter}-p1answer-true"
-        q.text = lang.text_for(:p1answer, desc, asktext, correct_answer)
+        q.name = "#{name}-#{counter}-pa1-true"
+        q.text = lang.text_for(:pa1, desc, asktext, correct_answer)
         q.good = "TRUE"
         @questions << q
 
@@ -81,8 +81,8 @@ class ProblemAI
         # Question boolean => true
         if incorrect_answers.size > 0
           q = Question.new(:boolean)
-          q.name = "#{name}-#{counter}-p1answer-false"
-          q.text = lang.text_for(:p1answer, desc, asktext, incorrect_answers.first)
+          q.name = "#{name}-#{counter}-pa1-false"
+          q.text = lang.text_for(:pa1, desc, asktext, incorrect_answers.first)
           q.good = "FALSE"
           @questions << q
         end
@@ -90,8 +90,8 @@ class ProblemAI
         # Question choice NONE
         if incorrect_answers.size > 2
           q = Question.new(:choice)
-          q.name = "#{name}-#{counter}-p2noanswer-choice-none"
-          q.text = lang.text_for(:p2noanswer, desc, asktext)
+          q.name = "#{name}-#{counter}-pa2-choice-none"
+          q.text = lang.text_for(:pa2, desc, asktext)
           q.good = lang.text_for(:none)
           incorrect_answers.shuffle!
           q.bads << incorrect_answers[0]
@@ -104,8 +104,8 @@ class ProblemAI
         # Question choice OK
         if incorrect_answers.size > 2
           q = Question.new(:choice)
-          q.name = "#{name}-#{counter}-p2noanswer-choice"
-          q.text = lang.text_for(:p2noanswer, desc, asktext)
+          q.name = "#{name}-#{counter}-pa2-choice"
+          q.text = lang.text_for(:pa2, desc, asktext)
           q.good = correct_answer
           incorrect_answers.shuffle!
           q.bads << incorrect_answers[0]
@@ -117,8 +117,8 @@ class ProblemAI
 
         if incorrect_answers.size > 1
           q = Question.new(:choice)
-          q.name = "#{name}-#{counter}-p2noanswer-choice"
-          q.text = lang.text_for(:p2noanswer, desc, asktext)
+          q.name = "#{name}-#{counter}-pa2-choice"
+          q.text = lang.text_for(:pa2, desc, asktext)
           q.good = correct_answer
           incorrect_answers.shuffle!
           q.bads << incorrect_answers[0]
@@ -130,9 +130,10 @@ class ProblemAI
 
         # Question short
         q = Question.new(:short)
-        q.name = "#{name}-#{counter}-p2noanswer-short"
-        q.text = lang.text_for(:p2noanswer, desc, asktext)
+        q.name = "#{name}-#{counter}-p2-short"
+        q.text = lang.text_for(:pa2, desc, asktext)
         q.shorts << correct_answer
+        q.feedback = "Correct answer is #{correct_answer}."
         @questions << q
       end
     end
@@ -152,15 +153,15 @@ class ProblemAI
 
           # Question steps ok
           q = Question.new(:short)
-          q.name = "#{name}-#{counter}-p3steps-short-ok"
-          q.text = lang.text_for(:p3steps, desc, asktext, lines_to_s(steps))
+          q.name = "#{name}-#{counter}-p3-short-ok"
+          q.text = lang.text_for(:ps3, desc, asktext, lines_to_s(steps))
           q.shorts << 0
           @questions << q
 
           if steps.size > 3
             q = Question.new(:ordering)
-            q.name = "#{name}-#{counter}-p6steps-ordering"
-            q.text = lang.text_for(:p6steps, desc, asktext, lines_to_s(steps))
+            q.name = "#{name}-#{counter}-ps6-ordering"
+            q.text = lang.text_for(:ps6, desc, asktext, lines_to_s(steps))
             steps.each { |step| q.ordering << step }
             @questions << q
           end
@@ -182,10 +183,10 @@ class ProblemAI
 
             # Question steps error
             q = Question.new(:short)
-            q.name = "#{name}-#{counter}-p3steps-short-error"
-            q.text = lang.text_for(:p3steps, desc, asktext, lines_to_s(bads))
+            q.name = "#{name}-#{counter}-p3-short-error"
+            q.text = lang.text_for(:ps3, desc, asktext, lines_to_s(bads))
             q.shorts << minor + 1
-            q.feedback = lang.text_for(:p4stepschanged, minor + 1, major + 1)
+            q.feedback = lang.text_for(:ps4, minor + 1, major + 1)
             @questions << q
           end
 
@@ -198,8 +199,8 @@ class ProblemAI
             incomplete_steps[indexes[first + 2]] = "?"
             incomplete_steps[indexes[first + 3]] = "?"
             q = Question.new(:match)
-            q.name = "#{name}-#{counter}-p4steps-match"
-            q.text = lang.text_for(:p5steps, desc,  asktext, lines_to_s(incomplete_steps))
+            q.name = "#{name}-#{counter}-ps5-match"
+            q.text = lang.text_for(:ps5, desc,  asktext, lines_to_s(incomplete_steps))
             q.matching << [steps[indexes[first]], (indexes[first] + 1).to_s]
             q.matching << [steps[indexes[first + 1]], (indexes[first + 1] + 1).to_s]
             q.matching << [steps[indexes[first + 2]], (indexes[first + 2] + 1).to_s]
