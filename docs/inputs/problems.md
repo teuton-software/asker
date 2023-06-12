@@ -68,9 +68,17 @@ In our example we have multiplied by 4 the possibilities of the problem.
 
 It is recommended to use a minimum of 4 cases to optimize the output.
 
-**Separator**
+**Var names restriction**
 
-By default, the comma (`,`) is used as a separator for the different fields. To use a different value we use the sep attribute as follows:
+A variable name cannot be contained within another variable name. For example:
+* _Incorrect variable names_: N, NUM (Variable N appears inside the variable NUM)
+* _Correct variable names_: N1, N2.
+
+Variable names can be created in upper or lower case. The recommendation is to use capital letters to make it easier to distinguish it from the rest of the text.
+
+**Case values**: Each `case` line must have as many values as variable names defined in `varnames` field.
+
+**Fileds separator**: By default, the comma (`,`) is used as a separator for the different fields. To use a different value we use the sep attribute as follows:
 
 ```
 %problem
