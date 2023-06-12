@@ -6,7 +6,7 @@ Problems are another way of defining knowledge.
 
 While the concepts allow us to define knowledge, the problems allow us to define situations in which it is necessary to apply the knowledge in a practical way to obtain answers.
 
-> Example file `docs/examples/problems/math.haml`
+> Problem example files at `docs/examples/problems/`
 
 ## 1. Basic problem example
 
@@ -75,7 +75,7 @@ By default, the comma (`,`) is used as a separator for the different fields. To 
 ```
 %problem
   %cases { varnames: "VALUES; MAX; MIN; AVERAGE", sep:";"}
-    %case 1, 2, 3, 4, 5; 5; 1; 3
+    %case 1,2,3,4,5; 5; 1; 3
   %desc We have the following values: VALUES
   %ask
     %text Calculate the maximum
@@ -117,7 +117,7 @@ You have to think that we are looking for a way to create questions about proble
 
 The student is presentedthe problem with its resolution sequence and must understand it and answer if it is correct or not, or complete a step, or identify an error in the steps, etc.
 
-## 4. Mix steps and answers
+## 4. Mixing steps and answers
 
 It is posible combine steps and answers defining our problems. Example:
 
