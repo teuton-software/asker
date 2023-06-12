@@ -2,7 +2,6 @@
 
 require "set"
 
-# Define Question class
 class Question
   TYPES = %i[boolean choice ddmatch match ordering short]
 
@@ -23,17 +22,14 @@ class Question
   attr_accessor :shorts   # Short answers (type: short)
 
   def initialize(type = :choice)
-    unless TYPES.include? type
-      warn "[ERROR] Question type error (#{type})"
-      exit 1
-    end
-    
     reset(type)
   end
 
-  # Reset attributes
   # @param type (Symbol) Question type: choice, match, boolean, short
   def reset(type = :choice)
+    validate type
+    @type = type
+
     @name = ""
     @comment = ""
     @tags = Set.new
@@ -42,8 +38,6 @@ class Question
 
     @text = ""
     @feedback = nil
-    @type = type
-
     @good = ""
     @bads = []
     @matching = []
@@ -62,5 +56,14 @@ class Question
 
   def shuffle?
     @shuffle
+  end
+
+  private
+
+  def validate(type)
+    unless TYPES.include? type
+      warn "[ERROR] Question type error (#{type})"
+      exit 1
+    end
   end
 end
