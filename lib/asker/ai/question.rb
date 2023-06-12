@@ -27,6 +27,7 @@ class Question
       warn "[ERROR] Question type error (#{type})"
       exit 1
     end
+    
     reset(type)
   end
 

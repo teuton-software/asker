@@ -22,12 +22,17 @@ class QuestionMoodleFormatter
       template = File.read(File.join(File.dirname(__FILE__), "moodle", "multichoice.erb"))
     when :boolean
       template = File.read(File.join(File.dirname(__FILE__), "moodle", "truefalse.erb"))
+    when :ddmatch
+      template = File.read(File.join(File.dirname(__FILE__), "moodle", "ddmatch.erb"))
     when :match
       template = File.read(File.join(File.dirname(__FILE__), "moodle", "matching.erb"))
     when :ordering
       template = File.read(File.join(File.dirname(__FILE__), "moodle", "ordering.erb"))
     when :short
       template = File.read(File.join(File.dirname(__FILE__), "moodle", "shortanswer.erb"))
+    else
+      warn "[ERROR] QuestionMoodleFormatter: Unkown type (#{question.type})"
+      exit 1
     end
     renderer = ERB.new(template)
     renderer.result(binding)
