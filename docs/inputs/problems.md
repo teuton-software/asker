@@ -68,6 +68,26 @@ In our example we have multiplied by 4 the possibilities of the problem.
 
 It is recommended to use a minimum of 4 cases to optimize the output.
 
+**Separator**
+
+By default, the comma (`,`) is used as a separator for the different fields. To use a different value we use the sep attribute as follows:
+
+```
+%problem
+  %cases { varnames: "VALUES; MAX; MIN; AVERAGE", sep:";"}
+    %case 1, 2, 3, 4, 5; 5; 1; 3
+  %desc We have the following values: VALUES
+  %ask
+    %text Calculate the maximum
+    %answer MAX
+  %ask
+    %text Calculate minimum
+    %answer MIN
+  %ask
+    %text Calculate the average
+    %answer AVERAGE
+```
+
 ## 3. Steps to solve the problem
 
 When students are given a problem, they are expected to carry out a development in several steps to finally arrive at the solution. In most cases these steps are more interesting from the teacher's point of view than the final answer itself.

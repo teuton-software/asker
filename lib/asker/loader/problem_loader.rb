@@ -37,9 +37,11 @@ class ProblemLoader
     xmldata.elements.each do |i|
       case i.name
       when "cases"
-        data[:varnames] = i.attributes["varnames"].split(",")
+        sep = i.attributes["sep"]&.strip || ","
+        puts sep
+        data[:varnames] = i.attributes["varnames"].split(sep)
         data[:varnames].map! { _1.strip }
-        data[:cases] = read_cases(i, filename)
+        data[:cases] = read_cases(i, filename, sep)
       when "desc"
         data[:descs] << i.text
         type = i.attributes["type"]
@@ -72,12 +74,12 @@ class ProblemLoader
     ask
   end
 
-  def read_cases(xmldata, filename)
+  def read_cases(xmldata, filename, sep)
     cases = []
 
     xmldata.elements.each do |i|
       if i.name == "case"
-        cases << i.text.split(",").map { _1.strip }
+        cases << i.text.split(sep).map { _1.strip }
       else
         Logger.warn "ProblemLoader: Unkown tag problem/cases/#{i.name} (#{filename})"
       end
