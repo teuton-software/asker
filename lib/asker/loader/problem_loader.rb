@@ -38,7 +38,6 @@ class ProblemLoader
       case i.name
       when "cases"
         sep = i.attributes["sep"]&.strip || ","
-        puts sep
         data[:varnames] = i.attributes["varnames"].split(sep)
         data[:varnames].map! { _1.strip }
         data[:cases] = read_cases(i, filename, sep)
