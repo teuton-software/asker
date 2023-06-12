@@ -8,11 +8,6 @@ require_relative "../question"
 # range i1, i2, i3, i4
 class StageI < BaseStage
   # Stage I: process every image from <def> tag
-  # rubocop:disable Metrics/BlockLength
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/CyclomaticComplexity
-  # rubocop:disable Metrics/PerceivedComplexity
   def run
     questions = []
     return questions unless concept.type == "text"
@@ -119,9 +114,4 @@ class StageI < BaseStage
     end
     questions
   end
-  # rubocop:enable Metrics/BlockLength
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/CyclomaticComplexity
-  # rubocop:enable Metrics/PerceivedComplexity
 end
