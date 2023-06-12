@@ -82,4 +82,27 @@ class LangTest < Test::Unit::TestCase
     r2= "Hello, my name [1] [2]. I [3] a [4]."
     assert_equal r2, @lang[:en].build_text_from_filtered(t, [2,3,4,5])
   end
+
+  def test_text_for_gapfill_question
+    text = %q{Hello, my name is Obiwan. I am a Jedi.}
+    t = @lang[:en].text_with_connectors(text)
+
+    #### Example ####
+    # {
+    #   :lines=>[[0, "my", 1, 2, 3, "."], ["I", 4, "a", 5, "."]],
+    #   :words=>
+    #     [{:word=>"Hello,", :row=>0, :col=>0},
+    #      {:word=>"name", :row=>0, :col=>2},
+    #      {:word=>"is", :row=>0, :col=>3},
+    #      {:word=>"Obiwan", :row=>0, :col=>4},
+    #      {:word=>"am", :row=>1, :col=>1},
+    #      {:word=>"Jedi", :row=>1, :col=>3}],
+    #   :indexes=>[0, 1, 2, 3, 4, 5]
+    # }
+
+    t[:words].each { |item| item[:word] = "[#{item[:word]}]" }
+
+    r = "[Hello,] my [name] [is] [Obiwan]. I [am] a [Jedi]."
+    assert_equal r, @lang[:en].build_text_from_filtered(t, [])
+  end
 end
