@@ -34,7 +34,9 @@ module QuestionGiftFormatter
       s += "  #####{sanitize(question.feedback.to_s)}\n" if question.feedback
       s += "}\n\n"
     when :ddmatch
-      s << "// WARNING: can't export ddmatch questions to Gift format"
+      s << "// WARNING: can't export ddmatch questions to this format"
+    when :gapfill
+      s << "// WARNING: can't export gapfill questions to this format"
     when :match
       s << "{\n"
       a = []

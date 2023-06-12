@@ -1,0 +1,57 @@
+<% unless question.comment.nil? || question.comment.empty? %>
+<!-- question: <%= question.comment %>  -->
+<% end %>
+  <question type="gapfill">
+    <name>
+      <text><%= question.name %></text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<%= question.text %>]]></text>
+      <% unless question.encode == :none %>
+        <%= question.encode %>
+      <% end %>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answerdisplay>dragdrop</answerdisplay>
+    <delimitchars>[]</delimitchars>
+    <casesensitive>0</casesensitive>
+    <noduplicates>0</noduplicates>
+    <disableregex>0</disableregex>
+    <fixedgapsize>0</fixedgapsize>
+    <optionsaftertext>0</optionsaftertext>
+    <letterhints>0</letterhints>
+    <singleuse>0</singleuse>
+    <% question.shorts.uniq! %>
+    <% question.shorts.each do |i| %>
+    <answer fraction="100" format="moodle_auto_format">
+      <text><![CDATA[<%= i %>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <% end %>
+    <delimitchars>[]</delimitchars>
+    <answerdisplay>dragdrop</answerdisplay>
+    <casesensitive>0</casesensitive>
+    <noduplicates>0</noduplicates>
+    <disableregex>0</disableregex>
+    <fixedgapsize>0</fixedgapsize>
+    <optionsaftertext>0</optionsaftertext>
+    <letterhints>0</letterhints>
+    <!-- Gapfill release:2.133 version:2022032500 Moodle version:2020061514.02 release:3.9.14+ (Build: 20220603) -->
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+  </question>

@@ -38,13 +38,13 @@ class ProjectDataTest < Test::Unit::TestCase
     assert_equal "#{projectname}-gift.txt", @project.get(:outputname)
     assert_equal "#{projectname}.log" , @project.get(:logname)
     assert_equal "#{projectname}.txt" , @project.get(:lessonname)
-    assert_equal "#{projectname}.yaml" , @project.get(:yamlname)
+    assert_equal "#{projectname}-questions.yaml" , @project.get(:yamlname)
     assert_equal "#{projectname}-moodle.xml" , @project.get(:moodlename)
 
     assert_equal File.join("output", "#{projectname}-gift.txt"), @project.get(:outputpath)
     assert_equal File.join("output", "#{projectname}.log" ), @project.get(:logpath)
     assert_equal File.join("output", "#{projectname}.txt" ), @project.get(:lessonpath)
-    assert_equal File.join("output", "#{projectname}.yaml" ), @project.get(:yamlpath)
+    assert_equal File.join("output", "#{projectname}-questions.yaml" ), @project.get(:yamlpath)
     assert_equal File.join("output", "#{projectname}-moodle.xml" ), @project.get(:moodlepath)
   end
 end

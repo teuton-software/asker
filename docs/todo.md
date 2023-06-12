@@ -67,3 +67,4 @@ Incorporar lógica para
 
 * Problem/sanitize
 * Code/sanitize
+* New questions types: ordering, ddmatch, gapfill
