@@ -3,8 +3,7 @@
 
 # Learn code
 
-Now, we are going to learn **EXPERIMENTAL** keywords:
-* code
+Now, we are going to learn about **EXPERIMENTAL** keyword `code`.
 
 > It's experimental, because it's not finish and we are changing it.
 We are not sure how it will looks in the future. We are experimenting but consider it's enought interesting and usefull to be used by now.

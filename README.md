@@ -34,10 +34,10 @@ Let's see an example creating questions from ACDC input example file:
 +--------------------+-----------+---------+---------+---+---+----+---+---+----+
 | Concept            | Questions | Entries | xFactor | d | b | f  | i | s | t  |
 +--------------------+-----------+---------+---------+---+---+----+---+---+----+
-| AC/DC              | 45        | 18      | 2.5     | 7 | 0 | 15 | 0 | 3 | 20 |
+| AC/DC              | 46        | 18      | 2.5     | 7 | 0 | 15 | 0 | 4 | 20 |
 | Excluded questions | 0         | -       | -       | 0 | 0 | 0  | 0 | 0 | 0  |
 +--------------------+-----------+---------+---------+---+---+----+---+---+----+
-| 1 concept/s        | 45        | 18      | 2.5     | 7 | 0 | 15 | 0 | 3 | 20 |
+| 1 concept/s        | 46        | 18      | 2.5     | 7 | 0 | 15 | 0 | 4 | 20 |
 +--------------------+-----------+---------+---------+---+---+----+---+---+----+
 ```
 
@@ -46,8 +46,8 @@ Let's see an example creating questions from ACDC input example file:
 * [Free Software License](LICENSE).
 * Multiplatform.
 * Input files formats: XML, HAML.
-* Output formats: GIFT, Moodle XML.
-* Question types: true/false, multiple choice, short answer, matching.
+* Output formats: GIFT, Moodle XML, YAML.
+* Question types: true/false, multiple choice, short answer, matching and ordering.
 * Embeded files: mp3, ogg, wav, jpg, jpeg, png, mp4, ogv and plain text files.
 
 # Documentation

@@ -48,7 +48,7 @@ Use diferents input files to define diferents contexts.
 | Param | Description                     |
 | ----- | ------------------------------- |
 | names | Comma separated concept's names |
-| tags  | Comma separated tags that help to identify this concept |
+| tags  | Comma separated words that help to characterize this concept |
 
 * **def**: Use def keyword to add concept meaning. The `def` content must be uniquely associated to our concept. You can use `def` more than once.
 
@@ -63,7 +63,7 @@ Use diferents input files to define diferents contexts.
 At this time, we may generate questions with:
 
 ```bash
-asker demo/furniture.haml
+asker docs/examles/home/furniture.haml
 ```
 
 ---
@@ -88,7 +88,7 @@ It's posible write the same using XML format instead. Take a look:
 </map>
 ```
 
-Notice that `demo/furniture.haml` is HAML file and  `demo/furniture.xml` a XML file. Both are valid.
+Notice that `furniture.haml` is HAML file and  `furniture.xml` a XML file. Both are valid.
 
 > HAML format files are the same as XML format files.
 Internaly HAML files are translated automaticaly to an XML equivalent.

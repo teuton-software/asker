@@ -13,4 +13,5 @@ Open a plain text editor and start writting definitions.
 * [Learn about including external files](files.md)
 * [Learn about tables](tables.md)
 * [Learn about templates](templates.md)
+* [Learn about problems](problems.md)
 * [Learn about code](code.md)
