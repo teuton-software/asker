@@ -73,14 +73,14 @@ class LangTest < Test::Unit::TestCase
     #   :indexes=>[0, 1, 2, 3, 4, 5]
     # }
 
-    r2 = "[1] my [2] [3] [4]. I am a Jedi."
-    assert_equal r2, @lang[:en].build_text_from_filtered(t, [0,1,2,3])
+    r1 = "[1] my [2] [3] [4]. I am a Jedi."
+    assert_equal r1, @lang[:en].build_text_from_filtered(t, [0,1,2,3])
 
     r2 = "Hello, my [1] [2] [3]. I [4] a Jedi."
     assert_equal r2, @lang[:en].build_text_from_filtered(t, [1,2,3,4])
 
-    r2= "Hello, my name [1] [2]. I [3] a [4]."
-    assert_equal r2, @lang[:en].build_text_from_filtered(t, [2,3,4,5])
+    r3= "Hello, my name [1] [2]. I [3] a [4]."
+    assert_equal r3, @lang[:en].build_text_from_filtered(t, [2,3,4,5])
   end
 
   def test_text_for_gapfill_question
