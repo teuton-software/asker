@@ -4,6 +4,8 @@ require "set"
 
 # Define Question class
 class Question
+  TYPES = %i[boolean choice ddmatch match ordering short]
+
   attr_accessor :name     # Question name used as identification
   attr_accessor :comment  # Comments asociated
   attr_accessor :tags
@@ -20,8 +22,11 @@ class Question
   attr_accessor :ordering # Steps answer (type: ordering)
   attr_accessor :shorts   # Short answers (type: short)
 
-  # @param type (Symbol) Question type: choice, match, boolean, short
   def initialize(type = :choice)
+    unless TYPES.include? type
+      warn "[ERROR] Question type error (#{type})"
+      exit 1
+    end
     reset(type)
   end
 
