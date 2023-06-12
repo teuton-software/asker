@@ -60,7 +60,7 @@ class StageB < BaseStage
         questions << q
 
         q = Question.new(:ddmatch)
-        q.name = "#{name}-#{num}-b1ddmatch4x4#{p_table.name}"
+        q.name = "#{name}-#{num}-b1ddmatch4x4-#{p_table.name}"
         q.text = random_image_for(name) \
                  + lang.text_for(:b1, name, p_table.fields[index1].capitalize, p_table.fields[index2].capitalize)
         q.matching << [e[0][:data][index1], e[0][:data][index2]]
@@ -172,6 +172,18 @@ class StageB < BaseStage
       if s.count > 3
         q = Question.new(:match)
         q.name = "#{name}-#{num}-b1match4x4_1error-#{p_table.name}"
+        q.tags << "match"
+        q.tags << "random"
+        q.text = random_image_for(name) \
+                 + lang.text_for(:b1, name, p_table.fields[index1].capitalize, p_table.fields[index2].capitalize)
+        q.matching << [list1[0][:data][index1], list1[0][:data][index2]]
+        q.matching << [list1[1][:data][index1], list1[1][:data][index2]]
+        q.matching << [list1[2][:data][index1], list1[2][:data][index2]]
+        q.matching << [list2[0][:data][index1], lang.text_for(:error)]
+        questions << q
+
+        q = Question.new(:ddmatch)
+        q.name = "#{name}-#{num}-b1ddmatch4x4_1error-#{p_table.name}"
         q.tags << "match"
         q.tags << "random"
         q.text = random_image_for(name) \
