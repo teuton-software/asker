@@ -67,13 +67,32 @@ module QuestionGiftFormatter
   # @param input (String)
   # @return String
   def self.sanitize(input = "")
+    return sanitize_exclude_pre(input) if input.include? '<pre>'
+
     output = input.dup
     output.gsub!("#", '\#')
-    output.tr!("\n", " ")
+    output.gsub!("\n", " ")
     output.gsub!(":", '\:')
     output.gsub!("=", '\=')
     output.gsub!("{", "\\{")
     output.gsub!("}", "\\}")
+
     output
+  end
+
+  def self.sanitize_exclude_pre(input = "")
+    pres = input.split('<pre>')
+
+    pres = [pres[0]] + pres[1].split("</pre>")
+    [0, 2].each do |index|
+      pres[index].gsub!("#", '\#')
+      pres[index].gsub!("\n", " ")
+      pres[index].gsub!(":", '\:')
+      pres[index].gsub!("=", '\=')
+      pres[index].gsub!("{", "\\{")
+      pres[index].gsub!("}", "\\}")
+    end
+
+    pres.join("")
   end
 end
