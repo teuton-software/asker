@@ -1,0 +1,40 @@
+<% unless question.comment.nil? || question.comment.empty? %>
+<!-- question: <%= question.comment %>  -->
+<% end %>
+  <question type="ddmatch">
+    <name>
+      <text><%= question.name %></text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<%= question.text %>]]></text>
+      <% unless question.encode == :none %>
+        <%= question.encode %>
+      <% end %>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <shuffleanswers>true</shuffleanswers>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <% question.matching.each do |i, j| %>
+    <subquestion format="html">
+      <text><![CDATA[<%= i %>]]></text>
+      <answer format="html">
+        <text><![CDATA[<%= j %>]]></text>
+      </answer>
+    </subquestion>
+    <% end %>
+  </question>

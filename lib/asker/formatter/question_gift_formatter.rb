@@ -16,6 +16,8 @@ module QuestionGiftFormatter
     s << "::#{question.name}::[html]#{sanitize(question.text)}\n"
 
     case question.type
+    when :boolean
+      s << "{#{question.good}#####{sanitize(question.feedback.to_s)}}\n\n"
     when :choice
       s += "{\n"
       a = ["  =#{sanitize(question.good)}\n"]
@@ -31,8 +33,8 @@ module QuestionGiftFormatter
       end
       s += "  #####{sanitize(question.feedback.to_s)}\n" if question.feedback
       s += "}\n\n"
-    when :boolean
-      s << "{#{question.good}#####{sanitize(question.feedback.to_s)}}\n\n"
+    when :ddmatch
+      s << "// WARNING: can't export ddmatch questions to Gift format"
     when :match
       s << "{\n"
       a = []
