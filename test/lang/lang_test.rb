@@ -4,9 +4,8 @@ require 'test/unit'
 require_relative '../../lib/asker/lang/lang'
 
 class LangTest < Test::Unit::TestCase
-
   def setup
-    @lang = { :en => Lang.new('en'), :es => Lang.new('es') }
+    @lang = { en: Lang.new("en"), es: Lang.new("es") }
     @texts = [ 'hello', 'hello world!', 'bye,bye' ]
     @hides = [ '[*]', '????? ?????!', '???,???' ]
   end
@@ -23,7 +22,7 @@ class LangTest < Test::Unit::TestCase
   end
 
   def test_hide_text
-    max=@texts.size
+    max = @texts.size
     max.times do |index|
       assert_equal @hides[index], @lang[:en].hide_text(@texts[index])
     end
@@ -33,8 +32,8 @@ class LangTest < Test::Unit::TestCase
   end
 
   def test_text_with_connectors
-    text= %q{Hello, my name is Obiwan. I am a Jedi.}
-    t=@lang[:en].text_with_connectors(text)
+    text = %q{Hello, my name is Obiwan. I am a Jedi.}
+    t = @lang[:en].text_with_connectors(text)
 
     assert_equal 2,    t[:lines].size
 
@@ -61,6 +60,19 @@ class LangTest < Test::Unit::TestCase
     assert_equal "am",     t[:words][4][:word]
     assert_equal "Jedi",   t[:words][5][:word]
 
+    #### Example ####
+    # {
+    #   :lines=>[[0, "my", 1, 2, 3, "."], ["I", 4, "a", 5, "."]],
+    #   :words=>
+    #     [{:word=>"Hello,", :row=>0, :col=>0},
+    #      {:word=>"name", :row=>0, :col=>2},
+    #      {:word=>"is", :row=>0, :col=>3},
+    #      {:word=>"Obiwan", :row=>0, :col=>4},
+    #      {:word=>"am", :row=>1, :col=>1},
+    #      {:word=>"Jedi", :row=>1, :col=>3}],
+    #   :indexes=>[0, 1, 2, 3, 4, 5]
+    # }
+
     r2 = "[1] my [2] [3] [4]. I am a Jedi."
     assert_equal r2, @lang[:en].build_text_from_filtered(t, [0,1,2,3])
 
@@ -70,5 +82,4 @@ class LangTest < Test::Unit::TestCase
     r2= "Hello, my name [1] [2]. I [3] a [4]."
     assert_equal r2, @lang[:en].build_text_from_filtered(t, [2,3,4,5])
   end
-
 end
