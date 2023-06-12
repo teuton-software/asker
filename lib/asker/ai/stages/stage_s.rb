@@ -36,8 +36,7 @@ class StageS < BaseStage
     if list1.count > 3 && table.sequence.size > 1
       a = 0..(list1.count - 4)
       a.each_entry do |i|
-        q = Question.new
-        q.set_match
+        q = Question.new(:match)
         q.name = "#{name}-#{num}-s2sequence-#{table.name}"
         q.text = random_image_for(name) + lang.text_for(:s1, name, table.fields[0].capitalize, table.sequence[1])
         q.matching << [list1[i + 3][:data][0], "1º"]

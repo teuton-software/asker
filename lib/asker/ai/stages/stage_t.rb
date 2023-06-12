@@ -37,8 +37,7 @@ class StageT < BaseStage
     a = s.to_a
 
     if s.count > 3
-      q = Question.new
-      q.set_choice
+      q = Question.new(:choice)
       q.name = "#{name}-#{num}-t1table-#{table.name}"
       q.text = random_image_for(name) \
              + lang.text_for(:t1table, name, table.fields[col1].capitalize,
@@ -56,8 +55,7 @@ class StageT < BaseStage
     # a = s.to_a
 
     if s.count > 4
-      q = Question.new
-      q.set_choice
+      q = Question.new(:choice)
       q.name = "#{name}-#{num}-t2table-#{table.name}"
       q.text = random_image_for(name) \
              + lang.text_for(:t2table, name, table.fields[col1].capitalize,
@@ -75,8 +73,7 @@ class StageT < BaseStage
     a = s.to_a
 
     if s.count > 3
-      q = Question.new
-      q.set_choice
+      q = Question.new(:choice)
       q.name = "#{name}-#{num}-t3table-#{table.name}"
       q.text = random_image_for(name) \
             + lang.text_for(:t3table, name, table.fields[col1].capitalize,
@@ -94,8 +91,7 @@ class StageT < BaseStage
     # a = s.to_a
 
     if s.count > 4
-      q = Question.new
-      q.set_choice
+      q = Question.new(:choice)
       q.name = "#{name}-#{num}-t4table-#{table.name}"
       q.text = random_image_for(name) \
              + lang.text_for(:t4table, name, table.fields[col1].capitalize,
@@ -108,8 +104,7 @@ class StageT < BaseStage
     end
 
     # Question Boolean: TRUE
-    q = Question.new
-    q.set_boolean
+    q = Question.new(:boolean)
     q.name = "#{name}-#{num}t5table-#{table.name}"
     q.text = random_image_for(name) \
            + lang.text_for(:t5table, name, table.fields[col1].capitalize,
@@ -123,8 +118,7 @@ class StageT < BaseStage
     a = s.to_a
 
     if s.count > 1
-      q = Question.new
-      q.set_boolean
+      q = Question.new(:boolean)
       q.name = "#{name}-#{num}-t6table-#{table.name}"
       q.text = random_image_for(name) \
              + lang.text_for(:t6table, name, table.fields[col1].capitalize,
@@ -138,8 +132,7 @@ class StageT < BaseStage
     a = s.to_a
 
     if s.count > 1
-      q = Question.new
-      q.set_boolean
+      q = Question.new(:boolean)
       q.name = "#{name}-#{num}t7table-#{table.name}"
       q.text = random_image_for(name) \
              + lang.text_for(:t7table, name, table.fields[col1].capitalize,
@@ -150,8 +143,7 @@ class StageT < BaseStage
 
     # Question Short: column #0, 1 word
     if lang.count_words(row[:data][col1]) == 1
-      q = Question.new
-      q.set_short
+      q = Question.new(:short)
       q.name = "#{name}-#{num}t8table-#{table.name}"
       q.text = random_image_for(name) \
              + lang.text_for(:t8table, name, table.fields[col2].capitalize,
@@ -160,8 +152,7 @@ class StageT < BaseStage
       q.shorts << row[:data][col1].tr("-", " ").tr("_", " ")
       questions << q
     elsif lang.count_words(row[:data][col1]) == 2
-      q = Question.new
-      q.set_short
+      q = Question.new(:short)
       q.name = "#{name}-#{num}t9table-#{table.name}"
       q.text = random_image_for(name) \
              + lang.text_for(:t9table, name, table.fields[col2].capitalize,
@@ -174,8 +165,7 @@ class StageT < BaseStage
 
     # Question Short: column #1, 1 word
     if lang.count_words(row[:data][col2]) == 1
-      q = Question.new
-      q.set_short
+      q = Question.new(:short)
       q.name = "#{name}-#{num}t8table-#{table.name}"
       q.text = random_image_for(name) \
              + lang.text_for(:t8table, name, table.fields[col1].capitalize,
@@ -184,8 +174,7 @@ class StageT < BaseStage
       q.shorts << row[:data][col2].tr("-", " ").tr("_", " ")
       questions << q
     elsif lang.count_words(row[:data][col2]) == 2
-      q = Question.new
-      q.set_short
+      q = Question.new(:short)
       q.name = "#{name}-#{num}t9table-#{table.name}"
       q.text = random_image_for(name) \
              + lang.text_for(:t9table, name, table.fields[col1].capitalize,

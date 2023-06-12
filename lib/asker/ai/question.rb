@@ -46,27 +46,6 @@ class Question
     shuffle_on
   end
 
-  def set_boolean
-    @type = :boolean
-  end
-
-  def set_choice
-    @type = :choice
-  end
-
-  def set_match
-    @type = :match
-  end
-
-  def set_ordering
-    @type = :ordering
-    shuffle_off
-  end
-
-  def set_short
-    @type = :short
-  end
-
   def shuffle_off
     @shuffle = false
   end
