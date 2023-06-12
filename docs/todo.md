@@ -63,49 +63,7 @@ Incorporar lógica para
 * /etc/samba/smb.conf
 ...
 
-# 9. Nuevo tipo de entidad conceptual "Problem"
+# 9. Test
 
-Actualmente tenemos los tipos
-* Concept -> defs y tables
-* Code -> files y features
-
-La idea es crear un nuevo tipo
-* Problem
-
-El problem tendrá varias partes
-
-```
-problem
-  names PRODUCTO, PRECIO, MONEDA, DINERO
-  cases
-    case manzana, 1, euro, 10
-    case pera, 1, dolar, 13
-    case plátanos, 0.5, euros, 5
-  descripcion Quiero comprar PRODUCTO en el supermercado. Resulta que mirando los precios veo que cada PRODUCTO cuesta PRECIO.
-  question
-    step
-      text ¿Cuántas PRODUCTO puedo comprar si tengo DINERO MONEDA?
-      formula DINERO / PRECIO
-      varname F1
-      feedback Puedo comprar F1 PRODUCTO
-```
-
-```      
-problem
-  cases {  varnames:  "X, Y, PRODUCTO, Z, PERSONA" }
-    case 3, 4, manzanas, 2, Caperucita
-    case 6, 7, juegos de la PS4, 5, PlayerOne
-    case 9, 8, libros de Anime, 6, Akira
-  description Tengo X PRODUCTO en la mochila, y también tengo Y PRODUCTO en mi casa.
-  ask
-    step
-      text ¿Cuántos/as PRODUCTO tengo en total?
-      formula X + Y
-      varname F1
-      feedback En total tengo F1 PRODUCTO
-    step
-      text Si regalo Z a PERSONA ¿Cuántos/as PRODUCTO me quedan ahora?
-      formula X + Y - Z
-      varname F2
-      feedback En total me quedan F2 PRODUCTO
-```
+* Problem/sanitize
+* Code/sanitize
