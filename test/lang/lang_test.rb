@@ -1,19 +1,19 @@
-#!/usr/bin/ruby
-
-require 'test/unit'
-require_relative '../../lib/asker/lang/lang'
+require "test/unit"
+require_relative "../../lib/asker/lang/lang"
 
 class LangTest < Test::Unit::TestCase
   def setup
     @lang = { en: Lang.new("en"), es: Lang.new("es") }
-    @texts = [ 'hello', 'hello world!', 'bye,bye' ]
-    @hides = [ '[*]', '????? ?????!', '???,???' ]
+    @texts = [ "hello", "hello world!", "bye,bye" ]
+    @hides = [ "[*]", "????? ?????!", "???,???" ]
   end
 
   def test_count_words
-    examples=[ { :text => "obi-wan kenobi is jedi"   , :wc => 4 },
-               { :text => "obi-wan,yoda,qui-gon\n and annakin are jedis,from starwars", :wc => 9 },
-               { :text => "Maul\nSidius\nand Vader\nare,old siths." , :wc => 7 }  ]
+    examples = [
+      { text: "obi-wan kenobi is jedi", wc: 4 },
+      { text: "obi-wan,yoda,qui-gon\n and annakin are jedis,from starwars", wc: 9 },
+      { text: "Maul\nSidius\nand Vader\nare,old siths." , wc: 7 }
+    ]
 
     examples.each do |example|
       assert_equal example[:wc], @lang[:en].count_words(example[:text])
