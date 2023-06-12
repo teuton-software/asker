@@ -120,3 +120,21 @@ It is posible combine steps and answers defining our problems. Example:
     %text Value of X in the following equation: 2X - 4 = 6
     %answer 5
 ```
+
+## 5. Example
+
+Run next command to see an example of Problem running.
+
+```
+❯ asker docs/examples/problems/math.haml
+
+[INFO] Showing PROBLEMs statistics
++-----------+-------------------------+-----------+---------+---------+
+| Problem   | Desc                    | Questions | Entries | xFactor |
++-----------+-------------------------+-----------+---------+---------+
+| problem1  | Mathematical operations | 72        | 7       | 10.29   |
+| problem2  | First degree equations  | 42        | 10      | 4.2     |
++-----------+-------------------------+-----------+---------+---------+
+| TOTAL = 2 |                         | 114       | 17      | 6.71    |
++-----------+-------------------------+-----------+---------+---------+
+``

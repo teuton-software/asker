@@ -26,7 +26,7 @@ module ProblemDisplayer
       q = problem.questions.size
       factor = "Unkown"
       factor = (q.to_f / e).round(2).to_s unless e.zero?
-      desc = Rainbow(problem.desc[0, 50]).green
+      desc = Rainbow(problem.desc[0, 24]).green
       my_screen_table.add_row [problem.name, desc, q, e, factor]
       total_p += 1
       total_q += q
