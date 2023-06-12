@@ -45,7 +45,7 @@ class ConceptAITest < Test::Unit::TestCase
     @concepts_ai[i].concept.process = true
     @concepts_ai[i].make_questions
     assert_equal 29, @concepts_ai[i].questions[:d].size
-    assert_equal 4,  @concepts_ai[i].questions[:b].size
+    assert_equal 5,  @concepts_ai[i].questions[:b].size
     assert_equal 0,  @concepts_ai[i].questions[:f].size
     assert_equal 0,  @concepts_ai[i].questions[:i].size
     assert_equal 0,  @concepts_ai[i].questions[:s].size

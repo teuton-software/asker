@@ -59,6 +59,16 @@ class StageB < BaseStage
         q.matching << [e[3][:data][index1], e[3][:data][index2]]
         questions << q
 
+        q = Question.new(:ddmatch)
+        q.name = "#{name}-#{num}-b1ddmatch4x4#{p_table.name}"
+        q.text = random_image_for(name) \
+                 + lang.text_for(:b1, name, p_table.fields[index1].capitalize, p_table.fields[index2].capitalize)
+        q.matching << [e[0][:data][index1], e[0][:data][index2]]
+        q.matching << [e[1][:data][index1], e[1][:data][index2]]
+        q.matching << [e[2][:data][index1], e[2][:data][index2]]
+        q.matching << [e[3][:data][index1], e[3][:data][index2]]
+        questions << q
+
         if list2.count.positive?
           # Add an extra line
           e.shuffle!
@@ -94,6 +104,18 @@ class StageB < BaseStage
         e.shuffle!
         q = Question.new(:match)
         q.name = "#{name}-#{num}-b1match4x4_1misspelled-#{p_table.name}"
+        q.tags << "match"
+        q.tags << "random"
+        q.text = random_image_for(name) \
+                 + lang.text_for(:b1, name, p_table.fields[index1].capitalize, p_table.fields[index2].capitalize)
+        q.matching << [e[0][:data][index1], e[0][:data][index2]]
+        q.matching << [e[1][:data][index1], e[1][:data][index2]]
+        q.matching << [e[2][:data][index1], e[2][:data][index2]]
+        q.matching << [lang.do_mistake_to(e[3][:data][index1]), lang.text_for(:misspelling)]
+        questions << q
+
+        q = Question.new(:ddmatch)
+        q.name = "#{name}-#{num}-b1ddmatch4x4_1misspelled-#{p_table.name}"
         q.tags << "match"
         q.tags << "random"
         q.text = random_image_for(name) \
