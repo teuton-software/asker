@@ -38,7 +38,7 @@ The way to capture the problem in Asker's format is as follows:
 
 Although this way of defining the problem is correct, it has the drawback of being somewhat rigid. We have a problem with a perfectly defined structure but it only works to work with the numbers 3 and 2.
 
-## 2. Using problem cases
+## 2. Using case values and var names
 
 Taking advantage of the fact that we have a mathematical problem structure, we are going to enrich it using the "cases".
 
@@ -97,7 +97,7 @@ You have to think that we are looking for a way to create questions about proble
 
 The student is presentedthe problem with its resolution sequence and must understand it and answer if it is correct or not, or complete a step, or identify an error in the steps, etc.
 
-## 4. Steps and answer
+## 4. Mix steps and answers
 
 It is posible combine steps and answers defining our problems. Example:
 
