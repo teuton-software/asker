@@ -65,7 +65,7 @@ class ProblemAI
 
         # Question boolean => true
         q = Question.new(:boolean)
-        q.name = "#{name}-#{counter}-p1-true"
+        q.name = "#{name}-#{counter}-pa1true1"
         q.text = lang.text_for(:pa1, desc, asktext, correct_answer)
         q.good = "TRUE"
         @questions << q
@@ -81,7 +81,7 @@ class ProblemAI
         # Question boolean => true
         if incorrect_answers.size > 0
           q = Question.new(:boolean)
-          q.name = "#{name}-#{counter}-p2-false"
+          q.name = "#{name}-#{counter}-pa2false2"
           q.text = lang.text_for(:pa1, desc, asktext, incorrect_answers.first)
           q.good = "FALSE"
           @questions << q
@@ -90,7 +90,7 @@ class ProblemAI
         # Question choice NONE
         if incorrect_answers.size > 2
           q = Question.new(:choice)
-          q.name = "#{name}-#{counter}-p3-choice-none"
+          q.name = "#{name}-#{counter}-pa2-choice-none3"
           q.text = lang.text_for(:pa2, desc, asktext)
           q.good = lang.text_for(:none)
           incorrect_answers.shuffle!
@@ -104,7 +104,7 @@ class ProblemAI
         # Question choice OK
         if incorrect_answers.size > 2
           q = Question.new(:choice)
-          q.name = "#{name}-#{counter}-p4-choice"
+          q.name = "#{name}-#{counter}-pa2choice4"
           q.text = lang.text_for(:pa2, desc, asktext)
           q.good = correct_answer
           incorrect_answers.shuffle!
@@ -117,7 +117,7 @@ class ProblemAI
 
         if incorrect_answers.size > 1
           q = Question.new(:choice)
-          q.name = "#{name}-#{counter}-p5-choice"
+          q.name = "#{name}-#{counter}-pa2choice5"
           q.text = lang.text_for(:pa2, desc, asktext)
           q.good = correct_answer
           incorrect_answers.shuffle!
@@ -130,7 +130,7 @@ class ProblemAI
 
         # Question short
         q = Question.new(:short)
-        q.name = "#{name}-#{counter}-p6-short"
+        q.name = "#{name}-#{counter}-pa2short6"
         q.text = lang.text_for(:pa2, desc, asktext)
         q.shorts << correct_answer
         q.feedback = "Correct answer is #{correct_answer}."
@@ -153,14 +153,14 @@ class ProblemAI
 
           # Question steps ok
           q = Question.new(:short)
-          q.name = "#{name}-#{counter}-p7-short-ok"
+          q.name = "#{name}-#{counter}-ps3short7"
           q.text = lang.text_for(:ps3, desc, asktext, lines_to_s(steps))
           q.shorts << 0
           @questions << q
 
           if steps.size > 3
             q = Question.new(:ordering)
-            q.name = "#{name}-#{counter}-p8-ordering"
+            q.name = "#{name}-#{counter}-ps6ordering8"
             q.text = lang.text_for(:ps6, desc, asktext, lines_to_s(steps))
             steps.each { |step| q.ordering << step }
             @questions << q
@@ -183,7 +183,7 @@ class ProblemAI
 
             # Question steps error
             q = Question.new(:short)
-            q.name = "#{name}-#{counter}-p9-short-error"
+            q.name = "#{name}-#{counter}-ps3short-error9"
             q.text = lang.text_for(:ps3, desc, asktext, lines_to_s(bads))
             q.shorts << minor + 1
             q.feedback = lang.text_for(:ps4, minor + 1, major + 1)
@@ -200,7 +200,7 @@ class ProblemAI
             incomplete_steps[indexes[first + 3]] = "?"
 
             q = Question.new(:match)
-            q.name = "#{name}-#{counter}-p10-match"
+            q.name = "#{name}-#{counter}-ps5match10"
             q.text = lang.text_for(:ps5, desc,  asktext, lines_to_s(incomplete_steps))
             q.matching << [steps[indexes[first]], (indexes[first] + 1).to_s]
             q.matching << [steps[indexes[first + 1]], (indexes[first + 1] + 1).to_s]
@@ -210,7 +210,7 @@ class ProblemAI
             @questions << q
 
             q = Question.new(:ddmatch)
-            q.name = "#{name}-#{counter}-p11-ddmatch"
+            q.name = "#{name}-#{counter}-ps5ddmatch11"
             q.text = lang.text_for(:ps5, desc,  asktext, lines_to_s(incomplete_steps))
             q.matching << [(indexes[first] + 1).to_s, steps[indexes[first]]]
             q.matching << [(indexes[first + 1] + 1).to_s, steps[indexes[first + 1]]]

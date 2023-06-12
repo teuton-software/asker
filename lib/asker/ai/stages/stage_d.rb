@@ -140,7 +140,7 @@ class StageD < BaseStage
         e.each_with_index do |value, index|
           q.matching << [(index + 1).to_s, filtered[:words][value][:word].downcase]
         end
-        questions << q
+        questions << q        
       end
     end
 
