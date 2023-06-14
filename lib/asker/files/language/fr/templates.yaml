@@ -27,3 +27,9 @@
 :t8table: "Concept <b><%=text1%></b><br/>Complétez l'association suivante:<br/><ul><li><%=text2%>: \"<%=text3%>\"</li><li><%=text4%>: [*]</li></ul>Écrire un mot.<br/>"
 :t9table: "Concept <b><%=text1%></b><br/>Complétez l'association suivante:<br/><ul><li><%=text2%>: \"<%=text3%>\"</li><li><%=text4%>: <%=text5%></li></ul>Écrire<%=text6%> mots.<br/>"
 :code1: "<pre><%=text1%></pre><br/><p>Écrire le numéro de ligne où se trouve la première erreur. Écrire 0 s'il n'y a aucune erreur.</p>"
+:pa1 : '<p><%=text1%></p><p><b>Question :</b> <%=text2%></p><p><b>Réponse :</b > <%=text3%></p>'
+:pa2 : '<p><%=text1%></p><p><b>Question :</b> <%=text2%></p>'
+:ps3 : '<p><%=text1%></p><p><b>Question :</b> <%=text2%></p><p><b>Réponse :</b ></p><pre><%=text3%></pre><br/><i>(Écrivez le numéro de ligne où se trouve la première erreur. Écrivez 0 s'il n'y a pas d'erreur)</i>'
+:ps4: 'Changer l'étape <%=text1%> en étape <%=text2%>'
+:ps5 : '<p><%=text1%></p><p><b>Question :</b> <%=text2%></p><p><b>Réponse :</b ></p><pre><%=text3%></pre><br/><i>(Placez chaque étape dans sa position correcte dans la séquence)</i>'
+:ps6 : '<p><%=text1%></p><p><b>Question :</b> <%=text2%></p><br/><i>(Placez chaque étape dans sa position correcte dans la séquence)</i>'
