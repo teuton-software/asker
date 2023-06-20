@@ -5,9 +5,8 @@
 
 How to build our asker input files?
 
-## Text plain editor
-
-Open a plain text editor and start writting definitions.
+1. Open your own text plain editor and then
+2. start writting definitions.
 
 * [Concepts](concepts.md)
     * [Including external files](files.md)
