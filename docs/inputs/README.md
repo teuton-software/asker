@@ -1,17 +1,17 @@
 
 [<< back](../../README.md)
 
-# Inputs
-
----
-## Text plain editor
+# Get started
 
 How to build our asker input files?
 
+## Text plain editor
+
 Open a plain text editor and start writting definitions.
-* [Learn about concepts](concepts.md)
-* [Learn about including external files](files.md)
-* [Learn about tables](tables.md)
-* [Learn about templates](templates.md)
-* [Learn about problems](problems.md)
-* [Learn about code](code.md)
+
+* [Concepts](concepts.md)
+    * [Including external files](files.md)
+    * [Tables](tables.md)
+    * [Templates](templates.md)
+* [Problems](problems.md)
+* [Code](code.md)

@@ -54,7 +54,7 @@ Let's see an example creating questions from ACDC input example file:
 
 * [Installation](docs/install/README.md)
 * [Videos](docs/videos.md)
-* [Inputs](docs/inputs/README.md)
+* [Get started](docs/inputs/README.md)
 * [Usage](docs/usage.md)
 * [Reference](docs/reference.md)
 * [Contributions](docs/contributions.md)
