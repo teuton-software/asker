@@ -1,0 +1,107 @@
+<xsd:schema 
+	version="2.6.0" 
+	targetNamespace="http://io.github.teuton-software/asker" 
+	xmlns="http://io.github.teuton-software/asker"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	
+	elementFormDefault="qualified">
+
+	<xsd:element name="map" type="mapType" xsi:schemaLocation="" />
+
+	<xsd:complexType name="mapType">
+		<xsd:sequence>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element name="concept" type="conceptType" />
+				<xsd:element name="code" type="codeType" />
+				<xsd:element name="problem" type="problemType" />
+			</xsd:choice>
+		</xsd:sequence>
+		<xsd:attribute name="context" type="xsd:string" use="required" />
+		<xsd:attribute name="lang" type="xsd:string" use="required" />
+		<xsd:attribute name="version" type="xsd:string" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="conceptType">
+		<xsd:sequence>	
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="tags" type="xsd:string" />
+				<xsd:element name="def" type="defType" />
+				<xsd:element name="table" type="tableType" />
+			</xsd:choice>
+			<xsd:element name="names" type="xsd:string" />
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="tags" type="xsd:string" />
+				<xsd:element name="def" type="defType" />
+				<xsd:element name="table" type="tableType" />
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="defType" mixed="true">
+		<xsd:attribute name="type" type="xsd:string" />
+	</xsd:complexType>
+
+	<xsd:complexType name="tableType">
+		<xsd:choice maxOccurs="1">
+			<xsd:sequence>
+				<xsd:element name="row" type="rowType" maxOccurs="unbounded" />
+			</xsd:sequence>
+			<xsd:element name="template" type="templateType" maxOccurs="1" />
+		</xsd:choice>
+		<xsd:attribute name="fields" type="xsd:string" use="required" />
+		<xsd:attribute name="sequence" type="xsd:string" />
+	</xsd:complexType>
+	
+	<xsd:complexType name="templateType">
+		<xsd:sequence>
+			<xsd:element name="row" type="rowType" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+    	<xsd:anyAttribute processContents="skip"/>		
+	</xsd:complexType>
+	
+	<xsd:complexType name="rowType" mixed="true">	
+		<xsd:sequence>
+			<xsd:element name="col" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>	
+	</xsd:complexType>
+	
+	<xsd:complexType name="codeType">
+		<xsd:all>
+			<xsd:element name="type" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="path" type="xsd:string" minOccurs="1"/>
+		</xsd:all>
+	</xsd:complexType>
+	
+	<xsd:complexType name="problemType">
+		<xsd:sequence>	
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="ask" type="askType" />
+				<xsd:element name="cases" type="casesType" />
+			</xsd:choice>
+			<xsd:element name="desc" type="xsd:string" minOccurs="1"/>
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="ask" type="askType" />
+				<xsd:element name="cases" type="casesType" />
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="askType">
+		<xsd:sequence>
+			<xsd:element name="text" type="xsd:string" minOccurs="1" />
+			<xsd:choice minOccurs="1" >
+				<xsd:element name="step" type="xsd:string" maxOccurs="unbounded"/>
+				<xsd:element name="answer" type="xsd:string" maxOccurs="1" />
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="casesType">
+		<xsd:sequence>
+			<xsd:element name="case" type="xsd:string" minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="varnames" type="xsd:string" />
+		<xsd:attribute name="sep" type="xsd:string" />
+	</xsd:complexType>
+
+</xsd:schema>
