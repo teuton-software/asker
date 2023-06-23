@@ -6,12 +6,12 @@ require_relative "../data/project_data"
 require_relative "../lang/lang_factory"
 require_relative "../logger"
 
-module ContentLoader
+class ContentLoader
   ##
   # Load XML content into Asker data objects
   # @param filepath (String) File path
   # @param content (String) XML plane text content
-  def self.call(filepath, content)
+  def call(filepath, content)
     begin
       xmlcontent = REXML::Document.new(content)
     rescue REXML::ParseException
@@ -39,7 +39,9 @@ module ContentLoader
     {concepts: concepts, codes: codes, problems: problems}
   end
 
-  private_class_method def self.read_lang_attribute(xmldata)
+  private
+
+  def read_lang_attribute(xmldata)
     begin
       lang_code = xmldata.root.attributes["lang"]
     rescue itself
@@ -49,7 +51,7 @@ module ContentLoader
     LangFactory.instance.get(lang_code)
   end
 
-  private_class_method def self.read_context_attribute(xmldata)
+  def read_context_attribute(xmldata)
     begin
       context = xmldata.root.attributes["context"].split(",")
       context.collect!(&:strip)
@@ -60,7 +62,7 @@ module ContentLoader
     context
   end
 
-  private_class_method def self.read_concept(xmldata, filepath, lang, context)
+  def read_concept(xmldata, filepath, lang, context)
     project = ProjectData.instance
     concept = Concept.new(xmldata, filepath, lang, context)
     cond = [File.basename(filepath), :default].include? project.get(:process_file)
@@ -68,7 +70,7 @@ module ContentLoader
     concept
   end
 
-  private_class_method def self.read_code(xmldata, filepath)
+  def read_code(xmldata, filepath)
     project = ProjectData.instance
     code = CodeLoader.call(xmldata, filepath)
     cond =  [File.basename(filepath), :default].include? project.get(:process_file)
@@ -76,7 +78,7 @@ module ContentLoader
     code
   end
 
-  private_class_method def self.read_problem(xmldata, filepath, lang, context)
+  def read_problem(xmldata, filepath, lang, context)
     project = ProjectData.instance
     problem = ProblemLoader.new(lang, context).call(xmldata, filepath)
     cond = [File.basename(filepath), :default].include? project.get(:process_file)
@@ -84,7 +86,7 @@ module ContentLoader
     problem
   end
 
-  private_class_method def self.raise_error_with(filepath, content)
+  def raise_error_with(filepath, content)
     Logger.error "ContentLoader: Format error (#{filepath})"
     Logger.error "             : Revise output file (ouput/error.xml)"
     f = File.open("output/error.xml", "w")

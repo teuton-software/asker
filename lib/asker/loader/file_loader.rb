@@ -15,6 +15,6 @@ module FileLoader
       Logger.error "FileLoader: HAML or XML required (#{filename})"
       exit 1
     end
-    ContentLoader.call(filename, file_content)
+    ContentLoader.new.call(filename, file_content)
   end
 end
