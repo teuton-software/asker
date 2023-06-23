@@ -1,5 +1,5 @@
 <xsd:schema 
-	version="2.6.0" 
+	version="2.7.0" 
 	targetNamespace="http://io.github.teuton-software/asker" 
 	xmlns="http://io.github.teuton-software/asker"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
