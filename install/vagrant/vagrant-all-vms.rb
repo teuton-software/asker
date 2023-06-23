@@ -22,5 +22,5 @@ if options.include? ARGV.first
   exit 0
 end
 
-puts "[ERROR] Unkown option #{ARGV.first}"
+puts "[ERROR] Unknown option #{ARGV.first}"
 exit 2
