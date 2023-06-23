@@ -19,7 +19,7 @@ module CodeDisplayer
 
       e = code.lines.size
       q = code.questions.size
-      factor = "Unkown"
+      factor = "Unknown"
       factor = (q.to_f / e).round(2).to_s unless e.zero?
       my_screen_table.add_row [Rainbow(File.basename(code.filename)).green,
         code.type,

@@ -30,9 +30,9 @@ class LangFactory
   def get(code)
     return @langs[code] unless @langs[code].nil?
 
-    Logger.error "LangFactory: Unkown Lang code: #{code}"
-    Logger.error "             (a) Change input file code lang"
-    Logger.error "             (b) Revise configuration from asker.ini"
+    Logger.error "LangFactory: Unknown Lang with [code=#{code}]"
+    Logger.error "             (a) Revise input file code lang"
+    Logger.error "             (b) Revise asker.ini configuration"
     Logger.error "             (c) Revise template files"
     exit 1
   end

@@ -16,7 +16,7 @@ module TextActions
     @_text7 = input[6]
 
     if @templates[option].nil?
-      Logger.error "TextActions: Unkown template (#{option})"
+      Logger.error "TextActions: Unknown template (#{option})"
       exit 1
     end
     renderer = ERB.new(@templates[option])

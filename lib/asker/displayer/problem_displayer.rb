@@ -24,7 +24,7 @@ module ProblemDisplayer
       end
 
       q = problem.questions.size
-      factor = "Unkown"
+      factor = "Unknown"
       factor = (q.to_f / e).round(2).to_s unless e.zero?
       desc = Rainbow(problem.desc[0, 24]).green
       my_screen_table.add_row [problem.name, desc, q, e, factor]

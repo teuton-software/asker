@@ -31,7 +31,7 @@ class QuestionMoodleFormatter
     when :short
       template = File.read(File.join(File.dirname(__FILE__), "moodle", "shortanswer.erb"))
     else
-      warn "[ERROR] QuestionMoodleFormatter: Unkown type (#{question.type})"
+      warn "[ERROR] QuestionMoodleFormatter: Unknown type (#{question.type})"
       exit 1
     end
     renderer = ERB.new(template)

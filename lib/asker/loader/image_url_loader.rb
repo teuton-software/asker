@@ -16,7 +16,7 @@ module ImageUrlLoader
     elsif input.instance_of? Array
       filters = sanitize_array(input.clone)
     else
-      Logger.error "ImageUrlLoader: Unkown type (#{input.class})"
+      Logger.error "ImageUrlLoader: Unknown type (#{input.class})"
       exit 1
     end
     # Search Image URLs from Google site, selected by <filters>

@@ -14,7 +14,7 @@ class CheckInput
 
   def check_file_exist
     if @filepath.nil?
-      Logger.error "CheckInput: Unkown filename"
+      Logger.error "CheckInput: Unknown filename"
       exit 1
     end
     unless File.exist? @filepath

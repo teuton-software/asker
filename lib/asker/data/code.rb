@@ -37,7 +37,7 @@ class Code
     return if filepath.nil?
 
     unless File.exist? filepath
-      Logger.warn "Code: Unkown file (#{filepath})"
+      Logger.warn "Code: Unknown file (#{filepath})"
       return
     end
     content = File.read(filepath)

@@ -48,7 +48,7 @@ class ConceptAIDisplayer
       st = concept_ai.questions[:t].size if stages.include? :t
       t = sd + sb + sf + si + ss + st
 
-      factor = "Unkown"
+      factor = "Unknown"
       factor = (t.to_f / e).round(2).to_s unless e.zero?
       screen_table.add_row [Rainbow(concept_ai.concept.name(:screen)).green.bright,
         t, e, factor, sd, sb, sf, si, ss, st]

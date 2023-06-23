@@ -16,7 +16,7 @@ module EmbeddedFile
     return load_video(value, localdir) if is_video? value
 
     if is_url? value
-      Logger.error "EmbebbedFile: Unkown URL (#{value})"
+      Logger.error "EmbebbedFile: Unknown URL type (#{value})"
       exit 1
     end
 
