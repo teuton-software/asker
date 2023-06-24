@@ -1,16 +1,12 @@
 
 # TO-DO
 
-* Reemplazar las apariciones de "names" dentro de cada "def" por "[\*]"
-* Comprobar el funcionamiento de las tablas N > 2 fields
-  Por ejemplo cada tabla con fields: (f1,f2,f3,etc) se reemplaza por
-  varias tablas tipo: (f1,f2), (f1,f3), (f1,etc)
 * Definir tablas que contienen un conjunto cerrado finito.
   Por defecto el campo clave es f1. Pero también podría ser f2 ¿?
   El campo clave pueden ser varios campos (f1,f2) ¿?
 * Check Asker analizer lexical, syntax and semantic
 * Split Concept into Concept and ConceptLoader
-* Move puts to logger object. Then remove Rainbow import from other classes
+* Refactor Application singleton to Settings class.
 
 # 1. Nuevo formato de input
 
@@ -67,4 +63,4 @@ Incorporar lógica para
 
 * Problem/sanitize
 * Code/sanitize
-* New questions types: ordering, ddmatch, gapfill
+* New questions types: gapfill
