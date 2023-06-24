@@ -1,50 +1,45 @@
-require "singleton"
 require_relative "version"
 
 class Logger
-  include Singleton
+  @verbose = true
 
-  def initialize
-    @verbose = true
-  end
-
-  def iset_verbose(value)
+  def self.set_verbose(value)
     @verbose = (value == "yes")
   end
 
-  def idebug(msg)
+  def self.debug(msg)
     msg = Rainbow("#{msg}").white
     puts msg if @verbose
     @logfile&.write(msg)
   end
 
-  def iinfo(msg)
+  def self.info(msg)
     puts msg if @verbose
     @logfile&.write(msg)
   end
 
-  def iwarn(msg)
+  def self.warn(msg)
     msg = Rainbow("[WARN] #{msg}\n").yellow.bright
     puts msg if @verbose
     @logfile&.write(msg)
   end
 
-  def ierror(msg)
+  def self.error(msg)
     msg = Rainbow("[ERROR] #{msg}\n").red.bright
     Warning.warn msg if @verbose
     @logfile&.write(msg)
   end
 
-  def iverbose(msg)
+  def self.verbose(msg)
     print msg if @verbose
     @logfile&.write(msg)
   end
 
-  def iverboseln(msg)
-    iverbose(msg + "\n")
+  def self.verboseln(msg)
+    verbose(msg + "\n")
   end
 
-  def icreate(logpath)
+  def self.create(logpath)
     @logfile = File.open(logpath, "w")
     @logfile.write("=" * 50 + "\n")
     @logfile.write("Created by : #{Asker::NAME}")
@@ -54,43 +49,7 @@ class Logger
     @logfile.write("=" * 50 + "\n\n")
   end
 
-  def iclose
-    @logfile.close
-  end
-
-  def self.set_verbose(value)
-    Logger.instance.iset_verbose(value)
-  end
-
-  def self.debug(msg)
-    Logger.instance.idebug(msg)
-  end
-
-  def self.info(msg)
-    Logger.instance.iinfo(msg)
-  end
-
-  def self.warn(msg)
-    Logger.instance.iwarn(msg)
-  end
-
-  def self.error(msg)
-    Logger.instance.ierror(msg)
-  end
-
-  def self.verbose(msg)
-    Logger.instance.iverbose(msg)
-  end
-
-  def self.verboseln(msg)
-    Logger.instance.iverboseln(msg)
-  end
-
-  def self.create(msg)
-    Logger.instance.icreate(msg)
-  end
-
   def self.close
-    Logger.instance.iclose
+    @logfile.close
   end
 end
