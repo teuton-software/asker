@@ -19,7 +19,7 @@ class Start
     init_project_data
     project_data = ProjectLoader.load(args)
     Logger.create(project_data.get(:logpath))
-    Logger.instance.set_verbose(Application.instance.config["verbose"])
+    Logger.set_verbose(Application.instance.config["global"]["verbose"])
 
     inputdirs = project_data.get(:inputdirs).split(",")
     internet = Application.instance.config["global"]["internet"] == "yes"

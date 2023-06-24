@@ -1,14 +1,12 @@
-#!/usr/bin/ruby
-
-require 'test/unit'
-require_relative '../../lib/asker/loader/project_loader'
+require "test/unit"
+require_relative "../../lib/asker/loader/project_loader"
 
 class ProjectLoaderTest < Test::Unit::TestCase
-
   def test_load_jedi_haml
-    filepath = 'test/input/starwars/jedi.haml'
-    project = ProjectData.instance
+    Logger.set_verbose(false)
 
+    filepath = "test/input/starwars/jedi.haml"
+    project = ProjectData.instance
     project.reset
     assert_equal 0, project.param.size
     ProjectLoader.load(filepath)

@@ -7,6 +7,7 @@ require_relative "../logger"
 # return { concepts: [], codes: [] }
 module FileLoader
   def self.call(filename)
+    Logger.debug "==> Loading #{filename}"
     if File.extname(filename).casecmp(".haml").zero?
       file_content = HamlLoader.load filename
     elsif File.extname(filename).casecmp(".xml").zero?
