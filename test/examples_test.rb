@@ -7,7 +7,7 @@ class ExamplesTest < Test::Unit::TestCase
 
   def test_asker_check_examples
     @filepaths.each do |filepath|
-      assert_equal true, system("asker check #{filepath} >/dev/null")
+      assert_equal true, system("asker check #{filepath} 2>&1 > /dev/null")
     end
   end
 

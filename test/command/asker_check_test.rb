@@ -8,7 +8,7 @@ class AskerCheckTest < Test::Unit::TestCase
     assert_equal true,  system(cmd)
 
     filename = File.join(dir, 'example-concept.haml')
-    cmd = "asker check #{filename} > /dev/null"
+    cmd = "asker check #{filename} 2>&1 > /dev/null"
     assert_equal true,  system(cmd)
 
     assert_equal true, File.exist?(filename)
@@ -18,7 +18,6 @@ class AskerCheckTest < Test::Unit::TestCase
     assert_equal true, Dir.exist?(dir)
     FileUtils.rmdir(dir)
     assert_equal false,  Dir.exist?(dir)
-
   end
 
   def test_check_example_band
