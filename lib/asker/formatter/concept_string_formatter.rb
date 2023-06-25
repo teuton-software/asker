@@ -3,7 +3,6 @@
 require "rainbow"
 require "terminal-table"
 
-# Define methods to transform Concept into String
 module ConceptStringFormatter
   ##
   # Formatter Concept to String

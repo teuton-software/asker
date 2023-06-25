@@ -45,6 +45,7 @@ class CLI < Thor
   end
 
   map ["--check"] => "check"
+  option :color, type: :boolean
   desc "check FILEPATH", "Check HAML input file syntax"
   long_desc <<-LONGDESC
 
@@ -64,6 +65,7 @@ class CLI < Thor
   end
 
   map ["f", "-f", "--file"] => "file"
+  option :color, type: :boolean
   desc "[file] FILEPATH", "Build output files, from HAML/XML input file."
   long_desc <<-LONGDESC
 
