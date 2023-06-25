@@ -33,3 +33,4 @@
 :ps4: 'Cambia el paso <%=text1%> por el paso <%=text2%>'
 :ps5: '<p><%=text1%></p><p><b>Pregunta:</b> <%=text2%></p><p><b>Respuesta:</b></p><pre><%=text3%></pre><br/><i>(Coloca cada paso en su posición correcta dentro de la secuencia)</i>'
 :ps6: '<p><%=text1%></p><p><b>Pregunta:</b> <%=text2%></p><br/><i>(Coloca cada paso en su posición correcta dentro de la secuencia)</i>'
+:ps7: '<p><%=text1%></p><p><b>Pregunta:</b> <%=text2%></p><p><b>Respuesta:</b></p><pre><%=text3%></pre><br/><i>(Nota: Cada símbolo ? representa una letra/símbolo, y cada * represent una o varias palabras.)</i>'

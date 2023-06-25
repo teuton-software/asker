@@ -33,3 +33,4 @@
 :ps4: 'Change step <%=text1%> by step <%=text2%>'
 :ps5: '<p><%=text1%></p><p><b>Question:</b> <%=text2%></p><p><b>Answer:</b></p><pre><%=text3%></pre><br/><i>(Place each step in its correct position within the sequence)</i>'
 :ps6: '<p><%=text1%></p><p><b>Question:</b> <%=text2%></p><br/><i>(Place each step in its correct position within the sequence)</i>'
+:ps7: '<p><%=text1%></p><p><b>Question:</b> <%=text2%></p><p><b>Answer:</b ></p><pre><%=text3%></pre><br/><i>(Note: Each ? represents a letter/symbol, and each * represents one or more words.)</i>'

@@ -153,17 +153,31 @@ class ProblemAI
 
           # Question steps ok
           q = Question.new(:short)
-          q.name = "#{name}-#{counter}-07ps3short"
+          q.name = "#{name}-#{counter}-07ps3short-ok"
           q.text = lang.text_for(:ps3, desc, asktext, lines_to_s(steps))
           q.shorts << 0
           @questions << q
 
+          # Question steps ordering
           if steps.size > 3
             q = Question.new(:ordering)
             q.name = "#{name}-#{counter}-08ps6ordering"
             q.text = lang.text_for(:ps6, desc, asktext, lines_to_s(steps))
             steps.each { |step| q.ordering << step }
             @questions << q
+          end
+
+          # Question steps hide
+          if steps.size > 3
+            (0...(steps.size)).each do |index|
+              q = Question.new(:short)
+              q.name = "#{name}-#{counter}-09ps7short-hide"
+              hide_steps = steps.clone
+              hide_steps[index] = hide(steps[index])
+              q.text = lang.text_for(:ps7, desc, asktext, lines_to_s(hide_steps))
+              q.shorts << steps[index]
+              @questions << q
+            end
           end
 
           # Using diferents wrong steps sequences
@@ -183,7 +197,7 @@ class ProblemAI
 
             # Question steps error
             q = Question.new(:short)
-            q.name = "#{name}-#{counter}-09ps3short-error"
+            q.name = "#{name}-#{counter}-10ps3short-error"
             q.text = lang.text_for(:ps3, desc, asktext, lines_to_s(bads))
             q.shorts << minor + 1
             q.feedback = lang.text_for(:ps4, minor + 1, major + 1)
@@ -200,7 +214,7 @@ class ProblemAI
             incomplete_steps[indexes[first + 3]] = "?"
 
             q = Question.new(:match)
-            q.name = "#{name}-#{counter}-10ps5match"
+            q.name = "#{name}-#{counter}-11ps5match"
             q.text = lang.text_for(:ps5, desc,  asktext, lines_to_s(incomplete_steps))
             q.matching << [steps[indexes[first]], (indexes[first] + 1).to_s]
             q.matching << [steps[indexes[first + 1]], (indexes[first + 1] + 1).to_s]
@@ -210,7 +224,7 @@ class ProblemAI
             @questions << q
 
             q = Question.new(:ddmatch)
-            q.name = "#{name}-#{counter}-11ps5ddmatch"
+            q.name = "#{name}-#{counter}-12ps5ddmatch"
             q.text = lang.text_for(:ps5, desc,  asktext, lines_to_s(incomplete_steps))
             q.matching << [(indexes[first] + 1).to_s, steps[indexes[first]]]
             q.matching << [(indexes[first + 1] + 1).to_s, steps[indexes[first + 1]]]
@@ -221,6 +235,18 @@ class ProblemAI
           end
         end
       end
+    end
+
+    def hide(text)
+      output = []
+      text.chars do |c|
+        output << if c == " "
+          c
+        else
+          "?"
+        end
+      end
+      output.join
     end
   end
 end

@@ -33,3 +33,4 @@
 :ps4: 'Ändere Schritt <%=text1%> in Schritt <%=text2%>'
 :ps5: '<p><%=text1%></p><p><b>Frage:</b> <%=text2%></p><p><b>Antwort:</b ></p><pre><%=text3%></pre><br/><i>(Platzieren Sie jeden Schritt an der richtigen Position innerhalb der Sequenz)</i>'
 :ps6: '<p><%=text1%></p><p><b>Frage:</b> <%=text2%></p><br/><i>(Platzieren Sie jeden Schritt an der richtigen Position innerhalb der Sequenz)</i>'
+:ps7: '<p><%=text1%></p><p><b>Frage:</b> <%=text2%></p><p><b>Antwort:</b ></p><pre><%=text3%></pre><br/><i>(Hinweis: Jedes ? steht für einen Buchstaben/ein Symbol und jedes * steht für ein oder mehrere Wörter.)</i > '

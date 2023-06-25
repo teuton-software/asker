@@ -33,3 +33,4 @@
 :ps4: 'Canvia el pas <%=text1%> pel pas <%=text2%>'
 :ps5: '<p><%=text1%></p><p><b>Pregunta:</b> <%=text2%></p><p><b>Resposta:</b ></p><pre><%=text3%></pre><br/><i>(Col·loca cada pas en la seva posició correcta dins de la seqüència)</i>'
 :ps6: '<p><%=text1%></p><p><b>Pregunta:</b> <%=text2%></p><br/><i>(Posa cada pas en la posició correcta dins de la seqüència)</i>'
+:ps7: '<p><%=text1%></p><p><b>Pregunta:</b> <%=text2%></p><p><b>Resposta:</b ></p><pre><%=text3%></pre><br/><i>(Nota: Cada símbol ? representa una lletra/símbol, i cada * represent una o diverses paraules.)</i >'
