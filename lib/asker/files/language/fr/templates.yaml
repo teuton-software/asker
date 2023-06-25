@@ -33,3 +33,4 @@
 :ps4: "Changer l'étape <%=text1%> en étape <%=text2%>"
 :ps5 : "<p><%=text1%></p><p><b>Question :</b> <%=text2%></p><p><b>Réponse :</b ></p><pre><%=text3%></pre><br/><i>(Placez chaque étape dans sa position correcte dans la séquence)</i>"
 :ps6 : "<p><%=text1%></p><p><b>Question :</b> <%=text2%></p><br/><i>(Placez chaque étape dans sa position correcte dans la séquence)</i>"
+:ps7 : '<p><%=text1%></p><p><b>Question :</b> <%=text2%></p><p><b>Réponse :</b ></p><pre><%=text3%></pre><br/><i>(Remarque : chaque ? représente une lettre/un symbole, et chaque * représente un ou plusieurs mots.)</i > '
