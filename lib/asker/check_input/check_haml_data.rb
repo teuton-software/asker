@@ -73,6 +73,11 @@ class CheckHamlData
       check_type(line, index)
       check_path(line, index)
       check_features(line, index)
+      check_problem(line, index)
+      check_cases(line, index)
+      check_case(line, index)
+      check_desc(line, index)
+      check_ask(line, index)
       check_unknown(line, index)
       @ok = false unless @outputs[index][:state] == :ok
       @ok = false if @outputs[index][:type] == :unkown
@@ -242,6 +247,86 @@ class CheckHamlData
     elsif !line.match(/^\s\s\s\s%features\s*$/)
       @outputs[index][:state] = :err
       @outputs[index][:msg] = "Write 4 spaces before %features, and no text after"
+    end
+  end
+
+  def check_problem(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? "%problem"
+
+    @outputs[index][:type] = :problem
+    @outputs[index][:level] = 1
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :map
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Parent(map) not found!"
+    elsif !line.match(/^\s\s%problem\s*$/)
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Write 2 spaces before %problem, and no text after"
+    end
+  end
+
+  def check_cases(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? "%cases"
+
+    @outputs[index][:type] = :cases
+    @outputs[index][:level] = 2
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :problem
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Parent(problem) not found!"
+    elsif !line.match(/^\s\s\s\s%cases{\s/)
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Write 4 spaces before %cases"
+    end
+  end
+
+  def check_case(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? "%case "
+
+    @outputs[index][:type] = :case
+    @outputs[index][:level] = 3
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :cases
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Parent(cases) not found!"
+    elsif !line.match(/^\s\s\s\s\s\s%case\s/)
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Write 6 spaces before %case"
+    end
+  end
+
+  def check_desc(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? "%desc"
+
+    @outputs[index][:type] = :desc
+    @outputs[index][:level] = 2
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :problem
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Parent(problem) not found!"
+    elsif !line.match(/^\s\s\s\s%desc\s/)
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Write 4 spaces before %desc"
+    end
+  end
+
+  def check_ask(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? "%ask"
+
+    @outputs[index][:type] = :ask
+    @outputs[index][:level] = 2
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :problem
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Parent(problem) not found!"
+    elsif !line.match(/^\s\s\s\s%ask\s/)
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Write 4 spaces before %ask"
     end
   end
 
