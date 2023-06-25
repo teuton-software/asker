@@ -4,6 +4,7 @@ require_relative "../lib/asker/check_input"
 class CheckInputTest < Test::Unit::TestCase
   def setup
     @checker = CheckInput.new
+    @checker.verbose = false
   end
 
   def tofix_test_check_fail
