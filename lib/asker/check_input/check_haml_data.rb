@@ -78,6 +78,9 @@ class CheckHamlData
       check_case(line, index)
       check_desc(line, index)
       check_ask(line, index)
+      check_text(line, index)
+      check_answer(line, index)
+      check_step(line, index)
       check_unknown(line, index)
       @ok = false unless @outputs[index][:state] == :ok
       @ok = false if @outputs[index][:type] == :unkown
@@ -324,9 +327,57 @@ class CheckHamlData
     if find_parent(index) != :problem
       @outputs[index][:state] = :err
       @outputs[index][:msg] = "Parent(problem) not found!"
-    elsif !line.match(/^\s\s\s\s%ask\s/)
+    elsif !line.match(/^\s\s\s\s%ask/)
       @outputs[index][:state] = :err
       @outputs[index][:msg] = "Write 4 spaces before %ask"
+    end
+  end
+
+  def check_text(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? "%text"
+
+    @outputs[index][:type] = :text
+    @outputs[index][:level] = 3
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :ask
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Parent(ask) not found!"
+    elsif !line.match(/^\s\s\s\s\s\s%text\s/)
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Write 6 spaces before %text"
+    end
+  end
+
+  def check_answer(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? "%answer"
+
+    @outputs[index][:type] = :answer
+    @outputs[index][:level] = 3
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :ask
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Parent(ask) not found!"
+    elsif !line.match(/^\s\s\s\s\s\s%answer\s/)
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Write 6 spaces before %answer"
+    end
+  end
+
+  def check_step(line, index)
+    return unless @outputs[index][:state] == :none
+    return unless line.include? "%step"
+
+    @outputs[index][:type] = :step
+    @outputs[index][:level] = 3
+    @outputs[index][:state] = :ok
+    if find_parent(index) != :ask
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Parent(ask) not found!"
+    elsif !line.match(/^\s\s\s\s\s\s%step\s/)
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Write 6 spaces before %step"
     end
   end
 
