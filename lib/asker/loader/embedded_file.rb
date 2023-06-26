@@ -2,9 +2,9 @@ require "base64"
 require_relative "../logger"
 
 # Methods to load embedded files defined into asker input data file
-# Example:
-# * def line with :type = :image_url used to link external file as https://..."
-# * def line with :type = :file used to load local file as image.png or file.txt"
+# Examples:
+#   def line with :type = :image_url used to link external file as https://..."
+#   def line with :type = :file used to load local file as image.png or file.txt"
 module EmbeddedFile
   ##
   # @param value (String)
