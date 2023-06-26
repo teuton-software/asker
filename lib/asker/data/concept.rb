@@ -1,7 +1,7 @@
 require "rexml/document"
 
 require_relative "../lang/lang_factory"
-require_relative "../loader/embedded_file"
+require_relative "../loader/embedded_file/loader"
 require_relative "../logger"
 require_relative "table"
 require_relative "data_field"
@@ -173,10 +173,10 @@ class Concept
     case value.attributes["type"]
     when "image_url"
       # Link with remote image
-      @data[:images] << EmbeddedFile.load(value.text.strip, File.dirname(@filename))
+      @data[:images] << EmbeddedFile::Loader.new.call(value.text.strip, File.dirname(@filename))
     when "file"
       # Load local images and text files
-      @data[:images] << EmbeddedFile.load(value.text.strip, File.dirname(@filename))
+      @data[:images] << EmbeddedFile::Loader.new.call(value.text.strip, File.dirname(@filename))
     when nil
       if value.text.nil?
         Logger.warn "Concept: def/text empty!"
