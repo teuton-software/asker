@@ -4,15 +4,15 @@
 
 Problems are another way of defining knowledge.
 
-While the concepts allow us to define knowledge, the problems allow us to define situations in which it is necessary to apply the knowledge in a practical way to obtain answers.
+While concepts allow us define knowledge, problems allow us define situations that require to apply knowledge in a practical way to obtain answers.
 
 > Problem example files at `docs/examples/problems/`
 
 ## 1. Basic problem example
 
-When talking about problems we usually immediately think of mathematical problems, but problems are present in many domains of knowledge: physics, computer science, language/languages, music, etc.
+When talking about problems we usually think of mathematical or physics problems, but problems are present in many domains: engineering, computer science, languages, music, etc.
 
-To begin with, let's look at an simple example of a math domain problem.
+To begin with, let's take a look at this simple example of a math domain.
 
 ```
 Problem:
@@ -36,13 +36,13 @@ The way to capture the problem in Asker's format is as follows:
     %answer 1
 ```
 
-Although this way of defining the problem is correct, it has the drawback of being somewhat rigid. We have a problem with a perfectly defined structure but it only works to work with the numbers 3 and 2.
+Although this way of defining the problem is correct, it has the drawback of being somewhat rigid. By now, we have a problem with a perfectly defined structure but only works with specific data (the numbers 3 and 2).
 
 ## 2. Using case values and var names
 
-Taking advantage of the fact that we have a mathematical problem structure, we are going to enrich it using the "cases".
+Taking advantage of the fact that we have defined a problem structure, we are going to enrich it using "cases" values.
 
-Each "case" is a set of values that can be used to create a different problem from the same base structure.
+Each "case" is a set of values that can be used to create a different problem from the same base structure. Let's see:
 
 ```
 %problem
@@ -60,13 +60,13 @@ Each "case" is a set of values that can be used to create a different problem fr
     %answer S2
 ```
 
-In the above example we have replaced the concrete values 3, 2, 5 and 0 with variables N1, N2, S1 and S1 (comma separated values). The variables can have any name we want so that they are not confused with another word or symbol that appears in the question texts.
+In the above example we have replaced the concrete values (3, 2, 5 and 1) with variables (N1, N2, S1 and S1). The variables can have any name but only they must not be confused with another word or symbol that appears in the question texts.
 
-Once we replace the values with their variable names we can create several `cases` to reflect different combinations of values that we can use with the same basic problem structure.
+Once we replace specific values with their variable names then we create several `case` lines to reflect different combinations of values that will be used with the same problem structure.
 
 In our example we have multiplied by 4 the possibilities of the problem.
 
-It is recommended to use a minimum of 4 cases to optimize the output.
+> It is recommended to use a minimum of 4 cases to optimize the output.
 
 **Var names restriction**
 
@@ -74,12 +74,25 @@ A variable name cannot be contained within another variable name. For example:
 * _Incorrect variable names_: N, NUM (Variable N appears inside the variable NUM)
 * _Correct variable names_: N1, N2.
 
-Variable names can be created in upper or lower case. The recommendation is to use capital letters to make it easier to distinguish it from the rest of the text.
+Variable names can be created in upper or lower case. The recommendation is to use capital letters to clearly distinguish from the rest of the text.
 
-**Case values**: Each `case` line must have as many values as variable names defined in `varnames` field.
+**Case values**: Each `case` line will have as many values as variable names defined in `varnames` field.
 
-**Fileds separator**: By default, the comma (`,`) is used as a separator for the different fields. To use a different value we use the sep attribute as follows:
+**Fileds separator**: By default, the comma (`,`) is used as a field separator. Use `sep` attribute to define a different field separator.
 
+Example problem:
+```
+Problem:
+  We have the following values: 1,2,3,4,5.
+  (a) Calculate the maximum
+      Answer: 5 
+  (b) Calculate minimum
+      Answer: 1
+  (c) Calculate the average
+      Answer 3
+```
+
+Asker problem:
 ```
 %problem
   %cases { varnames: "VALUES; MAX; MIN; AVERAGE", sep:";"}
@@ -119,11 +132,11 @@ So we're going to provide a way to outline the steps needed to resolve the issue
     %step X = 5
 ```
 
-In this example, the student is given the task of solving a first degree equation and then the steps necessary to solve the equation are reflected.
+In this example, this problem requires solving a first degree equation with their steps.
 
-You have to think that we are looking for a way to create questions about problems that Moodle can later correct automatically, so we cannot ask open questions. The questions about the problem have to be closed so that the correct answer is a certain one.
+We have to think that we are looking for a way to create questions about problems that Moodle can later correct automatically, so we cannot ask open questions. The questions about the problem have to be closed so that the correct answer is a certain one.
 
-The student is presentedthe problem with its resolution sequence and must understand it and answer if it is correct or not, or complete a step, or identify an error in the steps, etc.
+The student is presented the problem with its resolution sequence and must understand it and answer if it is correct or not, or complete a step, or identify an error in the steps, etc.
 
 ## 4. Mixing steps and answers
 
