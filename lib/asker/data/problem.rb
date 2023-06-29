@@ -46,7 +46,8 @@ class Problem
   end
 
   def name
-    "problem#{@id}"
+    firstword = @descs[0]&.strip&.split(" ")&.first&.downcase || "problem"
+    "#{firstword}#{@id}"
   end
 
   def validate
