@@ -64,6 +64,8 @@ class ProblemLoader
         ask[:text] = i.text
       elsif i.name == "answer"
         ask[:answer] = i.text
+        type = i.attributes["type"]
+        ask[:answer_type] = type unless type.nil?
       elsif i.name == "step"
         ask[:steps] << i.text
       else

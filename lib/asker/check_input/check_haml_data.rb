@@ -359,9 +359,9 @@ class CheckHamlData
     if find_parent(index) != :ask
       @outputs[index][:state] = :err
       @outputs[index][:msg] = "Parent(ask) not found!"
-    elsif !line.match(/^\s\s\s\s\s\s%answer\s/)
+    elsif !line.match(/^\s\s\s\s\s\s%answer[\s|\{type:]/)
       @outputs[index][:state] = :err
-      @outputs[index][:msg] = "Write 6 spaces before %answer"
+      @outputs[index][:msg] = "Write 6 spaces before %answer, then space or {type:"
     end
   end
 
