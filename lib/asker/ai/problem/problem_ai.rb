@@ -61,7 +61,18 @@ class ProblemAI
         next if ask[:text].nil?
         asktext = customize(text: ask[:text], custom: custom)
         next if ask[:answer].nil?
-        correct_answer = customize(text: ask[:answer], custom: custom)
+
+        custom_answer = customize(text: ask[:answer], custom: custom)
+        correct_answer = if ask[:answer_type] == "formula"
+          begin
+            eval(custom_answer).to_s
+          rescue => e
+            Logger.error "ProblemAI: Wrong formula (#{ask[:answer]})"
+            exit 1
+          end
+        else
+          custom_answer
+        end
 
         # Question boolean => true
         q = Question.new(:boolean)

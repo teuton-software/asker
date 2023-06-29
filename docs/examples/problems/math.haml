@@ -1,21 +1,21 @@
 %map{ lang: 'en', context: 'arithmetic,math,problems', version: '1'}
 
   %problem
-    %cases{ varnames: 'N1, N2, S1, S2, S3' }
-      %case 3, 2, 5, 1, 0
-      %case 7, 4, 11, 3, 2
-      %case 13, 11, 24, 2, -7
-      %case 4, 4, 8, 0, -4
+    %cases{ varnames: 'N1, N2' }
+      %case 3, 2
+      %case 6, 5
+      %case 7, 4
+      %case 13, 11
     %desc Mathematical operations with integers.
     %ask
       %text Calculate N1 + N2
-      %answer S1
+      %answer{type: 'formula'} N1 + N2
     %ask
       %text Calculate N1 - N2
-      %answer S2
+      %answer{type: 'formula'} N1 - N2
     %ask
       %text Calculate 2*N1-3*N2
-      %answer{type: 'formula'} S3
+      %answer{type: 'formula'} 2*N1-3*N2
 
   %problem
     %cases{ varnames: 'X' }
