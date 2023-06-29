@@ -6,6 +6,7 @@ class ProblemAI
 
   def call(problem)
     @problem = problem
+    @customs = get_customs(@problem)
     make_questions
     @problem
   end
@@ -13,7 +14,6 @@ class ProblemAI
   def make_questions
     @counter = 0
     @questions = []
-    @customs = get_customs(@problem)
     make_questions_with_aswers
     make_questions_with_steps
     @problem.questions = @questions
@@ -25,10 +25,23 @@ class ProblemAI
     @counter += 1
   end
 
-  def customize(text:, custom:)
+  def customize(text:, custom:, type: nil)
     output = text.clone
     custom.each_pair { |oldvalue, newvalue| output.gsub!(oldvalue, newvalue) }
-    output
+
+    if type.nil?
+      return output 
+    elsif type == "formula"
+      begin
+        return eval(output).to_s
+      rescue => e
+        Logger.error "ProblemAI: Wrong formula (#{text}) or values (#{output}"
+        exit 1
+      end
+    else
+      Logger.error "ProblemAI: Wrong answer type (#{type})"
+      exit 1
+    end
   end
 
   def get_customs(problem)
@@ -62,17 +75,11 @@ class ProblemAI
         asktext = customize(text: ask[:text], custom: custom)
         next if ask[:answer].nil?
 
-        custom_answer = customize(text: ask[:answer], custom: custom)
-        correct_answer = if ask[:answer_type] == "formula"
-          begin
-            eval(custom_answer).to_s
-          rescue => e
-            Logger.error "ProblemAI: Wrong formula (#{ask[:answer]})"
-            exit 1
-          end
-        else
-          custom_answer
-        end
+        correct_answer = customize(
+          text: ask[:answer], 
+          custom: custom,
+          type: ask[:answer_type]
+        )
 
         # Question boolean => true
         q = Question.new(:boolean)
@@ -85,7 +92,11 @@ class ProblemAI
         incorrect_answers = []
         @customs.each do |aux|
           next if aux == custom
-          incorrect = customize(text: ask[:answer], custom: aux)
+          incorrect = customize(
+            text: ask[:answer], 
+            custom: aux,
+            type: ask[:answer_type]
+            )
           incorrect_answers << incorrect if incorrect != correct_answer
         end
 
