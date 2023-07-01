@@ -1,4 +1,5 @@
 require_relative "../logger"
+require_relative "../lang/lang_factory"
 
 class Problem
   attr_accessor :lang
@@ -15,7 +16,7 @@ class Problem
   def initialize
     @@id += 1
     @id = @@id
-    @lang = nil
+    @lang = LangFactory.instance.get("en")
     @context = nil
     @process = false
     @filename = "?"

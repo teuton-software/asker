@@ -1,5 +1,6 @@
 require "test/unit"
 require_relative "../../lib/asker/data/problem"
+require_relative "../../lib/asker/lang/lang"
 
 class ProblemTest < Test::Unit::TestCase
   def test_problem_new
@@ -17,7 +18,6 @@ class ProblemTest < Test::Unit::TestCase
 
   def test_problem_from
     data = {
-      fieldname: "problem_test",
       varnames: %w(N1 N2 S1),
       cases: [["2", "3", "5"]],
       descs: ["FIRST desc", "SECOND desc"],
@@ -25,6 +25,7 @@ class ProblemTest < Test::Unit::TestCase
     }
     problem = Problem.from(data)
 
+    assert_equal Lang, problem.lang.class
     assert_equal true, problem.name.start_with?("first")
     assert_equal false, problem.process?
     assert_equal ["N1", "N2", "S1"], problem.varnames
