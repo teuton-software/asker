@@ -6,9 +6,9 @@
 How to build our asker input files?
 
 1. Open your own text plain editor and then
-2. Start writting your definitions.
+2. Start writting your knowledge definitions.
 
-There are 3 types of inputs: concepts, problems and code.
+There are 3 types of knowledge definitions(inputs): concepts, problems and code.
 
 * [Concepts](concepts.md)
     * [Including external files](files.md)
