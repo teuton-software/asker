@@ -14,5 +14,9 @@ There are 3 types of inputs: concepts, problems and code.
     * [Including external files](files.md)
     * [Tables](tables.md)
     * [Templates](templates.md)
-* [Problems](problems.md)
+* Problems
+    * [Basic problem](problems/basic.md)
+    * [Cases](problems/cases.md)
+    * [Formulas](problems/formula.md)
+    * [Steps](problems/steps.md)
 * [Code](code.md)
