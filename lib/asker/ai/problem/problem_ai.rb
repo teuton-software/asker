@@ -34,9 +34,8 @@ class ProblemAI
     elsif type == "formula"
       begin
         return eval(output).to_s
-      rescue => e
-        Logger.error "ProblemAI: Wrong formula (#{text}) or values (#{output}"
-        Logger.error "ProblemAI: #{e}"
+      rescue
+        Logger.error "ProblemAI: Wrong formula (#{text}) or values (#{output})"
         exit 1
       end
     else
