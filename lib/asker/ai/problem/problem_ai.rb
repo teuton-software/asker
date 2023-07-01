@@ -14,7 +14,7 @@ class ProblemAI
   def make_questions
     @counter = 0
     @questions = []
-    make_questions_with_aswers
+    make_questions_with_answers
     make_questions_with_steps
     @problem.questions = @questions
   end
@@ -65,7 +65,7 @@ class ProblemAI
     output
   end
 
-  def make_questions_with_aswers
+  def make_questions_with_answers
     name = @problem.name
     lang = @problem.lang
 
