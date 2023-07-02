@@ -4,6 +4,7 @@ module StageAnswers
   def make_questions_with_answers
     name = @problem.name
     lang = @problem.lang
+    questions = []
 
     @customs.each do |custom|
       desc = customize(text: @problem.desc, custom: custom)
@@ -24,7 +25,7 @@ module StageAnswers
         q.name = "#{name}-#{counter}-01pa1true"
         q.text = lang.text_for(:pa1, desc, asktext, correct_answer)
         q.good = "TRUE"
-        @questions << q
+        questions << q
 
         # Locate incorrect answers
         incorrect_answers = []
@@ -44,7 +45,7 @@ module StageAnswers
           q.name = "#{name}-#{counter}-02pa1false"
           q.text = lang.text_for(:pa1, desc, asktext, incorrect_answers.first)
           q.good = "FALSE"
-          @questions << q
+          questions << q
         end
 
         # Question choice NONE
@@ -58,7 +59,7 @@ module StageAnswers
           q.bads << incorrect_answers[1]
           q.bads << incorrect_answers[2]
           q.feedback = "Correct answer is #{correct_answer}."
-          @questions << q
+          questions << q
         end
 
         # Question choice OK
@@ -72,7 +73,7 @@ module StageAnswers
           q.bads << incorrect_answers[1]
           q.bads << incorrect_answers[2]
           q.feedback = "Correct answer is #{correct_answer}."
-          @questions << q
+          questions << q
         end
 
         if incorrect_answers.size > 1
@@ -85,7 +86,7 @@ module StageAnswers
           q.bads << incorrect_answers[1]
           q.bads << lang.text_for(:none)
           q.feedback = "Correct answer is #{correct_answer}."
-          @questions << q
+          questions << q
         end
 
         # Question short
@@ -94,8 +95,9 @@ module StageAnswers
         q.text = lang.text_for(:pa2, desc, asktext)
         q.shorts << correct_answer
         q.feedback = "Correct answer is #{correct_answer}."
-        @questions << q
+        questions << q
       end
     end
+    questions
   end
 end

@@ -17,10 +17,9 @@ class ProblemAI
 
   def make_questions
     @counter = 0
-    @questions = []
-    make_questions_with_answers
-    make_questions_with_steps
-    @problem.questions = @questions
+    a_questions = make_questions_with_answers
+    s_questions = make_questions_with_steps
+    @problem.questions = a_questions + s_questions
   end
 
   private
@@ -67,17 +66,5 @@ class ProblemAI
       output << "%2d: #{line}\n" % (index + 1)
     end
     output
-  end
-
-  def hide(text)
-    output = []
-    text.chars do |c|
-      output << if c == " "
-        c
-      else
-        "?"
-      end
-    end
-    output.join
   end
 end

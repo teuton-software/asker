@@ -4,6 +4,7 @@ module StageSteps
   def make_questions_with_steps
     name = @problem.name
     lang = @problem.lang
+    questions = []
 
     @customs.each do |custom|
       desc = customize(text: @problem.desc, custom: custom)
@@ -19,7 +20,7 @@ module StageSteps
         q.name = "#{name}-#{counter}-07ps3short-ok"
         q.text = lang.text_for(:ps3, desc, asktext, lines_to_s(steps))
         q.shorts << 0
-        @questions << q
+        questions << q
 
         # Question steps ordering
         if steps.size > 3
@@ -27,7 +28,7 @@ module StageSteps
           q.name = "#{name}-#{counter}-08ps6ordering"
           q.text = lang.text_for(:ps6, desc, asktext, lines_to_s(steps))
           steps.each { |step| q.ordering << step }
-          @questions << q
+          questions << q
         end
 
         # Question steps hide
@@ -39,7 +40,7 @@ module StageSteps
             hide_steps[index] = hide(steps[index])
             q.text = lang.text_for(:ps7, desc, asktext, lines_to_s(hide_steps))
             q.shorts << steps[index]
-            @questions << q
+            questions << q
           end
         end
 
@@ -64,7 +65,7 @@ module StageSteps
           q.text = lang.text_for(:ps3, desc, asktext, lines_to_s(bads))
           q.shorts << minor + 1
           q.feedback = lang.text_for(:ps4, minor + 1, major + 1)
-          @questions << q
+          questions << q
         end
 
         # Match questions
@@ -84,7 +85,7 @@ module StageSteps
           q.matching << [steps[indexes[first + 2]], (indexes[first + 2] + 1).to_s]
           q.matching << [steps[indexes[first + 3]], (indexes[first + 3] + 1).to_s]
           q.matching << ["", lang.text_for(:error)]
-          @questions << q
+          questions << q
 
           q = Question.new(:ddmatch)
           q.name = "#{name}-#{counter}-12ps5ddmatch"
@@ -94,9 +95,22 @@ module StageSteps
           q.matching << [(indexes[first + 2] + 1).to_s, steps[indexes[first + 2]]]
           q.matching << [(indexes[first + 3] + 1).to_s, steps[indexes[first + 3]]]
           q.matching << ["", lang.text_for(:error)]
-          @questions << q
+          questions << q
         end
       end
-    end 
+    end
+    questions
+  end
+
+  def hide(text)
+    output = []
+    text.chars do |c|
+      output << if c == " "
+        c
+      else
+        "?"
+      end
+    end
+    output.join
   end
 end
