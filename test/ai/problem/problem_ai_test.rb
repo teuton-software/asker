@@ -16,6 +16,15 @@ class ProblemAITest < Test::Unit::TestCase
       descs: ["Calculate"],
       asks: [{text: "N1 + N2", answer: "N1 + N2", answer_type: "formula", steps: []}],
     }
+    @data2 = {
+      varnames: %w(X),
+      cases: [["x"]],
+      descs: ["Resolv"],
+      asks: [{
+        text: "Resolv 2X = 10",
+        steps: ["2X = 10", "X = 10/2", "X = 5"]
+        }],
+    }
   end
 
   def test_problem_ai_call_problem_0
@@ -41,5 +50,18 @@ class ProblemAITest < Test::Unit::TestCase
     assert_equal 6, problem.questions.size
     assert_equal 6, problem.stats[:answer]
     assert_equal 0, problem.stats[:steps]
+  end
+
+  def test_problem_ai_call_problem_2
+    problem = Problem.from(@data2)
+    assert_equal 0, problem.questions.size
+    assert_equal 0, problem.questions.size
+    assert_equal 0, problem.stats[:answer]
+    assert_equal 0, problem.stats[:steps]
+
+    ProblemAI.new.call(problem)
+    assert_equal true, problem.questions.size >= 2
+    assert_equal 0, problem.stats[:answer]
+    assert_equal true, problem.stats[:steps] >= 2
   end
 end

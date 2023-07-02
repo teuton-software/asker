@@ -53,6 +53,8 @@ class ProblemAI
   end
 
   def get_customs(problem)
+    return [] if problem.cases.nil?
+
     customs = []
     vars = problem.varnames
     problem.cases.each do |acase|

@@ -63,6 +63,8 @@ class Problem
   private
 
   def validate_varnames
+    return if @varnames.nil?
+
     if !@varnames.size.zero? && @cases.size.zero?
       Logger.warn "Problem: No problem/varnames defined with no problem/case"
     end
@@ -79,6 +81,8 @@ class Problem
   end
 
   def validate_cases
+    return if @cases.nil?
+    
     @cases.each do |acase|
       if acase.size != @varnames.size
         Logger.error "Problem: problem/cases size not equal to problem/varnames size"
