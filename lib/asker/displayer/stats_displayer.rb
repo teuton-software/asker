@@ -10,8 +10,8 @@ module StatsDisplayer
   def self.show(data)
     return unless Application.instance.config["global"]["show_mode"]
 
-    ConceptAIDisplayer.show(data[:concepts_ai])
-    CodeDisplayer.show(data[:codes_ai])
-    ProblemDisplayer.show(data[:problems])
+    ConceptAIDisplayer.new.call(data[:concepts_ai])
+    CodeDisplayer.new.call(data[:codes_ai])
+    ProblemDisplayer.new.call(data[:problems])
   end
 end

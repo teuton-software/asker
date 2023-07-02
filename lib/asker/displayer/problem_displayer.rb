@@ -1,11 +1,11 @@
 require "terminal-table"
 require_relative "../logger"
 
-module ProblemDisplayer
+class ProblemDisplayer
   ##
   # Show all "problem" data on screen
   # @param problems (Array) List of "problems" data
-  def self.show(problems)
+  def call(problems)
     return if problems.nil? || problems.size.zero?
 
     total_p = total_q = total_e = 0

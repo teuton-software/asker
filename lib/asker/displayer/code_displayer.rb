@@ -1,11 +1,11 @@
 require "terminal-table"
 require_relative "../logger"
 
-module CodeDisplayer
+class CodeDisplayer
   ##
   # Show all "code" data on screen
   # @param codes (Array) List of "code" data
-  def self.show(codes)
+  def call(codes)
     return if codes.nil? || codes.size.zero?
 
     total_c = total_q = total_e = 0

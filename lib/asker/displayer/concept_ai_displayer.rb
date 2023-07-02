@@ -10,7 +10,7 @@ class ConceptAIDisplayer
   ##
   # Display ConceptAI stat on screen
   # @param concepts_ai (Array)
-  def self.show(concepts_ai)
+  def call(concepts_ai)
     stages = Application.instance.config["questions"]["stages"]
     # Create table HEAD
     screen_table = Terminal::Table.new do |st|
@@ -80,7 +80,9 @@ class ConceptAIDisplayer
     Logger.info "#{screen_table}\n"
   end
 
-  private_class_method def self.export_excluded_questions(screen_table, concepts_ai)
+  private
+
+  def export_excluded_questions(screen_table, concepts_ai)
     # Create table BODY
     total = {}
     total[:q] = total[:c] = 0
@@ -114,7 +116,7 @@ class ConceptAIDisplayer
       total[:ss], total[:st]]
   end
 
-  private_class_method def self.export_notes
+  def export_notes
     exclude_questions = Application.instance.config["questions"]["exclude"].to_s
     renderer = ERB.new(File.read(File.join(File.dirname(__FILE__), "concept_ai_displayer.erb")))
     Logger.info Rainbow(renderer.result(binding)).white
