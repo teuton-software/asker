@@ -1,10 +1,13 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+NAME = "asker-ubuntu"
+BOXNAME = "generic/ubuntu2204"
+
 Vagrant.configure("2") do |config|
-  config.vm.define "asker-ubuntu" do |i|
-    i.vm.box = "ubuntu/focal64"
-    i.vm.hostname = "asker-ubuntu"
+  config.vm.define NAME do |i|
+    i.vm.box = BOXNAME
+    i.vm.hostname = NAME
     # i.vm.network "public_network", bridge: [ "eth0" ]
     # i.vm.network "public_network", bridge: [ "wlan0" ]
     i.vm.network :forwarded_port, guest: 22, host: 2242
@@ -20,15 +23,13 @@ Vagrant.configure("2") do |config|
       apt install -y figlet
       figlet asker > /etc/motd
       echo "" >> /etc/motd
-      echo "asker (2.2.0)" >> /etc/motd
       echo "https://github.com/dvarrui/asker" >> /etc/motd
       echo "# Adding more alias" >> /home/vagrant/.bashrc
       echo "alias c='clear'" >> /home/vagrant/.bashrc
       echo "alias v='vdir'" >> /home/vagrant/.bashrc
-
     SHELL
     i.vm.provider "virtualbox" do |v|
-      v.name = 'asker-ubuntu'
+      v.name = NAME
       v.memory = 2048
     end
   end
