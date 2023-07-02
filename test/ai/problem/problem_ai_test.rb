@@ -21,15 +21,25 @@ class ProblemAITest < Test::Unit::TestCase
   def test_problem_ai_call_problem_0
     problem = Problem.from(@data0)
     assert_equal 0, problem.questions.size
+    assert_equal 0, problem.stats[:answer]
+    assert_equal 0, problem.stats[:steps]
+
     ProblemAI.new.call(problem)
     assert_equal 2, problem.questions.size
+    assert_equal 2, problem.stats[:answer]
+    assert_equal 0, problem.stats[:steps]
   end
 
   def test_problem_ai_call_problem_1
     problem = Problem.from(@data1)
     assert_equal 0, problem.questions.size
-    p = ProblemAI.new
-    p.call(problem)
+    assert_equal 0, problem.questions.size
+    assert_equal 0, problem.stats[:answer]
+    assert_equal 0, problem.stats[:steps]
+
+    ProblemAI.new.call(problem)
     assert_equal 6, problem.questions.size
+    assert_equal 6, problem.stats[:answer]
+    assert_equal 0, problem.stats[:steps]
   end
 end

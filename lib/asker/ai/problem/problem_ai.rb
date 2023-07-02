@@ -19,6 +19,9 @@ class ProblemAI
     @counter = 0
     a_questions = make_questions_with_answers
     s_questions = make_questions_with_steps
+
+    @problem.stats[:answer] = a_questions.size
+    @problem.stats[:steps] = s_questions.size
     @problem.questions = a_questions + s_questions
   end
 

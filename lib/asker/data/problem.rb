@@ -11,6 +11,7 @@ class Problem
   attr_accessor :descs
   attr_accessor :asks
   attr_accessor :questions
+  attr_accessor :stats
 
   @@id = 0
   def initialize
@@ -25,6 +26,7 @@ class Problem
     @descs = []
     @asks = []
     @questions = []
+    @stats = { answer: 0, steps: 0}
   end
 
   def self.from(values)
