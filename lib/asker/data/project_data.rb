@@ -11,7 +11,8 @@ class ProjectData
   end
 
   def reset
-    @default = {inputbasedir: FileUtils.pwd,
+    # @default = {inputbasedir: FileUtils.pwd,
+    @default = {inputbasedir: Dir.pwd,
                 stages: {d: true, b: true, f: true, i: true, s: true, t: true},
                 threshold: 0.5,
                 outputdir: "output",

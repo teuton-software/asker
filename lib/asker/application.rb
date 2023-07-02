@@ -1,5 +1,6 @@
 require "singleton"
 require "inifile"
+require "rainbow"
 require_relative "logger"
 require_relative "version"
 
