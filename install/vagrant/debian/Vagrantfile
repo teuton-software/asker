@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 NAME="asker-debian"
-BOXNAME= "debian/bullseye64"
+BOXNAME= "generic/debian11"
 
 Vagrant.configure("2") do |config|
   config.vm.define NAME do |i|
