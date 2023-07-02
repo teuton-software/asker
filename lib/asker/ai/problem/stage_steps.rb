@@ -45,18 +45,11 @@ module StageSteps
         end
 
         # Using diferents wrong steps sequences
-        max = steps.size - 1
-        (0..max).each do |index|
-          change = rand(max + 1)
-          bads = steps.clone
+        indexes = (0...(steps.size)).to_a
+        combinations = indexes.combination(2).to_a
 
-          minor = index
-          major = change
-          if minor > major
-            minor, major = major, minor
-          elsif minor == major
-            next
-          end
+        combinations.each do |minor, major|
+          bads = steps.clone
           bads[minor], bads[major] = bads[major], bads[minor]
 
           # Question steps error

@@ -60,8 +60,8 @@ class ProblemAITest < Test::Unit::TestCase
     assert_equal 0, problem.stats[:steps]
 
     ProblemAI.new.call(problem)
-    assert_equal true, problem.questions.size >= 2
+    assert_equal 4, problem.questions.size
     assert_equal 0, problem.stats[:answer]
-    assert_equal true, problem.stats[:steps] >= 2
+    assert_equal 4, problem.stats[:steps]
   end
 end

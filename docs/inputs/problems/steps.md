@@ -60,16 +60,17 @@ It is posible combine steps and answers defining our problems. Example:
 Run next command to see an example of Problem running.
 
 ```
+❯ asker docs/examples/problems/statistics.haml 
 ==> Loading docs/examples/problems/math.haml
 ==> Loading docs/examples/problems/statistics.haml
 
 [INFO] Showing PROBLEMs statistics
-+---------------+--------------------------+-----------+---------+---------+
-| Problem       | Desc                     | Questions | Entries | xFactor |
-+---------------+--------------------------+-----------+---------+---------+
-| mathematical1 | Mathematical operations  | 68        | 7       | 9.71    |
-| first2        | First degree equations   | 70        | 10      | 7.0     |
-+---------------+--------------------------+-----------+---------+---------+
-| TOTAL = 2     |                          | 138       | 17      | 8.12    |
-+---------------+--------------------------+-----------+---------+---------+
++-----------+--------------------------+-----------+---------+---------+----+---+
+| Problem   | Desc                     | Questions | Entries | xFactor | a  | s |
++-----------+--------------------------+-----------+---------+---------+----+---+
+| having3   | Having the following val | 56        | 7       | 8.0     | 56 | 0 |
++-----------+--------------------------+-----------+---------+---------+----+---+
+| TOTAL = 1 |                          | 56        | 7       | 8.0     | 56 | 0 |
++-----------+--------------------------+-----------+---------+---------+----+---+
+
 ```
