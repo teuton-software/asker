@@ -9,7 +9,7 @@ require_relative "loader/input_loader"
 class Start
   def call(filepath)
     project_data, data = load_input(filepath)
-    ConceptDisplayer.show(data[:concepts])
+    ConceptDisplayer.new.call(data[:concepts])
     create_output(project_data, data)
   end
 

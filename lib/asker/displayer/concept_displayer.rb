@@ -2,11 +2,11 @@ require_relative "../application"
 require_relative "../formatter/concept_string_formatter"
 require_relative "../logger"
 
-module ConceptDisplayer
+class ConceptDisplayer
   ##
   # Show concepts on screen
   # @param concepts (Array) List of concept data
-  def self.show(concepts)
+  def call(concepts)
     return if concepts.nil? || concepts.size.zero?
 
     show_mode = Application.instance.config["global"]["show_mode"]
