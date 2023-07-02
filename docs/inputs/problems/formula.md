@@ -26,4 +26,25 @@ In some cases it is possible to remove variables that can be calculated. For exa
 * With `%answer S1` the content of the answer attribute is the value of the variable S1.
 * With `%answer{type: 'formula'} N1+N2`, the content of the answers attribute is the result of appling the formula `N1+N2` after substituting the corresponding values of N1 and N2.
 
+## Running
+
+Run next command to see an example of Problem running.
+
+```
+❯ asker docs/examples/problems/math.haml
+==> Loading docs/examples/problems/math.haml
+==> Loading docs/examples/problems/statistics.haml
+
+[INFO] Showing PROBLEMs statistics
++---------------+--------------------------+-----------+---------+---------+----+----+
+| Problem       | Desc                     | Questions | Entries | xFactor | a  | s  |
++---------------+--------------------------+-----------+---------+---------+----+----+
+| mathematical1 | Mathematical operations  | 68        | 7       | 9.71    | 68 | 0  |
+| first2        | First degree equations   | 92        | 10      | 9.2     | 8  | 84 |
++---------------+--------------------------+-----------+---------+---------+----+----+
+| TOTAL = 2     |                          | 160       | 17      | 9.41    | 76 | 84 |
++---------------+--------------------------+-----------+---------+---------+----+----+
+
+```
+
 [>> Learn about steps](steps.md)
