@@ -1,7 +1,8 @@
 require_relative "../question"
+require_relative "stage_base"
 
-module StageSteps
-  def make_questions_with_steps
+class StageSteps < StageBase
+  def make_questions
     name = @problem.name
     lang = @problem.lang
     questions = []
@@ -95,6 +96,8 @@ module StageSteps
     questions
   end
 
+  private
+
   def hide(text)
     output = []
     text.chars do |c|
@@ -106,4 +109,13 @@ module StageSteps
     end
     output.join
   end
+
+  def lines_to_s(lines)
+    output = ""
+    lines.each_with_index do |line, index|
+      output << "%2d: #{line}\n" % (index + 1)
+    end
+    output
+  end
+
 end

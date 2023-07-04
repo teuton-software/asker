@@ -1,11 +1,7 @@
 require_relative "../question"
+require_relative "stage_base"
 
-class StageAnswers
-  def initialize(problem, customs)
-    @problem = problem
-    @customs = customs
-  end
-
+class StageAnswers < StageBase
   def make_questions
     name = @problem.name
     lang = @problem.lang
