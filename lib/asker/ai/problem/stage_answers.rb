@@ -1,7 +1,12 @@
 require_relative "../question"
 
-module StageAnswers
-  def make_questions_with_answers
+class StageAnswers
+  def initialize(problem, customs)
+    @problem = problem
+    @customs = customs
+  end
+
+  def make_questions
     name = @problem.name
     lang = @problem.lang
     questions = []

@@ -5,7 +5,6 @@ require_relative "stage_steps"
 
 class ProblemAI
   attr_accessor :problem
-  include StageAnswers
   include StageSteps
 
   def call(problem)
@@ -17,7 +16,7 @@ class ProblemAI
 
   def make_questions
     @counter = 0
-    a_questions = make_questions_with_answers
+    a_questions = StageAnswers.new(@problem, @customs).make_questions
     s_questions = make_questions_with_steps
 
     @problem.stats[:answer] = a_questions.size
