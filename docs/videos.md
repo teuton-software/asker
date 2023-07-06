@@ -3,6 +3,10 @@
 
 # Videos
 
+**[2023-junio] Presentación de Asker v2.7**
+* Enlace: https://youtu.be/dpDr2FUQpxw
+* Esta versión incluye la creación de problemas. Los problemas son otra forma de definir conocimiento en forma de situaciones donde se plantean cuestiones que hay que resolver.
+
 **[2022-may] Ujilliurex22. Introducción a Asker**
 * Enlace: https://youtu.be/5rJdHuk8FBA
 * Asker es un generador de preguntas para Moodle (y otras plataformas).
