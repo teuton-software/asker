@@ -1,5 +1,5 @@
-require_relative "../formatter/format_code2doc"
-require_relative "../formatter/format_concept2doc"
+require_relative "doc/format_code2doc"
+require_relative "doc/format_concept2doc"
 require_relative "../version"
 
 class Export2Doc
