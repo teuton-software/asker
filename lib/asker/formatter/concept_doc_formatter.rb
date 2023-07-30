@@ -10,7 +10,17 @@ module ConceptDocFormatter
     out = ""
     out << ("=" * 50 + "\n")
     out << "#{concept.names.join(", ")}\n"
-    concept.texts.each { |i| out << "* #{i}\n" }
+    concept.texts.each { |text| out << "* #{text}\n" }
+    concept.images.each do |data|
+      text = if data[:type] == :text
+        data[:text]
+      elsif data[:type] == :url
+        data[:text]
+      else
+        "TODO"
+      end
+      out << "* (#{data[:type]})\n"
+    end
     out << "\n"
     concept.tables.each do |table|
       out << table_to_s(table)

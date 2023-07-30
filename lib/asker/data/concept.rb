@@ -37,8 +37,8 @@ class Concept
 
     @data = {}
     @data[:tags] = []
-    @data[:texts] = []          # Used by standard def inputs
-    @data[:images] = []         # Used by [type => file and type => image_url] def inputs
+    @data[:texts] = []  # Used by standard def inputs
+    @data[:images] = [] # Used by [type => file and type => image_url] def inputs
     @data[:tables] = []
     @data[:neighbors] = []
     @data[:reference_to] = []

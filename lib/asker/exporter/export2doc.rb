@@ -24,4 +24,7 @@ class Export2Doc
       @file.write(ConceptDocFormatter.to_s(concept)) if concept.process
     end
   end
+
+  def export_problems(problems)
+  end
 end
