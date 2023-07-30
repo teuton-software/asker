@@ -1,11 +1,8 @@
-#!/usr/bin/ruby
-
-require 'test/unit'
-require_relative '../../lib/asker/ai/question'
-require_relative '../../lib/asker/formatter/question_gift_formatter'
+require "test/unit"
+require_relative "../../lib/asker/ai/question"
+require_relative "../../lib/asker/exporter/gift/question_gift_formatter"
 
 class QuestionGiftFormatterTest < Test::Unit::TestCase
-
   def setup
     q0 = Question.new
 

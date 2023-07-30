@@ -1,4 +1,4 @@
-require_relative "../formatter/question_gift_formatter"
+require_relative "question_gift_formatter"
 
 class ExportProblem2Gift
   ##

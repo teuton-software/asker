@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "export_code2gift"
-require_relative "export_concept2gift"
-require_relative "export_problem2gift"
+require_relative "gift/export_code2gift"
+require_relative "gift/export_concept2gift"
+require_relative "gift/export_problem2gift"
 require_relative "../application"
 require_relative "../version"
 

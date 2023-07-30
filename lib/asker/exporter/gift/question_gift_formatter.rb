@@ -1,6 +1,3 @@
-# frozen_string_literal: false
-
-# Transform Questions into Gift format
 module QuestionGiftFormatter
   ##
   # Convert question object into gift formatted string

@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-require_relative "../formatter/question_gift_formatter"
+require_relative "question_gift_formatter"
 
 class ExportConcept2Gift
   ##
