@@ -31,7 +31,12 @@ module EmbeddedFile
         return load_video_url(value, localdir)
       end
 
-      {text: "<pre>#{File.read(filepath)}</pre>", file: :none, type: :text}
+      {
+        text: "<pre>#{File.read(filepath)}</pre>",
+        file: :none,
+        type: :text,
+        url: value
+      }
     end
 
     def load_audio(value, localdir)
@@ -44,6 +49,7 @@ module EmbeddedFile
                       + Base64.strict_encode64(File.open(filepath, "rb").read) \
                       + "</file>"
       output[:type] = :audio
+      output[:url] = value
       output
     end
 
@@ -51,7 +57,8 @@ module EmbeddedFile
       {
         text: "<audio src=\"#{value}\" controls></audio>",
         file: :none,
-        type: :url
+        type: :url,
+        url: value
       }
     end
 
@@ -65,6 +72,7 @@ module EmbeddedFile
                       + Base64.strict_encode64(File.open(filepath, "rb").read) \
                       + "</file>"
       output[:type] = :image
+      output[:url] = value
       output
     end
 
@@ -72,7 +80,8 @@ module EmbeddedFile
       {
         text: "<img src=\"#{value}\" alt=\"image\" width=\"400\" height=\"300\">",
         file: :none,
-        type: :url
+        type: :url,
+        url: value
       }
     end
 
@@ -88,6 +97,7 @@ module EmbeddedFile
                       + Base64.strict_encode64(File.open(filepath, "rb").read) \
                       + "</file>"
       output[:type] = :video
+      output[:url] = value
       output
     end
 
@@ -96,7 +106,8 @@ module EmbeddedFile
         text: "<video controls width=\"400\" height=\"300\">" \
                         + "<source src=\"#{value}\"/></video>",
         file: :none,
-        type: :url
+        type: :url,
+        url: value
       }
     end
   end

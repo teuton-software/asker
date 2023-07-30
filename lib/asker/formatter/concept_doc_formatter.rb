@@ -12,14 +12,7 @@ module ConceptDocFormatter
     out << "#{concept.names.join(", ")}\n"
     concept.texts.each { |text| out << "* #{text}\n" }
     concept.images.each do |data|
-      text = if data[:type] == :text
-        data[:text]
-      elsif data[:type] == :url
-        data[:text]
-      else
-        "TODO"
-      end
-      out << "* (#{data[:type]})\n"
+      out << "* (#{data[:type]}) #{data[:url]}\n"
     end
     out << "\n"
     concept.tables.each do |table|
