@@ -94,3 +94,4 @@ Where `type` could be: ruby, python or sql.
 ## [2.9.0] unreleased
 
 * UPDATE: by default, configure asker.ini to no export gift and yaml output.
+* UPDATE: export code and problem data to doc output file.
