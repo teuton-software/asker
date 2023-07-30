@@ -13,7 +13,7 @@ module CodeLoader
   def self.call(xmldata, filepath)
     data = read_codedata_from_xml(xmldata, File.basename(filepath))
     code = Code.new(File.dirname(filepath), data[:path], data[:type])
-    code.features << data[:features]
+    code.features = data[:features]
     code
   end
 

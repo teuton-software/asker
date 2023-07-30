@@ -1,31 +1,25 @@
-# frozen_string_literal: false
-
 require "terminal-table"
 
-module ConceptDocFormatter
-  ##
-  # Formatter Concept into Doc
-  # @param concept (Concept)
-  def self.to_s(concept)
+class FormatConcept2Doc
+  def call(concept)
     out = ""
-    out << ("=" * 50 + "\n")
-    out << "#{concept.names.join(", ")}\n"
+    title = concept.names.join(", ")
+    out << ("-" * title.size + "\n")
+    out << "#{title}\n"
     concept.texts.each { |text| out << "* #{text}\n" }
     concept.images.each do |data|
       out << "* (#{data[:type]}) #{data[:url]}\n"
     end
     out << "\n"
     concept.tables.each do |table|
-      out << table_to_s(table)
+      out << format_table(table)
     end
     out
   end
 
-  ##
-  # Formatter Table to Doc
-  # @param table (Table)
-  # @return String
-  def self.table_to_s(table)
+  private
+
+  def format_table(table)
     my_screen_table = Terminal::Table.new do |st|
       st << table.fields
       st << :separator
