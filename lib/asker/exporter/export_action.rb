@@ -13,6 +13,6 @@ class ExportAction
     Export2Doc.new.call(data, project) if output["doc"] == "yes"
     Export2Gift.new.call(data, project) if output["gift"] == "yes"
     Export2MoodleXML.new.call(data, project) if output["moodle"] == "yes"
-    Export2YAML.new.call(data[:concepts_ai], project) if output["yaml"] == "yes"
+    Export2YAML.new.call(data, project) if output["yaml"] == "yes"
   end
 end
