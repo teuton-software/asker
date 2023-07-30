@@ -1,17 +1,18 @@
 require_relative "../formatter/question_gift_formatter"
 
-module CodeGiftExporter
+class ExportCode2Gift
   ##
   # Export an Array of codes to gift format file
   # @param codes (Array)
-  def self.export_all(codes, file)
+  def call(codes, file)
     codes.each { |code| export(code, file) }
   end
 
+  private
+
   ##
   # Export 1 code to gift format file
-  # @param code (Code)
-  def self.export(code, file)
+  def export(code, file)
     return false unless code.process?
 
     file.write head(code)
@@ -21,7 +22,7 @@ module CodeGiftExporter
     true
   end
 
-  private_class_method def self.head(code)
+  def head(code)
     s = "\n"
     s += "// " + "=" * 50 + "\n"
     s += "// Code #{code.type}: #{code.filename} (#{code.questions.size})\n"

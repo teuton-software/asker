@@ -1,6 +1,6 @@
 require_relative "../formatter/question_gift_formatter"
 
-class ProblemGiftExporter
+class ExportProblem2Gift
   ##
   # Export an Array of problems to gift format file
   # @param problems (Array)

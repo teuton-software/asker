@@ -3,22 +3,25 @@
 require_relative "../formatter/concept_doc_formatter"
 require_relative "../version"
 
-##
-# Export Concept to Doc file
-module ConceptDocExporter
-  ##
-  # Export array of concepts to doc
-  def self.export_all(concepts, project)
-    file = File.new(project.get(:lessonpath), "w")
-    file.write("=" * 50 + "\n")
-    file.write("Created by : #{Asker::NAME} (version #{Asker::VERSION})\n")
-    file.write("File       : #{project.get(:lessonname)}\n")
-    file.write("Time       : #{Time.new}\n")
-    file.write("=" * 50 + "\n")
+class Export2Doc
+  def call(data, project)
+    file_open(project)
+    export_concepts(data[:concepts])
+    @file.close
+  end
 
+  private
+
+  def file_open(project)
+    @file = File.new(project.get(:lessonpath), "w")
+    @file.write("Asker    : version #{Asker::VERSION}\n")
+    @file.write("Filename : #{project.get(:lessonname)}\n")
+    @file.write("Datetime : #{Time.new}\n\n")
+  end
+
+  def export_concepts(concepts)
     concepts.each do |concept|
-      file.write(ConceptDocFormatter.to_s(concept)) if concept.process
+      @file.write(ConceptDocFormatter.to_s(concept)) if concept.process
     end
-    file.close
   end
 end

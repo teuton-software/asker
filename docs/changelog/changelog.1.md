@@ -93,4 +93,4 @@ Where `type` could be: ruby, python or sql.
 
 ## [2.9.0] unreleased
 
-* UPDATE: by default, asker.ini if configured to no export gift file.
+* UPDATE: by default, configure asker.ini to no export gift and yaml output.

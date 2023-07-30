@@ -2,7 +2,7 @@ require_relative "application"
 require_relative "logger"
 require_relative "displayer/concept_displayer"
 require_relative "displayer/stats_displayer"
-require_relative "exporter/output_file_exporter"
+require_relative "exporter/export_action"
 require_relative "loader/project_loader"
 require_relative "loader/input_loader"
 
@@ -37,7 +37,7 @@ class Start
   end
 
   def create_output(project, data)
-    OutputFileExporter.export(data, project)
+    ExportAction.new.call(data, project)
     StatsDisplayer.show(data)
     Logger.close
   end

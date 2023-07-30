@@ -1,7 +1,6 @@
 require "yaml"
 require_relative "../formatter/question_hash_formatter"
 
-# Use to export data from ConceptIA to YAML format
 module ConceptAIYAMLExporter
   ##
   # Export array of ConceptAI objects from Project to YAML output file

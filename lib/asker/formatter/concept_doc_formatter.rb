@@ -1,6 +1,5 @@
 # frozen_string_literal: false
 
-require "rainbow"
 require "terminal-table"
 
 module ConceptDocFormatter
@@ -9,7 +8,8 @@ module ConceptDocFormatter
   # @param concept (Concept)
   def self.to_s(concept)
     out = ""
-    out << "\n#{Rainbow(concept.name).bg(:blue).bright}\n\n"
+    out << ("=" * 50 + "\n")
+    out << "#{concept.names.join(", ")}\n"
     concept.texts.each { |i| out << "* #{i}\n" }
     out << "\n"
     concept.tables.each do |table|

@@ -2,8 +2,8 @@ require_relative "../application"
 require_relative "../version"
 require_relative "../formatter/question_moodle_formatter"
 
-module DataMoodleExporter
-  def self.call(data, project)
+class Export2MoodleXML
+  def call(data, project)
     file = File.open(project.get(:moodlepath), "w")
     add_header(file, project)
 
@@ -14,7 +14,9 @@ module DataMoodleExporter
     close(file)
   end
 
-  def self.add_header(file, project)
+  private
+
+  def add_header(file, project)
     file.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
     file.write("<quiz>\n")
     file.write("<!--\n#{"=" * 50}\n")
@@ -25,12 +27,12 @@ module DataMoodleExporter
     file
   end
 
-  def self.close(file)
+  def close(file)
     file.write("</quiz>\n")
     file.close
   end
 
-  def self.export_concepts(concepts:, file:)
+  def export_concepts(concepts:, file:)
     concepts.each do |concept_ai|
       next unless concept_ai.concept.process?
 
@@ -42,7 +44,7 @@ module DataMoodleExporter
     end
   end
 
-  def self.export_codes(codes:, file:)
+  def export_codes(codes:, file:)
     codes.each do |code|
       next unless code.process?
       code.questions.each do |question|
@@ -51,7 +53,7 @@ module DataMoodleExporter
     end
   end
 
-  def self.export_problems(problems:, file:)
+  def export_problems(problems:, file:)
     problems.each do |problem|
       next unless problem.process?
       problem.questions.each do |question|
