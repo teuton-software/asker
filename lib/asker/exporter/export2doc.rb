@@ -35,7 +35,7 @@ class Export2Doc
 
   def export_problems(problems)
     problems.each do |problem|
-      @file.write(FormatProblem2Doc.new.call(problem)) if problem.process
+      @file.write(FormatProblem2Doc.new(problem).call) if problem.process
     end
   end
 end
