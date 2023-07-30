@@ -1,20 +1,17 @@
-require "terminal-table"
-
 class FormatCode2Doc
   def call(code)
     out = ""
-    title = code.filename
+    title = "#{code.filename} (#{code.type})"
     out << ("-" * title.size + "\n")
     out << "#{title}\n"
-    out << "* type: #{code.type}\n"
     if code.features.size.positive?
       out << "* features: #{code.features.join(", ")}"
     end
     out << "\n"
-    screen_table = Terminal::Table.new do |st|
-      # code.lines.each { |line| st.add_row line }
+    code.lines.each_with_index do |line, index|
+      out << "#{index} | #{line}\n"
     end
-    # out << "#{screen_table}\n"
+    out << "\n"
     out
   end
 end
