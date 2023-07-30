@@ -1,12 +1,12 @@
 require "yaml"
 require_relative "../formatter/question_hash_formatter"
 
-module ConceptAIYAMLExporter
+class Export2YAML
   ##
   # Export array of ConceptAI objects from Project to YAML output file
   # @param concepts_ai (Array)
   # @param project (Project)
-  def self.export_all(concepts_ai, project)
+  def call(concepts_ai, project)
     questions = []
     concepts_ai.each do |concept_ai|
       questions += get_questions_from concept_ai
@@ -20,7 +20,9 @@ module ConceptAIYAMLExporter
     yamlfile.close
   end
 
-  private_class_method def self.get_questions_from(concept_ai)
+  private
+
+  def get_questions_from(concept_ai)
     data = []
     return data unless concept_ai.concept.process?
 
