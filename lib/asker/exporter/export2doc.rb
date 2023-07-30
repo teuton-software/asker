@@ -1,5 +1,6 @@
 require_relative "doc/format_code2doc"
 require_relative "doc/format_concept2doc"
+require_relative "doc/format_problem2doc"
 require_relative "../version"
 
 class Export2Doc
@@ -33,5 +34,8 @@ class Export2Doc
   end
 
   def export_problems(problems)
+    problems.each do |problem|
+      @file.write(FormatProblem2Doc.new.call(problem)) if problem.process
+    end
   end
 end
