@@ -45,7 +45,7 @@ class ProjectData
     @param[:logname] = "#{@param[:projectname]}.log"
     @param[:outputname] = "#{@param[:projectname]}-gift.txt"
     @param[:lessonname] = "#{@param[:projectname]}.txt"
-    @param[:yamlname] = "#{@param[:projectname]}-questions.yaml"
+    @param[:yamlname] = "#{@param[:projectname]}.yaml"
     @param[:moodlename] = "#{@param[:projectname]}-moodle.xml"
 
     outputdir = get(:outputdir)
