@@ -9,7 +9,7 @@ module QuestionHashFormatter
     s[:text] = sanitize(@question.text)
     s[:type] = @question.type
     s[:feedback] = sanitize(@question.feedback.to_s)
-    s[:lang] = @question.lang.code.to_sym
+    # s[:lang] = @question.lang.code.to_sym
     case @question.type
     when :choice
       s[:answer] = sanitize(@question.good)

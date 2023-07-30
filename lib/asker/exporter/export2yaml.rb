@@ -8,7 +8,9 @@ class Export2YAML
   # @param project (Project)
   def call(data, project)
     questions = []
+    questions += get_questions_from_codes(data)
     questions += get_questions_from_concepts(data)
+    questions += get_questions_from_problems(data)
 
     output = {
       lang: project.get(:lang),
@@ -22,6 +24,17 @@ class Export2YAML
   end
 
   private
+
+  def get_questions_from_codes(data)
+    questions = []
+    data[:codes].each do |code|
+      next unless code.process
+      code.questions.each do |question|
+        questions << QuestionHashFormatter.to_hash(question)
+      end
+    end
+    questions
+  end
 
   def get_questions_from_concepts(data)
     questions = []
@@ -38,6 +51,17 @@ class Export2YAML
     Application.instance.config["questions"]["stages"].each do |stage|
       concept_ai.questions[stage].each do |question|
         question.lang = concept_ai.concept.lang
+        questions << QuestionHashFormatter.to_hash(question)
+      end
+    end
+    questions
+  end
+
+  def get_questions_from_problems(data)
+    questions = []
+    data[:problems].each do |problem|
+      next unless problem.process
+      problem.questions.each do |question|
         questions << QuestionHashFormatter.to_hash(question)
       end
     end
