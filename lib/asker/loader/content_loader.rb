@@ -48,6 +48,7 @@ class ContentLoader
       lang_code = ProjectData.instance.lang
       Logger.warn "ContentLoader: Applying default lang (#{lang_code})"
     end
+    ProjectData.instance.set(:lang_code, lang_code)
     LangFactory.instance.get(lang_code)
   end
 

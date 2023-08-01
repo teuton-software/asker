@@ -13,7 +13,7 @@ class Export2YAML
     questions += get_questions_from_problems(data)
 
     output = {
-      lang: project.get(:lang),
+      lang: project.get(:lang_code),
       projectname: project.get(:projectname),
       questions: questions
     }
