@@ -1,6 +1,5 @@
-# Transform Questions into YAML format
-module QuestionHashFormatter
-  def self.to_hash(question)
+class Question2Hash
+  def format(question)
     @question = question
     # Return question using YAML format
     s = {}
@@ -25,7 +24,9 @@ module QuestionHashFormatter
     s
   end
 
-  def self.sanitize(input = "")
+  private
+
+  def sanitize(input = "")
     output = input.dup
     output.gsub!("#", "\\#")
     output.tr!("\n", " ")

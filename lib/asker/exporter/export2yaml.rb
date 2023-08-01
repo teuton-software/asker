@@ -1,5 +1,5 @@
 require "yaml"
-require_relative "../formatter/question_hash_formatter"
+require_relative "../formatter/question2hash"
 
 class Export2YAML
   ##
@@ -30,7 +30,7 @@ class Export2YAML
     data[:codes].each do |code|
       next unless code.process
       code.questions.each do |question|
-        questions << QuestionHashFormatter.to_hash(question)
+        questions << Question2Hash.new.format(question)
       end
     end
     questions
@@ -51,7 +51,7 @@ class Export2YAML
     Application.instance.config["questions"]["stages"].each do |stage|
       concept_ai.questions[stage].each do |question|
         question.lang = concept_ai.concept.lang
-        questions << QuestionHashFormatter.to_hash(question)
+        questions << Question2Hash.new.format(question)
       end
     end
     questions
@@ -62,7 +62,7 @@ class Export2YAML
     data[:problems].each do |problem|
       next unless problem.process
       problem.questions.each do |question|
-        questions << QuestionHashFormatter.to_hash(question)
+        questions << Question2Hash.new.format(question)
       end
     end
     questions
