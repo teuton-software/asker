@@ -1,6 +1,6 @@
 require_relative "../application"
 require_relative "../version"
-require_relative "../formatter/question_moodle_formatter"
+require_relative "../formatter/question2moodle_xml"
 
 class Export2MoodleXML
   def call(data, project)
@@ -38,7 +38,7 @@ class Export2MoodleXML
 
       Application.instance.config["questions"]["stages"].each do |stage|
         concept_ai.questions[stage].each do |question|
-          file.write(QuestionMoodleFormatter.to_s(question))
+          file.write(Question2MoodleXML.new.format(question))
         end
       end
     end
@@ -48,7 +48,7 @@ class Export2MoodleXML
     codes.each do |code|
       next unless code.process?
       code.questions.each do |question|
-        file.write QuestionMoodleFormatter.to_s(question)
+        file.write Question2MoodleXML.new.format(question)
       end
     end
   end
@@ -57,7 +57,7 @@ class Export2MoodleXML
     problems.each do |problem|
       next unless problem.process?
       problem.questions.each do |question|
-        file.write QuestionMoodleFormatter.to_s(question)
+        file.write Question2MoodleXML.new.format(question)
       end
     end
   end

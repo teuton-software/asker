@@ -1,15 +1,13 @@
-# frozen_string_literal: false
-
 require "erb"
 require_relative "../application"
 
 # Transform Questions into Gift format
-class QuestionMoodleFormatter
+class Question2MoodleXML
   ##
   # Convert question object into gift formatted string
   # @param question (Question)
   # @return String
-  def self.to_s(question)
+  def format(question)
     case question.type
     when :choice
       fractions = Application.instance.config["questions"]["fractions"]
@@ -31,7 +29,7 @@ class QuestionMoodleFormatter
     when :short
       template = File.read(File.join(File.dirname(__FILE__), "moodle", "shortanswer.erb"))
     else
-      warn "[ERROR] QuestionMoodleFormatter: Unknown type (#{question.type})"
+      warn "[ERROR] Question2MoodleXML: Unknown type (#{question.type})"
       exit 1
     end
     renderer = ERB.new(template)
