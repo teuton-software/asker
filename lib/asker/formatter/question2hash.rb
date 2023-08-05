@@ -10,11 +10,13 @@ class Question2Hash
     s[:feedback] = sanitize(@question.feedback.to_s)
     # s[:lang] = @question.lang.code.to_sym
     case @question.type
+    when :boolean
+      s[:answer] = @question.good
     when :choice
       s[:answer] = sanitize(@question.good)
       s[:options] = (@question.bads + [@question.good]).shuffle
-    when :boolean
-      s[:answer] = @question.good
+    when :ddmatch
+      s[:answer] = @question.matching
     when :match
       s[:answer] = @question.matching
     when :short
