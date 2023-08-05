@@ -20,7 +20,7 @@ class Logger
 
   def self.warn(msg)
     msg = Rainbow("[WARN] #{msg}\n").yellow.bright
-    puts msg if @verbose
+    print msg if @verbose
     @logfile&.write(msg)
   end
 

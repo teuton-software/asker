@@ -1,3 +1,5 @@
+require_relative "../logger"
+
 class Question2Hash
   def format(question)
     @question = question
@@ -8,7 +10,6 @@ class Question2Hash
     s[:text] = sanitize(@question.text)
     s[:type] = @question.type
     s[:feedback] = sanitize(@question.feedback.to_s)
-    # s[:lang] = @question.lang.code.to_sym
     case @question.type
     when :boolean
       s[:answer] = @question.good
@@ -19,9 +20,13 @@ class Question2Hash
       s[:answer] = @question.matching
     when :match
       s[:answer] = @question.matching
+    when :ordering
+      s[:answer] = @question.ordering
     when :short
       @question.shorts.uniq!
       s[:answer] = @question.shorts
+    else
+      Logger.warn "[WARN] Question2Hash: Unkown type (#{@question.type})"
     end
     s
   end
