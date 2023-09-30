@@ -91,7 +91,11 @@ Where `type` could be: ruby, python or sql.
 * UPDATE: problem answer contains text value or formula (type: 'formula')
 * UPDATE: check validates problem answer{type: 'formula'}
 
-## [2.9.0] unreleased
+## [2.9.0] 2020930
+
+* UPDATE: Add problem formulas: bin2dec, dec2bin and dec2hex
+
+## Unreleased
 
 * UPDATE: by default, configure asker.ini to no export gift and yaml output.
 * UPDATE: export code and problem data to doc output file.
