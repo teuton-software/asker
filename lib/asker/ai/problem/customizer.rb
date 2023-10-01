@@ -38,11 +38,39 @@ class Customizer
     value.to_s.to_i(2)
   end
 
+  def bin2hex(value)
+    n = bin2dec(value)
+    dec2hex(n)
+  end
+
+  def bin2oct(value)
+    n = bin2dec(value)
+    dec2oct(n)
+  end
+
   def dec2bin(value)
     value.to_i.to_s(2)
   end
 
   def dec2hex(value)
     value.to_i.to_s(16)
+  end
+
+  def dec2oct(value)
+    value.to_i.to_s(8)
+  end
+
+  def hex2bin(value)
+    n = hex2dec(value)
+    dec2bin(n)
+  end
+
+  def hex2dec(value)
+    value.to_i(16)
+  end
+
+  def hex2oct(value)
+    n = hex2dec(value)
+    dec2oct(n)
   end
 end
