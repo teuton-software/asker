@@ -26,6 +26,7 @@ In some cases it is possible to remove variables that can be calculated. For exa
 * With `%answer S1` the content of the answer attribute is the value of the variable S1.
 * With `%answer{type: 'formula'} N1+N2`, the content of the answers attribute is the result of appling the formula `N1+N2` after substituting the corresponding values of N1 and N2.
 
+
 ## Running
 
 Run next command to see an example of Problem running.
