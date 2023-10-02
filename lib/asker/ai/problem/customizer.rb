@@ -35,17 +35,17 @@ class Customizer
   end
 
   def bin2dec(value)
-    value.to_s.to_i(2)
+    value.to_s.to_i(2).to_s
   end
 
   def bin2hex(value)
-    n = bin2dec(value)
-    dec2hex(n)
+    dec = bin2dec(value)
+    dec2hex(dec)
   end
 
   def bin2oct(value)
-    n = bin2dec(value)
-    dec2oct(n)
+    dec = bin2dec(value)
+    dec2oct(dec)
   end
 
   def dec2bin(value)
@@ -57,20 +57,34 @@ class Customizer
   end
 
   def dec2oct(value)
-    value.to_i.to_s(8)
+    value.to_i.to_s(8).to_s
   end
 
   def hex2bin(value)
-    n = hex2dec(value)
-    dec2bin(n)
+    dec = hex2dec(value)
+    dec2bin(dec)
   end
 
   def hex2dec(value)
-    value.to_i(16)
+    value.to_s.to_i(16).to_s
   end
 
   def hex2oct(value)
-    n = hex2dec(value)
-    dec2oct(n)
+    dec = hex2dec(value)
+    dec2oct(dec)
+  end
+
+  def oct2bin(value)
+    dec = oct2dec(value)
+    dec2bin(dec)
+  end
+
+  def oct2dec(value)
+    value.to_s.to_i(8).to_s
+  end
+
+  def oct2hex(value)
+    dec = oct2dec(value)
+    dec2hex(dec)
   end
 end
