@@ -17,7 +17,7 @@ class PythonCodeAI < BaseCodeAI
         lines[index].sub!("#", "").strip!
 
         q = Question.new(:short)
-        q.name = "#{name}-#{num}-uncomment"
+        q.name = "#{name}-#{num}-code1uncomment"
         q.text = @lang.text_for(:code1, lines_to_html(lines))
         q.shorts << (index + 1)
         q.feedback = "Comment symbol removed"
@@ -27,7 +27,7 @@ class PythonCodeAI < BaseCodeAI
         lines[index] = "# " + lines[index]
 
         q = Question.new(:short)
-        q.name = "#{name}-#{num}-comment"
+        q.name = "#{name}-#{num}-code1comment"
         q.text = @lang.text_for(:code1, lines_to_html(lines))
         q.shorts << (index + 1)
         q.feedback = "Comment symbol added"
@@ -54,14 +54,14 @@ class PythonCodeAI < BaseCodeAI
       lines.insert(index, " " * (rand(4).to_i + 1))
       if @lines.size < 4 || rand(2) == 0
         q = Question.new(:short)
-        q.name = "#{name}-#{num}-codeok"
+        q.name = "#{name}-#{num}-code1ok"
         q.text = @lang.text_for(:code1, lines_to_html(lines))
         q.shorts << "0"
         q.feedback = "Code is OK"
         questions << q
       else
         q = Question.new(:choice)
-        q.name = "#{name}-#{num}-codeok"
+        q.name = "#{name}-#{num}-code1ok"
         q.text = @lang.text_for(:code2, lines_to_html(lines))
         others = (1..@lines.size).to_a.shuffle!
         q.good = "0"
@@ -91,13 +91,13 @@ class PythonCodeAI < BaseCodeAI
           lines[index].sub!(key.to_s, value)
           if @lines.size < 4 || rand(2) == 0
             q = Question.new(:short)
-            q.name = "#{name}-#{num}-syntaxerror"
+            q.name = "#{name}-#{num}-code1syntaxerror"
             q.text = @lang.text_for(:code1, lines_to_html(lines))
             q.shorts << (index + 1)
             q.feedback = "Syntax error: '#{value}' must be '#{key}'"
           else
             q = Question.new(:choice)
-            q.name = "#{name}-#{num}-syntaxerror"
+            q.name = "#{name}-#{num}-code1syntaxerror"
             q.text = @lang.text_for(:code2, lines_to_html(lines))
             others = (1..@lines.size).to_a.shuffle!
             others.delete(index + 1)
@@ -139,13 +139,13 @@ class PythonCodeAI < BaseCodeAI
 
         if rand(2) == 0
           q = Question.new(:short)
-          q.name = "#{name}-#{num}-variable"
+          q.name = "#{name}-#{num}-code1variable"
           q.text = @lang.text_for(:code1, lines_to_html(lines))
           q.shorts << (index + 1)
           q.feedback = "Variable error! Swapped lines #{index + 1} with #{k + 1}"
         else
           q = Question.new(:choice)
-          q.name = "#{name}-#{num}-variable"
+          q.name = "#{name}-#{num}-code1variable"
           q.text = @lang.text_for(:code2, lines_to_html(lines))
           others = (1..@lines.size).to_a.shuffle!
           others.delete(index + 1)
