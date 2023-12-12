@@ -77,7 +77,7 @@ Associate individual columns from a table.
 | t4table | choice  |
 | t5table | boolean |
 | t6table | boolean |
-| t7table | boolena |
+| t7table | boolean |
 | t8table | short answer |
 | t9table | short answer |
 
