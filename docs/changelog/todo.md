@@ -6,7 +6,6 @@
 * FIX: check asker.ini version
 * FIX: question f3filtered type. There are not usefull filtered sequence of row values from concept table.
 
-* NEW: Graphic front end.
 * NEW: User asker configuration to add new local languages or change existing one.
 * NEW: Language support: Adding Esperanto.
 
@@ -49,4 +48,4 @@ d. None
     * type hangmann
 * Dictionary
     * Diccionario de sinónimos, antónimos
-    * Learn about the words or better download dictonary from RAE?
+    * Learn about the words or better download dictionary from RAE?

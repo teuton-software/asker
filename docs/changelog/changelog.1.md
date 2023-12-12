@@ -91,9 +91,14 @@ Where `type` could be: ruby, python or sql.
 * UPDATE: problem answer contains text value or formula (type: 'formula')
 * UPDATE: check validates problem answer{type: 'formula'}
 
-## [2.9.0] 2020930
+## [2.9.0] 20230930
 
 * UPDATE: Add problem formulas: bin2dec, dec2bin and dec2hex
+
+## [2.9.3] 20231211
+
+* NEW: Create question ID list.
+* FIX: Replace questions ID list from asker.ini with URL to doc.
 
 ## Unreleased
 
