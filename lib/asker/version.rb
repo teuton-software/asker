@@ -1,5 +1,5 @@
 class Asker
-  VERSION = "2.9.3"
+  VERSION = "2.9.4"
   NAME = "asker"
   GEM = "asker-tool"
   CONFIGFILE = "asker.ini"
