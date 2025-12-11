@@ -11,9 +11,22 @@ namespace :devel do
     names.each { |name| system("apt install -y #{name}") }
   end
 
-  desc "Create symbolic link"
+  desc "Create /usr/local/bin/asker"
   task :launcher do
-    puts "==> Creating symbolic link into /usr/local/bin"
-    system("ln -s #{Dir.pwd}/asker /usr/local/bin/asker")
+    launcherpath = "/usr/local/bin/asker"
+    if File.exist?(launcherpath)
+      warn "File exist! (#{launcherpath})"
+      exit 1
+    end
+
+    rubypath = `rbenv which ruby`.strip
+    commandpath = File.join(Dir.pwd, "asker")
+
+    puts "# Created with: 'rake devel:launcher'"
+    puts "# - Copy this content into: #{launcherpath}"
+    puts "# - Then: chmod +x #{launcherpath}"
+    puts "RUBYPATH=#{rubypath}"
+    puts "COMMANDPATH=#{commandpath}"
+    puts "$RUBYPATH $COMMANDPATH $@"
   end
 end
