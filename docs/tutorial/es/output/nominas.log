@@ -1,0 +1,93 @@
+==================================================
+Created by : asker (version 2.9.4)
+File       : nominas.log
+Time       : 2025-12-11 20:09:50 +0000
+==================================================
+
+[37m==> Loading v02/nominas.haml[0m
+[INFO] Showing concept data ([1mdefault[0m)
++-----------+----------------------------------------------------------------+
+| [1m1[0m         | [32m[1mNómina[0m                                                         |
+| [37mTags[0m      | contrato, salario, trabajador, empresa, IRPF, Seguridad Social |
+| [37mdef[0m       | 2                                                              |
+| [37mtables[0m    | $parte principal$descripción                                   |
+|           | $tipos de deducciones                                          |
+| [37mneighbors[0m | [37m20.0[0m Salario Neto                                              |
+|           | [37m20.0[0m IRPF                                                      |
+|           | [37m20.0[0m Salario Base                                              |
+|           | [37m20.0[0m Complementos Salariales                                   |
+|           | [37m20.0[0m Seguridad Social                                          |
++-----------+----------------------------------------------------------------+
++-----------+------------------------------+
+| [1m2[0m         | [32m[1mSalario Base[0m                 |
+| [37mTags[0m      | devengos, nómina, básico     |
+| [37mdef[0m       | 2                            |
+| [37mneighbors[0m | [37m80.0[0m Complementos Salariales |
+|           | [37m40.0[0m Salario Neto            |
+|           | [37m40.0[0m IRPF                    |
+|           | [37m40.0[0m Nómina                  |
+|           | [37m40.0[0m Seguridad Social        |
++-----------+------------------------------+
++-----------+-------------------------------+
+| [1m3[0m         | [32m[1mComplementos Salariales[0m       |
+| [37mTags[0m      | devengos, nómina, adicionales |
+| [37mdef[0m       | 2                             |
+| [37mneighbors[0m | [37m80.0[0m Salario Base             |
+|           | [37m40.0[0m Salario Neto             |
+|           | [37m40.0[0m IRPF                     |
+|           | [37m40.0[0m Nómina                   |
+|           | [37m40.0[0m Seguridad Social         |
++-----------+-------------------------------+
++-----------+-----------------------------------+
+| [1m4[0m         | [32m[1mIRPF[0m                              |
+| [37mTags[0m      | deducciones, impuestos, retención |
+| [37mdef[0m       | 2                                 |
+| [37mneighbors[0m | [37m60.0[0m Seguridad Social             |
+|           | [37m40.0[0m Salario Neto                 |
+|           | [37m40.0[0m Complementos Salariales      |
+|           | [37m40.0[0m Nómina                       |
+|           | [37m40.0[0m Salario Base                 |
++-----------+-----------------------------------+
++-----------+--------------------------------------------+
+| [1m5[0m         | [32m[1mSeguridad Social[0m                           |
+| [37mTags[0m      | deducciones, cotización, protección social |
+| [37mdef[0m       | 2                                          |
+| [37mneighbors[0m | [37m60.0[0m IRPF                                  |
+|           | [37m40.0[0m Salario Neto                          |
+|           | [37m40.0[0m Complementos Salariales               |
+|           | [37m40.0[0m Nómina                                |
+|           | [37m40.0[0m Salario Base                          |
++-----------+--------------------------------------------+
++-----------+------------------------------+
+| [1m6[0m         | [32m[1mSalario Neto[0m                 |
+| [37mTags[0m      | final, cobro, neto           |
+| [37mdef[0m       | 2                            |
+| [37mneighbors[0m | [37m40.0[0m Seguridad Social        |
+|           | [37m40.0[0m Complementos Salariales |
+|           | [37m40.0[0m Nómina                  |
+|           | [37m40.0[0m Salario Base            |
+|           | [37m40.0[0m IRPF                    |
++-----------+------------------------------+
+[37m
+[INFO] Showing CONCEPTs statistics
+ * Exclude questions: 
+ * Annotations:
+   ├── (d) Definitions     <= Concept.def
+   ├── (b) Table Matching  <= Concept.table.rows.columns
+   ├── (f) Tables 1 Field  <= Concept.table.fields.size==1
+   ├── (i) Images URL      <= Concept.def{:type => 'file'}
+   ├── (s) Sequences       <= Concept.table{:sequence => '...'}
+   └── (t) Table Rows&Cols <= Concept.table.rows.columns
+[0m+-------------------------+-----------+---------+---------+-----+----+---+---+---+----+
+| Concept                 | Questions | Entries | xFactor | d   | b  | f | i | s | t  |
++-------------------------+-----------+---------+---------+-----+----+---+---+---+----+
+| [32m[1mNómina[0m                  | 81        | 16      | 5.06    | 26  | 12 | 3 | 0 | 2 | 38 |
+| [32m[1mSalario Base[0m            | 23        | 2       | 11.5    | 23  | 0  | 0 | 0 | 0 | 0  |
+| [32m[1mComplementos Salariales[0m | 24        | 2       | 12.0    | 24  | 0  | 0 | 0 | 0 | 0  |
+| [32m[1mIRPF[0m                    | 24        | 2       | 12.0    | 24  | 0  | 0 | 0 | 0 | 0  |
+| [32m[1mSeguridad Social[0m        | 24        | 2       | 12.0    | 24  | 0  | 0 | 0 | 0 | 0  |
+| [32m[1mSalario Neto[0m            | 24        | 2       | 12.0    | 24  | 0  | 0 | 0 | 0 | 0  |
+| [33m[1mExcluded questions[0m      | 0         | -       | -       | 0   | 0  | 0 | 0 | 0 | 0  |
++-------------------------+-----------+---------+---------+-----+----+---+---+---+----+
+| [1m6 concept/s[0m             | [1m200[0m       | [1m26[0m      | [1m7.69[0m    | 145 | 12 | 3 | 0 | 2 | 38 |
++-------------------------+-----------+---------+---------+-----+----+---+---+---+----+

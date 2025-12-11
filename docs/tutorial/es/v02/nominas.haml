@@ -1,0 +1,66 @@
+// Ejemplo sobre el concepto de Nóminas
+%map{ lang: 'es', context: 'laboral, economía', version: '1'}
+
+  %concept
+    %names Nómina, Recibo de Salarios, Paga
+    %tags contrato, salario, trabajador, empresa, IRPF, Seguridad Social
+    %def Documento justificativo que la empresa entrega al trabajador para reflejar las cantidades que percibe y las deducciones aplicadas por el trabajo realizado.
+    %def Título legal que acredita la percepción de las retribuciones por parte del trabajador y el cumplimiento por parte del empleador de las obligaciones de cotización y retención de impuestos.
+
+    %table{ fields: 'parte principal, descripción'}
+      %row
+        %col Encabezado
+        %col Contiene los datos de identificación de la empresa (nombre, CIF, código de cuenta de cotización) y del trabajador (nombre, DNI, número de Seguridad Social, categoría profesional, grupo de cotización).
+      %row
+        %col Devengos (Percepciones)
+        %col Suma de todas las retribuciones que recibe el trabajador, incluyendo el salario base, los complementos salariales y las percepciones no salariales. Es el Salario Bruto.
+      %row
+        %col Deducciones
+        %col Cantidades que se restan al total devengado. Incluyen las aportaciones del trabajador a la Seguridad Social (Contingencias Comunes, Desempleo, etc.) y la retención del IRPF.
+      %row
+        %col Líquido a Percibir (Neto)
+        %col Es la cantidad final resultante de restar el total de las Deducciones al total de los Devengos. Es el dinero que el trabajador recibe realmente.
+      %row
+        %col Bases de Cotización y de Retención
+        %col Son las magnitudes económicas sobre las que se aplican los porcentajes para calcular las aportaciones a la Seguridad Social (Bases de Cotización) y las retenciones de IRPF (Base de Retención).
+
+    %table{ fields: 'tipos de deducciones', sequence: 'Deducciones obligatorias'}
+      %row Deducción IRPF
+      %row Deducción Contingencias Comunes
+      %row Deducción Desempleo
+      %row Deducción Formación Profesional
+
+  // Concepto: Salario Base
+  %concept
+    %names Salario Base
+    %tags devengos, nómina, básico
+    %def Retribución fijada por unidad de tiempo u obra.
+    %def Es el punto de partida del cálculo del total devengado y se establece en función del convenio colectivo aplicable.
+
+  // Concepto: Complementos Salariales
+  %concept
+    %names Complementos Salariales
+    %tags devengos, nómina, adicionales
+    %def Pagos adicionales (antigüedad, nocturnidad, etc.) que se añaden al salario base por circunstancias específicas.
+    %def Incrementos que varían en función de la persona, del puesto de trabajo o de los resultados obtenidos por la empresa o el empleado.
+
+  // Concepto: IRPF (Impuesto sobre la Renta)
+  %concept
+    %names IRPF, Impuesto sobre la Renta
+    %tags deducciones, impuestos, retención
+    %def Retención a cuenta del impuesto sobre la renta del trabajador que la empresa ingresa a la Agencia Tributaria.
+    %def Porcentaje que se calcula sobre la Base de Retención y que depende de la situación personal y familiar del trabajador.
+
+  // Concepto: Seguridad Social (SS)
+  %concept
+    %names Seguridad Social, SS
+    %tags deducciones, cotización, protección social
+    %def Aportación del trabajador a la Tesorería General de la Seguridad Social para financiar las prestaciones sociales.
+    %def Incluye cotizaciones por Contingencias Comunes, Desempleo, Formación Profesional y otras coberturas sociales.
+
+  // Concepto: Salario Neto (Líquido)
+  %concept
+    %names Salario Neto, Líquido a Percibir
+    %tags final, cobro, neto
+    %def Cantidad final de dinero que recibe el trabajador tras aplicar todas las deducciones a los devengos.
+    %def El monto que efectivamente se transfiere o paga al empleado una vez descontados impuestos y cotizaciones obligatorias.

@@ -1,0 +1,36 @@
+// Ejemplo sobre el concepto de Nóminas
+%map{ lang: 'es', context: 'laboral, economía', version: '1'}
+
+  %concept
+    %names Nómina, Recibo de Salarios, Paga
+    %tags contrato, salario, trabajador, empresa, IRPF, Seguridad Social
+    %def Documento justificativo que la empresa entrega al trabajador para reflejar las cantidades que percibe y las deducciones aplicadas por el trabajo realizado.
+
+    %table{ fields: 'partes principales'}
+      %row Encabezado (Datos de la empresa y del trabajador)
+      %row Devengos (Percepciones salariales y no salariales)
+      %row Deducciones (Retenciones y aportaciones)
+      %row Líquido a percibir (Neto)
+      %row Bases de cotización y de retención
+
+    %table{ fields: 'concepto, definición'}
+      %row
+        %col Salario Base
+        %col Retribución fijada por unidad de tiempo u obra.
+      %row
+        %col Complementos Salariales
+        %col Pagos adicionales (antigüedad, nocturnidad, etc.).
+      %row
+        %col IRPF (Impuesto sobre la Renta)
+        %col Retención a cuenta del impuesto sobre la renta del trabajador.
+      %row
+        %col Seguridad Social (SS)
+        %col Aportación del trabajador a la Tesorería General de la SS.
+      %row
+        %col Salario Neto (Líquido)
+        %col Cantidad final que recibe el trabajador tras las deducciones.
+    %table{ fields: 'tipos de deducciones', sequence: 'Deducciones obligatorias'}
+      %row Deducción IRPF
+      %row Deducción Contingencias Comunes
+      %row Deducción Desempleo
+      %row Deducción Formación Profesional
