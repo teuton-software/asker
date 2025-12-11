@@ -6,7 +6,7 @@ class AskerInitTest < Test::Unit::TestCase
     filename = 'asker.ini'
     assert_equal false, File.exist?(filename)
 
-    cmd = "asker init > /dev/null"
+    cmd = "./asker init > /dev/null"
     assert_equal true, system(cmd)
 
     assert_equal true, File.exist?(filename)
