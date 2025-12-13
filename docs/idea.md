@@ -3,7 +3,7 @@
 
 # Basics
 
-> **Disclaimber**
+> **Disclaimer**
 >
 > I work as a teacher, and I try to do the best I know. But I'm really a programmer. I studied Computer Science.
 >
