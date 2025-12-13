@@ -190,6 +190,9 @@ class CheckHamlData
     elsif !line.match(/^\s\s\s\s%def[\s{]/)
       @outputs[index][:state] = :err
       @outputs[index][:msg] = "Write 4 spaces before %def"
+    elsif line.match(/^\s\s\s\s%def\s+\{/)
+      @outputs[index][:state] = :err
+      @outputs[index][:msg] = "Don't write spaces between %def and {"
     else
       items = line.strip.split
       if items.size < 2
