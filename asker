@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
+require "debug"
 require_relative "lib/asker/cli"
-
 CLI.start(ARGV)
