@@ -29,7 +29,7 @@ gem install asker-tool
 Let's see an example creating questions from ACDC input example file:
 
 ```console
-❯ asker docs/examples/bands/acdc.haml
+$ asker docs/examples/bands/acdc.haml
 
 +--------------------+-----------+---------+---------+---+---+----+---+---+----+
 | Concept            | Questions | Entries | xFactor | d | b | f  | i | s | t  |
@@ -45,10 +45,10 @@ Let's see an example creating questions from ACDC input example file:
 
 * [Free Software License](LICENSE).
 * Multiplatform.
-* Input files formats: XML, HAML.
-* Output formats: GIFT, Moodle XML, YAML.
-* Question types: true/false, multiple choice, short answer, matching and ordering.
-* Embeded files: mp3, ogg, wav, jpg, jpeg, png, mp4, ogv and plain text files.
+* Input files formats: _HAML, XML_.
+* Output formats: _Moodle XML, GIFT, YAML_.
+* Question types: _true/false, multiple choice, short answer, matching and ordering_.
+* Embeded type files: _mp3, ogg, wav, jpg, jpeg, png, mp4, ogv and plain text files_.
 
 # Documentation
 
