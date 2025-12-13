@@ -1,13 +1,9 @@
 
-
 # TO-DO
 
 * Definir tablas que contienen un conjunto cerrado finito.
-  Por defecto el campo clave es f1. Pero también podría ser f2 ¿?
-  El campo clave pueden ser varios campos (f1,f2) ¿?
-* Check Asker analizer lexical, syntax and semantic
-* Split Concept into Concept and ConceptLoader
-* Refactor Application singleton to Settings class.
+* Por defecto el campo clave es f1. Pero también podría ser f2 ¿?
+* El campo clave pueden ser varios campos (f1,f2) ¿?
 
 # 1. Nuevo formato de input
 
@@ -15,9 +11,9 @@
 * Template multivariable con match: true or match: false
 * Template multivariable combinando valores para aumentar las salidas geenradas
 
-# 2. Entorno gráfico
+# 2. GUI: Entorno gráfico
 
-Creación de `asker-editor`
+Create a graphic fron end to execute asker and edit input files. `asker-editor`
 * Front-end gráfico. Aplicación de escritorio autocontenida.
 * Abre fichero de input (texto plano), lo edita y graba.
 * Botón de salir
@@ -28,14 +24,7 @@ Creación de `asker-editor`
 
 * Frases célebres
 * Prolog (nueva entidad conceptual) o nuevo campo para inducir estructura lógica a las entidades
-* Conexión OpenAI? problemas al usar la gema openai
-
-# 5. Moodle XML
-
-Aprovechar las posibilidades que ofrece el fichero de importación Moodle XML
-para crear nuevos tipos de preguntas.
-
-Aumentar la IA y sus stages.
+* Conexión AI?
 
 # 6. R y Wiris
 
@@ -66,27 +55,21 @@ Incorporar lógica para
 * Code/sanitize
 * New questions types: gapfill
 
-
 # 10. TO-DO
 
 * Apply standard linter to code
 * DOC or FIX: table only works with 4 columns? revise stage_t.rb
 * FIX: check asker.ini version
 * FIX: question f3filtered type. There are not usefull filtered sequence of row values from concept table.
-
 * NEW: User asker configuration to add new local languages or change existing one.
 * NEW: Language support: Adding Esperanto.
 
-# 11. GUI
-
-Create a graphic fron end to execute asker and edit input files.
-
-# 12. Videos
+# 11. Videos
 
 * Documentation: Revise documentation
 * Perhaps, videos on youtube explaining all this: (1) Get documentation, (2) Installation, (3) Consult demo input, (4) Create our input file usign def, (5) Add tables to our input file.
 
-# 13. info keyword
+# 12. info keyword
 
 * Add new keyword called info. Example:
 ```
@@ -109,11 +92,17 @@ d. None
 
 # 14. Etc
 
-* Texts
-    * Concept name drop and fill...
 * Question types
     * crossword
     * type hangmann
 * Dictionary
     * Diccionario de sinónimos, antónimos
     * Learn about the words or better download dictionary from RAE?
+
+---
+
+# Development
+
+* Check Asker analizer lexical, syntax and semantic
+* Split Concept into Concept and ConceptLoader
+* Refactor Application singleton to Settings class.
