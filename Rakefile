@@ -18,6 +18,7 @@ require_relative "tasks/docker"
 
 desc "Default: run tests"
 task :default do
+  Rake::Task["clean"].invoke
   Rake::Task["test"].invoke
 end
 
