@@ -1,0 +1,172 @@
+// Ejemplo sobre el concepto de Nóminas
+%map{ lang: 'es', context: 'laboral, economía', version: '1'}
+
+  %concept
+    %names Nómina, Recibo de Salarios, Paga
+    %tags contrato, salario, trabajador, empresa, IRPF, Seguridad Social
+    %def Documento justificativo que la empresa entrega al trabajador para reflejar las cantidades que percibe y las deducciones aplicadas por el trabajo realizado.
+    %def Título legal que acredita la percepción de las retribuciones por parte del trabajador y el cumplimiento por parte del empleador de las obligaciones de cotización y retención de impuestos.
+
+    %table{ fields: 'parte principal, descripción'}
+      %row
+        %col Encabezado
+        %col Contiene los datos de identificación de la empresa (nombre, CIF, código de cuenta de cotización) y del trabajador (nombre, DNI, número de Seguridad Social, categoría profesional, grupo de cotización).
+      %row
+        %col Devengos (Percepciones)
+        %col Suma de todas las retribuciones que recibe el trabajador, incluyendo el salario base, los complementos salariales y las percepciones no salariales. Es el Salario Bruto.
+      %row
+        %col Deducciones
+        %col Cantidades que se restan al total devengado. Incluyen las aportaciones del trabajador a la Seguridad Social (Contingencias Comunes, Desempleo, etc.) y la retención del IRPF.
+      %row
+        %col Líquido a Percibir (Neto)
+        %col Es la cantidad final resultante de restar el total de las Deducciones al total de los Devengos. Es el dinero que el trabajador recibe realmente.
+      %row
+        %col Bases de Cotización y de Retención
+        %col Son las magnitudes económicas sobre las que se aplican los porcentajes para calcular las aportaciones a la Seguridad Social (Bases de Cotización) y las retenciones de IRPF (Base de Retención).
+
+    %table{ fields: 'Deducciones obligatorias'}
+      %row IRPF
+      %row Contingencias Comunes
+      %row Desempleo
+      %row Formación Profesional
+
+  // Concepto: Salario Base
+  %concept
+    %names Salario Base, Base Salarial
+    %tags devengos, nómina, básico, fijo
+    %def Retribución económica mínima fijada por la empresa que el trabajador recibe por la jornada laboral realizada.
+    %def Es el punto de partida del cálculo del total devengado y se establece en función del convenio colectivo aplicable o, en su defecto, en el contrato individual.
+
+    %table{ fields: 'característica, descripción clave'}
+      %row
+        %col Naturaleza
+        %col Salarial, fija y garantizada.
+      %row
+        %col Forma de Cálculo
+        %col Se fija generalmente por unidad de tiempo (hora, día o mes).
+      %row
+        %col Mínimo Legal
+        %col Nunca puede ser inferior al Salario Mínimo Interprofesional (SMI) vigente.
+      %row
+        %col Instrumento regulador
+        %col Determinado principalmente por el Convenio Colectivo del sector o la empresa.
+      %row
+        %col Distinción
+        %col Se diferencia de los complementos, ya que estos dependen de circunstancias variables o personales.
+
+  // Concepto: Complementos Salariales
+  %concept
+    %names Complementos Salariales, Plus Salariales, Adicionales
+    %tags devengos, nómina, variables, circunstancias
+    %def Pagos adicionales que se añaden al salario base y que retribuyen circunstancias relativas al trabajador, al puesto de trabajo o a los resultados de la empresa.
+    %def Incrementos que no son considerados salario base, y cuya percepción depende de lo estipulado en el contrato o el convenio colectivo, siendo variables o fijos.
+
+    %table{ fields: 'tipo de complemento, factor que retribuye, ejemplo'}
+      %row
+        %col Por Antigüedad
+        %col Tiempo de permanencia y experiencia en la empresa.
+        %col Bienios o trienios.
+      %row
+        %col Por Puesto de Trabajo
+        %col Condiciones específicas del puesto (peligrosidad, toxicidad, nocturnidad, etc.).
+        %col Plus de toxicidad, Plus de nocturnidad.
+      %row
+        %col Por Calidad o Cantidad
+        %col Mejora del rendimiento o consecución de objetivos.
+        %col Primas, incentivos, comisiones por ventas.
+      %row
+        %col Pagas Extraordinarias
+        %col Salarios devengados en periodos superiores al mes (prorrateadas o no).
+        %col Paga de Navidad, Paga de Verano.
+      %row
+        %col Complemento de Convenio
+        %col Cantidad fija establecida en el convenio colectivo por encima del Salario Base.
+        %col Plus Convenio.
+
+  // Concepto: IRPF (Impuesto sobre la Renta)
+  %concept
+    %names IRPF, Impuesto sobre la Renta de las Personas Físicas
+    %tags deducciones, impuestos, retención, AEAT
+    %def Retención a cuenta del impuesto sobre la renta del trabajador que la empresa ingresa trimestralmente a la Agencia Tributaria.
+    %def Porcentaje que se calcula sobre la Base de Retención y que depende de la situación personal y familiar del trabajador, siendo un pago anticipado del impuesto anual.
+
+    %table{ fields: 'factor clave, influencia en la retención, descripción'}
+      %row
+        %col Salario Bruto Anual
+        %col A mayor salario, mayor porcentaje de retención.
+        %col Determina la Base de Retención sobre la que se aplica el porcentaje.
+      %row
+        %col Situación Familiar
+        %col Reduce el porcentaje de retención.
+        %col Considera el estado civil (soltero, casado) y si tiene hijos o ascendientes a cargo.
+      %row
+        %col Tipo de Contrato
+        %col Puede influir en la retención mínima obligatoria.
+        %col Los contratos de corta duración suelen tener una retención mínima del 2%.
+      %row
+        %col Base de Retención
+        %col Es la cantidad sobre la que se aplica el tipo impositivo.
+        %col Generalmente son los Devengos (salario) menos las aportaciones a la Seguridad Social.
+      %row
+        %col Tipo Impositivo
+        %col Es el porcentaje final aplicado.
+        %col Se obtiene de unas tablas progresivas emitidas por la Agencia Tributaria (Hacienda).
+
+  // Concepto: Seguridad Social (SS)
+  %concept
+    %names Seguridad Social, SS, Cotizaciones Sociales
+    %tags deducciones, cotización, protección social, TGSS
+    %def Aportación del trabajador a la Tesorería General de la Seguridad Social para financiar las prestaciones sociales como jubilación, desempleo, incapacidad temporal y asistencia sanitaria.
+    %def Sistema público que garantiza la protección social a los ciudadanos en España y cuyas cuotas se calculan aplicando tipos porcentuales a las bases de cotización.
+
+    %table{ fields: 'concepto de cotización, tipo (a cargo del trabajador), lo que cubre'}
+      %row
+        %col Contingencias Comunes (CC)
+        %col 4,70%
+        %col Jubilación, incapacidad permanente, maternidad, enfermedad común y accidentes no laborales.
+      %row
+        %col Desempleo
+        %col 1,55% (Contrato Indefinido) / 1,60% (Contrato Temporal)
+        %col Prestaciones por desempleo.
+      %row
+        %col Formación Profesional (FP)
+        %col 0,10%
+        %col Gastos de formación y reciclaje del trabajador.
+      %row
+        %col Horas Extraordinarias Comunes
+        %col 4,70%
+        %col Base para el cálculo de aportaciones por horas extraordinarias.
+      %row
+        %col Horas Extraordinarias de Fuerza Mayor
+        %col 2,00%
+        %col Base para el cálculo de aportaciones por horas extra debidas a eventos extraordinarios.
+
+  // Concepto: Salario Neto (Líquido)
+  %concept
+    %names Salario Neto, Líquido a Percibir, Salario 'de bolsillo'
+    %tags final, cobro, neto, transferencia
+    %def Cantidad final de dinero que recibe el trabajador en su cuenta bancaria tras aplicar todas las deducciones obligatorias al total de los devengos.
+    %def El monto que efectivamente se transfiere o paga al empleado una vez descontados impuestos (IRPF) y las cotizaciones sociales obligatorias.
+    %def { type: 'file' } images/nomina-neto.png
+    
+    %table{ fields: 'componente, origen, impacto en el neto'}
+      %row
+        %col Salario Bruto
+        %col Devengos (Salario Base + Complementos)
+        %col Es el punto de partida (siempre mayor que el Neto).
+      %row
+        %col Deducciones SS
+        %col Aportaciones del trabajador a la Seguridad Social
+        %col Reducen el Neto (coste de la protección social).
+      %row
+        %col Deducción IRPF
+        %col Retención a cuenta del Impuesto sobre la Renta
+        %col Reducen el Neto (anticipo de impuestos).
+      %row
+        %col Anticipos/Embargos
+        %col Adelantos de sueldo o resoluciones judiciales
+        %col Reducciones adicionales específicas al caso del trabajador.
+      %row
+        %col Fórmula
+        %col Salario Bruto - Total Deducciones
+        %col Resultado final que se debe abonar al trabajador.

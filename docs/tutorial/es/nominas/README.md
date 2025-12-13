@@ -281,13 +281,13 @@ Si generamos las preguntas vemos cómo han aumentado un 26,5%.
 +-------------------------+-----------+---------+---------+-----+----+---+---+---+----+
 ```
 
-* Le pedimos a la IA que nos añada tablas para el resto de los conceptos que faltaban. Básicamente le digo `Sí, sigue con el siguiente concepto`. Al final genero las preguntas y obtenemos.... 661.
+* Le pedimos a la IA que nos añada tablas para el resto de los conceptos que faltaban. Básicamente le digo `Sí, sigue con el siguiente concepto`. Al final genero las preguntas y obtenemos.... 659.
 
 ```
 +-------------------------+-----------+---------+---------+-----+-----+---+---+---+-----+
 | Concept                 | Questions | Entries | xFactor | d   | b   | f | i | s | t   |
 +-------------------------+-----------+---------+---------+-----+-----+---+---+---+-----+
-| Nómina                  | 81        | 16      | 5.06    | 26  | 12  | 3 | 0 | 2 | 38  |
+| Nómina                  | 79        | 16      | 4.94    | 26  | 12  | 3 | 0 | 0 | 38  |
 | Salario Base            | 76        | 12      | 6.33    | 25  | 12  | 0 | 0 | 0 | 39  |
 | Complementos Salariales | 126       | 17      | 7.41    | 27  | 24  | 0 | 0 | 0 | 75  |
 | IRPF                    | 123       | 17      | 7.24    | 25  | 24  | 0 | 0 | 0 | 74  |
@@ -295,7 +295,7 @@ Si generamos las preguntas vemos cómo han aumentado un 26,5%.
 | Salario Neto            | 129       | 17      | 7.59    | 25  | 24  | 0 | 0 | 0 | 80  |
 | Excluded questions      | 0         | -       | -       | 0   | 0   | 0 | 0 | 0 | 0   |
 +-------------------------+-----------+---------+---------+-----+-----+---+---+---+-----+
-| 6 concept/s             | 661       | 96      | 6.89    | 154 | 120 | 3 | 0 | 2 | 382 |
+| 6 concept/s             | 659       | 96      | 6.86    | 154 | 120 | 3 | 0 | 0 | 382 |
 +-------------------------+-----------+---------+---------+-----+-----+---+---+---+-----+
 ```
 
@@ -306,3 +306,54 @@ Podemos comprobar en esta salida como los últimos conceptos que hemos añadido 
 Puedes consulta como ha quedado el mapa conceptual de Nóminas en el fichero [v03/nominas.haml](v03/nominas.haml). 
 
 > **OJO**: _Todo este proceso lo he ido haciendo, sin saber bien de qué va el tema de las nóminas. Un experto del tema, manejando la IA y usando Asker puede hacer maravillas._
+
+# 5. Imágenes
+
+## 5.1 Imágenes de acompñamamiento
+
+Cuando se generan las preguntas, de forma aleatoria se insertan en los enunciados imágenes asociadas al concepto pero que nada tienen que ver con la pregunta y su respuesta. Son imágenes de acompañamiento y para distraer de la misma forma que nos hacían en las preguntas tipo test del carnet de conducir. Nos ponían imágenes que no tenían que ver con lo que teníamos que responder. Sólo debíamos fijarnos en la imagen cuando explicitamente el enunciado de la pregunta hacía referencia a la imagen asociada.
+
+## 5.2 Imágenes para ampliar el concepto
+
+Sin embargo, también podemos incluir imágenes seleccionadas por nosotros para expandir la información de nuestros conceptos. En nuestro tema de nóminas, quizás las imágenes no son el soporte adecuado para este tipo de conocimiento pero a partir de la tabla "parte principal" de la tabla de nóminas... se me ocurre añadir imágenes de nóminas donde se resaltaría cada parte de la nómina.
+
+## 5.3 Generar imágenes con la IA
+
+Usé el siguiente prompt para pedirla a la IA que nos genere la imagen:
+
+```
+PROMPT PARA LA IA:
+
+genera una imagen de una nómina con datos inventados 
+y resalta la parte de devengos 
+```
+
+Me costó un poco refinar el prompt para que saliera una imagen más o menos como esperaba. Pero estoy seguro que los profesores de nóminas tienen ejemplos a los que le pueden sacar la imagen sin necesidad de pedírselo a la IA.
+
+De momento sólo he generado la siguientes [imágenes](v04/images/):
+```
+v04/images
+├── nomina-devengos.png
+├── nomina-encabezado.png
+└── nomina-neto.png
+```
+
+## 5.4 Enlazar conceptos con las imágenes
+
+Ahora vamos a necesitar los conceptos siguientes para poder asociarles su imagen correspondiente:
+
+| Concepto                          | Hay que crearlo |
+| --------------------------------- | --------------- |
+| Devengos                          | Sí |
+| Encabezado de la nómina           | Sí |
+| Salario Neto o líquido a percibir | No |
+
+Modificamos salario neto añadiendo la siguiente línea de definición:
+
+```
+  // Concepto: Salario Neto (Líquido)
+  ...
+    %def { type: 'file' } v04/images/nomina-neto.png
+  ...
+```
+
