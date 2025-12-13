@@ -177,7 +177,54 @@ _!Genera un total de 200 preguntas!_. Podemos ver la salida en la carpeta [outpu
 * XML o [output/nominas-moodle.xml](output/nominas-moodle.xml): Fichero de preguntas listas para importar en Moodle.
 * TXT o [output/nominas.txt](output/nominas.txt): Contenido del mapa conceptual de Asker (fichero haml) convertido a formato de texto más legible para las personas.
 
-# 4. Más refinamiento
+## 3.4 La tabla con filas en secuencia
+
+Las tablas con sus filas y columnas, permiten ampliar la semántica de un concepto añadiendole "tablas" de información asociada. Las tablas contienen filas y éstas a su vez pueden tener una o varias columnas.
+
+En alguna ocasión, puede ocurrir que las filas de la tabla presenten una secuencia de valores o que tengan algún criterio por el cuál aparecen ordenadas. Por ejemplo, en el caso de la plantilla de AC/CD vemos una tabla asociada que son los títulos de sus álbumes que podemos ordenar por su fecha de publicación. En estos casos la tabla además del campo `fields:` tiene definido el campo `sequence:`. Ejemplo:
+
+```
+   %table{ fields: 'Albums', sequence: 'Albums sorted by date'}
+      %row Albums High Voltage
+      %row Powerage
+      %row Highway to Hell
+      %row Back in Black
+      %row Ballbreaker
+      %row Rock or Bust
+```
+
+En nuestro caso de las nóminas, la IA nos puso la siguiente tabla con secuencia. Como no soy experto del tema de nóminas y no me queda claro esta información, le pregunta nuevamente a la IA:
+
+```
+PROMPT PARA LA IA:
+
+En relación a esta informacion
+
+    %table{ fields: 'tipos de deducciones', sequence: 'Deducciones obligatorias'}
+      %row Deducción IRPF
+      %row Deducción Contingencias Comunes
+      %row Deducción Desempleo
+      %row Deducción Formación Profesional
+
+por que motivo las filas tienen un orden o secuencia llamada 'Deducciones obligatorias'
+Me lo puedes explicar si tienen un orden?
+```
+
+La respuesta es no. Por lo tanto, procedo a eliminar el parámetro `sequence:` de la tabla, ya que no tiene sentido. La IA no entendió bien este parámetro. No tenía suficiente información de las secuencias con sólo leer la plantilla que le pasamos inicialmente. Esto necesitaría un prompt más detallado.
+
+Eliminamos la secuencia de la tabla y nos queda de la siguiente forma:
+
+```
+    %table{ fields: 'Deducciones obligatorias'}
+      %row IRPF
+      %row Contingencias Comunes
+      %row Desempleo
+      %row Formación Profesional
+```
+
+> PISTA: Quizás podría ser adecuado convertir las filas de esta tabla a conceptos individuales con sus definiciones propias y tablas asociadas. Esto aumentaría significactivamente el número de preguntas generadas, pero hay que preguntarse si se consideran estos elementos como conceptos importantes para nuestro tema.
+
+# 4. Más refinamiento con la IA
 
 Podríamos seguir refinando este mapa de Nóminas, pidíendole a la IA que nos ayude a crear tablas para los nuevos conceptos, esto haría un efecto multiplicador en el número de preguntas que se van a generar con Asker.
 
@@ -251,6 +298,10 @@ Si generamos las preguntas vemos cómo han aumentado un 26,5%.
 | 6 concept/s             | 661       | 96      | 6.89    | 154 | 120 | 3 | 0 | 2 | 382 |
 +-------------------------+-----------+---------+---------+-----+-----+---+---+---+-----+
 ```
+
+El efecto multiplicador total que hemos conseguido por ahora es de 6.89. Esto es, de cada línea que hemos escrito en el mapa de entrada de nóminas hemos obtenido un x7 de salidas. Además, nosotros sólo nos hemos tenido que enfocar en los contenidos no en las preguntas lo cual ayuda a tener menos carga cognitiva durante el proceso.
+
+Podemos comprobar en esta salida como los últimos conceptos que hemos añadido "Complementos Salariales", "Seguridad Social", "Salario Neto", tienen el mayor número de preguntas generadas (126). A su vez mirando la columna "t" (table) tienen los mayores valores (64, 75, 76 y 80). De modo que las tablas de estos conceptos son las que están actualmente aportando el mayor número de preguntas. Cada tabla de 3 columnas (a-b-c) a efectos prácticos es como si tuviéramos varias tablas de 2 columnas (a-b y a-c).
 
 Puedes consulta como ha quedado el mapa conceptual de Nóminas en el fichero [v03/nominas.haml](v03/nominas.haml). 
 

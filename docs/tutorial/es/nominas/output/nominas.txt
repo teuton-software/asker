@@ -1,6 +1,6 @@
 Asker    : version 2.9.4
 Filename : nominas.txt
-Datetime : 2025-12-13 15:49:53 +0000
+Datetime : 2025-12-13 20:23:55 +0000
 
 --------------------------------
 Nómina, Recibo de Salarios, Paga
@@ -16,14 +16,14 @@ Nómina, Recibo de Salarios, Paga
 | Líquido a Percibir (Neto)          | Es la cantidad final resultante de restar el total de las Deducciones al total de los Devengos. Es el dinero que el trabajador recibe realmente.                                                         |
 | Bases de Cotización y de Retención | Son las magnitudes económicas sobre las que se aplican los porcentajes para calcular las aportaciones a la Seguridad Social (Bases de Cotización) y las retenciones de IRPF (Base de Retención).         |
 +------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-+---------------------------------+
-| tipos de deducciones            |
-+---------------------------------+
-| Deducción IRPF                  |
-| Deducción Contingencias Comunes |
-| Deducción Desempleo             |
-| Deducción Formación Profesional |
-+---------------------------------+
++--------------------------+
+| Deducciones obligatorias |
++--------------------------+
+| IRPF                     |
+| Contingencias Comunes    |
+| Desempleo                |
+| Formación Profesional    |
++--------------------------+
 ---------------------------
 Salario Base, Base Salarial
 * Retribución económica mínima fijada por la empresa que el trabajador recibe por la jornada laboral realizada.
