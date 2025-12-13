@@ -173,9 +173,9 @@ y añade almenos dos definiciones def a estos últimos conceptos
 +-------------------------+-----------+---------+---------+-----+----+---+---+---+----+
 ```
 
-_!Genera un total de 200 preguntas!_. Podemos ver la salida en la carpeta [output](output), pero estos son los ficheros principales (por ahora):
-* XML o [output/nominas-moodle.xml](output/nominas-moodle.xml): Fichero de preguntas listas para importar en Moodle.
-* TXT o [output/nominas.txt](output/nominas.txt): Contenido del mapa conceptual de Asker (fichero haml) convertido a formato de texto más legible para las personas.
+_!Genera un total de 200 preguntas!_. Podemos ver la salida en la carpeta [output.d](output.d), pero estos son los ficheros principales (por ahora):
+* XML o [output.d/nominas-moodle.xml](output.d/nominas-moodle.xml): Fichero de preguntas listas para importar en Moodle.
+* TXT o [output.d/nominas.txt](output.d/nominas.txt): Contenido del mapa conceptual de Asker (fichero haml) convertido a formato de texto más legible para las personas.
 
 ## 3.4 La tabla con filas en secuencia
 
