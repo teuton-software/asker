@@ -6,6 +6,7 @@
 ## [2.10.0] 202512XX in progress
 
 * FEATURE: `asker check` accept comment lines from HAML content.
+* FEATURE: `asker check` warn spaces between %def and open brace.
 * UPDATE: Change default asker.ini values. No export gift and yaml output by default.
 
 ## [2.9.3] 20231211
