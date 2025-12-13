@@ -1,6 +1,6 @@
 Asker    : version 2.9.4
 Filename : nominas.txt
-Datetime : 2025-12-11 20:09:51 +0000
+Datetime : 2025-12-13 15:49:53 +0000
 
 --------------------------------
 Nómina, Recibo de Salarios, Paga
@@ -24,28 +24,73 @@ Nómina, Recibo de Salarios, Paga
 | Deducción Desempleo             |
 | Deducción Formación Profesional |
 +---------------------------------+
-------------
-Salario Base
-* Retribución fijada por unidad de tiempo u obra.
-* Es el punto de partida del cálculo del total devengado y se establece en función del convenio colectivo aplicable.
+---------------------------
+Salario Base, Base Salarial
+* Retribución económica mínima fijada por la empresa que el trabajador recibe por la jornada laboral realizada.
+* Es el punto de partida del cálculo del total devengado y se establece en función del convenio colectivo aplicable o, en su defecto, en el contrato individual.
 
------------------------
-Complementos Salariales
-* Pagos adicionales (antigüedad, nocturnidad, etc.) que se añaden al salario base por circunstancias específicas.
-* Incrementos que varían en función de la persona, del puesto de trabajo o de los resultados obtenidos por la empresa o el empleado.
++-----------------------+----------------------------------------------------------------------------------------------------+
+| característica        | descripción clave                                                                                  |
++-----------------------+----------------------------------------------------------------------------------------------------+
+| Naturaleza            | Salarial, fija y garantizada.                                                                      |
+| Forma de Cálculo      | Se fija generalmente por unidad de tiempo (hora, día o mes).                                       |
+| Mínimo Legal          | Nunca puede ser inferior al Salario Mínimo Interprofesional (SMI) vigente.                         |
+| Instrumento regulador | Determinado principalmente por el Convenio Colectivo del sector o la empresa.                      |
+| Distinción            | Se diferencia de los complementos, ya que estos dependen de circunstancias variables o personales. |
++-----------------------+----------------------------------------------------------------------------------------------------+
+-----------------------------------------------------
+Complementos Salariales, Plus Salariales, Adicionales
+* Pagos adicionales que se añaden al salario base y que retribuyen circunstancias relativas al trabajador, al puesto de trabajo o a los resultados de la empresa.
+* Incrementos que no son considerados salario base, y cuya percepción depende de lo estipulado en el contrato o el convenio colectivo, siendo variables o fijos.
 
------------------------------
-IRPF, Impuesto sobre la Renta
-* Retención a cuenta del impuesto sobre la renta del trabajador que la empresa ingresa a la Agencia Tributaria.
-* Porcentaje que se calcula sobre la Base de Retención y que depende de la situación personal y familiar del trabajador.
++-------------------------+----------------------------------------------------------------------------------+--------------------------------------------+
+| tipo de complemento     | factor que retribuye                                                             | ejemplo                                    |
++-------------------------+----------------------------------------------------------------------------------+--------------------------------------------+
+| Por Antigüedad          | Tiempo de permanencia y experiencia en la empresa.                               | Bienios o trienios.                        |
+| Por Puesto de Trabajo   | Condiciones específicas del puesto (peligrosidad, toxicidad, nocturnidad, etc.). | Plus de toxicidad, Plus de nocturnidad.    |
+| Por Calidad o Cantidad  | Mejora del rendimiento o consecución de objetivos.                               | Primas, incentivos, comisiones por ventas. |
+| Pagas Extraordinarias   | Salarios devengados en periodos superiores al mes (prorrateadas o no).           | Paga de Navidad, Paga de Verano.           |
+| Complemento de Convenio | Cantidad fija establecida en el convenio colectivo por encima del Salario Base.  | Plus Convenio.                             |
++-------------------------+----------------------------------------------------------------------------------+--------------------------------------------+
+-----------------------------------------------------
+IRPF, Impuesto sobre la Renta de las Personas Físicas
+* Retención a cuenta del impuesto sobre la renta del trabajador que la empresa ingresa trimestralmente a la Agencia Tributaria.
+* Porcentaje que se calcula sobre la Base de Retención y que depende de la situación personal y familiar del trabajador, siendo un pago anticipado del impuesto anual.
 
---------------------
-Seguridad Social, SS
-* Aportación del trabajador a la Tesorería General de la Seguridad Social para financiar las prestaciones sociales.
-* Incluye cotizaciones por Contingencias Comunes, Desempleo, Formación Profesional y otras coberturas sociales.
++---------------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------+
+| factor clave        | influencia en la retención                                | descripción                                                                           |
++---------------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------+
+| Salario Bruto Anual | A mayor salario, mayor porcentaje de retención.           | Determina la Base de Retención sobre la que se aplica el porcentaje.                  |
+| Situación Familiar  | Reduce el porcentaje de retención.                        | Considera el estado civil (soltero, casado) y si tiene hijos o ascendientes a cargo.  |
+| Tipo de Contrato    | Puede influir en la retención mínima obligatoria.         | Los contratos de corta duración suelen tener una retención mínima del 2%.             |
+| Base de Retención   | Es la cantidad sobre la que se aplica el tipo impositivo. | Generalmente son los Devengos (salario) menos las aportaciones a la Seguridad Social. |
+| Tipo Impositivo     | Es el porcentaje final aplicado.                          | Se obtiene de unas tablas progresivas emitidas por la Agencia Tributaria (Hacienda).  |
++---------------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------+
+-------------------------------------------
+Seguridad Social, SS, Cotizaciones Sociales
+* Aportación del trabajador a la Tesorería General de la Seguridad Social para financiar las prestaciones sociales como jubilación, desempleo, incapacidad temporal y asistencia sanitaria.
+* Sistema público que garantiza la protección social a los ciudadanos en España y cuyas cuotas se calculan aplicando tipos porcentuales a las bases de cotización.
 
---------------------------------
-Salario Neto, Líquido a Percibir
-* Cantidad final de dinero que recibe el trabajador tras aplicar todas las deducciones a los devengos.
-* El monto que efectivamente se transfiere o paga al empleado una vez descontados impuestos y cotizaciones obligatorias.
++---------------------------------------+---------------------------------------------------------+---------------------------------------------------------------------------------------------+
+| concepto de cotización                | tipo (a cargo del trabajador)                           | lo que cubre                                                                                |
++---------------------------------------+---------------------------------------------------------+---------------------------------------------------------------------------------------------+
+| Contingencias Comunes (CC)            | 4,70%                                                   | Jubilación, incapacidad permanente, maternidad, enfermedad común y accidentes no laborales. |
+| Desempleo                             | 1,55% (Contrato Indefinido) / 1,60% (Contrato Temporal) | Prestaciones por desempleo.                                                                 |
+| Formación Profesional (FP)            | 0,10%                                                   | Gastos de formación y reciclaje del trabajador.                                             |
+| Horas Extraordinarias Comunes         | 4,70%                                                   | Base para el cálculo de aportaciones por horas extraordinarias.                             |
+| Horas Extraordinarias de Fuerza Mayor | 2,00%                                                   | Base para el cálculo de aportaciones por horas extra debidas a eventos extraordinarios.     |
++---------------------------------------+---------------------------------------------------------+---------------------------------------------------------------------------------------------+
+-------------------------------------------------------
+Salario Neto, Líquido a Percibir, Salario 'de bolsillo'
+* Cantidad final de dinero que recibe el trabajador en su cuenta bancaria tras aplicar todas las deducciones obligatorias al total de los devengos.
+* El monto que efectivamente se transfiere o paga al empleado una vez descontados impuestos (IRPF) y las cotizaciones sociales obligatorias.
 
++--------------------+---------------------------------------------------+-------------------------------------------------------------+
+| componente         | origen                                            | impacto en el neto                                          |
++--------------------+---------------------------------------------------+-------------------------------------------------------------+
+| Salario Bruto      | Devengos (Salario Base + Complementos)            | Es el punto de partida (siempre mayor que el Neto).         |
+| Deducciones SS     | Aportaciones del trabajador a la Seguridad Social | Reducen el Neto (coste de la protección social).            |
+| Deducción IRPF     | Retención a cuenta del Impuesto sobre la Renta    | Reducen el Neto (anticipo de impuestos).                    |
+| Anticipos/Embargos | Adelantos de sueldo o resoluciones judiciales     | Reducciones adicionales específicas al caso del trabajador. |
+| Fórmula            | Salario Bruto - Total Deducciones                 | Resultado final que se debe abonar al trabajador.           |
++--------------------+---------------------------------------------------+-------------------------------------------------------------+

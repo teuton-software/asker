@@ -179,3 +179,79 @@ _!Genera un total de 200 preguntas!_. Podemos ver la salida en la carpeta [outpu
 
 # 4. Más refinamiento
 
+Podríamos seguir refinando este mapa de Nóminas, pidíendole a la IA que nos ayude a crear tablas para los nuevos conceptos, esto haría un efecto multiplicador en el número de preguntas que se van a generar con Asker.
+
+```
+PROMPT PARA LA IA:
+
+ Ampliame el concepto "Salario base" con alguna tabla
+```
+
+Resultado obtenido:
+```
+// Concepto: Salario Base
+%concept
+  %names Salario Base, Base Salarial
+  %tags devengos, nómina, básico, fijo
+  %def Retribución económica mínima fijada por la empresa que el trabajador recibe por la jornada laboral realizada.
+  %def Es el punto de partida del cálculo del total devengado y se establece en función del convenio colectivo aplicable o, en su defecto, en el contrato individual.
+
+  %table{ fields: 'característica, descripción clave'}
+    %row
+      %col Naturaleza
+      %col Salarial, fija y garantizada.
+    %row
+      %col Forma de Cálculo
+      %col Se fija generalmente por unidad de tiempo (hora, día o mes).
+    %row
+      %col Mínimo Legal
+      %col Nunca puede ser inferior al Salario Mínimo Interprofesional (SMI) vigente.
+    %row
+      %col Instrumento regulador
+      %col Determinado principalmente por el Convenio Colectivo del sector o la empresa.
+    %row
+      %col Distinción
+      %col Se diferencia de los complementos, ya que estos dependen de circunstancias variables o personales.
+
+¿Te gustaría que aplicara esta misma ampliación al concepto de Complementos Salariales o IRPF?
+```
+
+Si generamos las preguntas vemos cómo han aumentado un 26,5%.
+
+```
++-------------------------+-----------+---------+---------+-----+----+---+---+---+----+
+| Concept                 | Questions | Entries | xFactor | d   | b  | f | i | s | t  |
++-------------------------+-----------+---------+---------+-----+----+---+---+---+----+
+| Nómina                  | 81        | 16      | 5.06    | 26  | 12 | 3 | 0 | 2 | 38 |
+| Salario Base            | 76        | 12      | 6.33    | 25  | 12 | 0 | 0 | 0 | 39 |
+| Complementos Salariales | 24        | 2       | 12.0    | 24  | 0  | 0 | 0 | 0 | 0  |
+| IRPF                    | 24        | 2       | 12.0    | 24  | 0  | 0 | 0 | 0 | 0  |
+| Seguridad Social        | 24        | 2       | 12.0    | 24  | 0  | 0 | 0 | 0 | 0  |
+| Salario Neto            | 24        | 2       | 12.0    | 24  | 0  | 0 | 0 | 0 | 0  |
+| Excluded questions      | 0         | -       | -       | 0   | 0  | 0 | 0 | 0 | 0  |
++-------------------------+-----------+---------+---------+-----+----+---+---+---+----+
+| 6 concept/s             | 253       | 36      | 7.03    | 147 | 24 | 3 | 0 | 2 | 77 |
++-------------------------+-----------+---------+---------+-----+----+---+---+---+----+
+```
+
+* Le pedimos a la IA que nos añada tablas para el resto de los conceptos que faltaban. Básicamente le digo `Sí, sigue con el siguiente concepto`. Al final genero las preguntas y obtenemos.... 661.
+
+```
++-------------------------+-----------+---------+---------+-----+-----+---+---+---+-----+
+| Concept                 | Questions | Entries | xFactor | d   | b   | f | i | s | t   |
++-------------------------+-----------+---------+---------+-----+-----+---+---+---+-----+
+| Nómina                  | 81        | 16      | 5.06    | 26  | 12  | 3 | 0 | 2 | 38  |
+| Salario Base            | 76        | 12      | 6.33    | 25  | 12  | 0 | 0 | 0 | 39  |
+| Complementos Salariales | 126       | 17      | 7.41    | 27  | 24  | 0 | 0 | 0 | 75  |
+| IRPF                    | 123       | 17      | 7.24    | 25  | 24  | 0 | 0 | 0 | 74  |
+| Seguridad Social        | 126       | 17      | 7.41    | 26  | 24  | 0 | 0 | 0 | 76  |
+| Salario Neto            | 129       | 17      | 7.59    | 25  | 24  | 0 | 0 | 0 | 80  |
+| Excluded questions      | 0         | -       | -       | 0   | 0   | 0 | 0 | 0 | 0   |
++-------------------------+-----------+---------+---------+-----+-----+---+---+---+-----+
+| 6 concept/s             | 661       | 96      | 6.89    | 154 | 120 | 3 | 0 | 2 | 382 |
++-------------------------+-----------+---------+---------+-----+-----+---+---+---+-----+
+```
+
+Puedes consulta como ha quedado el mapa conceptual de Nóminas en el fichero [v03/nominas.haml](v03/nominas.haml). 
+
+> **OJO**: _Todo este proceso lo he ido haciendo, sin saber bien de qué va el tema de las nóminas. Un experto del tema, manejando la IA y usando Asker puede hacer maravillas._
