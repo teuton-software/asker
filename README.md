@@ -57,7 +57,6 @@ Let's see an example creating questions from ACDC input example file:
 * [Get started](docs/inputs/README.md)
 * [Usage](docs/usage.md)
 * [Reference](docs/reference.md)
-* [Contributions](docs/contributions.md)
 * [Problem to solve](docs/idea.md)
 * [History](docs/history.md)
 
@@ -66,6 +65,15 @@ Let's see an example creating questions from ACDC input example file:
 * **Email**: `teuton.software@protonmail.com`
 
 # Contributing
+
+If you want to contribute:
+* Talk about this tool with your colleagues.
+* Use this tool as much as posible.
+* Report bugs.
+* Share with us, your ideas for new features. "4 eyes see more than 2".
+* Share with us your own input files and "create a better world".
+
+But if you love `git`, `md files` or `ruby`, you can develop with us or work on the issues.
 
 1. Make sure you have Ruby installed
 1. Fork it
