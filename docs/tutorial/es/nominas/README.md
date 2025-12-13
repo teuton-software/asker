@@ -153,7 +153,7 @@ El contenido de esta tabla, reconviértelo a elementos de tipo concept con su pr
 y añade almenos dos definiciones def a estos últimos conceptos
 ```
 
-* El resultado obtenido lo tenemos en el fichero [v02/nominas.haml]
+* El resultado obtenido lo tenemos en el fichero [v02/nominas.haml](v02/nominas.haml).
 * Podemos comprobar que el resultado está bien construido con `asker v02/nominas.haml`.
 * Y podemos ver las preguntas que se pueden generar con `asker v02/nominas.haml`.
 
