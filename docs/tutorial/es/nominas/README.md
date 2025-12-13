@@ -353,7 +353,8 @@ Modificamos salario neto añadiendo la siguiente línea de definición:
 ```
   // Concepto: Salario Neto (Líquido)
   ...
-    %def { type: 'file' } v04/images/nomina-neto.png
+    %def{ type: 'file' } v04/images/nomina-neto.png
   ...
 ```
 
+> **IMPORTANTE**: No puede haber espacios entre `def` y `{ type: 'file' }`.
