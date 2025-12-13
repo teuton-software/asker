@@ -60,6 +60,7 @@ class CheckHamlData
     @ok = true
     @inputs.each_with_index do |line, index|
       check_empty_lines(line, index)
+      check_comment_lines(line, index)
       check_map(line, index)
       check_concept(line, index)
       check_names(line, index)
@@ -98,19 +99,29 @@ class CheckHamlData
     @outputs[index][:state] = :ok
   end
 
+  def check_comment_lines(line, index)
+    return unless line.strip.start_with?("//")
+
+    @outputs[index][:type] = :comment
+    @outputs[index][:level] = -1
+    @outputs[index][:state] = :ok
+  end
+
   def check_map(line, index)
-    if index.zero?
+    return unless line.include? "%map"
+
+    if find_parent(index) == :noparent
       @outputs[index][:type] = :map
       if line.start_with?("%map{")
         @outputs[index][:state] = :ok
       else
         @outputs[index][:state] = :err
-        @outputs[index][:msg] = "Start with %map{"
+        @outputs[index][:msg] = "Remove spaces before %map{"
       end
-    elsif index.positive? && line.include?("%map{")
+    else 
       @outputs[index][:state] = :err
       @outputs[index][:type] = :map
-      @outputs[index][:msg] = "Write %map on line 0"
+      @outputs[index][:msg] = "Start content with %map{"
     end
   end
 
@@ -125,7 +136,6 @@ class CheckHamlData
       @outputs[index][:state] = :err
       @outputs[index][:msg] = "Parent(map) not found!"
     elsif !line.match(/^\s\s%concept\s*$/)
-      binding.break
       @outputs[index][:state] = :err
       @outputs[index][:msg] = "Write 2 spaces before %concept, and no text after"
     end
