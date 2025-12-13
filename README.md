@@ -52,13 +52,12 @@ Let's see an example creating questions from ACDC input example file:
 
 # Documentation
 
+* [About the tool](docs/about.md)
 * [Installation](docs/install/README.md)
 * [Videos](docs/videos.md)
 * [Get started](docs/inputs/README.md)
 * [Usage](docs/usage.md)
 * [Reference](docs/reference.md)
-* [Problem to solve](docs/idea.md)
-* [History](docs/history.md)
 
 # Contact
 
