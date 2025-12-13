@@ -340,7 +340,7 @@ v04/images
 
 ## 5.4 Enlazar conceptos con las imágenes
 
-Ahora vamos a necesitar los conceptos siguientes para poder asociarles su imagen correspondiente:
+Vamos a necesitar los conceptos siguientes para poder asociarles su imagen correspondiente:
 
 | Concepto                          | Hay que crearlo |
 | --------------------------------- | --------------- |
@@ -348,13 +348,80 @@ Ahora vamos a necesitar los conceptos siguientes para poder asociarles su imagen
 | Encabezado de la nómina           | Sí |
 | Salario Neto o líquido a percibir | No |
 
-Modificamos salario neto añadiendo la siguiente línea de definición:
+Empezamos modificando "salario neto", y añadiendo la siguiente línea de definición:
 
 ```
   // Concepto: Salario Neto (Líquido)
-  ...
+  %concept
+    %names Salario Neto, Líquido a Percibir, Salario 'de bolsillo'
+    ...
     %def{ type: 'file' } v04/images/nomina-neto.png
-  ...
+
 ```
 
 > **IMPORTANTE**: No puede haber espacios entre `def` y `{ type: 'file' }`.
+
+Esta línea indica que añadimos una nueva definición al concepto, pero esta nueva definición de de tipo fichero y por tanto se entiende que el contenido o el valor que se pasa es el URL al fichero (imagen en este caso) que define el concepto. Aclarar que NO es suficiente con poner una imagen de la nómina, debemos resaltar aquella parte de la nómina que corresponde con el concepto "Salario neto" para evitar confusión.
+
+Se me acaba de ocurrir que la imagen de la ńomina sin resaltar ninguna parte se podría asociar a una definción del concepto nóminna. Vamos allá.
+
+```
+  // Concepto nómina
+  %concept
+    %names Nómina, Recibo de Salarios, Paga
+    ...
+    %def{ type: 'file' } images/nomina.png
+
+```
+
+Le pedimos a la IA que nos cree los conceptos que nos faltan:
+* Devengos
+* Encabezado de la nómina 
+
+Los incluímos en el mapa de las nóminas y les añadimos su imagen correspondiente en la definición.
+Generamos las preguntas con Asker `asker v04/nominas.haml` y vemos el resultado:
+
+```
+
++-------------------------+-----------+---------+---------+-----+-----+---+----+---+-----+
+| Concept                 | Questions | Entries | xFactor | d   | b   | f | i  | s | t   |
++-------------------------+-----------+---------+---------+-----+-----+---+----+---+-----+
+| Nómina                  | 87        | 17      | 5.12    | 26  | 12  | 3 | 8  | 0 | 38  |
+| Salario Base            | 76        | 12      | 6.33    | 25  | 12  | 0 | 0  | 0 | 39  |
+| Complementos Salariales | 126       | 17      | 7.41    | 27  | 24  | 0 | 0  | 0 | 75  |
+| IRPF                    | 123       | 17      | 7.24    | 25  | 24  | 0 | 0  | 0 | 74  |
+| Seguridad Social        | 126       | 17      | 7.41    | 26  | 24  | 0 | 0  | 0 | 76  |
+| Salario Neto            | 137       | 18      | 7.61    | 25  | 24  | 0 | 8  | 0 | 80  |
+| Devengos                | 67        | 12      | 5.58    | 25  | 0   | 0 | 8  | 0 | 34  |
+| Encabezado              | 63        | 12      | 5.25    | 25  | 0   | 0 | 8  | 0 | 30  |
+| Excluded questions      | 0         | -       | -       | 0   | 0   | 0 | 0  | 0 | 0   |
++-------------------------+-----------+---------+---------+-----+-----+---+----+---+-----+
+| 8 concept/s             | 805       | 122     | 6.6     | 204 | 120 | 3 | 32 | 0 | 446 |
++-------------------------+-----------+---------+---------+-----+-----+---+----+---+-----+
+```
+
+Las perguntas aumentan a 805. La columna `i` se refiere a las preguntas generadas por las imágenes que acabamos de añadir. Un total de 32 preguntas por 4 imágenes.
+
+# 6. Los mapas se ayudan entre sí
+
+Hasta ahora sólo hemos estado trabajando con 1 mapa. Esto es, un fichero donde hemos definido los conceptos de nuestro tema de "Nóminas". Cuando ejecutamos la orden `asker v04/nominas.haml` se generan preguntas únicamente para los conceptos de dicho mapa o fichero de conceptos. Sin embargo, si creamos más mapas (más ficheros HAML) y lo situamos en la misma carpeta del fichero `nominas.haml`, a la hora de generarse las preguntas para nóminas, Asker lee todos los mapas e intenta usar los conceptos de los otros temas para mejorar o ampliar la semántica del mapa Nóminas.
+
+Cuando generamos las preguntas con un único mapa vemos una salida como:
+```
+$ asker v04/nominas.haml 
+==> Loading v04/nominas.haml
+
+```
+
+* Vamos a crear otro pequeño mapa llamado [v05/riesgos-laborales.haml](v05/riesgos-laborales.haml).
+* Comprobamos sintaxis `aasker check v05/riesgos-laborales.haml`.
+* Ahora si generamos las preguntas de `v05/nominas.haml`, aunque no hayamos modificado su contenido, éste debería mejorar su semántica ya que puede usar conceptos relacionados aunque sean de otro mapa.
+
+```
+$ asker v04/nominas.haml 
+==> Loading v05/nominas.haml
+==> Loading v05/riesgos-lavborales.haml
+
+```
+
+En este caso concreto no se nota mucha diferencia porque el tema "nóminas" no tiene una semántica muy cercana a "riesgos laborales", pero si vamos creando más mapas, los conceptos de una mapa que presenten cercanía semántica con otro mapa se entremezclarán a la hora de generar las preguntas para que el resultado final sea un poco más "inteligente". Esto es, que se propongan como respuestas alternativas, conceptos que se parecen mucho semánticamente entre sí para confundir al alumno, aunque dichos conceptos estén definidos en mapas diferentes.

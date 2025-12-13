@@ -1,11 +1,13 @@
 // Ejemplo sobre el concepto de Nóminas
 %map{ lang: 'es', context: 'laboral, economía', version: '1'}
 
+  // Concepto nómina
   %concept
     %names Nómina, Recibo de Salarios, Paga
     %tags contrato, salario, trabajador, empresa, IRPF, Seguridad Social
     %def Documento justificativo que la empresa entrega al trabajador para reflejar las cantidades que percibe y las deducciones aplicadas por el trabajo realizado.
     %def Título legal que acredita la percepción de las retribuciones por parte del trabajador y el cumplimiento por parte del empleador de las obligaciones de cotización y retención de impuestos.
+    %def{ type: 'file' } images/nomina.png
 
     %table{ fields: 'parte principal, descripción'}
       %row
@@ -170,3 +172,48 @@
         %col Fórmula
         %col Salario Bruto - Total Deducciones
         %col Resultado final que se debe abonar al trabajador.
+
+  // Concepto: Devengos (Percepciones)
+  %concept
+    %names Devengos, Percepciones salariales, Salario Bruto
+    %tags brutos, ingresos, total, percepciones
+    %def Suma total de todas las cantidades que el trabajador tiene derecho a percibir en el periodo liquidado, antes de cualquier deducción.
+    %def El total de las retribuciones, incluyendo tanto las percepciones salariales (Salario Base, Complementos) como las no salariales.
+    %def{ type: 'file' } images/nomina-devengos.png
+
+    %table{ fields: 'tipo de devengo, componentes clave, descripción'}
+      %row
+        %col Percepciones Salariales
+        %col Salario Base, Complementos, Horas Extra, Pagas Extra (si están prorrateadas).
+        %col Cantidades que cotizan a la Seguridad Social y tributan IRPF.
+      %row
+        %col Percepciones No Salariales
+        %col Indemnizaciones, dietas, gastos de transporte, pluses de vestuario.
+        %col Cantidades que generalmente no cotizan a la Seguridad Social ni tributan IRPF (dentro de ciertos límites).
+      %row
+        %col Total Devengado
+        %col Suma de Percepciones Salariales + Percepciones No Salariales.
+        %col La base inicial a partir de la cual se calculan las deducciones.
+
+  // Concepto: Encabezado de la Nómina
+  %concept
+    %names Encabezado, Cabecera de la nómina, Datos de identificación
+    %tags formal, identificación, datos
+    %def Sección superior del documento donde se recogen los datos identificativos del empleador, del trabajador y el periodo de liquidación.
+    %def Parte formal y obligatoria de la nómina que contextualiza el documento, permitiendo identificar a quién corresponde el pago y a qué periodo de trabajo se refiere.
+    %def{ type: 'file' } images/nomina-encabezado.png
+
+    %table{ fields: 'campo, contenido, utilidad'}
+      %row
+        %col Datos de la Empresa
+        %col Nombre o Razón Social, C.I.F., Domicilio y Número de Afiliación a la S.S.
+        %col Identifica legalmente al empleador.
+      %row
+        %col Datos del Trabajador
+        %col Nombre completo, D.N.I., Número de Afiliación a la S.S., Categoría/Grupo Profesional.
+        %col Identifica al perceptor y su posición laboral.
+      %row
+        %col Periodo de Liquidación
+        %col Fechas de inicio y fin del periodo (generalmente un mes natural).
+        %col Delimita exactamente los días trabajados que se están retribuyendo.
+    
