@@ -14,7 +14,7 @@ Como estamos en la época de la IA generativa, vamos a aprovecharnos de ella y l
 ```
 PROMPT PARA LA IA:
 
-A partir de la siguiente plantilla de ejmplo:
+A partir de la siguiente plantilla de ejemplo:
 
 // Asker example about AC/DC band
 %map{ lang: 'en', context: 'music, band', version: '1'}
@@ -52,7 +52,7 @@ A partir de la siguiente plantilla de ejmplo:
 Crea un fichero con estructura similar pero usando como contenidos,
 los conceptos más significativos sobre "Las nóminas".
 
-Manten las etiquetas de la estructura como están, pero pon los contenidos en español.
+Mantén las etiquetas de la estructura como están, pero pon los contenidos en español.
 ```
 
 Obtenemos como respuesta el siguiente fichero [v01/nominas.haml](v01/nominas.haml).
