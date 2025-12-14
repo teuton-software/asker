@@ -1,0 +1,83 @@
+// Mapa: Álgebra (ESO)
+%map{ lang: 'es', context: 'matemáticas, algebra, ESO', version: '1'}
+
+  // Concepto 0: Álgebra (Definición)
+  %concept
+    %names Álgebra, Definición de Álgebra
+    %tags matemáticas, rama, variables, generalización
+    %def Rama de las matemáticas que estudia las estructuras, las relaciones y las cantidades.
+    %def Se centra en la generalización de las operaciones aritméticas, empleando letras para representar números desconocidos (incógnitas) o valores generales.
+
+    %table{ fields: 'atributo, descripción'}
+      %row
+        %col Objeto de Estudio
+        %col Relaciones y cantidades donde se usa la variable 'x'.
+      %row
+        %col Base
+        %col Extensión de la Aritmética.
+      %row
+        %col Propósito en ESO
+        %col Resolver problemas mediante ecuaciones y trabajar con expresiones generales.
+
+  // Concepto 1: Expresión Algebraica
+  %concept
+    %names Expresión Algebraica, Expresión Matemática
+    %tags variable, números, operaciones, letra
+    %def Combinación de números y letras (variables) unidos por signos de operaciones matemáticas.
+    %def Las letras suelen representar cantidades desconocidas (variables).
+
+    %table{ fields: 'componente, descripción'}
+      %row
+        %col Variable (Parte Literal)
+        %col Las letras que representan un valor desconocido (ej: x, y, a).
+      %row
+        %col Coeficiente (Parte Numérica)
+        %col El número que multiplica a la variable (ej: el 3 en 3x).
+      %row
+        %col Signo Operacional
+        %col El símbolo que une los términos (+, -, *, /).
+
+  // Concepto 2: Monomio y Polinomio
+  %concept
+    %names Monomio, Polinomio, Término Algebraico
+    %tags grado, suma, resta, términos
+    %def Un Monomio es el tipo más simple de expresión algebraica, formado por el producto de un número y una o varias variables.
+    %def Un Polinomio es la suma o resta de dos o más monomios.
+
+    %table{ fields: 'tipo, definición, ejemplo'}
+      %row
+        %col Monomio
+        %col Expresión de un solo término.
+        %col $5x^2$
+      %row
+        %col Binomio
+        %col Polinomio de dos términos.
+        %col $3x - 2y$
+      %row
+        %col Polinomio
+        %col Suma o resta de varios monomios.
+        %col $4x^3 + 2x - 1$
+
+    %table{ fields: 'Atributo, Descripción'}
+      %row
+        %col Grado de un Monomio
+        %col Suma de los exponentes de sus variables.
+      %row
+        %col Grado de un Polinomio
+        %col El mayor grado de todos los monomios que lo componen.
+
+  // Concepto 3: Ecuación de Primer Grado
+  %concept
+    %names Ecuación de Primer Grado, Ecuación Lineal
+    %tags igualdad, incógnita, solución
+    %def Una igualdad matemática entre dos expresiones algebraicas que contiene una o más incógnitas, cuyo exponente es 1.
+    %def El objetivo es encontrar el valor o valores de la incógnita que hacen que la igualdad sea cierta.
+
+    %table{ fields: 'parte de la ecuación'}
+      %row Miembro Izquierdo (M1)
+      %row Miembro Derecho (M2)
+      %row Incógnita (Variable a despejar)
+
+    %table{ fields: 'Propiedades de la Igualdad', sequence: 'Para resolver ecuaciones'}
+      %row Se puede sumar o restar el mismo número a ambos lados de la igualdad.
+      %row Se puede multiplicar o dividir por el mismo número (distinto de cero) a ambos lados de la igualdad.
