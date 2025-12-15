@@ -162,10 +162,91 @@ Por qué motivo las expresiones las devuelves entre $, Por ejemplo $2x + 3y$ en 
 
 Respuesta:
 ```
-Esa es una observación muy perspicaz. La razón por la que coloco las expresiones algebraicas como $2x + 3y$ (es decir, entre signos de dólar $) es para indicar que se debe utilizar formato LaTeX o un formato similar que permita una visualización matemática clara y correcta.
+La razón por la que coloco las expresiones algebraicas como $2x + 3y$ (es decir, entre signos de dólar $) es para indicar que se debe utilizar formato LaTeX o un formato similar que permita una visualización matemática clara y correcta.
 ```
 
+> Sin embargo, lo he probado en el Moodle del Campus Virtual que tenemos en FP de Canarias y no se visualiza en formato LaTeX, De modo que procedo a eliminar los símbolos $ del contenido.
 
-Contenido después del refinamiento:
+## 3.3 Refinando el concepto 2 (Monomio y polinomio)
+
+En la definición del concepto 2, vemos que la IA se ha confundido y ha fusionado tres conceptos diferentes (Término algebraico, monimio y polinomio) como si fueran uno solo. Nos podemos dar cuenta porque en el atributo `%names` aparecen como si fueran sinómimos y no es el caso.
+
+
+```
+PROMPT PARA LA IA:
+
+Este contenido sebe separase en 3 conceptos: uno para término algebraico, otro para monomio y otro para polinomio.
+
+  // Concepto 2: Monomio y Polinomio
+  %concept
+    %names Monomio, Polinomio, Término Algebraico
+    %tags grado, suma, resta, términos
+    %def Un Monomio es el tipo más simple de expresión algebraica, formado por el producto de un número y una o varias variables.
+    %def Un Polinomio es la suma o resta de dos o más monomios.
+
+    %table{ fields: 'tipo, definición, ejemplo'}
+      %row
+        %col Monomio
+        %col Expresión de un solo término.
+        %col $5x^2$
+      %row
+        %col Binomio
+        %col Polinomio de dos términos.
+        %col $3x - 2y$
+      %row
+        %col Polinomio
+        %col Suma o resta de varios monomios.
+        %col $4x^3 + 2x - 1$
+
+    %table{ fields: 'Atributo, Descripción'}
+      %row
+        %col Grado de un Monomio
+        %col Suma de los exponentes de sus variables.
+      %row
+        %col Grado de un Polinomio
+        %col El mayor grado de todos los monomios que lo componen.
+```
+
+Se renumeran los conceptos.
+
+## 3.4 Refinando el concepto: Ecuación de primer grado
+
+```  // Concepto 5: Ecuación de Primer Grado
+  %concept
+    %names Ecuación de Primer Grado, Ecuación Lineal
+    %tags igualdad, incógnita, solución, ecuación, grado 1
+    %def Una igualdad matemática entre dos expresiones algebraicas que contiene una o más incógnitas, cuyo exponente es 1.
+```
+
+* Se quita la segunda definición porque realmente no identifca al concepto de forma inequívoca.
+* Se quitan las tablas porque no aportan información significativa, más bien aportan confusión a la hora de ampliar la semántica del concepto.
+
+## 3.5 Crear concepto Grado
+
+Hemos visto que es conveniente crear el concepto "Grado, grsado de un polinomio" y lo añadimos al mapa conceptual.
 
 Podemos ver el resultado final el el fichero [v02/algebra.haml](v02/algebra.haml)
+
+```
++--------------------------+-----------+---------+---------+-----+----+---+---+---+-----+
+| Concept                  | Questions | Entries | xFactor | d   | b  | f | i | s | t   |
++--------------------------+-----------+---------+---------+-----+----+---+---+---+-----+
+| Álgebra                  | 24        | 2       | 12.0    | 24  | 0  | 0 | 0 | 0 | 0   |
+| Expresión                | 73        | 11      | 6.64    | 23  | 6  | 0 | 0 | 0 | 44  |
+| Término Algebraico       | 77        | 11      | 7.0     | 23  | 6  | 0 | 0 | 0 | 48  |
+| Monomio                  | 43        | 8       | 5.38    | 24  | 0  | 0 | 0 | 0 | 19  |
+| Polinomio                | 38        | 8       | 4.75    | 22  | 0  | 0 | 0 | 0 | 16  |
+| Ecuación de Primer Grado | 12        | 1       | 12.0    | 12  | 0  | 0 | 0 | 0 | 0   |
+| Grado                    | 54        | 11      | 4.91    | 24  | 0  | 0 | 0 | 0 | 30  |
+| Excluded questions       | 0         | -       | -       | 0   | 0  | 0 | 0 | 0 | 0   |
++--------------------------+-----------+---------+---------+-----+----+---+---+---+-----+
+| 7 concept/s              | 321       | 52      | 6.17    | 152 | 12 | 0 | 0 | 0 | 157 |
++--------------------------+-----------+---------+---------+-----+----+---+---+---+-----+
+```
+
+Hemos conseguido generar 321 a partir de 7 conceptos. Sin embargo, teniendo en cuenta que estamos trabajando con contenidos de matemáticas, deberíamos tener "problemas" (ejercicios para resolver de forma práctica), no sólo definiciones teóricas.
+
+# 4. Creando problemas
+
+Hasta ahora habíamos utilizado las siguientes etiquetas para describir el conocimiento del tema: `%concept`, `%def`, `%table`, `%row`,  `%col`. Y están muy bien, pero están orientadas a describir conceptos teóricos y no a plantear problemas prácticos. Así que vamos a usar otras nuevas etiquetas.
+

@@ -19,57 +19,95 @@
       %row
         %col Parte Literal (Variable)
         %col Las letras que representan un valor que puede variar (incógnitas).
-        %col $x$, $y$, $a^2$
+        %col x, y, a^2
       %row
         %col Coeficiente (Parte Numérica)
         %col Es el número que multiplica a la variable. Si no aparece, es 1.
-        %col El 5 en $5x^3$.
+        %col El 5 en 5x^3.
       %row
         %col Signo Operacional
         %col Es el símbolo que une los términos: suma (+), resta (-), multiplicación (implícita) o división (/).
-        %col El '+' en $2x + 3y$.
+        %col El '+' en 2x + 3y.
 
-  // Concepto 2: Monomio y Polinomio
+  // Concepto 2: Término Algebraico
   %concept
-    %names Monomio, Polinomio, Término Algebraico
-    %tags grado, suma, resta, términos
-    %def Un Monomio es el tipo más simple de expresión algebraica, formado por el producto de un número y una o varias variables.
-    %def Un Polinomio es la suma o resta de dos o más monomios.
+    %names Término Algebraico, Término
+    %tags componente, monomio, expresión
+    %def Cada una de las partes de una expresión algebraica que están separadas por los signos de suma (+) o resta (-). Un término es un monomio.
+    %def Está compuesto por un coeficiente, una parte literal y un exponente.
 
-    %table{ fields: 'tipo, definición, ejemplo'}
+    %table{ fields: 'componente, descripción, ejemplo'}
       %row
-        %col Monomio
-        %col Expresión de un solo término.
-        %col $5x^2$
+        %col Coeficiente
+        %col El número que multiplica a la variable, incluyendo su signo.
+        %col El -7 en "-7x^4".
+      %row
+        %col Parte Literal
+        %col La variable o variables con sus respectivos exponentes.
+        %col El "x^4" en "-7x^4".
+      %row
+        %col Grado
+        %col Suma de los exponentes de las variables en la parte literal.
+        %col El 4 en "-7x^4".
+
+  // Concepto 3: Monomio
+  %concept
+    %names Monomio, Término Simple
+    %tags multiplicación, grado, exponente, más simple
+    %def Una expresión algebraica que consta de un solo término . Está formado por el producto de un número (coeficiente) por una o varias variables elevadas a exponentes naturales.
+    %def Es la unidad fundamental para construir polinomios.
+
+    %table{ fields: 'característica, ejemplo'}
+      %row
+        %col Estructura
+        %col Coeficiente * Parte Literal.
+      %row
+        %col Ejemplo Clásico
+        %col 5x^2
+      %row
+        %col Monomios Semejantes
+        %col Monomios con la misma parte literal (ej. 5x^2 y -3x^2).
+
+  // Concepto 4: Polinomio
+  %concept
+    %names Polinomio, Ecuación Polinomial
+    %tags suma, resta, varios términos, binomio, trinomio
+    %def Es la suma o resta de dos o más monomios no semejantes
+    %def Los términos del polinomio se separan por los signos de suma (+) o resta (-)
+
+    %table{ fields: 'tipo según número de términos, definición, ejemplo'}
       %row
         %col Binomio
         %col Polinomio de dos términos.
-        %col $3x - 2y$
+        %col 3x - 2y
       %row
-        %col Polinomio
-        %col Suma o resta de varios monomios.
-        %col $4x^3 + 2x - 1$
+        %col Trinomio
+        %col Polinomio de tres términos.
+        %col x^2 + 5x - 6
 
-    %table{ fields: 'Atributo, Descripción'}
-      %row
-        %col Grado de un Monomio
-        %col Suma de los exponentes de sus variables.
-      %row
-        %col Grado de un Polinomio
-        %col El mayor grado de todos los monomios que lo componen.
-
-  // Concepto 3: Ecuación de Primer Grado
+  // Concepto 5: Ecuación de Primer Grado
   %concept
     %names Ecuación de Primer Grado, Ecuación Lineal
-    %tags igualdad, incógnita, solución
+    %tags igualdad, incógnita, solución, ecuación, grado 1
     %def Una igualdad matemática entre dos expresiones algebraicas que contiene una o más incógnitas, cuyo exponente es 1.
-    %def El objetivo es encontrar el valor o valores de la incógnita que hacen que la igualdad sea cierta.
 
-    %table{ fields: 'parte de la ecuación'}
-      %row Miembro Izquierdo (M1)
-      %row Miembro Derecho (M2)
-      %row Incógnita (Variable a despejar)
+  // Concepto 6: Grado y Grado del Polinomio
+  %concept
+    %names Grado, Grado de un Monomio, Grado de un Polinomio
+    %tags exponente, máximo, variable
+    %def Es la característica que define el mayor exponente de las variables en una expresión algebraica (monomio o polinomio). Es crucial para clasificar y resolver ecuaciones.
+    %def Para un monomio, se calcula sumando los exponentes de sus variables. Para un polinomio, es el mayor de los grados de sus monomios.
 
-    %table{ fields: 'Propiedades de la Igualdad', sequence: 'Para resolver ecuaciones'}
-      %row Se puede sumar o restar el mismo número a ambos lados de la igualdad.
-      %row Se puede multiplicar o dividir por el mismo número (distinto de cero) a ambos lados de la igualdad.
+    %table{ fields: 'Tipo de Grado, Definición, Ejemplo'}
+      %row
+        %col Grado de un Monomio
+        %col Suma de los exponentes de la parte literal. 
+        %col En "8x^2y^3", el grado es 2+3=5.
+      %row
+        %col Grado de un Polinomio
+        %col El grado más alto de cualquiera de los monomios que componen el polinomio.
+        %col En "4x^5 + 2x^2 - 1", el grado es 5.
+      %row
+        %col Polinomio de Grado Nulo (Constante)
+        %col Polinomio que solo tiene un número.
+        %col El grado de 7 es 0.
