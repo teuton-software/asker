@@ -227,26 +227,44 @@ Hemos visto que es conveniente crear el concepto "Grado, grsado de un polinomio"
 
 Podemos ver el resultado final el el fichero [v02/algebra.haml](v02/algebra.haml)
 
+# 3. Reorganizando los comntenidos
+
 ```
-+--------------------------+-----------+---------+---------+-----+----+---+---+---+-----+
-| Concept                  | Questions | Entries | xFactor | d   | b  | f | i | s | t   |
-+--------------------------+-----------+---------+---------+-----+----+---+---+---+-----+
-| Álgebra                  | 24        | 2       | 12.0    | 24  | 0  | 0 | 0 | 0 | 0   |
-| Expresión                | 73        | 11      | 6.64    | 23  | 6  | 0 | 0 | 0 | 44  |
-| Término Algebraico       | 77        | 11      | 7.0     | 23  | 6  | 0 | 0 | 0 | 48  |
-| Monomio                  | 43        | 8       | 5.38    | 24  | 0  | 0 | 0 | 0 | 19  |
-| Polinomio                | 38        | 8       | 4.75    | 22  | 0  | 0 | 0 | 0 | 16  |
-| Ecuación de Primer Grado | 12        | 1       | 12.0    | 12  | 0  | 0 | 0 | 0 | 0   |
-| Grado                    | 54        | 11      | 4.91    | 24  | 0  | 0 | 0 | 0 | 30  |
-| Excluded questions       | 0         | -       | -       | 0   | 0  | 0 | 0 | 0 | 0   |
-+--------------------------+-----------+---------+---------+-----+----+---+---+---+-----+
-| 7 concept/s              | 321       | 52      | 6.17    | 152 | 12 | 0 | 0 | 0 | 157 |
-+--------------------------+-----------+---------+---------+-----+----+---+---+---+-----+
+Dame la relación entre expresión, termino, monomio, polinomio y ecuación 
+en lenguaje natural español y de forma resumida 
 ```
 
-Hemos conseguido generar 321 a partir de 7 conceptos. Sin embargo, teniendo en cuenta que estamos trabajando con contenidos de matemáticas, deberíamos tener "problemas" (ejercicios para resolver de forma práctica), no sólo definiciones teóricas.
+Relación entre Expresión, Término, Monomio, Polinomio y Ecuación
+* Término Algebraico: Es la pieza fundamental. Es cada parte de una expresión separada por un signo de suma o resta (ej: 5x2).
+* Monomio: Es una expresión de un solo término. Por lo general, se usan como sinónimos de "Término Algebraico".
+* Polinomio: Es una expresión formada por la suma o resta de varios Monomios.
+* Expresión Algebraica: Es el nombre general que abarca a todos los anteriores (términos, monomios y polinomios).
+* Ecuación: No es una expresión, sino una igualdad que pone en relación dos Expresiones Algebraicas.
 
-# 4. Creando problemas
+Con esto en mente lo reorganizado todo
+
+```
++---------------------+-----------+---------+---------+-----+---+----+---+---+----+
+| Concept             | Questions | Entries | xFactor | d   | b | f  | i | s | t  |
++---------------------+-----------+---------+---------+-----+---+----+---+---+----+
+| Álgebra             | 24        | 2       | 12.0    | 24  | 0 | 0  | 0 | 0 | 0  |
+| expresión           | 11        | 1       | 11.0    | 11  | 0 | 0  | 0 | 0 | 0  |
+| término algebraico  | 47        | 10      | 4.7     | 11  | 0 | 0  | 0 | 0 | 36 |
+| monomio             | 23        | 2       | 11.5    | 23  | 0 | 0  | 0 | 0 | 0  |
+| monomios semejantes | 16        | 4       | 4.0     | 11  | 0 | 5  | 0 | 0 | 0  |
+| polinomio           | 56        | 12      | 4.67    | 33  | 0 | 5  | 0 | 0 | 18 |
+| ecuación            | 11        | 1       | 11.0    | 11  | 0 | 0  | 0 | 0 | 0  |
+| ecuación lineal     | 10        | 1       | 10.0    | 10  | 0 | 0  | 0 | 0 | 0  |
+| grado               | 54        | 11      | 4.91    | 24  | 0 | 0  | 0 | 0 | 30 |
+| Excluded questions  | 0         | -       | -       | 0   | 0 | 0  | 0 | 0 | 0  |
++---------------------+-----------+---------+---------+-----+---+----+---+---+----+
+| 9 concept/s         | 252       | 44      | 5.73    | 158 | 0 | 10 | 0 | 0 | 84 |
++---------------------+-----------+---------+---------+-----+---+----+---+---+----+
+```
+
+Hemos conseguido generar 252 a partir de 9 conceptos. Sin embargo, teniendo en cuenta que estamos trabajando con contenidos de matemáticas, deberíamos tener "problemas" (ejercicios para resolver de forma práctica), no sólo definiciones teóricas.
+
+# 5. Creando problemas
 
 Hasta ahora habíamos utilizado las siguientes etiquetas para describir el conocimiento del tema: `%concept`, `%def`, `%table`, `%row`,  `%col`. Y están muy bien, pero están orientadas a describir conceptos teóricos y no a plantear problemas prácticos. Así que vamos a usar otras nuevas etiquetas.
 

@@ -1,0 +1,109 @@
+// Mapa: Álgebra (ESO)
+%map{ lang: 'es', context: 'matemáticas, algebra, ESO', version: '1'}
+
+  // Concepto 1: Álgebra (Definición)
+  %concept
+    %names Álgebra
+    %tags rama, matemáticas, variables, generalización
+    %def Rama de las matemáticas que estudia las estructuras, las relaciones y las cantidades.
+    %def Rama de las matemáticas que se centra en la generalización de las operaciones aritméticas, empleando letras para representar números desconocidos (incógnitas) o valores generales.
+
+  // Concepto 2: Empresión Algebraica
+  %concept
+    %names expresión, expresión algebraica
+    %tags abarca, términos, monomios, polinomios
+    %def Es el nombre general que abarca términos, monomios y polinomios.
+
+  // Concepto 3: Término Algebraico
+  %concept
+    %names término algebraico, término
+    %tags parte, expresión, separada, suma, resta
+    %def Es cada parte de una expresión algebraica separada por un signo de suma o resta.
+
+    %table{ fields: 'componente, descripción, ejemplo'}
+      %row
+        %col Coeficiente
+        %col Número que multiplica a la variable, incluyendo su signo.
+        %col El -7 en "-7x^4".
+      %row
+        %col Parte Literal
+        %col Variable o variables con sus respectivos exponentes.
+        %col El "x^4" en "-7x^4".
+      %row
+        %col Grado
+        %col Suma de los exponentes de las variables en la parte literal.
+        %col El 4 en "-7x^4".
+
+  // Concepto 4: Monomio
+  %concept
+    %names monomio, término simple
+    %tags expresión, un, término
+    %def Una expresión algebraica que consta de un solo término.
+    %def Está formado por el producto de un número (coeficiente) por una o varias variables elevadas a exponentes naturales.
+
+  // Concepto 5: Monomios semejantes
+  %concept
+    %names monomios semejantes
+    %tags expresión, un, término
+    %def Monomios que tiene la misma parte literal.
+
+    %table{ fields: 'ejemplos'}
+      %row 5x^2 y -3x^2
+      %row 2y^3 y 8y^3
+      %row 7xy y 2xy
+
+  // Concepto 6: Polinomio
+  %concept
+    %names polinomio
+    %tags expresión, varios, monimios, términos, no, semejantes
+    %def Es una expresión formada por la suma o resta de varios monomios
+    %def Es la suma o resta de dos o más monomios no semejantes
+    %def Está formado por términos separados por los signos de suma (+) o resta (-)
+
+    %table{ fields: 'ejemplos'}
+      %row 5x^2+2x-3
+      %row 2y^3-y+7
+      %row 7xy+2
+
+    %table{ fields: 'tipo, número de términos, ejemplo'}
+      %row
+        %col Binomio
+        %col 2
+        %col 3x - 2y
+      %row
+        %col Trinomio
+        %col 3
+        %col x^2 + 5x - 6
+
+  // Concepto 7: Ecuación
+  %concept
+    %names ecuación
+    %tags igualdad, dos, expresiones, incógnita
+    %def Una igualdad matemática entre dos expresiones algebraicas que contiene una o más incógnitas.
+
+  // Concepto 8: Ecuación lineal
+  %concept
+    %names ecuación lineal
+    %tags ecuación, grado, 1
+    %def Es una ecuación de grado 1
+
+  // Concepto 9: Grado
+  %concept
+    %names grado
+    %tags exponente, máximo, variable
+    %def Es la característica que define el mayor exponente de las variables en una expresión algebraica (monomio o polinomio). Es crucial para clasificar y resolver ecuaciones.
+    %def Para un monomio, se calcula sumando los exponentes de sus variables. Para un polinomio, es el mayor de los grados de sus monomios.
+
+    %table{ fields: 'tipo, definición, ejemplo'}
+      %row
+        %col Grado de un Monomio
+        %col Suma de los exponentes de la parte literal
+        %col En "8xy^3", el grado es 4
+      %row
+        %col Grado de un Polinomio
+        %col El grado más alto de cualquiera de los monomios que componen el polinomio
+        %col En "4x^5 + 2x^2 - 1", el grado es 5.
+      %row
+        %col Polinomio de Grado Nulo (Constante)
+        %col Polinomio que solo tiene un número.
+        %col El grado de 7 es 0.
