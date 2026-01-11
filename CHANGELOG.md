@@ -1,9 +1,16 @@
 
 # CHANGELOG
 
-* TODO: export code and problem data to doc output file.
+TODO
+* export code and problem data to doc output file.
+* add "example" tag as new data ExampleData
+    - content{type: 'url'}
+    - content
+    - id (optional)
+    - type (optional)
+    - table / row / col
 
-## [2.10.0] 202512XX in progress
+## [2.10.0] 20260111
 
 * FEATURE: `asker check` accept comment lines from HAML content.
 * FEATURE: `asker check` warn spaces between %def and open brace.
