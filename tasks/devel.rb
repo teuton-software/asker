@@ -11,9 +11,9 @@ namespace :devel do
     names.each { |name| system("apt install -y #{name}") }
   end
 
-  desc "Create /usr/local/bin/asker"
+  desc "Create /usr/local/bin/myasker"
   task :launcher do
-    launcherpath = "/usr/local/bin/asker"
+    launcherpath = "/usr/local/bin/myasker"
     if File.exist?(launcherpath)
       warn "File exist! (#{launcherpath})"
       exit 1
