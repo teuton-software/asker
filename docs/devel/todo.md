@@ -1,32 +1,86 @@
 
-# TO-DO
+# Roadmap v3.0.0 (2026)
+
+Propuestas para 2026:
+* [NEW] **Entorno gráfico GUI**: gema asker-panel como front-end gráfico para asker
+    - cargar fichero input(xml, haml)
+    - ejecutar asker sobre el fichero input(xml, haml)
+    - mostrar resultado del check del input(xml, haml)
+    - mostrar los resultados de la ejecución
+    - Quizás editar el contenido del input en la ventana gráfica
+* [CHORE] **doc "problem" data**
+    - Crear exportador a fichero doc.
+* [DEPRECATED] Pasar a deprecated.
+    - "code" data.
+* [NEW] **"example" data**
+    - Nuevo tag "example" para introducir información de ejemplos (ExampleData)
+
+```xml
+map...
+  example{uuid: 'UID', type: 'TYPE'}
+    content{type: 'url'} PATH/TO/FILE
+    content RAW TEXT
+    table
+      row
+        col
+    table
+      row
+```
+* [NEW] **etiqueta "noise"**: noise apunta a un fichero donde tendremos "ruido"
+    - El ruido son mensajes, frases, etc que se usarán aleatoriamente para introducir "ruido" en los enunciados de las preguntas para confundir o distraer.
+    - Ejemplo: Frases célebres
+
+```xml
+map...
+  noise PATH/TO/FILE
+```
+
+* [NEW] **word-cross-puzzle questions**: Añadir preguntas de tipo sopa de letras usando la gema word-cross-puzzle.
+* [NEW] **logic**: Nueva etiqueta para añadir lógica o reglas al estilo de prolog en el mapa.
+    - Prolog (nueva entidad conceptual) o nuevo campo para inducir estructura lógica a las entidades
+    - gema ruby-prolog (https://github.com/preston/ruby-prolog)
+    - logic debería asociarse a un contexto determinado
+    - Es posible definir logic que sea global o de context=global
+
+```xml
+map...
+  logic
+    facts
+      fact padre(anakin, luke)
+      fact padre(anakin, leia)
+    rules
+      rule 
+        if padre(A, B)
+        if padre(A, C)
+        then hermano(B, C)
+      rule
+        if hermano(A, B)
+        then hermano(B, A)
+```
+
+---
+
+# TO-DO list
+
+
+## Ideas sueltas
 
 * Definir tablas que contienen un conjunto cerrado finito.
 * Por defecto el campo clave es f1. Pero también podría ser f2 ¿?
 * El campo clave pueden ser varios campos (f1,f2) ¿?
 
-# 1. Nuevo formato de input
+## Nuevo formato de input
 
 * ISSUE: Revisar el número de columnas por cada tabla...
 * Template multivariable con match: true or match: false
 * Template multivariable combinando valores para aumentar las salidas geenradas
+* Fichero rb usado como map input similar al input xml o haml.
 
-# 2. GUI: Entorno gráfico
+## Frikada
 
-Create a graphic fron end to execute asker and edit input files. `asker-editor`
-* Front-end gráfico. Aplicación de escritorio autocontenida.
-* Abre fichero de input (texto plano), lo edita y graba.
-* Botón de salir
-* Botón de check y botón de generar output.
-* Subventana que muestre los resultados (salida del comando asker)
-
-# 4. Frikada
-
-* Frases célebres
-* Prolog (nueva entidad conceptual) o nuevo campo para inducir estructura lógica a las entidades
 * Conexión AI?
 
-# 6. R y Wiris
+## R y Wiris
 
 * Buscar la integración de Asker con R y con Wiris.
 * Estudiar los tipos de pregunta Wiris que ofrece Moodle.
