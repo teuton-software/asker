@@ -7,7 +7,7 @@ In the previous example we saw how to use cases to define several instances of t
 In some cases it is possible to remove variables that can be calculated. For example the variable S1 is N1 + N2, so we may define it as a formula. Let's see an example:
 
 
-```
+```haml
 %problem
   %cases { varnames: "N1, N2"}
     %case 3, 2
@@ -31,8 +31,8 @@ In some cases it is possible to remove variables that can be calculated. For exa
 
 Run next command to see an example of Problem running.
 
-```
-❯ asker docs/examples/problems/math.haml
+```bash
+$ asker docs/examples/problems/math.haml
 ==> Loading docs/examples/problems/math.haml
 ==> Loading docs/examples/problems/statistics.haml
 
