@@ -25,6 +25,16 @@ map...
     table
       row
 ```
+
+```text
+Ejemplos:
+  moodle.xml
+  project-config.json
+  /etc/hosts
+  /etc/hostname
+  /etc/samba/smb.conf
+```
+
 * [NEW] **etiqueta "noise"**: noise apunta a un fichero donde tendremos "ruido"
     - El ruido son mensajes, frases, etc que se usarán aleatoriamente para introducir "ruido" en los enunciados de las preguntas para confundir o distraer.
     - Ejemplo: Frases célebres
@@ -74,6 +84,7 @@ map...
 * Definir tablas que contienen un conjunto cerrado finito.
 * Por defecto el campo clave es f1. Pero también podría ser f2 ¿?
 * El campo clave pueden ser varios campos (f1,f2) ¿?
+* DOC or FIX: table only works with 4 columns? revise stage_t.rb
 
 ## 3. Nuevo formato de input
 
@@ -89,75 +100,41 @@ map...
 
 ## 5. Más idiomas
 
-Introducir más idiomas...
+* Introducir más idiomas...
+* NEW: Language support: Adding Esperanto.
 
-## 8. Code
-
-* Add code/features to every code input
-* Use code/fetures to find neighbours and improve questions
-* Identify code type using filepath extension
-
-Incorporar lógica para
-* XML
-* Json
-* /etc/hosts
-* /etc/hostname
-* /etc/samba/smb.conf
-...
-
-# 9. Test
+## 6. Test
 
 * Problem/sanitize
-* Code/sanitize
 * New questions types: gapfill
 
-# 10. TO-DO
+## 7. Configuración local
 
-* Apply standard linter to code
-* DOC or FIX: table only works with 4 columns? revise stage_t.rb
 * FIX: check asker.ini version
 * FIX: question f3filtered type. There are not usefull filtered sequence of row values from concept table.
 * NEW: User asker configuration to add new local languages or change existing one.
-* NEW: Language support: Adding Esperanto.
 
-# 11. Videos
+## 8. Videos
 
-* Documentation: Revise documentation
-* Perhaps, videos on youtube explaining all this: (1) Get documentation, (2) Installation, (3) Consult demo input, (4) Create our input file usign def, (5) Add tables to our input file.
+* Documentation:
+    - Revise documentation
+    - asker-book/docs/asker book
+* Perhaps, videos on youtube explaining all this:
+    - (1) Get documentation
+    - (2) Installation
+    - (3) Consult demo input
+    - (4) Create our input file usign def,
+    - (5) Add tables to our input file.
 
-# 12. info keyword
+## 9. Question types
 
-* Add new keyword called info. Example:
-```
-%map{ :lang => 'en', :context => 'rock, bands', :version => '1'}
-  %info Generic text about music, rock, bands, concerts, etc.
-  %info more...
-```
-* When AI create new question may use (randomly) info text to be included into it. Example:
-```
-Rock music style was created for ....
-
-Definition of [*]: Australian rock band formed by Scottish-born brothers Malcolm and Angus Young.
-
-Select right option:
-a. Led Zepellin
-b. Beatles
-c. ACDC
-d. None
-```
-
-# 14. Etc
-
-* Question types
-    * crossword
-    * type hangmann
+* crossword
+* type hangmann
 * Dictionary
     * Diccionario de sinónimos, antónimos
     * Learn about the words or better download dictionary from RAE?
 
----
-
-# Development
+## 10. Internals
 
 * Check Asker analizer lexical, syntax and semantic
 * Split Concept into Concept and ConceptLoader
