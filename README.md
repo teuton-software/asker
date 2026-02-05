@@ -3,7 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/asker-tool.svg)](https://badge.fury.io/rb/asker-tool)
 ![GitHub](https://img.shields.io/github/license/dvarrui/asker)
 
-Asker generates a large number of questions from an input text file containing entities from a specific domain.
+Asker generates a large number of questions from domain entities file.
 
 ![logo](./docs/images/logo.png)
 
