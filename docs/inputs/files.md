@@ -12,7 +12,7 @@ Let's see how.
 
 Suppose we have this file organization:
 
-```
+```text
 loading_files
 ├── images
 │   └── john-lennon.png
@@ -23,7 +23,7 @@ loading_files
 
 Take a look to our loading files example (`docs/examples/loading_files/john-lennon.haml`):
 
-```
+```haml
 %concept
   %names John Lennon
   %tags famous, singer, player, member, beatles
@@ -33,6 +33,7 @@ Take a look to our loading files example (`docs/examples/loading_files/john-lenn
 ```
 
 This example use external files to define the concept:
+
 * First definition use external local text file.
 * Second definition use external local image file.
 * And the third use external remote image file.
@@ -43,7 +44,7 @@ It is posible link audio, image, video and plain text files.
 
 **def** can be used with local or remote images. So we have to find an image that uniquely identifies our concept and write our definitions like this.
 
-```
+```haml
     %def{ type: 'file' } PATH-TO-FILE
 ```
 
