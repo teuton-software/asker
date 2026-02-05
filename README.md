@@ -3,9 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/asker-tool.svg)](https://badge.fury.io/rb/asker-tool)
 ![GitHub](https://img.shields.io/github/license/dvarrui/asker)
 
-Generate a lot of questions from an _input_ text file with on your own _definitions_. In a way, this _input file_ is a concept map.
-
-Asker helps trainers to create a huge amount of questions, from a definitions (_conceptual entities_) input file.
+Asker generates a large number of questions from an input text file containing entities from a specific domain.
 
 ![logo](./docs/images/logo.png)
 
