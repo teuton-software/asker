@@ -9,7 +9,7 @@ Taking advantage of the fact that we have defined a problem structure, we are go
 
 Each "case" is a set of values that can be used to create a different problem from the same base structure. Let's see:
 
-```
+```haml
 %problem
   %cases { varnames: "N1, N2, S1, S2"}
     %case 3, 2, 5, 1
@@ -54,7 +54,8 @@ Each `case` line will have as many values as variable names defined in `varnames
 By default, the comma (`,`) is used as a field separator. Use `sep` attribute to define a different field separator.
 
 Example problem:
-```
+
+```text
 Problem:
   We have the following values: 1,2,3,4,5.
   (a) Calculate the maximum
@@ -66,7 +67,8 @@ Problem:
 ```
 
 Asker problem:
-```
+
+```haml
 %problem
   %cases { varnames: "VALUES; MAX; MIN; AVERAGE", sep:";"}
     %case 1,2,3,4,5; 5; 1; 3

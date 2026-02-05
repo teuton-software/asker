@@ -14,7 +14,7 @@ Talking about problems we usually think of mathematical or physics problems, but
 
 To begin with, let's take a look at this simple example of a math domain.
 
-```
+```text
 Problem:
   We are going to perform calculations with integers.
   (a) Calculate the sum 3 + 2
@@ -25,7 +25,7 @@ Problem:
 
 The way to capture the problem in Asker's format is as follows:
 
-```
+```haml
 %problem
   %desc We are going to perform calculations with integers.
   %ask
@@ -39,4 +39,3 @@ The way to capture the problem in Asker's format is as follows:
 Although this way of defining the problem is correct, it has the drawback of being somewhat rigid. By now, we have a problem with a perfectly defined structure but only works with specific data (the numbers 3 and 2).
 
 [>> Learn about cases](cases.md)
-

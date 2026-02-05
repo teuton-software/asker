@@ -8,7 +8,7 @@ When students are given a problem, they are expected to carry out a development 
 
 So we're going to provide a way to outline the steps needed to resolve the issue. Let's see an example:
 
-```
+```haml
 %problem
   %cases{ varnames: 'X' }
     %case x
@@ -35,7 +35,7 @@ The student is presented the problem with its resolution sequence and must under
 
 It is posible combine steps and answers defining our problems. Example:
 
-```
+```haml
 %problem
   %cases{ varnames: 'X' }
     %case x
@@ -46,7 +46,7 @@ It is posible combine steps and answers defining our problems. Example:
   %ask
     %text Solve the equation 2X - 4 = 6
     %step 2X -4 = 6
-    %step 2X = 6 +4
+    %step 2X = 6 + 4
     %step 2X = 10
     %step X = 10 / 2
     %step X = 5
@@ -59,8 +59,8 @@ It is posible combine steps and answers defining our problems. Example:
 
 Run next command to see an example of Problem running.
 
-```
-❯ asker docs/examples/problems/statistics.haml 
+```bash
+$ asker docs/examples/problems/statistics.haml 
 ==> Loading docs/examples/problems/math.haml
 ==> Loading docs/examples/problems/statistics.haml
 
