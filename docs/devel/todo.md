@@ -10,8 +10,7 @@ Propuestas para 2026:
     - Quizás editar el contenido del input en la ventana gráfica
 * [CHORE] **doc "problem" data**
     - Crear exportador a fichero doc.
-* [DEPRECATED] Pasar a deprecated.
-    - "code" data.
+* [DEPRECATED] **"code" data**: Pasar a deprecated.
 * [NEW] **"example" data**
     - Nuevo tag "example" para introducir información de ejemplos (ExampleData)
 
@@ -62,34 +61,37 @@ map...
 
 # TO-DO list
 
+## 1. IA y asker new
 
-## Ideas sueltas
+* Conexión AI: `asker new --using-ai foo`
+* La IA que nos sugiere el contenido para el fichero input
+* Antes de crear el input foo
+    * Se solicita una descripción de lo que se quiere al usuario
+    * Configurar la IA que vamos a usar ¿cómo?
+
+## 2. Mejorar las tablas
 
 * Definir tablas que contienen un conjunto cerrado finito.
 * Por defecto el campo clave es f1. Pero también podría ser f2 ¿?
 * El campo clave pueden ser varios campos (f1,f2) ¿?
 
-## Nuevo formato de input
+## 3. Nuevo formato de input
 
 * ISSUE: Revisar el número de columnas por cada tabla...
 * Template multivariable con match: true or match: false
 * Template multivariable combinando valores para aumentar las salidas geenradas
 * Fichero rb usado como map input similar al input xml o haml.
 
-## Frikada
-
-* Conexión AI?
-
-## R y Wiris
+## 4. R y Wiris
 
 * Buscar la integración de Asker con R y con Wiris.
 * Estudiar los tipos de pregunta Wiris que ofrece Moodle.
 
-# 7. Más idiomas
+## 5. Más idiomas
 
 Introducir más idiomas...
 
-# 8. Code
+## 8. Code
 
 * Add code/features to every code input
 * Use code/fetures to find neighbours and improve questions
