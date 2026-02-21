@@ -13,9 +13,11 @@ class Asker
 
   def self.check(filepath)
     CheckInput.new.check(filepath)
+    # TODO: return true/false
   end
 
   def self.start(filepath)
     Start.new.call(filepath)
+    # TODO: return Hash
   end
 end
