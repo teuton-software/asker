@@ -5,7 +5,7 @@ Gem::Specification.new Asker::GEM, Asker::VERSION do |s|
   s.summary = "Asker generates questions from input definitions file."
   s.description = "ASKER helps trainers to create a huge amount of questions, from a definitions input file."
 
-  s.license = "GPL-3.0"
+  s.license = "MPL-2.0"
   s.authors = ["David Vargas Ruiz"]
   s.email = "teuton.software@protonmail.com"
   s.homepage = Asker::HOMEPAGE
