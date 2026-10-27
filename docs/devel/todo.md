@@ -139,3 +139,128 @@ map...
 * Check Asker analizer lexical, syntax and semantic
 * Split Concept into Concept and ConceptLoader
 * Refactor Application singleton to Settings class.
+
+## 11. CodeRunner
+
+Evaluar la integración de Asker con el módulo `coderuner` de moodle. Para crear, por ejemplo, preguntas del tipo: resolver la función "factorial(number)"
+
+Código XML para importar en Moodle
+    - definición del enunciado
+    - la respuesta modelo del profesor
+    - los casos de prueba (tanto públicos como ocultos)
+    - la configuración del tipo de ejecución.
+
+```xml`
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="coderunner">
+    <name>
+      <text>Función Factorial (Python)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Escribe una función en Python llamada <code>factorial(number)</code> que reciba un número entero no negativo y devuelva su factorial.</p>
+<p><strong>Ejemplos:</strong></p>
+<ul>
+  <li><code>factorial(5)</code> debe retornar <code>120</code></li>
+  <li><code>factorial(0)</code> debe retornar <code>1</code></li>
+</ul>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>El factorial de un número entero n se define como el producto de todos los números enteros positivos desde 1 hasta n. El factorial de 0 es 1 por definición matemática.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <coderunnertype>python3</coderunnertype>
+    <prototypetype>0</prototypetype>
+    <allornothing>1</allornothing>
+    <penaltyregime>10, 20, ...</penaltyregime>
+    <precheck>0</precheck>
+    <stash>0</stash>
+    <answer>
+      <text><![CDATA[def factorial(number):
+    if number == 0 or number == 1:
+        return 1
+    resultado = 1
+    for i in range(2, number + 1):
+        resultado *= i
+    return resultado]]></text>
+    </answer>
+    <useace>1</useace>
+    <boxwidth></boxwidth>
+    <boxlines></boxlines>
+    <answerboxlines>10</answerboxlines>
+    <answerboxcols>100</answerboxcols>
+    <template></template>
+    <iscombinatortemplate>0</iscombinatortemplate>
+    <allowmultiplestart>0</allowmultiplestart>
+    <answerpreload></answerpreload>
+    <globalextra></globalextra>
+    <useast>0</useast>
+    <testcases>
+      <!-- Caso de prueba 1: Visible como ejemplo -->
+      <testcase>
+        <testcode>print(factorial(5))</testcode>
+        <stdin></stdin>
+        <expected>120</expected>
+        <extra></extra>
+        <display>SHOW</display>
+        <answerpreload></answerpreload>
+        <hideuntil></hideuntil>
+        <useasexample>1</useasexample>
+        <marks>1.0000000</marks>
+      </testcase>
+      <!-- Caso de prueba 2: Visible como ejemplo (Caso Base) -->
+      <testcase>
+        <testcode>print(factorial(0))</testcode>
+        <stdin></stdin>
+        <expected>1</expected>
+        <extra></extra>
+        <display>SHOW</display>
+        <answerpreload></answerpreload>
+        <hideuntil></hideuntil>
+        <useasexample>1</useasexample>
+        <marks>1.0000000</marks>
+      </testcase>
+      <!-- Caso de prueba 3: Oculto para validación general -->
+      <testcase>
+        <testcode>print(factorial(1))</testcode>
+        <stdin></stdin>
+        <expected>1</expected>
+        <extra></extra>
+        <display>HIDE</display>
+        <answerpreload></answerpreload>
+        <hideuntil></hideuntil>
+        <useasexample>0</useasexample>
+        <marks>1.0000000</marks>
+      </testcase>
+      <!-- Caso de prueba 4: Oculto con número mayor -->
+      <testcase>
+        <testcode>print(factorial(6))</testcode>
+        <stdin></stdin>
+        <expected>720</expected>
+        <extra></extra>
+        <display>HIDE</display>
+        <answerpreload></answerpreload>
+        <hideuntil></hideuntil>
+        <useasexample>0</useasexample>
+        <marks>1.0000000</marks>
+      </testcase>
+    </testcases>
+  </question>
+</quiz>
+```
+
+Detalles clave de esta configuración:
+
+Casos de prueba (testcases):
+
+- Los dos primeros tienen `<display>SHOW</display>` y `<useasexample>1</useasexample>` para que los estudiantes puedan ver el comportamiento esperado antes de calificar.
+- Los dos últimos están configurados como `<display>HIDE</display>` para evaluar con rigor los envíos finales del alumnado.
+- Respuesta modelo (answer): Incluye una solución estándar iterativa óptima en Python para calcular el factorial.
+
+Observación:
+
+* Esta forma de corregir no tiene en cuenta el "interior" de la función, sólo se valida la correspondencia INPUT->OUTPUT.
+* Si se quiere "afinar" más entonces habría que descomponer la solución en más funciones pero seguiríamos evaluando sólo el comportamiento de cada función y no el interior de la misma.
